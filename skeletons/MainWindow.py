@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'MainWindowwYcsQt.ui'
+## Form generated from reading UI file 'MainWindowWAAIeL.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.0
 ##
@@ -220,7 +220,7 @@ class Ui_MainWindow(object):
 "	margin-bottom: -15px;\n"
 "	margin-left: 8px;\n"
 "	margin-right: 0px; \n"
-"	image: url(:/images/images/chart-pie-20px-#2ABFB0.png);\n"
+"	image: url(:/images/images/chart-pie-20px-#72C1F2.png);\n"
 "}\n"
 "\n"
 "QGroupBox#accounts::indicator\n"
@@ -230,7 +230,7 @@ class Ui_MainWindow(object):
 "	margin-bottom: -15px;\n"
 "	margin-left: 8px;\n"
 "	margin-right: 0px; \n"
-"	image: url(:/images/images/wallet-20px-#2ABFB0.png);\n"
+"	image: url(:/images/images/wallet-20px-#72C1F2.png);\n"
 "}\n"
 "\n"
 "QGroupBox#transactions::indicator\n"
@@ -241,7 +241,7 @@ class Ui_MainWindow(object):
 "	margin-left: 8px"
                         ";\n"
 "	margin-right: 0px; \n"
-"	image: url(:/images/images/receipt-20px-#2ABFB0.png);\n"
+"	image: url(:/images/images/receipt-20px-#72C1F2.png);\n"
 "}\n"
 "\n"
 "QPushButton#menu, QPushButton#settings {\n"
@@ -292,7 +292,7 @@ class Ui_MainWindow(object):
 "}\n"
 "\n"
 "QFrame#navigation {\n"
-"	background-color: rgba(36, 42, 117, 200);\n"
+"	background-color: #1F4373;\n"
 "	margin-bottom: 0px;\n"
 "	margin-top: 0px;\n"
 "	border-style: none;\n"
@@ -306,6 +306,27 @@ class Ui_MainWindow(object):
 "    border-style: none;\n"
 "    padding: 3px 3px;\n"
 "    color: white;\n"
+"}\n"
+"\n"
+"QPushButton#pushButtonHome:hover, QPushButton#pushButtonManage:hover, \n"
+"QPushButton#pushButtonAnalytics:hover {\n"
+"    background-color: transparent;\n"
+"    border-style: none;\n"
+"    padding: 3px 3px;\n"
+"	color: rgba(255, 255, 255, 128);\n"
+"}\n"
+"\n"
+"QPushButton#pushButtonHome:pressed, QPushButton#pushButtonMan"
+                        "age:pressed, \n"
+"QPushButton#pushButtonAnalytics:pressed {\n"
+"    background-color: transparent;\n"
+"    border-style: none;\n"
+"    padding: 3px 3px;\n"
+"	color: rgba(255, 255, 255, 35);\n"
+"}\n"
+"\n"
+"QFrame[frameShape=\"4\"] {\n"
+"	color: rgba(128, 128, 128, 128);\n"
 "}\n"
 "")
         self.gridLayout = QGridLayout(MainWindow)
@@ -454,14 +475,17 @@ class Ui_MainWindow(object):
         sizePolicy2.setVerticalStretch(0)
         sizePolicy2.setHeightForWidth(self.line.sizePolicy().hasHeightForWidth())
         self.line.setSizePolicy(sizePolicy2)
+        self.line.setFrameShadow(QFrame.Plain)
+        self.line.setLineWidth(0)
+        self.line.setMidLineWidth(3)
         self.line.setFrameShape(QFrame.HLine)
-        self.line.setFrameShadow(QFrame.Sunken)
 
         self.gridLayout_8.addWidget(self.line, 2, 0, 1, 2)
 
         self.verticalLayout_2 = QVBoxLayout()
         self.verticalLayout_2.setSpacing(20)
         self.verticalLayout_2.setObjectName(u"verticalLayout_2")
+        self.verticalLayout_2.setContentsMargins(-1, 15, -1, -1)
         self.horizontalLayout_6 = QHBoxLayout()
         self.horizontalLayout_6.setObjectName(u"horizontalLayout_6")
         self.pushButtonHome = QPushButton(self.navigation)
@@ -473,10 +497,11 @@ class Ui_MainWindow(object):
         self.pushButtonHome.setFont(font2)
         self.pushButtonHome.setCursor(QCursor(Qt.PointingHandCursor))
         icon3 = QIcon()
-        icon3.addFile(u":/images/images/home-white-36dp.svg", QSize(), QIcon.Normal, QIcon.Off)
+        icon3.addFile(u":/images/images/home-#2ABFB0-36dp.svg", QSize(), QIcon.Normal, QIcon.Off)
         self.pushButtonHome.setIcon(icon3)
         self.pushButtonHome.setIconSize(QSize(28, 28))
         self.pushButtonHome.setCheckable(True)
+        self.pushButtonHome.setChecked(True)
 
         self.horizontalLayout_6.addWidget(self.pushButtonHome)
 

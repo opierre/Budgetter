@@ -208,7 +208,7 @@ QGroupBox#distribution::indicator
 	margin-bottom: -15px;
 	margin-left: 8px;
 	margin-right: 0px; 
-	image: url(:/images/images/chart-pie-20px-#2ABFB0.png);
+	image: url(:/images/images/chart-pie-20px-#72C1F2.png);
 }
 
 QGroupBox#accounts::indicator
@@ -218,7 +218,7 @@ QGroupBox#accounts::indicator
 	margin-bottom: -15px;
 	margin-left: 8px;
 	margin-right: 0px; 
-	image: url(:/images/images/wallet-20px-#2ABFB0.png);
+	image: url(:/images/images/wallet-20px-#72C1F2.png);
 }
 
 QGroupBox#transactions::indicator
@@ -228,7 +228,7 @@ QGroupBox#transactions::indicator
 	margin-bottom: -15px;
 	margin-left: 8px;
 	margin-right: 0px; 
-	image: url(:/images/images/receipt-20px-#2ABFB0.png);
+	image: url(:/images/images/receipt-20px-#72C1F2.png);
 }
 
 QPushButton#menu, QPushButton#settings {
@@ -278,7 +278,7 @@ QPushButton[expanded=&quot;true&quot;]:pressed {
 }
 
 QFrame#navigation {
-	background-color: rgba(36, 42, 117, 200);
+	background-color: #1F4373;
 	margin-bottom: 0px;
 	margin-top: 0px;
 	border-style: none;
@@ -292,6 +292,26 @@ QPushButton#pushButtonAnalytics {
     border-style: none;
     padding: 3px 3px;
     color: white;
+}
+
+QPushButton#pushButtonHome:hover, QPushButton#pushButtonManage:hover, 
+QPushButton#pushButtonAnalytics:hover {
+    background-color: transparent;
+    border-style: none;
+    padding: 3px 3px;
+	color: rgba(255, 255, 255, 128);
+}
+
+QPushButton#pushButtonHome:pressed, QPushButton#pushButtonManage:pressed, 
+QPushButton#pushButtonAnalytics:pressed {
+    background-color: transparent;
+    border-style: none;
+    padding: 3px 3px;
+	color: rgba(255, 255, 255, 35);
+}
+
+QFrame[frameShape=&quot;4&quot;] {
+	color: rgba(128, 128, 128, 128);
 }
 </string>
   </property>
@@ -572,6 +592,15 @@ QPushButton#pushButtonAnalytics {
              <verstretch>0</verstretch>
             </sizepolicy>
            </property>
+           <property name="frameShadow">
+            <enum>QFrame::Plain</enum>
+           </property>
+           <property name="lineWidth">
+            <number>0</number>
+           </property>
+           <property name="midLineWidth">
+            <number>3</number>
+           </property>
            <property name="orientation">
             <enum>Qt::Horizontal</enum>
            </property>
@@ -583,7 +612,7 @@ QPushButton#pushButtonAnalytics {
             <number>20</number>
            </property>
            <property name="topMargin">
-            <number>10</number>
+            <number>15</number>
            </property>
            <item>
             <layout class="QHBoxLayout" name="horizontalLayout_6">
@@ -612,7 +641,7 @@ QPushButton#pushButtonAnalytics {
                </property>
                <property name="icon">
                 <iconset resource="../resources/resources.qrc">
-                 <normaloff>:/images/images/home-white-36dp.svg</normaloff>:/images/images/home-white-36dp.svg</iconset>
+                 <normaloff>:/images/images/home-#2ABFB0-36dp.svg</normaloff>:/images/images/home-#2ABFB0-36dp.svg</iconset>
                </property>
                <property name="iconSize">
                 <size>
@@ -621,6 +650,9 @@ QPushButton#pushButtonAnalytics {
                 </size>
                </property>
                <property name="checkable">
+                <bool>true</bool>
+               </property>
+               <property name="checked">
                 <bool>true</bool>
                </property>
               </widget>
