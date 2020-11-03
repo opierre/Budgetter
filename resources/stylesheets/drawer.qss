@@ -1,0 +1,15 @@
+QPushButton {
+    background-color: transparent;
+    border-style: none;
+    padding: 3px 3px;
+    color: white;
+}
+
+QFrame#navigation {
+	background-color: rgba(36, 42, 117, 200);
+	margin-bottom: 0px;
+	margin-top: 0px;
+	border-style: none;
+	padding-left: 0px;
+	padding-right: 0px;
+}

@@ -1,0 +1,16 @@
+<RCC>
+  <qresource prefix="images">
+    <file>images/settings-white-36dp.svg</file>
+    <file>images/home-white-36dp.svg</file>
+    <file>images/chart-pie-20px-#2ABFB0.png</file>
+    <file>images/receipt-20px-#2ABFB0.png</file>
+    <file>images/account_balance_wallet-white-36dp.svg</file>
+    <file>images/bold-36px-#2ABFB0.png</file>
+    <file>images/analytics-white-36dp.svg</file>
+    <file>images/menu-white-36dp.svg</file>
+    <file>images/wallet-20px-#2ABFB0.png</file>
+  </qresource>
+  <qresource prefix="stylesheets">
+    <file>stylesheets/drawer.qss</file>
+  </qresource>
+</RCC>
