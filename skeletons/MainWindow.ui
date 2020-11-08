@@ -310,10 +310,45 @@ QPushButton#pushButtonAnalytics:pressed {
 	color: rgba(255, 255, 255, 35);
 }
 
+QPushButton#pushButtonHome:checked, QPushButton#pushButtonManage:checked, 
+QPushButton#pushButtonAnalytics:checked {
+	color: #2ABFB0;
+}
+
+QPushButton#pushButtonHome:unchecked, QPushButton#pushButtonManage:unchecked, 
+QPushButton#pushButtonAnalytics:unchecked {
+	color: white;
+}
+
 QFrame[frameShape=&quot;4&quot;] {
 	color: rgba(128, 128, 128, 128);
 }
-</string>
+
+QScrollArea {
+	background: transparent;
+}
+
+QScrollArea &gt; QWidget &gt; QWidget { 
+	background: transparent; 
+}
+
+QScrollArea &gt; QWidget &gt; QScrollBar { 
+	background: palette(base); 
+}
+
+Card {
+	background-color: #72C1F2;
+}
+
+Card::title
+{
+	background-color: transparent;
+	color: rgba(255, 255, 255, 230);
+	padding: 0 14px;
+	margin-bottom: -55px;
+	subcontrol-origin: margin;
+	subcontrol-position: top left;
+}</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
    <property name="leftMargin">
@@ -410,7 +445,59 @@ QFrame[frameShape=&quot;4&quot;] {
          <property name="checkable">
           <bool>true</bool>
          </property>
-         <layout class="QGridLayout" name="gridLayout_4"/>
+         <layout class="QGridLayout" name="gridLayout_4">
+          <item row="0" column="0">
+           <widget class="QScrollArea" name="scrollArea">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::NoFrame</enum>
+            </property>
+            <property name="widgetResizable">
+             <bool>true</bool>
+            </property>
+            <widget class="QWidget" name="scrollAreaWidgetContents">
+             <property name="geometry">
+              <rect>
+               <x>0</x>
+               <y>0</y>
+               <width>493</width>
+               <height>285</height>
+              </rect>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout">
+              <property name="topMargin">
+               <number>0</number>
+              </property>
+              <item>
+               <widget class="Card" name="card1">
+                <property name="title">
+                 <string>GroupBox</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <spacer name="verticalSpacer_2">
+                <property name="orientation">
+                 <enum>Qt::Vertical</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>20</width>
+                  <height>40</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+             </layout>
+            </widget>
+           </widget>
+          </item>
+         </layout>
         </widget>
        </item>
       </layout>
@@ -877,6 +964,12 @@ QFrame[frameShape=&quot;4&quot;] {
    <class>Drawer</class>
    <extends>QWidget</extends>
    <header>widgets/drawer.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>Card</class>
+   <extends>QGroupBox</extends>
+   <header>widgets/card.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>

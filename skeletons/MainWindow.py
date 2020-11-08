@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'MainWindowWAAIeL.ui'
+## Form generated from reading UI file 'MainWindowJhNTaJ.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.0
 ##
@@ -16,6 +16,7 @@ from PySide2.QtGui import (QBrush, QColor, QConicalGradient, QCursor, QFont,
 from PySide2.QtWidgets import *
 
 from widgets.drawer import Drawer
+from widgets.card import Card
 
 import resources_rc
 
@@ -325,10 +326,46 @@ class Ui_MainWindow(object):
 "	color: rgba(255, 255, 255, 35);\n"
 "}\n"
 "\n"
+"QPushButton#pushButtonHome:checked, QPushButton#pushButtonManage:checked, \n"
+"QPushButton#pushButtonAnalytics:checked {\n"
+"	color: #2ABFB0;\n"
+"}\n"
+"\n"
+"QPushButton#pushButtonHome:unchecked, QPushButton#pushButtonManage:unchecked, \n"
+"QPushButton#pushButtonAnalytics:unchecked {\n"
+"	color: white;\n"
+"}\n"
+"\n"
 "QFrame[frameShape=\"4\"] {\n"
 "	color: rgba(128, 128, 128, 128);\n"
 "}\n"
-"")
+"\n"
+"QScrollArea {\n"
+"	background: transparent;\n"
+"}\n"
+"\n"
+"QScrollArea > QWidget > QWidget { \n"
+"	background: transparent; \n"
+"}\n"
+"\n"
+"QScrollArea > QWidget > QScrollBar { \n"
+"	background: palette(base); \n"
+"}\n"
+"\n"
+"Card {\n"
+"	background-color: #72C1F2;\n"
+"}\n"
+"\n"
+"Card::title\n"
+"{\n"
+"	background-color: transparent;\n"
+"	color: rgba(255, 255, 255, 230);\n"
+"	padding: 0 14px;\n"
+"	margin-bottom: -55px;\n"
+""
+                        "	subcontrol-origin: margin;\n"
+"	subcontrol-position: top left;\n"
+"}")
         self.gridLayout = QGridLayout(MainWindow)
         self.gridLayout.setSpacing(0)
         self.gridLayout.setObjectName(u"gridLayout")
@@ -380,6 +417,34 @@ class Ui_MainWindow(object):
         self.accounts.setCheckable(True)
         self.gridLayout_4 = QGridLayout(self.accounts)
         self.gridLayout_4.setObjectName(u"gridLayout_4")
+        self.scrollArea = QScrollArea(self.accounts)
+        self.scrollArea.setObjectName(u"scrollArea")
+        sizePolicy1 = QSizePolicy(QSizePolicy.Minimum, QSizePolicy.Minimum)
+        sizePolicy1.setHorizontalStretch(0)
+        sizePolicy1.setVerticalStretch(0)
+        sizePolicy1.setHeightForWidth(self.scrollArea.sizePolicy().hasHeightForWidth())
+        self.scrollArea.setSizePolicy(sizePolicy1)
+        self.scrollArea.setFrameShape(QFrame.NoFrame)
+        self.scrollArea.setWidgetResizable(True)
+        self.scrollAreaWidgetContents = QWidget()
+        self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 493, 285))
+        self.verticalLayout = QVBoxLayout(self.scrollAreaWidgetContents)
+        self.verticalLayout.setObjectName(u"verticalLayout")
+        self.verticalLayout.setContentsMargins(-1, 0, -1, -1)
+        self.card1 = Card(self.scrollAreaWidgetContents)
+        self.card1.setObjectName(u"card1")
+
+        self.verticalLayout.addWidget(self.card1)
+
+        self.verticalSpacer_2 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.verticalLayout.addItem(self.verticalSpacer_2)
+
+        self.scrollArea.setWidget(self.scrollAreaWidgetContents)
+
+        self.gridLayout_4.addWidget(self.scrollArea, 0, 0, 1, 1)
+
 
         self.gridLayout_2.addWidget(self.accounts, 0, 0, 1, 1)
 
@@ -451,11 +516,11 @@ class Ui_MainWindow(object):
 
         self.drawer = Drawer(MainWindow)
         self.drawer.setObjectName(u"drawer")
-        sizePolicy1 = QSizePolicy(QSizePolicy.Fixed, QSizePolicy.Preferred)
-        sizePolicy1.setHorizontalStretch(0)
-        sizePolicy1.setVerticalStretch(0)
-        sizePolicy1.setHeightForWidth(self.drawer.sizePolicy().hasHeightForWidth())
-        self.drawer.setSizePolicy(sizePolicy1)
+        sizePolicy2 = QSizePolicy(QSizePolicy.Fixed, QSizePolicy.Preferred)
+        sizePolicy2.setHorizontalStretch(0)
+        sizePolicy2.setVerticalStretch(0)
+        sizePolicy2.setHeightForWidth(self.drawer.sizePolicy().hasHeightForWidth())
+        self.drawer.setSizePolicy(sizePolicy2)
         self.drawer.setMinimumSize(QSize(65, 0))
         self.drawer.setMaximumSize(QSize(65, 16777215))
         self.gridLayout_7 = QGridLayout(self.drawer)
@@ -470,11 +535,11 @@ class Ui_MainWindow(object):
         self.gridLayout_8.setContentsMargins(-1, 7, -1, 7)
         self.line = QFrame(self.navigation)
         self.line.setObjectName(u"line")
-        sizePolicy2 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Fixed)
-        sizePolicy2.setHorizontalStretch(0)
-        sizePolicy2.setVerticalStretch(0)
-        sizePolicy2.setHeightForWidth(self.line.sizePolicy().hasHeightForWidth())
-        self.line.setSizePolicy(sizePolicy2)
+        sizePolicy3 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Fixed)
+        sizePolicy3.setHorizontalStretch(0)
+        sizePolicy3.setVerticalStretch(0)
+        sizePolicy3.setHeightForWidth(self.line.sizePolicy().hasHeightForWidth())
+        self.line.setSizePolicy(sizePolicy3)
         self.line.setFrameShadow(QFrame.Plain)
         self.line.setLineWidth(0)
         self.line.setMidLineWidth(3)
@@ -571,11 +636,11 @@ class Ui_MainWindow(object):
 
         self.labelLogo = QLabel(self.navigation)
         self.labelLogo.setObjectName(u"labelLogo")
-        sizePolicy3 = QSizePolicy(QSizePolicy.Fixed, QSizePolicy.Fixed)
-        sizePolicy3.setHorizontalStretch(0)
-        sizePolicy3.setVerticalStretch(0)
-        sizePolicy3.setHeightForWidth(self.labelLogo.sizePolicy().hasHeightForWidth())
-        self.labelLogo.setSizePolicy(sizePolicy3)
+        sizePolicy4 = QSizePolicy(QSizePolicy.Fixed, QSizePolicy.Fixed)
+        sizePolicy4.setHorizontalStretch(0)
+        sizePolicy4.setVerticalStretch(0)
+        sizePolicy4.setHeightForWidth(self.labelLogo.sizePolicy().hasHeightForWidth())
+        self.labelLogo.setSizePolicy(sizePolicy4)
         self.labelLogo.setMinimumSize(QSize(40, 36))
         self.labelLogo.setMaximumSize(QSize(40, 36))
         self.labelLogo.setPixmap(QPixmap(u":/images/images/bold-36px-#2ABFB0.png"))
@@ -612,6 +677,7 @@ class Ui_MainWindow(object):
         self.distribution.setTitle(QCoreApplication.translate("MainWindow", u"Distribution", None))
         self.transactions.setTitle(QCoreApplication.translate("MainWindow", u"Transactions", None))
         self.accounts.setTitle(QCoreApplication.translate("MainWindow", u"Accounts", None))
+        self.card1.setTitle(QCoreApplication.translate("MainWindow", u"GroupBox", None))
         self.total.setTitle(QCoreApplication.translate("MainWindow", u"Total", None))
         self.savings.setTitle(QCoreApplication.translate("MainWindow", u"Savings", None))
         self.menu.setText("")

@@ -1,8 +1,9 @@
 from PySide2.QtGui import QColor
-from PySide2.QtWidgets import QWidget, QGraphicsDropShadowEffect
+from PySide2.QtWidgets import QGraphicsDropShadowEffect
 
 from skeletons.MainWindow import Ui_MainWindow
 from view.menu_view import Menu
+from view.home import Home
 from widgets.customWindow import CustomWindow
 
 
@@ -28,6 +29,9 @@ class Controller:
 
         """ Left Drawer """
         self.menuDrawer = Menu(self.mainWindow, self.ui)
+
+        """ Home Panel """
+        self.homePanel = Home(self.mainWindow, self.ui)
 
         """ Connect all signals/slots """
         self.connectSlotsAndSignals()

@@ -1,9 +1,5 @@
-import time
-
 from PySide2.QtCore import QObject
 from PySide2.QtGui import QIcon
-
-from widgets.drawer import Drawer
 
 
 class Menu(QObject):
@@ -72,6 +68,8 @@ class Menu(QObject):
             self.uiSetup.pushButtonHome.setIcon(QIcon(":/images/images/home-#2ABFB0-36dp.svg"))
 
             """ Set other buttons to OFF """
+            self.uiSetup.pushButtonManage.setChecked(False)
+            self.uiSetup.pushButtonAnalytics.setChecked(False)
             self.uiSetup.pushButtonManage.setIcon(QIcon(":/images/images/account_balance_wallet-white-36dp.svg"))
             self.uiSetup.pushButtonAnalytics.setIcon(QIcon(":/images/images/analytics-white-36dp.svg"))
 
@@ -80,6 +78,8 @@ class Menu(QObject):
             self.uiSetup.pushButtonManage.setIcon(QIcon(":/images/images/account_balance_wallet-#2ABFB0-36dp.svg"))
 
             """ Set other buttons to OFF """
+            self.uiSetup.pushButtonHome.setChecked(False)
+            self.uiSetup.pushButtonAnalytics.setChecked(False)
             self.uiSetup.pushButtonHome.setIcon(QIcon(":/images/images/home-white-36dp.svg"))
             self.uiSetup.pushButtonAnalytics.setIcon(QIcon(":/images/images/analytics-white-36dp.svg"))
 
@@ -88,5 +88,7 @@ class Menu(QObject):
             self.uiSetup.pushButtonAnalytics.setIcon(QIcon(":/images/images/analytics-#2ABFB0-36dp.svg"))
 
             """ Set other buttons to OFF """
+            self.uiSetup.pushButtonHome.setChecked(False)
+            self.uiSetup.pushButtonManage.setChecked(False)
             self.uiSetup.pushButtonHome.setIcon(QIcon(":/images/images/home-white-36dp.svg"))
             self.uiSetup.pushButtonManage.setIcon(QIcon(":/images/images/account_balance_wallet-white-36dp.svg"))
