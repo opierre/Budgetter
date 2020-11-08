@@ -343,11 +343,19 @@ Card {
 Card::title
 {
 	background-color: transparent;
-	color: rgba(255, 255, 255, 230);
+	color: #253746;
 	padding: 0 14px;
 	margin-bottom: -55px;
 	subcontrol-origin: margin;
 	subcontrol-position: top left;
+}
+
+Card &gt; QPushButton#description {
+	color: #394957;
+	text-align: left;
+	background-color: transparent;
+	border-style: none;
+	padding: 6px 6px;
 }</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">

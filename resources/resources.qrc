@@ -14,6 +14,9 @@
     <file>images/home-#2ABFB0-36dp.svg</file>
     <file>images/menu-white-36dp.svg</file>
   </qresource>
+  <qresource prefix="logo">
+    <file>images/caissedepargne.png</file>
+  </qresource>
   <qresource prefix="stylesheets">
     <file>stylesheets/drawer.qss</file>
   </qresource>

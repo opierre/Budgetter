@@ -1,4 +1,5 @@
-from PySide2.QtWidgets import QGroupBox
+from PySide2.QtGui import QFont, QPixmap, QIcon, Qt
+from PySide2.QtWidgets import QGroupBox, QHBoxLayout, QLabel, QPushButton
 
 
 class Card(QGroupBox):
@@ -14,13 +15,50 @@ class Card(QGroupBox):
         self._name = ''
 
         ''' Card amount '''
-        self._amount = 0
+        self._amount = QLabel("0")
+        self._amount.setObjectName(u"amount")
 
         ''' Card description '''
-        self._description = ''
+        self._description = QPushButton("")
+        self._description.setObjectName(u"description")
 
         ''' Layout '''
-        self.layout = QH
+        self.layout = QHBoxLayout()
+
+        ''' Configure widgets '''
+        self.configureWidgets()
+
+        ''' Configure layout '''
+        self.configureLayout()
+
+    def configureWidgets(self):
+        """
+        Configure widgets inside card
+        :return: void
+        """
+
+        ''' Set font '''
+        self.setFont(QFont("Roboto", 13, QFont.Normal))
+        self._description.setFont(QFont("Roboto Light", 10, QFont.Normal))
+
+        ''' Set description button hand cursor '''
+        self._description.setCursor(Qt.PointingHandCursor)
+
+    def configureLayout(self):
+        """
+        Set elements in layout
+        :return: void
+        """
+
+        ''' Set margins '''
+        self.layout.setContentsMargins(14, 0, 0, 0)
+
+        ''' Add widgets '''
+        self.layout.addWidget(self._description)
+        self.layout.addWidget(self._amount)
+
+        ''' Apply layout on Card '''
+        self.setLayout(self.layout)
 
     def setName(self, name):
         """
@@ -47,7 +85,7 @@ class Card(QGroupBox):
         :return: void
         """
 
-        self._amount = amount
+        self._amount.setText(str(amount))
 
     def getAmount(self):
         """
@@ -55,7 +93,7 @@ class Card(QGroupBox):
         :return: card amount
         """
 
-        return self._amount
+        return self._amount.text()
 
     def setDescription(self, description):
         """
@@ -64,7 +102,10 @@ class Card(QGroupBox):
         :return: void
         """
 
-        self._description = description
+        self._description.setText(description)
+
+        if "Caisse d'Epargne" in description:
+            self._description.setIcon(QIcon(":/logo/images/caissedepargne.png"))
 
     def getDescription(self):
         """
@@ -72,4 +113,4 @@ class Card(QGroupBox):
         :return: card description
         """
 
-        return self._description
+        return self._description.text()

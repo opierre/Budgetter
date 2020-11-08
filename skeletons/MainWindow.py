@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'MainWindowJhNTaJ.ui'
+## Form generated from reading UI file 'MainWindowMauLnO.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.0
 ##
@@ -359,12 +359,20 @@ class Ui_MainWindow(object):
 "Card::title\n"
 "{\n"
 "	background-color: transparent;\n"
-"	color: rgba(255, 255, 255, 230);\n"
+"	color: #253746;\n"
 "	padding: 0 14px;\n"
 "	margin-bottom: -55px;\n"
-""
-                        "	subcontrol-origin: margin;\n"
+"	subcontrol-or"
+                        "igin: margin;\n"
 "	subcontrol-position: top left;\n"
+"}\n"
+"\n"
+"Card > QPushButton#description {\n"
+"	color: #394957;\n"
+"	text-align: left;\n"
+"	background-color: transparent;\n"
+"	border-style: none;\n"
+"	padding: 6px 6px;\n"
 "}")
         self.gridLayout = QGridLayout(MainWindow)
         self.gridLayout.setSpacing(0)
