@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'MainWindowMauLnO.ui'
+## Form generated from reading UI file 'MainWindowiTcktg.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.0
 ##
@@ -24,7 +24,7 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(1135, 777)
+        MainWindow.resize(1139, 786)
         icon = QIcon()
         icon.addFile(u":/images/images/bold-36px-#2ABFB0.png", QSize(), QIcon.Normal, QIcon.Off)
         MainWindow.setWindowIcon(icon)
@@ -373,6 +373,19 @@ class Ui_MainWindow(object):
 "	background-color: transparent;\n"
 "	border-style: none;\n"
 "	padding: 6px 6px;\n"
+"	font-family: \"Roboto Light\";\n"
+"	font-size: 11pt;\n"
+"}\n"
+"\n"
+"Card > QLabel#amount {\n"
+"	color: #253746;\n"
+"	text-align: right;\n"
+"	background-color: transparent;\n"
+"	border-style: none;\n"
+"	padding: 0px 0px;\n"
+"	margin-bottom: 30px;\n"
+"	font-family: \"Roboto\";\n"
+"	font-size: 17pt;\n"
 "}")
         self.gridLayout = QGridLayout(MainWindow)
         self.gridLayout.setSpacing(0)
@@ -436,7 +449,7 @@ class Ui_MainWindow(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 493, 285))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 495, 289))
         self.verticalLayout = QVBoxLayout(self.scrollAreaWidgetContents)
         self.verticalLayout.setObjectName(u"verticalLayout")
         self.verticalLayout.setContentsMargins(-1, 0, -1, -1)

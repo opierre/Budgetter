@@ -7,8 +7,11 @@ class Drawer(QWidget):
     Drawer Widget
     """
 
-    """ Signal when user click on button in menu - int: Button number """
-    menuSignal = Signal(int)
+    """ Signal emitted when animation is finished """
+    animationFinished = Signal()
+
+    """ Signal emitted when animation is started """
+    animationStarted = Signal()
 
     def __init__(self, parent=None):
         super().__init__(parent)
@@ -22,11 +25,14 @@ class Drawer(QWidget):
         """ Define animation for moving drawer """
         self.animation = QPropertyAnimation(self, b"width")
 
+        """ Drawer expanded state """
+        self.expanded = False
+
         """ Configure animation properties """
         self.configureAnimation()
 
-        """ Display all labels for extended drawer or hide them """
-        # self.animation.finished.connect(self.showLabels)
+        """ Display all labels for extended drawer """
+        self.animation.finished.connect(self.animationFinished.emit)
 
     def configureAnimation(self):
         """
@@ -73,6 +79,9 @@ class Drawer(QWidget):
         """ Set animation drawer direction: forward from minWidth to maxWidth """
         self.animation.setDirection(QAbstractAnimation.Forward)
 
+        """ Update state """
+        self.expanded = True
+
         """ Start animation """
         self.animation.start()
 
@@ -85,5 +94,19 @@ class Drawer(QWidget):
         """ Set animation drawer direction: forward from minWidth to maxWidth """
         self.animation.setDirection(QAbstractAnimation.Backward)
 
+        """ Update state """
+        self.expanded = False
+
+        """ Hide all labels for collapsed drawer """
+        self.animationStarted.emit()
+
         """ Start animation """
         self.animation.start()
+
+    def getExpanded(self):
+        """
+        Return drawer expanded state
+        :return: drawer state - True:Expanded/False:Collapsed
+        """
+
+        return self.expanded

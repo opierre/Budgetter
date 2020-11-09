@@ -1,5 +1,6 @@
 from PySide2.QtGui import QFont, QPixmap, QIcon, Qt
-from PySide2.QtWidgets import QGroupBox, QHBoxLayout, QLabel, QPushButton
+from PySide2.QtWidgets import QGroupBox, QHBoxLayout, QLabel, QPushButton, QTextEdit, QLineEdit, QSpacerItem, \
+    QSizePolicy
 
 
 class Card(QGroupBox):
@@ -7,28 +8,35 @@ class Card(QGroupBox):
     def __init__(self, parent):
         super().__init__(parent)
 
-        ''' Set maximum height '''
+        """ Set maximum height """
         self.setMinimumHeight(100)
         self.setMaximumHeight(100)
 
-        ''' Card name '''
+        """ Card name """
         self._name = ''
 
-        ''' Card amount '''
+        """ Card amount """
         self._amount = QLabel("0")
         self._amount.setObjectName(u"amount")
 
-        ''' Card description '''
+        """ Card month trend """
+        self._monthTrend = QPushButton("")
+        self._monthTrend.setObjectName(u"monthTrend")
+
+        """ Spacer item """
+        self.spacer = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        """ Card description """
         self._description = QPushButton("")
         self._description.setObjectName(u"description")
 
-        ''' Layout '''
+        """ Layout """
         self.layout = QHBoxLayout()
 
-        ''' Configure widgets '''
+        """ Configure widgets """
         self.configureWidgets()
 
-        ''' Configure layout '''
+        """ Configure layout """
         self.configureLayout()
 
     def configureWidgets(self):
@@ -37,12 +45,14 @@ class Card(QGroupBox):
         :return: void
         """
 
-        ''' Set font '''
+        """ Set font """
         self.setFont(QFont("Roboto", 13, QFont.Normal))
-        self._description.setFont(QFont("Roboto Light", 10, QFont.Normal))
 
-        ''' Set description button hand cursor '''
-        self._description.setCursor(Qt.PointingHandCursor)
+        """ Set description properties """
+        # self._description.setCursor(Qt.PointingHandCursor)
+
+        """ Set amount properties """
+        # self._amount.raise_()
 
     def configureLayout(self):
         """
@@ -50,14 +60,19 @@ class Card(QGroupBox):
         :return: void
         """
 
-        ''' Set margins '''
-        self.layout.setContentsMargins(14, 0, 0, 0)
+        """ Set margins """
+        self.layout.setContentsMargins(14, 0, 14, 0)
 
-        ''' Add widgets '''
+        """ Set spacing """
+        self.layout.setSpacing(50)
+
+        """ Add widgets """
         self.layout.addWidget(self._description)
+        self.layout.addSpacerItem(self.spacer)
         self.layout.addWidget(self._amount)
+        self.layout.addWidget(self._monthTrend)
 
-        ''' Apply layout on Card '''
+        """ Apply layout on Card """
         self.setLayout(self.layout)
 
     def setName(self, name):
@@ -85,7 +100,7 @@ class Card(QGroupBox):
         :return: void
         """
 
-        self._amount.setText(str(amount))
+        self._amount.setText("{:,.2f}".format(amount).replace(",", " ") + " €")
 
     def getAmount(self):
         """
@@ -93,7 +108,7 @@ class Card(QGroupBox):
         :return: card amount
         """
 
-        return self._amount.text()
+        return self._amount.text()[:-1].replace(" ", "")
 
     def setDescription(self, description):
         """

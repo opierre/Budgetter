@@ -16,6 +16,18 @@ class Accounts(QObject):
         self.uiSetup.card1.setDescription("Caisse d'Epargne")
         self.uiSetup.card1.setAmount(2107.56)
 
+        """ Connect Account groupBox """
+        self.connectAccounts()
+
+    def connectAccounts(self):
+        """
+        Connect Accounts widgets
+        :return: void
+        """
+
+        """ Connect click on groupBox to set always checked """
+        self.uiSetup.accounts.clicked.connect(self.checkGroupBox)
+
     def setAccounts(self, accountList):
         """
         Set accounts list to display in groupBox
@@ -25,3 +37,11 @@ class Accounts(QObject):
 
         for account in accountList:
             print('alors')
+
+    def checkGroupBox(self):
+        """
+        Set checkbox always enabled
+        :return: void
+        """
+
+        self.uiSetup.accounts.setChecked(True)

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1135</width>
-    <height>777</height>
+    <width>1139</width>
+    <height>786</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -356,6 +356,19 @@ Card &gt; QPushButton#description {
 	background-color: transparent;
 	border-style: none;
 	padding: 6px 6px;
+	font-family: &quot;Roboto Light&quot;;
+	font-size: 11pt;
+}
+
+Card &gt; QLabel#amount {
+	color: #253746;
+	text-align: right;
+	background-color: transparent;
+	border-style: none;
+	padding: 0px 0px;
+	margin-bottom: 30px;
+	font-family: &quot;Roboto&quot;;
+	font-size: 17pt;
 }</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
@@ -473,8 +486,8 @@ Card &gt; QPushButton#description {
               <rect>
                <x>0</x>
                <y>0</y>
-               <width>493</width>
-               <height>285</height>
+               <width>495</width>
+               <height>289</height>
               </rect>
              </property>
              <layout class="QVBoxLayout" name="verticalLayout">

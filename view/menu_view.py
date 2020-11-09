@@ -26,6 +26,10 @@ class Menu(QObject):
         """ Connect click on menu button in top bar to opening drawer """
         self.uiSetup.menu.clicked.connect(self.handleDrawerExpand)
 
+        """ Connect drawer animation finished to show labels on buttons (Expand) """
+        self.uiSetup.drawer.animationFinished.connect(self.showLabels)
+        self.uiSetup.drawer.animationStarted.connect(self.hideLabels)
+
         """ Connect click on buttons in drawer """
         self.uiSetup.pushButtonHome.clicked.connect(lambda: self.changePage(0))
         self.uiSetup.pushButtonManage.clicked.connect(lambda: self.changePage(1))
@@ -41,18 +45,39 @@ class Menu(QObject):
             """ Expand drawer """
             self.uiSetup.drawer.expand()
 
-            """ Show labels """
-            self.uiSetup.pushButtonHome.setText("  Home")
-            self.uiSetup.pushButtonManage.setText("  Manage")
-            self.uiSetup.pushButtonAnalytics.setText("  Analytics")
+            # """ Show labels """
+            # self.uiSetup.pushButtonHome.setText("  Home")
+            # self.uiSetup.pushButtonManage.setText("  Manage")
+            # self.uiSetup.pushButtonAnalytics.setText("  Analytics")
         else:
             """ Collapse drawer """
             self.uiSetup.drawer.collapse()
 
-            """ Hide labels """
-            self.uiSetup.pushButtonHome.setText("")
-            self.uiSetup.pushButtonManage.setText("")
-            self.uiSetup.pushButtonAnalytics.setText("")
+            # """ Hide labels """
+            # self.uiSetup.pushButtonHome.setText("")
+            # self.uiSetup.pushButtonManage.setText("")
+            # self.uiSetup.pushButtonAnalytics.setText("")
+
+    def showLabels(self):
+        """
+        Show buttons labels in drawer
+        :return: void
+        """
+
+        if self.uiSetup.drawer.getExpanded():
+            self.uiSetup.pushButtonHome.setText("  Home")
+            self.uiSetup.pushButtonManage.setText("  Manage")
+            self.uiSetup.pushButtonAnalytics.setText("  Analytics")
+
+    def hideLabels(self):
+        """
+        Hide buttons labels in drawer
+        :return: void
+        """
+
+        self.uiSetup.pushButtonHome.setText("")
+        self.uiSetup.pushButtonManage.setText("")
+        self.uiSetup.pushButtonAnalytics.setText("")
 
     def changePage(self, pageNumber):
         """
