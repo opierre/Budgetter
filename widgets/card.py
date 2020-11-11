@@ -1,3 +1,4 @@
+from PySide2.QtCore import QSize
 from PySide2.QtGui import QFont, QPixmap, QIcon, Qt
 from PySide2.QtWidgets import QGroupBox, QHBoxLayout, QLabel, QPushButton, QTextEdit, QLineEdit, QSpacerItem, \
     QSizePolicy
@@ -20,7 +21,7 @@ class Card(QGroupBox):
         self._amount.setObjectName(u"amount")
 
         """ Card month trend """
-        self._monthTrend = QPushButton("")
+        self._monthTrend = QPushButton("0")
         self._monthTrend.setObjectName(u"monthTrend")
 
         """ Spacer item """
@@ -52,7 +53,7 @@ class Card(QGroupBox):
         # self._description.setCursor(Qt.PointingHandCursor)
 
         """ Set amount properties """
-        # self._amount.raise_()
+        # self._amount.setFixedSize(QSize())
 
     def configureLayout(self):
         """
@@ -95,12 +96,16 @@ class Card(QGroupBox):
 
     def setAmount(self, amount):
         """
-        Set card amount
+        Set card amount and refresh month trend
         :param amount: card amount
         :return: void
         """
 
+        """ Set card amount """
         self._amount.setText("{:,.2f}".format(amount).replace(",", " ") + " €")
+
+        """ Refresh month trend """
+        self.refreshMonthTrend()
 
     def getAmount(self):
         """
@@ -108,7 +113,7 @@ class Card(QGroupBox):
         :return: card amount
         """
 
-        return self._amount.text()[:-1].replace(" ", "")
+        return float(self._amount.text()[:-1].replace(" ", ""))
 
     def setDescription(self, description):
         """
@@ -129,3 +134,38 @@ class Card(QGroupBox):
         """
 
         return self._description.text()
+
+    def refreshMonthTrend(self):
+        """
+        Refresh month trend according to current amount
+        :param amount: current amount
+        :return: void
+        """
+
+        """ Get previous amount from database """
+        # self.getPreviousMonthAmount.emit()    # TODO: emit signal to retrieve previous month account
+
+        self.setMonthTrend(3105.48)
+
+    def setMonthTrend(self, previousAmount):
+        """
+        Set month trend
+        :param previousAmount: previous amount from database
+        :return: void
+        """
+
+        currentAmount = self.getAmount()
+        diff = currentAmount - previousAmount
+
+        """ Update text """
+        self._monthTrend.setText("  {:,.2f}".format(diff).replace(",", " "))
+
+        if diff > 0:
+            """ Difference is positive """
+            self._monthTrend.setIcon(QIcon(":/images/images/trending_up-#12A61C-36dp.svg"))
+            self._monthTrend.setIconSize(QSize(36, 36))
+
+        else:
+            """ Difference is negative """
+            self._monthTrend.setIcon(QIcon(":/images/images/trending_down-#F20505-36dp.svg"))
+            self._monthTrend.setIconSize(QSize(36, 36))

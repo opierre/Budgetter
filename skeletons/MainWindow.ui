@@ -369,6 +369,17 @@ Card &gt; QLabel#amount {
 	margin-bottom: 30px;
 	font-family: &quot;Roboto&quot;;
 	font-size: 17pt;
+}
+
+Card &gt; QPushButton#monthTrend {
+	color: #253746;
+	text-align: left;
+	background-color: transparent;
+	border-style: none;
+	padding: 0px 0px;
+	margin-bottom: 30px;
+	font-family: &quot;Roboto&quot;;
+	font-size: 17pt;
 }</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">

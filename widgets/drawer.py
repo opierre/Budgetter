@@ -45,7 +45,7 @@ class Drawer(QWidget):
         self.animation.setDuration(300)
 
         """ Set maximum width """
-        self.setMaximumWidth(250)
+        self.setMaximumWidth(200)
 
         """ Connect animation to set width value """
         self.animation.valueChanged.connect(self.setFixedWidth)

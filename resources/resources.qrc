@@ -11,6 +11,9 @@
     <file>images/account_balance_wallet-white-36dp.svg</file>
     <file>images/bold-36px-#2ABFB0.png</file>
     <file>images/analytics-white-36dp.svg</file>
+    <file>images/trending_down-#F20505-36dp.svg</file>
+    <file>images/trending_flat-white-36dp.svg</file>
+    <file>images/trending_up-#12A61C-36dp.svg</file>
     <file>images/home-#2ABFB0-36dp.svg</file>
     <file>images/menu-white-36dp.svg</file>
   </qresource>

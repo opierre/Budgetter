@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'MainWindowiTcktg.ui'
+## Form generated from reading UI file 'MainWindow.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.0
 ##
@@ -380,6 +380,17 @@ class Ui_MainWindow(object):
 "Card > QLabel#amount {\n"
 "	color: #253746;\n"
 "	text-align: right;\n"
+"	background-color: transparent;\n"
+"	border-style: none;\n"
+"	padding: 0px 0px;\n"
+"	margin-bottom: 30px;\n"
+"	font-family: \"Roboto\";\n"
+"	font-size: 17pt;\n"
+"}\n"
+"\n"
+"Card > QPushButton#monthTrend {\n"
+"	color: #253746;\n"
+"	text-align: left;\n"
 "	background-color: transparent;\n"
 "	border-style: none;\n"
 "	padding: 0px 0px;\n"
