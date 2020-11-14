@@ -185,22 +185,6 @@ QComboBox QScollBar::handle:vertical
 	border-radius: 0px;
 }
 
-QWidget#bankbook1,#bankbook2,#bankbook3
-{
-	background-color: #3889F2;
-	border-radius: 3px;
-}
-
-QLabel#bankbook1_title,#bankbook2_title,#bankbook3_title
-{
-	color: #F2B90C;
-}
-
-QLabel#bankbook1_amount,#bankbook2_amount,#bankbook3_amount
-{
-	color: #2ABFB0;
-}
-
 QGroupBox#distribution::indicator
 {
 	width: 24px;
@@ -380,6 +364,12 @@ Card &gt; QPushButton#monthTrend {
 	margin-bottom: 30px;
 	font-family: &quot;Roboto&quot;;
 	font-size: 17pt;
+}
+
+QLabel#homeLabel {
+	color: white;
+	font-family: &quot;Roboto&quot;;
+	font-size: 16pt;
 }</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
@@ -611,7 +601,7 @@ Card &gt; QPushButton#monthTrend {
         <property name="font">
          <font>
           <family>Roboto</family>
-          <pointsize>14</pointsize>
+          <pointsize>16</pointsize>
          </font>
         </property>
         <property name="text">
@@ -811,7 +801,7 @@ Card &gt; QPushButton#monthTrend {
                 <cursorShape>PointingHandCursor</cursorShape>
                </property>
                <property name="toolTip">
-                <string>Manage</string>
+                <string>Manager</string>
                </property>
                <property name="text">
                 <string/>

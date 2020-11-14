@@ -198,22 +198,6 @@ class Ui_MainWindow(object):
 "	border-radius: 0px;\n"
 "}\n"
 "\n"
-"QWidget#bankbook1,#bankbook2,#bankbook3\n"
-"{\n"
-"	background-color: #3889F2;\n"
-"	border-radius: 3px;\n"
-"}\n"
-"\n"
-"QLabel#bankbook1_title,#bankbook2_title,#bankbook3_title\n"
-"{\n"
-"	color: #F2B90C;\n"
-"}\n"
-"\n"
-"QLabel#bankbook1_amount,#bankbook2_amount,#bankbook3_amount\n"
-"{\n"
-"	color: #2ABFB0;\n"
-"}\n"
-"\n"
 "QGroupBox#distribution::indicator\n"
 "{\n"
 "	width: 24px;\n"
@@ -239,8 +223,7 @@ class Ui_MainWindow(object):
 "	width: 24px;\n"
 "	height: 24px;\n"
 "	margin-bottom: -15px;\n"
-"	margin-left: 8px"
-                        ";\n"
+"	margin-left: 8px;\n"
 "	margin-right: 0px; \n"
 "	image: url(:/images/images/receipt-20px-#72C1F2.png);\n"
 "}\n"
@@ -253,7 +236,8 @@ class Ui_MainWindow(object):
 "}\n"
 "\n"
 "QPushButton#menu:hover, QPushButton#settings:hover {\n"
-"	background-color: rgba(255, 255, 255, 35);\n"
+"	b"
+                        "ackground-color: rgba(255, 255, 255, 35);\n"
 "	border-style: outset;\n"
 "	border-width: 1px;\n"
 "	border-radius: 6px;\n"
@@ -278,8 +262,7 @@ class Ui_MainWindow(object):
 "	border-radius: 6px;\n"
 "	border-color: transparent;\n"
 "	padding: 6px 6px;\n"
-"	color: white"
-                        ";\n"
+"	color: white;\n"
 "}\n"
 "\n"
 "QPushButton[expanded=\"true\"]:pressed {\n"
@@ -293,7 +276,8 @@ class Ui_MainWindow(object):
 "}\n"
 "\n"
 "QFrame#navigation {\n"
-"	background-color: #1F4373;\n"
+"	backgr"
+                        "ound-color: #1F4373;\n"
 "	margin-bottom: 0px;\n"
 "	margin-top: 0px;\n"
 "	border-style: none;\n"
@@ -317,8 +301,7 @@ class Ui_MainWindow(object):
 "	color: rgba(255, 255, 255, 128);\n"
 "}\n"
 "\n"
-"QPushButton#pushButtonHome:pressed, QPushButton#pushButtonMan"
-                        "age:pressed, \n"
+"QPushButton#pushButtonHome:pressed, QPushButton#pushButtonManage:pressed, \n"
 "QPushButton#pushButtonAnalytics:pressed {\n"
 "    background-color: transparent;\n"
 "    border-style: none;\n"
@@ -327,7 +310,8 @@ class Ui_MainWindow(object):
 "}\n"
 "\n"
 "QPushButton#pushButtonHome:checked, QPushButton#pushButtonManage:checked, \n"
-"QPushButton#pushButtonAnalytics:checked {\n"
+"QPushButton#pushButtonAnalytics:che"
+                        "cked {\n"
 "	color: #2ABFB0;\n"
 "}\n"
 "\n"
@@ -362,8 +346,7 @@ class Ui_MainWindow(object):
 "	color: #253746;\n"
 "	padding: 0 14px;\n"
 "	margin-bottom: -55px;\n"
-"	subcontrol-or"
-                        "igin: margin;\n"
+"	subcontrol-origin: margin;\n"
 "	subcontrol-position: top left;\n"
 "}\n"
 "\n"
@@ -377,7 +360,8 @@ class Ui_MainWindow(object):
 "	font-size: 11pt;\n"
 "}\n"
 "\n"
-"Card > QLabel#amount {\n"
+"Card > QLabel#amount"
+                        " {\n"
 "	color: #253746;\n"
 "	text-align: right;\n"
 "	background-color: transparent;\n"
@@ -397,6 +381,12 @@ class Ui_MainWindow(object):
 "	margin-bottom: 30px;\n"
 "	font-family: \"Roboto\";\n"
 "	font-size: 17pt;\n"
+"}\n"
+"\n"
+"QLabel#homeLabel {\n"
+"	color: white;\n"
+"	font-family: \"Roboto\";\n"
+"	font-size: 16pt;\n"
 "}")
         self.gridLayout = QGridLayout(MainWindow)
         self.gridLayout.setSpacing(0)
@@ -525,7 +515,10 @@ class Ui_MainWindow(object):
 
         self.homeLabel = QLabel(self.menuBar)
         self.homeLabel.setObjectName(u"homeLabel")
-        self.homeLabel.setFont(font)
+        font2 = QFont()
+        font2.setFamily(u"Roboto")
+        font2.setPointSize(16)
+        self.homeLabel.setFont(font2)
 
         self.horizontalLayout.addWidget(self.homeLabel)
 
@@ -588,10 +581,10 @@ class Ui_MainWindow(object):
         self.pushButtonHome = QPushButton(self.navigation)
         self.pushButtonHome.setObjectName(u"pushButtonHome")
         self.pushButtonHome.setMaximumSize(QSize(250, 34))
-        font2 = QFont()
-        font2.setFamily(u"Roboto")
-        font2.setPointSize(12)
-        self.pushButtonHome.setFont(font2)
+        font3 = QFont()
+        font3.setFamily(u"Roboto")
+        font3.setPointSize(12)
+        self.pushButtonHome.setFont(font3)
         self.pushButtonHome.setCursor(QCursor(Qt.PointingHandCursor))
         icon3 = QIcon()
         icon3.addFile(u":/images/images/home-#2ABFB0-36dp.svg", QSize(), QIcon.Normal, QIcon.Off)
@@ -614,7 +607,7 @@ class Ui_MainWindow(object):
         self.pushButtonManage = QPushButton(self.navigation)
         self.pushButtonManage.setObjectName(u"pushButtonManage")
         self.pushButtonManage.setMaximumSize(QSize(250, 34))
-        self.pushButtonManage.setFont(font2)
+        self.pushButtonManage.setFont(font3)
         self.pushButtonManage.setCursor(QCursor(Qt.PointingHandCursor))
         icon4 = QIcon()
         icon4.addFile(u":/images/images/account_balance_wallet-white-36dp.svg", QSize(), QIcon.Normal, QIcon.Off)
@@ -636,7 +629,7 @@ class Ui_MainWindow(object):
         self.pushButtonAnalytics = QPushButton(self.navigation)
         self.pushButtonAnalytics.setObjectName(u"pushButtonAnalytics")
         self.pushButtonAnalytics.setMaximumSize(QSize(250, 34))
-        self.pushButtonAnalytics.setFont(font2)
+        self.pushButtonAnalytics.setFont(font3)
         self.pushButtonAnalytics.setCursor(QCursor(Qt.PointingHandCursor))
         icon5 = QIcon()
         icon5.addFile(u":/images/images/analytics-white-36dp.svg", QSize(), QIcon.Normal, QIcon.Off)
@@ -720,7 +713,7 @@ class Ui_MainWindow(object):
 #endif // QT_CONFIG(tooltip)
         self.pushButtonHome.setText("")
 #if QT_CONFIG(tooltip)
-        self.pushButtonManage.setToolTip(QCoreApplication.translate("MainWindow", u"Manage", None))
+        self.pushButtonManage.setToolTip(QCoreApplication.translate("MainWindow", u"Manager", None))
 #endif // QT_CONFIG(tooltip)
         self.pushButtonManage.setText("")
 #if QT_CONFIG(tooltip)
