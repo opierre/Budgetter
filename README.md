@@ -2,5 +2,8 @@
 
 ## TODO
 
-* Accounts content
-* Animation stackedWidget
+* Distribution content
+* Transaction content
+* DB creation
+* Settings
+* Logo

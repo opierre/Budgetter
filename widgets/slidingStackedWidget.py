@@ -7,7 +7,7 @@
 # https://creativecommons.org/share-your-work/licensing-considerations/compatible-licenses
 #################################################################################################
 # Changes :
-# - Change of direction from Horizontal to Vertical
+# - Change of default direction from Horizontal to Vertical
 
 from PySide2 import QtCore, QtGui, QtWidgets
 

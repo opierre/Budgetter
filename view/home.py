@@ -1,7 +1,7 @@
 from PySide2.QtCore import QObject
-from PySide2.QtGui import QIcon
 
 from view.home_panel.accounts import Accounts
+from view.home_panel.distribution import Distribution
 
 
 class Home(QObject):
@@ -18,6 +18,9 @@ class Home(QObject):
 
         """ Accounts groupBox """
         self._accounts = Accounts(gui)
+
+        """ Distribution groupBox """
+        self._distribution = Distribution(gui)
 
         """ Connect slots and signals """
         self.connectHomeSlotsAndSignals()

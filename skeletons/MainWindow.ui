@@ -370,6 +370,10 @@ QLabel#homeLabel {
 	color: white;
 	font-family: &quot;Roboto&quot;;
 	font-size: 16pt;
+}
+
+QChartView {
+	background-color: transparent;
 }</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
@@ -389,7 +393,7 @@ QLabel#homeLabel {
     <number>0</number>
    </property>
    <item row="1" column="1" colspan="3">
-    <widget class="QStackedWidget" name="stackedWidget">
+    <widget class="SlidingStackedWidget" name="stackedWidget">
      <property name="currentIndex">
       <number>0</number>
      </property>
@@ -992,6 +996,12 @@ QLabel#homeLabel {
    <class>Card</class>
    <extends>QGroupBox</extends>
    <header>widgets/card.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>SlidingStackedWidget</class>
+   <extends>QStackedWidget</extends>
+   <header>widgets/slidingStackedWidget.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>

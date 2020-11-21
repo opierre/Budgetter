@@ -84,7 +84,7 @@ class Menu(QObject):
         :return: void
         """
 
-        self.uiSetup.stackedWidget.setCurrentIndex(pageNumber)
+        self.uiSetup.stackedWidget.slideInIdx(pageNumber)
 
         if pageNumber == 0:
             """ Set Home button enlighted """

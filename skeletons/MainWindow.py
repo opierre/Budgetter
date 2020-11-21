@@ -17,6 +17,7 @@ from PySide2.QtWidgets import *
 
 from widgets.drawer import Drawer
 from widgets.card import Card
+from widgets.slidingStackedWidget import SlidingStackedWidget
 
 import resources_rc
 
@@ -387,12 +388,16 @@ class Ui_MainWindow(object):
 "	color: white;\n"
 "	font-family: \"Roboto\";\n"
 "	font-size: 16pt;\n"
+"}\n"
+"\n"
+"QChartView {\n"
+"	background-color: transparent;\n"
 "}")
         self.gridLayout = QGridLayout(MainWindow)
         self.gridLayout.setSpacing(0)
         self.gridLayout.setObjectName(u"gridLayout")
         self.gridLayout.setContentsMargins(0, 0, 0, 0)
-        self.stackedWidget = QStackedWidget(MainWindow)
+        self.stackedWidget = SlidingStackedWidget(MainWindow)
         self.stackedWidget.setObjectName(u"stackedWidget")
         self.dashboard = QWidget()
         self.dashboard.setObjectName(u"dashboard")
