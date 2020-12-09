@@ -1,11 +1,16 @@
 <RCC>
   <qresource prefix="images">
+    <file>images/notification_important-empty-white-36dp.svg</file>
+    <file>images/account_balance_wallet-hovered-36dp.svg</file>
+    <file>images/background_caisse_epargne.svg</file>
+    <file>images/analytics-hovered-36dp.svg</file>
+    <file>images/home-hovered-36dp.svg</file>
+    <file>images/account_balance_wallet-checked-36dp.svg</file>
     <file>images/receipt-20px-#72C1F2.png</file>
     <file>images/wallet-20px-#72C1F2.png</file>
     <file>images/bold-36px-#3889F2.png</file>
-    <file>images/account_balance_wallet-#2ABFB0-36dp.svg</file>
-    <file>images/analytics-#2ABFB0-36dp.svg</file>
     <file>images/settings-white-36dp.svg</file>
+    <file>images/analytics-checked-36dp.svg</file>
     <file>images/home-white-36dp.svg</file>
     <file>images/keyboard_arrow_left-white-36dp.svg</file>
     <file>images/chart-pie-20px-#72C1F2.png</file>
@@ -15,11 +20,8 @@
     <file>images/trending_down-#F20505-36dp.svg</file>
     <file>images/trending_flat-white-36dp.svg</file>
     <file>images/trending_up-#12A61C-36dp.svg</file>
-    <file>images/home-#2ABFB0-36dp.svg</file>
+    <file>images/home-checked-36dp.svg</file>
     <file>images/menu-white-36dp.svg</file>
-  </qresource>
-  <qresource prefix="logo">
-    <file>images/caissedepargne.png</file>
   </qresource>
   <qresource prefix="stylesheets">
     <file>stylesheets/drawer.qss</file>

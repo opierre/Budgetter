@@ -13,7 +13,8 @@ class Accounts(QObject):
         self.uiSetup = gui
 
         self.uiSetup.card1.setName("Compte Chèque")
-        self.uiSetup.card1.setDescription("Caisse d'Epargne")
+        self.uiSetup.card1.setBank("Caisse d'Epargne")
+        self.uiSetup.card1.setBackgroundColor(1)
         self.uiSetup.card1.setAmount(2107.56)
 
         """ Connect Account groupBox """

@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1139</width>
+    <width>1137</width>
     <height>786</height>
    </rect>
   </property>
@@ -20,30 +20,43 @@
   <property name="styleSheet">
    <string notr="true">#MainWindow 
 {
-	background: #394957;
+	background: #060E1B;
 }
 
 #menuBar 
 {
-	background: #253746;
+	background: #060E1B;
 }
 
 QGroupBox 
 {
-	background-color: #253746;
+	background-color: #141C26;
 	border-radius: 5px;
+	border-color: #141C26;
+	border-width: 1px;
+	border-style: solid;
 	margin-top: 6ex;
 	margin-left: 1ex;
 	margin-right: 1ex;
 	padding-top: 30px;
 }
 
+QGroupBox#accounts 
+{
+	background-color: transparent;
+	border-color: transparent;
+	margin-top: 0ex;
+	margin-left: 0ex;
+	margin-right: 0ex;
+	padding-top: 0px;
+}
+
 QGroupBox::title
 {
 	background-color: transparent;
 	color: rgba(255, 255, 255, 230);
-	padding: 0 4px;
-	margin-bottom: -35px;
+	padding: 0px 15px;
+	margin-bottom: -55px;
 	subcontrol-origin: margin;
 	subcontrol-position: top left;
 }
@@ -215,18 +228,18 @@ QGroupBox#transactions::indicator
 	image: url(:/images/images/receipt-20px-#72C1F2.png);
 }
 
-QPushButton#menu, QPushButton#settings {
+QPushButton#menu, QPushButton#settings, QPushButton#alerts {
 	background-color: transparent;
 	border-style: none;
 	padding: 6px 6px;
 	color: white;
 }
 
-QPushButton#menu:hover, QPushButton#settings:hover {
+QPushButton#menu:hover, QPushButton#settings:hover, QPushButton#alerts:hover {
 	background-color: rgba(255, 255, 255, 35);
 	border-style: outset;
 	border-width: 1px;
-	border-radius: 6px;
+	border-radius: 2px;
 	border-color: transparent;
 	padding: 6px 6px;
 	color: white;
@@ -241,11 +254,11 @@ QPushButton[expanded=&quot;true&quot;]:hover {
 	color: rgba(255, 255, 255, 128);
 }
 
-QPushButton#menu:pressed, QPushButton#settings:pressed {
+QPushButton#menu:pressed, QPushButton#settings:pressed, QPushButton#alerts:pressed {
 	background-color: rgba(255, 255, 255, 80);
 	border-style: outset;
 	border-width: 1px;
-	border-radius: 6px;
+	border-radius: 2px;
 	border-color: transparent;
 	padding: 6px 6px;
 	color: white;
@@ -262,7 +275,7 @@ QPushButton[expanded=&quot;true&quot;]:pressed {
 }
 
 QFrame#navigation {
-	background-color: #1F4373;
+	background-color: #141B25;
 	margin-bottom: 0px;
 	margin-top: 0px;
 	border-style: none;
@@ -275,37 +288,40 @@ QPushButton#pushButtonAnalytics {
     background-color: transparent;
     border-style: none;
     padding: 3px 3px;
-    color: white;
+    color: #BBBDC7;
 }
 
-QPushButton#pushButtonHome:hover, QPushButton#pushButtonManage:hover, 
-QPushButton#pushButtonAnalytics:hover {
+QPushButton#pushButtonHome:hover:!checked {
     background-color: transparent;
     border-style: none;
     padding: 3px 3px;
-	color: rgba(255, 255, 255, 128);
-}
-
-QPushButton#pushButtonHome:pressed, QPushButton#pushButtonManage:pressed, 
-QPushButton#pushButtonAnalytics:pressed {
-    background-color: transparent;
-    border-style: none;
-    padding: 3px 3px;
-	color: rgba(255, 255, 255, 35);
-}
-
-QPushButton#pushButtonHome:checked, QPushButton#pushButtonManage:checked, 
-QPushButton#pushButtonAnalytics:checked {
-	color: #2ABFB0;
-}
-
-QPushButton#pushButtonHome:unchecked, QPushButton#pushButtonManage:unchecked, 
-QPushButton#pushButtonAnalytics:unchecked {
 	color: white;
+	icon: url(:/images/images/home-hovered-36dp.svg);
+}
+
+QPushButton#pushButtonManage:hover:!checked {
+    background-color: transparent;
+    border-style: none;
+    padding: 3px 3px;
+	color: white;
+	icon: url(:/images/images/account_balance_wallet-hovered-36dp.svg);
+}
+
+QPushButton#pushButtonAnalytics:hover:!checked {
+    background-color: transparent;
+    border-style: none;
+    padding: 3px 3px;
+	color: white;
+	icon: url(:/images/images/analytics-hovered-36dp.svg);
+}
+
+QPushButton#pushButtonHome:checked, QPushButton#pushButtonManage:checked,
+QPushButton#pushButtonAnalytics:checked {
+	color: #498DF4;
 }
 
 QFrame[frameShape=&quot;4&quot;] {
-	color: rgba(128, 128, 128, 128);
+	color: #060E1B;
 }
 
 QScrollArea {
@@ -320,43 +336,29 @@ QScrollArea &gt; QWidget &gt; QScrollBar {
 	background: palette(base); 
 }
 
-Card {
-	background-color: #72C1F2;
-}
-
 Card::title
 {
 	background-color: transparent;
-	color: #253746;
+	color: #060E1B;
 	padding: 0 14px;
 	margin-bottom: -55px;
 	subcontrol-origin: margin;
 	subcontrol-position: top left;
 }
 
-Card &gt; QPushButton#description {
-	color: #394957;
-	text-align: left;
-	background-color: transparent;
-	border-style: none;
-	padding: 6px 6px;
-	font-family: &quot;Roboto Light&quot;;
-	font-size: 11pt;
-}
-
 Card &gt; QLabel#amount {
-	color: #253746;
+	color: #141C26;
 	text-align: right;
 	background-color: transparent;
 	border-style: none;
 	padding: 0px 0px;
 	margin-bottom: 30px;
-	font-family: &quot;Roboto&quot;;
-	font-size: 17pt;
+	font-family: &quot;Roboto Bold&quot;;
+	font-size: 24pt;
 }
 
 Card &gt; QPushButton#monthTrend {
-	color: #253746;
+	color: #141C26;
 	text-align: left;
 	background-color: transparent;
 	border-style: none;
@@ -366,10 +368,8 @@ Card &gt; QPushButton#monthTrend {
 	font-size: 17pt;
 }
 
-QLabel#homeLabel {
+QLabel#menuLabel {
 	color: white;
-	font-family: &quot;Roboto&quot;;
-	font-size: 16pt;
 }
 
 QChartView {
@@ -400,33 +400,23 @@ QChartView {
      <widget class="QWidget" name="dashboard">
       <layout class="QGridLayout" name="gridLayout_2">
        <property name="leftMargin">
-        <number>11</number>
+        <number>15</number>
        </property>
        <property name="topMargin">
         <number>0</number>
        </property>
        <property name="rightMargin">
-        <number>11</number>
+        <number>15</number>
        </property>
        <property name="bottomMargin">
-        <number>11</number>
+        <number>15</number>
        </property>
-       <item row="0" column="1">
-        <widget class="QGroupBox" name="distribution">
-         <property name="font">
-          <font>
-           <family>Roboto</family>
-           <pointsize>14</pointsize>
-          </font>
-         </property>
-         <property name="title">
-          <string>Distribution</string>
-         </property>
-         <property name="checkable">
-          <bool>true</bool>
-         </property>
-        </widget>
-       </item>
+       <property name="horizontalSpacing">
+        <number>15</number>
+       </property>
+       <property name="verticalSpacing">
+        <number>0</number>
+       </property>
        <item row="1" column="0" colspan="2">
         <widget class="QGroupBox" name="transactions">
          <property name="font">
@@ -436,10 +426,10 @@ QChartView {
           </font>
          </property>
          <property name="title">
-          <string>Transactions</string>
+          <string>Recent Transactions</string>
          </property>
          <property name="checkable">
-          <bool>true</bool>
+          <bool>false</bool>
          </property>
          <layout class="QGridLayout" name="gridLayout_5">
           <item row="0" column="0">
@@ -455,8 +445,33 @@ QChartView {
          </layout>
         </widget>
        </item>
-       <item row="0" column="0">
+       <item row="0" column="2" rowspan="2">
+        <widget class="QGroupBox" name="distribution">
+         <property name="font">
+          <font>
+           <family>Roboto</family>
+           <pointsize>13</pointsize>
+          </font>
+         </property>
+         <property name="title">
+          <string>Monthly Distribution</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="0" colspan="2">
         <widget class="QGroupBox" name="accounts">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>250</height>
+          </size>
+         </property>
          <property name="font">
           <font>
            <family>Roboto</family>
@@ -466,62 +481,55 @@ QChartView {
           </font>
          </property>
          <property name="title">
-          <string>Accounts</string>
+          <string/>
          </property>
          <property name="checkable">
-          <bool>true</bool>
+          <bool>false</bool>
          </property>
-         <layout class="QGridLayout" name="gridLayout_4">
-          <item row="0" column="0">
-           <widget class="QScrollArea" name="scrollArea">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
+         <layout class="QHBoxLayout" name="horizontalLayout_3">
+          <property name="leftMargin">
+           <number>0</number>
+          </property>
+          <property name="topMargin">
+           <number>0</number>
+          </property>
+          <property name="rightMargin">
+           <number>0</number>
+          </property>
+          <property name="bottomMargin">
+           <number>0</number>
+          </property>
+          <item>
+           <widget class="Card" name="card1">
+            <property name="minimumSize">
+             <size>
+              <width>383</width>
+              <height>243</height>
+             </size>
             </property>
-            <property name="frameShape">
-             <enum>QFrame::NoFrame</enum>
+            <property name="maximumSize">
+             <size>
+              <width>383</width>
+              <height>243</height>
+             </size>
             </property>
-            <property name="widgetResizable">
-             <bool>true</bool>
+            <property name="title">
+             <string>GroupBox</string>
             </property>
-            <widget class="QWidget" name="scrollAreaWidgetContents">
-             <property name="geometry">
-              <rect>
-               <x>0</x>
-               <y>0</y>
-               <width>495</width>
-               <height>289</height>
-              </rect>
-             </property>
-             <layout class="QVBoxLayout" name="verticalLayout">
-              <property name="topMargin">
-               <number>0</number>
-              </property>
-              <item>
-               <widget class="Card" name="card1">
-                <property name="title">
-                 <string>GroupBox</string>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <spacer name="verticalSpacer_2">
-                <property name="orientation">
-                 <enum>Qt::Vertical</enum>
-                </property>
-                <property name="sizeHint" stdset="0">
-                 <size>
-                  <width>20</width>
-                  <height>40</height>
-                 </size>
-                </property>
-               </spacer>
-              </item>
-             </layout>
-            </widget>
            </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_2">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
           </item>
          </layout>
         </widget>
@@ -588,28 +596,15 @@ QChartView {
        </widget>
       </item>
       <item>
-       <spacer name="horizontalSpacer_2">
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>40</width>
-          <height>20</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
-      <item>
-       <widget class="QLabel" name="homeLabel">
+       <widget class="QLabel" name="menuLabel">
         <property name="font">
          <font>
           <family>Roboto</family>
-          <pointsize>16</pointsize>
+          <pointsize>15</pointsize>
          </font>
         </property>
         <property name="text">
-         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:16pt; color:#ffffff;&quot;&gt;Home&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         <string>Home</string>
         </property>
        </widget>
       </item>
@@ -627,9 +622,35 @@ QChartView {
        </spacer>
       </item>
       <item>
+       <widget class="QPushButton" name="alerts">
+        <property name="cursor">
+         <cursorShape>PointingHandCursor</cursorShape>
+        </property>
+        <property name="toolTip">
+         <string>Notifications</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="icon">
+         <iconset resource="../resources/resources.qrc">
+          <normaloff>:/images/images/notification_important-empty-white-36dp.svg</normaloff>:/images/images/notification_important-empty-white-36dp.svg</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>24</width>
+          <height>24</height>
+         </size>
+        </property>
+       </widget>
+      </item>
+      <item>
        <widget class="QPushButton" name="settings">
         <property name="cursor">
          <cursorShape>PointingHandCursor</cursorShape>
+        </property>
+        <property name="toolTip">
+         <string>Settings</string>
         </property>
         <property name="text">
          <string/>
@@ -722,7 +743,7 @@ QChartView {
          <item row="4" column="0" colspan="2">
           <layout class="QVBoxLayout" name="verticalLayout_2">
            <property name="spacing">
-            <number>20</number>
+            <number>30</number>
            </property>
            <property name="topMargin">
             <number>15</number>
@@ -754,7 +775,7 @@ QChartView {
                </property>
                <property name="icon">
                 <iconset resource="../resources/resources.qrc">
-                 <normaloff>:/images/images/home-#2ABFB0-36dp.svg</normaloff>:/images/images/home-#2ABFB0-36dp.svg</iconset>
+                 <normaloff>:/images/images/home-checked-36dp.svg</normaloff>:/images/images/home-checked-36dp.svg</iconset>
                </property>
                <property name="iconSize">
                 <size>

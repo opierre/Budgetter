@@ -88,7 +88,8 @@ class Menu(QObject):
 
         if pageNumber == 0:
             """ Set Home button enlighted """
-            self.uiSetup.pushButtonHome.setIcon(QIcon(":/images/images/home-#2ABFB0-36dp.svg"))
+            self.uiSetup.pushButtonHome.setChecked(True)
+            self.uiSetup.pushButtonHome.setIcon(QIcon(":/images/images/home-checked-36dp.svg"))
 
             """ Set other buttons to OFF """
             self.uiSetup.pushButtonManage.setChecked(False)
@@ -97,11 +98,12 @@ class Menu(QObject):
             self.uiSetup.pushButtonAnalytics.setIcon(QIcon(":/images/images/analytics-white-36dp.svg"))
 
             """ Update Header """
-            self.uiSetup.homeLabel.setText("Home")
+            self.uiSetup.menuLabel.setText("Home")
 
         elif pageNumber == 1:
             """ Set Manage button enlighted """
-            self.uiSetup.pushButtonManage.setIcon(QIcon(":/images/images/account_balance_wallet-#2ABFB0-36dp.svg"))
+            self.uiSetup.pushButtonManage.setChecked(True)
+            self.uiSetup.pushButtonManage.setIcon(QIcon(":/images/images/account_balance_wallet-checked-36dp.svg"))
 
             """ Set other buttons to OFF """
             self.uiSetup.pushButtonHome.setChecked(False)
@@ -110,11 +112,12 @@ class Menu(QObject):
             self.uiSetup.pushButtonAnalytics.setIcon(QIcon(":/images/images/analytics-white-36dp.svg"))
 
             """ Update Header """
-            self.uiSetup.homeLabel.setText("Manager")
+            self.uiSetup.menuLabel.setText("Manager")
 
         elif pageNumber == 2:
             """ Set Analytics button enlighted """
-            self.uiSetup.pushButtonAnalytics.setIcon(QIcon(":/images/images/analytics-#2ABFB0-36dp.svg"))
+            self.uiSetup.pushButtonAnalytics.setChecked(True)
+            self.uiSetup.pushButtonAnalytics.setIcon(QIcon(":/images/images/analytics-checked-36dp.svg"))
 
             """ Set other buttons to OFF """
             self.uiSetup.pushButtonHome.setChecked(False)
@@ -123,4 +126,4 @@ class Menu(QObject):
             self.uiSetup.pushButtonManage.setIcon(QIcon(":/images/images/account_balance_wallet-white-36dp.svg"))
 
             """ Update Header """
-            self.uiSetup.homeLabel.setText("Analytics")
+            self.uiSetup.menuLabel.setText("Analytics")

@@ -1,6 +1,6 @@
 from PySide2.QtCore import QSize
 from PySide2.QtGui import QFont, QPixmap, QIcon, Qt
-from PySide2.QtWidgets import QGroupBox, QHBoxLayout, QLabel, QPushButton, QTextEdit, QLineEdit, QSpacerItem, \
+from PySide2.QtWidgets import QGroupBox, QGridLayout, QLabel, QPushButton, QTextEdit, QLineEdit, QSpacerItem, \
     QSizePolicy
 
 
@@ -10,8 +10,8 @@ class Card(QGroupBox):
         super().__init__(parent)
 
         """ Set maximum height """
-        self.setMinimumHeight(100)
-        self.setMaximumHeight(100)
+        self.setMinimumHeight(243)
+        self.setMaximumHeight(243)
 
         """ Card name """
         self._name = ''
@@ -27,12 +27,8 @@ class Card(QGroupBox):
         """ Spacer item """
         self.spacer = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
-        """ Card description """
-        self._description = QPushButton("")
-        self._description.setObjectName(u"description")
-
         """ Layout """
-        self.layout = QHBoxLayout()
+        self.layout = QGridLayout()
 
         """ Configure widgets """
         self.configureWidgets()
@@ -46,14 +42,8 @@ class Card(QGroupBox):
         :return: void
         """
 
-        """ Set font """
-        self.setFont(QFont("Roboto", 13, QFont.Normal))
-
-        """ Set description properties """
-        # self._description.setCursor(Qt.PointingHandCursor)
-
-        """ Set amount properties """
-        # self._amount.setFixedSize(QSize())
+        """ Set font for title """
+        self.setFont(QFont("Roboto", 16, QFont.Normal))
 
     def configureLayout(self):
         """
@@ -65,11 +55,10 @@ class Card(QGroupBox):
         self.layout.setContentsMargins(14, 0, 14, 0)
 
         """ Set spacing """
-        self.layout.setSpacing(50)
+        self.layout.setSpacing(10)
 
         """ Add widgets """
-        self.layout.addWidget(self._description)
-        self.layout.addSpacerItem(self.spacer)
+        # self.layout.addSpacerItem(self.spacer)
         self.layout.addWidget(self._amount)
         self.layout.addWidget(self._monthTrend)
 
@@ -102,7 +91,7 @@ class Card(QGroupBox):
         """
 
         """ Set card amount """
-        self._amount.setText("{:,.2f}".format(amount).replace(",", " ") + " €")
+        self._amount.setText("{:,.2f}".format(amount).replace(",", " ") + " EUR")
 
         """ Refresh month trend """
         self.refreshMonthTrend()
@@ -113,27 +102,30 @@ class Card(QGroupBox):
         :return: card amount
         """
 
-        return float(self._amount.text()[:-1].replace(" ", ""))
+        return float(self._amount.text()[:-3].replace(" ", ""))
 
-    def setDescription(self, description):
+    def setBank(self, bank):
         """
-        Set card description
-        :param description: card description
+        Set card bank
+        :param bank: card bank
         :return: void
         """
 
-        self._description.setText(description)
+        if "Caisse d'Epargne" in bank:
+            self.setStyleSheet("background-image: url(:/images/images/background_caisse_epargne.svg);")
 
-        if "Caisse d'Epargne" in description:
-            self._description.setIcon(QIcon(":/logo/images/caissedepargne.png"))
-
-    def getDescription(self):
+    def setBackgroundColor(self, colorNb):
         """
-        Return card description
-        :return: card description
+        Apply new background color
+        :param colorNb: color to apply
+        :return: void
         """
 
-        return self._description.text()
+        if colorNb == 1:
+            self.setStyleSheet(self.styleSheet() + "background-color: qconicalgradient(cx:0.0, cy:0.5, angle:220,"
+                    "stop:0 #322B67, stop:1 #764CFF);")
+        self._amount.setStyleSheet("background-color: transparent;")
+        self._monthTrend.setStyleSheet("background-color: transparent;")
 
     def refreshMonthTrend(self):
         """

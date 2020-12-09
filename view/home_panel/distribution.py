@@ -40,7 +40,7 @@ class Distribution(QObject):
         """
 
         """ Connect click on groupBox to set always checked """
-        self.uiSetup.distribution.clicked.connect(self.checkGroupBox)
+        # self.uiSetup.distribution.clicked.connect(self.checkGroupBox)
 
     def setupDistribution(self):
         """
@@ -55,7 +55,7 @@ class Distribution(QObject):
         """ Set Chart properties """
         self.chart.legend().setVisible(False)
         self.chart.setBackgroundBrush(QBrush(QColor("transparent")))
-        self.chart.setAnimationOptions(QtCharts.QChart.AllAnimations)
+        self.chart.setAnimationOptions(QtCharts.QChart.GridAxisAnimations)
 
         self.setup_donuts()
 
@@ -68,12 +68,14 @@ class Distribution(QObject):
 
             slice = QtCharts.QPieSlice(str(value) + ' €', value)
             slice.setLabelVisible(True)
+            slice.setBorderColor(QColor(37, 55, 70))
             slice.setLabelColor(Qt.white)
             slice.setLabelFont(QFont("Roboto Light", 10, QFont.Normal))
             slice.setLabelPosition(QtCharts.QPieSlice.LabelInsideTangential)
             # slc.label().setCursor(QCursor(Qt.PointingHandCursor))
 
             slice.hovered.connect(partial(self.explodeSlice, slc=slice))
+            slice.clicked.connect(partial(self.centerSlice, slice))
 
             donut.append(slice)
             size = (1.5 - 0.1)/5
@@ -85,6 +87,21 @@ class Distribution(QObject):
 
     def explodeSlice(self, exploded, slc):
         slc.setExploded(exploded)
+
+    def centerSlice(self, slice):
+        """
+        Center slice on click
+        :param slice: slice slicked
+        :return: void
+        """
+
+        """ Get phase shift for clicked slice """
+        phaseShift = slice.startAngle() + slice.angleSpan() / 2
+
+        """ Rotate each slice """
+        for donut in self.donut:
+            donut.setPieStartAngle(donut.pieStartAngle() - phaseShift)
+            donut.setPieEndAngle(donut.pieEndAngle() - phaseShift)
 
     def checkGroupBox(self):
         """
