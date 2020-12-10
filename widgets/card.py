@@ -1,17 +1,21 @@
 from PySide2.QtCore import QSize
 from PySide2.QtGui import QFont, QPixmap, QIcon, Qt
 from PySide2.QtWidgets import QGroupBox, QGridLayout, QLabel, QPushButton, QTextEdit, QLineEdit, QSpacerItem, \
-    QSizePolicy
+    QSizePolicy, QStatusBar
 
 
 class Card(QGroupBox):
 
-    def __init__(self, parent):
+    def __init__(self, parent=None):
         super().__init__(parent)
 
-        """ Set maximum height """
+        """ Set height """
         self.setMinimumHeight(243)
         self.setMaximumHeight(243)
+
+        """ Set width """
+        self.setMinimumWidth(383)
+        self.setMaximumWidth(383)
 
         """ Card name """
         self._name = ''
@@ -20,12 +24,13 @@ class Card(QGroupBox):
         self._amount = QLabel("0")
         self._amount.setObjectName(u"amount")
 
+        """ Card currency """
+        self._currency = QLabel(" EUR")
+        self._currency.setObjectName(u"currency")
+
         """ Card month trend """
         self._monthTrend = QPushButton("0")
         self._monthTrend.setObjectName(u"monthTrend")
-
-        """ Spacer item """
-        self.spacer = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
         """ Layout """
         self.layout = QGridLayout()
@@ -43,7 +48,11 @@ class Card(QGroupBox):
         """
 
         """ Set font for title """
-        self.setFont(QFont("Roboto", 16, QFont.Normal))
+        self.setFont(QFont("Roboto", 14, QFont.Normal))
+
+        """ Set alignment for amout/currency """
+        self._amount.setAlignment(Qt.AlignRight | Qt.AlignVCenter)
+        self._currency.setAlignment(Qt.AlignLeft | Qt.AlignVCenter)
 
     def configureLayout(self):
         """
@@ -54,13 +63,10 @@ class Card(QGroupBox):
         """ Set margins """
         self.layout.setContentsMargins(14, 0, 14, 0)
 
-        """ Set spacing """
-        self.layout.setSpacing(10)
-
         """ Add widgets """
-        # self.layout.addSpacerItem(self.spacer)
-        self.layout.addWidget(self._amount)
-        self.layout.addWidget(self._monthTrend)
+        self.layout.addWidget(self._amount, 0, 0)
+        self.layout.addWidget(self._currency, 0, 1)
+        self.layout.addWidget(self._monthTrend, 1, 0)
 
         """ Apply layout on Card """
         self.setLayout(self.layout)
@@ -91,7 +97,7 @@ class Card(QGroupBox):
         """
 
         """ Set card amount """
-        self._amount.setText("{:,.2f}".format(amount).replace(",", " ") + " EUR")
+        self._amount.setText("{:,.2f}".format(amount).replace(",", " "))
 
         """ Refresh month trend """
         self.refreshMonthTrend()
@@ -102,7 +108,7 @@ class Card(QGroupBox):
         :return: card amount
         """
 
-        return float(self._amount.text()[:-3].replace(" ", ""))
+        return float(self._amount.text().replace(" ", ""))
 
     def setBank(self, bank):
         """
@@ -113,6 +119,10 @@ class Card(QGroupBox):
 
         if "Caisse d'Epargne" in bank:
             self.setStyleSheet("background-image: url(:/images/images/background_caisse_epargne.svg);")
+        elif "Crédit Agricole" in bank:
+            self.setStyleSheet("background-image: url(:/images/images/background_credit_agricole.svg);")
+        elif "Banque Populaire" in bank:
+            self.setStyleSheet("background-image: url(:/images/images/background_banque_populaire.svg);")
 
     def setBackgroundColor(self, colorNb):
         """
@@ -124,8 +134,15 @@ class Card(QGroupBox):
         if colorNb == 1:
             self.setStyleSheet(self.styleSheet() + "background-color: qconicalgradient(cx:0.0, cy:0.5, angle:220,"
                     "stop:0 #322B67, stop:1 #764CFF);")
+        elif colorNb == 2:
+            self.setStyleSheet(self.styleSheet() + "background-color: qconicalgradient(cx:0.0, cy:0.5, angle:220,"
+                    "stop:0 #633c01, stop:1 #E58900);")
+        elif colorNb == 3:
+            self.setStyleSheet(self.styleSheet() + "background-color: qconicalgradient(cx:0.0, cy:0.5, angle:220,"
+                    "stop:0 #163e4d, stop:1 #49C6F4);")
         self._amount.setStyleSheet("background-color: transparent;")
         self._monthTrend.setStyleSheet("background-color: transparent;")
+        self._currency.setStyleSheet("background-color: transparent;")
 
     def refreshMonthTrend(self):
         """
@@ -137,7 +154,7 @@ class Card(QGroupBox):
         """ Get previous amount from database """
         # self.getPreviousMonthAmount.emit()    # TODO: emit signal to retrieve previous month account
 
-        self.setMonthTrend(3105.48)
+        self.setMonthTrend(2000.48)
 
     def setMonthTrend(self, previousAmount):
         """
@@ -150,14 +167,31 @@ class Card(QGroupBox):
         diff = currentAmount - previousAmount
 
         """ Update text """
-        self._monthTrend.setText("  {:,.2f}".format(diff).replace(",", " "))
+        self._monthTrend.setText("  {:,.2f}".format(diff).replace(",", " ") + " €")
 
         if diff > 0:
             """ Difference is positive """
             self._monthTrend.setIcon(QIcon(":/images/images/trending_up-#12A61C-36dp.svg"))
             self._monthTrend.setIconSize(QSize(36, 36))
+            self._monthTrend.setProperty("positive", "true")
+            self._monthTrend.style().unpolish(self._monthTrend)
+            self._monthTrend.style().polish(self._monthTrend)
+            self._monthTrend.update()
 
-        else:
+        elif diff < 0 :
             """ Difference is negative """
             self._monthTrend.setIcon(QIcon(":/images/images/trending_down-#F20505-36dp.svg"))
             self._monthTrend.setIconSize(QSize(36, 36))
+            self._monthTrend.setProperty("positive", "false")
+            self._monthTrend.style().unpolish(self._monthTrend)
+            self._monthTrend.style().polish(self._monthTrend)
+            self._monthTrend.update()
+
+        else:
+            """ Difference is null """
+            self._monthTrend.setIcon(QIcon(":/images/images/trending_flat-white-36dp.svg"))
+            self._monthTrend.setIconSize(QSize(36, 36))
+            self._monthTrend.setProperty("positive", "none")
+            self._monthTrend.style().unpolish(self._monthTrend)
+            self._monthTrend.style().polish(self._monthTrend)
+            self._monthTrend.update()

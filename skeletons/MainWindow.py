@@ -25,7 +25,7 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(1137, 786)
+        MainWindow.resize(1141, 795)
         icon = QIcon()
         icon.addFile(u":/images/images/bold-36px-#2ABFB0.png", QSize(), QIcon.Normal, QIcon.Off)
         MainWindow.setWindowIcon(icon)
@@ -356,7 +356,7 @@ class Ui_MainWindow(object):
 "Card::title\n"
 "{\n"
 "	background-color: transparent;\n"
-"	color: #060E1B;\n"
+"	color: white;\n"
 "	padding: 0 14px;\n"
 "	margin-bottom: -55px;\n"
 "	subcontrol-origin: margin;\n"
@@ -365,25 +365,61 @@ class Ui_MainWindow(object):
 "}\n"
 "\n"
 "Card > QLabel#amount {\n"
-"	color: #141C26;\n"
+"	color: white;\n"
 "	text-align: right;\n"
 "	background-color: transparent;\n"
 "	border-style: none;\n"
 "	padding: 0px 0px;\n"
-"	margin-bottom: 30px;\n"
-"	font-family: \"Roboto Bold\";\n"
+"	font-family: \"Roboto\";\n"
+"	margin-left: 55px;\n"
+"	margin-top: 15px;\n"
 "	font-size: 24pt;\n"
 "}\n"
 "\n"
-"Card > QPushButton#monthTrend {\n"
-"	color: #141C26;\n"
+"Card > QPushButton#monthTrend[positive=\"false\"] {\n"
+"	color: #F20505;\n"
 "	text-align: left;\n"
 "	background-color: transparent;\n"
 "	border-style: none;\n"
 "	padding: 0px 0px;\n"
-"	margin-bottom: 30px;\n"
+"	margin-bottom: 10px;\n"
 "	font-family: \"Roboto\";\n"
 "	font-size: 17pt;\n"
+"}\n"
+"\n"
+"Card > QPushButton#monthTrend[positive=\"true\"] {\n"
+"	color: #12A61C;\n"
+"	text-align: left;\n"
+"	background-color: transparent;\n"
+"	border-style: none;\n"
+"	padding: 0px 0px;\n"
+"	margin-bottom: 10px;\n"
+"	font-family: \"Roboto\";\n"
+"	font-size: 17pt;\n"
+"}\n"
+"\n"
+"Card > QPushButton#monthTrend[positive=\"none\"] {\n"
+"	color: white;\n"
+"	text-align: left;\n"
+"	background-color: transparent;\n"
+"	border-style: none;\n"
+"	padding: 0"
+                        "px 0px;\n"
+"	margin-bottom: 10px;\n"
+"	font-family: \"Roboto\";\n"
+"	font-size: 17pt;\n"
+"}\n"
+"\n"
+"Card > QLabel#currency {\n"
+"	color: rgba(255, 255, 255, 180);\n"
+"	text-align: left;\n"
+"	background-color: transparent;\n"
+"	border-style: none;\n"
+"	padding: 0px 0px;\n"
+"	margin-right: 25px;\n"
+"	margin-top: 18px;\n"
+"	font-family: \"Roboto\";\n"
+"	font-size: 18pt;\n"
 "}\n"
 "\n"
 "QLabel#menuLabel {\n"
@@ -392,6 +428,10 @@ class Ui_MainWindow(object):
 "\n"
 "QChartView {\n"
 "	background-color: transparent;\n"
+"}\n"
+"\n"
+"QTableView {\n"
+"	background-color: #141C26;\n"
 "}")
         self.gridLayout = QGridLayout(MainWindow)
         self.gridLayout.setSpacing(0)
@@ -422,6 +462,7 @@ class Ui_MainWindow(object):
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.tableView.sizePolicy().hasHeightForWidth())
         self.tableView.setSizePolicy(sizePolicy)
+        self.tableView.setFrameShape(QFrame.NoFrame)
 
         self.gridLayout_5.addWidget(self.tableView, 0, 0, 1, 1)
 
@@ -459,12 +500,10 @@ class Ui_MainWindow(object):
         self.card1.setObjectName(u"card1")
         self.card1.setMinimumSize(QSize(383, 243))
         self.card1.setMaximumSize(QSize(383, 243))
+        self.gridLayout_4 = QGridLayout(self.card1)
+        self.gridLayout_4.setObjectName(u"gridLayout_4")
 
         self.horizontalLayout_3.addWidget(self.card1)
-
-        self.horizontalSpacer_2 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
-
-        self.horizontalLayout_3.addItem(self.horizontalSpacer_2)
 
 
         self.gridLayout_2.addWidget(self.accounts, 0, 0, 1, 2)

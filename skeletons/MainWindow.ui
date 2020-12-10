@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1137</width>
-    <height>786</height>
+    <width>1141</width>
+    <height>795</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -339,7 +339,7 @@ QScrollArea &gt; QWidget &gt; QScrollBar {
 Card::title
 {
 	background-color: transparent;
-	color: #060E1B;
+	color: white;
 	padding: 0 14px;
 	margin-bottom: -55px;
 	subcontrol-origin: margin;
@@ -347,25 +347,60 @@ Card::title
 }
 
 Card &gt; QLabel#amount {
-	color: #141C26;
+	color: white;
 	text-align: right;
 	background-color: transparent;
 	border-style: none;
 	padding: 0px 0px;
-	margin-bottom: 30px;
-	font-family: &quot;Roboto Bold&quot;;
+	font-family: &quot;Roboto&quot;;
+	margin-left: 55px;
+	margin-top: 15px;
 	font-size: 24pt;
 }
 
-Card &gt; QPushButton#monthTrend {
-	color: #141C26;
+Card &gt; QPushButton#monthTrend[positive=&quot;false&quot;] {
+	color: #F20505;
 	text-align: left;
 	background-color: transparent;
 	border-style: none;
 	padding: 0px 0px;
-	margin-bottom: 30px;
+	margin-bottom: 10px;
 	font-family: &quot;Roboto&quot;;
 	font-size: 17pt;
+}
+
+Card &gt; QPushButton#monthTrend[positive=&quot;true&quot;] {
+	color: #12A61C;
+	text-align: left;
+	background-color: transparent;
+	border-style: none;
+	padding: 0px 0px;
+	margin-bottom: 10px;
+	font-family: &quot;Roboto&quot;;
+	font-size: 17pt;
+}
+
+Card &gt; QPushButton#monthTrend[positive=&quot;none&quot;] {
+	color: white;
+	text-align: left;
+	background-color: transparent;
+	border-style: none;
+	padding: 0px 0px;
+	margin-bottom: 10px;
+	font-family: &quot;Roboto&quot;;
+	font-size: 17pt;
+}
+
+Card &gt; QLabel#currency {
+	color: rgba(255, 255, 255, 180);
+	text-align: left;
+	background-color: transparent;
+	border-style: none;
+	padding: 0px 0px;
+	margin-right: 25px;
+	margin-top: 18px;
+	font-family: &quot;Roboto&quot;;
+	font-size: 18pt;
 }
 
 QLabel#menuLabel {
@@ -374,6 +409,10 @@ QLabel#menuLabel {
 
 QChartView {
 	background-color: transparent;
+}
+
+QTableView {
+	background-color: #141C26;
 }</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
@@ -439,6 +478,9 @@ QChartView {
               <horstretch>0</horstretch>
               <verstretch>0</verstretch>
              </sizepolicy>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::NoFrame</enum>
             </property>
            </widget>
           </item>
@@ -516,20 +558,8 @@ QChartView {
             <property name="title">
              <string>GroupBox</string>
             </property>
+            <layout class="QGridLayout" name="gridLayout_4"/>
            </widget>
-          </item>
-          <item>
-           <spacer name="horizontalSpacer_2">
-            <property name="orientation">
-             <enum>Qt::Horizontal</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>40</width>
-              <height>20</height>
-             </size>
-            </property>
-           </spacer>
           </item>
          </layout>
         </widget>
