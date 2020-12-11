@@ -18,6 +18,7 @@ from PySide2.QtWidgets import *
 from widgets.drawer import Drawer
 from widgets.card import Card
 from widgets.slidingStackedWidget import SlidingStackedWidget
+from widgets.thumbnail import Thumbnail
 
 import resources_rc
 
@@ -25,7 +26,7 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(1141, 795)
+        MainWindow.resize(1137, 786)
         icon = QIcon()
         icon.addFile(u":/images/images/bold-36px-#2ABFB0.png", QSize(), QIcon.Normal, QIcon.Off)
         MainWindow.setWindowIcon(icon)
@@ -106,7 +107,7 @@ class Ui_MainWindow(object):
 "QPushButton \n"
 "{\n"
 "	background-color: #309db5;\n"
-"	border-radiius: 5px;\n"
+"	border-radius: 5px;\n"
 "	border-color: transparent;\n"
 "	padding-left: 7px;\n"
 "	padding-right: 7px;\n"
@@ -131,8 +132,8 @@ class Ui_MainWindow(object):
 "	border-bottom-width: 1px;\n"
 "	border-radius: 0px;\n"
 "	border-color: white;\n"
-"	col"
-                        "or: white;\n"
+"	colo"
+                        "r: white;\n"
 "	padding-left: 4px;\n"
 "}\n"
 "\n"
@@ -432,6 +433,52 @@ class Ui_MainWindow(object):
 "\n"
 "QTableView {\n"
 "	background-color: #141C26;\n"
+"}\n"
+"\n"
+"Thumbnail\n"
+"{\n"
+"	background-color: transparent;\n"
+"	border-radius: 30px;\n"
+"	border-color: #32344C;\n"
+"	border-width: 1px;\n"
+"	border-style: solid;\n"
+"}\n"
+"\n"
+"Thumbnail::title\n"
+"{\n"
+"	background-color: transparent;\n"
+"	color: rgba(255, 255, 255, 230);\n"
+"	padding: 0px 0px;\n"
+"	margin-bottom: 0px;\n"
+"}\n"
+"\n"
+"QPushButton#logoExpense\n"
+"{\n"
+"	background-color: transparent;\n"
+"	border-radius: 5px;\n"
+"	border-color: transparent;\n"
+"	col"
+                        "or: white;\n"
+"}\n"
+"\n"
+"QLabel#categoryExpense {\n"
+"	color: #a2a3ae;\n"
+"	font-family: \"Roboto\";\n"
+"	font-size: 12pt;\n"
+"	margin-bottom: 25px;\n"
+"}\n"
+"\n"
+"QLabel#amountExpense {\n"
+"	color: white;\n"
+"	font-family: \"Roboto Black\";\n"
+"	font-size: 12pt;\n"
+"\n"
+"}\n"
+"\n"
+"QLabel#monthExpense {\n"
+"	color: #a2a3ae;\n"
+"	font-family: \"Roboto Light\";\n"
+"	font-size: 12pt;\n"
 "}")
         self.gridLayout = QGridLayout(MainWindow)
         self.gridLayout.setSpacing(0)
@@ -475,6 +522,15 @@ class Ui_MainWindow(object):
         font1.setFamily(u"Roboto")
         font1.setPointSize(13)
         self.distribution.setFont(font1)
+        self.gridLayout_6 = QGridLayout(self.distribution)
+        self.gridLayout_6.setObjectName(u"gridLayout_6")
+        self.expense1 = Thumbnail(self.distribution)
+        self.expense1.setObjectName(u"expense1")
+        self.expense1.setMinimumSize(QSize(150, 200))
+        self.expense1.setMaximumSize(QSize(150, 200))
+
+        self.gridLayout_6.addWidget(self.expense1, 0, 0, 1, 1)
+
 
         self.gridLayout_2.addWidget(self.distribution, 0, 2, 2, 1)
 
@@ -712,7 +768,7 @@ class Ui_MainWindow(object):
         self.labelLogo.setSizePolicy(sizePolicy4)
         self.labelLogo.setMinimumSize(QSize(40, 36))
         self.labelLogo.setMaximumSize(QSize(40, 36))
-        self.labelLogo.setPixmap(QPixmap(u":/images/images/bold-36px-#2ABFB0.png"))
+        self.labelLogo.setPixmap(QPixmap(u":/images/images/bold-36px-#3889F2.png"))
         self.labelLogo.setScaledContents(False)
         self.labelLogo.setAlignment(Qt.AlignCenter)
         self.labelLogo.setWordWrap(False)
@@ -744,7 +800,8 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"Budgetter", None))
         self.transactions.setTitle(QCoreApplication.translate("MainWindow", u"Recent Transactions", None))
-        self.distribution.setTitle(QCoreApplication.translate("MainWindow", u"Monthly Distribution", None))
+        self.distribution.setTitle(QCoreApplication.translate("MainWindow", u"Monthly Expenses", None))
+        self.expense1.setTitle("")
         self.accounts.setTitle("")
         self.card1.setTitle(QCoreApplication.translate("MainWindow", u"GroupBox", None))
         self.total.setTitle(QCoreApplication.translate("MainWindow", u"Total", None))

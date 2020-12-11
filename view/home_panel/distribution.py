@@ -78,9 +78,9 @@ class Distribution(QObject):
             slice.clicked.connect(partial(self.centerSlice, slice))
 
             donut.append(slice)
-            size = (1.5 - 0.1)/5
-            donut.setHoleSize(0.1 + 1 * size)
-            donut.setPieSize(0.1 + (1 + 1) * size)
+            size = (0.8 - 0.3)/5
+            donut.setHoleSize(0.3 + 1 * size)
+            donut.setPieSize(0.3 + (1 + 1) * size)
 
         self.donut.append(donut)
         self.chartView.chart().addSeries(donut)

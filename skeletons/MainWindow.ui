@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1141</width>
-    <height>795</height>
+    <width>1137</width>
+    <height>786</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -94,7 +94,7 @@ QLineEdit ::disabled
 QPushButton 
 {
 	background-color: #309db5;
-	border-radiius: 5px;
+	border-radius: 5px;
 	border-color: transparent;
 	padding-left: 7px;
 	padding-right: 7px;
@@ -413,6 +413,51 @@ QChartView {
 
 QTableView {
 	background-color: #141C26;
+}
+
+Thumbnail
+{
+	background-color: transparent;
+	border-radius: 30px;
+	border-color: #32344C;
+	border-width: 1px;
+	border-style: solid;
+}
+
+Thumbnail::title
+{
+	background-color: transparent;
+	color: rgba(255, 255, 255, 230);
+	padding: 0px 0px;
+	margin-bottom: 0px;
+}
+
+QPushButton#logoExpense
+{
+	background-color: transparent;
+	border-radius: 5px;
+	border-color: transparent;
+	color: white;
+}
+
+QLabel#categoryExpense {
+	color: #a2a3ae;
+	font-family: &quot;Roboto&quot;;
+	font-size: 12pt;
+	margin-bottom: 25px;
+}
+
+QLabel#amountExpense {
+	color: white;
+	font-family: &quot;Roboto Black&quot;;
+	font-size: 12pt;
+
+}
+
+QLabel#monthExpense {
+	color: #a2a3ae;
+	font-family: &quot;Roboto Light&quot;;
+	font-size: 12pt;
 }</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
@@ -496,8 +541,29 @@ QTableView {
           </font>
          </property>
          <property name="title">
-          <string>Monthly Distribution</string>
+          <string>Monthly Expenses</string>
          </property>
+         <layout class="QGridLayout" name="gridLayout_6">
+          <item row="0" column="0">
+           <widget class="Thumbnail" name="expense1">
+            <property name="minimumSize">
+             <size>
+              <width>150</width>
+              <height>200</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>150</width>
+              <height>200</height>
+             </size>
+            </property>
+            <property name="title">
+             <string/>
+            </property>
+           </widget>
+          </item>
+         </layout>
         </widget>
        </item>
        <item row="0" column="0" colspan="2">
@@ -1000,7 +1066,7 @@ QTableView {
               <string/>
              </property>
              <property name="pixmap">
-              <pixmap resource="../resources/resources.qrc">:/images/images/bold-36px-#2ABFB0.png</pixmap>
+              <pixmap resource="../resources/resources.qrc">:/images/images/bold-36px-#3889F2.png</pixmap>
              </property>
              <property name="scaledContents">
               <bool>false</bool>
@@ -1053,6 +1119,12 @@ QTableView {
    <class>SlidingStackedWidget</class>
    <extends>QStackedWidget</extends>
    <header>widgets/slidingStackedWidget.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>Thumbnail</class>
+   <extends>QGroupBox</extends>
+   <header>widgets/thumbnail.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>
