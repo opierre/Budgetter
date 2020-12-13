@@ -6,6 +6,8 @@ from PySide2.QtWidgets import QGridLayout, QSizePolicy
 from random import randrange
 from functools import partial
 
+from widgets.thumbnail import Thumbnail
+
 
 class Distribution(QObject):
     """
@@ -18,20 +20,38 @@ class Distribution(QObject):
         """ Store gui """
         self.uiSetup = gui
 
-        """ Create ChartView and Chart """
-        self.chartView = QtCharts.QChartView()
-        self.chart = self.chartView.chart()
+        """ Store line/column/page """
+        self.row = 0
+        self.col = 0
+        self.page = 0
 
-        """ Setup distribution QChart """
-        self.setupDistribution()
+        """ Layout """
+        self.layout = QGridLayout()
 
-        """ Apply Layout on GroupBox """
-        self.layout = QGridLayout(self.uiSetup.distribution)
-        self.layout.addWidget(self.chartView, 0, 0)
-        self.uiSetup.distribution.setLayout(self.layout)
+        self.expense1 = Thumbnail()
+        self.expense1.setCategory("Shopping")
+        self.expense1.setAmount(524)
+
+        self.expense2 = Thumbnail()
+        self.expense2.setCategory("Fuel")
+        self.expense2.setAmount(126)
+
+        self.expense3 = Thumbnail()
+        self.expense3.setCategory("Travel")
+        self.expense3.setAmount(1002)
 
         """ Connect Distribution groupBox """
         self.connectDistribution()
+
+        """ Configure widgets """
+        self.configureWidgets()
+
+        """ Configure layout """
+        self.configureLayout()
+
+        self.addExpense(self.expense1)
+        self.addExpense(self.expense2)
+        self.addExpense(self.expense3)
 
     def connectDistribution(self):
         """
@@ -39,74 +59,68 @@ class Distribution(QObject):
         :return: void
         """
 
-        """ Connect click on groupBox to set always checked """
-        # self.uiSetup.distribution.clicked.connect(self.checkGroupBox)
+        """ Connect click left/right chevron """
+        self.uiSetup.rightPageMonthlyExpenses.clicked.connect(lambda: self.changePage(1))
+        self.uiSetup.leftPageMonthlyExpenses.clicked.connect(lambda: self.changePage(0))
 
-    def setupDistribution(self):
+    def configureLayout(self):
         """
-        Setup distribution with QtChart
+        Set elements in layout
         :return: void
         """
 
-        """ Set ChartView properties """
-        self.chartView.setRenderHint(QPainter.Antialiasing)
-        self.chartView.setSizePolicy(QSizePolicy.Minimum, QSizePolicy.Minimum)
+        """ Set margins """
+        self.layout.setContentsMargins(0, 0, 0, 0)
 
-        """ Set Chart properties """
-        self.chart.legend().setVisible(False)
-        self.chart.setBackgroundBrush(QBrush(QColor("transparent")))
-        self.chart.setAnimationOptions(QtCharts.QChart.GridAxisAnimations)
+        """ Apply layout on Card """
+        self.uiSetup.page1MonthlyExpenses.setLayout(self.layout)
 
-        self.setup_donuts()
-
-    def setup_donuts(self):
-        self.donut = []
-        donut = QtCharts.QPieSeries()
-        slicecount = randrange(3, 6)
-        for j in range(slicecount):
-            value = randrange(100, 200)
-
-            slice = QtCharts.QPieSlice(str(value) + ' €', value)
-            slice.setLabelVisible(True)
-            slice.setBorderColor(QColor(37, 55, 70))
-            slice.setLabelColor(Qt.white)
-            slice.setLabelFont(QFont("Roboto Light", 10, QFont.Normal))
-            slice.setLabelPosition(QtCharts.QPieSlice.LabelInsideTangential)
-            # slc.label().setCursor(QCursor(Qt.PointingHandCursor))
-
-            slice.hovered.connect(partial(self.explodeSlice, slc=slice))
-            slice.clicked.connect(partial(self.centerSlice, slice))
-
-            donut.append(slice)
-            size = (0.8 - 0.3)/5
-            donut.setHoleSize(0.3 + 1 * size)
-            donut.setPieSize(0.3 + (1 + 1) * size)
-
-        self.donut.append(donut)
-        self.chartView.chart().addSeries(donut)
-
-    def explodeSlice(self, exploded, slc):
-        slc.setExploded(exploded)
-
-    def centerSlice(self, slice):
+    def configureWidgets(self):
         """
-        Center slice on click
-        :param slice: slice slicked
+        Configure widgets inside distribution panel
         :return: void
         """
 
-        """ Get phase shift for clicked slice """
-        phaseShift = slice.startAngle() + slice.angleSpan() / 2
+        """ Set sliding animation """
+        self.uiSetup.monthlyExpensesThumb.setDirection(Qt.Horizontal)
 
-        """ Rotate each slice """
-        for donut in self.donut:
-            donut.setPieStartAngle(donut.pieStartAngle() - phaseShift)
-            donut.setPieEndAngle(donut.pieEndAngle() - phaseShift)
-
-    def checkGroupBox(self):
+    def changePage(self, pageNumber):
         """
-        Set checkbox always enabled
+        Change page number and hide/show chevron
+        :param pageNumber: page number
         :return: void
         """
 
-        self.uiSetup.accounts.setChecked(True)
+        """ Hide chevrons """
+        self.uiSetup.rightPageMonthlyExpenses.hide()
+        self.uiSetup.leftPageMonthlyExpenses.hide()
+
+        """ Change current index """
+        self.uiSetup.monthlyExpensesThumb.slideInIdx(pageNumber)
+
+        """ Hide chevrons """
+        # self.uiSetup.rightPageMonthlyExpenses.show()
+        # self.uiSetup.leftPageMonthlyExpenses.show()
+
+    def addExpense(self, thumbnail):
+        """
+        Add monthly expense to groupbox (max: 6/page)
+        :param thumbnail: thumbanil expense to add
+        :return: void
+        """
+
+        if self.row < 2:
+            if self.col < 3:
+                if self.page < 2:
+                    self.uiSetup.page1MonthlyExpenses.layout().addWidget(thumbnail, self.row, self.col)
+                    self.col += 1
+                else:
+                    return
+            else:
+                self.col = 0
+                self.row += 1
+                self.addExpense(thumbnail)
+        else:
+            self.page += 1
+            self.row = 0
+            self.addExpense(thumbnail)

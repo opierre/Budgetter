@@ -18,7 +18,6 @@ from PySide2.QtWidgets import *
 from widgets.drawer import Drawer
 from widgets.card import Card
 from widgets.slidingStackedWidget import SlidingStackedWidget
-from widgets.thumbnail import Thumbnail
 
 import resources_rc
 
@@ -26,7 +25,7 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(1137, 786)
+        MainWindow.resize(1141, 795)
         icon = QIcon()
         icon.addFile(u":/images/images/bold-36px-#2ABFB0.png", QSize(), QIcon.Normal, QIcon.Off)
         MainWindow.setWindowIcon(icon)
@@ -479,6 +478,24 @@ class Ui_MainWindow(object):
 "	color: #a2a3ae;\n"
 "	font-family: \"Roboto Light\";\n"
 "	font-size: 12pt;\n"
+"}\n"
+"\n"
+"QGroupBox#page1MonthlyExpenses, QGroupBox#page2MonthlyExpenses \n"
+"{\n"
+"	background-color: transparent;\n"
+"	border-color: transparent;\n"
+"	margin-top: 0ex;\n"
+"	margin-left: 0ex;\n"
+"	margin-right: 0ex;\n"
+"	padding-top: 0px;\n"
+"}\n"
+"\n"
+"QPushButton#rightPageMonthlyExpenses, QPushButton#leftPageMonthlyExpenses\n"
+"{\n"
+"	background-color: transparent;\n"
+"	border-radius: 0px;\n"
+"	border-color: transparent;\n"
+"	color: white;\n"
 "}")
         self.gridLayout = QGridLayout(MainWindow)
         self.gridLayout.setSpacing(0)
@@ -524,12 +541,72 @@ class Ui_MainWindow(object):
         self.distribution.setFont(font1)
         self.gridLayout_6 = QGridLayout(self.distribution)
         self.gridLayout_6.setObjectName(u"gridLayout_6")
-        self.expense1 = Thumbnail(self.distribution)
-        self.expense1.setObjectName(u"expense1")
-        self.expense1.setMinimumSize(QSize(150, 200))
-        self.expense1.setMaximumSize(QSize(150, 200))
+        self.monthlyExpensesThumb = SlidingStackedWidget(self.distribution)
+        self.monthlyExpensesThumb.setObjectName(u"monthlyExpensesThumb")
+        sizePolicy.setHeightForWidth(self.monthlyExpensesThumb.sizePolicy().hasHeightForWidth())
+        self.monthlyExpensesThumb.setSizePolicy(sizePolicy)
+        self.page1 = QWidget()
+        self.page1.setObjectName(u"page1")
+        self.horizontalLayout_4 = QHBoxLayout(self.page1)
+        self.horizontalLayout_4.setObjectName(u"horizontalLayout_4")
+        self.horizontalLayout_4.setContentsMargins(0, 0, 0, 0)
+        self.page1MonthlyExpenses = QGroupBox(self.page1)
+        self.page1MonthlyExpenses.setObjectName(u"page1MonthlyExpenses")
+        sizePolicy.setHeightForWidth(self.page1MonthlyExpenses.sizePolicy().hasHeightForWidth())
+        self.page1MonthlyExpenses.setSizePolicy(sizePolicy)
 
-        self.gridLayout_6.addWidget(self.expense1, 0, 0, 1, 1)
+        self.horizontalLayout_4.addWidget(self.page1MonthlyExpenses)
+
+        self.rightPageMonthlyExpenses = QPushButton(self.page1)
+        self.rightPageMonthlyExpenses.setObjectName(u"rightPageMonthlyExpenses")
+        self.rightPageMonthlyExpenses.setMinimumSize(QSize(40, 40))
+        self.rightPageMonthlyExpenses.setMaximumSize(QSize(40, 40))
+        self.rightPageMonthlyExpenses.setCursor(QCursor(Qt.PointingHandCursor))
+        icon1 = QIcon()
+        icon1.addFile(u":/images/images/chevron_right-white-36dp.svg", QSize(), QIcon.Normal, QIcon.Off)
+        self.rightPageMonthlyExpenses.setIcon(icon1)
+
+        self.horizontalLayout_4.addWidget(self.rightPageMonthlyExpenses)
+
+        self.monthlyExpensesThumb.addWidget(self.page1)
+        self.page_4 = QWidget()
+        self.page_4.setObjectName(u"page_4")
+        self.horizontalLayout_5 = QHBoxLayout(self.page_4)
+        self.horizontalLayout_5.setObjectName(u"horizontalLayout_5")
+        self.horizontalLayout_5.setContentsMargins(0, 0, 0, 0)
+        self.leftPageMonthlyExpenses = QPushButton(self.page_4)
+        self.leftPageMonthlyExpenses.setObjectName(u"leftPageMonthlyExpenses")
+        self.leftPageMonthlyExpenses.setMinimumSize(QSize(40, 40))
+        self.leftPageMonthlyExpenses.setMaximumSize(QSize(40, 40))
+        self.leftPageMonthlyExpenses.setCursor(QCursor(Qt.PointingHandCursor))
+        self.leftPageMonthlyExpenses.setFocusPolicy(Qt.StrongFocus)
+        self.leftPageMonthlyExpenses.setToolTipDuration(-1)
+        icon2 = QIcon()
+        icon2.addFile(u":/images/images/chevron_left-white-36dp.svg", QSize(), QIcon.Normal, QIcon.Off)
+        self.leftPageMonthlyExpenses.setIcon(icon2)
+
+        self.horizontalLayout_5.addWidget(self.leftPageMonthlyExpenses)
+
+        self.page2MonthlyExpenses = QGroupBox(self.page_4)
+        self.page2MonthlyExpenses.setObjectName(u"page2MonthlyExpenses")
+
+        self.horizontalLayout_5.addWidget(self.page2MonthlyExpenses)
+
+        self.monthlyExpensesThumb.addWidget(self.page_4)
+
+        self.gridLayout_6.addWidget(self.monthlyExpensesThumb, 0, 0, 1, 1)
+
+        self.line_2 = QFrame(self.distribution)
+        self.line_2.setObjectName(u"line_2")
+        self.line_2.setFrameShape(QFrame.HLine)
+        self.line_2.setFrameShadow(QFrame.Sunken)
+
+        self.gridLayout_6.addWidget(self.line_2, 1, 0, 1, 1)
+
+        self.groupBox = QGroupBox(self.distribution)
+        self.groupBox.setObjectName(u"groupBox")
+
+        self.gridLayout_6.addWidget(self.groupBox, 2, 0, 1, 1)
 
 
         self.gridLayout_2.addWidget(self.distribution, 0, 2, 2, 1)
@@ -595,9 +672,9 @@ class Ui_MainWindow(object):
         self.menu = QPushButton(self.menuBar)
         self.menu.setObjectName(u"menu")
         self.menu.setCursor(QCursor(Qt.PointingHandCursor))
-        icon1 = QIcon()
-        icon1.addFile(u":/images/images/menu-white-36dp.svg", QSize(), QIcon.Normal, QIcon.Off)
-        self.menu.setIcon(icon1)
+        icon3 = QIcon()
+        icon3.addFile(u":/images/images/menu-white-36dp.svg", QSize(), QIcon.Normal, QIcon.Off)
+        self.menu.setIcon(icon3)
         self.menu.setIconSize(QSize(24, 24))
         self.menu.setCheckable(True)
 
@@ -619,9 +696,9 @@ class Ui_MainWindow(object):
         self.alerts = QPushButton(self.menuBar)
         self.alerts.setObjectName(u"alerts")
         self.alerts.setCursor(QCursor(Qt.PointingHandCursor))
-        icon2 = QIcon()
-        icon2.addFile(u":/images/images/notification_important-empty-white-36dp.svg", QSize(), QIcon.Normal, QIcon.Off)
-        self.alerts.setIcon(icon2)
+        icon4 = QIcon()
+        icon4.addFile(u":/images/images/notification_important-empty-white-36dp.svg", QSize(), QIcon.Normal, QIcon.Off)
+        self.alerts.setIcon(icon4)
         self.alerts.setIconSize(QSize(24, 24))
 
         self.horizontalLayout.addWidget(self.alerts)
@@ -629,9 +706,9 @@ class Ui_MainWindow(object):
         self.settings = QPushButton(self.menuBar)
         self.settings.setObjectName(u"settings")
         self.settings.setCursor(QCursor(Qt.PointingHandCursor))
-        icon3 = QIcon()
-        icon3.addFile(u":/images/images/settings-white-36dp.svg", QSize(), QIcon.Normal, QIcon.Off)
-        self.settings.setIcon(icon3)
+        icon5 = QIcon()
+        icon5.addFile(u":/images/images/settings-white-36dp.svg", QSize(), QIcon.Normal, QIcon.Off)
+        self.settings.setIcon(icon5)
         self.settings.setIconSize(QSize(24, 24))
 
         self.horizontalLayout.addWidget(self.settings)
@@ -686,9 +763,9 @@ class Ui_MainWindow(object):
         font4.setPointSize(12)
         self.pushButtonHome.setFont(font4)
         self.pushButtonHome.setCursor(QCursor(Qt.PointingHandCursor))
-        icon4 = QIcon()
-        icon4.addFile(u":/images/images/home-checked-36dp.svg", QSize(), QIcon.Normal, QIcon.Off)
-        self.pushButtonHome.setIcon(icon4)
+        icon6 = QIcon()
+        icon6.addFile(u":/images/images/home-checked-36dp.svg", QSize(), QIcon.Normal, QIcon.Off)
+        self.pushButtonHome.setIcon(icon6)
         self.pushButtonHome.setIconSize(QSize(28, 28))
         self.pushButtonHome.setCheckable(True)
         self.pushButtonHome.setChecked(True)
@@ -709,9 +786,9 @@ class Ui_MainWindow(object):
         self.pushButtonManage.setMaximumSize(QSize(250, 34))
         self.pushButtonManage.setFont(font4)
         self.pushButtonManage.setCursor(QCursor(Qt.PointingHandCursor))
-        icon5 = QIcon()
-        icon5.addFile(u":/images/images/account_balance_wallet-white-36dp.svg", QSize(), QIcon.Normal, QIcon.Off)
-        self.pushButtonManage.setIcon(icon5)
+        icon7 = QIcon()
+        icon7.addFile(u":/images/images/account_balance_wallet-white-36dp.svg", QSize(), QIcon.Normal, QIcon.Off)
+        self.pushButtonManage.setIcon(icon7)
         self.pushButtonManage.setIconSize(QSize(28, 28))
         self.pushButtonManage.setCheckable(True)
 
@@ -731,9 +808,9 @@ class Ui_MainWindow(object):
         self.pushButtonAnalytics.setMaximumSize(QSize(250, 34))
         self.pushButtonAnalytics.setFont(font4)
         self.pushButtonAnalytics.setCursor(QCursor(Qt.PointingHandCursor))
-        icon6 = QIcon()
-        icon6.addFile(u":/images/images/analytics-white-36dp.svg", QSize(), QIcon.Normal, QIcon.Off)
-        self.pushButtonAnalytics.setIcon(icon6)
+        icon8 = QIcon()
+        icon8.addFile(u":/images/images/analytics-white-36dp.svg", QSize(), QIcon.Normal, QIcon.Off)
+        self.pushButtonAnalytics.setIcon(icon8)
         self.pushButtonAnalytics.setIconSize(QSize(28, 28))
         self.pushButtonAnalytics.setCheckable(True)
 
@@ -792,6 +869,7 @@ class Ui_MainWindow(object):
         self.retranslateUi(MainWindow)
 
         self.stackedWidget.setCurrentIndex(0)
+        self.monthlyExpensesThumb.setCurrentIndex(0)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -801,7 +879,11 @@ class Ui_MainWindow(object):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"Budgetter", None))
         self.transactions.setTitle(QCoreApplication.translate("MainWindow", u"Recent Transactions", None))
         self.distribution.setTitle(QCoreApplication.translate("MainWindow", u"Monthly Expenses", None))
-        self.expense1.setTitle("")
+        self.page1MonthlyExpenses.setTitle("")
+        self.rightPageMonthlyExpenses.setText("")
+        self.leftPageMonthlyExpenses.setText("")
+        self.page2MonthlyExpenses.setTitle("")
+        self.groupBox.setTitle(QCoreApplication.translate("MainWindow", u"GroupBox", None))
         self.accounts.setTitle("")
         self.card1.setTitle(QCoreApplication.translate("MainWindow", u"GroupBox", None))
         self.total.setTitle(QCoreApplication.translate("MainWindow", u"Total", None))

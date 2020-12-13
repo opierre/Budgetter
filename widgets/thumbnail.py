@@ -10,19 +10,19 @@ class Thumbnail(QGroupBox):
         super().__init__(parent)
 
         """ Set height """
-        self.setMinimumHeight(180)
-        self.setMaximumHeight(180)
+        self.setMinimumHeight(200)
+        self.setMaximumHeight(200)
 
         """ Set width """
-        self.setMinimumWidth(130)
-        self.setMaximumWidth(130)
+        self.setMinimumWidth(150)
+        self.setMaximumWidth(150)
 
         """ Category """
-        self._category = QLabel("Shopping")
+        self._category = QLabel("")
         self._category.setObjectName(u"categoryExpense")
 
         """ Amount """
-        self._amount = QLabel("€ 524")
+        self._amount = QLabel("")
         self._amount.setObjectName(u"amountExpense")
 
         """ Per month """
@@ -54,7 +54,6 @@ class Thumbnail(QGroupBox):
         self._month.setAlignment(Qt.AlignVCenter | Qt.AlignLeft)
 
         """ Set button icon and pointing hand and checkable """
-        self._logo.setIcon(QIcon(":/images/images/shopping_cart-white-36dp.svg"))
         self._logo.setIconSize(QSize(52, 52))
         self._logo.setCursor(Qt.PointingHandCursor)
         self._logo.setCheckable(True)
@@ -98,133 +97,57 @@ class Thumbnail(QGroupBox):
 
         if state is True:
             self.setStyleSheet(self.styleSheet() + "background-color: #2d4057;")
-            self._logo.setIcon(QIcon(":/images/images/shopping_cart-checked-36dp.svg"))
         else:
             self.setStyleSheet(self.styleSheet() + "background-color: transparent;")
-            self._logo.setIcon(QIcon(":/images/images/shopping_cart-white-36dp.svg"))
+        self.updateLogoState(state)
 
-
-    def setName(self, name):
+    def updateLogoState(self, state):
         """
-        Set Card name (title for GroupBox)
-        :param name: card name
+        Update logo state according to click on thumbnail
+        :param state: thumbnail state (checked or not)
         :return: void
         """
 
-        self._name = name
-        self.setTitle(name)
+        category = self._category.text().lower()
+        if state is True:
+            self._logo.setIcon(QIcon(":/images/images/" + category + "-checked-36dp.svg"))
+        else:
+            self._logo.setIcon(QIcon(":/images/images/" + category + "-white-36dp.svg"))
 
-    def getName(self):
+    def setCategory(self, category):
         """
-        Return card name
-        :return: card name
+        Set Thumbnail category and according logo
+        :param category: expense category
+        :return: void
         """
 
-        return self._name
+        self._category.setText(category)
+
+        category = self._category.text().lower()
+        self._logo.setIcon(QIcon(":/images/images/" + category + "-white-36dp.svg"))
+
+    def getCategory(self):
+        """
+        Return thumbnail category
+        :return: category
+        """
+
+        return self._category.text()
 
     def setAmount(self, amount):
         """
-        Set card amount and refresh month trend
-        :param amount: card amount
+        Set thumnail amount
+        :param amount: amount
         :return: void
         """
 
         """ Set card amount """
-        self._amount.setText("{:,.2f}".format(amount).replace(",", " "))
-
-        """ Refresh month trend """
-        self.refreshMonthTrend()
+        self._amount.setText("€ " + "{:,.0f}".format(amount).replace(",", " "))
 
     def getAmount(self):
         """
-        Return card amount
-        :return: card amount
+        Return thumnail amount
+        :return: amount
         """
 
-        return float(self._amount.text().replace(" ", ""))
-
-    def setBank(self, bank):
-        """
-        Set card bank
-        :param bank: card bank
-        :return: void
-        """
-
-        if "Caisse d'Epargne" in bank:
-            self.setStyleSheet("background-image: url(:/images/images/background_caisse_epargne.svg);")
-        elif "Crédit Agricole" in bank:
-            self.setStyleSheet("background-image: url(:/images/images/background_credit_agricole.svg);")
-        elif "Banque Populaire" in bank:
-            self.setStyleSheet("background-image: url(:/images/images/background_banque_populaire.svg);")
-
-    def setBackgroundColor(self, colorNb):
-        """
-        Apply new background color
-        :param colorNb: color to apply
-        :return: void
-        """
-
-        if colorNb == 1:
-            self.setStyleSheet(self.styleSheet() + "background-color: qconicalgradient(cx:0.0, cy:0.5, angle:220,"
-                    "stop:0 #322B67, stop:1 #764CFF);")
-        elif colorNb == 2:
-            self.setStyleSheet(self.styleSheet() + "background-color: qconicalgradient(cx:0.0, cy:0.5, angle:220,"
-                    "stop:0 #633c01, stop:1 #E58900);")
-        elif colorNb == 3:
-            self.setStyleSheet(self.styleSheet() + "background-color: qconicalgradient(cx:0.0, cy:0.5, angle:220,"
-                    "stop:0 #163e4d, stop:1 #49C6F4);")
-        self._amount.setStyleSheet("background-color: transparent;")
-        self._monthTrend.setStyleSheet("background-color: transparent;")
-        self._currency.setStyleSheet("background-color: transparent;")
-
-    def refreshMonthTrend(self):
-        """
-        Refresh month trend according to current amount
-        :param amount: current amount
-        :return: void
-        """
-
-        """ Get previous amount from database """
-        # self.getPreviousMonthAmount.emit()    # TODO: emit signal to retrieve previous month account
-
-        self.setMonthTrend(2000.48)
-
-    def setMonthTrend(self, previousAmount):
-        """
-        Set month trend
-        :param previousAmount: previous amount from database
-        :return: void
-        """
-
-        currentAmount = self.getAmount()
-        diff = currentAmount - previousAmount
-
-        """ Update text """
-        self._monthTrend.setText("  {:,.2f}".format(diff).replace(",", " ") + " €")
-
-        if diff > 0:
-            """ Difference is positive """
-            self._monthTrend.setIcon(QIcon(":/images/images/trending_up-#12A61C-36dp.svg"))
-            self._monthTrend.setIconSize(QSize(36, 36))
-            self._monthTrend.setProperty("positive", "true")
-            self._monthTrend.style().unpolish(self._monthTrend)
-            self._monthTrend.style().polish(self._monthTrend)
-            self._monthTrend.update()
-
-        elif diff < 0 :
-            """ Difference is negative """
-            self._monthTrend.setIcon(QIcon(":/images/images/trending_down-#F20505-36dp.svg"))
-            self._monthTrend.setIconSize(QSize(36, 36))
-            self._monthTrend.setProperty("positive", "false")
-            self._monthTrend.style().unpolish(self._monthTrend)
-            self._monthTrend.style().polish(self._monthTrend)
-            self._monthTrend.update()
-
-        else:
-            """ Difference is null """
-            self._monthTrend.setIcon(QIcon(":/images/images/trending_flat-white-36dp.svg"))
-            self._monthTrend.setIconSize(QSize(36, 36))
-            self._monthTrend.setProperty("positive", "none")
-            self._monthTrend.style().unpolish(self._monthTrend)
-            self._monthTrend.style().polish(self._monthTrend)
-            self._monthTrend.update()
+        return float(self._amount.text()[2:].replace(" ", ""))
