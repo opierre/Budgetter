@@ -1,7 +1,8 @@
 <RCC>
   <qresource prefix="images">
-    <file>images/background_credit_agricole.svg</file>
     <file>images/shopping_cart-white-36dp.svg</file>
+    <file>images/shopping_cart-checked-36dp.svg</file>
+    <file>images/background_credit_agricole.svg</file>
     <file>images/notification_important-empty-white-36dp.svg</file>
     <file>images/background_banque_populaire.svg</file>
     <file>images/account_balance_wallet-hovered-36dp.svg</file>

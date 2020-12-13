@@ -133,13 +133,13 @@ class Card(QGroupBox):
 
         if colorNb == 1:
             self.setStyleSheet(self.styleSheet() + "background-color: qconicalgradient(cx:0.0, cy:0.5, angle:220,"
-                    "stop:0 #322B67, stop:1 #764CFF);")
+                    "stop:0 #282354, stop:1 #764CFF);")
         elif colorNb == 2:
             self.setStyleSheet(self.styleSheet() + "background-color: qconicalgradient(cx:0.0, cy:0.5, angle:220,"
-                    "stop:0 #633c01, stop:1 #E58900);")
+                    "stop:0 #233675, stop:1 #4971F4);")
         elif colorNb == 3:
             self.setStyleSheet(self.styleSheet() + "background-color: qconicalgradient(cx:0.0, cy:0.5, angle:220,"
-                    "stop:0 #163e4d, stop:1 #49C6F4);")
+                    "stop:0 #102f3b, stop:1 #49C6F4);")
         self._amount.setStyleSheet("background-color: transparent;")
         self._monthTrend.setStyleSheet("background-color: transparent;")
         self._currency.setStyleSheet("background-color: transparent;")

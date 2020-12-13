@@ -97,12 +97,12 @@ class Thumbnail(QGroupBox):
         state = self._logo.isChecked()
 
         if state is True:
-            self.setStyleSheet(self.styleSheet() + "background-color: #32344C;")
+            self.setStyleSheet(self.styleSheet() + "background-color: #2d4057;")
+            self._logo.setIcon(QIcon(":/images/images/shopping_cart-checked-36dp.svg"))
         else:
             self.setStyleSheet(self.styleSheet() + "background-color: transparent;")
-        # self.style().unpolish(self)
-        # self.style().polish(self)
-        # self.update()
+            self._logo.setIcon(QIcon(":/images/images/shopping_cart-white-36dp.svg"))
+
 
     def setName(self, name):
         """

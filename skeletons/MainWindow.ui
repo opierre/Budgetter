@@ -419,7 +419,7 @@ Thumbnail
 {
 	background-color: transparent;
 	border-radius: 30px;
-	border-color: #32344C;
+	border-color: #2d4057;
 	border-width: 1px;
 	border-style: solid;
 }
@@ -444,7 +444,7 @@ QLabel#categoryExpense {
 	color: #a2a3ae;
 	font-family: &quot;Roboto&quot;;
 	font-size: 12pt;
-	margin-bottom: 25px;
+	margin-bottom: 20px;
 }
 
 QLabel#amountExpense {

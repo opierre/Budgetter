@@ -13,7 +13,7 @@
    height="64"
    version="1.1"
    id="svg6"
-   sodipodi:docname="shopping_cart-white-36dp.svg"
+   sodipodi:docname="shopping_cart-checked-36dp.svg"
    inkscape:version="1.0.1 (3bc2e813f5, 2020-09-07)">
   <metadata
      id="metadata12">
@@ -23,7 +23,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -55,7 +55,7 @@
      fill="none"
      id="path2" />
   <circle
-     style="fill:#2d4057;fill-opacity:1;stroke-width:1.89618"
+     style="fill:#498df4;fill-opacity:1;stroke-width:1.89618"
      id="path837"
      cx="21.333334"
      cy="21.333334"
