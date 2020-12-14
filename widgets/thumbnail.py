@@ -6,16 +6,16 @@ from PySide2.QtWidgets import QGroupBox, QGridLayout, QLabel, QPushButton, QText
 
 class Thumbnail(QGroupBox):
 
-    def __init__(self, parent=None):
+    def __init__(self, category="", amout=0, parent=None):
         super().__init__(parent)
 
         """ Set height """
-        self.setMinimumHeight(200)
-        self.setMaximumHeight(200)
+        self.setMinimumHeight(180)
+        self.setMaximumHeight(180)
 
         """ Set width """
-        self.setMinimumWidth(150)
-        self.setMaximumWidth(150)
+        self.setMinimumWidth(130)
+        self.setMaximumWidth(130)
 
         """ Category """
         self._category = QLabel("")
@@ -42,6 +42,13 @@ class Thumbnail(QGroupBox):
         """ Configure layout """
         self.configureLayout()
 
+        """ Apply parameters """
+        self.setCategory(category)
+        self.setAmount(amout)
+
+        """ Connect all widgets """
+        self.connectWidgets()
+
     def configureWidgets(self):
         """
         Configure widgets inside thumbnail
@@ -64,6 +71,12 @@ class Thumbnail(QGroupBox):
         self.style().polish(self)
         self.update()
 
+    def connectWidgets(self):
+        """
+        Connect widgets inside thumbnail
+        :return: void
+        """
+
         """ Connect button to click """
         self._logo.clicked.connect(self.updateStyle)
 
@@ -74,7 +87,7 @@ class Thumbnail(QGroupBox):
         """
 
         """ Set margins """
-        self.layout.setContentsMargins(0, 0, 0, 25)
+        self.layout.setContentsMargins(0, 0, 0, 15)
         self.layout.setHorizontalSpacing(0)
         self.layout.setVerticalSpacing(5)
 
@@ -96,9 +109,9 @@ class Thumbnail(QGroupBox):
         state = self._logo.isChecked()
 
         if state is True:
-            self.setStyleSheet(self.styleSheet() + "background-color: #2d4057;")
+            self.setStyleSheet("Thumbnail { background-color: #2d4057;}")
         else:
-            self.setStyleSheet(self.styleSheet() + "background-color: transparent;")
+            self.setStyleSheet("Thumbnail { background-color: transparent;}")
         self.updateLogoState(state)
 
     def updateLogoState(self, state):
@@ -143,6 +156,11 @@ class Thumbnail(QGroupBox):
 
         """ Set card amount """
         self._amount.setText("€ " + "{:,.0f}".format(amount).replace(",", " "))
+
+        if amount > 999:
+            self._amount.setContentsMargins(17, 0, 0, 0)
+        else:
+            self._amount.setContentsMargins(0, 0, 0, 0)
 
     def getAmount(self):
         """

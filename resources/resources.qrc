@@ -1,5 +1,23 @@
 <RCC>
   <qresource prefix="images">
+    <file>images/water-checked-36dp.svg</file>
+    <file>images/water-white-36dp.svg</file>
+    <file>images/electricity-checked-36dp.svg</file>
+    <file>images/electricity-white-36dp.svg</file>
+    <file>images/internet-checked-36dp.svg</file>
+    <file>images/internet-white-36dp.svg</file>
+    <file>images/transport-checked-36dp.svg</file>
+    <file>images/phone-white-36dp.svg</file>
+    <file>images/phone-checked-36dp.svg</file>
+    <file>images/transport-white-36dp.svg</file>
+    <file>images/sports-checked-36dp.svg</file>
+    <file>images/sports-white-36dp.svg</file>
+    <file>images/electronics-white-36dp.svg</file>
+    <file>images/electronics-checked-36dp.svg</file>
+    <file>images/grocery-checked-36dp.svg</file>
+    <file>images/grocery-white-36dp.svg</file>
+    <file>images/car-checked-36dp.svg</file>
+    <file>images/car-white-36dp.svg</file>
     <file>images/chevron_left-white-36dp.svg</file>
     <file>images/chevron_right-white-36dp.svg</file>
     <file>images/shopping-checked-36dp.svg</file>

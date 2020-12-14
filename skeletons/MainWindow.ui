@@ -444,7 +444,7 @@ QLabel#categoryExpense {
 	color: #a2a3ae;
 	font-family: &quot;Roboto&quot;;
 	font-size: 12pt;
-	margin-bottom: 20px;
+	margin-bottom: 15px;
 }
 
 QLabel#amountExpense {
@@ -575,6 +575,9 @@ QPushButton#rightPageMonthlyExpenses, QPushButton#leftPageMonthlyExpenses
             </property>
             <widget class="QWidget" name="page1">
              <layout class="QHBoxLayout" name="horizontalLayout_4">
+              <property name="spacing">
+               <number>0</number>
+              </property>
               <property name="leftMargin">
                <number>0</number>
               </property>
@@ -594,6 +597,18 @@ QPushButton#rightPageMonthlyExpenses, QPushButton#leftPageMonthlyExpenses
                   <horstretch>0</horstretch>
                   <verstretch>0</verstretch>
                  </sizepolicy>
+                </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>0</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>16777215</height>
+                 </size>
                 </property>
                 <property name="title">
                  <string/>

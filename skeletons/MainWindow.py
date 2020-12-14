@@ -464,7 +464,7 @@ class Ui_MainWindow(object):
 "	color: #a2a3ae;\n"
 "	font-family: \"Roboto\";\n"
 "	font-size: 12pt;\n"
-"	margin-bottom: 20px;\n"
+"	margin-bottom: 15px;\n"
 "}\n"
 "\n"
 "QLabel#amountExpense {\n"
@@ -548,12 +548,15 @@ class Ui_MainWindow(object):
         self.page1 = QWidget()
         self.page1.setObjectName(u"page1")
         self.horizontalLayout_4 = QHBoxLayout(self.page1)
+        self.horizontalLayout_4.setSpacing(0)
         self.horizontalLayout_4.setObjectName(u"horizontalLayout_4")
         self.horizontalLayout_4.setContentsMargins(0, 0, 0, 0)
         self.page1MonthlyExpenses = QGroupBox(self.page1)
         self.page1MonthlyExpenses.setObjectName(u"page1MonthlyExpenses")
         sizePolicy.setHeightForWidth(self.page1MonthlyExpenses.sizePolicy().hasHeightForWidth())
         self.page1MonthlyExpenses.setSizePolicy(sizePolicy)
+        self.page1MonthlyExpenses.setMinimumSize(QSize(0, 0))
+        self.page1MonthlyExpenses.setMaximumSize(QSize(16777215, 16777215))
 
         self.horizontalLayout_4.addWidget(self.page1MonthlyExpenses)
 

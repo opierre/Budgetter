@@ -26,19 +26,21 @@ class Distribution(QObject):
         self.page = 0
 
         """ Layout """
-        self.layout = QGridLayout()
+        self.layout1 = QGridLayout()
+        self.layout2 = QGridLayout()
 
-        self.expense1 = Thumbnail()
-        self.expense1.setCategory("Shopping")
-        self.expense1.setAmount(524)
-
-        self.expense2 = Thumbnail()
-        self.expense2.setCategory("Fuel")
-        self.expense2.setAmount(126)
-
-        self.expense3 = Thumbnail()
-        self.expense3.setCategory("Travel")
-        self.expense3.setAmount(1002)
+        self.expense1 = Thumbnail("Shopping", 524)
+        self.expense2 = Thumbnail("Fuel", 126)
+        self.expense3 = Thumbnail("Travel", 1002)
+        self.expense4 = Thumbnail("Car", 304)
+        self.expense5 = Thumbnail("Grocery", 251)
+        self.expense6 = Thumbnail("Phone", 11.99)
+        self.expense7 = Thumbnail("Internet", 32.99)
+        self.expense8 = Thumbnail("Water", 12)
+        self.expense9 = Thumbnail("Electricity", 53)
+        self.expense10 = Thumbnail("Transport", 20)
+        self.expense11 = Thumbnail("Sports", 300)
+        self.expense12 = Thumbnail("Electronics", 154)
 
         """ Connect Distribution groupBox """
         self.connectDistribution()
@@ -52,6 +54,15 @@ class Distribution(QObject):
         self.addExpense(self.expense1)
         self.addExpense(self.expense2)
         self.addExpense(self.expense3)
+        self.addExpense(self.expense4)
+        self.addExpense(self.expense5)
+        self.addExpense(self.expense6)
+        self.addExpense(self.expense7)
+        self.addExpense(self.expense8)
+        self.addExpense(self.expense9)
+        self.addExpense(self.expense10)
+        self.addExpense(self.expense11)
+        self.addExpense(self.expense12)
 
     def connectDistribution(self):
         """
@@ -63,6 +74,9 @@ class Distribution(QObject):
         self.uiSetup.rightPageMonthlyExpenses.clicked.connect(lambda: self.changePage(1))
         self.uiSetup.leftPageMonthlyExpenses.clicked.connect(lambda: self.changePage(0))
 
+        """ Connect animation finished on sliding stacked widget to show chevron """
+        self.uiSetup.monthlyExpensesThumb.animationFinished.connect(self.showChevrons)
+
     def configureLayout(self):
         """
         Set elements in layout
@@ -70,10 +84,12 @@ class Distribution(QObject):
         """
 
         """ Set margins """
-        self.layout.setContentsMargins(0, 0, 0, 0)
+        self.layout1.setContentsMargins(0, 0, 0, 0)
+        self.layout2.setContentsMargins(0, 0, 0, 0)
 
         """ Apply layout on Card """
-        self.uiSetup.page1MonthlyExpenses.setLayout(self.layout)
+        self.uiSetup.page1MonthlyExpenses.setLayout(self.layout1)
+        self.uiSetup.page2MonthlyExpenses.setLayout(self.layout2)
 
     def configureWidgets(self):
         """
@@ -81,12 +97,12 @@ class Distribution(QObject):
         :return: void
         """
 
-        """ Set sliding animation """
+        """ Set sliding animation axe """
         self.uiSetup.monthlyExpensesThumb.setDirection(Qt.Horizontal)
 
     def changePage(self, pageNumber):
         """
-        Change page number and hide/show chevron
+        Change page number and hide chevron
         :param pageNumber: page number
         :return: void
         """
@@ -98,9 +114,14 @@ class Distribution(QObject):
         """ Change current index """
         self.uiSetup.monthlyExpensesThumb.slideInIdx(pageNumber)
 
-        """ Hide chevrons """
-        # self.uiSetup.rightPageMonthlyExpenses.show()
-        # self.uiSetup.leftPageMonthlyExpenses.show()
+    def showChevrons(self):
+        """
+        Show chevrons for right/left page
+        :return: void
+        """
+
+        self.uiSetup.rightPageMonthlyExpenses.show()
+        self.uiSetup.leftPageMonthlyExpenses.show()
 
     def addExpense(self, thumbnail):
         """
@@ -111,8 +132,11 @@ class Distribution(QObject):
 
         if self.row < 2:
             if self.col < 3:
-                if self.page < 2:
+                if self.page == 0:
                     self.uiSetup.page1MonthlyExpenses.layout().addWidget(thumbnail, self.row, self.col)
+                    self.col += 1
+                elif self.page == 1:
+                    self.uiSetup.page2MonthlyExpenses.layout().addWidget(thumbnail, self.row, self.col)
                     self.col += 1
                 else:
                     return

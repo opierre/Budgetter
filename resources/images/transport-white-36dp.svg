@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   viewBox="0 0 42.666667 42.666667"
+   fill="#ffffff"
+   width="64"
+   height="64"
+   version="1.1"
+   id="svg6"
+   sodipodi:docname="transport-white-36dp.svg"
+   inkscape:version="1.0.1 (3bc2e813f5, 2020-09-07)">
+  <metadata
+     id="metadata12">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs10" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1676"
+     inkscape:window-height="947"
+     id="namedview8"
+     showgrid="false"
+     inkscape:zoom="8.1513698"
+     inkscape:cx="32.697869"
+     inkscape:cy="22.299747"
+     inkscape:window-x="4945"
+     inkscape:window-y="2"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg6"
+     inkscape:document-rotation="0" />
+  <path
+     d="M 0,0 H 24 V 24 H 0 Z"
+     fill="none"
+     id="path2" />
+  <circle
+     style="fill:#2d4057;fill-opacity:1;stroke-width:1.89618"
+     id="path837"
+     cx="21.333334"
+     cy="21.333334"
+     r="17.333334" />
+  <path
+     d="m 9.755035,9.5096774 h 24 V 33.509677 h -24 z"
+     fill="none"
+     id="path2-1"
+     style="stroke-width:1" />
+  <path
+     d="m 22.333333,14.333334 0.75,-1.5 h 3.25 v -1.5 h -10 v 1.5 h 4.75 l -0.75,1.5 c -3.13,0.09 -6,0.73 -6,3.5 v 8.5 c 0,1.5 1.11,2.73 2.55,2.949999 l -1.19,1.190001 c -0.32,0.32 -0.1,0.86 0.35,0.86 h 1.09 c 0.13,0 0.26,-0.05 0.35,-0.15 l 1.85,-1.85 h 4 l 1.85,1.85 c 0.09,0.09 0.22,0.15 0.35,0.15 h 1.09 c 0.45,0 0.670001,-0.54 0.350001,-0.850001 l -1.190001,-1.19 c 1.440001,-0.23 2.550001,-1.46 2.550001,-2.96 v -8.5 c 0,-2.77 -2.870001,-3.41 -6.000001,-3.499999 z m -1,13.5 c -0.83,0 -1.5,-0.670001 -1.5,-1.5 0,-0.83 0.67,-1.5 1.5,-1.5 0.83,0 1.5,0.67 1.5,1.5 0,0.829999 -0.67,1.5 -1.5,1.5 z m 5,-4.5 h -10 v -5 h 10 z"
+     id="path4"
+     style="stroke-width:1" />
+</svg>

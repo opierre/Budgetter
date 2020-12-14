@@ -8,11 +8,19 @@
 #################################################################################################
 # Changes :
 # - Change of default direction from Horizontal to Vertical
+# - Add signal when animation finished
 
 from PySide2 import QtCore, QtGui, QtWidgets
+from PySide2.QtCore import Signal
 
 
 class SlidingStackedWidget(QtWidgets.QStackedWidget):
+    """
+    Sligin Stacked Widget
+    """
+
+    """ Signal emitted when animation finished """
+    animationFinished = Signal()
 
     def __init__(self, parent=None):
         super(SlidingStackedWidget, self).__init__(parent)
@@ -121,3 +129,4 @@ class SlidingStackedWidget(QtWidgets.QStackedWidget):
         self.widget(self.m_now).hide()
         self.widget(self.m_now).move(self.m_pnow)
         self.m_active = False
+        self.animationFinished.emit()
