@@ -31,19 +31,20 @@ class Ui_MainWindow(object):
         MainWindow.setWindowIcon(icon)
         MainWindow.setStyleSheet(u"#MainWindow \n"
 "{\n"
-"	background: #060E1B;\n"
+"	background: #212F41;\n"
 "}\n"
 "\n"
 "#menuBar \n"
 "{\n"
-"	background: #060E1B;\n"
+"	background: #2C405A;\n"
+"	border-bottom: 1px solid #47566B;\n"
 "}\n"
 "\n"
 "QGroupBox \n"
 "{\n"
-"	background-color: #141C26;\n"
-"	border-radius: 5px;\n"
-"	border-color: #141C26;\n"
+"	background-color: #26374C;\n"
+"	border-radius: 4px;\n"
+"	border-color: #344457;\n"
 "	border-width: 1px;\n"
 "	border-style: solid;\n"
 "	margin-top: 6ex;\n"
@@ -79,11 +80,11 @@ class Ui_MainWindow(object):
 "	padding: 0 8px;\n"
 "	background: transparent;\n"
 "	color: white;\n"
-"	selection-background-color: #309db5;\n"
+"	selection-background-"
+                        "color: #309db5;\n"
 "}\n"
 "\n"
-"QLineEdi"
-                        "t ::hover\n"
+"QLineEdit ::hover\n"
 "{\n"
 "	border-bottom: 1px solid white;\n"
 "	border-radisu: 0px;\n"
@@ -129,10 +130,10 @@ class Ui_MainWindow(object):
 "	background-color: transparent;\n"
 "	border-bottom-style: outset;\n"
 "	border-bottom-width: 1px;\n"
-"	border-radius: 0px;\n"
+"	border-radius: 0"
+                        "px;\n"
 "	border-color: white;\n"
-"	colo"
-                        "r: white;\n"
+"	color: white;\n"
 "	padding-left: 4px;\n"
 "}\n"
 "\n"
@@ -187,10 +188,10 @@ class Ui_MainWindow(object):
 "	color: white;\n"
 "	border-top-style: inset;\n"
 "	border-width: 1px;\n"
-"	border-radius: 0px;\n"
+"	border-rad"
+                        "ius: 0px;\n"
 "	border-color: #309db5;\n"
-""
-                        "	selection-bckground-color: #309db5;\n"
+"	selection-bckground-color: #309db5;\n"
 "	padding-left: 0px;\n"
 "	padding-bottom: 3px;\n"
 "	spacing: 10px;\n"
@@ -237,27 +238,32 @@ class Ui_MainWindow(object):
 "	width: 24px;\n"
 "	height: 24px;\n"
 "	margin-bottom: -15px;\n"
-"	margin-left: 8px;\n"
+"	margin-le"
+                        "ft: 8px;\n"
 "	margin-right: 0px; \n"
-"	ima"
-                        "ge: url(:/images/images/receipt-20px-#72C1F2.png);\n"
+"	image: url(:/images/images/receipt-20px-#72C1F2.png);\n"
 "}\n"
 "\n"
-"QPushButton#menu, QPushButton#settings, QPushButton#alerts {\n"
+"QPushButton#settings {\n"
+"	background-color:  transparent;\n"
+"	border-left: 1px solid #32465F;\n"
+"	border-right: 1px solid #32465F;\n"
+"	padding: 6px 10px;\n"
+"	border-radius: 0px;\n"
+"}\n"
+"\n"
+"QPushButton#alerts {\n"
 "	background-color: transparent;\n"
-"	border-style: none;\n"
-"	padding: 6px 6px;\n"
-"	color: white;\n"
+"	border-left: 1px solid #32465F;\n"
+"	padding: 6px 10px;\n"
+"	border-radius: 0px;\n"
 "}\n"
 "\n"
 "QPushButton#menu:hover, QPushButton#settings:hover, QPushButton#alerts:hover {\n"
-"	background-color: rgba(255, 255, 255, 35);\n"
-"	border-style: outset;\n"
-"	border-width: 1px;\n"
-"	border-radius: 2px;\n"
-"	border-color: transparent;\n"
-"	padding: 6px 6px;\n"
-"	color: white;\n"
+"	background-color:  rgba(255, 255, 255, 35);\n"
+"	border-left: 1px solid #32465F;\n"
+"	padding: 6px 10px;\n"
+"	border-radius: 0px;\n"
 "}\n"
 "\n"
 "QPushButton[expanded=\"true\"]:hover {\n"
@@ -269,15 +275,12 @@ class Ui_MainWindow(object):
 "	color: rgba(255, 255, 255, 128);\n"
 "}\n"
 "\n"
-"QPushButton#menu:pressed, QPushButton#settings:pressed, QPushButton#alerts:pressed {\n"
-"	background-color: rgba(255, 255, 255, 80);\n"
-"	border-style: outset;\n"
-"	border-width: 1px;\n"
-"	border-radius: 2px;\n"
-"	border-color: transparent;\n"
-""
-                        "	padding: 6px 6px;\n"
-"	color: white;\n"
+"QPushButton#settings:pressed, QPushButton#alerts:pressed {\n"
+"	background-color:  rg"
+                        "ba(255, 255, 255, 80);\n"
+"	border-left: 1px solid #32465F;\n"
+"	padding: 6px 10px;\n"
+"	border-radius: 0px;\n"
 "}\n"
 "\n"
 "QPushButton[expanded=\"true\"]:pressed {\n"
@@ -291,7 +294,7 @@ class Ui_MainWindow(object):
 "}\n"
 "\n"
 "QFrame#navigation {\n"
-"	background-color: #141B25;\n"
+"	background-color: #1C293B;\n"
 "	margin-bottom: 0px;\n"
 "	margin-top: 0px;\n"
 "	border-style: none;\n"
@@ -299,46 +302,8 @@ class Ui_MainWindow(object):
 "	padding-right: 0px;\n"
 "}\n"
 "\n"
-"QPushButton#pushButtonHome, QPushButton#pushButtonManage, \n"
-"QPushButton#pushButtonAnalytics {\n"
-"    background-color: transparent;\n"
-"    border-style: none;\n"
-"    padding: 3px 3px;\n"
-"    color: #BBBDC7;\n"
-"}\n"
-"\n"
-"QPushButton#pushButtonHome:hover:!checked {\n"
-"    background-color: transparent;\n"
-"    border-style: none;\n"
-"    padding: 3px 3px;\n"
-"	color: white;\n"
-"	icon: url(:/images/images/home-hovered-36dp.svg);\n"
-"}\n"
-"\n"
-"QPushButton#pushButtonManage:hover:!checked {\n"
-"    back"
-                        "ground-color: transparent;\n"
-"    border-style: none;\n"
-"    padding: 3px 3px;\n"
-"	color: white;\n"
-"	icon: url(:/images/images/account_balance_wallet-hovered-36dp.svg);\n"
-"}\n"
-"\n"
-"QPushButton#pushButtonAnalytics:hover:!checked {\n"
-"    background-color: transparent;\n"
-"    border-style: none;\n"
-"    padding: 3px 3px;\n"
-"	color: white;\n"
-"	icon: url(:/images/images/analytics-hovered-36dp.svg);\n"
-"}\n"
-"\n"
-"QPushButton#pushButtonHome:checked, QPushButton#pushButtonManage:checked,\n"
-"QPushButton#pushButtonAnalytics:checked {\n"
-"	color: #498DF4;\n"
-"}\n"
-"\n"
-"QFrame[frameShape=\"4\"] {\n"
-"	color: #060E1B;\n"
+"QFrame[frameShape=\"5\"] {\n"
+"	color: #32465F;\n"
 "}\n"
 "\n"
 "QScrollArea {\n"
@@ -353,6 +318,19 @@ class Ui_MainWindow(object):
 "	background: palette(base); \n"
 "}\n"
 "\n"
+"Card \n"
+"{\n"
+"	border-radius: 5px;\n"
+"	border-color: transparent;\n"
+"	border-width: 0px;\n"
+"	border-style: solid;\n"
+"	margin-top: 6ex;\n"
+"	margin-"
+                        "left: 1ex;\n"
+"	margin-right: 1ex;\n"
+"	padding-top: 30px;\n"
+"}\n"
+"\n"
 "Card::title\n"
 "{\n"
 "	background-color: transparent;\n"
@@ -360,8 +338,7 @@ class Ui_MainWindow(object):
 "	padding: 0 14px;\n"
 "	margin-bottom: -55px;\n"
 "	subcontrol-origin: margin;\n"
-""
-                        "	subcontrol-position: top left;\n"
+"	subcontrol-position: top left;\n"
 "}\n"
 "\n"
 "Card > QLabel#amount {\n"
@@ -394,7 +371,8 @@ class Ui_MainWindow(object):
 "	border-style: none;\n"
 "	padding: 0px 0px;\n"
 "	margin-bottom: 10px;\n"
-"	font-family: \"Roboto\";\n"
+""
+                        "	font-family: \"Roboto\";\n"
 "	font-size: 17pt;\n"
 "}\n"
 "\n"
@@ -403,8 +381,7 @@ class Ui_MainWindow(object):
 "	text-align: left;\n"
 "	background-color: transparent;\n"
 "	border-style: none;\n"
-"	padding: 0"
-                        "px 0px;\n"
+"	padding: 0px 0px;\n"
 "	margin-bottom: 10px;\n"
 "	font-family: \"Roboto\";\n"
 "	font-size: 17pt;\n"
@@ -446,7 +423,8 @@ class Ui_MainWindow(object):
 "Thumbnail::title\n"
 "{\n"
 "	background-color: transparent;\n"
-"	color: rgba(255, 255, 255, 230);\n"
+""
+                        "	color: rgba(255, 255, 255, 230);\n"
 "	padding: 0px 0px;\n"
 "	margin-bottom: 0px;\n"
 "}\n"
@@ -456,8 +434,7 @@ class Ui_MainWindow(object):
 "	background-color: transparent;\n"
 "	border-radius: 5px;\n"
 "	border-color: transparent;\n"
-"	col"
-                        "or: white;\n"
+"	color: white;\n"
 "}\n"
 "\n"
 "QLabel#categoryExpense {\n"
@@ -494,8 +471,74 @@ class Ui_MainWindow(object):
 "{\n"
 "	background-color: transparent;\n"
 "	border-radius: 0px;\n"
-"	border-color: transparent;\n"
+"	borde"
+                        "r-color: transparent;\n"
 "	color: white;\n"
+"}\n"
+"\n"
+"QPushButton#menuDashboard, QPushButton#menu,\n"
+"QPushButton#menuGraph, QPushButton#menuInsights {\n"
+"    background-color: transparent;\n"
+"	border-radius: 0px;\n"
+"    border-style: none;\n"
+"    padding: 8px 6px 8px 6px;\n"
+"}\n"
+"\n"
+"QPushButton#menuDashboard:checked, QPushButton#menuGraph:checked,\n"
+"QPushButton#menuInsights:checked {\n"
+"    background-color: #19344D;\n"
+"	border-radius: 0px;\n"
+"    border-left: 3px solid #0093EE;\n"
+"    padding: 8px 6px 8px 3px;\n"
+"}\n"
+"\n"
+"QPushButton#menuDashboard:hover:!checked, QPushButton#menuGraph:hover:!checked,\n"
+"QPushButton#menuInsights:hover:!checked {\n"
+"    background-color: #19344D;\n"
+"	border-radius: 0px;\n"
+"    border-style: none;\n"
+"    padding: 8px 6px 8px 6px;\n"
+"}\n"
+"\n"
+"QPushButton#menu:hover {\n"
+"    background-color: transparent;\n"
+"	border-radius: 0px;\n"
+"    border-style: none;\n"
+"    padding: 8px 6px 8px 6px;\n"
+"}\n"
+"\n"
+"QDockWidget {\n"
+"	color: white;\n"
+"	border-r"
+                        "adius: 5px;\n"
+"}\n"
+"\n"
+"QDockWidget:title {\n"
+"	background-color: #26374C;\n"
+"	border: 1px solid #344457;\n"
+"	border-radius: 4px;\n"
+"	margin-bottom: -5px;\n"
+"	margin-left: 0px;\n"
+"	margin-right: 0px;\n"
+"	padding-left: 15px;\n"
+"	padding-top: 15px;\n"
+"}\n"
+"\n"
+"QDockWidget > QWidget {\n"
+"	color: white;\n"
+"	background-color: #26374C;\n"
+"	border: 1px solid #344457;\n"
+"	border-top-left-radius: 0px;\n"
+"	border-top-right-radius: 0px;\n"
+"	border-bottom-left-radius: 4px;\n"
+"	border-bottom-right-radius: 4px;\n"
+"}\n"
+"\n"
+"QMainWindow::separator {\n"
+"	width: 10px;\n"
+"	height: 0px;\n"
+"	margin: -10px;\n"
+"	padding: 0px;\n"
 "}")
         self.gridLayout = QGridLayout(MainWindow)
         self.gridLayout.setSpacing(0)
@@ -509,42 +552,86 @@ class Ui_MainWindow(object):
         self.gridLayout_2.setObjectName(u"gridLayout_2")
         self.gridLayout_2.setHorizontalSpacing(15)
         self.gridLayout_2.setVerticalSpacing(0)
-        self.gridLayout_2.setContentsMargins(15, 0, 15, 15)
-        self.transactions = QGroupBox(self.dashboard)
-        self.transactions.setObjectName(u"transactions")
+        self.gridLayout_2.setContentsMargins(15, 15, 15, 15)
+        self.monthlyExpenses = QDockWidget(self.dashboard)
+        self.monthlyExpenses.setObjectName(u"monthlyExpenses")
         font = QFont()
         font.setFamily(u"Roboto")
-        font.setPointSize(14)
-        self.transactions.setFont(font)
+        font.setPointSize(13)
+        self.monthlyExpenses.setFont(font)
+        self.monthlyExpenses.setFeatures(QDockWidget.NoDockWidgetFeatures)
+        self.monthlyExpenses.setAllowedAreas(Qt.NoDockWidgetArea)
+        self.dockWidgetContents = QWidget()
+        self.dockWidgetContents.setObjectName(u"dockWidgetContents")
+        self.gridLayout_9 = QGridLayout(self.dockWidgetContents)
+        self.gridLayout_9.setObjectName(u"gridLayout_9")
+        self.gridLayout_9.setContentsMargins(-1, 0, -1, -1)
+        self.monthlyExpenses.setWidget(self.dockWidgetContents)
+
+        self.gridLayout_2.addWidget(self.monthlyExpenses, 0, 2, 3, 1)
+
+        self.accounts = QGroupBox(self.dashboard)
+        self.accounts.setObjectName(u"accounts")
+        sizePolicy = QSizePolicy(QSizePolicy.Minimum, QSizePolicy.Minimum)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.accounts.sizePolicy().hasHeightForWidth())
+        self.accounts.setSizePolicy(sizePolicy)
+        self.accounts.setMaximumSize(QSize(16777215, 250))
+        font1 = QFont()
+        font1.setFamily(u"Roboto")
+        font1.setPointSize(14)
+        font1.setBold(False)
+        font1.setWeight(50)
+        self.accounts.setFont(font1)
+        self.accounts.setCheckable(False)
+        self.horizontalLayout_3 = QHBoxLayout(self.accounts)
+        self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
+        self.horizontalLayout_3.setContentsMargins(0, 0, 0, 0)
+        self.card1 = Card(self.accounts)
+        self.card1.setObjectName(u"card1")
+        self.card1.setMinimumSize(QSize(383, 243))
+        self.card1.setMaximumSize(QSize(383, 243))
+        self.gridLayout_4 = QGridLayout(self.card1)
+        self.gridLayout_4.setObjectName(u"gridLayout_4")
+
+        self.horizontalLayout_3.addWidget(self.card1)
+
+
+        self.gridLayout_2.addWidget(self.accounts, 0, 0, 1, 2)
+
+        self.transactions = QGroupBox(self.dashboard)
+        self.transactions.setObjectName(u"transactions")
+        font2 = QFont()
+        font2.setFamily(u"Roboto")
+        font2.setPointSize(14)
+        self.transactions.setFont(font2)
         self.transactions.setCheckable(False)
         self.gridLayout_5 = QGridLayout(self.transactions)
         self.gridLayout_5.setObjectName(u"gridLayout_5")
         self.tableView = QTableView(self.transactions)
         self.tableView.setObjectName(u"tableView")
-        sizePolicy = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.tableView.sizePolicy().hasHeightForWidth())
-        self.tableView.setSizePolicy(sizePolicy)
+        sizePolicy1 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
+        sizePolicy1.setHorizontalStretch(0)
+        sizePolicy1.setVerticalStretch(0)
+        sizePolicy1.setHeightForWidth(self.tableView.sizePolicy().hasHeightForWidth())
+        self.tableView.setSizePolicy(sizePolicy1)
         self.tableView.setFrameShape(QFrame.NoFrame)
 
         self.gridLayout_5.addWidget(self.tableView, 0, 0, 1, 1)
 
 
-        self.gridLayout_2.addWidget(self.transactions, 1, 0, 1, 2)
+        self.gridLayout_2.addWidget(self.transactions, 1, 0, 2, 2)
 
         self.distribution = QGroupBox(self.dashboard)
         self.distribution.setObjectName(u"distribution")
-        font1 = QFont()
-        font1.setFamily(u"Roboto")
-        font1.setPointSize(13)
-        self.distribution.setFont(font1)
+        self.distribution.setFont(font)
         self.gridLayout_6 = QGridLayout(self.distribution)
         self.gridLayout_6.setObjectName(u"gridLayout_6")
         self.monthlyExpensesThumb = SlidingStackedWidget(self.distribution)
         self.monthlyExpensesThumb.setObjectName(u"monthlyExpensesThumb")
-        sizePolicy.setHeightForWidth(self.monthlyExpensesThumb.sizePolicy().hasHeightForWidth())
-        self.monthlyExpensesThumb.setSizePolicy(sizePolicy)
+        sizePolicy1.setHeightForWidth(self.monthlyExpensesThumb.sizePolicy().hasHeightForWidth())
+        self.monthlyExpensesThumb.setSizePolicy(sizePolicy1)
         self.page1 = QWidget()
         self.page1.setObjectName(u"page1")
         self.horizontalLayout_4 = QHBoxLayout(self.page1)
@@ -553,8 +640,8 @@ class Ui_MainWindow(object):
         self.horizontalLayout_4.setContentsMargins(0, 0, 0, 0)
         self.page1MonthlyExpenses = QGroupBox(self.page1)
         self.page1MonthlyExpenses.setObjectName(u"page1MonthlyExpenses")
-        sizePolicy.setHeightForWidth(self.page1MonthlyExpenses.sizePolicy().hasHeightForWidth())
-        self.page1MonthlyExpenses.setSizePolicy(sizePolicy)
+        sizePolicy1.setHeightForWidth(self.page1MonthlyExpenses.sizePolicy().hasHeightForWidth())
+        self.page1MonthlyExpenses.setSizePolicy(sizePolicy1)
         self.page1MonthlyExpenses.setMinimumSize(QSize(0, 0))
         self.page1MonthlyExpenses.setMaximumSize(QSize(16777215, 16777215))
 
@@ -599,50 +686,8 @@ class Ui_MainWindow(object):
 
         self.gridLayout_6.addWidget(self.monthlyExpensesThumb, 0, 0, 1, 1)
 
-        self.line_2 = QFrame(self.distribution)
-        self.line_2.setObjectName(u"line_2")
-        self.line_2.setFrameShape(QFrame.HLine)
-        self.line_2.setFrameShadow(QFrame.Sunken)
 
-        self.gridLayout_6.addWidget(self.line_2, 1, 0, 1, 1)
-
-        self.groupBox = QGroupBox(self.distribution)
-        self.groupBox.setObjectName(u"groupBox")
-
-        self.gridLayout_6.addWidget(self.groupBox, 2, 0, 1, 1)
-
-
-        self.gridLayout_2.addWidget(self.distribution, 0, 2, 2, 1)
-
-        self.accounts = QGroupBox(self.dashboard)
-        self.accounts.setObjectName(u"accounts")
-        sizePolicy1 = QSizePolicy(QSizePolicy.Minimum, QSizePolicy.Minimum)
-        sizePolicy1.setHorizontalStretch(0)
-        sizePolicy1.setVerticalStretch(0)
-        sizePolicy1.setHeightForWidth(self.accounts.sizePolicy().hasHeightForWidth())
-        self.accounts.setSizePolicy(sizePolicy1)
-        self.accounts.setMaximumSize(QSize(16777215, 250))
-        font2 = QFont()
-        font2.setFamily(u"Roboto")
-        font2.setPointSize(14)
-        font2.setBold(False)
-        font2.setWeight(50)
-        self.accounts.setFont(font2)
-        self.accounts.setCheckable(False)
-        self.horizontalLayout_3 = QHBoxLayout(self.accounts)
-        self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
-        self.horizontalLayout_3.setContentsMargins(0, 0, 0, 0)
-        self.card1 = Card(self.accounts)
-        self.card1.setObjectName(u"card1")
-        self.card1.setMinimumSize(QSize(383, 243))
-        self.card1.setMaximumSize(QSize(383, 243))
-        self.gridLayout_4 = QGridLayout(self.card1)
-        self.gridLayout_4.setObjectName(u"gridLayout_4")
-
-        self.horizontalLayout_3.addWidget(self.card1)
-
-
-        self.gridLayout_2.addWidget(self.accounts, 0, 0, 1, 2)
+        self.gridLayout_2.addWidget(self.distribution, 0, 3, 3, 2)
 
         self.stackedWidget.addWidget(self.dashboard)
         self.page_2 = QWidget()
@@ -670,25 +715,12 @@ class Ui_MainWindow(object):
         self.menuBar.setObjectName(u"menuBar")
         self.menuBar.setMinimumSize(QSize(0, 40))
         self.horizontalLayout = QHBoxLayout(self.menuBar)
+        self.horizontalLayout.setSpacing(0)
         self.horizontalLayout.setObjectName(u"horizontalLayout")
-        self.horizontalLayout.setContentsMargins(-1, 7, -1, 7)
-        self.menu = QPushButton(self.menuBar)
-        self.menu.setObjectName(u"menu")
-        self.menu.setCursor(QCursor(Qt.PointingHandCursor))
-        icon3 = QIcon()
-        icon3.addFile(u":/images/images/menu-white-36dp.svg", QSize(), QIcon.Normal, QIcon.Off)
-        self.menu.setIcon(icon3)
-        self.menu.setIconSize(QSize(24, 24))
-        self.menu.setCheckable(True)
-
-        self.horizontalLayout.addWidget(self.menu)
-
+        self.horizontalLayout.setContentsMargins(-1, 0, -1, 0)
         self.menuLabel = QLabel(self.menuBar)
         self.menuLabel.setObjectName(u"menuLabel")
-        font3 = QFont()
-        font3.setFamily(u"Roboto")
-        font3.setPointSize(15)
-        self.menuLabel.setFont(font3)
+        self.menuLabel.setFont(font2)
 
         self.horizontalLayout.addWidget(self.menuLabel)
 
@@ -698,20 +730,24 @@ class Ui_MainWindow(object):
 
         self.alerts = QPushButton(self.menuBar)
         self.alerts.setObjectName(u"alerts")
+        self.alerts.setMinimumSize(QSize(45, 39))
+        self.alerts.setMaximumSize(QSize(45, 39))
         self.alerts.setCursor(QCursor(Qt.PointingHandCursor))
-        icon4 = QIcon()
-        icon4.addFile(u":/images/images/notification_important-empty-white-36dp.svg", QSize(), QIcon.Normal, QIcon.Off)
-        self.alerts.setIcon(icon4)
+        icon3 = QIcon()
+        icon3.addFile(u":/images/images/notifications-white-24dp.svg", QSize(), QIcon.Normal, QIcon.Off)
+        self.alerts.setIcon(icon3)
         self.alerts.setIconSize(QSize(24, 24))
 
         self.horizontalLayout.addWidget(self.alerts)
 
         self.settings = QPushButton(self.menuBar)
         self.settings.setObjectName(u"settings")
+        self.settings.setMinimumSize(QSize(45, 39))
+        self.settings.setMaximumSize(QSize(45, 39))
         self.settings.setCursor(QCursor(Qt.PointingHandCursor))
-        icon5 = QIcon()
-        icon5.addFile(u":/images/images/settings-white-36dp.svg", QSize(), QIcon.Normal, QIcon.Off)
-        self.settings.setIcon(icon5)
+        icon4 = QIcon()
+        icon4.addFile(u":/images/images/settings-white-24dp.svg", QSize(), QIcon.Normal, QIcon.Off)
+        self.settings.setIcon(icon4)
         self.settings.setIconSize(QSize(24, 24))
 
         self.horizontalLayout.addWidget(self.settings)
@@ -726,8 +762,8 @@ class Ui_MainWindow(object):
         sizePolicy2.setVerticalStretch(0)
         sizePolicy2.setHeightForWidth(self.drawer.sizePolicy().hasHeightForWidth())
         self.drawer.setSizePolicy(sizePolicy2)
-        self.drawer.setMinimumSize(QSize(65, 0))
-        self.drawer.setMaximumSize(QSize(65, 16777215))
+        self.drawer.setMinimumSize(QSize(50, 0))
+        self.drawer.setMaximumSize(QSize(50, 16777215))
         self.gridLayout_7 = QGridLayout(self.drawer)
         self.gridLayout_7.setObjectName(u"gridLayout_7")
         self.gridLayout_7.setContentsMargins(0, 0, 0, 0)
@@ -737,130 +773,82 @@ class Ui_MainWindow(object):
         self.navigation.setFrameShadow(QFrame.Raised)
         self.gridLayout_8 = QGridLayout(self.navigation)
         self.gridLayout_8.setObjectName(u"gridLayout_8")
-        self.gridLayout_8.setContentsMargins(-1, 7, -1, 7)
-        self.line = QFrame(self.navigation)
-        self.line.setObjectName(u"line")
-        sizePolicy3 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Fixed)
-        sizePolicy3.setHorizontalStretch(0)
-        sizePolicy3.setVerticalStretch(0)
-        sizePolicy3.setHeightForWidth(self.line.sizePolicy().hasHeightForWidth())
-        self.line.setSizePolicy(sizePolicy3)
-        self.line.setFrameShadow(QFrame.Plain)
-        self.line.setLineWidth(0)
-        self.line.setMidLineWidth(3)
-        self.line.setFrameShape(QFrame.HLine)
+        self.gridLayout_8.setContentsMargins(0, 0, 0, 7)
+        self.horizontalLayout_2 = QHBoxLayout()
+        self.horizontalLayout_2.setSpacing(0)
+        self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
+        self.menu = QPushButton(self.navigation)
+        self.menu.setObjectName(u"menu")
+        self.menu.setMinimumSize(QSize(50, 40))
+        self.menu.setMaximumSize(QSize(50, 40))
+        self.menu.setCursor(QCursor(Qt.PointingHandCursor))
+        icon5 = QIcon()
+        icon5.addFile(u":/images/images/menu-white-36dp.svg", QSize(), QIcon.Normal, QIcon.Off)
+        self.menu.setIcon(icon5)
+        self.menu.setIconSize(QSize(24, 24))
+        self.menu.setCheckable(True)
 
-        self.gridLayout_8.addWidget(self.line, 2, 0, 1, 2)
+        self.horizontalLayout_2.addWidget(self.menu)
+
+
+        self.gridLayout_8.addLayout(self.horizontalLayout_2, 1, 0, 1, 2)
 
         self.verticalLayout_2 = QVBoxLayout()
         self.verticalLayout_2.setSpacing(30)
         self.verticalLayout_2.setObjectName(u"verticalLayout_2")
         self.verticalLayout_2.setContentsMargins(-1, 15, -1, -1)
-        self.horizontalLayout_6 = QHBoxLayout()
-        self.horizontalLayout_6.setObjectName(u"horizontalLayout_6")
-        self.pushButtonHome = QPushButton(self.navigation)
-        self.pushButtonHome.setObjectName(u"pushButtonHome")
-        self.pushButtonHome.setMaximumSize(QSize(250, 34))
-        font4 = QFont()
-        font4.setFamily(u"Roboto")
-        font4.setPointSize(12)
-        self.pushButtonHome.setFont(font4)
-        self.pushButtonHome.setCursor(QCursor(Qt.PointingHandCursor))
+        self.menuDashboard = QPushButton(self.navigation)
+        self.menuDashboard.setObjectName(u"menuDashboard")
+        self.menuDashboard.setMinimumSize(QSize(50, 40))
+        self.menuDashboard.setMaximumSize(QSize(50, 40))
+        font3 = QFont()
+        font3.setFamily(u"Roboto")
+        font3.setPointSize(12)
+        self.menuDashboard.setFont(font3)
+        self.menuDashboard.setCursor(QCursor(Qt.PointingHandCursor))
         icon6 = QIcon()
-        icon6.addFile(u":/images/images/home-checked-36dp.svg", QSize(), QIcon.Normal, QIcon.Off)
-        self.pushButtonHome.setIcon(icon6)
-        self.pushButtonHome.setIconSize(QSize(28, 28))
-        self.pushButtonHome.setCheckable(True)
-        self.pushButtonHome.setChecked(True)
+        icon6.addFile(u":/images/images/dashboard-white-36dp.svg", QSize(), QIcon.Normal, QIcon.Off)
+        self.menuDashboard.setIcon(icon6)
+        self.menuDashboard.setIconSize(QSize(24, 24))
+        self.menuDashboard.setCheckable(True)
+        self.menuDashboard.setChecked(True)
 
-        self.horizontalLayout_6.addWidget(self.pushButtonHome)
+        self.verticalLayout_2.addWidget(self.menuDashboard)
 
-        self.horizontalSpacer_5 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
-
-        self.horizontalLayout_6.addItem(self.horizontalSpacer_5)
-
-
-        self.verticalLayout_2.addLayout(self.horizontalLayout_6)
-
-        self.horizontalLayout_7 = QHBoxLayout()
-        self.horizontalLayout_7.setObjectName(u"horizontalLayout_7")
-        self.pushButtonManage = QPushButton(self.navigation)
-        self.pushButtonManage.setObjectName(u"pushButtonManage")
-        self.pushButtonManage.setMaximumSize(QSize(250, 34))
-        self.pushButtonManage.setFont(font4)
-        self.pushButtonManage.setCursor(QCursor(Qt.PointingHandCursor))
+        self.menuGraph = QPushButton(self.navigation)
+        self.menuGraph.setObjectName(u"menuGraph")
+        self.menuGraph.setMinimumSize(QSize(50, 40))
+        self.menuGraph.setMaximumSize(QSize(50, 40))
+        self.menuGraph.setFont(font3)
+        self.menuGraph.setCursor(QCursor(Qt.PointingHandCursor))
         icon7 = QIcon()
-        icon7.addFile(u":/images/images/account_balance_wallet-white-36dp.svg", QSize(), QIcon.Normal, QIcon.Off)
-        self.pushButtonManage.setIcon(icon7)
-        self.pushButtonManage.setIconSize(QSize(28, 28))
-        self.pushButtonManage.setCheckable(True)
+        icon7.addFile(u":/images/images/assessment-white-36dp.svg", QSize(), QIcon.Normal, QIcon.Off)
+        self.menuGraph.setIcon(icon7)
+        self.menuGraph.setIconSize(QSize(24, 24))
+        self.menuGraph.setCheckable(True)
 
-        self.horizontalLayout_7.addWidget(self.pushButtonManage)
+        self.verticalLayout_2.addWidget(self.menuGraph)
 
-        self.horizontalSpacer_6 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
-
-        self.horizontalLayout_7.addItem(self.horizontalSpacer_6)
-
-
-        self.verticalLayout_2.addLayout(self.horizontalLayout_7)
-
-        self.horizontalLayout_8 = QHBoxLayout()
-        self.horizontalLayout_8.setObjectName(u"horizontalLayout_8")
-        self.pushButtonAnalytics = QPushButton(self.navigation)
-        self.pushButtonAnalytics.setObjectName(u"pushButtonAnalytics")
-        self.pushButtonAnalytics.setMaximumSize(QSize(250, 34))
-        self.pushButtonAnalytics.setFont(font4)
-        self.pushButtonAnalytics.setCursor(QCursor(Qt.PointingHandCursor))
+        self.menuInsights = QPushButton(self.navigation)
+        self.menuInsights.setObjectName(u"menuInsights")
+        self.menuInsights.setMinimumSize(QSize(50, 40))
+        self.menuInsights.setMaximumSize(QSize(50, 40))
+        self.menuInsights.setFont(font3)
+        self.menuInsights.setCursor(QCursor(Qt.PointingHandCursor))
         icon8 = QIcon()
-        icon8.addFile(u":/images/images/analytics-white-36dp.svg", QSize(), QIcon.Normal, QIcon.Off)
-        self.pushButtonAnalytics.setIcon(icon8)
-        self.pushButtonAnalytics.setIconSize(QSize(28, 28))
-        self.pushButtonAnalytics.setCheckable(True)
+        icon8.addFile(u":/images/images/insights-white-36dp.svg", QSize(), QIcon.Normal, QIcon.Off)
+        self.menuInsights.setIcon(icon8)
+        self.menuInsights.setIconSize(QSize(24, 24))
+        self.menuInsights.setCheckable(True)
 
-        self.horizontalLayout_8.addWidget(self.pushButtonAnalytics)
-
-        self.horizontalSpacer_7 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
-
-        self.horizontalLayout_8.addItem(self.horizontalSpacer_7)
+        self.verticalLayout_2.addWidget(self.menuInsights)
 
 
-        self.verticalLayout_2.addLayout(self.horizontalLayout_8)
-
-
-        self.gridLayout_8.addLayout(self.verticalLayout_2, 4, 0, 1, 2)
+        self.gridLayout_8.addLayout(self.verticalLayout_2, 3, 0, 1, 2)
 
         self.verticalSpacer = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
 
-        self.gridLayout_8.addItem(self.verticalSpacer, 7, 0, 1, 2)
-
-        self.horizontalLayout_2 = QHBoxLayout()
-        self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
-        self.horizontalSpacer_4 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
-
-        self.horizontalLayout_2.addItem(self.horizontalSpacer_4)
-
-        self.labelLogo = QLabel(self.navigation)
-        self.labelLogo.setObjectName(u"labelLogo")
-        sizePolicy4 = QSizePolicy(QSizePolicy.Fixed, QSizePolicy.Fixed)
-        sizePolicy4.setHorizontalStretch(0)
-        sizePolicy4.setVerticalStretch(0)
-        sizePolicy4.setHeightForWidth(self.labelLogo.sizePolicy().hasHeightForWidth())
-        self.labelLogo.setSizePolicy(sizePolicy4)
-        self.labelLogo.setMinimumSize(QSize(40, 36))
-        self.labelLogo.setMaximumSize(QSize(40, 36))
-        self.labelLogo.setPixmap(QPixmap(u":/images/images/bold-36px-#3889F2.png"))
-        self.labelLogo.setScaledContents(False)
-        self.labelLogo.setAlignment(Qt.AlignCenter)
-        self.labelLogo.setWordWrap(False)
-
-        self.horizontalLayout_2.addWidget(self.labelLogo)
-
-        self.horizontalSpacer_3 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
-
-        self.horizontalLayout_2.addItem(self.horizontalSpacer_3)
-
-
-        self.gridLayout_8.addLayout(self.horizontalLayout_2, 1, 0, 1, 2)
+        self.gridLayout_8.addItem(self.verticalSpacer, 6, 0, 1, 2)
 
 
         self.gridLayout_7.addWidget(self.navigation, 0, 0, 1, 1)
@@ -880,19 +868,18 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"Budgetter", None))
+        self.monthlyExpenses.setWindowTitle(QCoreApplication.translate("MainWindow", u"Expenses Distribution", None))
+        self.accounts.setTitle("")
+        self.card1.setTitle(QCoreApplication.translate("MainWindow", u"GroupBox", None))
         self.transactions.setTitle(QCoreApplication.translate("MainWindow", u"Recent Transactions", None))
         self.distribution.setTitle(QCoreApplication.translate("MainWindow", u"Monthly Expenses", None))
         self.page1MonthlyExpenses.setTitle("")
         self.rightPageMonthlyExpenses.setText("")
         self.leftPageMonthlyExpenses.setText("")
         self.page2MonthlyExpenses.setTitle("")
-        self.groupBox.setTitle(QCoreApplication.translate("MainWindow", u"GroupBox", None))
-        self.accounts.setTitle("")
-        self.card1.setTitle(QCoreApplication.translate("MainWindow", u"GroupBox", None))
         self.total.setTitle(QCoreApplication.translate("MainWindow", u"Total", None))
         self.savings.setTitle(QCoreApplication.translate("MainWindow", u"Savings", None))
-        self.menu.setText("")
-        self.menuLabel.setText(QCoreApplication.translate("MainWindow", u"Home", None))
+        self.menuLabel.setText(QCoreApplication.translate("MainWindow", u"Dashboard", None))
 #if QT_CONFIG(tooltip)
         self.alerts.setToolTip(QCoreApplication.translate("MainWindow", u"Notifications", None))
 #endif // QT_CONFIG(tooltip)
@@ -901,18 +888,18 @@ class Ui_MainWindow(object):
         self.settings.setToolTip(QCoreApplication.translate("MainWindow", u"Settings", None))
 #endif // QT_CONFIG(tooltip)
         self.settings.setText("")
+        self.menu.setText("")
 #if QT_CONFIG(tooltip)
-        self.pushButtonHome.setToolTip(QCoreApplication.translate("MainWindow", u"Home", None))
+        self.menuDashboard.setToolTip(QCoreApplication.translate("MainWindow", u"Dashboard", None))
 #endif // QT_CONFIG(tooltip)
-        self.pushButtonHome.setText("")
+        self.menuDashboard.setText("")
 #if QT_CONFIG(tooltip)
-        self.pushButtonManage.setToolTip(QCoreApplication.translate("MainWindow", u"Manager", None))
+        self.menuGraph.setToolTip(QCoreApplication.translate("MainWindow", u"Graph", None))
 #endif // QT_CONFIG(tooltip)
-        self.pushButtonManage.setText("")
+        self.menuGraph.setText("")
 #if QT_CONFIG(tooltip)
-        self.pushButtonAnalytics.setToolTip(QCoreApplication.translate("MainWindow", u"Analytics", None))
+        self.menuInsights.setToolTip(QCoreApplication.translate("MainWindow", u"Insights", None))
 #endif // QT_CONFIG(tooltip)
-        self.pushButtonAnalytics.setText("")
-        self.labelLogo.setText("")
+        self.menuInsights.setText("")
     # retranslateUi
 

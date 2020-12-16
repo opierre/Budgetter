@@ -14,7 +14,7 @@
    <string>Budgetter</string>
   </property>
   <property name="windowIcon">
-   <iconset resource="../resources/resources.qrc">
+   <iconset>
     <normaloff>:/images/images/bold-36px-#2ABFB0.png</normaloff>:/images/images/bold-36px-#2ABFB0.png</iconset>
   </property>
   <property name="styleSheet">
@@ -32,7 +32,7 @@
 QGroupBox 
 {
 	background-color: #26374C;
-	border-radius: 5px;
+	border-radius: 4px;
 	border-color: #344457;
 	border-width: 1px;
 	border-style: solid;
@@ -229,21 +229,26 @@ QGroupBox#transactions::indicator
 	image: url(:/images/images/receipt-20px-#72C1F2.png);
 }
 
-QPushButton#menu, QPushButton#settings, QPushButton#alerts {
+QPushButton#settings {
+	background-color:  transparent;
+	border-left: 1px solid #32465F;
+	border-right: 1px solid #32465F;
+	padding: 6px 10px;
+	border-radius: 0px;
+}
+
+QPushButton#alerts {
 	background-color: transparent;
-	border: none;
-	padding: 6px 6px;
-	color: white;
+	border-left: 1px solid #32465F;
+	padding: 6px 10px;
+	border-radius: 0px;
 }
 
 QPushButton#menu:hover, QPushButton#settings:hover, QPushButton#alerts:hover {
-	background-color: rgba(255, 255, 255, 35);
-	border-style: outset;
-	border-width: 1px;
-	border-radius: 2px;
-	border-color: transparent;
-	padding: 6px 6px;
-	color: white;
+	background-color:  rgba(255, 255, 255, 35);
+	border-left: 1px solid #32465F;
+	padding: 6px 10px;
+	border-radius: 0px;
 }
 
 QPushButton[expanded=&quot;true&quot;]:hover {
@@ -255,14 +260,11 @@ QPushButton[expanded=&quot;true&quot;]:hover {
 	color: rgba(255, 255, 255, 128);
 }
 
-QPushButton#menu:pressed, QPushButton#settings:pressed, QPushButton#alerts:pressed {
-	background-color: rgba(255, 255, 255, 80);
-	border-style: outset;
-	border-width: 1px;
-	border-radius: 2px;
-	border-color: transparent;
-	padding: 6px 6px;
-	color: white;
+QPushButton#settings:pressed, QPushButton#alerts:pressed {
+	background-color:  rgba(255, 255, 255, 80);
+	border-left: 1px solid #32465F;
+	padding: 6px 10px;
+	border-radius: 0px;
 }
 
 QPushButton[expanded=&quot;true&quot;]:pressed {
@@ -284,43 +286,6 @@ QFrame#navigation {
 	padding-right: 0px;
 }
 
-QPushButton#pushButtonHome, QPushButton#pushButtonManage, 
-QPushButton#pushButtonAnalytics {
-    background-color: transparent;
-    border-style: none;
-    padding: 3px 3px;
-    color: #BBBDC7;
-}
-
-QPushButton#pushButtonHome:hover:!checked {
-    background-color: transparent;
-    border-style: none;
-    padding: 3px 3px;
-	color: white;
-	icon: url(:/images/images/home-hovered-36dp.svg);
-}
-
-QPushButton#pushButtonManage:hover:!checked {
-    background-color: transparent;
-    border-style: none;
-    padding: 3px 3px;
-	color: white;
-	icon: url(:/images/images/account_balance_wallet-hovered-36dp.svg);
-}
-
-QPushButton#pushButtonAnalytics:hover:!checked {
-    background-color: transparent;
-    border-style: none;
-    padding: 3px 3px;
-	color: white;
-	icon: url(:/images/images/analytics-hovered-36dp.svg);
-}
-
-QPushButton#pushButtonHome:checked, QPushButton#pushButtonManage:checked,
-QPushButton#pushButtonAnalytics:checked {
-	color: #498DF4;
-}
-
 QFrame[frameShape=&quot;5&quot;] {
 	color: #32465F;
 }
@@ -335,6 +300,18 @@ QScrollArea &gt; QWidget &gt; QWidget {
 
 QScrollArea &gt; QWidget &gt; QScrollBar { 
 	background: palette(base); 
+}
+
+Card 
+{
+	border-radius: 5px;
+	border-color: transparent;
+	border-width: 0px;
+	border-style: solid;
+	margin-top: 6ex;
+	margin-left: 1ex;
+	margin-right: 1ex;
+	padding-top: 30px;
 }
 
 Card::title
@@ -477,6 +454,70 @@ QPushButton#rightPageMonthlyExpenses, QPushButton#leftPageMonthlyExpenses
 	border-radius: 0px;
 	border-color: transparent;
 	color: white;
+}
+
+QPushButton#menuDashboard, QPushButton#menu,
+QPushButton#menuGraph, QPushButton#menuInsights {
+    background-color: transparent;
+	border-radius: 0px;
+    border-style: none;
+    padding: 8px 6px 8px 6px;
+}
+
+QPushButton#menuDashboard:checked, QPushButton#menuGraph:checked,
+QPushButton#menuInsights:checked {
+    background-color: #19344D;
+	border-radius: 0px;
+    border-left: 3px solid #0093EE;
+    padding: 8px 6px 8px 3px;
+}
+
+QPushButton#menuDashboard:hover:!checked, QPushButton#menuGraph:hover:!checked,
+QPushButton#menuInsights:hover:!checked {
+    background-color: #19344D;
+	border-radius: 0px;
+    border-style: none;
+    padding: 8px 6px 8px 6px;
+}
+
+QPushButton#menu:hover {
+    background-color: transparent;
+	border-radius: 0px;
+    border-style: none;
+    padding: 8px 6px 8px 6px;
+}
+
+QDockWidget {
+	color: white;
+	border-radius: 5px;
+}
+
+QDockWidget:title {
+	background-color: #26374C;
+	border: 1px solid #344457;
+	border-radius: 4px;
+	margin-bottom: -5px;
+	margin-left: 0px;
+	margin-right: 0px;
+	padding-left: 15px;
+	padding-top: 15px;
+}
+
+QDockWidget &gt; QWidget {
+	color: white;
+	background-color: #26374C;
+	border: 1px solid #344457;
+	border-top-left-radius: 0px;
+	border-top-right-radius: 0px;
+	border-bottom-left-radius: 4px;
+	border-bottom-right-radius: 4px;
+}
+
+QMainWindow::separator {
+	width: 10px;
+	height: 0px;
+	margin: -10px;
+	padding: 0px;
 }</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
@@ -522,11 +563,26 @@ QPushButton#rightPageMonthlyExpenses, QPushButton#leftPageMonthlyExpenses
        </property>
        <item row="0" column="2" rowspan="3">
         <widget class="QDockWidget" name="monthlyExpenses">
+         <property name="font">
+          <font>
+           <family>Roboto</family>
+           <pointsize>13</pointsize>
+          </font>
+         </property>
+         <property name="features">
+          <set>QDockWidget::NoDockWidgetFeatures</set>
+         </property>
+         <property name="allowedAreas">
+          <set>Qt::NoDockWidgetArea</set>
+         </property>
+         <property name="windowTitle">
+          <string>Expenses Distribution</string>
+         </property>
          <widget class="QWidget" name="dockWidgetContents">
           <layout class="QGridLayout" name="gridLayout_9">
-           <item row="0" column="0">
-            <widget class="QListView" name="listView"/>
-           </item>
+           <property name="topMargin">
+            <number>0</number>
+           </property>
           </layout>
          </widget>
         </widget>
@@ -811,6 +867,9 @@ QPushButton#rightPageMonthlyExpenses, QPushButton#leftPageMonthlyExpenses
       </size>
      </property>
      <layout class="QHBoxLayout" name="horizontalLayout">
+      <property name="spacing">
+       <number>0</number>
+      </property>
       <property name="topMargin">
        <number>0</number>
       </property>
@@ -822,7 +881,7 @@ QPushButton#rightPageMonthlyExpenses, QPushButton#leftPageMonthlyExpenses
         <property name="font">
          <font>
           <family>Roboto</family>
-          <pointsize>15</pointsize>
+          <pointsize>14</pointsize>
          </font>
         </property>
         <property name="text">
@@ -844,17 +903,19 @@ QPushButton#rightPageMonthlyExpenses, QPushButton#leftPageMonthlyExpenses
        </spacer>
       </item>
       <item>
-       <widget class="Line" name="line">
-        <property name="frameShadow">
-         <enum>QFrame::Plain</enum>
-        </property>
-        <property name="orientation">
-         <enum>Qt::Vertical</enum>
-        </property>
-       </widget>
-      </item>
-      <item>
        <widget class="QPushButton" name="alerts">
+        <property name="minimumSize">
+         <size>
+          <width>45</width>
+          <height>39</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>45</width>
+          <height>39</height>
+         </size>
+        </property>
         <property name="cursor">
          <cursorShape>PointingHandCursor</cursorShape>
         </property>
@@ -866,28 +927,30 @@ QPushButton#rightPageMonthlyExpenses, QPushButton#leftPageMonthlyExpenses
         </property>
         <property name="icon">
          <iconset resource="../resources/resources.qrc">
-          <normaloff>:/images/images/notifications-white-36dp.svg</normaloff>:/images/images/notifications-white-36dp.svg</iconset>
+          <normaloff>:/images/images/notifications-white-24dp.svg</normaloff>:/images/images/notifications-white-24dp.svg</iconset>
         </property>
         <property name="iconSize">
          <size>
-          <width>22</width>
-          <height>22</height>
+          <width>24</width>
+          <height>24</height>
          </size>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="Line" name="line_2">
-        <property name="frameShadow">
-         <enum>QFrame::Plain</enum>
-        </property>
-        <property name="orientation">
-         <enum>Qt::Vertical</enum>
-        </property>
-       </widget>
-      </item>
-      <item>
        <widget class="QPushButton" name="settings">
+        <property name="minimumSize">
+         <size>
+          <width>45</width>
+          <height>39</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>45</width>
+          <height>39</height>
+         </size>
+        </property>
         <property name="cursor">
          <cursorShape>PointingHandCursor</cursorShape>
         </property>
@@ -899,23 +962,13 @@ QPushButton#rightPageMonthlyExpenses, QPushButton#leftPageMonthlyExpenses
         </property>
         <property name="icon">
          <iconset resource="../resources/resources.qrc">
-          <normaloff>:/images/images/settings-white-36dp.svg</normaloff>:/images/images/settings-white-36dp.svg</iconset>
+          <normaloff>:/images/images/settings-white-24dp.svg</normaloff>:/images/images/settings-white-24dp.svg</iconset>
         </property>
         <property name="iconSize">
          <size>
-          <width>22</width>
-          <height>22</height>
+          <width>24</width>
+          <height>24</height>
          </size>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="Line" name="line_3">
-        <property name="frameShadow">
-         <enum>QFrame::Plain</enum>
-        </property>
-        <property name="orientation">
-         <enum>Qt::Vertical</enum>
         </property>
        </widget>
       </item>
@@ -968,7 +1021,7 @@ QPushButton#rightPageMonthlyExpenses, QPushButton#leftPageMonthlyExpenses
           <number>0</number>
          </property>
          <property name="topMargin">
-          <number>7</number>
+          <number>0</number>
          </property>
          <property name="rightMargin">
           <number>0</number>
@@ -978,21 +1031,23 @@ QPushButton#rightPageMonthlyExpenses, QPushButton#leftPageMonthlyExpenses
          </property>
          <item row="1" column="0" colspan="2">
           <layout class="QHBoxLayout" name="horizontalLayout_2">
-           <item>
-            <spacer name="horizontalSpacer_4">
-             <property name="orientation">
-              <enum>Qt::Horizontal</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>40</width>
-               <height>20</height>
-              </size>
-             </property>
-            </spacer>
-           </item>
+           <property name="spacing">
+            <number>0</number>
+           </property>
            <item>
             <widget class="QPushButton" name="menu">
+             <property name="minimumSize">
+              <size>
+               <width>50</width>
+               <height>40</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>50</width>
+               <height>40</height>
+              </size>
+             </property>
              <property name="cursor">
               <cursorShape>PointingHandCursor</cursorShape>
              </property>
@@ -1014,19 +1069,6 @@ QPushButton#rightPageMonthlyExpenses, QPushButton#leftPageMonthlyExpenses
              </property>
             </widget>
            </item>
-           <item>
-            <spacer name="horizontalSpacer_3">
-             <property name="orientation">
-              <enum>Qt::Horizontal</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>40</width>
-               <height>20</height>
-              </size>
-             </property>
-            </spacer>
-           </item>
           </layout>
          </item>
          <item row="3" column="0" colspan="2">
@@ -1038,11 +1080,17 @@ QPushButton#rightPageMonthlyExpenses, QPushButton#leftPageMonthlyExpenses
             <number>15</number>
            </property>
            <item>
-            <widget class="QPushButton" name="pushButtonHome">
+            <widget class="QPushButton" name="menuDashboard">
+             <property name="minimumSize">
+              <size>
+               <width>50</width>
+               <height>40</height>
+              </size>
+             </property>
              <property name="maximumSize">
               <size>
                <width>50</width>
-               <height>34</height>
+               <height>40</height>
               </size>
              </property>
              <property name="font">
@@ -1055,7 +1103,7 @@ QPushButton#rightPageMonthlyExpenses, QPushButton#leftPageMonthlyExpenses
               <cursorShape>PointingHandCursor</cursorShape>
              </property>
              <property name="toolTip">
-              <string>Home</string>
+              <string>Dashboard</string>
              </property>
              <property name="text">
               <string/>
@@ -1079,11 +1127,17 @@ QPushButton#rightPageMonthlyExpenses, QPushButton#leftPageMonthlyExpenses
             </widget>
            </item>
            <item>
-            <widget class="QPushButton" name="pushButtonManage">
+            <widget class="QPushButton" name="menuGraph">
+             <property name="minimumSize">
+              <size>
+               <width>50</width>
+               <height>40</height>
+              </size>
+             </property>
              <property name="maximumSize">
               <size>
                <width>50</width>
-               <height>34</height>
+               <height>40</height>
               </size>
              </property>
              <property name="font">
@@ -1096,19 +1150,19 @@ QPushButton#rightPageMonthlyExpenses, QPushButton#leftPageMonthlyExpenses
               <cursorShape>PointingHandCursor</cursorShape>
              </property>
              <property name="toolTip">
-              <string>Manager</string>
+              <string>Graph</string>
              </property>
              <property name="text">
               <string/>
              </property>
              <property name="icon">
               <iconset resource="../resources/resources.qrc">
-               <normaloff>:/images/images/account_balance_wallet-white-36dp.svg</normaloff>:/images/images/account_balance_wallet-white-36dp.svg</iconset>
+               <normaloff>:/images/images/assessment-white-36dp.svg</normaloff>:/images/images/assessment-white-36dp.svg</iconset>
              </property>
              <property name="iconSize">
               <size>
-               <width>28</width>
-               <height>28</height>
+               <width>24</width>
+               <height>24</height>
               </size>
              </property>
              <property name="checkable">
@@ -1117,11 +1171,17 @@ QPushButton#rightPageMonthlyExpenses, QPushButton#leftPageMonthlyExpenses
             </widget>
            </item>
            <item>
-            <widget class="QPushButton" name="pushButtonAnalytics">
+            <widget class="QPushButton" name="menuInsights">
+             <property name="minimumSize">
+              <size>
+               <width>50</width>
+               <height>40</height>
+              </size>
+             </property>
              <property name="maximumSize">
               <size>
                <width>50</width>
-               <height>34</height>
+               <height>40</height>
               </size>
              </property>
              <property name="font">
@@ -1134,19 +1194,19 @@ QPushButton#rightPageMonthlyExpenses, QPushButton#leftPageMonthlyExpenses
               <cursorShape>PointingHandCursor</cursorShape>
              </property>
              <property name="toolTip">
-              <string>Analytics</string>
+              <string>Insights</string>
              </property>
              <property name="text">
               <string/>
              </property>
              <property name="icon">
               <iconset resource="../resources/resources.qrc">
-               <normaloff>:/images/images/analytics-white-36dp.svg</normaloff>:/images/images/analytics-white-36dp.svg</iconset>
+               <normaloff>:/images/images/insights-white-36dp.svg</normaloff>:/images/images/insights-white-36dp.svg</iconset>
              </property>
              <property name="iconSize">
               <size>
-               <width>28</width>
-               <height>28</height>
+               <width>24</width>
+               <height>24</height>
               </size>
              </property>
              <property name="checkable">

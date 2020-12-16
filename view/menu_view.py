@@ -27,13 +27,13 @@ class Menu(QObject):
         self.uiSetup.menu.clicked.connect(self.handleDrawerExpand)
 
         """ Connect drawer animation finished to show labels on buttons (Expand) """
-        self.uiSetup.drawer.animationFinished.connect(self.showLabels)
-        self.uiSetup.drawer.animationStarted.connect(self.hideLabels)
+        # self.uiSetup.drawer.animationFinished.connect(self.showLabels)
+        # self.uiSetup.drawer.animationStarted.connect(self.hideLabels)
 
         """ Connect click on buttons in drawer """
-        self.uiSetup.pushButtonHome.clicked.connect(lambda: self.changePage(0))
-        self.uiSetup.pushButtonManage.clicked.connect(lambda: self.changePage(1))
-        self.uiSetup.pushButtonAnalytics.clicked.connect(lambda: self.changePage(2))
+        self.uiSetup.menuDashboard.clicked.connect(lambda: self.changePage(0))
+        self.uiSetup.menuGraph.clicked.connect(lambda: self.changePage(1))
+        self.uiSetup.menuInsights.clicked.connect(lambda: self.changePage(2))
 
     def handleDrawerExpand(self):
         """
@@ -49,33 +49,33 @@ class Menu(QObject):
             """ Collapse drawer """
             self.uiSetup.drawer.collapse()
 
-    def showLabels(self):
-        """
-        Show buttons labels in drawer and modify expand button icon
-        :return: void
-        """
+    # def showLabels(self):
+    #     """
+    #     Show buttons labels in drawer and modify expand button icon
+    #     :return: void
+    #     """
+    #
+    #     if self.uiSetup.drawer.getExpanded():
+    #         self.uiSetup.pushButtonHome.setText("  Home")
+    #         self.uiSetup.pushButtonManage.setText("  Manager")
+    #         self.uiSetup.pushButtonAnalytics.setText("  Analytics")
+    #
+    #         """ Change icon """
+    #         self.uiSetup.menu.setIcon(QIcon(":/images/images/keyboard_arrow_left-white-36dp.svg"))
+    #
+    #     else:
+    #         """ Change icon """
+    #         self.uiSetup.menu.setIcon(QIcon(":/images/images/menu-white-36dp.svg"))
 
-        if self.uiSetup.drawer.getExpanded():
-            self.uiSetup.pushButtonHome.setText("  Home")
-            self.uiSetup.pushButtonManage.setText("  Manager")
-            self.uiSetup.pushButtonAnalytics.setText("  Analytics")
-
-            """ Change icon """
-            self.uiSetup.menu.setIcon(QIcon(":/images/images/keyboard_arrow_left-white-36dp.svg"))
-
-        else:
-            """ Change icon """
-            self.uiSetup.menu.setIcon(QIcon(":/images/images/menu-white-36dp.svg"))
-
-    def hideLabels(self):
-        """
-        Hide buttons labels in drawer
-        :return: void
-        """
-
-        self.uiSetup.pushButtonHome.setText("")
-        self.uiSetup.pushButtonManage.setText("")
-        self.uiSetup.pushButtonAnalytics.setText("")
+    # def hideLabels(self):
+    #     """
+    #     Hide buttons labels in drawer
+    #     :return: void
+    #     """
+    #
+    #     self.uiSetup.pushButtonHome.setText("")
+    #     self.uiSetup.pushButtonManage.setText("")
+    #     self.uiSetup.pushButtonAnalytics.setText("")
 
     def changePage(self, pageNumber):
         """
@@ -88,42 +88,33 @@ class Menu(QObject):
 
         if pageNumber == 0:
             """ Set Home button enlighted """
-            self.uiSetup.pushButtonHome.setChecked(True)
-            self.uiSetup.pushButtonHome.setIcon(QIcon(":/images/images/home-checked-36dp.svg"))
+            self.uiSetup.menuDashboard.setChecked(True)
 
             """ Set other buttons to OFF """
-            self.uiSetup.pushButtonManage.setChecked(False)
-            self.uiSetup.pushButtonAnalytics.setChecked(False)
-            self.uiSetup.pushButtonManage.setIcon(QIcon(":/images/images/account_balance_wallet-white-36dp.svg"))
-            self.uiSetup.pushButtonAnalytics.setIcon(QIcon(":/images/images/analytics-white-36dp.svg"))
+            self.uiSetup.menuGraph.setChecked(False)
+            self.uiSetup.menuInsights.setChecked(False)
 
             """ Update Header """
             self.uiSetup.menuLabel.setText("Home")
 
         elif pageNumber == 1:
             """ Set Manage button enlighted """
-            self.uiSetup.pushButtonManage.setChecked(True)
-            self.uiSetup.pushButtonManage.setIcon(QIcon(":/images/images/account_balance_wallet-checked-36dp.svg"))
+            self.uiSetup.menuGraph.setChecked(True)
 
             """ Set other buttons to OFF """
-            self.uiSetup.pushButtonHome.setChecked(False)
-            self.uiSetup.pushButtonAnalytics.setChecked(False)
-            self.uiSetup.pushButtonHome.setIcon(QIcon(":/images/images/home-white-36dp.svg"))
-            self.uiSetup.pushButtonAnalytics.setIcon(QIcon(":/images/images/analytics-white-36dp.svg"))
+            self.uiSetup.menuDashboard.setChecked(False)
+            self.uiSetup.menuInsights.setChecked(False)
 
             """ Update Header """
-            self.uiSetup.menuLabel.setText("Manager")
+            self.uiSetup.menuLabel.setText("Graph")
 
         elif pageNumber == 2:
             """ Set Analytics button enlighted """
-            self.uiSetup.pushButtonAnalytics.setChecked(True)
-            self.uiSetup.pushButtonAnalytics.setIcon(QIcon(":/images/images/analytics-checked-36dp.svg"))
+            self.uiSetup.menuInsights.setChecked(True)
 
             """ Set other buttons to OFF """
-            self.uiSetup.pushButtonHome.setChecked(False)
-            self.uiSetup.pushButtonManage.setChecked(False)
-            self.uiSetup.pushButtonHome.setIcon(QIcon(":/images/images/home-white-36dp.svg"))
-            self.uiSetup.pushButtonManage.setIcon(QIcon(":/images/images/account_balance_wallet-white-36dp.svg"))
+            self.uiSetup.menuDashboard.setChecked(False)
+            self.uiSetup.menuGraph.setChecked(False)
 
             """ Update Header """
-            self.uiSetup.menuLabel.setText("Analytics")
+            self.uiSetup.menuLabel.setText("Insights")

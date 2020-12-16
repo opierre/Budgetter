@@ -1,5 +1,8 @@
 <RCC>
   <qresource prefix="images">
+    <file>images/insights-white-36dp.svg</file>
+    <file>images/assessment-white-36dp.svg</file>
+    <file>images/menu_open-white-36dp.svg</file>
     <file>images/water-checked-36dp.svg</file>
     <file>images/water-white-36dp.svg</file>
     <file>images/electricity-checked-36dp.svg</file>
@@ -28,22 +31,11 @@
     <file>images/fuel-white-36dp.svg</file>
     <file>images/background_credit_agricole.svg</file>
     <file>images/background_banque_populaire.svg</file>
-    <file>images/notifications-white-36dp.svg</file>
-    <file>images/account_balance_wallet-hovered-36dp.svg</file>
     <file>images/background_caisse_epargne.svg</file>
-    <file>images/analytics-hovered-36dp.svg</file>
-    <file>images/account_balance_wallet-checked-36dp.svg</file>
-    <file>images/receipt-20px-#72C1F2.png</file>
-    <file>images/wallet-20px-#72C1F2.png</file>
-    <file>images/bold-36px-#3889F2.png</file>
-    <file>images/settings-white-36dp.svg</file>
-    <file>images/analytics-checked-36dp.svg</file>
     <file>images/keyboard_arrow_left-white-36dp.svg</file>
-    <file>images/chart-pie-20px-#72C1F2.png</file>
-    <file>images/account_balance_wallet-white-36dp.svg</file>
-    <file>images/bold-36px-#2ABFB0.png</file>
-    <file>images/analytics-white-36dp.svg</file>
+    <file>images/settings-white-24dp.svg</file>
     <file>images/trending_down-#F20505-36dp.svg</file>
+    <file>images/notifications-white-24dp.svg</file>
     <file>images/trending_flat-white-36dp.svg</file>
     <file>images/trending_up-#12A61C-36dp.svg</file>
     <file>images/menu-white-36dp.svg</file>
