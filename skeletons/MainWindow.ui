@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1141</width>
-    <height>795</height>
+    <width>1172</width>
+    <height>714</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -492,17 +492,6 @@ QDockWidget {
 	border-radius: 5px;
 }
 
-QDockWidget:title {
-	background-color: #26374C;
-	border: 1px solid #344457;
-	border-radius: 4px;
-	margin-bottom: -5px;
-	margin-left: 0px;
-	margin-right: 0px;
-	padding-left: 15px;
-	padding-top: 15px;
-}
-
 QDockWidget &gt; QWidget {
 	color: white;
 	background-color: #26374C;
@@ -518,6 +507,49 @@ QMainWindow::separator {
 	height: 0px;
 	margin: -10px;
 	padding: 0px;
+}
+
+QLabel#titleBarTitle {
+	background-color: #26374C;
+	border-top: 1px solid #344457;
+	border-left: 1px solid #344457;  
+	border-top-left-radius: 4px;
+	border-top-right-radius: 0px;
+	border-bottom-left-radius: 0px;
+	border-bottom-right-radius: 0px;
+	margin-left: 0px;
+	margin-right: 0px;
+	padding-bottom: 12px;
+	padding-left: 15px;
+	padding-top: 12px;
+	font-family: &quot;Roboto&quot;;
+	font-size: 13pt;
+	color: white;
+}
+
+QWidget#emptyWidget {
+	background-color: #26374C;
+	border-top: 1px solid #344457;
+	border-top-left-radius: 0px;
+	border-top-right-radius: 0px;
+	border-bottom-left-radius: 0px;
+	border-bottom-right-radius: 0px;
+	margin-left: 0px;
+	margin-right: 0px;
+}
+
+QPushButton#titleBarAdd {
+	background-color: #26374C;
+	border-top: 1px solid #344457;
+	border-right: 1px solid #344457;
+	border-top-left-radius: 0px;
+	border-top-right-radius: 4px;
+	border-bottom-left-radius: 0px;
+	border-bottom-right-radius: 0px;
+	margin-left: 0px;
+	margin-right: 0px;
+	padding-right: 20px;
+	padding-left: 20px;
 }</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
@@ -562,7 +594,7 @@ QMainWindow::separator {
         <number>0</number>
        </property>
        <item row="0" column="2" rowspan="3">
-        <widget class="QDockWidget" name="monthlyExpenses">
+        <widget class="Container" name="monthlyExpenses">
          <property name="font">
           <font>
            <family>Roboto</family>
@@ -585,6 +617,37 @@ QMainWindow::separator {
            </property>
           </layout>
          </widget>
+        </widget>
+       </item>
+       <item row="1" column="0" rowspan="2" colspan="2">
+        <widget class="QGroupBox" name="transactions">
+         <property name="font">
+          <font>
+           <family>Roboto</family>
+           <pointsize>14</pointsize>
+          </font>
+         </property>
+         <property name="title">
+          <string>Recent Transactions</string>
+         </property>
+         <property name="checkable">
+          <bool>false</bool>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_5">
+          <item row="0" column="0">
+           <widget class="QTableView" name="tableView">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::NoFrame</enum>
+            </property>
+           </widget>
+          </item>
+         </layout>
         </widget>
        </item>
        <item row="0" column="0" colspan="2">
@@ -651,190 +714,6 @@ QMainWindow::separator {
          </layout>
         </widget>
        </item>
-       <item row="1" column="0" rowspan="2" colspan="2">
-        <widget class="QGroupBox" name="transactions">
-         <property name="font">
-          <font>
-           <family>Roboto</family>
-           <pointsize>14</pointsize>
-          </font>
-         </property>
-         <property name="title">
-          <string>Recent Transactions</string>
-         </property>
-         <property name="checkable">
-          <bool>false</bool>
-         </property>
-         <layout class="QGridLayout" name="gridLayout_5">
-          <item row="0" column="0">
-           <widget class="QTableView" name="tableView">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="frameShape">
-             <enum>QFrame::NoFrame</enum>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </widget>
-       </item>
-       <item row="0" column="3" rowspan="3" colspan="2">
-        <widget class="QGroupBox" name="distribution">
-         <property name="font">
-          <font>
-           <family>Roboto</family>
-           <pointsize>13</pointsize>
-          </font>
-         </property>
-         <property name="title">
-          <string>Monthly Expenses</string>
-         </property>
-         <layout class="QGridLayout" name="gridLayout_6">
-          <item row="0" column="0">
-           <widget class="SlidingStackedWidget" name="monthlyExpensesThumb">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="currentIndex">
-             <number>0</number>
-            </property>
-            <widget class="QWidget" name="page1">
-             <layout class="QHBoxLayout" name="horizontalLayout_4">
-              <property name="spacing">
-               <number>0</number>
-              </property>
-              <property name="leftMargin">
-               <number>0</number>
-              </property>
-              <property name="topMargin">
-               <number>0</number>
-              </property>
-              <property name="rightMargin">
-               <number>0</number>
-              </property>
-              <property name="bottomMargin">
-               <number>0</number>
-              </property>
-              <item>
-               <widget class="QGroupBox" name="page1MonthlyExpenses">
-                <property name="sizePolicy">
-                 <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-                  <horstretch>0</horstretch>
-                  <verstretch>0</verstretch>
-                 </sizepolicy>
-                </property>
-                <property name="minimumSize">
-                 <size>
-                  <width>0</width>
-                  <height>0</height>
-                 </size>
-                </property>
-                <property name="maximumSize">
-                 <size>
-                  <width>16777215</width>
-                  <height>16777215</height>
-                 </size>
-                </property>
-                <property name="title">
-                 <string/>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QPushButton" name="rightPageMonthlyExpenses">
-                <property name="minimumSize">
-                 <size>
-                  <width>40</width>
-                  <height>40</height>
-                 </size>
-                </property>
-                <property name="maximumSize">
-                 <size>
-                  <width>40</width>
-                  <height>40</height>
-                 </size>
-                </property>
-                <property name="cursor">
-                 <cursorShape>PointingHandCursor</cursorShape>
-                </property>
-                <property name="text">
-                 <string/>
-                </property>
-                <property name="icon">
-                 <iconset resource="../resources/resources.qrc">
-                  <normaloff>:/images/images/chevron_right-white-36dp.svg</normaloff>:/images/images/chevron_right-white-36dp.svg</iconset>
-                </property>
-               </widget>
-              </item>
-             </layout>
-            </widget>
-            <widget class="QWidget" name="page_4">
-             <layout class="QHBoxLayout" name="horizontalLayout_5">
-              <property name="leftMargin">
-               <number>0</number>
-              </property>
-              <property name="topMargin">
-               <number>0</number>
-              </property>
-              <property name="rightMargin">
-               <number>0</number>
-              </property>
-              <property name="bottomMargin">
-               <number>0</number>
-              </property>
-              <item>
-               <widget class="QPushButton" name="leftPageMonthlyExpenses">
-                <property name="minimumSize">
-                 <size>
-                  <width>40</width>
-                  <height>40</height>
-                 </size>
-                </property>
-                <property name="maximumSize">
-                 <size>
-                  <width>40</width>
-                  <height>40</height>
-                 </size>
-                </property>
-                <property name="cursor">
-                 <cursorShape>PointingHandCursor</cursorShape>
-                </property>
-                <property name="focusPolicy">
-                 <enum>Qt::StrongFocus</enum>
-                </property>
-                <property name="toolTipDuration">
-                 <number>-1</number>
-                </property>
-                <property name="text">
-                 <string/>
-                </property>
-                <property name="icon">
-                 <iconset resource="../resources/resources.qrc">
-                  <normaloff>:/images/images/chevron_left-white-36dp.svg</normaloff>:/images/images/chevron_left-white-36dp.svg</iconset>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QGroupBox" name="page2MonthlyExpenses">
-                <property name="title">
-                 <string/>
-                </property>
-               </widget>
-              </item>
-             </layout>
-            </widget>
-           </widget>
-          </item>
-         </layout>
-        </widget>
-       </item>
       </layout>
      </widget>
      <widget class="QWidget" name="page_2">
@@ -869,6 +748,9 @@ QMainWindow::separator {
      <layout class="QHBoxLayout" name="horizontalLayout">
       <property name="spacing">
        <number>0</number>
+      </property>
+      <property name="leftMargin">
+       <number>15</number>
       </property>
       <property name="topMargin">
        <number>0</number>
@@ -1254,6 +1136,12 @@ QMainWindow::separator {
    <class>SlidingStackedWidget</class>
    <extends>QStackedWidget</extends>
    <header>widgets/slidingStackedWidget.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>Container</class>
+   <extends>QDockWidget</extends>
+   <header>widgets/container.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>
