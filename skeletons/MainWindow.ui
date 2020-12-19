@@ -519,15 +519,15 @@ QLabel#titleBarTitle {
 	border-bottom-right-radius: 0px;
 	margin-left: 0px;
 	margin-right: 0px;
-	padding-bottom: 12px;
-	padding-left: 15px;
-	padding-top: 12px;
+	padding-bottom: 10px;
+	padding-left: 12px;
+	padding-top: 10px;
 	font-family: &quot;Roboto&quot;;
 	font-size: 13pt;
 	color: white;
 }
 
-QWidget#emptyWidget {
+QWidget#titleBarEmptyWidget {
 	background-color: #26374C;
 	border-top: 1px solid #344457;
 	border-top-left-radius: 0px;
@@ -548,8 +548,29 @@ QPushButton#titleBarAdd {
 	border-bottom-right-radius: 0px;
 	margin-left: 0px;
 	margin-right: 0px;
-	padding-right: 20px;
-	padding-left: 20px;
+	padding-bottom: 10px;
+	padding-left: 0px;
+	padding-top: 10px;
+}
+
+QStatusBar {
+	background-color: transparent;
+	color: white;
+	border-top: 1px solid #344457;
+	border-top-left-radius: 0px;
+	border-top-right-radius: 0px;
+	border-bottom-left-radius: 0px;
+	border-bottom-right-radius: 0px;
+}
+
+QPushButton#statusBarSettings {
+	background-color: #26374C;
+	border-top-left-radius: 0px;
+	border-top-right-radius: 0px;
+	border-bottom-left-radius: 0px;
+	border-bottom-right-radius: 0px;
+	margin-left: 0px;
+	margin-right: 0px;
 }</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
@@ -593,32 +614,6 @@ QPushButton#titleBarAdd {
        <property name="verticalSpacing">
         <number>0</number>
        </property>
-       <item row="0" column="2" rowspan="3">
-        <widget class="Container" name="monthlyExpenses">
-         <property name="font">
-          <font>
-           <family>Roboto</family>
-           <pointsize>13</pointsize>
-          </font>
-         </property>
-         <property name="features">
-          <set>QDockWidget::NoDockWidgetFeatures</set>
-         </property>
-         <property name="allowedAreas">
-          <set>Qt::NoDockWidgetArea</set>
-         </property>
-         <property name="windowTitle">
-          <string>Expenses Distribution</string>
-         </property>
-         <widget class="QWidget" name="dockWidgetContents">
-          <layout class="QGridLayout" name="gridLayout_9">
-           <property name="topMargin">
-            <number>0</number>
-           </property>
-          </layout>
-         </widget>
-        </widget>
-       </item>
        <item row="1" column="0" rowspan="2" colspan="2">
         <widget class="QGroupBox" name="transactions">
          <property name="font">
@@ -648,6 +643,38 @@ QPushButton#titleBarAdd {
            </widget>
           </item>
          </layout>
+        </widget>
+       </item>
+       <item row="0" column="2" rowspan="3">
+        <widget class="Container" name="monthlyExpenses">
+         <property name="font">
+          <font>
+           <family>Roboto</family>
+           <pointsize>13</pointsize>
+          </font>
+         </property>
+         <property name="features">
+          <set>QDockWidget::NoDockWidgetFeatures</set>
+         </property>
+         <property name="allowedAreas">
+          <set>Qt::NoDockWidgetArea</set>
+         </property>
+         <property name="windowTitle">
+          <string>Expenses Distribution</string>
+         </property>
+         <widget class="QWidget" name="dockWidgetContents">
+          <layout class="QGridLayout" name="gridLayout_9">
+           <property name="leftMargin">
+            <number>0</number>
+           </property>
+           <property name="topMargin">
+            <number>0</number>
+           </property>
+           <property name="rightMargin">
+            <number>0</number>
+           </property>
+          </layout>
+         </widget>
         </widget>
        </item>
        <item row="0" column="0" colspan="2">

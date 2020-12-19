@@ -1,6 +1,7 @@
 <RCC>
   <qresource prefix="images">
     <file>images/insights-white-36dp.svg</file>
+    <file>images/more_horiz-white-24dp.svg</file>
     <file>images/add_circle_outline-white-18dp.svg</file>
     <file>images/assessment-white-36dp.svg</file>
     <file>images/menu_open-white-36dp.svg</file>

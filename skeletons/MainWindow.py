@@ -541,20 +541,20 @@ class Ui_MainWindow(object):
 "	border-bottom-right-radius: 0px;\n"
 "	margin-left: 0px;\n"
 "	margin-right: 0px;\n"
-"	padding-bottom: 12px;\n"
-"	padding-left: 15px;\n"
-"	padding-top: 12px;\n"
+"	padding-bottom: 10px;\n"
+"	padding-left: 12px;\n"
+"	padding-top: 10px;\n"
 "	font-family: \"Roboto\";\n"
 "	font-size: 13pt;\n"
 "	color: white;\n"
 "}\n"
 "\n"
-"QWidget#emptyWidget {\n"
+"QWidget#titleBarEmptyWidget {\n"
 "	background-color: #26374C;\n"
 "	border-top: 1px solid #344457;\n"
 "	border-top-left-radius: 0px;\n"
-"	borde"
-                        "r-top-right-radius: 0px;\n"
+""
+                        "	border-top-right-radius: 0px;\n"
 "	border-bottom-left-radius: 0px;\n"
 "	border-bottom-right-radius: 0px;\n"
 "	margin-left: 0px;\n"
@@ -571,8 +571,30 @@ class Ui_MainWindow(object):
 "	border-bottom-right-radius: 0px;\n"
 "	margin-left: 0px;\n"
 "	margin-right: 0px;\n"
-"	padding-right: 20px;\n"
-"	padding-left: 20px;\n"
+"	padding-bottom: 10px;\n"
+"	padding-left: 0px;\n"
+"	padding-top: 10px;\n"
+"}\n"
+"\n"
+"QStatusBar {\n"
+"	background-color: transparent;\n"
+"	color: white;\n"
+"	border-top: 1px solid #344457;\n"
+"	border-top-left-radius: 0px;\n"
+"	border-top-right-radius: 0px;\n"
+"	border-bottom-left-radius: 0px;\n"
+"	border-bottom-right-radius: 0px;\n"
+"}\n"
+"\n"
+"QPushButton#statusBarSettings {\n"
+"	background-color: #26374C;\n"
+"	border-top-left-radius: 0px;\n"
+"	border-top-right-radius: 0px;\n"
+"	border-bottom-left-radius: 0px;\n"
+"	border"
+                        "-bottom-right-radius: 0px;\n"
+"	margin-left: 0px;\n"
+"	margin-right: 0px;\n"
 "}")
         self.gridLayout = QGridLayout(MainWindow)
         self.gridLayout.setSpacing(0)
@@ -587,29 +609,12 @@ class Ui_MainWindow(object):
         self.gridLayout_2.setHorizontalSpacing(15)
         self.gridLayout_2.setVerticalSpacing(0)
         self.gridLayout_2.setContentsMargins(15, 15, 15, 15)
-        self.monthlyExpenses = Container(self.dashboard)
-        self.monthlyExpenses.setObjectName(u"monthlyExpenses")
-        font = QFont()
-        font.setFamily(u"Roboto")
-        font.setPointSize(13)
-        self.monthlyExpenses.setFont(font)
-        self.monthlyExpenses.setFeatures(QDockWidget.NoDockWidgetFeatures)
-        self.monthlyExpenses.setAllowedAreas(Qt.NoDockWidgetArea)
-        self.dockWidgetContents = QWidget()
-        self.dockWidgetContents.setObjectName(u"dockWidgetContents")
-        self.gridLayout_9 = QGridLayout(self.dockWidgetContents)
-        self.gridLayout_9.setObjectName(u"gridLayout_9")
-        self.gridLayout_9.setContentsMargins(-1, 0, -1, -1)
-        self.monthlyExpenses.setWidget(self.dockWidgetContents)
-
-        self.gridLayout_2.addWidget(self.monthlyExpenses, 0, 2, 3, 1)
-
         self.transactions = QGroupBox(self.dashboard)
         self.transactions.setObjectName(u"transactions")
-        font1 = QFont()
-        font1.setFamily(u"Roboto")
-        font1.setPointSize(14)
-        self.transactions.setFont(font1)
+        font = QFont()
+        font.setFamily(u"Roboto")
+        font.setPointSize(14)
+        self.transactions.setFont(font)
         self.transactions.setCheckable(False)
         self.gridLayout_5 = QGridLayout(self.transactions)
         self.gridLayout_5.setObjectName(u"gridLayout_5")
@@ -626,6 +631,23 @@ class Ui_MainWindow(object):
 
 
         self.gridLayout_2.addWidget(self.transactions, 1, 0, 2, 2)
+
+        self.monthlyExpenses = Container(self.dashboard)
+        self.monthlyExpenses.setObjectName(u"monthlyExpenses")
+        font1 = QFont()
+        font1.setFamily(u"Roboto")
+        font1.setPointSize(13)
+        self.monthlyExpenses.setFont(font1)
+        self.monthlyExpenses.setFeatures(QDockWidget.NoDockWidgetFeatures)
+        self.monthlyExpenses.setAllowedAreas(Qt.NoDockWidgetArea)
+        self.dockWidgetContents = QWidget()
+        self.dockWidgetContents.setObjectName(u"dockWidgetContents")
+        self.gridLayout_9 = QGridLayout(self.dockWidgetContents)
+        self.gridLayout_9.setObjectName(u"gridLayout_9")
+        self.gridLayout_9.setContentsMargins(0, 0, 0, -1)
+        self.monthlyExpenses.setWidget(self.dockWidgetContents)
+
+        self.gridLayout_2.addWidget(self.monthlyExpenses, 0, 2, 3, 1)
 
         self.accounts = QGroupBox(self.dashboard)
         self.accounts.setObjectName(u"accounts")
@@ -688,7 +710,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout.setContentsMargins(15, 0, -1, 0)
         self.menuLabel = QLabel(self.menuBar)
         self.menuLabel.setObjectName(u"menuLabel")
-        self.menuLabel.setFont(font1)
+        self.menuLabel.setFont(font)
 
         self.horizontalLayout.addWidget(self.menuLabel)
 
@@ -835,8 +857,8 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"Budgetter", None))
-        self.monthlyExpenses.setWindowTitle(QCoreApplication.translate("MainWindow", u"Expenses Distribution", None))
         self.transactions.setTitle(QCoreApplication.translate("MainWindow", u"Recent Transactions", None))
+        self.monthlyExpenses.setWindowTitle(QCoreApplication.translate("MainWindow", u"Expenses Distribution", None))
         self.accounts.setTitle("")
         self.card1.setTitle(QCoreApplication.translate("MainWindow", u"GroupBox", None))
         self.total.setTitle(QCoreApplication.translate("MainWindow", u"Total", None))

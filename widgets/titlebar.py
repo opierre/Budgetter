@@ -1,6 +1,5 @@
-from PySide2 import QtWidgets
 from PySide2.QtCore import QSize
-from PySide2.QtGui import QFont, QPixmap, QIcon, Qt
+from PySide2.QtGui import QIcon, Qt
 from PySide2.QtWidgets import QWidget, QHBoxLayout, QLabel, QPushButton, QSpacerItem, QSizePolicy
 
 
@@ -17,7 +16,7 @@ class TitleBar(QWidget):
 
         """ Empty widget with spacer item """
         self.emptyWidget = QWidget()
-        self.emptyWidget.setObjectName(u"emptyWidget")
+        self.emptyWidget.setObjectName(u"titleBarEmptyWidget")
 
         """ Layout for empty widget """
         self.emptyLayout = QHBoxLayout(self.emptyWidget)
@@ -46,7 +45,7 @@ class TitleBar(QWidget):
 
         """ Configure Add button on top right corner """
         self._add.setIcon(QIcon(":/images/images/add_circle_outline-white-18dp.svg"))
-        self._add.setFixedHeight(self.parent.style().pixelMetric(QtWidgets.QStyle.PM_TitleBarHeight)+12*2)
+        self._add.setIconSize(QSize(24, 24))
         self._add.setCursor(Qt.PointingHandCursor)
 
     def configureLayout(self):

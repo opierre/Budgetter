@@ -95,7 +95,7 @@ class Menu(QObject):
             self.uiSetup.menuInsights.setChecked(False)
 
             """ Update Header """
-            self.uiSetup.menuLabel.setText("Home")
+            self.uiSetup.menuLabel.setText("Dashboard")
 
         elif pageNumber == 1:
             """ Set Manage button enlighted """
