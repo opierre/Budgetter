@@ -614,7 +614,7 @@ class Ui_MainWindow(object):
 "	margin-right: 0px;\n"
 "}\n"
 "\n"
-"QPushButton#currentMonthDistribution[activated=\"true\"] {\n"
+"QPushButton[activated=\"true\"] {\n"
 "	background-color: #26374C;\n"
 "	color: white;\n"
 "	font-family: \"Roboto\";\n"
@@ -622,12 +622,17 @@ class Ui_MainWindow(object):
 "	margin-left: 10px;\n"
 "}\n"
 "\n"
-"QPushButton#currentMonthDistribution[activated=\"false\"] {\n"
+"QPushButton[activated=\"false\"] {\n"
 "	background-color: #26374C;\n"
-"	color: rgba(255, 255, 255, 150);\n"
+"	color: rgba(255, 255, 255, 100);\n"
 "	font-family: \"Roboto\";\n"
 "	font-size: 9pt;\n"
 "	margin-left: 10px;\n"
+"}\n"
+"\n"
+"QListView {\n"
+"	background-color: transparent;\n"
+"	border: none;\n"
 "}")
         self.gridLayout = QGridLayout(MainWindow)
         self.gridLayout.setSpacing(0)

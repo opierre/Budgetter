@@ -37,7 +37,7 @@ class Controller:
         self.connectSlotsAndSignals()
 
         """ Show FullScreen """
-        self.mainWindow.showMaximized()
+        self.mainWindow.showNormal()
 
     # def configureGraphicalEffects(self):
     #     """

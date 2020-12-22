@@ -1,13 +1,7 @@
-from PySide2.QtCore import QObject, Qt
-from PySide2.QtCharts import QtCharts
-from PySide2.QtGui import QPainter, QBrush, QColor, QCursor, QFont
-from PySide2.QtWidgets import QGridLayout, QSizePolicy, QTextEdit, QVBoxLayout, QStatusBar, QWidget, QPushButton
-
-from random import randrange
-from functools import partial
+from PySide2.QtCore import QObject, Qt, QDate
+from PySide2.QtWidgets import QTextEdit, QVBoxLayout, QStatusBar, QWidget, QPushButton, QListView
 
 from widgets.statusbar import StatusBar
-from widgets.thumbnail import Thumbnail
 
 
 class Distribution(QObject):
@@ -27,14 +21,12 @@ class Distribution(QObject):
 
         """ Current Month button """
         self.currentMonth = QPushButton("September")
-        self.currentMonth.setObjectName(u"monthDistribution")
 
         """ Previous Month button """
         self.previousMonth = QPushButton("August")
-        self.previousMonth.setObjectName(u"monthDistribution")
 
-        self.textEdit = QTextEdit("Hello")
-        self.textEdit.setStyleSheet("background-color: transparent; border: none;")
+        """ ListView to display all categories """
+        self.categoriesListView = QListView()
 
         """ Configure layout """
         self.configureLayout()
@@ -50,8 +42,7 @@ class Distribution(QObject):
 
         widget = QWidget()
         layout = QVBoxLayout(widget)
-        layout.addWidget(self.textEdit)
-        # layout.addStretch()
+        layout.addWidget(self.categoriesListView)
         layout.addWidget(self.statusBar)
         layout.setContentsMargins(0, 0, 0, 0)
 
@@ -63,13 +54,14 @@ class Distribution(QObject):
         :return: void
         """
 
+        """ Set month content """
+        self.setCurrentAndPreviousMonth()
+
         """ Set states for activation """
         self.currentMonth.setProperty("activated", "true")
-        style = self.currentMonth.style()
-        style.update()
+        self.currentMonth.update()
         self.previousMonth.setProperty("activated", "false")
-        style = self.previousMonth.style()
-        style.update()
+        self.previousMonth.update()
 
         """ Set cursor for left buttons """
         self.currentMonth.setCursor(Qt.PointingHandCursor)
@@ -80,6 +72,20 @@ class Distribution(QObject):
 
         """ Add buttons on left corner """
         self.statusBar.addWidget(self.currentMonth)
+        self.statusBar.addWidget(self.previousMonth)
 
         """ Disable size grip """
         self.statusBar.setSizeGripEnabled(False)
+
+    def setCurrentAndPreviousMonth(self):
+        """
+        Get current/previous month from locale and update display
+        :return: void
+        """
+
+        currentMonthNb = QDate.currentDate().month()
+        currentMonth = QDate.currentDate().longMonthName(currentMonthNb)
+        self.currentMonth.setText(currentMonth.capitalize())
+
+        previousMonth = QDate.currentDate().longMonthName(currentMonthNb - 1)
+        self.previousMonth.setText(previousMonth.capitalize())
