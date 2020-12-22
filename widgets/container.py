@@ -1,6 +1,3 @@
-from PySide2 import QtGui, QtCore, QtWidgets
-from PySide2.QtCore import QSize
-from PySide2.QtGui import QFont, QPixmap, QIcon, Qt
 from PySide2.QtWidgets import QGroupBox, QGridLayout, QLabel, QPushButton, QDockWidget, QLineEdit, QSpacerItem, \
     QSizePolicy, QStatusBar, QWidget, QVBoxLayout, QTextEdit
 

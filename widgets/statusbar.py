@@ -1,3 +1,4 @@
+from PySide2.QtCore import QSize
 from PySide2.QtGui import QIcon, Qt
 from PySide2.QtWidgets import QWidget, QHBoxLayout, QPushButton
 
@@ -30,7 +31,7 @@ class StatusBar(QWidget):
 
         """ Configure Add button on top right corner """
         self._settings.setIcon(QIcon(":/images/images/more_horiz-white-24dp.svg"))
-        # self._settings.setFixedHeight(self.parent.style().pixelMetric(QtWidgets.QStyle.PM_TitleBarHeight)+12*2)
+        self._settings.setIconSize(QSize(22, 22))
         self._settings.setCursor(Qt.PointingHandCursor)
 
     def configureLayout(self):
@@ -40,7 +41,19 @@ class StatusBar(QWidget):
         """
 
         """ Set margins """
-        self.layout.setContentsMargins(0, 12, 1, 12)
+        self.layout.setContentsMargins(0, 12, 14, 12)
 
         """ Add widgets to layout """
         self.layout.addWidget(self._settings)
+
+    def showSettings(self, _bool: bool):
+        """
+        Show settings button with three dots
+        :param _bool: True/False
+        :return: void
+        """
+
+        if _bool:
+            self._settings.show()
+        else:
+            self._settings.hide()

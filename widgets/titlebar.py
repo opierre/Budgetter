@@ -17,8 +17,6 @@ class TitleBar(QWidget):
         """ Empty widget with spacer item """
         self.emptyWidget = QWidget()
         self.emptyWidget.setObjectName(u"titleBarEmptyWidget")
-
-        """ Layout for empty widget """
         self.emptyLayout = QHBoxLayout(self.emptyWidget)
 
         """ Spacer item """
@@ -27,6 +25,12 @@ class TitleBar(QWidget):
         """ Add button on top right corner """
         self._add = QPushButton()
         self._add.setObjectName(u"titleBarAdd")
+
+        """ Set PushButton to coccupy all region """
+        self._addWidget = QWidget()
+        self._addWidget.setObjectName(u"leftAddWidget")
+        self._addLayout = QHBoxLayout(self._addWidget)
+        self._leftSpacer = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
         """ Layout for title bar """
         self.layout = QHBoxLayout(self)
@@ -44,8 +48,8 @@ class TitleBar(QWidget):
         """
 
         """ Configure Add button on top right corner """
-        self._add.setIcon(QIcon(":/images/images/add_circle_outline-white-18dp.svg"))
-        self._add.setIconSize(QSize(24, 24))
+        self._add.setIcon(QIcon(":/images/images/add_circle_outline-white-24dp.svg"))
+        self._add.setIconSize(QSize(22, 22))
         self._add.setCursor(Qt.PointingHandCursor)
 
     def configureLayout(self):
@@ -57,6 +61,11 @@ class TitleBar(QWidget):
         """ Configure empty widget """
         self.emptyLayout.addSpacerItem(self.spacer)
 
+        """ Configure widget with add button """
+        self._addLayout.addSpacerItem(self._leftSpacer)
+        self._addLayout.addWidget(self._add)
+        # self._addLayout.addSpacerItem(self._downSpacer)
+
         """ Set margins """
         self.layout.setContentsMargins(0, 0, 0, 0)
 
@@ -66,7 +75,7 @@ class TitleBar(QWidget):
         """ Add widgets to layout """
         self.layout.addWidget(self._title)
         self.layout.addWidget(self.emptyWidget)
-        self.layout.addWidget(self._add)
+        self.layout.addWidget(self._addWidget)
 
     def setTitle(self, title):
         """

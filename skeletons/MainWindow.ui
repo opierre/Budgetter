@@ -538,7 +538,7 @@ QWidget#titleBarEmptyWidget {
 	margin-right: 0px;
 }
 
-QPushButton#titleBarAdd {
+QWidget#leftAddWidget {
 	background-color: #26374C;
 	border-top: 1px solid #344457;
 	border-right: 1px solid #344457;
@@ -548,9 +548,21 @@ QPushButton#titleBarAdd {
 	border-bottom-right-radius: 0px;
 	margin-left: 0px;
 	margin-right: 0px;
-	padding-bottom: 10px;
+}
+
+QPushButton#titleBarAdd {
+	background-color: #26374C;
+	border-top: 0px solid #344457;
+	border-right: 0px solid #344457;
+	border-top-left-radius: 0px;
+	border-top-right-radius: 0px;
+	border-bottom-left-radius: 0px;
+	border-bottom-right-radius: 0px;
+	margin-left: 0px;
+	margin-right: 0px;
+	padding-bottom: 0px;
 	padding-left: 0px;
-	padding-top: 10px;
+	padding-top: 0px;
 }
 
 QStatusBar {
@@ -563,6 +575,11 @@ QStatusBar {
 	border-bottom-right-radius: 0px;
 }
 
+QStatusBar::item {
+	border: none;
+	color: white;
+}
+
 QPushButton#statusBarSettings {
 	background-color: #26374C;
 	border-top-left-radius: 0px;
@@ -571,6 +588,22 @@ QPushButton#statusBarSettings {
 	border-bottom-right-radius: 0px;
 	margin-left: 0px;
 	margin-right: 0px;
+}
+
+QPushButton#currentMonthDistribution[activated=&quot;true&quot;] {
+	background-color: #26374C;
+	color: white;
+	font-family: &quot;Roboto&quot;;
+	font-size: 9pt;
+	margin-left: 10px;
+}
+
+QPushButton#currentMonthDistribution[activated=&quot;false&quot;] {
+	background-color: #26374C;
+	color: rgba(255, 255, 255, 150);
+	font-family: &quot;Roboto&quot;;
+	font-size: 9pt;
+	margin-left: 10px;
 }</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
