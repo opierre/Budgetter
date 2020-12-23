@@ -23,7 +23,7 @@ class SlidingStackedWidget(QtWidgets.QStackedWidget):
     animationFinished = Signal()
 
     def __init__(self, parent=None):
-        super(SlidingStackedWidget, self).__init__(parent)
+        super().__init__(parent)
 
         self.m_direction = QtCore.Qt.Vertical
         self.m_speed = 500

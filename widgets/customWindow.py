@@ -11,7 +11,7 @@ class CustomWindow(QWidget):
     resizeEventSignal = Signal(int, int)
 
     def __init__(self):
-        super(CustomWindow, self).__init__()
+        super().__init__()
 
     def resizeEvent(self, event):
         """

@@ -1,6 +1,8 @@
 from PySide2.QtCore import QObject, Qt, QDate
-from PySide2.QtWidgets import QTextEdit, QVBoxLayout, QStatusBar, QWidget, QPushButton, QListView
+from PySide2.QtWidgets import QVBoxLayout, QStatusBar, QWidget, QPushButton, QListView
 
+from models.distribution_model import DistributionModel
+from widgets.distributionDelegate import DistributionDelegate
 from widgets.statusbar import StatusBar
 
 
@@ -25,8 +27,20 @@ class Distribution(QObject):
         """ Previous Month button """
         self.previousMonth = QPushButton("August")
 
+        """ Store item delegate """
+        self.distributionDelegate = DistributionDelegate()
+
         """ ListView to display all categories """
         self.categoriesListView = QListView()
+
+        """ Model to handle data in distribution list """
+        self.categoriesModel = DistributionModel([["Restaurants",
+                                                  "3 transactions",
+                                                  195,
+                                                  "35%"]])
+
+        self.categoriesListView.setModel(self.categoriesModel)
+        self.categoriesListView.setItemDelegate(self.distributionDelegate)
 
         """ Configure layout """
         self.configureLayout()
