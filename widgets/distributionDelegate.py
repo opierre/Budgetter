@@ -1,6 +1,6 @@
 from PySide2 import QtCore
 from PySide2.QtCore import QSize, Qt, QRect
-from PySide2.QtGui import QPen, QColor
+from PySide2.QtGui import QPen, QColor, QPainter
 from PySide2.QtWidgets import QItemDelegate
 
 from widgets.distributionItem import DistributionItem
@@ -31,31 +31,33 @@ class DistributionDelegate(QItemDelegate):
         editor.setGeometry(option.rect)
 
     def sizeHint(self, optionQStyleOptionViewItem, index):
-        return QSize(10, 120)
+        return QSize(10, 100)
 
     def paint(self, painter, option, index):
         painter.save()
 
-        #rect = option.rect()
+        painter.setRenderHint(QPainter.Antialiasing)
 
         """ Draw item background """
-        painter.setPen(QPen(Qt.NoPen))
-        painter.setBrush(QColor("#26374C"))
-        painter.drawRect(option.rect.x(), option.rect.y(),
-                         option.rect.width(), option.rect.height()-20)
+        painter.setPen(QPen("red"))
+        # painter.setBrush(QColor("#26374C"))
+        painter.setBrush(QColor("red"))
+        painter.drawRect(option.rect.x()+20, option.rect.y()+10,
+                         option.rect.width()-40, option.rect.height()-25)
 
         """ Draw bottom border """
         painter.setPen(QPen("#344457"))
-        painter.setBrush(QColor("blue"))
-        painter.drawLine(option.rect.x(), option.rect.y()+option.rect.height()-10,
-                         option.rect.width(), option.rect.y()+option.rect.height()-10)
+        # painter.setPen(QPen("green"))
+        painter.setBrush(QColor("#344457"))
+        painter.drawLine(option.rect.x()+20, option.rect.y()+option.rect.height()-10,
+                         option.rect.width()-20, option.rect.y()+option.rect.height()-10)
 
         """ Draw left icon background """
         painter.setPen(QPen("#1A537D"))
         painter.setBrush(QColor("#1A537D"))
-        rect = QRect(option.rect.x()+10, option.rect.y()+10,
-                     28, 28)
-        painter.drawRoundedRect(rect, 20.0, 20.0)
+        rect = QRect(option.rect.x()+20, option.rect.y()+20,
+                     option.rect.x()+65, option.rect.height()-45)
+        painter.drawRoundedRect(rect, 1.0, 1.0)
 
         # # set background color
         # painter.setPen(QPen(Qt.NoPen))
