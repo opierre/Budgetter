@@ -1,6 +1,7 @@
 from PySide2 import QtCore
 from PySide2.QtCore import QSize, Qt, QRect
 from PySide2.QtGui import QPen, QColor, QPainter
+from PySide2.QtSvg import QSvgRenderer
 from PySide2.QtWidgets import QItemDelegate
 
 from widgets.distributionItem import DistributionItem
@@ -36,21 +37,21 @@ class DistributionDelegate(QItemDelegate):
     def paint(self, painter, option, index):
         painter.save()
 
+        """ Draw bottom border """
+        painter.setPen(QPen("#344457"))
+        # painter.setPen(QPen("green"))
+        painter.setBrush(Qt.NoBrush)
+        painter.drawLine(option.rect.x()+20, option.rect.y()+option.rect.height()-5,
+                         option.rect.width()-20, option.rect.y()+option.rect.height()-5)
+
         painter.setRenderHint(QPainter.Antialiasing)
 
         """ Draw item background """
-        painter.setPen(QPen("red"))
+        painter.setPen(QPen("#26374C"))
         # painter.setBrush(QColor("#26374C"))
         painter.setBrush(QColor("red"))
         painter.drawRect(option.rect.x()+20, option.rect.y()+10,
                          option.rect.width()-40, option.rect.height()-25)
-
-        """ Draw bottom border """
-        painter.setPen(QPen("#344457"))
-        # painter.setPen(QPen("green"))
-        painter.setBrush(QColor("#344457"))
-        painter.drawLine(option.rect.x()+20, option.rect.y()+option.rect.height()-10,
-                         option.rect.width()-20, option.rect.y()+option.rect.height()-10)
 
         """ Draw left icon background """
         painter.setPen(QPen("#1A537D"))
@@ -58,6 +59,17 @@ class DistributionDelegate(QItemDelegate):
         rect = QRect(option.rect.x()+20, option.rect.y()+20,
                      option.rect.x()+65, option.rect.height()-45)
         painter.drawRoundedRect(rect, 1.0, 1.0)
+
+        """ Draw icon and render svg """
+        painter.setPen(QPen("transparent"))
+        painter.setBrush(QColor("transparent"))
+        rect = QRect(option.rect.x()+30, option.rect.y()+30,
+                     option.rect.x()+45, option.rect.height()-65)
+        painter.drawRect(rect)
+
+        svgRender = QSvgRenderer(":/images/images/restaurant-white-18dp.svg")
+        svgRender.setAspectRatioMode(Qt.KeepAspectRatio)
+        svgRender.render(painter, rect)
 
         # # set background color
         # painter.setPen(QPen(Qt.NoPen))
@@ -68,11 +80,11 @@ class DistributionDelegate(QItemDelegate):
         # painter.drawRect(option.rect)
         #
         # set text color
-        painter.setPen(QPen(Qt.black))
-        value = index.data(Qt.DisplayRole)
-        if True:
-            text = str(value)
-            painter.drawText(option.rect, Qt.AlignLeft, text)
+        # painter.setPen(QPen(Qt.black))
+        # value = index.data(Qt.DisplayRole)
+        # if True:
+        #     text = str(value)
+        #     painter.drawText(option.rect, Qt.AlignLeft, text)
 
         painter.restore()
 

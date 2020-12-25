@@ -37,7 +37,16 @@ class Distribution(QObject):
         self.categoriesModel = DistributionModel([["Restaurants",
                                                   "3 transactions",
                                                   195,
-                                                  "35%"]])
+                                                  "35%"],
+                                                  ["Transport",
+                                                   "12 transactions",
+                                                   209,
+                                                   "42%"],
+                                                  ["Groceries",
+                                                   "1 transaction",
+                                                   20,
+                                                   "5%"]
+                                                  ])
 
         self.categoriesListView.setModel(self.categoriesModel)
         self.categoriesListView.setItemDelegate(self.distributionDelegate)
@@ -58,7 +67,7 @@ class Distribution(QObject):
         layout = QVBoxLayout(widget)
         layout.addWidget(self.categoriesListView)
         layout.addWidget(self.statusBar)
-        layout.setContentsMargins(0, 0, 0, 0)
+        layout.setContentsMargins(0, 10, 0, 0)
 
         self.uiSetup.monthlyExpenses.setWidget(widget)
 
