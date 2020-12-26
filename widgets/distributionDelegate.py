@@ -35,17 +35,21 @@ class DistributionDelegate(QItemDelegate):
         editor.setGeometry(option.rect)
 
     def sizeHint(self, optionQStyleOptionViewItem, index):
-        return QSize(10, 90)
+        return QSize(10, 70)
 
     def paint(self, painter, option, index):
         painter.save()
+
+        """ Get category value [0] """
+        value = index.data(Qt.DisplayRole)
+        category = str(value[0])
 
         """ Draw bottom border """
         painter.setPen(QPen(QColor("#344457")))
         # painter.setPen(QPen("green"))
         painter.setBrush(Qt.NoBrush)
-        painter.drawLine(option.rect.x()+20, option.rect.y()+option.rect.height()-5,
-                         option.rect.width()-20, option.rect.y()+option.rect.height()-5)
+        painter.drawLine(option.rect.x()+20, option.rect.y()+option.rect.height()-0,
+                         option.rect.width()-20, option.rect.y()+option.rect.height()-0)
 
         painter.setRenderHint(QPainter.Antialiasing)
 
@@ -53,14 +57,15 @@ class DistributionDelegate(QItemDelegate):
         painter.setPen(QPen(QColor("#26374C")))
         # painter.setBrush(QColor("#26374C"))
         painter.setBrush(QColor("transparent"))
-        painter.drawRect(option.rect.x()+20, option.rect.y()+10,
-                         option.rect.width()-40, option.rect.height()-25)
+        rectBackground = QRect(option.rect.x()+20, option.rect.y()+10,
+                               option.rect.width()-40, option.rect.height()-25)
+        painter.drawRect(rectBackground)
 
         """ Draw left icon background """
         painter.setPen(QPen(QColor("#1A537D")))
         painter.setBrush(QColor("#1A537D"))
-        rectIcon = QRect(option.rect.x()+20, option.rect.y()+20,
-                         option.rect.x()+45, option.rect.height()-45)
+        rectIcon = QRect(option.rect.x()+20, option.rect.y()+12,
+                         option.rect.x()+45, option.rect.height()-25)
         painter.drawRoundedRect(rectIcon, 1.0, 1.0)
 
         """ Draw icon and render svg """
@@ -70,7 +75,12 @@ class DistributionDelegate(QItemDelegate):
                         rectIcon.width()-20, rectIcon.height()-20)
         painter.drawRect(rectSvg)
 
-        svgRender = QSvgRenderer(":/images/images/restaurant-white-18dp.svg")
+        if category == "Restaurants":
+            svgRender = QSvgRenderer(":/images/images/restaurant-white-18dp.svg")
+        elif category == "Transport":
+            svgRender = QSvgRenderer(":/images/images/directions_car-white-18dp.svg")
+        elif category == "Groceries":
+            svgRender = QSvgRenderer(":/images/images/local_grocery_store-white-18dp.svg")
         svgRender.setAspectRatioMode(Qt.KeepAspectRatio)
         svgRender.render(painter, rectSvg)
 
@@ -79,18 +89,17 @@ class DistributionDelegate(QItemDelegate):
         self.font.setPointSize(10)
         painter.setFont(self.font)
 
-        """ Get category value [0] """
+        """ Set category painter color """
         painter.setPen(QPen(Qt.white))
-        value = index.data(Qt.DisplayRole)
-        category = str(value[0])
 
         """ Get font metrics """
         fontMetrics = QFontMetrics(self.font)
         pixelsWidth = fontMetrics.width(category)
+        pixelsHeight = fontMetrics.height()
 
         """ Set category on top """
         painter.drawText(rectIcon.width()+35, rectIcon.y(),
-                         pixelsWidth, rectIcon.y(),
+                         pixelsWidth, pixelsHeight,
                          Qt.AlignLeft, category)
 
         """ Set font on painter for number of transactions """
@@ -106,11 +115,32 @@ class DistributionDelegate(QItemDelegate):
         """ Get font metrics """
         fontMetrics = QFontMetrics(self.font)
         pixelsWidth = fontMetrics.width(nbTransactions)
+        pixelsHeight = fontMetrics.height()
 
         """ Set number of transactions beside category """
         painter.drawText(rectIcon.width() + 35, rectIcon.y()+25,
-                         pixelsWidth, rectIcon.y()+25,
+                         pixelsWidth, pixelsHeight,
                          Qt.AlignLeft, nbTransactions)
+
+        """ Set font on painter for amount """
+        self.font.setFamily(u"Roboto")
+        self.font.setPointSize(10)
+        painter.setFont(self.font)
+
+        """ Get amount value [2] """
+        painter.setPen(QPen(QColor("white")))
+        value = index.data(Qt.DisplayRole)
+        amount = str(value[2])
+
+        """ Get font metrics """
+        fontMetrics = QFontMetrics(self.font)
+        pixelsWidth = fontMetrics.width(amount)
+        pixelsHeight = fontMetrics.height()
+
+        """ Set number of transactions beside category """
+        painter.drawText(rectBackground.width()-10, rectIcon.y(),
+                         pixelsWidth, pixelsHeight,
+                         Qt.AlignRight, amount)
 
         # # set background color
         # painter.setPen(QPen(Qt.NoPen))
