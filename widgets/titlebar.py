@@ -26,7 +26,7 @@ class TitleBar(QWidget):
         self._add = QPushButton()
         self._add.setObjectName(u"titleBarAdd")
 
-        """ Set PushButton to coccupy all region """
+        """ Set Widget to occupy all region """
         self._addWidget = QWidget()
         self._addWidget.setObjectName(u"leftAddWidget")
         self._addLayout = QHBoxLayout(self._addWidget)

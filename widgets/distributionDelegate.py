@@ -40,13 +40,20 @@ class DistributionDelegate(QItemDelegate):
     def paint(self, painter, option, index):
         painter.save()
 
-        """ Get category value [0] """
+        """ Get values """
         value = index.data(Qt.DisplayRole)
         category = str(value[0])
+        nbTransactions = str(value[1])
+        if int(nbTransactions) > 1:
+            nbTransactions += " transactions"
+        else:
+            nbTransactions += " transaction"
+        amount = value[2]
+        amount = "{:,.2f}".format(amount).replace(",", " ") + " €"
+        percentage = str(value[3]) + "%"
 
         """ Draw bottom border """
         painter.setPen(QPen(QColor("#344457")))
-        # painter.setPen(QPen("green"))
         painter.setBrush(Qt.NoBrush)
         painter.drawLine(option.rect.x()+20, option.rect.y()+option.rect.height()-0,
                          option.rect.width()-20, option.rect.y()+option.rect.height()-0)
@@ -55,9 +62,8 @@ class DistributionDelegate(QItemDelegate):
 
         """ Draw item background """
         painter.setPen(QPen(QColor("#26374C")))
-        # painter.setBrush(QColor("#26374C"))
         painter.setBrush(QColor("transparent"))
-        rectBackground = QRect(option.rect.x()+20, option.rect.y()+10,
+        rectBackground = QRect(option.rect.x()+20, option.rect.y()+12,
                                option.rect.width()-40, option.rect.height()-25)
         painter.drawRect(rectBackground)
 
@@ -107,10 +113,8 @@ class DistributionDelegate(QItemDelegate):
         self.font.setPointSize(9)
         painter.setFont(self.font)
 
-        """ Get number of transactions value [1] """
+        """ Set number of transactions pen color """
         painter.setPen(QPen(QColor("#75879B")))
-        value = index.data(Qt.DisplayRole)
-        nbTransactions = str(value[1])
 
         """ Get font metrics """
         fontMetrics = QFontMetrics(self.font)
@@ -122,25 +126,46 @@ class DistributionDelegate(QItemDelegate):
                          pixelsWidth, pixelsHeight,
                          Qt.AlignLeft, nbTransactions)
 
+        """ Draw percentage background """
+        painter.setPen(QPen(QColor("#26374C")))
+        painter.setBrush(QColor("red"))
+        rectPercentage = QRect(option.rect.width()/2, option.rect.y()+10,
+                               option.rect.width()-40, option.rect.height()-20)
+        painter.drawRect(rectPercentage)
+
         """ Set font on painter for amount """
         self.font.setFamily(u"Roboto")
         self.font.setPointSize(10)
         painter.setFont(self.font)
 
-        """ Get amount value [2] """
+        """ Set amount pen color """
         painter.setPen(QPen(QColor("white")))
-        value = index.data(Qt.DisplayRole)
-        amount = str(value[2])
 
         """ Get font metrics """
         fontMetrics = QFontMetrics(self.font)
-        pixelsWidth = fontMetrics.width(amount)
         pixelsHeight = fontMetrics.height()
 
-        """ Set number of transactions beside category """
-        painter.drawText(rectBackground.width()-10, rectIcon.y(),
-                         pixelsWidth, pixelsHeight,
-                         Qt.AlignRight, amount)
+        """ Set amount on right corner """
+        rectAmount = QRect(rectBackground.width()+rectBackground.x()-106, rectIcon.y(),
+                           96, pixelsHeight)
+        painter.drawText(rectAmount, Qt.AlignRight, amount)
+
+        """ Set font on painter for percentage """
+        self.font.setFamily(u"Roboto")
+        self.font.setPointSize(9)
+        painter.setFont(self.font)
+
+        """ Set percentage pen color """
+        painter.setPen(QPen(QColor("#75879B")))
+
+        """ Get font metrics """
+        fontMetrics = QFontMetrics(self.font)
+        pixelsHeight = fontMetrics.height()
+
+        """ Set percentage beside amount """
+        rectPerc = QRect(rectBackground.width()+rectBackground.x()-56, rectIcon.y()+25,
+                           46, pixelsHeight)
+        painter.drawText(rectPerc, Qt.AlignRight, percentage)
 
         # # set background color
         # painter.setPen(QPen(Qt.NoPen))

@@ -35,17 +35,17 @@ class Distribution(QObject):
 
         """ Model to handle data in distribution list """
         self.categoriesModel = DistributionModel([["Restaurants",
-                                                  "3 transactions",
-                                                  195,
-                                                  "35%"],
+                                                  3,
+                                                  22095.53,
+                                                  100],
                                                   ["Transport",
-                                                   "12 transactions",
-                                                   209,
-                                                   "42%"],
+                                                   12,
+                                                   209.12,
+                                                   42],
                                                   ["Groceries",
-                                                   "1 transaction",
-                                                   20,
-                                                   "5%"]
+                                                   1,
+                                                   20.43,
+                                                   5]
                                                   ])
 
         self.categoriesListView.setModel(self.categoriesModel)
