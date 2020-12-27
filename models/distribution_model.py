@@ -24,7 +24,6 @@ class DistributionModel(QAbstractListModel):
             category = self.categories[index.row()]
 
             """ Return current category list """
-            print(category)
             return category
 
     def rowCount(self, index):
@@ -38,7 +37,7 @@ class DistributionModel(QAbstractListModel):
 
     def setData(self, index, value, role):
         """
-        Overide setData() from QAbstractListModel
+        Override setData() from QAbstractListModel
         :param index: index
         :param value: value to set
         :param role: role
@@ -47,3 +46,11 @@ class DistributionModel(QAbstractListModel):
 
         if index.isValid():
             self.categories[index.row()] = value
+
+    def sort(self, column, order):
+        """
+        Override sort() from QAbstractItemModel
+        :param column:
+        :param order:
+        :return:
+        """

@@ -71,16 +71,18 @@ class Distribution(QObject):
         """
 
         """ Connect click on button in title bar to change icon """
-    #     self.uiSetup.monthlyExpenses.titleBarClicked.connect(self.changeSortIcon)
-    #
-    # def changeSortIcon(self):
-    #     """
-    #     Change sort icon
-    #     :return: void
-    #     """
-    #
+        self.uiSetup.monthlyExpenses.titleBarClicked.connect(self.changeSortIcon)
 
+    def changeSortIcon(self, checked):
+        """
+        Change sort icon according to checked state
+        :return: void
+        """
 
+        if checked:
+            self.uiSetup.monthlyExpenses.setIcon(QIcon(":/images/images/filter_list-white-24dp.svg"))
+        else:
+            self.uiSetup.monthlyExpenses.setIcon(QIcon(":/images/images/filter_list_down-white-24dp.svg"))
 
     def configureLayout(self):
         """

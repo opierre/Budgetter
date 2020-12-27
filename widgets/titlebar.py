@@ -8,8 +8,8 @@ class TitleBar(QWidget):
     Title Bar
     """
 
-    """ Signal emitted when right corner button clicked """
-    clicked = Signal()
+    """ Signal emitted when right corner button clicked - Checked state: bool """
+    clicked = Signal(bool)
 
     def __init__(self, parent=None):
         super().__init__(parent)
@@ -57,7 +57,7 @@ class TitleBar(QWidget):
         """
 
         """ Connect click on _add button to emit signal """
-        self._add.clicked.connect(self.clicked.emit)
+        self._add.clicked[bool].connect(self.clicked.emit)
 
     def configureWidgets(self):
         """
@@ -69,6 +69,8 @@ class TitleBar(QWidget):
         self._add.setIcon(QIcon(":/images/images/add_circle_outline-white-24dp.svg"))
         self._add.setIconSize(QSize(22, 22))
         self._add.setCursor(Qt.PointingHandCursor)
+        self._add.setCheckable(True)
+        self._add.setChecked(True)
 
     def configureLayout(self):
         """

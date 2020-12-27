@@ -10,8 +10,8 @@ class Container(QDockWidget):
     Container
     """
 
-    """ Signal emitted when button in title bar has been clicked """
-    titleBarClicked = Signal()
+    """ Signal emitted when button in title bar has been clicked - Checked state: bool """
+    titleBarClicked = Signal(bool)
 
     def __init__(self, parent=None):
         super().__init__(parent)

@@ -1,5 +1,6 @@
 <RCC>
   <qresource prefix="images">
+    <file>images/filter_list_down-white-24dp.svg</file>
     <file>images/filter_list-white-24dp.svg</file>
     <file>images/local_grocery_store-white-18dp.svg</file>
     <file>images/directions_car-white-18dp.svg</file>
