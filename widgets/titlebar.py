@@ -47,6 +47,18 @@ class TitleBar(QWidget):
         """ Configure layout """
         self.configureLayout()
 
+        """ Connect signals and slots """
+        self.connectWidgets()
+
+    def connectWidgets(self):
+        """
+        Connect all slots and signals
+        :return: void
+        """
+
+        """ Connect click on _add button to emit signal """
+        self._add.clicked.connect(self.clicked.emit)
+
     def configureWidgets(self):
         """
         Configure widgets inside container

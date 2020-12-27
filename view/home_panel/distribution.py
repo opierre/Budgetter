@@ -61,6 +61,27 @@ class Distribution(QObject):
         """ Configure TitleBar """
         self.configureTitleBar()
 
+        """ Connect all slots and signals """
+        self.connectWidgets()
+
+    def connectWidgets(self):
+        """
+        Connect all slots and signals
+        :return: void
+        """
+
+        """ Connect click on button in title bar to change icon """
+    #     self.uiSetup.monthlyExpenses.titleBarClicked.connect(self.changeSortIcon)
+    #
+    # def changeSortIcon(self):
+    #     """
+    #     Change sort icon
+    #     :return: void
+    #     """
+    #
+
+
+
     def configureLayout(self):
         """
         Configure layout inside of Container
