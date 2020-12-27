@@ -1,4 +1,5 @@
 from PySide2.QtCore import QObject, Qt, QDate
+from PySide2.QtGui import QIcon
 from PySide2.QtWidgets import QVBoxLayout, QStatusBar, QWidget, QPushButton, QListView
 
 from models.distribution_model import DistributionModel
@@ -39,7 +40,7 @@ class Distribution(QObject):
                                                   22095.53,
                                                   100],
                                                   ["Transport",
-                                                   12,
+                                                   120,
                                                    209.12,
                                                    42],
                                                   ["Groceries",
@@ -56,6 +57,9 @@ class Distribution(QObject):
 
         """ Configure status bar """
         self.configureStatusBar()
+
+        """ Configure TitleBar """
+        self.configureTitleBar()
 
     def configureLayout(self):
         """
@@ -99,6 +103,14 @@ class Distribution(QObject):
 
         """ Disable size grip """
         self.statusBar.setSizeGripEnabled(False)
+
+    def configureTitleBar(self):
+        """
+        Configure TitleBar with icon
+        :return: void
+        """
+
+        self.uiSetup.monthlyExpenses.setIcon(QIcon(":/images/images/filter_list-white-24dp.svg"))
 
     def setCurrentAndPreviousMonth(self):
         """

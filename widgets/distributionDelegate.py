@@ -127,11 +127,12 @@ class DistributionDelegate(QItemDelegate):
                          Qt.AlignLeft, nbTransactions)
 
         """ Draw percentage background """
-        painter.setPen(QPen(QColor("#26374C")))
-        painter.setBrush(QColor("red"))
-        rectPercentage = QRect(option.rect.width()/2, option.rect.y()+10,
-                               option.rect.width()-40, option.rect.height()-20)
-        painter.drawRect(rectPercentage)
+        painter.setPen(QPen(QColor("#21405D")))
+        painter.setBrush(QColor("#21405D"))
+        rectPercentage = QRect(rectBackground.x()+rectBackground.width(), option.rect.y()+10,
+                               -(rectBackground.width()-(rectIcon.x()+rectIcon.width()+35+112+20))*(value[3]/100),
+                               option.rect.height()-20)
+        painter.drawRoundedRect(rectPercentage, 1.0, 1.0)
 
         """ Set font on painter for amount """
         self.font.setFamily(u"Roboto")
@@ -146,7 +147,7 @@ class DistributionDelegate(QItemDelegate):
         pixelsHeight = fontMetrics.height()
 
         """ Set amount on right corner """
-        rectAmount = QRect(rectBackground.width()+rectBackground.x()-106, rectIcon.y(),
+        rectAmount = QRect(rectBackground.width()+rectBackground.x()-106, rectIcon.y()+2,
                            96, pixelsHeight)
         painter.drawText(rectAmount, Qt.AlignRight, amount)
 
@@ -163,8 +164,8 @@ class DistributionDelegate(QItemDelegate):
         pixelsHeight = fontMetrics.height()
 
         """ Set percentage beside amount """
-        rectPerc = QRect(rectBackground.width()+rectBackground.x()-56, rectIcon.y()+25,
-                           46, pixelsHeight)
+        rectPerc = QRect(rectBackground.width()+rectBackground.x()-56, rectIcon.y()+27,
+                         46, pixelsHeight)
         painter.drawText(rectPerc, Qt.AlignRight, percentage)
 
         # # set background color

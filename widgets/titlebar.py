@@ -1,9 +1,15 @@
-from PySide2.QtCore import QSize
+from PySide2.QtCore import QSize, Signal
 from PySide2.QtGui import QIcon, Qt
 from PySide2.QtWidgets import QWidget, QHBoxLayout, QLabel, QPushButton, QSpacerItem, QSizePolicy
 
 
 class TitleBar(QWidget):
+    """
+    Title Bar
+    """
+
+    """ Signal emitted when right corner button clicked """
+    clicked = Signal()
 
     def __init__(self, parent=None):
         super().__init__(parent)
@@ -93,3 +99,13 @@ class TitleBar(QWidget):
         """
 
         return self._title.text()
+
+    def setIcon(self, icon: QIcon):
+        """
+        Replace QIcon with icon
+        :param icon: QIcon to set
+        :return: void
+        """
+
+        self._add.setIcon(icon)
+        self._add.setIconSize(QSize(22, 22))

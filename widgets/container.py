@@ -1,3 +1,4 @@
+from PySide2.QtGui import QIcon
 from PySide2.QtWidgets import QGroupBox, QGridLayout, QLabel, QPushButton, QDockWidget, QLineEdit, QSpacerItem, \
     QSizePolicy, QStatusBar, QWidget, QVBoxLayout, QTextEdit
 
@@ -16,10 +17,6 @@ class Container(QDockWidget):
         """ Title bar with title and add button """
         self.titleBar = TitleBar(self)
 
-        """ Status bar """
-        self.customStatusBar = StatusBar()
-        self.statusBar = QStatusBar()
-
         """ Configure widgets """
         self.configureWidgets()
 
@@ -31,3 +28,12 @@ class Container(QDockWidget):
 
         """ Add button to title """
         self.setTitleBarWidget(self.titleBar)
+
+    def setIcon(self, icon: QIcon):
+        """
+        Replace QIcon with icon
+        :param icon: QIcon to set
+        :return: void
+        """
+
+        self.titleBar.setIcon(icon)
