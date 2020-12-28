@@ -685,6 +685,12 @@ QListView {
        </item>
        <item row="0" column="2" rowspan="3">
         <widget class="Container" name="monthlyExpenses">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
          <property name="font">
           <font>
            <family>Roboto</family>

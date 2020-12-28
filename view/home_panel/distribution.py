@@ -61,29 +61,6 @@ class Distribution(QObject):
         """ Configure TitleBar """
         self.configureTitleBar()
 
-        """ Connect all slots and signals """
-        self.connectWidgets()
-
-    def connectWidgets(self):
-        """
-        Connect all slots and signals
-        :return: void
-        """
-
-        """ Connect click on button in title bar to change icon """
-        self.uiSetup.monthlyExpenses.titleBarClicked.connect(self.changeSortIcon)
-
-    def changeSortIcon(self, checked):
-        """
-        Change sort icon according to checked state
-        :return: void
-        """
-
-        if checked:
-            self.uiSetup.monthlyExpenses.setIcon(QIcon(":/images/images/filter_list-white-24dp.svg"))
-        else:
-            self.uiSetup.monthlyExpenses.setIcon(QIcon(":/images/images/filter_list_down-white-24dp.svg"))
-
     def configureLayout(self):
         """
         Configure layout inside of Container
@@ -133,7 +110,7 @@ class Distribution(QObject):
         :return: void
         """
 
-        self.uiSetup.monthlyExpenses.setIcon(QIcon(":/images/images/filter_list-white-24dp.svg"))
+        self.uiSetup.monthlyExpenses.disableTitleBarButton()
 
     def setCurrentAndPreviousMonth(self):
         """

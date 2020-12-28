@@ -12,6 +12,9 @@ class DistributionModel(QAbstractListModel):
         """ Store categories """
         self.categories = categories or []
 
+        """ Store sort direction - Default: UP """
+        self.sortOrder = 1
+
     def data(self, index, role):
         """
         Override data() from QAbstractListModel
@@ -34,23 +37,3 @@ class DistributionModel(QAbstractListModel):
         """
 
         return len(self.categories)
-
-    def setData(self, index, value, role):
-        """
-        Override setData() from QAbstractListModel
-        :param index: index
-        :param value: value to set
-        :param role: role
-        :return: void
-        """
-
-        if index.isValid():
-            self.categories[index.row()] = value
-
-    def sort(self, column, order):
-        """
-        Override sort() from QAbstractItemModel
-        :param column:
-        :param order:
-        :return:
-        """

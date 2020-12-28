@@ -672,6 +672,8 @@ class Ui_MainWindow(object):
 
         self.monthlyExpenses = Container(self.dashboard)
         self.monthlyExpenses.setObjectName(u"monthlyExpenses")
+        sizePolicy.setHeightForWidth(self.monthlyExpenses.sizePolicy().hasHeightForWidth())
+        self.monthlyExpenses.setSizePolicy(sizePolicy)
         font1 = QFont()
         font1.setFamily(u"Roboto")
         font1.setPointSize(13)

@@ -54,3 +54,11 @@ class Container(QDockWidget):
         """
 
         self.titleBar.setIcon(icon)
+
+    def disableTitleBarButton(self):
+        """
+        Hide button on top right corner in title bar if useless
+        :return: void
+        """
+
+        self.titleBar.disableButton()

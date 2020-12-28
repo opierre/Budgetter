@@ -123,3 +123,11 @@ class TitleBar(QWidget):
 
         self._add.setIcon(icon)
         self._add.setIconSize(QSize(22, 22))
+
+    def disableButton(self):
+        """
+        Hide button on top right corner if useless
+        :return: void
+        """
+
+        self._add.hide()
