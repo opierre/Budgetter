@@ -108,9 +108,11 @@ QComboBox
 	border-bottom-style: outset;
 	border-bottom-width: 1px;
 	border-radius: 0px;
-	border-color: #309db5;
+	border-color: transparent;
 	color: white;
-	padding-left: 4px;
+	padding-left: 0px;
+	font-family: &quot;Roboto&quot;;
+	font-size: 9pt;
 }
 
 QComboBox ::hover
@@ -119,20 +121,11 @@ QComboBox ::hover
 	border-bottom-style: outset;
 	border-bottom-width: 1px;
 	border-radius: 0px;
-	border-color: white;
+	border-color: transparent;
 	color: white;
-	padding-left: 4px;
-}
-
-QComboBox ::disabled
-{
-	background-color: transparent;
-	border-bottom-style: outset;
-	border-bottom-width: 1px;
-	border-radius: 0px;
-	border-color: grey;
-	color: grey;
-	padding-left: 4px;
+	padding-left: 0px;
+	font-family: &quot;Roboto&quot;;
+	font-size: 9pt;
 }
 
 QComboBox::drop-down
@@ -143,35 +136,26 @@ QComboBox::drop-down
 
 QComboBox::down-arrow
 {
-	image: url();
-	width: 15px;
-	height: 15px;
-	padding-right: 10px;
-	padding-top: 1px
+	image: none;
+	width: 0px;
+	height: 0px;
+	padding-right: 0px;
+	padding-top: 0px;
 }
 
 
 QComboBox::down-arrow:on
 {
-	image: url();
-	width: 15px;
-	height: 15px;
-	padding-right: 10px;
-	padding-top: 1px
-}
-
-QComboBox::down-arrow:disabled
-{
-	image: url();
-	width: 15px;
-	height: 15px;
-	padding-right: 10px;
-	padding-top: 1px
+	image: none;
+	width: 0px;
+	height: 0px;
+	padding-right: 0px;
+	padding-top: 0px;
 }
 
 QComboBox QAbstractItemView
 {
-	background: #394957;
+	background: #26374C;
 	color: white;
 	border-top-style: inset;
 	border-width: 1px;
@@ -717,6 +701,46 @@ QListView {
            <property name="rightMargin">
             <number>0</number>
            </property>
+           <item row="0" column="1">
+            <widget class="QComboBox" name="comboBox">
+             <property name="cursor">
+              <cursorShape>PointingHandCursor</cursorShape>
+             </property>
+             <item>
+              <property name="text">
+               <string>cpdojid</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>fezfezf</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>fezfezf</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>breberbre</string>
+              </property>
+             </item>
+            </widget>
+           </item>
+           <item row="0" column="0">
+            <spacer name="horizontalSpacer_2">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
           </layout>
          </widget>
         </widget>

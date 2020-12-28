@@ -1,6 +1,6 @@
 from PySide2.QtCore import QObject, Qt, QDate
 from PySide2.QtGui import QIcon
-from PySide2.QtWidgets import QVBoxLayout, QStatusBar, QWidget, QPushButton, QListView
+from PySide2.QtWidgets import QVBoxLayout, QStatusBar, QWidget, QPushButton, QListView, QSpacerItem, QSizePolicy
 
 from models.distribution_model import DistributionModel
 from widgets.distributionDelegate import DistributionDelegate
@@ -27,6 +27,9 @@ class Distribution(QObject):
 
         """ Previous Month button """
         self.previousMonth = QPushButton("August")
+
+        """ Month spacer to fulfill height """
+        self.spacerMonth = QSpacerItem(40, 10, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
         """ Store item delegate """
         self.distributionDelegate = DistributionDelegate()
@@ -100,9 +103,22 @@ class Distribution(QObject):
         """ Add buttons on left corner """
         self.statusBar.addWidget(self.currentMonth)
         self.statusBar.addWidget(self.previousMonth)
+        self.statusBar.addWidget(self.previousMonth)
 
         """ Disable size grip """
         self.statusBar.setSizeGripEnabled(False)
+
+        """ Hide settings """
+        self.customStatusBar.hideSettings()
+
+        """ Hide years """
+        self.customStatusBar.hideChoices()
+
+        # """ Set years in choices combobox """
+        # self.customStatusBar.setChoices(["2018", "2019", "2020", "2021"])
+        #
+        # """ Set current year """
+        # self.customStatusBar.setCurrentChoice(str(QDate.currentDate().year()))
 
     def configureTitleBar(self):
         """
