@@ -69,7 +69,7 @@ class TransactionDelegate(QItemDelegate):
         svgRender.setAspectRatioMode(Qt.KeepAspectRatio)
         svgRender.render(painter, rectSvg)
 
-        """ Set font on painter for Name """
+        """ Set font on painter for name """
         self.font.setFamily(u"Roboto")
         self.font.setPointSize(10)
         painter.setFont(self.font)
@@ -79,10 +79,10 @@ class TransactionDelegate(QItemDelegate):
 
         """ Get font metrics """
         fontMetrics = QFontMetrics(self.font)
-        pixelsWidth = fontMetrics.width(category)
+        pixelsWidth = fontMetrics.width(name)
         pixelsHeight = fontMetrics.height()
 
-        """ Set category on top """
+        """ Set name on top """
         painter.drawText(rectIcon.width()+35, rectIcon.y(),
                          pixelsWidth, pixelsHeight,
                          Qt.AlignLeft, name)
