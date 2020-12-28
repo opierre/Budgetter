@@ -2,6 +2,7 @@ from PySide2.QtCore import QObject
 
 from view.home_panel.accounts import Accounts
 from view.home_panel.distribution import Distribution
+from view.home_panel.transactions import Transactions
 
 
 class Home(QObject):
@@ -21,6 +22,9 @@ class Home(QObject):
 
         """ Distribution groupBox """
         self._distribution = Distribution(gui)
+
+        """ Transactions groupBox """
+        self._transactions = Transactions(gui)
 
         """ Connect slots and signals """
         self.connectHomeSlotsAndSignals()

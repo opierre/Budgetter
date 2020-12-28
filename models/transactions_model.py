@@ -1,16 +1,16 @@
 from PySide2.QtCore import QAbstractListModel, Qt
 
 
-class DistributionModel(QAbstractListModel):
+class TransactionsModel(QAbstractListModel):
     """
-    Distribution model
+    Transactions model
     """
 
-    def __init__(self, categories=None):
+    def __init__(self, transactions=None):
         super().__init__()
 
-        """ Store categories """
-        self.categories = categories or []
+        """ Store transactions """
+        self.transactions = transactions or []
 
     def data(self, index, role):
         """
@@ -21,10 +21,10 @@ class DistributionModel(QAbstractListModel):
         """
 
         if index.isValid() and role == Qt.DisplayRole:
-            category = self.categories[index.row()]
+            transaction = self.transactions[index.row()]
 
-            """ Return current category list """
-            return category
+            """ Return current transaction list """
+            return transaction
 
     def rowCount(self, index):
         """
@@ -33,4 +33,4 @@ class DistributionModel(QAbstractListModel):
         :return: length of datas
         """
 
-        return len(self.categories)
+        return len(self.transactions)

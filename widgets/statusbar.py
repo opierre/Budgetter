@@ -99,4 +99,5 @@ class StatusBar(QWidget):
         :return: void
         """
 
-        self._settings.hide()
+        self._settings.setIcon(QIcon(":/images/images/more_horiz-white-24dp_hidden.svg"))
+        self._settings.setCursor(Qt.ArrowCursor)

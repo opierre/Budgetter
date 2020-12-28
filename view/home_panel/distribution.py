@@ -28,9 +28,6 @@ class Distribution(QObject):
         """ Previous Month button """
         self.previousMonth = QPushButton("August")
 
-        """ Month spacer to fulfill height """
-        self.spacerMonth = QSpacerItem(40, 10, QSizePolicy.Expanding, QSizePolicy.Minimum)
-
         """ Store item delegate """
         self.distributionDelegate = DistributionDelegate()
 
@@ -102,7 +99,6 @@ class Distribution(QObject):
 
         """ Add buttons on left corner """
         self.statusBar.addWidget(self.currentMonth)
-        self.statusBar.addWidget(self.previousMonth)
         self.statusBar.addWidget(self.previousMonth)
 
         """ Disable size grip """

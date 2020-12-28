@@ -62,3 +62,12 @@ class Container(QDockWidget):
         """
 
         self.titleBar.disableButton()
+
+    def setTitle(self, title):
+        """
+        Set title on Container title bar
+        :param title: title to set
+        :return: void
+        """
+
+        self.titleBar.setTitle(title)

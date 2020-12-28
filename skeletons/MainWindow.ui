@@ -630,44 +630,10 @@ QListView {
        <property name="bottomMargin">
         <number>15</number>
        </property>
-       <property name="horizontalSpacing">
+       <property name="spacing">
         <number>15</number>
        </property>
-       <property name="verticalSpacing">
-        <number>0</number>
-       </property>
-       <item row="1" column="0" rowspan="2" colspan="2">
-        <widget class="QGroupBox" name="transactions">
-         <property name="font">
-          <font>
-           <family>Roboto</family>
-           <pointsize>14</pointsize>
-          </font>
-         </property>
-         <property name="title">
-          <string>Recent Transactions</string>
-         </property>
-         <property name="checkable">
-          <bool>false</bool>
-         </property>
-         <layout class="QGridLayout" name="gridLayout_5">
-          <item row="0" column="0">
-           <widget class="QTableView" name="tableView">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="frameShape">
-             <enum>QFrame::NoFrame</enum>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </widget>
-       </item>
-       <item row="0" column="2" rowspan="3">
+       <item row="0" column="3" rowspan="3">
         <widget class="Container" name="monthlyExpenses">
          <property name="sizePolicy">
           <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
@@ -701,46 +667,6 @@ QListView {
            <property name="rightMargin">
             <number>0</number>
            </property>
-           <item row="0" column="1">
-            <widget class="QComboBox" name="comboBox">
-             <property name="cursor">
-              <cursorShape>PointingHandCursor</cursorShape>
-             </property>
-             <item>
-              <property name="text">
-               <string>cpdojid</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string>fezfezf</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string>fezfezf</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string>breberbre</string>
-              </property>
-             </item>
-            </widget>
-           </item>
-           <item row="0" column="0">
-            <spacer name="horizontalSpacer_2">
-             <property name="orientation">
-              <enum>Qt::Horizontal</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>40</width>
-               <height>20</height>
-              </size>
-             </property>
-            </spacer>
-           </item>
           </layout>
          </widget>
         </widget>
@@ -807,6 +733,26 @@ QListView {
            </widget>
           </item>
          </layout>
+        </widget>
+       </item>
+       <item row="1" column="0" rowspan="2" colspan="2">
+        <widget class="Container" name="transactions">
+         <property name="font">
+          <font>
+           <family>Roboto</family>
+           <pointsize>13</pointsize>
+          </font>
+         </property>
+         <property name="features">
+          <set>QDockWidget::NoDockWidgetFeatures</set>
+         </property>
+         <property name="allowedAreas">
+          <set>Qt::NoDockWidgetArea</set>
+         </property>
+         <property name="windowTitle">
+          <string>Transactions</string>
+         </property>
+         <widget class="QWidget" name="dockWidgetContents_2"/>
         </widget>
        </item>
       </layout>
