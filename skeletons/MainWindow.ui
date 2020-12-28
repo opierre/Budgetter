@@ -641,6 +641,12 @@ QListView {
            <verstretch>0</verstretch>
           </sizepolicy>
          </property>
+         <property name="minimumSize">
+          <size>
+           <width>200</width>
+           <height>100</height>
+          </size>
+         </property>
          <property name="font">
           <font>
            <family>Roboto</family>
@@ -737,6 +743,12 @@ QListView {
        </item>
        <item row="1" column="0" rowspan="2" colspan="2">
         <widget class="Container" name="transactions">
+         <property name="minimumSize">
+          <size>
+           <width>52</width>
+           <height>100</height>
+          </size>
+         </property>
          <property name="font">
           <font>
            <family>Roboto</family>

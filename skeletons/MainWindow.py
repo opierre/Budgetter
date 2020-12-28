@@ -637,6 +637,7 @@ class Ui_MainWindow(object):
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.monthlyExpenses.sizePolicy().hasHeightForWidth())
         self.monthlyExpenses.setSizePolicy(sizePolicy)
+        self.monthlyExpenses.setMinimumSize(QSize(200, 100))
         font = QFont()
         font.setFamily(u"Roboto")
         font.setPointSize(13)
@@ -684,6 +685,7 @@ class Ui_MainWindow(object):
 
         self.transactions = Container(self.dashboard)
         self.transactions.setObjectName(u"transactions")
+        self.transactions.setMinimumSize(QSize(52, 100))
         self.transactions.setFont(font)
         self.transactions.setFeatures(QDockWidget.NoDockWidgetFeatures)
         self.transactions.setAllowedAreas(Qt.NoDockWidgetArea)

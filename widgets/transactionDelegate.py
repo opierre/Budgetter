@@ -1,3 +1,5 @@
+import datetime
+
 from PySide2 import QtCore
 from PySide2.QtCore import QSize, Qt, QRect
 from PySide2.QtGui import QPen, QColor, QPainter, QFont, QFontMetrics
@@ -29,7 +31,9 @@ class TransactionDelegate(QItemDelegate):
         amount = value[2]
         amount = "{:,.2f}".format(amount).replace(",", " ") + " €"
         date = str(value[3])
-        expOrInc = str(value[4])
+        date = datetime.datetime.strptime(date, '%d/%m/%Y').strftime('%d %b %Y')
+        account = str(value[4])
+        expOrInc = str(value[5])
 
         """ Draw bottom border """
         painter.setPen(QPen(QColor("#344457")))
@@ -92,7 +96,7 @@ class TransactionDelegate(QItemDelegate):
         self.font.setPointSize(9)
         painter.setFont(self.font)
 
-        """ Set number of transactions pen color """
+        """ Set category pen color """
         painter.setPen(QPen(QColor("#75879B")))
 
         """ Get font metrics """
@@ -100,44 +104,139 @@ class TransactionDelegate(QItemDelegate):
         pixelsWidth = fontMetrics.width(category)
         pixelsHeight = fontMetrics.height()
 
-        """ Set number of transactions beside category """
+        """ Set category beside name """
         painter.drawText(rectIcon.width() + 35, rectIcon.y()+25,
                          pixelsWidth, pixelsHeight,
                          Qt.AlignLeft, category)
 
-        # """ Set font on painter for amount """
-        # self.font.setFamily(u"Roboto")
-        # self.font.setPointSize(10)
-        # painter.setFont(self.font)
-        #
-        # """ Set amount pen color """
-        # painter.setPen(QPen(QColor("white")))
-        #
-        # """ Get font metrics """
-        # fontMetrics = QFontMetrics(self.font)
-        # pixelsHeight = fontMetrics.height()
-        #
-        # """ Set amount on right corner """
-        # rectAmount = QRect(rectBackground.width()+rectBackground.x()-106, rectIcon.y()+2,
-        #                    96, pixelsHeight)
-        # painter.drawText(rectAmount, Qt.AlignRight, amount)
-        #
-        # """ Set font on painter for percentage """
-        # self.font.setFamily(u"Roboto")
-        # self.font.setPointSize(9)
-        # painter.setFont(self.font)
-        #
-        # """ Set percentage pen color """
-        # painter.setPen(QPen(QColor("#75879B")))
-        #
-        # """ Get font metrics """
-        # fontMetrics = QFontMetrics(self.font)
-        # pixelsHeight = fontMetrics.height()
-        #
-        # """ Set percentage beside amount """
-        # rectPerc = QRect(rectBackground.width()+rectBackground.x()-56, rectIcon.y()+27,
-        #                  46, pixelsHeight)
-        # painter.drawText(rectPerc, Qt.AlignRight, percentage)
+        """ Set font on painter for amount """
+        self.font.setFamily(u"Roboto")
+        self.font.setPointSize(10)
+        painter.setFont(self.font)
+
+        """ Set amount pen color """
+        painter.setPen(QPen(QColor("white")))
+
+        """ Get font metrics """
+        fontMetrics = QFontMetrics(self.font)
+        pixelsHeight = fontMetrics.height()
+        pixelsWidth = fontMetrics.width(amount)
+
+        """ Set amount on right corner """
+        rectAmount = QRect(rectIcon.x()+rectIcon.width()+230, rectIcon.y()+2,
+                           pixelsWidth, pixelsHeight)
+        painter.drawText(rectAmount, Qt.AlignLeft, amount)
+
+        """ Set font on painter for percentage """
+        self.font.setFamily(u"Roboto")
+        self.font.setPointSize(9)
+        painter.setFont(self.font)
+
+        """ Set percentage pen color """
+        painter.setPen(QPen(QColor("#75879B")))
+
+        """ Get font metrics """
+        fontMetrics = QFontMetrics(self.font)
+        pixelsHeight = fontMetrics.height()
+
+        """ Set percentage beside amount """
+        rectAmountLabel = QRect(rectIcon.x()+rectIcon.width()+230, rectIcon.y()+27,
+                                60, pixelsHeight)
+        painter.drawText(rectAmountLabel, Qt.AlignLeft, "Amount")
+
+        """ Set font on painter for date """
+        self.font.setFamily(u"Roboto")
+        self.font.setPointSize(10)
+        painter.setFont(self.font)
+
+        """ Set date pen color """
+        painter.setPen(QPen(QColor("white")))
+
+        """ Get font metrics """
+        fontMetrics = QFontMetrics(self.font)
+        pixelsHeight = fontMetrics.height()
+        pixelsWidth = fontMetrics.width(date)
+
+        """ Set date on right corner """
+        rectDate = QRect(rectIcon.x() + rectIcon.width() + 2*230, rectIcon.y() + 2,
+                         pixelsWidth, pixelsHeight)
+        painter.drawText(rectDate, Qt.AlignLeft, date)
+
+        """ Set font on painter for date """
+        self.font.setFamily(u"Roboto")
+        self.font.setPointSize(9)
+        painter.setFont(self.font)
+
+        """ Set date pen color """
+        painter.setPen(QPen(QColor("#75879B")))
+
+        """ Get font metrics """
+        fontMetrics = QFontMetrics(self.font)
+        pixelsHeight = fontMetrics.height()
+
+        """ Set date beside amount """
+        rectDateLabel = QRect(rectIcon.x() + rectIcon.width() + 2*230, rectIcon.y() + 27,
+                              60, pixelsHeight)
+        painter.drawText(rectDateLabel, Qt.AlignLeft, "Date")
+
+        """ Set font on painter for date """
+        self.font.setFamily(u"Roboto")
+        self.font.setPointSize(10)
+        painter.setFont(self.font)
+
+        """ Set date pen color """
+        painter.setPen(QPen(QColor("white")))
+
+        """ Get font metrics """
+        fontMetrics = QFontMetrics(self.font)
+        pixelsHeight = fontMetrics.height()
+        pixelsWidth = fontMetrics.width(account)
+
+        """ Set account on right corner """
+        rectAccount = QRect(rectIcon.x() + rectIcon.width() + 3*230+20, rectIcon.y() + 2,
+                            pixelsWidth, pixelsHeight)
+        painter.drawText(rectAccount, Qt.AlignLeft, account)
+
+        """ Set font on painter for date """
+        self.font.setFamily(u"Roboto")
+        self.font.setPointSize(9)
+        painter.setFont(self.font)
+
+        """ Set date pen color """
+        painter.setPen(QPen(QColor("#75879B")))
+
+        """ Get font metrics """
+        fontMetrics = QFontMetrics(self.font)
+        pixelsHeight = fontMetrics.height()
+
+        """ Set account label beside account """
+        rectAccountLabel = QRect(rectIcon.x() + rectIcon.width() + 3*230+20, rectIcon.y() + 27,
+                                 60, pixelsHeight)
+        painter.drawText(rectAccountLabel, Qt.AlignLeft, "Account")
+
+        """ Set font on painter for income/expense """
+        self.font.setFamily(u"Roboto")
+        self.font.setPointSize(10)
+        painter.setFont(self.font)
+
+        """ Set income/expense pen color """
+        painter.setPen(QPen(QColor("#1B5179"))) # #0191EB
+
+        """ Get font metrics """
+        fontMetrics = QFontMetrics(self.font)
+        pixelsHeight = fontMetrics.height()
+        pixelsWidth = fontMetrics.width(expOrInc)
+
+        """ Set income/expense on right corner """
+        rectInOrOut = QRect(rectBackground.width()+rectBackground.x()-150, rectIcon.y()+(rectIcon.width()-pixelsHeight-8)/2,
+                            pixelsWidth+50, pixelsHeight+8)
+
+        painter.drawRoundedRect(rectInOrOut, 4.0, 4.0)
+
+        painter.setPen(QPen(QColor("white")))
+        painter.drawText(rectInOrOut.x()+20, rectInOrOut.y()+4,
+                         pixelsWidth, pixelsHeight,
+                         Qt.AlignLeft, expOrInc)
 
         # # set background color
         # painter.setPen(QPen(Qt.NoPen))

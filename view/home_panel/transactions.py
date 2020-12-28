@@ -42,16 +42,19 @@ class Transactions(QObject):
                                                      "Restaurants",
                                                      25.99,
                                                      "20/02/2020",
-                                                     "Expenses"],
+                                                     "Compte Chèque",
+                                                     "Income"],
                                                     ["Gasoil",
                                                      "Transport",
                                                      40.01,
                                                      "12/05/2020",
+                                                     "Livret A",
                                                      "Expenses"],
                                                     ["Computer",
                                                      "Groceries",
                                                      900.99,
                                                      "24/05/2020",
+                                                     "Livret Jeune",
                                                      "Expenses"]])
 
         self.transactionsListView.setModel(self.transactionsModel)
