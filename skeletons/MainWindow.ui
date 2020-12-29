@@ -578,7 +578,7 @@ QPushButton[activated=&quot;true&quot;] {
 	background-color: #26374C;
 	color: white;
 	font-family: &quot;Roboto&quot;;
-	font-size: 9pt;
+	font-size: 10pt;
 	margin-left: 10px;
 }
 
@@ -586,7 +586,7 @@ QPushButton[activated=&quot;false&quot;] {
 	background-color: #26374C;
 	color: rgba(255, 255, 255, 100);
 	font-family: &quot;Roboto&quot;;
-	font-size: 9pt;
+	font-size: 10pt;
 	margin-left: 10px;
 }
 

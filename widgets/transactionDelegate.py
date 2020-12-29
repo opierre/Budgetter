@@ -1,7 +1,7 @@
 import datetime
 
 from PySide2 import QtCore
-from PySide2.QtCore import QSize, Qt, QRect
+from PySide2.QtCore import QSize, Qt, QRect, QRectF
 from PySide2.QtGui import QPen, QColor, QPainter, QFont, QFontMetrics
 from PySide2.QtSvg import QSvgRenderer
 from PySide2.QtWidgets import QItemDelegate
@@ -75,7 +75,7 @@ class TransactionDelegate(QItemDelegate):
 
         """ Set font on painter for name """
         self.font.setFamily(u"Roboto")
-        self.font.setPointSize(10)
+        self.font.setPointSize(11)
         painter.setFont(self.font)
 
         """ Set category painter color """
@@ -93,7 +93,7 @@ class TransactionDelegate(QItemDelegate):
 
         """ Set font on painter for category """
         self.font.setFamily(u"Roboto")
-        self.font.setPointSize(9)
+        self.font.setPointSize(10)
         painter.setFont(self.font)
 
         """ Set category pen color """
@@ -111,7 +111,7 @@ class TransactionDelegate(QItemDelegate):
 
         """ Set font on painter for amount """
         self.font.setFamily(u"Roboto")
-        self.font.setPointSize(10)
+        self.font.setPointSize(11)
         painter.setFont(self.font)
 
         """ Set amount pen color """
@@ -129,7 +129,7 @@ class TransactionDelegate(QItemDelegate):
 
         """ Set font on painter for percentage """
         self.font.setFamily(u"Roboto")
-        self.font.setPointSize(9)
+        self.font.setPointSize(10)
         painter.setFont(self.font)
 
         """ Set percentage pen color """
@@ -146,7 +146,7 @@ class TransactionDelegate(QItemDelegate):
 
         """ Set font on painter for date """
         self.font.setFamily(u"Roboto")
-        self.font.setPointSize(10)
+        self.font.setPointSize(11)
         painter.setFont(self.font)
 
         """ Set date pen color """
@@ -164,7 +164,7 @@ class TransactionDelegate(QItemDelegate):
 
         """ Set font on painter for date """
         self.font.setFamily(u"Roboto")
-        self.font.setPointSize(9)
+        self.font.setPointSize(10)
         painter.setFont(self.font)
 
         """ Set date pen color """
@@ -181,7 +181,7 @@ class TransactionDelegate(QItemDelegate):
 
         """ Set font on painter for date """
         self.font.setFamily(u"Roboto")
-        self.font.setPointSize(10)
+        self.font.setPointSize(11)
         painter.setFont(self.font)
 
         """ Set date pen color """
@@ -199,7 +199,7 @@ class TransactionDelegate(QItemDelegate):
 
         """ Set font on painter for date """
         self.font.setFamily(u"Roboto")
-        self.font.setPointSize(9)
+        self.font.setPointSize(10)
         painter.setFont(self.font)
 
         """ Set date pen color """
@@ -211,16 +211,19 @@ class TransactionDelegate(QItemDelegate):
 
         """ Set account label beside account """
         rectAccountLabel = QRect(rectIcon.x() + rectIcon.width() + 3*230+20, rectIcon.y() + 27,
-                                 60, pixelsHeight)
+                                 70, pixelsHeight)
         painter.drawText(rectAccountLabel, Qt.AlignLeft, "Account")
 
         """ Set font on painter for income/expense """
         self.font.setFamily(u"Roboto")
-        self.font.setPointSize(10)
+        self.font.setPointSize(11)
         painter.setFont(self.font)
 
         """ Set income/expense pen color """
-        painter.setPen(QPen(QColor("#1B5179"))) # #0191EB
+        pen = QPen(QColor("#1B5179"))
+        pen.setWidthF(1)
+        painter.setPen(pen) # #0191EB
+        painter.setRenderHint(QPainter.NonCosmeticDefaultPen)
 
         """ Get font metrics """
         fontMetrics = QFontMetrics(self.font)
@@ -228,8 +231,8 @@ class TransactionDelegate(QItemDelegate):
         pixelsWidth = fontMetrics.width(expOrInc)
 
         """ Set income/expense on right corner """
-        rectInOrOut = QRect(rectBackground.width()+rectBackground.x()-150, rectIcon.y()+(rectIcon.width()-pixelsHeight-8)/2,
-                            pixelsWidth+50, pixelsHeight+8)
+        rectInOrOut = QRectF(rectBackground.width()+rectBackground.x()-145.5, rectIcon.y()+(rectIcon.width()-pixelsHeight-8)/2,
+                             pixelsWidth+50, pixelsHeight+8)
 
         painter.drawRoundedRect(rectInOrOut, 4.0, 4.0)
 
