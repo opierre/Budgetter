@@ -87,7 +87,7 @@ class DistributionDelegate(QItemDelegate):
         """ Set category on top """
         painter.drawText(rectIcon.width()+35, rectIcon.y(),
                          pixelsWidth, pixelsHeight,
-                         Qt.AlignLeft, category)
+                         Qt.AlignLeft | Qt.AlignVCenter, category)
 
         """ Set font on painter for number of transactions """
         self.font.setFamily(u"Roboto")
@@ -105,7 +105,7 @@ class DistributionDelegate(QItemDelegate):
         """ Set number of transactions beside category """
         painter.drawText(rectIcon.width() + 35, rectIcon.y()+25,
                          pixelsWidth, pixelsHeight,
-                         Qt.AlignLeft, nbTransactions)
+                         Qt.AlignLeft | Qt.AlignVCenter, nbTransactions)
 
         """ Draw percentage background """
         painter.setPen(QPen(QColor("#21405D")))
@@ -130,7 +130,7 @@ class DistributionDelegate(QItemDelegate):
         """ Set amount on right corner """
         rectAmount = QRect(rectBackground.width()+rectBackground.x()-106, rectIcon.y()+2,
                            96, pixelsHeight)
-        painter.drawText(rectAmount, Qt.AlignRight, amount)
+        painter.drawText(rectAmount, Qt.AlignRight | Qt.AlignVCenter, amount)
 
         """ Set font on painter for percentage """
         self.font.setFamily(u"Roboto")
@@ -147,6 +147,6 @@ class DistributionDelegate(QItemDelegate):
         """ Set percentage beside amount """
         rectPerc = QRect(rectBackground.width()+rectBackground.x()-56, rectIcon.y()+25,
                          46, pixelsHeight)
-        painter.drawText(rectPerc, Qt.AlignRight, percentage)
+        painter.drawText(rectPerc, Qt.AlignRight | Qt.AlignVCenter, percentage)
 
         painter.restore()
