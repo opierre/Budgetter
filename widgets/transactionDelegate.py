@@ -2,9 +2,9 @@ import datetime
 
 from PySide2 import QtCore
 from PySide2.QtCore import QSize, Qt, QRect, QRectF, QPointF
-from PySide2.QtGui import QPen, QColor, QPainter, QFont, QFontMetrics
+from PySide2.QtGui import QPen, QColor, QPainter, QFont, QFontMetrics, QIcon
 from PySide2.QtSvg import QSvgRenderer
-from PySide2.QtWidgets import QItemDelegate
+from PySide2.QtWidgets import QItemDelegate, QPushButton, QVBoxLayout, QWidget
 
 
 class TransactionDelegate(QItemDelegate):
@@ -17,6 +17,60 @@ class TransactionDelegate(QItemDelegate):
 
         """ Store font for values """
         self.font = QFont()
+
+        """ Edit QPushButton """
+        self.edit = QPushButton()
+
+        """ Delete QPushButton """
+        self.delete = QPushButton()
+
+        """ Empty widget """
+        self.emptyWidget = QWidget()
+
+        """ Layout to set buttons """
+        self.layout = QVBoxLayout(self.emptyWidget)
+
+        """ Configure Widgets """
+        self.configureWidgets()
+
+        """ Configure layout """
+        self.configureLayout()
+
+    def configureLayout(self):
+        """
+        Configure layout to add widgets
+        :return: void
+        """
+
+        """ Set margins """
+        self.layout.setContentsMargins(0, 0, 0, 0)
+
+        """ Add widgets """
+        self.layout.addWidget(self.edit)
+        self.layout.addWidget(self.delete)
+
+    def configureWidgets(self):
+        """
+        Configure widgets on delegate item
+        :return: void
+        """
+
+        """ Set icon """
+        self.edit.setIcon(QIcon(":/images/images/edit-white-18dp.svg"))
+        self.delete.setIcon(QIcon(":/images/images/delete-white-18dp.svg"))
+
+    def createEditor(self, parent, option, index):
+        """
+        Override createEditor()
+        :param parent: parent
+        :param option: option
+        :param index: index
+        :return: void
+        """
+
+        editor = self.widget(parent)
+
+        return editor
 
     def sizeHint(self, optionQStyleOptionViewItem, index):
         return QSize(10, 70)
@@ -230,9 +284,9 @@ class TransactionDelegate(QItemDelegate):
         pixelsWidth = fontMetrics.width(expOrInc)
 
         """ Set income/expense on right corner """
-        rectInOrOut = QRectF(rectBackground.width()+rectBackground.x()-55.5-pixelsWidth-35,
+        rectInOrOut = QRectF(rectBackground.width()+rectBackground.x()-55.5-pixelsWidth-45,
                              rectIcon.y()+(rectIcon.width()-pixelsHeight-8)/2.0,
-                             pixelsWidth+35, pixelsHeight+8)
+                             pixelsWidth+45, pixelsHeight+8)
 
         painter.drawRoundedRect(rectInOrOut, 4.0, 4.0)
 
@@ -244,9 +298,6 @@ class TransactionDelegate(QItemDelegate):
         painter.setPen(Qt.NoPen)
         if expOrInc == "Income":
             painter.setBrush(QColor("#6DD230"))
-            print(rectInOrOut.x())
-            print(rectInOrOut.x()+rectInOrOut.width())
-            print(rectInOrOut.x()+35+pixelsWidth)
         else:
             painter.setBrush(QColor("#FE4D97"))
         painter.drawEllipse(QPointF(rectInOrOut.x()+17.5, rectInOrOut.y()+4.5+pixelsHeight/2.0),
