@@ -134,5 +134,7 @@ class Distribution(QObject):
         currentMonth = QDate.currentDate().longMonthName(currentMonthNb)
         self.currentMonth.setText(currentMonth.capitalize())
 
+        if currentMonthNb == 1:
+            currentMonthNb = 13
         previousMonth = QDate.currentDate().longMonthName(currentMonthNb - 1)
         self.previousMonth.setText(previousMonth.capitalize())

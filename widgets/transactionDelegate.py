@@ -4,16 +4,17 @@ from PySide2 import QtCore
 from PySide2.QtCore import QSize, Qt, QRect, QRectF, QPointF
 from PySide2.QtGui import QPen, QColor, QPainter, QFont, QFontMetrics, QIcon
 from PySide2.QtSvg import QSvgRenderer
-from PySide2.QtWidgets import QItemDelegate, QPushButton, QVBoxLayout, QWidget
+from PySide2.QtWidgets import QStyledItemDelegate, QPushButton, QVBoxLayout, QWidget, QStyleOptionButton, QStyle, \
+    QApplication
 
 
-class TransactionDelegate(QItemDelegate):
+class TransactionDelegate(QStyledItemDelegate):
     """
     Transaction Delegate
     """
 
     def __init__(self, parent=None, *args):
-        QItemDelegate.__init__(self, parent, *args)
+        QStyledItemDelegate.__init__(self, parent, *args)
 
         """ Store font for values """
         self.font = QFont()
@@ -303,6 +304,31 @@ class TransactionDelegate(QItemDelegate):
         painter.drawEllipse(QPointF(rectInOrOut.x()+17.5, rectInOrOut.y()+4.5+pixelsHeight/2.0),
                             (pixelsHeight+8)/5.0,
                             (pixelsHeight+8)/5.0)
+
+        pen = QPen(QColor("#1B5179"))
+        pen.setWidthF(1)
+        painter.setPen(pen)
+        painter.setBrush(QColor("transparent"))
+
+        """ Buttons rects """
+        rectEdit = QRect(rectBackground.width()+rectBackground.x()-26, rectIcon.y(),
+                         25, 25)
+        rectDelete = QRect(rectBackground.width()+rectBackground.x()-26, rectIcon.y()+27,
+                           25, 25)
+
+        """ Buttons icons """
+        iconEdit = QIcon(":/images/images/edit-white-18dp.svg")
+        iconDelete = QIcon(":/images/images/delete-white-18dp.svg")
+
+        editOptions = QStyleOptionButton()
+        # editOptions.state |= QStyle.State_Enabled
+        editOptions.rect = rectEdit
+        editOptions.icon = iconEdit
+        editOptions.iconSize = QSize(18, 18)
+
+        QApplication.style().drawControl(QStyle.CE_PushButton,
+                                         editOptions,
+                                         painter)
 
         # # set background color
         # painter.setPen(QPen(Qt.NoPen))
