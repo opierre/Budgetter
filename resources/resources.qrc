@@ -1,5 +1,6 @@
 <RCC>
   <qresource prefix="images">
+    <file>images/more_vert-white-18dp.svg</file>
     <file>images/delete-white-18dp.svg</file>
     <file>images/edit-white-18dp.svg</file>
     <file>images/local_grocery_store-white-18dp_outlined.svg</file>

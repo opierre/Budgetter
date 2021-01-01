@@ -19,38 +19,14 @@ class TransactionDelegate(QStyledItemDelegate):
         """ Store font for values """
         self.font = QFont()
 
-        """ Edit QPushButton """
-        self.edit = QPushButton()
+        """ More QPushButton """
+        self.more = QPushButton()
 
-        self.rectEdit = None
-
-        """ Delete QPushButton """
-        self.delete = QPushButton()
-
-        """ Empty widget """
-        self.emptyWidget = QWidget()
-
-        """ Layout to set buttons """
-        self.layout = QVBoxLayout(self.emptyWidget)
+        self.rectMore = None
+        self.cursorPosition = None
 
         """ Configure Widgets """
         self.configureWidgets()
-
-        """ Configure layout """
-        self.configureLayout()
-
-    def configureLayout(self):
-        """
-        Configure layout to add widgets
-        :return: void
-        """
-
-        """ Set margins """
-        self.layout.setContentsMargins(0, 0, 0, 0)
-
-        """ Add widgets """
-        self.layout.addWidget(self.edit)
-        self.layout.addWidget(self.delete)
 
     def configureWidgets(self):
         """
@@ -59,16 +35,15 @@ class TransactionDelegate(QStyledItemDelegate):
         """
 
         """ Set names """
-        self.edit.setObjectName(u"editTransaction")
+        self.more.setObjectName(u"moreTransaction")
 
         """ Set icon """
-        self.edit.setIcon(QIcon(":/images/images/edit-white-18dp.svg"))
-        self.delete.setIcon(QIcon(":/images/images/delete-white-18dp.svg"))
+        self.more.setIcon(QIcon(":/images/images/more_vert-white-18dp.svg"))
 
         """ set bacground color """
-        self.edit.setStyleSheet("background-color: transparent;\n")
-        self.edit.setCursor(Qt.PointingHandCursor)
-        self.edit.clicked.connect(lambda: print('hello'))
+        self.more.setStyleSheet("background-color: transparent;\n")
+        self.more.setCursor(Qt.PointingHandCursor)
+        self.more.clicked.connect(lambda: print('hello'))
         # self.delete.hide()
     #
     # def createEditor(self, parent, option, index):
@@ -85,13 +60,14 @@ class TransactionDelegate(QStyledItemDelegate):
     #     return editor
     #
     def editorEvent(self, event, model, option, index):
+        self.cursorPosition = event.pos()
+        QApplication.restoreOverrideCursor()
+        if self.rectMore.contains(self.cursorPosition):
+            if event.type() == QtCore.QEvent.MouseMove:
+                #QApplication.setOverrideCursor(Qt.PointingHandCursor)
+                return True
 
-        # Launch app when launch button clicked
-        if event.type() == QtCore.QEvent.MouseButtonRelease:
-            click_pos = event.pos()
-            rect_button = self.rectEdit
-
-            if rect_button.contains(click_pos):
+            elif event.type() == QtCore.QEvent.MouseButtonRelease:
                 print('edit')
                 #self.delegateButtonPressed.emit(index)
                 return True
@@ -338,18 +314,22 @@ class TransactionDelegate(QStyledItemDelegate):
         painter.setBrush(QColor("transparent"))
 
         """ Buttons rects """
-        self.rectEdit = QRect(rectBackground.width()+rectBackground.x()-26, rectIcon.y(),
-                         25, 25)
-        rectDelete = QRect(rectBackground.width()+rectBackground.x()-26, rectIcon.y()+27,
-                           25, 25)
+        self.rectMore = QRect(rectBackground.width()+rectBackground.x()-26, rectInOrOut.y(),
+                              25, rectInOrOut.height())
 
-        optionEdit = QStyleOptionButton()
-        optionEdit.initFrom(self.edit)
-        optionEdit.rect = self.rectEdit
-        optionEdit.icon = self.edit.icon()
-        optionEdit.iconSize = QtCore.QSize(18, 18)
+        optionMore = QStyleOptionButton()
+        optionMore.initFrom(self.more)
+        optionMore.rect = self.rectMore
+        optionMore.icon = self.more.icon()
+        optionMore.iconSize = QtCore.QSize(22, 22)
 
-        self.edit.style().drawControl(QStyle.CE_PushButton, optionEdit, painter, self.edit)
+        self.more.style().drawControl(QStyle.CE_PushButton, optionMore, painter, self.more)
+
+        if option.state & QStyle.State_MouseOver:
+            if self.rectMore.contains(self.cursorPosition):
+                QApplication.setOverrideCursor(Qt.PointingHandCursor)
+            else:
+                QApplication.restoreOverrideCursor()
 
         painter.restore()
 
