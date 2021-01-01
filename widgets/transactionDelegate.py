@@ -1,8 +1,8 @@
 import datetime
 
 from PySide2 import QtCore
-from PySide2.QtCore import QSize, Qt, QRect, QRectF, QPointF
-from PySide2.QtGui import QPen, QColor, QPainter, QFont, QFontMetrics, QIcon
+from PySide2.QtCore import QSize, Qt, QRect, QRectF, QPointF, QPoint
+from PySide2.QtGui import QPen, QColor, QPainter, QFont, QFontMetrics, QIcon, QPixmap
 from PySide2.QtSvg import QSvgRenderer
 from PySide2.QtWidgets import QStyledItemDelegate, QPushButton, QVBoxLayout, QWidget, QStyleOptionButton, QStyle, \
     QApplication
@@ -21,6 +21,8 @@ class TransactionDelegate(QStyledItemDelegate):
 
         """ Edit QPushButton """
         self.edit = QPushButton()
+
+        self.rectEdit = None
 
         """ Delete QPushButton """
         self.delete = QPushButton()
@@ -56,22 +58,47 @@ class TransactionDelegate(QStyledItemDelegate):
         :return: void
         """
 
+        """ Set names """
+        self.edit.setObjectName(u"editTransaction")
+
         """ Set icon """
         self.edit.setIcon(QIcon(":/images/images/edit-white-18dp.svg"))
         self.delete.setIcon(QIcon(":/images/images/delete-white-18dp.svg"))
 
-    def createEditor(self, parent, option, index):
-        """
-        Override createEditor()
-        :param parent: parent
-        :param option: option
-        :param index: index
-        :return: void
-        """
+        """ set bacground color """
+        self.edit.setStyleSheet("background-color: transparent;\n")
+        self.edit.setCursor(Qt.PointingHandCursor)
+        self.edit.clicked.connect(lambda: print('hello'))
+        # self.delete.hide()
+    #
+    # def createEditor(self, parent, option, index):
+    #     """
+    #     Override createEditor()
+    #     :param parent: parent
+    #     :param option: option
+    #     :param index: index
+    #     :return: void
+    #     """
+    #
+    #     editor = self.widget(parent)
+    #
+    #     return editor
+    #
+    def editorEvent(self, event, model, option, index):
 
-        editor = self.widget(parent)
+        # Launch app when launch button clicked
+        if event.type() == QtCore.QEvent.MouseButtonRelease:
+            click_pos = event.pos()
+            rect_button = self.rectEdit
 
-        return editor
+            if rect_button.contains(click_pos):
+                print('edit')
+                #self.delegateButtonPressed.emit(index)
+                return True
+            else:
+                return False
+        else:
+            return False
 
     def sizeHint(self, optionQStyleOptionViewItem, index):
         return QSize(10, 70)
@@ -311,39 +338,18 @@ class TransactionDelegate(QStyledItemDelegate):
         painter.setBrush(QColor("transparent"))
 
         """ Buttons rects """
-        rectEdit = QRect(rectBackground.width()+rectBackground.x()-26, rectIcon.y(),
+        self.rectEdit = QRect(rectBackground.width()+rectBackground.x()-26, rectIcon.y(),
                          25, 25)
         rectDelete = QRect(rectBackground.width()+rectBackground.x()-26, rectIcon.y()+27,
                            25, 25)
 
-        """ Buttons icons """
-        iconEdit = QIcon(":/images/images/edit-white-18dp.svg")
-        iconDelete = QIcon(":/images/images/delete-white-18dp.svg")
+        optionEdit = QStyleOptionButton()
+        optionEdit.initFrom(self.edit)
+        optionEdit.rect = self.rectEdit
+        optionEdit.icon = self.edit.icon()
+        optionEdit.iconSize = QtCore.QSize(18, 18)
 
-        editOptions = QStyleOptionButton()
-        # editOptions.state |= QStyle.State_Enabled
-        editOptions.rect = rectEdit
-        editOptions.icon = iconEdit
-        editOptions.iconSize = QSize(18, 18)
-
-        QApplication.style().drawControl(QStyle.CE_PushButton,
-                                         editOptions,
-                                         painter)
-
-        # # set background color
-        # painter.setPen(QPen(Qt.NoPen))
-        # if option.state & QStyle.State_Selected:
-        #     painter.setBrush(QBrush(Qt.red))
-        # else:
-        #     painter.setBrush(QBrush(Qt.white))
-        # painter.drawRect(option.rect)
-        #
-        # set text color
-        # painter.setPen(QPen(Qt.black))
-        # value = index.data(Qt.DisplayRole)
-        # if True:
-        #     text = str(value)
-        #     painter.drawText(option.rect, Qt.AlignLeft, text)
+        self.edit.style().drawControl(QStyle.CE_PushButton, optionEdit, painter, self.edit)
 
         painter.restore()
 
