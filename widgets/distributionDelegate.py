@@ -36,8 +36,8 @@ class DistributionDelegate(QItemDelegate):
         """ Draw bottom border """
         painter.setPen(QPen(QColor("#344457")))
         painter.setBrush(Qt.NoBrush)
-        painter.drawLine(option.rect.x()+20, option.rect.y()+option.rect.height()-0,
-                         option.rect.width()-20, option.rect.y()+option.rect.height()-0)
+        painter.drawLine(option.rect.x()+20, option.rect.y()+option.rect.height()-1,
+                         option.rect.width()-20, option.rect.y()+option.rect.height()-1)
 
         painter.setRenderHint(QPainter.Antialiasing)
 

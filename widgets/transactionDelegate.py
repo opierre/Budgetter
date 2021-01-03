@@ -2,7 +2,7 @@ import datetime
 
 from PySide2 import QtCore
 from PySide2.QtCore import QSize, Qt, QRect, QRectF, QPointF, QPoint
-from PySide2.QtGui import QPen, QColor, QPainter, QFont, QFontMetrics, QIcon, QPixmap
+from PySide2.QtGui import QPen, QColor, QPainter, QFont, QFontMetrics, QIcon, QPixmap, QCursor
 from PySide2.QtSvg import QSvgRenderer
 from PySide2.QtWidgets import QStyledItemDelegate, QPushButton, QVBoxLayout, QWidget, QStyleOptionButton, QStyle, \
     QApplication
@@ -59,17 +59,21 @@ class TransactionDelegate(QStyledItemDelegate):
     #
     #     return editor
     #
+
     def editorEvent(self, event, model, option, index):
         self.cursorPosition = event.pos()
-        QApplication.restoreOverrideCursor()
-        if self.rectMore.contains(self.cursorPosition):
-            if event.type() == QtCore.QEvent.MouseMove:
-                #QApplication.setOverrideCursor(Qt.PointingHandCursor)
-                return True
-
-            elif event.type() == QtCore.QEvent.MouseButtonRelease:
+        print(self.cursorPosition)
+        if event.type() == QtCore.QEvent.MouseButtonRelease:
+            if self.rectMore.contains(self.cursorPosition):
                 print('edit')
                 #self.delegateButtonPressed.emit(index)
+                return True
+            else:
+                return False
+        elif event.type() == QtCore.QEvent.MouseMove:
+            if self.rectMore.contains(self.cursorPosition):
+                print('hover')
+                # self.delegateButtonPressed.emit(index)
                 return True
             else:
                 return False
@@ -96,8 +100,8 @@ class TransactionDelegate(QStyledItemDelegate):
         """ Draw bottom border """
         painter.setPen(QPen(QColor("#344457")))
         painter.setBrush(Qt.NoBrush)
-        painter.drawLine(option.rect.x()+20, option.rect.y()+option.rect.height()-0,
-                         option.rect.width()-20, option.rect.y()+option.rect.height()-0)
+        painter.drawLine(option.rect.x()+20, option.rect.y()+option.rect.height()-1,
+                         option.rect.width()-20, option.rect.y()+option.rect.height()-1)
 
         painter.setRenderHint(QPainter.Antialiasing)
 
@@ -322,14 +326,17 @@ class TransactionDelegate(QStyledItemDelegate):
         optionMore.rect = self.rectMore
         optionMore.icon = self.more.icon()
         optionMore.iconSize = QtCore.QSize(22, 22)
+        optionMore.state = optionMore.state or QStyle.State_MouseOver
 
         self.more.style().drawControl(QStyle.CE_PushButton, optionMore, painter, self.more)
 
-        if option.state & QStyle.State_MouseOver:
-            if self.rectMore.contains(self.cursorPosition):
-                QApplication.setOverrideCursor(Qt.PointingHandCursor)
-            else:
-                QApplication.restoreOverrideCursor()
+        # if option.state & QStyle.State_MouseOver:
+        #     if self.rectMore.contains(self.cursorPosition):
+        #         print('yes')
+        #         QApplication.setOverrideCursor(Qt.PointingHandCursor)
+        #     else:
+        #         print('no')
+        #         QApplication.restoreOverrideCursor()
 
         painter.restore()
 

@@ -59,6 +59,7 @@ class Transactions(QObject):
 
         self.transactionsListView.setModel(self.transactionsModel)
         self.transactionsListView.setItemDelegate(self.transactionDelegate)
+        self.transactionsListView.viewport().setAttribute(Qt.WA_Hover, False)
         self.transactionsListView.setMouseTracking(True)
 
         """ Configure layout """
