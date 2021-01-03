@@ -1,10 +1,10 @@
 import datetime
 
 from PySide2 import QtCore
-from PySide2.QtCore import QSize, Qt, QRect, QRectF, QPointF, QPoint
-from PySide2.QtGui import QPen, QColor, QPainter, QFont, QFontMetrics, QIcon, QPixmap, QCursor
+from PySide2.QtCore import QSize, Qt, QRect, QRectF, QPointF, QPoint, Signal, QModelIndex
+from PySide2.QtGui import QPen, QColor, QPainter, QFont, QFontMetrics, QIcon
 from PySide2.QtSvg import QSvgRenderer
-from PySide2.QtWidgets import QStyledItemDelegate, QPushButton, QVBoxLayout, QWidget, QStyleOptionButton, QStyle, \
+from PySide2.QtWidgets import QStyledItemDelegate, QPushButton, QStyleOptionButton, QStyle, \
     QApplication
 
 
@@ -12,6 +12,9 @@ class TransactionDelegate(QStyledItemDelegate):
     """
     Transaction Delegate
     """
+
+    """ Signal emitted on More button click """
+    transactionMorePressed = Signal(QModelIndex, QPoint)
 
     def __init__(self, parent=None, *args):
         QStyledItemDelegate.__init__(self, parent, *args)
@@ -22,8 +25,8 @@ class TransactionDelegate(QStyledItemDelegate):
         """ More QPushButton """
         self.more = QPushButton()
 
+        """ Store more button rectangle """
         self.rectMore = None
-        self.cursorPosition = None
 
         """ Configure Widgets """
         self.configureWidgets()
@@ -40,50 +43,60 @@ class TransactionDelegate(QStyledItemDelegate):
         """ Set icon """
         self.more.setIcon(QIcon(":/images/images/more_vert-white-18dp.svg"))
 
-        """ set bacground color """
+        """ Set background color """
         self.more.setStyleSheet("background-color: transparent;\n")
-        self.more.setCursor(Qt.PointingHandCursor)
-        self.more.clicked.connect(lambda: print('hello'))
-        # self.delete.hide()
-    #
-    # def createEditor(self, parent, option, index):
-    #     """
-    #     Override createEditor()
-    #     :param parent: parent
-    #     :param option: option
-    #     :param index: index
-    #     :return: void
-    #     """
-    #
-    #     editor = self.widget(parent)
-    #
-    #     return editor
-    #
 
     def editorEvent(self, event, model, option, index):
-        self.cursorPosition = event.pos()
-        print(self.cursorPosition)
-        if event.type() == QtCore.QEvent.MouseButtonRelease:
-            if self.rectMore.contains(self.cursorPosition):
-                print('edit')
-                #self.delegateButtonPressed.emit(index)
+        """
+        Override editorEvent to handle events
+        :param event: event
+        :param model: model
+        :param option: option
+        :param index: index
+        :return: bool
+        """
+
+        """ Store position on click """
+        cursorPosition = event.pos()
+
+        if event.type() == QtCore.QEvent.MouseButtonPress:
+            if self.rectMore.contains(cursorPosition):
+                self.transactionMorePressed.emit(index, cursorPosition)
                 return True
             else:
                 return False
+
         elif event.type() == QtCore.QEvent.MouseMove:
-            if self.rectMore.contains(self.cursorPosition):
-                print('hover')
-                # self.delegateButtonPressed.emit(index)
+            if self.rectMore.contains(cursorPosition):
+                """ Change cursor to pointing hand """
+                QApplication.setOverrideCursor(Qt.PointingHandCursor)
                 return True
             else:
-                return False
+                """ Reset cursor shape """
+                QApplication.setOverrideCursor(Qt.ArrowCursor)
+                return True
         else:
             return False
 
     def sizeHint(self, optionQStyleOptionViewItem, index):
+        """
+        Override sizeHint
+        :param optionQStyleOptionViewItem: optionQStyleOptionViewItem
+        :param index: index
+        :return: QSize(10, 70)
+        """
+
         return QSize(10, 70)
 
     def paint(self, painter, option, index):
+        """
+        Override paint
+        :param painter: painter
+        :param option: option
+        :param index: index
+        :return: void
+        """
+
         painter.save()
 
         """ Get values """
@@ -329,14 +342,6 @@ class TransactionDelegate(QStyledItemDelegate):
         optionMore.state = optionMore.state or QStyle.State_MouseOver
 
         self.more.style().drawControl(QStyle.CE_PushButton, optionMore, painter, self.more)
-
-        # if option.state & QStyle.State_MouseOver:
-        #     if self.rectMore.contains(self.cursorPosition):
-        #         print('yes')
-        #         QApplication.setOverrideCursor(Qt.PointingHandCursor)
-        #     else:
-        #         print('no')
-        #         QApplication.restoreOverrideCursor()
 
         painter.restore()
 

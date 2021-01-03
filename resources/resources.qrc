@@ -30,6 +30,6 @@
     <file>images/dashboard-white-36dp.svg</file>
   </qresource>
   <qresource prefix="stylesheets">
-    <file>stylesheets/drawer.qss</file>
+    <file>stylesheets/qmenu.qss</file>
   </qresource>
 </RCC>

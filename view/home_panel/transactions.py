@@ -1,6 +1,7 @@
-from PySide2.QtCore import QObject, Qt, QDate
+from PySide2.QtCore import QObject, Qt, QDate, QFile
 from PySide2.QtGui import QIcon
-from PySide2.QtWidgets import QVBoxLayout, QStatusBar, QWidget, QPushButton, QListView, QSpacerItem, QSizePolicy
+from PySide2.QtWidgets import QVBoxLayout, QStatusBar, QWidget, QPushButton, QListView, QSpacerItem, QSizePolicy, QMenu, \
+    QApplication
 
 from models.transactions_model import TransactionsModel
 from widgets.statusbar import StatusBar
@@ -57,19 +58,54 @@ class Transactions(QObject):
                                                      "Livret Jeune",
                                                      "Expenses"]])
 
-        self.transactionsListView.setModel(self.transactionsModel)
-        self.transactionsListView.setItemDelegate(self.transactionDelegate)
-        self.transactionsListView.viewport().setAttribute(Qt.WA_Hover, False)
-        self.transactionsListView.setMouseTracking(True)
-
         """ Configure layout """
         self.configureLayout()
 
         """ Configure status bar """
         self.configureStatusBar()
 
+        """ Configure List view """
+        self.configureListView()
+
         """ Configure TitleBar """
         self.configureTitleBar()
+
+        """ Connect all widgets """
+        self.connectWidgets()
+
+    def connectWidgets(self):
+        """
+        Connect all slots and signals
+        :return: void
+        """
+
+        """ Connect signal from More button in list view to opening context menu """
+        self.transactionDelegate.transactionMorePressed.connect(self.openContextMenu)
+
+    def openContextMenu(self, index, position):
+        """
+        Open context menu on More click
+        :param index: index in model
+        :param position: position to open context menu
+        :return: void
+        """
+
+        menu = QMenu()
+
+        file = QFile(":/stylesheets/stylesheets/qmenu.qss")
+        file.open(QFile.ReadOnly)
+        styleSheet = bytes(file.readAll()).decode()
+
+        menu.setStyleSheet(styleSheet)
+        editAction = menu.addAction("Edit")
+        editAction.setIcon(QIcon(":/images/images/edit-white-18dp.svg"))
+        deleteAction = menu.addAction("Delete")
+        deleteAction.setIcon(QIcon(":/images/images/delete-white-18dp.svg"))
+        action = menu.exec_(self.transactionsListView.mapToGlobal(position))
+        if action == editAction:
+            print('edit')
+        if action == deleteAction:
+            print('delete')
 
     def configureLayout(self):
         """
@@ -84,6 +120,21 @@ class Transactions(QObject):
         layout.setContentsMargins(0, 10, 0, 0)
 
         self.uiSetup.transactions.setWidget(widget)
+
+    def configureListView(self):
+        """
+        Configure transactions list view to handle events/model
+        :return: void
+        """
+
+        """ Set model """
+        self.transactionsListView.setModel(self.transactionsModel)
+
+        """ Set mouse tracking """
+        self.transactionsListView.setMouseTracking(True)
+
+        """ Set item delegate"""
+        self.transactionsListView.setItemDelegate(self.transactionDelegate)
 
     def configureStatusBar(self):
         """
