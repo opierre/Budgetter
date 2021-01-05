@@ -3,9 +3,17 @@
 ## TODO
 
 * Distribution content:     
-  * List of transaction according to click
-  * Change page animation: hide/show chevrons  
-* Transaction content
+  - [ ] Refresh animation
+  - [ ] Change of month  
+* Transaction content:
+  - [x] ~~Edit/Delete buttons in Menu~~
+  - [ ] Filter on click in status bar
+  - [ ] Edit option
+  - [ ] Add option
+  - [ ] Undo/Redo ?
+* Second menu :
+  - [ ] Each QDockWidget on single page (*hide/show*)
+* Error/Info Pop-Up
 * DB creation
 * Settings
 * Logo
