@@ -617,6 +617,22 @@ class Ui_MainWindow(object):
 "QListView {\n"
 "	background-color: transparent;\n"
 "	border: none;\n"
+"}\n"
+"\n"
+"QMenu {\n"
+"    background-color: #385170;\n"
+"    border: none;\n"
+"    border-radius: 8px;\n"
+"}\n"
+"\n"
+"QMenu::item {\n"
+"    background-color: transparent;\n"
+"    color: white;\n"
+"}\n"
+"\n"
+"QMenu::item:selected {\n"
+"    background-color: #0190EA;\n"
+"    border-radius: 4px;\n"                                 
 "}")
         self.gridLayout = QGridLayout(MainWindow)
         self.gridLayout.setSpacing(0)

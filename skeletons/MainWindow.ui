@@ -593,6 +593,21 @@ QPushButton[activated=&quot;false&quot;] {
 QListView {
 	background-color: transparent;
 	border: none;
+}
+
+QMenu {
+    background-color: #385170;
+    border: 2px solid red;
+    border-radius: 4px;
+}
+
+QMenu::item {
+    background-color: transparent;
+    color: white;
+}
+
+QMenu::item:selected {
+    background-color: #0190EA;
 }</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">

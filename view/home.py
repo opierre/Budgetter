@@ -24,7 +24,7 @@ class Home(QObject):
         self._distribution = Distribution(gui)
 
         """ Transactions groupBox """
-        self._transactions = Transactions(gui)
+        self._transactions = Transactions(gui, parent)
 
         """ Connect slots and signals """
         self.connectHomeSlotsAndSignals()

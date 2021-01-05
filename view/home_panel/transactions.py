@@ -1,5 +1,5 @@
 from PySide2.QtCore import QObject, Qt, QDate, QFile
-from PySide2.QtGui import QIcon
+from PySide2.QtGui import QIcon, QRegion, QPixmap, QPainter, QBrush
 from PySide2.QtWidgets import QVBoxLayout, QStatusBar, QWidget, QPushButton, QListView, QSpacerItem, QSizePolicy, QMenu, \
     QApplication
 
@@ -13,11 +13,12 @@ class Transactions(QObject):
     Transactions
     """
 
-    def __init__(self, gui):
+    def __init__(self, gui, parent):
         super(Transactions, self).__init__()
 
-        """ Store gui """
+        """ Store gui and main window """
         self.uiSetup = gui
+        self.mainWindow = parent
 
         """ Store custom/classic status bar """
         self.customStatusBar = StatusBar()
@@ -90,18 +91,34 @@ class Transactions(QObject):
         :return: void
         """
 
-        menu = QMenu()
-
-        file = QFile(":/stylesheets/stylesheets/qmenu.qss")
-        file.open(QFile.ReadOnly)
-        styleSheet = bytes(file.readAll()).decode()
-
-        menu.setStyleSheet(styleSheet)
+        """ Add actions to QMenu """
+        menu = QMenu(self.mainWindow)
         editAction = menu.addAction("Edit")
         editAction.setIcon(QIcon(":/images/images/edit-white-18dp.svg"))
         deleteAction = menu.addAction("Delete")
         deleteAction.setIcon(QIcon(":/images/images/delete-white-18dp.svg"))
+
+        # menu.setWindowFlags(menu.windowFlags() | Qt.FramelessWindowHint)
+        # menu.setAttribute(Qt.WA_TranslucentBackground)
+
+        # region = QRegion(menu.x(), menu.y(),
+        #                  menu.sizeHint().width(), menu.sizeHint().height(),
+        #                  QRegion.Rectangle)
+        # menu.setMask(region)
+
+        px = QPixmap(menu.size())
+        px.fill(Qt.transparent)
+
+        p = QPainter(px)
+        brush = QBrush()
+        brush.setStyle(Qt.SolidPattern)
+        p.setBrush(brush)
+        p.drawRoundedRect(menu.rect(), 5.0, 5.0)
+        menu.setMask(px.mask())
+
         action = menu.exec_(self.transactionsListView.mapToGlobal(position))
+
+        """ Deal with click """
         if action == editAction:
             print('edit')
         if action == deleteAction:
