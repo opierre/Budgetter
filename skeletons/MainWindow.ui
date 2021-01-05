@@ -597,17 +597,27 @@ QListView {
 
 QMenu {
     background-color: #385170;
-    border: 2px solid red;
-    border-radius: 4px;
+    border: none;
+    border-radius: 2px;
 }
 
 QMenu::item {
     background-color: transparent;
     color: white;
+	padding-left: 8px;
+	padding-top: 5px;
+	padding-bottom: 5px
 }
 
 QMenu::item:selected {
     background-color: #0190EA;
+	border-radius: 2px;
+}
+
+QMenu::icon {
+	padding-left: 10px;
+	padding-top: 5px;
+	padding-bottom: 5px;
 }</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">

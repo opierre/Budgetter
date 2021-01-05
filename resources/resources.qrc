@@ -29,7 +29,4 @@
     <file>images/menu-white-36dp.svg</file>
     <file>images/dashboard-white-36dp.svg</file>
   </qresource>
-  <qresource prefix="stylesheets">
-    <file>stylesheets/qmenu.qss</file>
-  </qresource>
 </RCC>

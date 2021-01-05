@@ -59,8 +59,12 @@ class TransactionDelegate(QStyledItemDelegate):
         """ Store position on click """
         cursorPosition = event.pos()
 
-        if event.type() == QtCore.QEvent.MouseButtonPress:
+        """ Reset cursor shape """
+        QApplication.restoreOverrideCursor()
+
+        if event.type() == QtCore.QEvent.MouseButtonRelease:
             if self.rectMore.contains(cursorPosition):
+                """ Emit pressed signal with model's index and cursor position """
                 self.transactionMorePressed.emit(index, cursorPosition)
                 return True
             else:
@@ -73,7 +77,7 @@ class TransactionDelegate(QStyledItemDelegate):
                 return True
             else:
                 """ Reset cursor shape """
-                QApplication.setOverrideCursor(Qt.ArrowCursor)
+                QApplication.restoreOverrideCursor()
                 return True
         else:
             return False
