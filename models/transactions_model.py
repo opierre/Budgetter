@@ -34,3 +34,13 @@ class TransactionsModel(QAbstractListModel):
         """
 
         return len(self.transactions)
+
+    def deleteTransaction(self, index):
+        """
+        Remove transaction from model according to index
+        :param index: index in model
+        :return: void
+        """
+
+        self.transactions.pop(index.row())
+        self.dataChanged.emit(index, index)

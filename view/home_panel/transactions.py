@@ -102,7 +102,7 @@ class Transactions(QObject):
         menu.setWindowFlags(menu.windowFlags() | Qt.FramelessWindowHint)
         menu.setAttribute(Qt.WA_TranslucentBackground)
 
-        """ Show menu """
+        """ Show menu with hand pointing cursor """
         menu.setCursor(Qt.PointingHandCursor)
         action = menu.exec_(self.transactionsListView.mapToGlobal(position))
 
@@ -110,7 +110,8 @@ class Transactions(QObject):
         if action == editAction:
             print('edit')
         if action == deleteAction:
-            print('delete')
+            """ Remove transaction from model """
+            self.transactionsModel.deleteTransaction(index)
 
     def configureLayout(self):
         """
