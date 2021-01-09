@@ -1,4 +1,27 @@
-from PySide2.QtCore import QAbstractListModel, Qt
+from PySide2.QtCore import QAbstractListModel, Qt, QSortFilterProxyModel
+
+
+class TransactionsFilterModel(QSortFilterProxyModel):
+    """
+    Filter model for transactions 
+    """
+    
+    def __init__(self):
+        super(TransactionsFilterModel, self).__init__()
+
+    def filterAcceptsRow(self, source_row, source_parent):
+        """
+        Override filterAcceptsRow
+        :param source_row: source_row
+        :param source_parent: source_parent
+        :return: void
+        """
+
+        # src_model = self.sourceModel()
+        # src_index = src_model.index(src_row, 0)
+        # item_var = src_index.data(Qt.DisplayRole)
+        # item_int = int(item_var.toPyObject())
+        # return (item_int >= 60)
 
 
 class TransactionsModel(QAbstractListModel):
@@ -9,7 +32,7 @@ class TransactionsModel(QAbstractListModel):
     def __init__(self, transactions=None):
         super().__init__()
 
-        """ Store transactions """
+        """ Store transactions - Name/Category/Amount/Date/Account/IncomeOrExpense """
         self.transactions = transactions or []
 
     def data(self, index, role):

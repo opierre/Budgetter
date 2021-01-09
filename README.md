@@ -11,6 +11,7 @@
   - [ ] Edit option
   - [ ] Add option
   - [ ] Undo/Redo ?
+  - [ ] Search transaction button/textedit ?
 * Second menu :
   - [ ] Each QDockWidget on single page (*hide/show*)
 * Error/Info Pop-Up
