@@ -17,11 +17,11 @@ class TransactionsFilterModel(QSortFilterProxyModel):
         :return: void
         """
 
-        # src_model = self.sourceModel()
-        # src_index = src_model.index(src_row, 0)
-        # item_var = src_index.data(Qt.DisplayRole)
-        # item_int = int(item_var.toPyObject())
-        # return (item_int >= 60)
+        src_model = self.sourceModel()
+        source_index = src_model.index(source_row, 0)
+        transaction = source_index.data(Qt.DisplayRole)
+        
+        return (item_int >= 60)
 
 
 class TransactionsModel(QAbstractListModel):
