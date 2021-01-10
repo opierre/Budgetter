@@ -9,6 +9,19 @@ class TransactionsFilterModel(QSortFilterProxyModel):
     def __init__(self):
         super(TransactionsFilterModel, self).__init__()
 
+        """ Default Filter for Income/Expenses """
+        self.type = "All"
+
+    def updateFilter(self, newFilter):
+        """
+        Update current filter
+        :param newFilter: filter to set
+        :return: void
+        """
+
+        self.type = newFilter
+        self.invalidateFilter()
+
     def filterAcceptsRow(self, source_row, source_parent):
         """
         Override filterAcceptsRow
@@ -20,8 +33,11 @@ class TransactionsFilterModel(QSortFilterProxyModel):
         src_model = self.sourceModel()
         source_index = src_model.index(source_row, 0)
         transaction = source_index.data(Qt.DisplayRole)
-        
-        return (item_int >= 60)
+
+        if self.type == 'All':
+            return True
+        else:
+            return transaction[-1] == self.type
 
 
 class TransactionsModel(QAbstractListModel):

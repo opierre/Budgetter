@@ -1,9 +1,8 @@
-from PySide2.QtCore import QObject, Qt, QDate, QFile, QRect, QSize
-from PySide2.QtGui import QIcon, QRegion, QPixmap, QPainter, QBrush
-from PySide2.QtWidgets import QVBoxLayout, QStatusBar, QWidget, QPushButton, QListView, QSpacerItem, QSizePolicy, QMenu, \
-    QApplication
+from PySide2.QtCore import QObject, Qt
+from PySide2.QtGui import QIcon
+from PySide2.QtWidgets import QVBoxLayout, QStatusBar, QWidget, QPushButton, QListView, QMenu
 
-from models.transactions_model import TransactionsModel
+from models.transactions_model import TransactionsModel, TransactionsFilterModel
 from widgets.statusbar import StatusBar
 from widgets.transactionDelegate import TransactionDelegate
 
@@ -38,6 +37,9 @@ class Transactions(QObject):
 
         """ ListView to display all transactions """
         self.transactionsListView = QListView()
+
+        """ Model for filtering """
+        self.transactionsFilterModel = TransactionsFilterModel()
 
         """ Model to handle data in transactions list """
         self.transactionsModel = TransactionsModel([["Flunch",
@@ -82,6 +84,11 @@ class Transactions(QObject):
 
         """ Connect signal from More button in list view to opening context menu """
         self.transactionDelegate.transactionMorePressed.connect(self.openContextMenu)
+
+        """ Update filtering when click on button in status bar """
+        self.expenses.clicked.connect(self.updateCurrentFiltering)
+        self.income.clicked.connect(self.updateCurrentFiltering)
+        self.all.clicked.connect(self.updateCurrentFiltering)
 
     def openContextMenu(self, index, position):
         """
@@ -133,8 +140,14 @@ class Transactions(QObject):
         :return: void
         """
 
+        """ Set proxy model """
+        self.transactionsFilterModel.setSourceModel(self.transactionsModel)
+
+        """ Date re-filtered if model changed """
+        self.transactionsFilterModel.setDynamicSortFilter(True)
+
         """ Set model """
-        self.transactionsListView.setModel(self.transactionsModel)
+        self.transactionsListView.setModel(self.transactionsFilterModel)
 
         """ Set mouse tracking """
         self.transactionsListView.setMouseTracking(True)
@@ -186,4 +199,40 @@ class Transactions(QObject):
 
         """ Set title """
         self.uiSetup.transactions.setTitle("Transactions")
-        # self.uiSetup.monthlyExpenses.disableTitleBarButton()
+
+    def updateCurrentFiltering(self):
+        """
+        Update current filtering after click on button
+        :return: void
+        """
+
+        """ Retrieve sender """
+        pyObject = self.sender()
+
+        """ Retrieve current text """
+        newFilter = pyObject.text()
+
+        """ Update filter """
+        self.transactionsFilterModel.updateFilter(newFilter)
+
+        """ Update activated state """
+        if newFilter == 'All':
+            self.all.setProperty("activated", "true")
+            self.expenses.setProperty("activated", "false")
+            self.income.setProperty("activated", "false")
+        elif newFilter == 'Expenses':
+            self.all.setProperty("activated", "false")
+            self.expenses.setProperty("activated", "true")
+            self.income.setProperty("activated", "false")
+        else:
+            self.all.setProperty("activated", "false")
+            self.expenses.setProperty("activated", "false")
+            self.income.setProperty("activated", "true")
+
+        """ Update style """
+        self.all.style().unpolish(self.all)
+        self.all.style().polish(self.all)
+        self.expenses.style().unpolish(self.expenses)
+        self.expenses.style().polish(self.expenses)
+        self.income.style().unpolish(self.income)
+        self.income.style().polish(self.income)
