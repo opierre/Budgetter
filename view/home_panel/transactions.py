@@ -136,7 +136,7 @@ class Transactions(QObject):
             print('edit')
         if action == deleteAction:
             """ Remove transaction from model """
-            self.transactionsModel.deleteTransaction(index)
+            self.transactionsFilterModel.deleteTransaction(index)
 
     def configureLayout(self):
         """

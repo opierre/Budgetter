@@ -35,6 +35,18 @@ class TransactionsFilterModel(QSortFilterProxyModel):
         self.account = newFilter
         self.invalidateFilter()
 
+    def deleteTransaction(self, index):
+        """
+        Call for deleteTransaction in source model
+        :param index: index in filtered model
+        :return: void
+        """
+
+        self.beginRemoveRows(QModelIndex(), index.row(), index.row())
+        indexFromSource = self.mapFromSource(index)
+        self.sourceModel().deleteTransaction(indexFromSource)
+        self.endRemoveRows()
+
     def filterAcceptsRow(self, source_row, source_parent):
         """
         Override filterAcceptsRow
