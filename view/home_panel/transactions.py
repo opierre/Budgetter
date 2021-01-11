@@ -1,6 +1,6 @@
 from PySide2.QtCore import QObject, Qt
 from PySide2.QtGui import QIcon
-from PySide2.QtWidgets import QVBoxLayout, QStatusBar, QWidget, QPushButton, QListView, QMenu
+from PySide2.QtWidgets import QVBoxLayout, QStatusBar, QWidget, QPushButton, QListView, QMenu, QFrame
 
 from models.transactions_model import TransactionsModel, TransactionsFilterModel
 from widgets.statusbar import StatusBar
@@ -23,14 +23,26 @@ class Transactions(QObject):
         self.customStatusBar = StatusBar()
         self.statusBar = QStatusBar()
 
-        """ All button """
+        """ All button - Type """
         self.all = QPushButton("All")
 
-        """ Expenses button """
+        """ Expenses button - Type """
         self.expenses = QPushButton("Expenses")
 
-        """ Incomes button """
+        """ Incomes button - Type """
         self.income = QPushButton("Income")
+
+        """ All button - Account """
+        self.allAccount = QPushButton("All")
+
+        """ Account 1 button - Account """
+        self.account1 = QPushButton("Livret A")
+
+        """ Account 2 button - Account """
+        self.account2 = QPushButton("Compte Chèque")
+
+        """ Account 3 button - Account """
+        self.account3 = QPushButton("Livret Jeune")
 
         """ Store item delegate """
         self.transactionDelegate = TransactionDelegate()
@@ -89,6 +101,12 @@ class Transactions(QObject):
         self.expenses.clicked.connect(self.updateCurrentFiltering)
         self.income.clicked.connect(self.updateCurrentFiltering)
         self.all.clicked.connect(self.updateCurrentFiltering)
+
+        """ Update filtering when click on button in status bar """
+        self.allAccount.clicked.connect(self.addFilter)
+        self.account1.clicked.connect(self.addFilter)
+        self.account2.clicked.connect(self.addFilter)
+        self.account3.clicked.connect(self.addFilter)
 
     def openContextMenu(self, index, position):
         """
@@ -169,10 +187,26 @@ class Transactions(QObject):
         self.income.setProperty("activated", "false")
         self.income.update()
 
+        """ Set states for activation """
+        self.allAccount.setProperty("activated", "true")
+        self.allAccount.update()
+        self.account1.setProperty("activated", "false")
+        self.account1.update()
+        self.account2.setProperty("activated", "false")
+        self.account2.update()
+        self.account3.setProperty("activated", "false")
+        self.account3.update()
+
         """ Set cursor for left buttons """
         self.all.setCursor(Qt.PointingHandCursor)
         self.expenses.setCursor(Qt.PointingHandCursor)
         self.income.setCursor(Qt.PointingHandCursor)
+
+        """ Set cursor for left buttons """
+        self.allAccount.setCursor(Qt.PointingHandCursor)
+        self.account1.setCursor(Qt.PointingHandCursor)
+        self.account2.setCursor(Qt.PointingHandCursor)
+        self.account3.setCursor(Qt.PointingHandCursor)
 
         """ Add custom status bar to classic one """
         self.statusBar.addPermanentWidget(self.customStatusBar)
@@ -181,6 +215,19 @@ class Transactions(QObject):
         self.statusBar.addWidget(self.all)
         self.statusBar.addWidget(self.expenses)
         self.statusBar.addWidget(self.income)
+
+        """ Add separator """
+        vline = QFrame()
+        vline.setFrameShape(vline.VLine)
+        vline.setFixedHeight(self.all.sizeHint().height() * 1.2)
+        vline.setStyleSheet("color: #344457;")
+        self.statusBar.addWidget(vline)
+
+        """ Add buttons on left corner """
+        self.statusBar.addWidget(self.allAccount)
+        self.statusBar.addWidget(self.account1)
+        self.statusBar.addWidget(self.account2)
+        self.statusBar.addWidget(self.account3)
 
         """ Disable size grip """
         self.statusBar.setSizeGripEnabled(False)
@@ -236,3 +283,50 @@ class Transactions(QObject):
         self.expenses.style().polish(self.expenses)
         self.income.style().unpolish(self.income)
         self.income.style().polish(self.income)
+
+    def addFilter(self):
+        """
+        Add filter to current filtering after click on button
+        :return: void
+        """
+
+        """ Retrieve sender """
+        pyObject = self.sender()
+
+        """ Retrieve current text """
+        newFilter = pyObject.text()
+
+        """ Add filter """
+        self.transactionsFilterModel.addFilter(newFilter)
+
+        """ Update activated state """
+        if newFilter == 'All':
+            self.allAccount.setProperty("activated", "true")
+            self.account1.setProperty("activated", "false")
+            self.account2.setProperty("activated", "false")
+            self.account3.setProperty("activated", "false")
+        elif newFilter == self.account1.text():
+            self.allAccount.setProperty("activated", "false")
+            self.account1.setProperty("activated", "true")
+            self.account2.setProperty("activated", "false")
+            self.account3.setProperty("activated", "false")
+        elif newFilter == self.account2.text():
+            self.allAccount.setProperty("activated", "false")
+            self.account1.setProperty("activated", "false")
+            self.account2.setProperty("activated", "true")
+            self.account3.setProperty("activated", "false")
+        elif newFilter == self.account3.text():
+            self.allAccount.setProperty("activated", "false")
+            self.account1.setProperty("activated", "false")
+            self.account2.setProperty("activated", "false")
+            self.account3.setProperty("activated", "true")
+
+        """ Update style """
+        self.allAccount.style().unpolish(self.allAccount)
+        self.allAccount.style().polish(self.allAccount)
+        self.account1.style().unpolish(self.account1)
+        self.account1.style().polish(self.account1)
+        self.account2.style().unpolish(self.account2)
+        self.account2.style().polish(self.account2)
+        self.account3.style().unpolish(self.account3)
+        self.account3.style().polish(self.account3)

@@ -1,4 +1,4 @@
-from PySide2.QtCore import QAbstractListModel, Qt, QSortFilterProxyModel
+from PySide2.QtCore import QAbstractListModel, Qt, QSortFilterProxyModel, QModelIndex
 
 
 class TransactionsFilterModel(QSortFilterProxyModel):
@@ -12,6 +12,9 @@ class TransactionsFilterModel(QSortFilterProxyModel):
         """ Default Filter for Income/Expenses """
         self.type = "All"
 
+        """ Default Filter for Accounts """
+        self.account = "All"
+
     def updateFilter(self, newFilter):
         """
         Update current filter
@@ -20,6 +23,16 @@ class TransactionsFilterModel(QSortFilterProxyModel):
         """
 
         self.type = newFilter
+        self.invalidateFilter()
+
+    def addFilter(self, newFilter):
+        """
+        Add current filter
+        :param newFilter: filter to set
+        :return: void
+        """
+
+        self.account = newFilter
         self.invalidateFilter()
 
     def filterAcceptsRow(self, source_row, source_parent):
@@ -34,10 +47,14 @@ class TransactionsFilterModel(QSortFilterProxyModel):
         source_index = src_model.index(source_row, 0)
         transaction = source_index.data(Qt.DisplayRole)
 
-        if self.type == 'All':
+        if self.type == 'All' and self.account == 'All':
             return True
-        else:
+        elif self.type == 'All' and self.account != 'All':
+            return transaction[-2] == self.account
+        elif self.type != 'All' and self.account == 'All':
             return transaction[-1] == self.type
+        elif self.type != 'All' and self.account != 'All':
+            return (transaction[-1] == self.type) and (transaction[-2] == self.account)
 
 
 class TransactionsModel(QAbstractListModel):
@@ -81,5 +98,6 @@ class TransactionsModel(QAbstractListModel):
         :return: void
         """
 
+        self.beginRemoveRows(QModelIndex(), index.row(), index.row())
         self.transactions.pop(index.row())
-        self.dataChanged.emit(index, index)
+        self.endRemoveRows()
