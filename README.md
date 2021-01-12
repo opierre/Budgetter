@@ -7,7 +7,7 @@
   - [ ] Change of month  
 * Transaction content:
   - [x] ~~Edit/Delete buttons in Menu~~
-  - [ ] Filter on click in status bar
+  - [x] ~~Filter on click in status bar~~
   - [ ] Edit option
   - [ ] Add option
   - [ ] Undo/Redo ?

@@ -59,19 +59,22 @@ class Transactions(QObject):
                                                      25.99,
                                                      "20/02/2020",
                                                      "Compte Chèque",
-                                                     "Income"],
+                                                     "Income",
+                                                     False],
                                                     ["Gasoil",
                                                      "Transport",
                                                      40.01,
                                                      "12/05/2020",
                                                      "Livret A",
-                                                     "Expenses"],
+                                                     "Expenses",
+                                                     False],
                                                     ["Computer",
                                                      "Groceries",
                                                      900.99,
                                                      "24/05/2020",
                                                      "Livret Jeune",
-                                                     "Expenses"]])
+                                                     "Expenses",
+                                                     False]])
 
         """ Configure layout """
         self.configureLayout()
@@ -133,7 +136,7 @@ class Transactions(QObject):
 
         """ Deal with click """
         if action == editAction:
-            print('edit')
+            self.transactionsFilterModel.editTransaction(index)
         if action == deleteAction:
             """ Remove transaction from model """
             self.transactionsFilterModel.deleteTransaction(index)

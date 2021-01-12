@@ -43,9 +43,20 @@ class TransactionsFilterModel(QSortFilterProxyModel):
         """
 
         self.beginRemoveRows(QModelIndex(), index.row(), index.row())
-        indexFromSource = self.mapFromSource(index)
+        indexFromSource = self.mapToSource(index)
         self.sourceModel().deleteTransaction(indexFromSource)
         self.endRemoveRows()
+
+    def editTransaction(self, index):
+        """
+        Call for editTransaction in source model
+        :param index: index in filtered model
+        :return: void
+        """
+
+        indexFromSource = self.mapToSource(index)
+        self.sourceModel().editTransaction(indexFromSource)
+        self.layoutChanged.emit()
 
     def filterAcceptsRow(self, source_row, source_parent):
         """
@@ -77,7 +88,7 @@ class TransactionsModel(QAbstractListModel):
     def __init__(self, transactions=None):
         super().__init__()
 
-        """ Store transactions - Name/Category/Amount/Date/Account/IncomeOrExpense """
+        """ Store transactions - Name/Category/Amount/Date/Account/IncomeOrExpense/Editable """
         self.transactions = transactions or []
 
     def data(self, index, role):
@@ -93,6 +104,17 @@ class TransactionsModel(QAbstractListModel):
 
             """ Return current transaction list """
             return transaction
+
+    def setData(self, index, value, role):
+        """
+        Override setData() from QAbstractListModel
+        :param index: index
+        :param value: value
+        :param role: role
+        :return: according to role (text, ...)
+        """
+
+        return True
 
     def rowCount(self, index):
         """
@@ -113,3 +135,13 @@ class TransactionsModel(QAbstractListModel):
         self.beginRemoveRows(QModelIndex(), index.row(), index.row())
         self.transactions.pop(index.row())
         self.endRemoveRows()
+
+    def editTransaction(self, index):
+        """
+        Call for editTransaction in source model
+        :param index: index in filtered model
+        :return: void
+        """
+
+        self.transactions[index.row()][-1] = True
+        self.layoutChanged.emit()
