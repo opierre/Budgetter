@@ -56,7 +56,7 @@ class TransactionsFilterModel(QSortFilterProxyModel):
 
         indexFromSource = self.mapToSource(index)
         self.sourceModel().editTransaction(indexFromSource)
-        self.layoutChanged.emit()
+        # self.dataChanged.emit(index, index)
 
     def filterAcceptsRow(self, source_row, source_parent):
         """
@@ -73,11 +73,11 @@ class TransactionsFilterModel(QSortFilterProxyModel):
         if self.type == 'All' and self.account == 'All':
             return True
         elif self.type == 'All' and self.account != 'All':
-            return transaction[-2] == self.account
+            return transaction[-3] == self.account
         elif self.type != 'All' and self.account == 'All':
-            return transaction[-1] == self.type
+            return transaction[-2] == self.type
         elif self.type != 'All' and self.account != 'All':
-            return (transaction[-1] == self.type) and (transaction[-2] == self.account)
+            return (transaction[-2] == self.type) and (transaction[-3] == self.account)
 
 
 class TransactionsModel(QAbstractListModel):
@@ -144,4 +144,4 @@ class TransactionsModel(QAbstractListModel):
         """
 
         self.transactions[index.row()][-1] = True
-        self.layoutChanged.emit()
+        # self.layoutChanged.emit()
