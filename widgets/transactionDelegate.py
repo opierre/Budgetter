@@ -2,7 +2,7 @@ import datetime
 
 from PySide2 import QtCore
 from PySide2.QtCore import QSize, Qt, QRect, QRectF, QPointF, QPoint, Signal, QModelIndex
-from PySide2.QtGui import QPen, QColor, QPainter, QFont, QFontMetrics, QIcon
+from PySide2.QtGui import QPen, QColor, QPainter, QFont, QFontMetrics, QIcon, QRegion
 from PySide2.QtSvg import QSvgRenderer
 from PySide2.QtWidgets import QStyledItemDelegate, QPushButton, QStyleOptionButton, QStyle, \
     QApplication, QLineEdit, QWidget, QSpinBox, QStyleOptionFrame
@@ -66,32 +66,66 @@ class TransactionDelegate(QStyledItemDelegate):
 
         self.editable = _bool
 
-    # def createEditor(self, parent, option, index):
-    #     """
-    #     Override createEditor
-    #     :param parent: parent
-    #     :param option: option
-    #     :param index: index
-    #     :return: void
-    #     """
-    #
-    #     """ Create MainWindow """
-    #     # mainWindow = QWidget()
-    #     # ui = Ui_transaction()
-    #     # ui.setupUi(mainWindow)
-    #
-    #     button = QSpinBox(parent=parent)
-    #
-    #     return button
-    #
-    # def setEditorData(self, editor, index):
-    #     editor.setValue(3)
-    #
-    # def setModelData(self, editor, model, index):
-    #     pass
-    #
-    # def updateEditorGeometry(self, editor, option, index):
-    #     editor.setGeometry(option.rect)
+    def createEditor(self, parent, option, index):
+        """
+        Override createEditor
+        :param parent: parent
+        :param option: option
+        :param index: index
+        :return: void
+        """
+
+        editor = QLineEdit("coucou", parent)
+        editor.resize(QSize(self.rectName.width(), self.rectName.height()))
+        editor.move(self.rectName.x(), self.rectName.y())
+        editor.setStyleSheet("background-color: #1A537D;")
+
+        print('alors')
+
+        return editor
+
+    def setEditorData(self, editor, index):
+        """
+        Override setEditorData()
+        :param editor: editor
+        :param index: index
+        :return: void
+        """
+
+        transaction = index.model().data(index, Qt.DisplayRole)
+
+        self.font.setFamily(u"Roboto")
+        self.font.setPointSize(11)
+
+        editor.setFont(self.font)
+
+        editor.setText(transaction[0])
+
+    def setModelData(self, editor, model, index):
+        """
+        Override setModelData()
+        :param editor: editor
+        :param model: model
+        :param index: index
+        :return: void
+        """
+
+        text = editor.text()
+
+        model.setData(index, [text, "Restaurants", 25.99, "20/02/2020", "Compte Chèque", "Income", False],
+                      Qt.DisplayRole)
+
+    def updateEditorGeometry(self, editor, option, index):
+        """
+        Override updateEditorGeometry()
+        :param editor: editor
+        :param option: option
+        :param index: index
+        :return: void
+        """
+        print(editor.sizeHint().height())
+        editor.setGeometry(option.rect.x()+0, option.rect.y()-0,
+                           option.rect.width(), option.rect.height())
 
     def editorEvent(self, event, model, option, index):
         """
@@ -125,17 +159,17 @@ class TransactionDelegate(QStyledItemDelegate):
                 """ Change cursor to pointing hand """
                 QApplication.setOverrideCursor(Qt.PointingHandCursor)
                 return True
-            elif self.rectName.contains(cursorPosition):
-                """ Change cursor to pointing hand """
-                QApplication.setOverrideCursor(Qt.IBeamCursor)
-                return True
+            # elif self.rectName.contains(cursorPosition):
+            #     """ Change cursor to pointing hand """
+            #     QApplication.setOverrideCursor(Qt.IBeamCursor)
+            #     return True
             else:
                 """ Reset cursor shape """
                 QApplication.restoreOverrideCursor()
                 return True
 
         elif event.type() == QtCore.QEvent.KeyPress:
-            pass
+            return True
         else:
             return False
 
@@ -222,6 +256,7 @@ class TransactionDelegate(QStyledItemDelegate):
 
         """ Set category painter color """
         painter.setPen(QPen(Qt.white))
+        painter.setBrush(QColor(Qt.transparent))
 
         """ Get font metrics """
         fontMetrics = QFontMetrics(self.font)
@@ -234,12 +269,20 @@ class TransactionDelegate(QStyledItemDelegate):
         if editable is False:
             painter.drawText(self.rectName, Qt.AlignLeft | Qt.AlignVCenter | Qt.AlignVCenter, name)
         else:
-            optionMore = QStyleOptionFrame()
-            optionMore.initFrom(self.name)
-            optionMore.rect = self.rectName
-            optionMore.state = optionMore.state or QStyle.State_MouseOver
+            painter.drawRect(self.rectName)
+            painter.drawText(self.rectName, Qt.AlignLeft | Qt.AlignVCenter | Qt.AlignVCenter, name)
 
-            self.name.style().drawPrimitive(QStyle.PE_PanelLineEdit, optionMore, painter, self.name)
+        #     optionMore = QStyleOptionFrame()
+        #     optionMore.initFrom(self.name)
+        #     optionMore.rect = self.rectName
+        #     optionMore.state = optionMore.state or QStyle.State_Sunken
+        #
+        #     self.name.style().drawPrimitive(QStyle.PE_PanelLineEdit, optionMore, painter, self.name)
+            # self.name.setReadOnly(False)
+            # self.name.resize(self.rectName.size())
+            # self.name.setText("Test")
+            # painter.translate(self.rectName.topLeft())
+            # self.name.render(painter, QPoint(), QRegion(), QWidget.DrawChildren)
 
         """ Set font on painter for category """
         self.font.setFamily(u"Roboto")

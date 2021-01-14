@@ -114,6 +114,14 @@ class TransactionsModel(QAbstractListModel):
         :return: according to role (text, ...)
         """
 
+        self.transactions[index.row()][0] = value[0]
+        self.transactions[index.row()][1] = value[1]
+        self.transactions[index.row()][2] = value[2]
+        self.transactions[index.row()][3] = value[3]
+        self.transactions[index.row()][4] = value[4]
+        self.transactions[index.row()][5] = value[5]
+        self.transactions[index.row()][6] = value[6]
+
         return True
 
     def rowCount(self, index):
@@ -145,3 +153,12 @@ class TransactionsModel(QAbstractListModel):
 
         self.transactions[index.row()][-1] = True
         # self.layoutChanged.emit()
+
+    def flags(self, index):
+        """
+        Override flags()
+        :param index: index
+        :return: flags
+        """
+
+        return Qt.ItemIsEditable | Qt.ItemIsEnabled
