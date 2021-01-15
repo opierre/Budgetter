@@ -16,7 +16,7 @@ class TransactionDelegate(QStyledItemDelegate):
     """
 
     """ Signal emitted on More button click """
-    transactionMorePressed = Signal(QModelIndex, QPoint)
+    transactionMorePressed = Signal(QModelIndex, QPoint, QRect)
 
     def __init__(self, parent=None, *args):
         QStyledItemDelegate.__init__(self, parent, *args)
@@ -29,9 +29,6 @@ class TransactionDelegate(QStyledItemDelegate):
 
         """ More QPushButton """
         self.more = QPushButton()
-
-        """ Name QLineEdit """
-        self.name = QLineEdit()
 
         """ Store more button rectangle """
         self.rectMore = None
@@ -48,23 +45,21 @@ class TransactionDelegate(QStyledItemDelegate):
 
         """ Set names """
         self.more.setObjectName(u"moreTransaction")
-        self.name.setObjectName(u"nameTransaction")
 
         """ Set icon """
         self.more.setIcon(QIcon(":/images/images/more_vert-white-18dp.svg"))
 
         """ Set background color """
         self.more.setStyleSheet("background-color: transparent;\n")
-        self.name.setStyleSheet("background-color: transparent;\n")
 
-    def setEditable(self, _bool):
+    def setEditable(self, index):
         """
-        Change value of editable attribute
-        :param _bool: True/False
+        Change value of editable index
+        :param index: index of editable item
         :return: void
         """
 
-        self.editable = _bool
+        self.editable = index
 
     def createEditor(self, parent, option, index):
         """
@@ -75,14 +70,7 @@ class TransactionDelegate(QStyledItemDelegate):
         :return: void
         """
 
-        editor = QLineEdit("coucou", parent)
-        editor.resize(QSize(self.rectName.width(), self.rectName.height()))
-        editor.move(self.rectName.x(), self.rectName.y())
-        editor.setStyleSheet("background-color: #1A537D;")
-
-        print('alors')
-
-        return editor
+        pass
 
     def setEditorData(self, editor, index):
         """
@@ -123,7 +111,7 @@ class TransactionDelegate(QStyledItemDelegate):
         :param index: index
         :return: void
         """
-        print(editor.sizeHint().height())
+
         editor.setGeometry(option.rect.x()+0, option.rect.y()-0,
                            option.rect.width(), option.rect.height())
 
@@ -146,7 +134,8 @@ class TransactionDelegate(QStyledItemDelegate):
 
             if self.rectMore.contains(cursorPosition):
                 """ Emit pressed signal with model's index and cursor position """
-                self.transactionMorePressed.emit(index, cursorPosition)
+                print(self.rectName)
+                self.transactionMorePressed.emit(index, cursorPosition, self.rectName)
                 return True
             else:
                 return False
@@ -159,10 +148,10 @@ class TransactionDelegate(QStyledItemDelegate):
                 """ Change cursor to pointing hand """
                 QApplication.setOverrideCursor(Qt.PointingHandCursor)
                 return True
-            # elif self.rectName.contains(cursorPosition):
-            #     """ Change cursor to pointing hand """
-            #     QApplication.setOverrideCursor(Qt.IBeamCursor)
-            #     return True
+            elif self.rectName.contains(cursorPosition) and self.editable == index:
+                """ Change cursor to pointing hand """
+                QApplication.setOverrideCursor(Qt.PointingHandCursor)
+                return True
             else:
                 """ Reset cursor shape """
                 QApplication.restoreOverrideCursor()
@@ -204,7 +193,6 @@ class TransactionDelegate(QStyledItemDelegate):
         date = datetime.datetime.strptime(date, '%d/%m/%Y').strftime('%d %b %Y')
         account = str(value[4])
         expOrInc = str(value[5])
-        editable = value[-1]
 
         """ Draw bottom border """
         painter.setPen(QPen(QColor("#344457")))
@@ -218,7 +206,7 @@ class TransactionDelegate(QStyledItemDelegate):
         painter.setPen(QPen(QColor("#26374C")))
         rectBackground = QRect(option.rect.x()+20, option.rect.y()+12,
                                option.rect.width()-40, option.rect.height()-25)
-        if editable is False:
+        if self.editable != index:
             painter.setBrush(QColor("transparent"))
             painter.drawRect(rectBackground)
         else:
@@ -266,10 +254,7 @@ class TransactionDelegate(QStyledItemDelegate):
         """ Set name on top """
         self.rectName = QRect(rectIcon.width()+35, rectIcon.y(),
                               pixelsWidth, pixelsHeight)
-        if editable is False:
-            painter.drawText(self.rectName, Qt.AlignLeft | Qt.AlignVCenter | Qt.AlignVCenter, name)
-        else:
-            painter.drawRect(self.rectName)
+        if self.editable != index:
             painter.drawText(self.rectName, Qt.AlignLeft | Qt.AlignVCenter | Qt.AlignVCenter, name)
 
         #     optionMore = QStyleOptionFrame()

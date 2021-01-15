@@ -1,6 +1,7 @@
 from PySide2.QtCore import QObject, Qt
-from PySide2.QtGui import QIcon
-from PySide2.QtWidgets import QVBoxLayout, QStatusBar, QWidget, QPushButton, QListView, QMenu, QFrame
+from PySide2.QtGui import QIcon, QFont
+from PySide2.QtWidgets import QVBoxLayout, QStatusBar, QWidget, QPushButton, QListView, QMenu, QFrame, QLineEdit, \
+    QInputDialog
 
 from models.transactions_model import TransactionsModel, TransactionsFilterModel
 from widgets.statusbar import StatusBar
@@ -111,7 +112,7 @@ class Transactions(QObject):
         self.account2.clicked.connect(self.addFilter)
         self.account3.clicked.connect(self.addFilter)
 
-    def openContextMenu(self, index, position):
+    def openContextMenu(self, index, position, rectName):
         """
         Open context menu on More click
         :param index: index in model
@@ -136,7 +137,13 @@ class Transactions(QObject):
 
         """ Deal with click """
         if action == editAction:
-            self.transactionsFilterModel.editTransaction(index)
+            self.transactionDelegate.setEditable(index)
+
+            lineedit = QLineEdit("coucou", self.transactionsListView)
+            lineedit.setFont(QFont("Roboto", 11))
+            lineedit.setGeometry(rectName.x(), rectName.y()-3, rectName.width()+15, rectName.height()+6)
+            lineedit.setVisible(True)
+
         if action == deleteAction:
             """ Remove transaction from model """
             self.transactionsFilterModel.deleteTransaction(index)

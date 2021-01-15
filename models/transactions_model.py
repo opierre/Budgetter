@@ -47,17 +47,6 @@ class TransactionsFilterModel(QSortFilterProxyModel):
         self.sourceModel().deleteTransaction(indexFromSource)
         self.endRemoveRows()
 
-    def editTransaction(self, index):
-        """
-        Call for editTransaction in source model
-        :param index: index in filtered model
-        :return: void
-        """
-
-        indexFromSource = self.mapToSource(index)
-        self.sourceModel().editTransaction(indexFromSource)
-        # self.dataChanged.emit(index, index)
-
     def filterAcceptsRow(self, source_row, source_parent):
         """
         Override filterAcceptsRow
@@ -88,7 +77,7 @@ class TransactionsModel(QAbstractListModel):
     def __init__(self, transactions=None):
         super().__init__()
 
-        """ Store transactions - Name/Category/Amount/Date/Account/IncomeOrExpense/Editable """
+        """ Store transactions - Name/Category/Amount/Date/Account/IncomeOrExpense """
         self.transactions = transactions or []
 
     def data(self, index, role):
@@ -120,7 +109,6 @@ class TransactionsModel(QAbstractListModel):
         self.transactions[index.row()][3] = value[3]
         self.transactions[index.row()][4] = value[4]
         self.transactions[index.row()][5] = value[5]
-        self.transactions[index.row()][6] = value[6]
 
         return True
 
@@ -143,16 +131,6 @@ class TransactionsModel(QAbstractListModel):
         self.beginRemoveRows(QModelIndex(), index.row(), index.row())
         self.transactions.pop(index.row())
         self.endRemoveRows()
-
-    def editTransaction(self, index):
-        """
-        Call for editTransaction in source model
-        :param index: index in filtered model
-        :return: void
-        """
-
-        self.transactions[index.row()][-1] = True
-        # self.layoutChanged.emit()
 
     def flags(self, index):
         """
