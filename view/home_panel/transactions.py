@@ -1,7 +1,7 @@
 from PySide2.QtCore import QObject, Qt
 from PySide2.QtGui import QIcon, QFont, QFontMetrics
 from PySide2.QtWidgets import QVBoxLayout, QStatusBar, QWidget, QPushButton, QListView, QMenu, QFrame, QLineEdit, \
-    QInputDialog, QDoubleSpinBox
+    QInputDialog, QDoubleSpinBox, QDateEdit
 
 from models.transactions_model import TransactionsModel, TransactionsFilterModel
 from widgets.statusbar import StatusBar
@@ -56,6 +56,9 @@ class Transactions(QObject):
 
         """ Store DoubleSpinBox for amount edition on transaction """
         self.editAmount = QDoubleSpinBox(self.transactionsListView)
+
+        """ Store DateEdit for date edition on transaction """
+        self.editDate = QDateEdit(self.transactionsListView)
 
         """ Model for filtering """
         self.transactionsFilterModel = TransactionsFilterModel()
@@ -180,8 +183,23 @@ class Transactions(QObject):
         self.editAmount.setFont(QFont("Roboto", 11))
         self.editAmount.setMinimum(0.0)
         self.editAmount.setMaximum(10000.0)
-        self.editAmount.setGeometry(rectAmount.x(), rectAmount.y()-3, rectAmount.width()+15, rectAmount.height()+6)
+        fontMetrics = QFontMetrics(self.editAmount.font())
+        pixelsWidth = fontMetrics.width(str(self.editAmount.value()))
+        pixelsHeight = fontMetrics.height()
+        self.editAmount.setGeometry(rectAmount.x(), rectAmount.y()-3, pixelsWidth+38, pixelsHeight+6)
         self.editAmount.setVisible(True)
+        self.editAmount.valueChanged.connect(self.resizeEditWidget)
+
+        """ Configure DateEdit widget """
+        self.editDate.setDate(self.transactionsModel.data(index, Qt.DisplayRole)[3])
+        self.editDate.setFont(QFont("Roboto", 11))
+        fontMetrics = QFontMetrics(self.editDate.font())
+        pixelsWidth = fontMetrics.width(str(self.editDate.date()))
+        pixelsHeight = fontMetrics.height()
+        self.editDate.setGeometry(rectDate.x(), rectDate.y() - 3, pixelsWidth + 10, pixelsHeight + 6)
+        self.editDate.setVisible(True)
+        self.editDate.setCalendarPopup(True)
+        self.editDate.dateChanged.connect(self.resizeEditWidget)
 
     def resizeEditWidget(self):
         """
@@ -190,16 +208,22 @@ class Transactions(QObject):
         """
 
         sender = self.sender()
+        fontMetrics = QFontMetrics(sender.font())
 
         if isinstance(sender, QLineEdit):
             value = sender.text()
+            pixelsWidth = fontMetrics.width(value)
+            sender.setFixedWidth(pixelsWidth + 10)
+        elif isinstance(sender, QDoubleSpinBox):
+            value = str(sender.value())
+            pixelsWidth = fontMetrics.width(value)
+            sender.setFixedWidth(pixelsWidth+38)
+        elif isinstance(sender, QDateEdit):
+            value = str(sender.date())
+            pixelsWidth = fontMetrics.width(value)
+            sender.setFixedWidth(pixelsWidth+10)
         else:
             value = 'coucou'
-
-        fontMetrics = QFontMetrics(sender.font())
-        pixelsWidth = fontMetrics.width(value)
-
-        sender.setFixedWidth(pixelsWidth+10)
 
     def deleteTransaction(self, index):
         """
@@ -249,6 +273,7 @@ class Transactions(QObject):
         """ Hide widgets for edition """
         self.editName.setVisible(False)
         self.editAmount.setVisible(False)
+        self.editDate.setVisible(False)
 
     def configureStatusBar(self):
         """

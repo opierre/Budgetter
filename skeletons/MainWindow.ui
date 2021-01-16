@@ -624,7 +624,7 @@ QMenu::icon {
 }
 
 QDoubleSpinBox {
-    padding-right: 15px;
+    padding-right: 5px;
 	background-color: transparent;
 	border: 1px solid #21405D;
 	border-radius: 0px;
@@ -634,7 +634,7 @@ QDoubleSpinBox {
 }
 
 QDoubleSpinBox:hover {
-    padding-right: 15px;
+    padding-right: 5px;
 	background-color: transparent;
 	border: 1px solid #0190EA;
 	border-radius: 0px;
