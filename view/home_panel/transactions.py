@@ -1,7 +1,7 @@
 from PySide2.QtCore import QObject, Qt
-from PySide2.QtGui import QIcon, QFont
+from PySide2.QtGui import QIcon, QFont, QFontMetrics
 from PySide2.QtWidgets import QVBoxLayout, QStatusBar, QWidget, QPushButton, QListView, QMenu, QFrame, QLineEdit, \
-    QInputDialog
+    QInputDialog, QDoubleSpinBox
 
 from models.transactions_model import TransactionsModel, TransactionsFilterModel
 from widgets.statusbar import StatusBar
@@ -51,6 +51,12 @@ class Transactions(QObject):
         """ ListView to display all transactions """
         self.transactionsListView = QListView()
 
+        """ Store LineEdit for name edition on transaction """
+        self.editName = QLineEdit(self.transactionsListView)
+
+        """ Store DoubleSpinBox for amount edition on transaction """
+        self.editAmount = QDoubleSpinBox(self.transactionsListView)
+
         """ Model for filtering """
         self.transactionsFilterModel = TransactionsFilterModel()
 
@@ -98,8 +104,11 @@ class Transactions(QObject):
         :return: void
         """
 
-        """ Connect signal from More button in list view to opening context menu """
-        self.transactionDelegate.transactionMorePressed.connect(self.openContextMenu)
+        """ Connect signal from Edit button in list view to edit menu """
+        self.transactionDelegate.transactionEditPressed.connect(self.editTransaction)
+
+        """ Connect signal from Delete button in list view to delete item """
+        self.transactionDelegate.transactionDeletePressed.connect(self.deleteTransaction)
 
         """ Update filtering when click on button in status bar """
         self.expenses.clicked.connect(self.updateCurrentFiltering)
@@ -139,14 +148,68 @@ class Transactions(QObject):
         if action == editAction:
             self.transactionDelegate.setEditable(index)
 
-            lineedit = QLineEdit("coucou", self.transactionsListView)
-            lineedit.setFont(QFont("Roboto", 11))
-            lineedit.setGeometry(rectName.x(), rectName.y()-3, rectName.width()+15, rectName.height()+6)
-            lineedit.setVisible(True)
-
         if action == deleteAction:
             """ Remove transaction from model """
             self.transactionsFilterModel.deleteTransaction(index)
+
+    def editTransaction(self, index, rectName, rectAmount, rectDate, rectAccount):
+        """
+        Edit transaction on Edit click
+        :param rectName: rect where to put LineEdit
+        :param rectAmount: rect where to put DoubleSpinBox
+        :param rectDate: rect where to put DateEdit
+        :param rectAccount: rect where to put Combobox
+        :return: void
+        """
+
+        """ Set transaction editable to paint different """
+        self.transactionDelegate.setEditable(index)
+
+        """ Configure Name widget """
+        self.editName.setText(self.transactionsModel.data(index, Qt.DisplayRole)[0])
+        self.editName.setFont(QFont("Roboto", 11))
+        fontMetrics = QFontMetrics(self.editName.font())
+        pixelsWidth = fontMetrics.width(self.editName.text())
+        pixelsHeight = fontMetrics.height()
+        self.editName.setGeometry(rectName.x(), rectName.y()-3, pixelsWidth+10, pixelsHeight+6)
+        self.editName.setVisible(True)
+        self.editName.textChanged.connect(self.resizeEditWidget)
+
+        """ Configure Amount widget """
+        self.editAmount.setValue(self.transactionsModel.data(index, Qt.DisplayRole)[2])
+        self.editAmount.setFont(QFont("Roboto", 11))
+        self.editAmount.setMinimum(0.0)
+        self.editAmount.setMaximum(10000.0)
+        self.editAmount.setGeometry(rectAmount.x(), rectAmount.y()-3, rectAmount.width()+15, rectAmount.height()+6)
+        self.editAmount.setVisible(True)
+
+    def resizeEditWidget(self):
+        """
+        Resize sender object (width especially) according to typed content
+        :return: void
+        """
+
+        sender = self.sender()
+
+        if isinstance(sender, QLineEdit):
+            value = sender.text()
+        else:
+            value = 'coucou'
+
+        fontMetrics = QFontMetrics(sender.font())
+        pixelsWidth = fontMetrics.width(value)
+
+        sender.setFixedWidth(pixelsWidth+10)
+
+    def deleteTransaction(self, index):
+        """
+        Edit transaction on Edit click
+        :param index: index in model
+        :return: void
+        """
+
+        """ Remove transaction from model """
+        self.transactionsFilterModel.deleteTransaction(index)
 
     def configureLayout(self):
         """
@@ -182,6 +245,10 @@ class Transactions(QObject):
 
         """ Set item delegate"""
         self.transactionsListView.setItemDelegate(self.transactionDelegate)
+
+        """ Hide widgets for edition """
+        self.editName.setVisible(False)
+        self.editAmount.setVisible(False)
 
     def configureStatusBar(self):
         """

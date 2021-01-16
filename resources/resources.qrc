@@ -1,5 +1,9 @@
 <RCC>
   <qresource prefix="images">
+    <file>images/expand_more-hovered-18dp.svg</file>
+    <file>images/expand_less-hovered-18dp.svg</file>
+    <file>images/expand_more-white-18dp.svg</file>
+    <file>images/expand_less-white-18dp.svg</file>
     <file>images/more_vert-white-18dp.svg</file>
     <file>images/delete-white-18dp.svg</file>
     <file>images/edit-white-18dp.svg</file>

@@ -64,32 +64,35 @@ QGroupBox::title
 
 QLineEdit 
 {
-	border-bottom: 1px solid #309db5;
-	border-radisu: 0px;
-	padding: 0 8px;
+	border: 1px solid #21405D;
+	border-radius: 0px;
+	padding: 0 0px;
+	padding-left: 2px;
 	background: transparent;
 	color: white;
-	selection-background-color: #309db5;
+	selection-background-color: #0190EA;
 }
 
-QLineEdit ::hover
+QLineEdit::hover
 {
-	border-bottom: 1px solid white;
-	border-radisu: 0px;
-	padding: 0 8px;
+	border: 1px solid #0190EA;
+	border-radius: 0px;
+	padding: 0 0px;
+	padding-left: 2px;
 	background: transparent;
 	color: white;
-	selection-background-color: #309db5;
+	selection-background-color: #0190EA;
 }
 
-QLineEdit ::disabled
+QLineEdit::disabled
 {
-	border-bottom: 1px solid grey;
-	border-radisu: 0px;
-	padding: 0 8px;
+	border: 1px solid grey;
+	border-radius: 0px;
+	padding: 0 0px;
+	padding-left: 2px;
 	background: transparent;
 	color: white;
-	selection-background-color: #309db5;
+	selection-background-color: grey;
 }
 
 QPushButton 
@@ -618,6 +621,58 @@ QMenu::icon {
 	padding-left: 10px;
 	padding-top: 5px;
 	padding-bottom: 5px;
+}
+
+QDoubleSpinBox {
+    padding-right: 15px;
+	background-color: transparent;
+	border: 1px solid #21405D;
+	border-radius: 0px;
+	padding-left: 0px;
+	color: white;
+	selection-background-color: #0190EA;
+}
+
+QDoubleSpinBox:hover {
+    padding-right: 15px;
+	background-color: transparent;
+	border: 1px solid #0190EA;
+	border-radius: 0px;
+	padding-left: 0px;
+	color: white;
+	selection-background-color: #0190EA;
+}
+
+QDoubleSpinBox::up-button {
+    subcontrol-origin: border;
+    subcontrol-position: top right;
+    width: 18px;
+	height: 18px;
+    border-image: url(:/images/images/expand_less-white-18dp.svg);
+}
+
+QDoubleSpinBox::up-button:hover {
+    border-image: url(:/images/images/expand_less-hovered-18dp.svg);
+}
+
+QDoubleSpinBox::up-button:pressed {
+    border-image: url(:/images/images/expand_less-hovered-18dp.svg);
+}
+
+QDoubleSpinBox::down-button {
+    subcontrol-origin: border;
+    subcontrol-position: bottom right;
+    width: 18px;
+	height: 18px;
+    border-image: url(:/images/images/expand_more-white-18dp.svg);
+}
+
+QDoubleSpinBox::down-button:hover {
+    border-image: url(:/images/images/expand_more-hovered-18dp.svg);
+}
+
+QDoubleSpinBox::down-button:pressed {
+    border-image: url(:/images/images/expand_more-hovered-18dp.svg);
 }</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
