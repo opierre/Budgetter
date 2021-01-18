@@ -16,7 +16,6 @@ from PySide2.QtGui import (QBrush, QColor, QConicalGradient, QCursor, QFont,
 from PySide2.QtWidgets import *
 
 from widgets.drawer import Drawer
-from widgets.card import Card
 from widgets.slidingStackedWidget import SlidingStackedWidget
 from widgets.container import Container
 
@@ -26,7 +25,12 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(1172, 714)
+        MainWindow.resize(1176, 723)
+        sizePolicy = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(MainWindow.sizePolicy().hasHeightForWidth())
+        MainWindow.setSizePolicy(sizePolicy)
         icon = QIcon()
         icon.addFile(u":/images/images/bold-36px-#2ABFB0.png", QSize(), QIcon.Normal, QIcon.Off)
         MainWindow.setWindowIcon(icon)
@@ -653,7 +657,7 @@ class Ui_MainWindow(object):
 "	background-color: transparent;\n"
 "	border: 1px solid #21405D;\n"
 "	border-radius: 0px;\n"
-"	padding-left: 0px;\n"
+"	padding-left: 2px;\n"
 "	color: white;\n"
 "	selection-background-color: #0190EA;\n"
 "}\n"
@@ -663,7 +667,7 @@ class Ui_MainWindow(object):
 "	background-color: transparent;\n"
 "	border: 1px solid #0190EA;\n"
 "	border-radius: 0px;\n"
-"	padding-left: 0px;\n"
+"	padding-left: 2px;\n"
 "	color: white;\n"
 "	selection-background-color: #0190EA;\n"
 "}\n"
@@ -712,17 +716,29 @@ class Ui_MainWindow(object):
         self.gridLayout_2.setSpacing(15)
         self.gridLayout_2.setObjectName(u"gridLayout_2")
         self.gridLayout_2.setContentsMargins(15, 15, 15, 15)
-        self.monthlyExpenses = Container(self.dashboard)
-        self.monthlyExpenses.setObjectName(u"monthlyExpenses")
-        sizePolicy = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.monthlyExpenses.sizePolicy().hasHeightForWidth())
-        self.monthlyExpenses.setSizePolicy(sizePolicy)
-        self.monthlyExpenses.setMinimumSize(QSize(200, 100))
+        self.transactions = Container(self.dashboard)
+        self.transactions.setObjectName(u"transactions")
+        self.transactions.setMinimumSize(QSize(0, 0))
         font = QFont()
         font.setFamily(u"Roboto")
         font.setPointSize(13)
+        self.transactions.setFont(font)
+        self.transactions.setFeatures(QDockWidget.NoDockWidgetFeatures)
+        self.transactions.setAllowedAreas(Qt.NoDockWidgetArea)
+        self.dockWidgetContents_2 = QWidget()
+        self.dockWidgetContents_2.setObjectName(u"dockWidgetContents_2")
+        self.gridLayout_4 = QGridLayout(self.dockWidgetContents_2)
+        self.gridLayout_4.setObjectName(u"gridLayout_4")
+        self.transactions.setWidget(self.dockWidgetContents_2)
+
+        self.gridLayout_2.addWidget(self.transactions, 0, 3, 1, 1)
+
+        self.monthlyExpenses = Container(self.dashboard)
+        self.monthlyExpenses.setObjectName(u"monthlyExpenses")
+        sizePolicy.setHeightForWidth(self.monthlyExpenses.sizePolicy().hasHeightForWidth())
+        self.monthlyExpenses.setSizePolicy(sizePolicy)
+        self.monthlyExpenses.setMinimumSize(QSize(0, 0))
+        self.monthlyExpenses.setMaximumSize(QSize(500, 524287))
         self.monthlyExpenses.setFont(font)
         self.monthlyExpenses.setFeatures(QDockWidget.NoDockWidgetFeatures)
         self.monthlyExpenses.setAllowedAreas(Qt.NoDockWidgetArea)
@@ -733,49 +749,7 @@ class Ui_MainWindow(object):
         self.gridLayout_9.setContentsMargins(0, 0, 0, -1)
         self.monthlyExpenses.setWidget(self.dockWidgetContents)
 
-        self.gridLayout_2.addWidget(self.monthlyExpenses, 0, 3, 3, 1)
-
-        self.accounts = QGroupBox(self.dashboard)
-        self.accounts.setObjectName(u"accounts")
-        sizePolicy1 = QSizePolicy(QSizePolicy.Minimum, QSizePolicy.Minimum)
-        sizePolicy1.setHorizontalStretch(0)
-        sizePolicy1.setVerticalStretch(0)
-        sizePolicy1.setHeightForWidth(self.accounts.sizePolicy().hasHeightForWidth())
-        self.accounts.setSizePolicy(sizePolicy1)
-        self.accounts.setMaximumSize(QSize(16777215, 250))
-        font1 = QFont()
-        font1.setFamily(u"Roboto")
-        font1.setPointSize(14)
-        font1.setBold(False)
-        font1.setWeight(50)
-        self.accounts.setFont(font1)
-        self.accounts.setCheckable(False)
-        self.horizontalLayout_3 = QHBoxLayout(self.accounts)
-        self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
-        self.horizontalLayout_3.setContentsMargins(0, 0, 0, 0)
-        self.card1 = Card(self.accounts)
-        self.card1.setObjectName(u"card1")
-        self.card1.setMinimumSize(QSize(383, 243))
-        self.card1.setMaximumSize(QSize(383, 243))
-        self.gridLayout_4 = QGridLayout(self.card1)
-        self.gridLayout_4.setObjectName(u"gridLayout_4")
-
-        self.horizontalLayout_3.addWidget(self.card1)
-
-
-        self.gridLayout_2.addWidget(self.accounts, 0, 0, 1, 2)
-
-        self.transactions = Container(self.dashboard)
-        self.transactions.setObjectName(u"transactions")
-        self.transactions.setMinimumSize(QSize(52, 100))
-        self.transactions.setFont(font)
-        self.transactions.setFeatures(QDockWidget.NoDockWidgetFeatures)
-        self.transactions.setAllowedAreas(Qt.NoDockWidgetArea)
-        self.dockWidgetContents_2 = QWidget()
-        self.dockWidgetContents_2.setObjectName(u"dockWidgetContents_2")
-        self.transactions.setWidget(self.dockWidgetContents_2)
-
-        self.gridLayout_2.addWidget(self.transactions, 1, 0, 2, 2)
+        self.gridLayout_2.addWidget(self.monthlyExpenses, 0, 4, 1, 1)
 
         self.stackedWidget.addWidget(self.dashboard)
         self.page_2 = QWidget()
@@ -808,10 +782,10 @@ class Ui_MainWindow(object):
         self.horizontalLayout.setContentsMargins(15, 0, -1, 0)
         self.menuLabel = QLabel(self.menuBar)
         self.menuLabel.setObjectName(u"menuLabel")
-        font2 = QFont()
-        font2.setFamily(u"Roboto")
-        font2.setPointSize(14)
-        self.menuLabel.setFont(font2)
+        font1 = QFont()
+        font1.setFamily(u"Roboto")
+        font1.setPointSize(14)
+        self.menuLabel.setFont(font1)
 
         self.horizontalLayout.addWidget(self.menuLabel)
 
@@ -848,11 +822,11 @@ class Ui_MainWindow(object):
 
         self.drawer = Drawer(MainWindow)
         self.drawer.setObjectName(u"drawer")
-        sizePolicy2 = QSizePolicy(QSizePolicy.Fixed, QSizePolicy.Preferred)
-        sizePolicy2.setHorizontalStretch(0)
-        sizePolicy2.setVerticalStretch(0)
-        sizePolicy2.setHeightForWidth(self.drawer.sizePolicy().hasHeightForWidth())
-        self.drawer.setSizePolicy(sizePolicy2)
+        sizePolicy1 = QSizePolicy(QSizePolicy.Fixed, QSizePolicy.Preferred)
+        sizePolicy1.setHorizontalStretch(0)
+        sizePolicy1.setVerticalStretch(0)
+        sizePolicy1.setHeightForWidth(self.drawer.sizePolicy().hasHeightForWidth())
+        self.drawer.setSizePolicy(sizePolicy1)
         self.drawer.setMinimumSize(QSize(50, 0))
         self.drawer.setMaximumSize(QSize(50, 16777215))
         self.gridLayout_7 = QGridLayout(self.drawer)
@@ -892,10 +866,10 @@ class Ui_MainWindow(object):
         self.menuDashboard.setObjectName(u"menuDashboard")
         self.menuDashboard.setMinimumSize(QSize(50, 40))
         self.menuDashboard.setMaximumSize(QSize(50, 40))
-        font3 = QFont()
-        font3.setFamily(u"Roboto")
-        font3.setPointSize(12)
-        self.menuDashboard.setFont(font3)
+        font2 = QFont()
+        font2.setFamily(u"Roboto")
+        font2.setPointSize(12)
+        self.menuDashboard.setFont(font2)
         self.menuDashboard.setCursor(QCursor(Qt.PointingHandCursor))
         icon4 = QIcon()
         icon4.addFile(u":/images/images/dashboard-white-36dp.svg", QSize(), QIcon.Normal, QIcon.Off)
@@ -910,7 +884,7 @@ class Ui_MainWindow(object):
         self.menuGraph.setObjectName(u"menuGraph")
         self.menuGraph.setMinimumSize(QSize(50, 40))
         self.menuGraph.setMaximumSize(QSize(50, 40))
-        self.menuGraph.setFont(font3)
+        self.menuGraph.setFont(font2)
         self.menuGraph.setCursor(QCursor(Qt.PointingHandCursor))
         icon5 = QIcon()
         icon5.addFile(u":/images/images/assessment-white-36dp.svg", QSize(), QIcon.Normal, QIcon.Off)
@@ -924,7 +898,7 @@ class Ui_MainWindow(object):
         self.menuInsights.setObjectName(u"menuInsights")
         self.menuInsights.setMinimumSize(QSize(50, 40))
         self.menuInsights.setMaximumSize(QSize(50, 40))
-        self.menuInsights.setFont(font3)
+        self.menuInsights.setFont(font2)
         self.menuInsights.setCursor(QCursor(Qt.PointingHandCursor))
         icon6 = QIcon()
         icon6.addFile(u":/images/images/insights-white-36dp.svg", QSize(), QIcon.Normal, QIcon.Off)
@@ -958,10 +932,8 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"Budgetter", None))
-        self.monthlyExpenses.setWindowTitle(QCoreApplication.translate("MainWindow", u"Expenses Distribution", None))
-        self.accounts.setTitle("")
-        self.card1.setTitle(QCoreApplication.translate("MainWindow", u"GroupBox", None))
         self.transactions.setWindowTitle(QCoreApplication.translate("MainWindow", u"Transactions", None))
+        self.monthlyExpenses.setWindowTitle(QCoreApplication.translate("MainWindow", u"Expenses Distribution", None))
         self.total.setTitle(QCoreApplication.translate("MainWindow", u"Total", None))
         self.savings.setTitle(QCoreApplication.translate("MainWindow", u"Savings", None))
         self.menuLabel.setText(QCoreApplication.translate("MainWindow", u"Dashboard", None))

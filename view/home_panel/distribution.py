@@ -52,11 +52,11 @@ class Distribution(QObject):
         self.categoriesListView.setModel(self.categoriesModel)
         self.categoriesListView.setItemDelegate(self.distributionDelegate)
 
-        """ Configure layout """
-        self.configureLayout()
-
         """ Configure status bar """
         self.configureStatusBar()
+
+        """ Configure layout """
+        self.configureLayout()
 
         """ Configure TitleBar """
         self.configureTitleBar()
@@ -106,15 +106,6 @@ class Distribution(QObject):
 
         """ Hide settings """
         self.customStatusBar.hideSettings()
-
-        """ Hide years """
-        self.customStatusBar.hideChoices()
-
-        # """ Set years in choices combobox """
-        # self.customStatusBar.setChoices(["2018", "2019", "2020", "2021"])
-        #
-        # """ Set current year """
-        # self.customStatusBar.setCurrentChoice(str(QDate.currentDate().year()))
 
     def configureTitleBar(self):
         """

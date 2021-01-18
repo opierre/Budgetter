@@ -6,9 +6,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1172</width>
-    <height>714</height>
+    <width>1176</width>
+    <height>723</height>
    </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
   </property>
   <property name="windowTitle">
    <string>Budgetter</string>
@@ -628,7 +634,7 @@ QDoubleSpinBox {
 	background-color: transparent;
 	border: 1px solid #21405D;
 	border-radius: 0px;
-	padding-left: 0px;
+	padding-left: 2px;
 	color: white;
 	selection-background-color: #0190EA;
 }
@@ -638,7 +644,7 @@ QDoubleSpinBox:hover {
 	background-color: transparent;
 	border: 1px solid #0190EA;
 	border-radius: 0px;
-	padding-left: 0px;
+	padding-left: 2px;
 	color: white;
 	selection-background-color: #0190EA;
 }
@@ -713,7 +719,35 @@ QDoubleSpinBox::down-button:pressed {
        <property name="spacing">
         <number>15</number>
        </property>
-       <item row="0" column="3" rowspan="3">
+       <item row="0" column="3">
+        <widget class="Container" name="transactions">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>Roboto</family>
+           <pointsize>13</pointsize>
+          </font>
+         </property>
+         <property name="features">
+          <set>QDockWidget::NoDockWidgetFeatures</set>
+         </property>
+         <property name="allowedAreas">
+          <set>Qt::NoDockWidgetArea</set>
+         </property>
+         <property name="windowTitle">
+          <string>Transactions</string>
+         </property>
+         <widget class="QWidget" name="dockWidgetContents_2">
+          <layout class="QGridLayout" name="gridLayout_4"/>
+         </widget>
+        </widget>
+       </item>
+       <item row="0" column="4">
         <widget class="Container" name="monthlyExpenses">
          <property name="sizePolicy">
           <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
@@ -723,8 +757,14 @@ QDoubleSpinBox::down-button:pressed {
          </property>
          <property name="minimumSize">
           <size>
-           <width>200</width>
-           <height>100</height>
+           <width>0</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>500</width>
+           <height>524287</height>
           </size>
          </property>
          <property name="font">
@@ -755,96 +795,6 @@ QDoubleSpinBox::down-button:pressed {
            </property>
           </layout>
          </widget>
-        </widget>
-       </item>
-       <item row="0" column="0" colspan="2">
-        <widget class="QGroupBox" name="accounts">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>16777215</width>
-           <height>250</height>
-          </size>
-         </property>
-         <property name="font">
-          <font>
-           <family>Roboto</family>
-           <pointsize>14</pointsize>
-           <weight>50</weight>
-           <bold>false</bold>
-          </font>
-         </property>
-         <property name="title">
-          <string/>
-         </property>
-         <property name="checkable">
-          <bool>false</bool>
-         </property>
-         <layout class="QHBoxLayout" name="horizontalLayout_3">
-          <property name="leftMargin">
-           <number>0</number>
-          </property>
-          <property name="topMargin">
-           <number>0</number>
-          </property>
-          <property name="rightMargin">
-           <number>0</number>
-          </property>
-          <property name="bottomMargin">
-           <number>0</number>
-          </property>
-          <item>
-           <widget class="Card" name="card1">
-            <property name="minimumSize">
-             <size>
-              <width>383</width>
-              <height>243</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>383</width>
-              <height>243</height>
-             </size>
-            </property>
-            <property name="title">
-             <string>GroupBox</string>
-            </property>
-            <layout class="QGridLayout" name="gridLayout_4"/>
-           </widget>
-          </item>
-         </layout>
-        </widget>
-       </item>
-       <item row="1" column="0" rowspan="2" colspan="2">
-        <widget class="Container" name="transactions">
-         <property name="minimumSize">
-          <size>
-           <width>52</width>
-           <height>100</height>
-          </size>
-         </property>
-         <property name="font">
-          <font>
-           <family>Roboto</family>
-           <pointsize>13</pointsize>
-          </font>
-         </property>
-         <property name="features">
-          <set>QDockWidget::NoDockWidgetFeatures</set>
-         </property>
-         <property name="allowedAreas">
-          <set>Qt::NoDockWidgetArea</set>
-         </property>
-         <property name="windowTitle">
-          <string>Transactions</string>
-         </property>
-         <widget class="QWidget" name="dockWidgetContents_2"/>
         </widget>
        </item>
       </layout>
@@ -1257,12 +1207,6 @@ QDoubleSpinBox::down-button:pressed {
    <class>Drawer</class>
    <extends>QWidget</extends>
    <header>widgets/drawer.h</header>
-   <container>1</container>
-  </customwidget>
-  <customwidget>
-   <class>Card</class>
-   <extends>QGroupBox</extends>
-   <header>widgets/card.h</header>
    <container>1</container>
   </customwidget>
   <customwidget>

@@ -1,7 +1,7 @@
-from PySide2.QtCore import QObject, Qt
+from PySide2.QtCore import QObject, Qt, QDate
 from PySide2.QtGui import QIcon, QFont, QFontMetrics
 from PySide2.QtWidgets import QVBoxLayout, QStatusBar, QWidget, QPushButton, QListView, QMenu, QFrame, QLineEdit, \
-    QInputDialog, QDoubleSpinBox, QDateEdit
+    QInputDialog, QDoubleSpinBox, QDateEdit, QAbstractItemView
 
 from models.transactions_model import TransactionsModel, TransactionsFilterModel
 from widgets.statusbar import StatusBar
@@ -86,11 +86,11 @@ class Transactions(QObject):
                                                      "Expenses",
                                                      False]])
 
-        """ Configure layout """
-        self.configureLayout()
-
         """ Configure status bar """
         self.configureStatusBar()
+
+        """ Configure layout """
+        self.configureLayout()
 
         """ Configure List view """
         self.configureListView()
@@ -191,7 +191,8 @@ class Transactions(QObject):
         self.editAmount.valueChanged.connect(self.resizeEditWidget)
 
         """ Configure DateEdit widget """
-        self.editDate.setDate(self.transactionsModel.data(index, Qt.DisplayRole)[3])
+        dateStr = self.transactionsModel.data(index, Qt.DisplayRole)[3]
+        self.editDate.setDate(QDate.fromString(dateStr, 'dd/MM/yyyy'))
         self.editDate.setFont(QFont("Roboto", 11))
         fontMetrics = QFontMetrics(self.editDate.font())
         pixelsWidth = fontMetrics.width(str(self.editDate.date()))
@@ -336,9 +337,6 @@ class Transactions(QObject):
 
         """ Hide settings """
         self.customStatusBar.hideSettings()
-
-        """ Hide choices """
-        self.customStatusBar.hideChoices()
 
     def configureTitleBar(self):
         """
