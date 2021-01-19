@@ -76,3 +76,4 @@ Thumbs.db
 /.idea
 main.pyproject
 main.pyproject.user
+widgets/overlay.py

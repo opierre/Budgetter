@@ -334,7 +334,8 @@ class TransactionDelegate(QStyledItemDelegate):
         """ Set date on right corner """
         self.rectDate = QRect(rectBackground.width()*1.8/4, rectIcon.y() + 2,
                               pixelsWidth, pixelsHeight)
-        painter.drawText(self.rectDate, Qt.AlignLeft | Qt.AlignVCenter, date)
+        if self.editable != index:
+            painter.drawText(self.rectDate, Qt.AlignLeft | Qt.AlignVCenter, date)
 
         """ Set font on painter for date """
         self.font.setPointSize(10)

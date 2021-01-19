@@ -1,5 +1,6 @@
 <RCC>
   <qresource prefix="images">
+    <file>images/today-white-24dp.svg</file>
     <file>images/expand_more-hovered-18dp.svg</file>
     <file>images/expand_less-hovered-18dp.svg</file>
     <file>images/expand_more-white-18dp.svg</file>

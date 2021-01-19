@@ -72,8 +72,10 @@ QLineEdit
 {
 	border: 1px solid #21405D;
 	border-radius: 0px;
-	padding: 0 0px;
+	padding-top: 1px;
+	padding-bottom: 1px;
 	padding-left: 2px;
+	padding-right: 2px;
 	background: transparent;
 	color: white;
 	selection-background-color: #0190EA;
@@ -83,8 +85,10 @@ QLineEdit::hover
 {
 	border: 1px solid #0190EA;
 	border-radius: 0px;
-	padding: 0 0px;
+	padding-top: 1px;
+	padding-bottom: 1px;
 	padding-left: 2px;
+	padding-right: 2px;
 	background: transparent;
 	color: white;
 	selection-background-color: #0190EA;
@@ -94,8 +98,10 @@ QLineEdit::disabled
 {
 	border: 1px solid grey;
 	border-radius: 0px;
-	padding: 0 0px;
+	padding-top: 1px;
+	padding-bottom: 1px;
 	padding-left: 2px;
+	padding-right: 2px;
 	background: transparent;
 	color: white;
 	selection-background-color: grey;
@@ -634,7 +640,9 @@ QDoubleSpinBox {
 	background-color: transparent;
 	border: 1px solid #21405D;
 	border-radius: 0px;
-	padding-left: 2px;
+	padding-left: 3px;
+	padding-top: 1px;
+	padding-bottom: 1px;
 	color: white;
 	selection-background-color: #0190EA;
 }
@@ -644,7 +652,9 @@ QDoubleSpinBox:hover {
 	background-color: transparent;
 	border: 1px solid #0190EA;
 	border-radius: 0px;
-	padding-left: 2px;
+	padding-left: 3px;
+	padding-top: 1px;
+	padding-bottom: 1px;
 	color: white;
 	selection-background-color: #0190EA;
 }
@@ -679,6 +689,30 @@ QDoubleSpinBox::down-button:hover {
 
 QDoubleSpinBox::down-button:pressed {
     border-image: url(:/images/images/expand_more-hovered-18dp.svg);
+}
+
+QDateEdit
+{
+    background-color: transparent;
+    border: 1px solid #21405D;
+	color: white;
+	padding-top: 1px;
+	padding-bottom: 1px;
+	padding-left: 2px;
+	padding-right: 2px;
+	selection-background-color: #0190EA;
+}
+
+
+QDateEdit::drop-down 
+{
+    image: url(:/images/images/today-white-24dp.svg);
+    width: 20px;
+    height: 20px;
+    subcontrol-position: right top;
+    subcontrol-origin: margin;
+    background-color: transparent;
+    border: none;
 }</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
@@ -723,8 +757,8 @@ QDoubleSpinBox::down-button:pressed {
         <widget class="Container" name="transactions">
          <property name="minimumSize">
           <size>
-           <width>0</width>
-           <height>0</height>
+           <width>40</width>
+           <height>46</height>
           </size>
          </property>
          <property name="font">
@@ -757,8 +791,8 @@ QDoubleSpinBox::down-button:pressed {
          </property>
          <property name="minimumSize">
           <size>
-           <width>0</width>
-           <height>0</height>
+           <width>40</width>
+           <height>44</height>
           </size>
          </property>
          <property name="maximumSize">

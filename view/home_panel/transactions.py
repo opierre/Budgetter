@@ -179,10 +179,11 @@ class Transactions(QObject):
         self.editName.textChanged.connect(self.resizeEditWidget)
 
         """ Configure Amount widget """
-        self.editAmount.setValue(self.transactionsModel.data(index, Qt.DisplayRole)[2])
-        self.editAmount.setFont(QFont("Roboto", 11))
+        amount = self.transactionsModel.data(index, Qt.DisplayRole)[2]
         self.editAmount.setMinimum(0.0)
-        self.editAmount.setMaximum(10000.0)
+        self.editAmount.setMaximum(100000.0)
+        self.editAmount.setValue(amount)
+        self.editAmount.setFont(QFont("Roboto", 11))
         fontMetrics = QFontMetrics(self.editAmount.font())
         pixelsWidth = fontMetrics.width(str(self.editAmount.value()))
         pixelsHeight = fontMetrics.height()
@@ -195,9 +196,9 @@ class Transactions(QObject):
         self.editDate.setDate(QDate.fromString(dateStr, 'dd/MM/yyyy'))
         self.editDate.setFont(QFont("Roboto", 11))
         fontMetrics = QFontMetrics(self.editDate.font())
-        pixelsWidth = fontMetrics.width(str(self.editDate.date()))
+        pixelsWidth = fontMetrics.width(self.editDate.date().toString('dd/MM/yyyy'))
         pixelsHeight = fontMetrics.height()
-        self.editDate.setGeometry(rectDate.x(), rectDate.y() - 3, pixelsWidth + 10, pixelsHeight + 6)
+        self.editDate.setGeometry(rectDate.x(), rectDate.y() - 3, pixelsWidth + 30, pixelsHeight + 6)
         self.editDate.setVisible(True)
         self.editDate.setCalendarPopup(True)
         self.editDate.dateChanged.connect(self.resizeEditWidget)
@@ -214,15 +215,15 @@ class Transactions(QObject):
         if isinstance(sender, QLineEdit):
             value = sender.text()
             pixelsWidth = fontMetrics.width(value)
-            sender.setFixedWidth(pixelsWidth + 10)
+            sender.setFixedWidth(pixelsWidth + 12)
         elif isinstance(sender, QDoubleSpinBox):
             value = str(sender.value())
             pixelsWidth = fontMetrics.width(value)
             sender.setFixedWidth(pixelsWidth+38)
         elif isinstance(sender, QDateEdit):
-            value = str(sender.date())
+            value = str(sender.date().toString('dd/MM/yyyy'))
             pixelsWidth = fontMetrics.width(value)
-            sender.setFixedWidth(pixelsWidth+10)
+            sender.setFixedWidth(pixelsWidth+30)
         else:
             value = 'coucou'
 
