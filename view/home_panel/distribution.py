@@ -3,7 +3,7 @@ from PySide2.QtGui import QIcon
 from PySide2.QtWidgets import QVBoxLayout, QStatusBar, QWidget, QPushButton, QListView, QSpacerItem, QSizePolicy
 
 from models.distribution_model import DistributionModel
-from widgets.distributionDelegate import DistributionDelegate
+from widgets.distribution_delegate import DistributionDelegate
 from widgets.statusbar import StatusBar
 
 

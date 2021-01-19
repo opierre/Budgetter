@@ -4,8 +4,9 @@ from PySide2.QtWidgets import QVBoxLayout, QStatusBar, QWidget, QPushButton, QLi
     QInputDialog, QDoubleSpinBox, QDateEdit, QAbstractItemView
 
 from models.transactions_model import TransactionsModel, TransactionsFilterModel
+from widgets.calendar_widget import CalendarWidget
 from widgets.statusbar import StatusBar
-from widgets.transactionDelegate import TransactionDelegate
+from widgets.transaction_delegate import TransactionDelegate
 
 
 class Transactions(QObject):
@@ -201,6 +202,7 @@ class Transactions(QObject):
         self.editDate.setGeometry(rectDate.x(), rectDate.y() - 3, pixelsWidth + 30, pixelsHeight + 6)
         self.editDate.setVisible(True)
         self.editDate.setCalendarPopup(True)
+        self.editDate.setCalendarWidget(CalendarWidget())
         self.editDate.dateChanged.connect(self.resizeEditWidget)
 
     def resizeEditWidget(self):

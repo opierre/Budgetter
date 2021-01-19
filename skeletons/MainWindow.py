@@ -16,8 +16,8 @@ from PySide2.QtGui import (QBrush, QColor, QConicalGradient, QCursor, QFont,
 from PySide2.QtWidgets import *
 
 from widgets.drawer import Drawer
-from widgets.slidingStackedWidget import SlidingStackedWidget
 from widgets.container import Container
+from widgets.sliding_stacked_widget import SlidingStackedWidget
 
 import resources_rc
 
@@ -740,7 +740,6 @@ class Ui_MainWindow(object):
 "	selection-background-color: #0190EA;\n"
 "}\n"
 "\n"
-"\n"
 "QDateEdit::drop-down \n"
 "{\n"
 "    image: url(:/images/images/today-white-24dp.svg);\n"
@@ -751,6 +750,95 @@ class Ui_MainWindow(object):
 "    subcontrol-origin: padding;\n"
 "    background-color: transparent;\n"
 "    border: none;\n"
+"}\n"
+"\n"
+"QCalendarWidget QToolButton \n"
+"{\n"
+"  	color: white;\n"
+"  	icon-size: 18px, 18px;\n"
+"	font: 10pt \"Roboto Bold\";\n"
+"  	background-color: #0190EA;\n"
+"}\n"
+"\n"
+"QCalendarWidget QToolButton:hover \n"
+"{\n"
+"  	color: white;\n"
+"	border: none;\n"
+"  	icon-size: 18px, 18px;\n"
+"	font: 10pt \"Roboto Bold\";\n"
+"  	background-color: #0190EA;\n"
+"}\n"
+"\n"
+"QCalendar"
+                        "Widget QMenu \n"
+"{\n"
+"  	color: white;\n"
+"	font: 10pt \"Roboto\";\n"
+"  	background-color: #0190EA;\n"
+"}\n"
+"\n"
+"QCalendarWidget QMenu::right-arrow\n"
+"{ \n"
+"	image: none; \n"
+"} \n"
+"\n"
+"QCalendarWidget QSpinBox\n"
+"{ \n"
+"	font: 10pt \"Roboto\";\n"
+"  	color: white; \n"
+"  	background-color: #0190EA; \n"
+"  	selection-background-color: #212F41;\n"
+"  	selection-color: white;\n"
+"}\n"
+"\n"
+"QCalendarWidget QSpinBox::up-button \n"
+"{ \n"
+"    subcontrol-origin: border;\n"
+"    subcontrol-position: top right;\n"
+"    width: 18px;\n"
+"	height: 18px;\n"
+"    border-image: url(:/images/images/expand_less-white-18dp.svg);\n"
+"}\n"
+"\n"
+"QCalendarWidget QSpinBox::down-button \n"
+"{\n"
+"    subcontrol-origin: border;\n"
+"    subcontrol-position: bottom right;\n"
+"    width: 18px;\n"
+"	height: 18px;\n"
+"    border-image: url(:/images/images/expand_more-white-18dp.svg);	\n"
+"}\n"
+"\n"
+"QCalendarWidget QWidget \n"
+"{ \n"
+"	alternate-background-color: #212F41;\n"
+"}\n"
+"\n"
+"QCalendarWidget QAbstractItemView:enabl"
+                        "ed \n"
+"{\n"
+"	font: 9pt \"Roboto\"; \n"
+"  	color: white;  \n"
+"  	background-color: #212F41;  \n"
+"  	selection-background-color: #0190EA; \n"
+"	selection-border-radius: 4px; \n"
+"  	selection-color: white; \n"
+"	outline: none;\n"
+"}\n"
+" \n"
+"QCalendarWidget QWidget#qt_calendar_navigationbar\n"
+"{ \n"
+"	background-color: #0190EA; \n"
+"}\n"
+"\n"
+"QCalendarWidget QWidget#qt_calendar_prevmonth\n"
+"{\n"
+"	qproperty-icon: url(:/images/images/chevron_left-white-18dp.svg);\n"
+"}\n"
+"\n"
+"QCalendarWidget QWidget#qt_calendar_nextmonth\n"
+"{\n"
+"	qproperty-icon: url(:/images/images/chevron_right-white-18dp.svg);\n"
 "}")
         self.gridLayout = QGridLayout(MainWindow)
         self.gridLayout.setSpacing(0)
@@ -785,7 +873,7 @@ class Ui_MainWindow(object):
         self.monthlyExpenses.setObjectName(u"monthlyExpenses")
         sizePolicy.setHeightForWidth(self.monthlyExpenses.sizePolicy().hasHeightForWidth())
         self.monthlyExpenses.setSizePolicy(sizePolicy)
-        self.monthlyExpenses.setMinimumSize(QSize(40, 44))
+        self.monthlyExpenses.setMinimumSize(QSize(94, 59))
         self.monthlyExpenses.setMaximumSize(QSize(500, 524287))
         self.monthlyExpenses.setFont(font)
         self.monthlyExpenses.setFeatures(QDockWidget.NoDockWidgetFeatures)

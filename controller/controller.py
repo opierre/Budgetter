@@ -4,7 +4,7 @@ from PySide2.QtWidgets import QGraphicsDropShadowEffect
 from skeletons.MainWindow import Ui_MainWindow
 from view.menu_view import Menu
 from view.home import Home
-from widgets.customWindow import CustomWindow
+from widgets.custom_window import CustomWindow
 
 
 class Controller:

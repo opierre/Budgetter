@@ -715,7 +715,6 @@ QDateEdit:hover
 	selection-background-color: #0190EA;
 }
 
-
 QDateEdit::drop-down 
 {
     image: url(:/images/images/today-white-24dp.svg);
@@ -726,6 +725,93 @@ QDateEdit::drop-down
     subcontrol-origin: padding;
     background-color: transparent;
     border: none;
+}
+
+QCalendarWidget QToolButton 
+{
+  	color: white;
+  	icon-size: 18px, 18px;
+	font: 10pt &quot;Roboto Bold&quot;;
+  	background-color: #0190EA;
+}
+
+QCalendarWidget QToolButton:hover 
+{
+  	color: white;
+	border: none;
+  	icon-size: 18px, 18px;
+	font: 10pt &quot;Roboto Bold&quot;;
+  	background-color: #0190EA;
+}
+
+QCalendarWidget QMenu 
+{
+  	color: white;
+	font: 10pt &quot;Roboto&quot;;
+  	background-color: #0190EA;
+}
+
+QCalendarWidget QMenu::right-arrow
+{ 
+	image: none; 
+} 
+
+QCalendarWidget QSpinBox
+{ 
+	font: 10pt &quot;Roboto&quot;;
+  	color: white; 
+  	background-color: #0190EA; 
+  	selection-background-color: #212F41;
+  	selection-color: white;
+}
+
+QCalendarWidget QSpinBox::up-button 
+{ 
+    subcontrol-origin: border;
+    subcontrol-position: top right;
+    width: 18px;
+	height: 18px;
+    border-image: url(:/images/images/expand_less-white-18dp.svg);
+}
+
+QCalendarWidget QSpinBox::down-button 
+{
+    subcontrol-origin: border;
+    subcontrol-position: bottom right;
+    width: 18px;
+	height: 18px;
+    border-image: url(:/images/images/expand_more-white-18dp.svg);	
+}
+
+QCalendarWidget QWidget 
+{ 
+	alternate-background-color: #212F41;
+}
+
+QCalendarWidget QAbstractItemView:enabled 
+{
+	font: 9pt &quot;Roboto&quot;; 
+  	color: white;  
+  	background-color: #212F41;  
+  	selection-background-color: #0190EA; 
+	selection-border-radius: 4px; 
+  	selection-color: white; 
+	outline: none;
+}
+ 
+QCalendarWidget QWidget#qt_calendar_navigationbar
+{ 
+	background-color: #0190EA; 
+}
+
+QCalendarWidget QWidget#qt_calendar_prevmonth
+{
+	qproperty-icon: url(:/images/images/chevron_left-white-18dp.svg);
+}
+
+QCalendarWidget QWidget#qt_calendar_nextmonth
+{
+	qproperty-icon: url(:/images/images/chevron_right-white-18dp.svg);
 }</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
@@ -804,8 +890,8 @@ QDateEdit::drop-down
          </property>
          <property name="minimumSize">
           <size>
-           <width>40</width>
-           <height>44</height>
+           <width>94</width>
+           <height>59</height>
           </size>
          </property>
          <property name="maximumSize">
@@ -1257,15 +1343,15 @@ QDateEdit::drop-down
    <container>1</container>
   </customwidget>
   <customwidget>
-   <class>SlidingStackedWidget</class>
-   <extends>QStackedWidget</extends>
-   <header>widgets/slidingStackedWidget.h</header>
-   <container>1</container>
-  </customwidget>
-  <customwidget>
    <class>Container</class>
    <extends>QDockWidget</extends>
    <header>widgets/container.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>SlidingStackedWidget</class>
+   <extends>QStackedWidget</extends>
+   <header>widgets/sliding_stacked_widget.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>
