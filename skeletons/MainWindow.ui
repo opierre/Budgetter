@@ -593,7 +593,7 @@ QPushButton[activated=&quot;true&quot;] {
 	background-color: #26374C;
 	color: white;
 	font-family: &quot;Roboto&quot;;
-	font-size: 10pt;
+	font-size: 11pt;
 	margin-left: 10px;
 }
 
@@ -601,7 +601,7 @@ QPushButton[activated=&quot;false&quot;] {
 	background-color: #26374C;
 	color: rgba(255, 255, 255, 100);
 	font-family: &quot;Roboto&quot;;
-	font-size: 10pt;
+	font-size: 11pt;
 	margin-left: 10px;
 }
 
@@ -703,14 +703,27 @@ QDateEdit
 	selection-background-color: #0190EA;
 }
 
+QDateEdit:hover
+{
+    background-color: transparent;
+    border: 1px solid #0190EA;
+	color: white;
+	padding-top: 1px;
+	padding-bottom: 1px;
+	padding-left: 2px;
+	padding-right: 2px;
+	selection-background-color: #0190EA;
+}
+
 
 QDateEdit::drop-down 
 {
     image: url(:/images/images/today-white-24dp.svg);
-    width: 20px;
-    height: 20px;
-    subcontrol-position: right top;
-    subcontrol-origin: margin;
+    width: 15px;
+    height: 15px;
+	padding-right: 2px;
+    subcontrol-position: right center;
+    subcontrol-origin: padding;
     background-color: transparent;
     border: none;
 }</string>

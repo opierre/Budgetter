@@ -229,10 +229,8 @@ class TransactionDelegate(QStyledItemDelegate):
         """ Draw left icon background """
         painter.setPen(QPen(QColor("#21405D")))
         painter.setBrush(QColor("#21405D"))
-        # rectIcon = QRect(option.rect.x()+30, option.rect.y()+12,
-        #                  option.rect.x()+45, option.rect.height()-25)
         rectIcon = QRect(rectBackground.x()+option.rect.width()*1/120, rectBackground.y()-option.rect.height()*1/30,
-                         rectBackground.x()+option.rect.width()*1/120+15, rectBackground.height()+option.rect.height()*2/30)
+                         rectBackground.height()+option.rect.height()*2/30, rectBackground.height()+option.rect.height()*2/30)
         painter.drawRoundedRect(rectIcon, 1.0, 1.0)
 
         """ Draw icon and render svg """
@@ -267,13 +265,15 @@ class TransactionDelegate(QStyledItemDelegate):
         pixelsHeight = fontMetrics.height()
 
         """ Set name on top """
-        self.rectName = QRect(rectIcon.width()+45, rectIcon.y(),
+        self.rectName = QRect(rectIcon.x()+rectIcon.width()+option.rect.width()*1/140, rectIcon.y()+option.rect.height()*1/30,
                               pixelsWidth, pixelsHeight)
         if self.editable != index:
-            painter.drawText(self.rectName, Qt.AlignLeft | Qt.AlignVCenter | Qt.AlignVCenter, name)
+            painter.drawText(self.rectName, Qt.AlignLeft | Qt.AlignVCenter, name)
 
         """ Set font on painter for category """
+        self.font.setFamily(u"Roboto")
         self.font.setPointSize(10)
+        painter.setFont(self.font)
 
         """ Set category pen color """
         painter.setPen(QPen(QColor("#75879B")))
@@ -284,12 +284,14 @@ class TransactionDelegate(QStyledItemDelegate):
         pixelsHeight = fontMetrics.height()
 
         """ Set category beside name """
-        painter.drawText(rectIcon.width() + 45, rectIcon.y()+25,
-                         pixelsWidth, pixelsHeight,
-                         Qt.AlignLeft | Qt.AlignVCenter, category)
+        rectCategory = QRect(self.rectName.x(), self.rectName.y()+self.rectName.height()+option.rect.height()*1/10,
+                             pixelsWidth, pixelsHeight)
+        painter.drawText(rectCategory, Qt.AlignLeft | Qt.AlignVCenter, category)
 
         """ Set font on painter for amount """
+        self.font.setFamily(u"Roboto")
         self.font.setPointSize(11)
+        painter.setFont(self.font)
 
         """ Set amount pen color """
         painter.setPen(QPen(QColor("white")))
@@ -300,28 +302,33 @@ class TransactionDelegate(QStyledItemDelegate):
         pixelsWidth = fontMetrics.width(amount)
 
         """ Set amount on right corner """
-        self.rectAmount = QRect(rectBackground.width()*1/4, rectIcon.y()+2,
+        self.rectAmount = QRect(rectBackground.width()*1/4, self.rectName.y(),
                                 pixelsWidth, pixelsHeight)
         if self.editable != index:
             painter.drawText(self.rectAmount, Qt.AlignLeft | Qt.AlignVCenter, amount)
 
         """ Set font on painter for percentage """
+        self.font.setFamily(u"Roboto")
         self.font.setPointSize(10)
+        painter.setFont(self.font)
 
         """ Set percentage pen color """
         painter.setPen(QPen(QColor("#75879B")))
 
         """ Get font metrics """
         fontMetrics = QFontMetrics(self.font)
+        pixelsWidth = fontMetrics.width("Amount")
         pixelsHeight = fontMetrics.height()
 
         """ Set percentage beside amount """
-        rectAmountLabel = QRect(rectBackground.width()*1/4, rectIcon.y()+27,
-                                60, pixelsHeight)
+        rectAmountLabel = QRect(rectBackground.width()*1/4, rectCategory.y(),
+                                pixelsWidth, pixelsHeight)
         painter.drawText(rectAmountLabel, Qt.AlignLeft | Qt.AlignVCenter, "Amount")
 
         """ Set font on painter for date """
+        self.font.setFamily(u"Roboto")
         self.font.setPointSize(11)
+        painter.setFont(self.font)
 
         """ Set date pen color """
         painter.setPen(QPen(QColor("white")))
@@ -332,28 +339,33 @@ class TransactionDelegate(QStyledItemDelegate):
         pixelsWidth = fontMetrics.width(date)
 
         """ Set date on right corner """
-        self.rectDate = QRect(rectBackground.width()*1.8/4, rectIcon.y() + 2,
+        self.rectDate = QRect(rectBackground.width()*1.8/4, self.rectName.y(),
                               pixelsWidth, pixelsHeight)
         if self.editable != index:
             painter.drawText(self.rectDate, Qt.AlignLeft | Qt.AlignVCenter, date)
 
         """ Set font on painter for date """
+        self.font.setFamily(u"Roboto")
         self.font.setPointSize(10)
+        painter.setFont(self.font)
 
         """ Set date pen color """
         painter.setPen(QPen(QColor("#75879B")))
 
         """ Get font metrics """
         fontMetrics = QFontMetrics(self.font)
+        pixelsWidth = fontMetrics.width("Date")
         pixelsHeight = fontMetrics.height()
 
         """ Set date beside amount """
-        rectDateLabel = QRect(rectBackground.width()*1.8/4, rectIcon.y() + 27,
-                              60, pixelsHeight)
+        rectDateLabel = QRect(rectBackground.width()*1.8/4, rectCategory.y(),
+                              pixelsWidth, pixelsHeight)
         painter.drawText(rectDateLabel, Qt.AlignLeft | Qt.AlignVCenter, "Date")
 
         """ Set font on painter for date """
+        self.font.setFamily(u"Roboto")
         self.font.setPointSize(11)
+        painter.setFont(self.font)
 
         """ Set date pen color """
         painter.setPen(QPen(QColor("white")))
@@ -364,27 +376,32 @@ class TransactionDelegate(QStyledItemDelegate):
         pixelsWidth = fontMetrics.width(account)
 
         """ Set account on right corner """
-        self.rectAccount = QRect(rectBackground.width()*2.6/4, rectIcon.y() + 2,
+        self.rectAccount = QRect(rectBackground.width()*2.6/4, self.rectName.y(),
                                  pixelsWidth, pixelsHeight)
         painter.drawText(self.rectAccount, Qt.AlignLeft | Qt.AlignVCenter, account)
 
         """ Set font on painter for date """
+        self.font.setFamily(u"Roboto")
         self.font.setPointSize(10)
+        painter.setFont(self.font)
 
         """ Set date pen color """
         painter.setPen(QPen(QColor("#75879B")))
 
         """ Get font metrics """
         fontMetrics = QFontMetrics(self.font)
+        pixelsWidth = fontMetrics.width("Account")
         pixelsHeight = fontMetrics.height()
 
         """ Set account label beside account """
-        rectAccountLabel = QRect(rectBackground.width()*2.6/4, rectIcon.y() + 27,
-                                 70, pixelsHeight)
+        rectAccountLabel = QRect(rectBackground.width()*2.6/4, rectCategory.y(),
+                                 pixelsWidth, pixelsHeight)
         painter.drawText(rectAccountLabel, Qt.AlignLeft | Qt.AlignVCenter, "Account")
 
         """ Set font on painter for income/expense """
+        self.font.setFamily(u"Roboto")
         self.font.setPointSize(11)
+        painter.setFont(self.font)
 
         """ Set income/expense pen color """
         pen = QPen(QColor("#1B5179"))
@@ -397,14 +414,14 @@ class TransactionDelegate(QStyledItemDelegate):
         pixelsWidth = fontMetrics.width(expOrInc)
 
         """ Set income/expense on right corner """
-        rectInOrOut = QRectF(rectBackground.width()+rectBackground.x()-55.5-pixelsWidth-45,
+        rectInOrOut = QRectF(rectBackground.width()*3.7/4-pixelsWidth-(pixelsHeight+8)/2.5,
                              rectIcon.y()+(rectIcon.width()-pixelsHeight-8)/2.0,
-                             pixelsWidth+45, pixelsHeight+8)
+                             pixelsWidth+(pixelsHeight + 8)/2.5+(pixelsHeight+8)/0.9, pixelsHeight+8)
 
         painter.drawRoundedRect(rectInOrOut, 4.0, 4.0)
 
         painter.setPen(QPen(QColor("white")))
-        painter.drawText(rectInOrOut.x()+35, rectInOrOut.y()+5.0,
+        painter.drawText(rectInOrOut.x()+(pixelsHeight + 8) / 0.9, rectInOrOut.y()+5.0,
                          pixelsWidth, pixelsHeight,
                          Qt.AlignLeft | Qt.AlignVCenter, expOrInc)
 
@@ -413,9 +430,9 @@ class TransactionDelegate(QStyledItemDelegate):
             painter.setBrush(QColor("#6DD230"))
         else:
             painter.setBrush(QColor("#FE4D97"))
-        painter.drawEllipse(QPointF(rectInOrOut.x()+17.5, rectInOrOut.y()+4.5+pixelsHeight/2.0),
-                            (pixelsHeight+8)/5.0,
-                            (pixelsHeight+8)/5.0)
+        rectEllipse = QRectF(rectInOrOut.x()+(pixelsHeight + 8) / 2.5, rectInOrOut.y()+(pixelsHeight + 8) / 3.5,
+                             (pixelsHeight + 8) / 2.5, (pixelsHeight + 8) / 2.5)
+        painter.drawEllipse(rectEllipse)
 
         pen = QPen(QColor("#1B5179"))
         pen.setWidthF(1)
@@ -423,7 +440,7 @@ class TransactionDelegate(QStyledItemDelegate):
         painter.setBrush(QColor("transparent"))
 
         """ Button edit """
-        self.rectEdit = QRect(rectBackground.width()+rectBackground.x()-26, self.rectName.y(),
+        self.rectEdit = QRect(rectBackground.width()+rectBackground.x()-rectIcon.x()/1.3, self.rectName.y(),
                               25, self.rectName.height())
 
         optionMore = QStyleOptionButton()
@@ -436,7 +453,7 @@ class TransactionDelegate(QStyledItemDelegate):
         self.edit.style().drawControl(QStyle.CE_PushButton, optionMore, painter, self.edit)
 
         """ Buttons rects """
-        self.rectDelete = QRect(rectBackground.width() + rectBackground.x() - 26, rectIcon.y()+27,
+        self.rectDelete = QRect(rectBackground.width()+rectBackground.x()-rectIcon.x()/1.3, rectCategory.y(),
                                 25, self.rectName.height())
 
         optionMore = QStyleOptionButton()
