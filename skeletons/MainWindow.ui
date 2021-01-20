@@ -228,7 +228,8 @@ QGroupBox#transactions::indicator
 	image: url(:/images/images/receipt-20px-#72C1F2.png);
 }
 
-QPushButton#settings {
+QPushButton#settings 
+{
 	background-color:  transparent;
 	border-left: 1px solid #32465F;
 	border-right: 1px solid #32465F;
@@ -236,21 +237,24 @@ QPushButton#settings {
 	border-radius: 0px;
 }
 
-QPushButton#alerts {
+QPushButton#alerts 
+{
 	background-color: transparent;
 	border-left: 1px solid #32465F;
 	padding: 6px 10px;
 	border-radius: 0px;
 }
 
-QPushButton#menu:hover, QPushButton#settings:hover, QPushButton#alerts:hover {
+QPushButton#menu:hover, QPushButton#settings:hover, QPushButton#alerts:hover 
+{
 	background-color:  rgba(255, 255, 255, 35);
 	border-left: 1px solid #32465F;
 	padding: 6px 10px;
 	border-radius: 0px;
 }
 
-QPushButton[expanded=&quot;true&quot;]:hover {
+QPushButton[expanded=&quot;true&quot;]:hover 
+{
 	background-color: rgba(255, 255, 255, 0);
 	border-style: outset;
 	border-radius: 6px;
@@ -259,14 +263,16 @@ QPushButton[expanded=&quot;true&quot;]:hover {
 	color: rgba(255, 255, 255, 128);
 }
 
-QPushButton#settings:pressed, QPushButton#alerts:pressed {
+QPushButton#settings:pressed, QPushButton#alerts:pressed 
+{
 	background-color:  rgba(255, 255, 255, 80);
 	border-left: 1px solid #32465F;
 	padding: 6px 10px;
 	border-radius: 0px;
 }
 
-QPushButton[expanded=&quot;true&quot;]:pressed {
+QPushButton[expanded=&quot;true&quot;]:pressed 
+{
 	background-color: rgba(255, 255, 255, 0);
 	border-style: outset;
 	border-width: 1px;
@@ -276,7 +282,8 @@ QPushButton[expanded=&quot;true&quot;]:pressed {
 	color: rgba(36, 42, 117, 255);
 }
 
-QFrame#navigation {
+QFrame#navigation 
+{
 	background-color: #1C293B;
 	margin-bottom: 0px;
 	margin-top: 0px;
@@ -285,19 +292,23 @@ QFrame#navigation {
 	padding-right: 0px;
 }
 
-QFrame[frameShape=&quot;5&quot;] {
+QFrame[frameShape=&quot;5&quot;] 
+{
 	color: #32465F;
 }
 
-QScrollArea {
+QScrollArea 
+{
 	background: transparent;
 }
 
-QScrollArea &gt; QWidget &gt; QWidget { 
+QScrollArea &gt; QWidget &gt; QWidget 
+{ 
 	background: transparent; 
 }
 
-QScrollArea &gt; QWidget &gt; QScrollBar { 
+QScrollArea &gt; QWidget &gt; QScrollBar 
+{ 
 	background: palette(base); 
 }
 
@@ -323,7 +334,8 @@ Card::title
 	subcontrol-position: top left;
 }
 
-Card &gt; QLabel#amount {
+Card &gt; QLabel#amount 
+{
 	color: white;
 	text-align: right;
 	background-color: transparent;
@@ -335,7 +347,8 @@ Card &gt; QLabel#amount {
 	font-size: 24pt;
 }
 
-Card &gt; QPushButton#monthTrend[positive=&quot;false&quot;] {
+Card &gt; QPushButton#monthTrend[positive=&quot;false&quot;] 
+{
 	color: #F20505;
 	text-align: left;
 	background-color: transparent;
@@ -346,7 +359,8 @@ Card &gt; QPushButton#monthTrend[positive=&quot;false&quot;] {
 	font-size: 17pt;
 }
 
-Card &gt; QPushButton#monthTrend[positive=&quot;true&quot;] {
+Card &gt; QPushButton#monthTrend[positive=&quot;true&quot;] 
+{
 	color: #12A61C;
 	text-align: left;
 	background-color: transparent;
@@ -357,7 +371,8 @@ Card &gt; QPushButton#monthTrend[positive=&quot;true&quot;] {
 	font-size: 17pt;
 }
 
-Card &gt; QPushButton#monthTrend[positive=&quot;none&quot;] {
+Card &gt; QPushButton#monthTrend[positive=&quot;none&quot;] 
+{
 	color: white;
 	text-align: left;
 	background-color: transparent;
@@ -368,7 +383,8 @@ Card &gt; QPushButton#monthTrend[positive=&quot;none&quot;] {
 	font-size: 17pt;
 }
 
-Card &gt; QLabel#currency {
+Card &gt; QLabel#currency 
+{
 	color: rgba(255, 255, 255, 180);
 	text-align: left;
 	background-color: transparent;
@@ -380,15 +396,18 @@ Card &gt; QLabel#currency {
 	font-size: 18pt;
 }
 
-QLabel#menuLabel {
+QLabel#menuLabel 
+{
 	color: white;
 }
 
-QChartView {
+QChartView 
+{
 	background-color: transparent;
 }
 
-QTableView {
+QTableView 
+{
 	background-color: #141C26;
 }
 
@@ -417,14 +436,16 @@ QPushButton#logoExpense
 	color: white;
 }
 
-QLabel#categoryExpense {
+QLabel#categoryExpense 
+{
 	color: #a2a3ae;
 	font-family: &quot;Roboto&quot;;
 	font-size: 12pt;
 	margin-bottom: 15px;
 }
 
-QLabel#amountExpense {
+QLabel#amountExpense 
+{
 	color: white;
 	font-family: &quot;Roboto Black&quot;;
 	font-size: 12pt;
@@ -456,7 +477,8 @@ QPushButton#rightPageMonthlyExpenses, QPushButton#leftPageMonthlyExpenses
 }
 
 QPushButton#menuDashboard, QPushButton#menu,
-QPushButton#menuGraph, QPushButton#menuInsights {
+QPushButton#menuGraph, QPushButton#menuInsights 
+{
     background-color: transparent;
 	border-radius: 0px;
     border-style: none;
@@ -464,7 +486,8 @@ QPushButton#menuGraph, QPushButton#menuInsights {
 }
 
 QPushButton#menuDashboard:checked, QPushButton#menuGraph:checked,
-QPushButton#menuInsights:checked {
+QPushButton#menuInsights:checked 
+{
     background-color: #19344D;
 	border-radius: 0px;
     border-left: 3px solid #0093EE;
@@ -472,14 +495,16 @@ QPushButton#menuInsights:checked {
 }
 
 QPushButton#menuDashboard:hover:!checked, QPushButton#menuGraph:hover:!checked,
-QPushButton#menuInsights:hover:!checked {
+QPushButton#menuInsights:hover:!checked 
+{
     background-color: #19344D;
 	border-radius: 0px;
     border-style: none;
     padding: 8px 6px 8px 6px;
 }
 
-QPushButton#menu:hover {
+QPushButton#menu:hover 
+{
     background-color: transparent;
 	border-radius: 0px;
     border-style: none;
@@ -491,7 +516,8 @@ QDockWidget {
 	border-radius: 5px;
 }
 
-QDockWidget &gt; QWidget {
+QDockWidget &gt; QWidget 
+{
 	color: white;
 	background-color: #26374C;
 	border: 1px solid #344457;
@@ -501,14 +527,16 @@ QDockWidget &gt; QWidget {
 	border-bottom-right-radius: 4px;
 }
 
-QMainWindow::separator {
+QMainWindow::separator 
+{
 	width: 10px;
 	height: 0px;
 	margin: -10px;
 	padding: 0px;
 }
 
-QLabel#titleBarTitle {
+QLabel#titleBarTitle 
+{
 	background-color: #26374C;
 	border-top: 1px solid #344457;
 	border-left: 1px solid #344457;  
@@ -526,7 +554,8 @@ QLabel#titleBarTitle {
 	color: white;
 }
 
-QWidget#titleBarEmptyWidget {
+QWidget#titleBarEmptyWidget 
+{
 	background-color: #26374C;
 	border-top: 1px solid #344457;
 	border-top-left-radius: 0px;
@@ -537,7 +566,8 @@ QWidget#titleBarEmptyWidget {
 	margin-right: 0px;
 }
 
-QWidget#leftAddWidget {
+QWidget#leftAddWidget 
+{
 	background-color: #26374C;
 	border-top: 1px solid #344457;
 	border-right: 1px solid #344457;
@@ -549,7 +579,8 @@ QWidget#leftAddWidget {
 	margin-right: 0px;
 }
 
-QPushButton#titleBarAdd {
+QPushButton#titleBarAdd 
+{
 	background-color: #26374C;
 	border-top: 0px solid #344457;
 	border-right: 0px solid #344457;
@@ -564,7 +595,8 @@ QPushButton#titleBarAdd {
 	padding-top: 0px;
 }
 
-QStatusBar {
+QStatusBar 
+{
 	background-color: transparent;
 	color: white;
 	border-top: 1px solid #344457;
@@ -574,12 +606,14 @@ QStatusBar {
 	border-bottom-right-radius: 0px;
 }
 
-QStatusBar::item {
+QStatusBar::item 
+{
 	border: none;
 	color: white;
 }
 
-QPushButton#statusBarSettings {
+QPushButton#statusBarSettings 
+{
 	background-color: #26374C;
 	border-top-left-radius: 0px;
 	border-top-right-radius: 0px;
@@ -589,7 +623,8 @@ QPushButton#statusBarSettings {
 	margin-right: 0px;
 }
 
-QPushButton[activated=&quot;true&quot;] {
+QPushButton[activated=&quot;true&quot;] 
+{
 	background-color: #26374C;
 	color: white;
 	font-family: &quot;Roboto&quot;;
@@ -597,7 +632,8 @@ QPushButton[activated=&quot;true&quot;] {
 	margin-left: 10px;
 }
 
-QPushButton[activated=&quot;false&quot;] {
+QPushButton[activated=&quot;false&quot;] 
+{
 	background-color: #26374C;
 	color: rgba(255, 255, 255, 100);
 	font-family: &quot;Roboto&quot;;
@@ -605,18 +641,21 @@ QPushButton[activated=&quot;false&quot;] {
 	margin-left: 10px;
 }
 
-QListView {
+QListView 
+{
 	background-color: transparent;
 	border: none;
 }
 
-QMenu {
+QMenu 
+{
     background-color: #385170;
     border: none;
     border-radius: 2px;
 }
 
-QMenu::item {
+QMenu::item 
+{
     background-color: transparent;
     color: white;
 	padding-left: 8px;
@@ -624,18 +663,21 @@ QMenu::item {
 	padding-bottom: 5px
 }
 
-QMenu::item:selected {
+QMenu::item:selected 
+{
     background-color: #0190EA;
 	border-radius: 2px;
 }
 
-QMenu::icon {
+QMenu::icon 
+{
 	padding-left: 10px;
 	padding-top: 5px;
 	padding-bottom: 5px;
 }
 
-QDoubleSpinBox {
+QDoubleSpinBox 
+{
     padding-right: 5px;
 	background-color: transparent;
 	border: 1px solid #21405D;
@@ -662,32 +704,37 @@ QDoubleSpinBox:hover {
 QDoubleSpinBox::up-button {
     subcontrol-origin: border;
     subcontrol-position: top right;
-    width: 18px;
-	height: 18px;
+    width: 16px;
+	height: 16px;
     border-image: url(:/images/images/expand_less-white-18dp.svg);
 }
 
-QDoubleSpinBox::up-button:hover {
+QDoubleSpinBox::up-button:hover 
+{
     border-image: url(:/images/images/expand_less-hovered-18dp.svg);
 }
 
-QDoubleSpinBox::up-button:pressed {
+QDoubleSpinBox::up-button:pressed 
+{
     border-image: url(:/images/images/expand_less-hovered-18dp.svg);
 }
 
-QDoubleSpinBox::down-button {
+QDoubleSpinBox::down-button 
+{
     subcontrol-origin: border;
     subcontrol-position: bottom right;
-    width: 18px;
-	height: 18px;
+    width: 16px;
+	height: 16px;
     border-image: url(:/images/images/expand_more-white-18dp.svg);
 }
 
-QDoubleSpinBox::down-button:hover {
+QDoubleSpinBox::down-button:hover 
+{
     border-image: url(:/images/images/expand_more-hovered-18dp.svg);
 }
 
-QDoubleSpinBox::down-button:pressed {
+QDoubleSpinBox::down-button:pressed
+{
     border-image: url(:/images/images/expand_more-hovered-18dp.svg);
 }
 

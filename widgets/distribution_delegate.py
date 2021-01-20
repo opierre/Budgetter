@@ -16,9 +16,24 @@ class DistributionDelegate(QItemDelegate):
         self.font = QFont()
 
     def sizeHint(self, optionQStyleOptionViewItem, index):
+        """
+        Override sizeHint
+        :param optionQStyleOptionViewItem: optionQStyleOptionViewItem
+        :param index: index
+        :return: QSize(10, 70)
+        """
+
         return QSize(10, 70)
 
     def paint(self, painter, option, index):
+        """
+        Override paint
+        :param painter: painter
+        :param option: option
+        :param index: index
+        :return: void
+        """
+
         painter.save()
 
         """ Get values """
@@ -36,23 +51,23 @@ class DistributionDelegate(QItemDelegate):
         """ Draw bottom border """
         painter.setPen(QPen(QColor("#344457")))
         painter.setBrush(Qt.NoBrush)
-        painter.drawLine(option.rect.x()+20, option.rect.y()+option.rect.height()-1,
-                         option.rect.width()-20, option.rect.y()+option.rect.height()-1)
+        painter.drawLine(option.rect.x()+option.rect.width()*1/30, option.rect.y()+option.rect.height()-1,
+                         option.rect.width()-+option.rect.width()*1/30, option.rect.y()+option.rect.height()-1)
 
         painter.setRenderHint(QPainter.Antialiasing)
 
         """ Draw item background """
         painter.setPen(QPen(QColor("#26374C")))
         painter.setBrush(QColor("transparent"))
-        rectBackground = QRect(option.rect.x()+20, option.rect.y()+12,
-                               option.rect.width()-40, option.rect.height()-25)
+        rectBackground = QRect(option.rect.x()+option.rect.width()*1/30, option.rect.y()+option.rect.height()*1/5,
+                               option.rect.width()-+option.rect.width()*2/30, option.rect.height()-option.rect.height()*2/5)
         painter.drawRect(rectBackground)
 
         """ Draw left icon background """
         painter.setPen(QPen(QColor("#1A537D")))
         painter.setBrush(QColor("#1A537D"))
-        rectIcon = QRect(option.rect.x()+20, option.rect.y()+12,
-                         option.rect.x()+45, option.rect.height()-25)
+        rectIcon = QRect(rectBackground.x()+option.rect.width()*1/60, rectBackground.y()-option.rect.height()*1/30,
+                         rectBackground.height()+option.rect.height()*1/30, rectBackground.height()+option.rect.height()*1/30)
         painter.drawRoundedRect(rectIcon, 1.0, 1.0)
 
         """ Draw icon and render svg """
@@ -85,9 +100,9 @@ class DistributionDelegate(QItemDelegate):
         pixelsHeight = fontMetrics.height()
 
         """ Set category on top """
-        painter.drawText(rectIcon.width()+35, rectIcon.y(),
-                         pixelsWidth, pixelsHeight,
-                         Qt.AlignLeft | Qt.AlignVCenter, category)
+        rectCategory = QRect(rectIcon.x()+rectIcon.width()+option.rect.width()*1/50, rectIcon.y()+option.rect.height()*1/30,
+                             pixelsWidth, pixelsHeight)
+        painter.drawText(rectCategory, Qt.AlignLeft | Qt.AlignVCenter, category)
 
         """ Set font on painter for number of transactions """
         self.font.setFamily(u"Roboto")
@@ -103,9 +118,9 @@ class DistributionDelegate(QItemDelegate):
         pixelsHeight = fontMetrics.height()
 
         """ Set number of transactions beside category """
-        painter.drawText(rectIcon.width() + 35, rectIcon.y()+25,
-                         pixelsWidth, pixelsHeight,
-                         Qt.AlignLeft | Qt.AlignVCenter, nbTransactions)
+        rectTransaction = QRect(rectCategory.x(), rectCategory.y()+rectCategory.height()+option.rect.height()*1/10,
+                                pixelsWidth, pixelsHeight)
+        painter.drawText(rectTransaction, Qt.AlignLeft | Qt.AlignVCenter, nbTransactions)
 
         """ Draw percentage background """
         painter.setPen(QPen(QColor("#21405D")))
@@ -125,11 +140,12 @@ class DistributionDelegate(QItemDelegate):
 
         """ Get font metrics """
         fontMetrics = QFontMetrics(self.font)
+        pixelsWidth = fontMetrics.width(amount)
         pixelsHeight = fontMetrics.height()
 
         """ Set amount on right corner """
-        rectAmount = QRect(rectBackground.width()+rectBackground.x()-106, rectIcon.y()+2,
-                           96, pixelsHeight)
+        rectAmount = QRect(rectBackground.width()+rectBackground.x()-pixelsWidth-option.rect.width()*1/50, rectCategory.y(),
+                           pixelsWidth, pixelsHeight)
         painter.drawText(rectAmount, Qt.AlignRight | Qt.AlignVCenter, amount)
 
         """ Set font on painter for percentage """
@@ -142,11 +158,12 @@ class DistributionDelegate(QItemDelegate):
 
         """ Get font metrics """
         fontMetrics = QFontMetrics(self.font)
+        pixelsWidth = fontMetrics.width(percentage)
         pixelsHeight = fontMetrics.height()
 
         """ Set percentage beside amount """
-        rectPerc = QRect(rectBackground.width()+rectBackground.x()-56, rectIcon.y()+25,
-                         46, pixelsHeight)
+        rectPerc = QRect(rectBackground.width()+rectBackground.x()-pixelsWidth-option.rect.width()*1/50, rectTransaction.y(),
+                         pixelsWidth, pixelsHeight)
         painter.drawText(rectPerc, Qt.AlignRight | Qt.AlignVCenter, percentage)
 
         painter.restore()

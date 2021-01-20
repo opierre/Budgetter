@@ -378,7 +378,9 @@ class TransactionDelegate(QStyledItemDelegate):
         """ Set account on right corner """
         self.rectAccount = QRect(rectBackground.width()*2.6/4, self.rectName.y(),
                                  pixelsWidth, pixelsHeight)
-        painter.drawText(self.rectAccount, Qt.AlignLeft | Qt.AlignVCenter, account)
+
+        if self.editable != index:
+            painter.drawText(self.rectAccount, Qt.AlignLeft | Qt.AlignVCenter, account)
 
         """ Set font on painter for date """
         self.font.setFamily(u"Roboto")
