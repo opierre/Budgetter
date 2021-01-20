@@ -1,7 +1,7 @@
 from PySide2.QtCore import QObject, Qt, QDate
 from PySide2.QtGui import QIcon, QFont, QFontMetrics
 from PySide2.QtWidgets import QVBoxLayout, QStatusBar, QWidget, QPushButton, QListView, QMenu, QFrame, QLineEdit, \
-    QInputDialog, QDoubleSpinBox, QDateEdit, QAbstractItemView
+    QInputDialog, QDoubleSpinBox, QDateEdit, QAbstractItemView, QComboBox
 
 from models.transactions_model import TransactionsModel, TransactionsFilterModel
 from widgets.calendar_widget import CalendarWidget
@@ -61,6 +61,12 @@ class Transactions(QObject):
         """ Store DateEdit for date edition on transaction """
         self.editDate = QDateEdit(self.transactionsListView)
 
+        """ Store Combobox for account selection on transaction """
+        self.editAccount = QComboBox(self.transactionsListView)
+
+        """ Store Combobox for type expense selection on transaction """
+        self.editExpOrInc = QComboBox(self.transactionsListView)
+
         """ Model for filtering """
         self.transactionsFilterModel = TransactionsFilterModel()
 
@@ -86,6 +92,9 @@ class Transactions(QObject):
                                                      "Livret Jeune",
                                                      "Expenses",
                                                      False]])
+
+        """ Configure edit widgets """
+        self.configureEditWidgets()
 
         """ Configure status bar """
         self.configureStatusBar()
@@ -156,9 +165,44 @@ class Transactions(QObject):
             """ Remove transaction from model """
             self.transactionsFilterModel.deleteTransaction(index)
 
-    def editTransaction(self, index, rectName, rectAmount, rectDate, rectAccount):
+    def configureEditWidgets(self):
+        """
+        Configure all edit widgets in transaction item
+        :return: void
+        """
+
+        """ Configure Name widget """
+        self.editName.setFont(QFont("Roboto", 11))
+        self.editName.textChanged.connect(self.resizeEditWidget)
+
+        """ Configure Amount widget """
+        self.editAmount.setMinimum(0.0)
+        self.editAmount.setMaximum(100000.0)
+        self.editAmount.setFont(QFont("Roboto", 11))
+        self.editAmount.valueChanged.connect(self.resizeEditWidget)
+
+        """ Configure DateEdit widget """
+        self.editDate.setFont(QFont("Roboto", 11))
+        self.editDate.setCalendarPopup(True)
+        self.editDate.setCalendarWidget(CalendarWidget())
+        self.editDate.dateChanged.connect(self.resizeEditWidget)
+
+        """ Configure ComboBox widget """
+        self.editAccount.setFont(QFont("Roboto", 11))
+        self.editAccount.view().setSpacing(2)
+        self.editAccount.setSizeAdjustPolicy(QComboBox.AdjustToContents)
+        self.editAccount.addItems(["Livret A", "Compte Chèque", "Livret Jeune"])
+
+        """ Configure ComboBox widget """
+        self.editExpOrInc.setFont(QFont("Roboto", 11))
+        self.editExpOrInc.view().setSpacing(2)
+        self.editExpOrInc.setSizeAdjustPolicy(QComboBox.AdjustToContents)
+        self.editExpOrInc.addItems(["Expenses", "Income"])
+
+    def editTransaction(self, index, rectName, rectAmount, rectDate, rectAccount, rectEx):
         """
         Edit transaction on Edit click
+        :param index: item's index
         :param rectName: rect where to put LineEdit
         :param rectAmount: rect where to put DoubleSpinBox
         :param rectDate: rect where to put DateEdit
@@ -171,39 +215,41 @@ class Transactions(QObject):
 
         """ Configure Name widget """
         self.editName.setText(self.transactionsModel.data(index, Qt.DisplayRole)[0])
-        self.editName.setFont(QFont("Roboto", 11))
         fontMetrics = QFontMetrics(self.editName.font())
         pixelsWidth = fontMetrics.width(self.editName.text())
         pixelsHeight = fontMetrics.height()
         self.editName.setGeometry(rectName.x(), rectName.y()-3, pixelsWidth+10, pixelsHeight+6)
         self.editName.setVisible(True)
-        self.editName.textChanged.connect(self.resizeEditWidget)
 
         """ Configure Amount widget """
         amount = self.transactionsModel.data(index, Qt.DisplayRole)[2]
-        self.editAmount.setMinimum(0.0)
-        self.editAmount.setMaximum(100000.0)
         self.editAmount.setValue(amount)
-        self.editAmount.setFont(QFont("Roboto", 11))
         fontMetrics = QFontMetrics(self.editAmount.font())
         pixelsWidth = fontMetrics.width(str(self.editAmount.value()))
         pixelsHeight = fontMetrics.height()
         self.editAmount.setGeometry(rectAmount.x(), rectAmount.y()-3, pixelsWidth+38, pixelsHeight+6)
         self.editAmount.setVisible(True)
-        self.editAmount.valueChanged.connect(self.resizeEditWidget)
 
         """ Configure DateEdit widget """
         dateStr = self.transactionsModel.data(index, Qt.DisplayRole)[3]
         self.editDate.setDate(QDate.fromString(dateStr, 'dd/MM/yyyy'))
-        self.editDate.setFont(QFont("Roboto", 11))
         fontMetrics = QFontMetrics(self.editDate.font())
         pixelsWidth = fontMetrics.width(self.editDate.date().toString('dd/MM/yyyy'))
         pixelsHeight = fontMetrics.height()
         self.editDate.setGeometry(rectDate.x(), rectDate.y() - 3, pixelsWidth + 30, pixelsHeight + 6)
         self.editDate.setVisible(True)
-        self.editDate.setCalendarPopup(True)
-        self.editDate.setCalendarWidget(CalendarWidget())
-        self.editDate.dateChanged.connect(self.resizeEditWidget)
+
+        """ Configure ComboBox widget """
+        selectedAccount = self.transactionsModel.data(index, Qt.DisplayRole)[4]
+        self.editAccount.setCurrentText(selectedAccount)
+        self.editAccount.move(rectAccount.x(), rectAccount.y() - 3)
+        self.editAccount.setVisible(True)
+
+        """ Configure ComboBox widget """
+        selectedExpOrInc = self.transactionsModel.data(index, Qt.DisplayRole)[5]
+        self.editAccount.setCurrentText(selectedAccount)
+        self.editAccount.move(rect.x(), rectAccount.y() - 3)
+        self.editAccount.setVisible(True)
 
     def resizeEditWidget(self):
         """

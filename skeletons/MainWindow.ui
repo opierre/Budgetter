@@ -120,27 +120,23 @@ QPushButton
 QComboBox 
 {
 	background-color: transparent;
-	border-bottom-style: outset;
-	border-bottom-width: 1px;
-	border-radius: 0px;
-	border-color: transparent;
+	border: 1px solid #21405D;
 	color: white;
-	padding-left: 0px;
-	font-family: &quot;Roboto&quot;;
-	font-size: 9pt;
+	padding-top: 1px;
+	padding-bottom: 1px;
+	padding-left: 2px;
+	padding-right: 2px;
 }
 
-QComboBox ::hover
+QComboBox::hover
 {
 	background-color: transparent;
-	border-bottom-style: outset;
-	border-bottom-width: 1px;
-	border-radius: 0px;
-	border-color: transparent;
+	border: 1px solid #0190EA;
 	color: white;
-	padding-left: 0px;
-	font-family: &quot;Roboto&quot;;
-	font-size: 9pt;
+	padding-top: 1px;
+	padding-bottom: 1px;
+	padding-left: 2px;
+	padding-right: 2px;
 }
 
 QComboBox::drop-down
@@ -151,9 +147,9 @@ QComboBox::drop-down
 
 QComboBox::down-arrow
 {
-	image: none;
-	width: 0px;
-	height: 0px;
+	image: url(:/images/images/arrow_drop_down-white-24dp.svg);
+	width: 24px;
+	height: 24px;
 	padding-right: 0px;
 	padding-top: 0px;
 }
@@ -161,24 +157,26 @@ QComboBox::down-arrow
 
 QComboBox::down-arrow:on
 {
-	image: none;
-	width: 0px;
-	height: 0px;
+	image: url(:/images/images/arrow_drop_up-white-24dp.svg);
+	width: 24px;
+	height: 24px;
 	padding-right: 0px;
 	padding-top: 0px;
 }
 
 QComboBox QAbstractItemView
 {
-	background: #26374C;
+	background: #212F41;
 	color: white;
 	border-top-style: inset;
 	border-width: 1px;
 	border-radius: 0px;
-	border-color: #309db5;
-	selection-bckground-color: #309db5;
-	padding-left: 0px;
-	padding-bottom: 3px;
+	border-color: #0190EA;
+	selection-background-color: #0190EA;
+	padding-top: 1px;
+	padding-bottom: 1px;
+	padding-left: 2px;
+	padding-right: 2px;
 	spacing: 10px;
 	outline: none;
 }
@@ -193,7 +191,7 @@ QComboBox QScollBar:vertical
 
 QComboBox QScollBar::handle:vertical
 {
-	background: #309db5;
+	background: #0190EA;
 	min-height: 20px;
 	border-radius: 0px;
 }

@@ -63,6 +63,14 @@ class DistributionDelegate(QItemDelegate):
                                option.rect.width()-+option.rect.width()*2/30, option.rect.height()-option.rect.height()*2/5)
         painter.drawRect(rectBackground)
 
+        """ Draw percentage background """
+        painter.setPen(QPen(QColor("#21405D")))
+        painter.setBrush(QColor("#21405D"))
+        rectPercentage = QRect(rectBackground.x()+rectBackground.width(), option.rect.y()+10,
+                               -(rectBackground.width()-(option.rect.width()*1/3))*(value[3]/100),
+                               option.rect.height()-20)
+        painter.drawRoundedRect(rectPercentage, 1.0, 1.0)
+
         """ Draw left icon background """
         painter.setPen(QPen(QColor("#1A537D")))
         painter.setBrush(QColor("#1A537D"))
@@ -121,14 +129,6 @@ class DistributionDelegate(QItemDelegate):
         rectTransaction = QRect(rectCategory.x(), rectCategory.y()+rectCategory.height()+option.rect.height()*1/10,
                                 pixelsWidth, pixelsHeight)
         painter.drawText(rectTransaction, Qt.AlignLeft | Qt.AlignVCenter, nbTransactions)
-
-        """ Draw percentage background """
-        painter.setPen(QPen(QColor("#21405D")))
-        painter.setBrush(QColor("#21405D"))
-        rectPercentage = QRect(rectBackground.x()+rectBackground.width(), option.rect.y()+10,
-                               -(rectBackground.width()-(rectIcon.x()+rectIcon.width()+35+112+20))*(value[3]/100),
-                               option.rect.height()-20)
-        painter.drawRoundedRect(rectPercentage, 1.0, 1.0)
 
         """ Set font on painter for amount """
         self.font.setFamily(u"Roboto")

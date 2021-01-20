@@ -2,6 +2,8 @@
   <qresource prefix="images">
     <file>images/chevron_left-white-18dp.svg</file>
     <file>images/chevron_right-white-18dp.svg</file>
+    <file>images/arrow_drop_down-white-24dp.svg</file>
+    <file>images/arrow_drop_up-white-24dp.svg</file>
     <file>images/today-white-24dp.svg</file>
     <file>images/expand_more-hovered-18dp.svg</file>
     <file>images/expand_less-hovered-18dp.svg</file>
