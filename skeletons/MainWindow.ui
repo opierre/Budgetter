@@ -857,6 +857,18 @@ QCalendarWidget QWidget#qt_calendar_prevmonth
 QCalendarWidget QWidget#qt_calendar_nextmonth
 {
 	qproperty-icon: url(:/images/images/chevron_right-white-18dp.svg);
+}
+
+ExpensesOrIncome &gt; QWidget
+{
+	background-color: transparent;
+	border: 1px solid #21405D;
+}
+
+ExpensesOrIncome:hover
+{
+	background-color: transparent;
+    border: 1px solid #0190EA;
 }</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">

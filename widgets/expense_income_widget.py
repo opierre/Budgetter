@@ -1,40 +1,12 @@
 import sys
 
-from PySide2.QtCore import Qt, QRectF, QSize
-from PySide2.QtGui import QPainter, QColor, QPen
-from PySide2.QtWidgets import QWidget, QHBoxLayout, QPushButton, QMainWindow, QApplication, QRadioButton, \
-    QStyleOptionButton, QStyle, QProxyStyle
+from PySide2.QtCore import Qt, QRectF, QPointF
+from PySide2.QtGui import QPainter, QColor
+from PySide2.QtWidgets import QWidget, QHBoxLayout, QPushButton, QApplication, \
+    QStyleOptionButton, QStyle
 
 
-class RadioButtonStyle(QProxyStyle):
-    """
-    Radio Button Style - Center indicator/focus rect/click rect
-    """
-
-    def subElementRect(self, element, option, widget):
-        """
-        Override subElementRect()
-        :param element: element
-        :param option: option
-        :param widget: widget
-        :return: QRect
-        """
-
-        """ Get default rect """
-        rect = super().subElementRect(element, option, widget)
-
-        """ Center rect for indicator/focus rect/click rect """
-        if element in (
-            QStyle.SE_RadioButtonIndicator,
-            QStyle.SE_RadioButtonFocusRect,
-            QStyle.SE_RadioButtonClickRect,
-        ):
-            rect.moveCenter(option.rect.center())
-
-        return rect
-
-
-class ExpOrIncRadio(QRadioButton):
+class ExpOrIncRadio(QPushButton):
     """
     Expenses or Income Radio Button
     """
@@ -45,8 +17,10 @@ class ExpOrIncRadio(QRadioButton):
         """ Store type """
         self.expOrInc = expOrInc
 
-        """ Overwrite style """
-        self.setStyle(RadioButtonStyle())
+        self.setAutoExclusive(True)
+        self.setCheckable(True)
+
+        self.setContentsMargins(0, 0, 0, 0)
 
     def setType(self, typeToSet):
         """
@@ -77,13 +51,13 @@ class ExpOrIncRadio(QRadioButton):
         if self.expOrInc == 'Income' and opt.state & QStyle.State_On:
             painter.setPen(Qt.NoPen)
             painter.setBrush(QColor(109, 210, 48, 255))
-        elif self.expOrInc == 'Income' and opt.state & QStyle.State_Off:
+        elif self.expOrInc == 'Income' and not(opt.state & QStyle.State_Selected):
             painter.setPen(Qt.NoPen)
             painter.setBrush(QColor(109, 210, 48, 128))
         elif self.expOrInc == 'Expenses' and opt.state & QStyle.State_On:
             painter.setPen(Qt.NoPen)
             painter.setBrush(QColor(254, 77, 151, 255))
-        elif self.expOrInc == 'Expenses' and opt.state & QStyle.State_Off:
+        elif self.expOrInc == 'Expenses' and not(opt.state & QStyle.State_Selected):
             painter.setPen(Qt.NoPen)
             painter.setBrush(QColor(254, 77, 151, 128))
 
@@ -91,8 +65,15 @@ class ExpOrIncRadio(QRadioButton):
         rectEllipse = QRectF(self.rect().x(), self.rect().y(),
                              min(self.rect().width(), self.rect().height()) * 1.8 / 3,
                              min(self.rect().width(), self.rect().height()) * 1.8 / 3)
+        # rectEllipse = QRectF(self.rect().x(), self.rect().y(),
+        #                      2,
+        #                      2)
         rectEllipse.moveCenter(self.rect().center())
-        painter.drawEllipse(rectEllipse)
+        # painter.drawEllipse(rectEllipse)
+
+        self.resize(20, 20)
+        painter.setPen(QColor("red"))
+        painter.drawRect(self.rect())
 
 
 class ExpensesOrIncome(QWidget):
@@ -107,10 +88,10 @@ class ExpensesOrIncome(QWidget):
         self.layout = QHBoxLayout(self)
 
         """ Store left button """
-        self.incomeButton = ExpOrIncRadio("a")
+        self.incomeButton = ExpOrIncRadio(self)
 
         """ Store right button """
-        self.expensesButton = ExpOrIncRadio("b")
+        self.expensesButton = ExpOrIncRadio(self)
 
         """ Configure widgets """
         self.configureWidgets()
@@ -128,10 +109,6 @@ class ExpensesOrIncome(QWidget):
         self.incomeButton.setType("Income")
         self.expensesButton.setType("Expenses")
 
-        """ Set cursor """
-        self.incomeButton.setCursor(Qt.PointingHandCursor)
-        self.expensesButton.setCursor(Qt.PointingHandCursor)
-
     def configureLayout(self):
         """
         Configure layout
@@ -142,7 +119,7 @@ class ExpensesOrIncome(QWidget):
         self.layout.setContentsMargins(0, 0, 0, 0)
 
         """ Set Spacing """
-        self.layout.setSpacing(1)
+        self.layout.setSpacing(0)
 
         """ Add widgets to layout """
         self.layout.addWidget(self.incomeButton)
@@ -153,6 +130,6 @@ if __name__ == "__main__":
     app = QApplication([])
     widget = ExpensesOrIncome()
     widget.setStyleSheet("background-color: #1A537D;")
-    # widget.setFixedSize(QSize(200, 200))
+    # widget.setFixedWidth(20)
     widget.show()
     sys.exit(app.exec_())

@@ -884,6 +884,19 @@ class Ui_MainWindow(object):
 "QCalendarWidget QWidget#qt_calendar_nextmonth\n"
 "{\n"
 "	qproperty-icon: url(:/images/images/chevron_right-white-18dp.svg);\n"
+"}\n"
+"\n"
+"ExpensesOrIncome QWidget\n"
+"{\n"
+"	background-color: transparent;\n"
+"	border: 1px solid red;\n"
+"}\n"
+"\n"
+"ExpensesOrIncome:hover\n"
+"{\n"
+"	backgrou"
+                        "nd-color: transparent;\n"
+"    border: 1px solid #0190EA;\n"
 "}")
         self.gridLayout = QGridLayout(MainWindow)
         self.gridLayout.setSpacing(0)

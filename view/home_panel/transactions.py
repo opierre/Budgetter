@@ -5,6 +5,7 @@ from PySide2.QtWidgets import QVBoxLayout, QStatusBar, QWidget, QPushButton, QLi
 
 from models.transactions_model import TransactionsModel, TransactionsFilterModel
 from widgets.calendar_widget import CalendarWidget
+from widgets.expense_income_widget import ExpensesOrIncome
 from widgets.statusbar import StatusBar
 from widgets.transaction_delegate import TransactionDelegate
 
@@ -65,7 +66,7 @@ class Transactions(QObject):
         self.editAccount = QComboBox(self.transactionsListView)
 
         """ Store Combobox for type expense selection on transaction """
-        self.editExpOrInc = QComboBox(self.transactionsListView)
+        self.editExpOrInc = ExpensesOrIncome(self.transactionsListView)
 
         """ Model for filtering """
         self.transactionsFilterModel = TransactionsFilterModel()
@@ -174,32 +175,30 @@ class Transactions(QObject):
         """ Configure Name widget """
         self.editName.setFont(QFont("Roboto", 11))
         self.editName.textChanged.connect(self.resizeEditWidget)
+        self.editName.setVisible(False)
 
         """ Configure Amount widget """
         self.editAmount.setMinimum(0.0)
         self.editAmount.setMaximum(100000.0)
         self.editAmount.setFont(QFont("Roboto", 11))
         self.editAmount.valueChanged.connect(self.resizeEditWidget)
+        self.editAmount.setVisible(False)
 
         """ Configure DateEdit widget """
         self.editDate.setFont(QFont("Roboto", 11))
         self.editDate.setCalendarPopup(True)
         self.editDate.setCalendarWidget(CalendarWidget())
         self.editDate.dateChanged.connect(self.resizeEditWidget)
+        self.editDate.setVisible(False)
 
         """ Configure ComboBox widget """
         self.editAccount.setFont(QFont("Roboto", 11))
         self.editAccount.view().setSpacing(2)
         self.editAccount.setSizeAdjustPolicy(QComboBox.AdjustToContents)
         self.editAccount.addItems(["Livret A", "Compte Chèque", "Livret Jeune"])
+        self.editAccount.setVisible(False)
 
-        """ Configure ComboBox widget """
-        self.editExpOrInc.setFont(QFont("Roboto", 11))
-        self.editExpOrInc.view().setSpacing(2)
-        self.editExpOrInc.setSizeAdjustPolicy(QComboBox.AdjustToContents)
-        self.editExpOrInc.addItems(["Expenses", "Income"])
-
-    def editTransaction(self, index, rectName, rectAmount, rectDate, rectAccount, rectEx):
+    def editTransaction(self, index, rectName, rectAmount, rectDate, rectAccount, rectExpOrInc):
         """
         Edit transaction on Edit click
         :param index: item's index
@@ -207,6 +206,7 @@ class Transactions(QObject):
         :param rectAmount: rect where to put DoubleSpinBox
         :param rectDate: rect where to put DateEdit
         :param rectAccount: rect where to put Combobox
+        :param rectExpOrInc: rect where to put ExpOrInc
         :return: void
         """
 
@@ -247,9 +247,9 @@ class Transactions(QObject):
 
         """ Configure ComboBox widget """
         selectedExpOrInc = self.transactionsModel.data(index, Qt.DisplayRole)[5]
-        self.editAccount.setCurrentText(selectedAccount)
-        self.editAccount.move(rect.x(), rectAccount.y() - 3)
-        self.editAccount.setVisible(True)
+        self.editExpOrInc.setGeometry(int(rectExpOrInc.x()), int(rectExpOrInc.y()),
+                                      int(rectExpOrInc.width()), int(rectExpOrInc.height()))
+        self.editExpOrInc.setVisible(True)
 
     def resizeEditWidget(self):
         """

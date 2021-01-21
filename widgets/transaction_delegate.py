@@ -14,7 +14,7 @@ class TransactionDelegate(QStyledItemDelegate):
     """
 
     """ Signal emitted on Edit button click """
-    transactionEditPressed = Signal(QModelIndex, QRect, QRect, QRect, QRect)
+    transactionEditPressed = Signal(QModelIndex, QRect, QRect, QRect, QRect, QRectF)
 
     """ Signal emitted on Delete button click """
     transactionDeletePressed = Signal(QModelIndex)
@@ -39,6 +39,7 @@ class TransactionDelegate(QStyledItemDelegate):
         self.rectAmount = None
         self.rectDate = None
         self.rectAccount = None
+        self.rectExpOrInc = None
 
         """ Configure Widgets """
         self.configureWidgets()
@@ -143,7 +144,8 @@ class TransactionDelegate(QStyledItemDelegate):
 
             if self.rectEdit.contains(cursorPosition):
                 """ Emit pressed signal with model's index and rect position """
-                self.transactionEditPressed.emit(index, self.rectName, self.rectAmount, self.rectDate, self.rectAccount)
+                self.transactionEditPressed.emit(index, self.rectName, self.rectAmount, self.rectDate, self.rectAccount,
+                                                 self.rectExpOrInc)
                 return True
             elif self.rectDelete.contains(cursorPosition):
                 """ Emit pressed signal with model's index """
@@ -416,25 +418,38 @@ class TransactionDelegate(QStyledItemDelegate):
         pixelsWidth = fontMetrics.width(expOrInc)
 
         """ Set income/expense on right corner """
-        rectInOrOut = QRectF(rectBackground.width()*3.7/4-pixelsWidth-(pixelsHeight+8)/2.5,
-                             rectIcon.y()+(rectIcon.width()-pixelsHeight-8)/2.0,
-                             pixelsWidth+(pixelsHeight + 8)/2.5+(pixelsHeight+8)/0.9, pixelsHeight+8)
+        self.rectExpOrInc = QRectF(rectBackground.width()*3.7/4-pixelsWidth-(pixelsHeight+8)/2.5,
+                                   rectIcon.y()+(rectIcon.width()-pixelsHeight-8)/2.0,
+                                   pixelsWidth+(pixelsHeight + 8)/2.5+(pixelsHeight+8)/0.9, pixelsHeight+8)
 
-        painter.drawRoundedRect(rectInOrOut, 4.0, 4.0)
+        if self.editable != index:
+            painter.drawRoundedRect(self.rectExpOrInc, 4.0, 4.0)
 
-        painter.setPen(QPen(QColor("white")))
-        painter.drawText(rectInOrOut.x()+(pixelsHeight + 8) / 0.9, rectInOrOut.y()+5.0,
-                         pixelsWidth, pixelsHeight,
-                         Qt.AlignLeft | Qt.AlignVCenter, expOrInc)
+            painter.setPen(QPen(QColor("white")))
+            painter.drawText(self.rectExpOrInc.x()+(pixelsHeight + 8) / 0.9, self.rectExpOrInc.y()+5.0,
+                             pixelsWidth, pixelsHeight,
+                             Qt.AlignLeft | Qt.AlignVCenter, expOrInc)
 
-        painter.setPen(Qt.NoPen)
-        if expOrInc == "Income":
-            painter.setBrush(QColor("#6DD230"))
+            painter.setPen(Qt.NoPen)
+            if expOrInc == "Income":
+                painter.setBrush(QColor("#6DD230"))
+            else:
+                painter.setBrush(QColor("#FE4D97"))
+            rectEllipse = QRectF(self.rectExpOrInc.x()+(pixelsHeight + 8) / 2.5, self.rectExpOrInc.y()+(pixelsHeight + 8) / 3.5,
+                                 (pixelsHeight + 8) / 2.5, (pixelsHeight + 8) / 2.5)
+            painter.drawEllipse(rectEllipse)
         else:
-            painter.setBrush(QColor("#FE4D97"))
-        rectEllipse = QRectF(rectInOrOut.x()+(pixelsHeight + 8) / 2.5, rectInOrOut.y()+(pixelsHeight + 8) / 3.5,
-                             (pixelsHeight + 8) / 2.5, (pixelsHeight + 8) / 2.5)
-        painter.drawEllipse(rectEllipse)
+            """ Set income/expense pen color """
+            pen = QPen(QColor("#26374C"))
+            pen.setWidthF(1)
+            painter.setPen(pen)
+
+            self.rectExpOrInc = QRectF(rectBackground.width() * 3.7 / 4 - pixelsWidth - (pixelsHeight + 8) / 2.5,
+                                       rectIcon.y() + (rectIcon.width() - pixelsHeight - 8) / 2.0,
+                                       (pixelsWidth + (pixelsHeight + 8) / 2.5 + (pixelsHeight + 8) / 0.9)*2/3,
+                                       pixelsHeight + 8)
+
+            painter.drawRoundedRect(self.rectExpOrInc, 4.0, 4.0)
 
         pen = QPen(QColor("#1B5179"))
         pen.setWidthF(1)
