@@ -451,6 +451,8 @@ class TransactionDelegate(QStyledItemDelegate):
 
             painter.drawRoundedRect(self.rectExpOrInc, 4.0, 4.0)
 
+            print(self.rectExpOrInc)
+
         pen = QPen(QColor("#1B5179"))
         pen.setWidthF(1)
         painter.setPen(pen)

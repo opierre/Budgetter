@@ -1,4 +1,4 @@
-from PySide2.QtCore import QObject, Qt, QDate
+from PySide2.QtCore import QObject, Qt, QDate, QRect
 from PySide2.QtGui import QIcon, QFont, QFontMetrics
 from PySide2.QtWidgets import QVBoxLayout, QStatusBar, QWidget, QPushButton, QListView, QMenu, QFrame, QLineEdit, \
     QInputDialog, QDoubleSpinBox, QDateEdit, QAbstractItemView, QComboBox
@@ -198,6 +198,8 @@ class Transactions(QObject):
         self.editAccount.addItems(["Livret A", "Compte Chèque", "Livret Jeune"])
         self.editAccount.setVisible(False)
 
+        self.editExpOrInc.setVisible(False)
+
     def editTransaction(self, index, rectName, rectAmount, rectDate, rectAccount, rectExpOrInc):
         """
         Edit transaction on Edit click
@@ -247,8 +249,9 @@ class Transactions(QObject):
 
         """ Configure ComboBox widget """
         selectedExpOrInc = self.transactionsModel.data(index, Qt.DisplayRole)[5]
-        self.editExpOrInc.setGeometry(int(rectExpOrInc.x()), int(rectExpOrInc.y()),
-                                      int(rectExpOrInc.width()), int(rectExpOrInc.height()))
+        rectExpOrIncResized = QRect(round(rectExpOrInc.x()), round(rectExpOrInc.y()),
+                                    round(rectExpOrInc.width()*2/3), round(rectExpOrInc.height()))
+        self.editExpOrInc.setGeometry(rectExpOrIncResized)
         self.editExpOrInc.setVisible(True)
 
     def resizeEditWidget(self):

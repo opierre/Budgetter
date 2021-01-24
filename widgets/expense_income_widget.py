@@ -47,33 +47,39 @@ class ExpOrIncRadio(QPushButton):
         opt = QStyleOptionButton()
         self.initStyleOption(opt)
 
+        """ Set selected circle color """
+        painter.setPen(Qt.NoPen)
+        if opt.state & QStyle.State_On:
+            painter.setBrush(QColor(109, 210, 48, 255))
+        elif not(opt.state & QStyle.State_Selected):
+            painter.setBrush(QColor(109, 210, 48, 128))
+
+        """ Draw circle """
+        rectEllipse = QRectF(self.rect().x(), self.rect().y(),
+                             min(self.rect().width(), self.rect().height()) * 1.8 / 3,
+                             min(self.rect().width(), self.rect().height()) * 1.8 / 3)
+
+        rectEllipse.moveCenter(self.rect().center())
+        painter.drawEllipse(rectEllipse)
+
         """ Set color according to type """
+        painter.setPen(Qt.NoPen)
         if self.expOrInc == 'Income' and opt.state & QStyle.State_On:
-            painter.setPen(Qt.NoPen)
             painter.setBrush(QColor(109, 210, 48, 255))
         elif self.expOrInc == 'Income' and not(opt.state & QStyle.State_Selected):
-            painter.setPen(Qt.NoPen)
             painter.setBrush(QColor(109, 210, 48, 128))
         elif self.expOrInc == 'Expenses' and opt.state & QStyle.State_On:
-            painter.setPen(Qt.NoPen)
             painter.setBrush(QColor(254, 77, 151, 255))
         elif self.expOrInc == 'Expenses' and not(opt.state & QStyle.State_Selected):
-            painter.setPen(Qt.NoPen)
             painter.setBrush(QColor(254, 77, 151, 128))
 
         """ Draw circle """
         rectEllipse = QRectF(self.rect().x(), self.rect().y(),
                              min(self.rect().width(), self.rect().height()) * 1.8 / 3,
                              min(self.rect().width(), self.rect().height()) * 1.8 / 3)
-        # rectEllipse = QRectF(self.rect().x(), self.rect().y(),
-        #                      2,
-        #                      2)
-        rectEllipse.moveCenter(self.rect().center())
-        # painter.drawEllipse(rectEllipse)
 
-        self.resize(20, 20)
-        painter.setPen(QColor("red"))
-        painter.drawRect(self.rect())
+        rectEllipse.moveCenter(self.rect().center())
+        painter.drawEllipse(rectEllipse)
 
 
 class ExpensesOrIncome(QWidget):
