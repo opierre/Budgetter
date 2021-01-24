@@ -1,7 +1,7 @@
 import sys
 
-from PySide2.QtCore import Qt, QRectF, QPointF
-from PySide2.QtGui import QPainter, QColor
+from PySide2.QtCore import Qt, QRectF
+from PySide2.QtGui import QPainter, QColor, QPen
 from PySide2.QtWidgets import QWidget, QHBoxLayout, QPushButton, QApplication, \
     QStyleOptionButton, QStyle
 
@@ -17,10 +17,15 @@ class ExpOrIncRadio(QPushButton):
         """ Store type """
         self.expOrInc = expOrInc
 
+        """ Set exclusive selection in widget """
         self.setAutoExclusive(True)
         self.setCheckable(True)
 
+        """ Set margins """
         self.setContentsMargins(0, 0, 0, 0)
+
+        """ Set cursors """
+        self.setCursor(Qt.PointingHandCursor)
 
     def setType(self, typeToSet):
         """
@@ -48,16 +53,19 @@ class ExpOrIncRadio(QPushButton):
         self.initStyleOption(opt)
 
         """ Set selected circle color """
-        painter.setPen(Qt.NoPen)
+        painter.setBrush(Qt.NoBrush)
         if opt.state & QStyle.State_On:
-            painter.setBrush(QColor(109, 210, 48, 255))
-        elif not(opt.state & QStyle.State_Selected):
-            painter.setBrush(QColor(109, 210, 48, 128))
+            pen = QPen()
+            pen.setWidthF(1.0)
+            pen.setColor(QColor("#0190EA"))
+            painter.setPen(pen)
+        else:
+            painter.setPen(QColor("transparent"))
 
         """ Draw circle """
         rectEllipse = QRectF(self.rect().x(), self.rect().y(),
-                             min(self.rect().width(), self.rect().height()) * 1.8 / 3,
-                             min(self.rect().width(), self.rect().height()) * 1.8 / 3)
+                             min(self.rect().width(), self.rect().height()) * 2.8 / 3,
+                             min(self.rect().width(), self.rect().height()) * 2.8 / 3)
 
         rectEllipse.moveCenter(self.rect().center())
         painter.drawEllipse(rectEllipse)
@@ -114,6 +122,18 @@ class ExpensesOrIncome(QWidget):
         """ Set type """
         self.incomeButton.setType("Income")
         self.expensesButton.setType("Expenses")
+
+    def setActiveType(self, activeType):
+        """
+        Select one button according to active type parameter
+        :param activeType: "Expenses"/"Income"
+        :return: void
+        """
+
+        if activeType == "Expenses":
+            self.expensesButton.setChecked(True)
+        else:
+            self.incomeButton.setChecked(True)
 
     def configureLayout(self):
         """

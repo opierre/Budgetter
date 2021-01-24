@@ -196,8 +196,10 @@ class Transactions(QObject):
         self.editAccount.view().setSpacing(2)
         self.editAccount.setSizeAdjustPolicy(QComboBox.AdjustToContents)
         self.editAccount.addItems(["Livret A", "Compte Chèque", "Livret Jeune"])
+        self.editAccount.setCursor(Qt.PointingHandCursor)
         self.editAccount.setVisible(False)
 
+        """ Configure custom widget """
         self.editExpOrInc.setVisible(False)
 
     def editTransaction(self, index, rectName, rectAmount, rectDate, rectAccount, rectExpOrInc):
@@ -252,6 +254,7 @@ class Transactions(QObject):
         rectExpOrIncResized = QRect(round(rectExpOrInc.x()), round(rectExpOrInc.y()),
                                     round(rectExpOrInc.width()*2/3), round(rectExpOrInc.height()))
         self.editExpOrInc.setGeometry(rectExpOrIncResized)
+        self.editExpOrInc.setActiveType(selectedExpOrInc)
         self.editExpOrInc.setVisible(True)
 
     def resizeEditWidget(self):
