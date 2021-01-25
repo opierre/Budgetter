@@ -56,7 +56,7 @@ class ExpOrIncRadio(QPushButton):
         painter.setBrush(Qt.NoBrush)
         if opt.state & QStyle.State_On:
             pen = QPen()
-            pen.setWidthF(1.0)
+            pen.setWidthF(1.5)
             pen.setColor(QColor("#0190EA"))
             painter.setPen(pen)
         else:
@@ -64,8 +64,8 @@ class ExpOrIncRadio(QPushButton):
 
         """ Draw circle """
         rectEllipse = QRectF(self.rect().x(), self.rect().y(),
-                             min(self.rect().width(), self.rect().height()) * 2.8 / 3,
-                             min(self.rect().width(), self.rect().height()) * 2.8 / 3)
+                             min(self.rect().width(), self.rect().height()) * 2.6 / 3,
+                             min(self.rect().width(), self.rect().height()) * 2.6 / 3)
 
         rectEllipse.moveCenter(self.rect().center())
         painter.drawEllipse(rectEllipse)

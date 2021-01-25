@@ -1,5 +1,7 @@
 <RCC>
   <qresource prefix="images">
+    <file>images/close-white-18dp.svg</file>
+    <file>images/check-white-18dp.svg</file>
     <file>images/chevron_left-white-18dp.svg</file>
     <file>images/chevron_right-white-18dp.svg</file>
     <file>images/arrow_drop_down-white-24dp.svg</file>

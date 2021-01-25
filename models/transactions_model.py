@@ -139,4 +139,4 @@ class TransactionsModel(QAbstractListModel):
         :return: flags
         """
 
-        return Qt.ItemIsEditable | Qt.ItemIsEnabled
+        return Qt.ItemIsEditable | Qt.ItemIsEnabled | Qt.ItemIsSelectable

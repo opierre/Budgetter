@@ -326,6 +326,9 @@ class Transactions(QObject):
         """ Set item delegate"""
         self.transactionsListView.setItemDelegate(self.transactionDelegate)
 
+        """ Set selection mode """
+        # self.transactionsListView.setSelectionMode(QAbstractItemView.SingleSelection)
+
         """ Hide widgets for edition """
         self.editName.setVisible(False)
         self.editAmount.setVisible(False)

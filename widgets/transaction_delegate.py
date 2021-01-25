@@ -32,6 +32,10 @@ class TransactionDelegate(QStyledItemDelegate):
         self.edit = QPushButton()
         self.delete = QPushButton()
 
+        """ Apply/Cancel QPushButtons """
+        self.apply = QPushButton()
+        self.cancel = QPushButton()
+
         """ Store buttons rectangle """
         self.rectEdit = None
         self.rectDelete = None
@@ -50,17 +54,17 @@ class TransactionDelegate(QStyledItemDelegate):
         :return: void
         """
 
-        """ Set names """
-        self.edit.setObjectName(u"editTransaction")
-        self.edit.setObjectName(u"deleteTransaction")
-
         """ Set icon """
         self.edit.setIcon(QIcon(":/images/images/edit-white-18dp.svg"))
         self.delete.setIcon(QIcon(":/images/images/delete-white-18dp.svg"))
+        self.apply.setIcon(QIcon(":/images/images/check-white-18dp.svg"))
+        self.cancel.setIcon(QIcon(":/images/images/close-white-18dp.svg"))
 
         """ Set background color """
         self.edit.setStyleSheet("background-color: transparent;\n")
         self.delete.setStyleSheet("background-color: transparent;\n")
+        self.apply.setStyleSheet("background-color: transparent;\n")
+        self.cancel.setStyleSheet("background-color: transparent;\n")
 
     def setEditable(self, index):
         """
@@ -142,12 +146,12 @@ class TransactionDelegate(QStyledItemDelegate):
             """ Store position on click """
             cursorPosition = event.pos()
 
-            if self.rectEdit.contains(cursorPosition):
+            if self.rectEdit.contains(cursorPosition) and index != self.editable:
                 """ Emit pressed signal with model's index and rect position """
                 self.transactionEditPressed.emit(index, self.rectName, self.rectAmount, self.rectDate, self.rectAccount,
                                                  self.rectExpOrInc)
                 return True
-            elif self.rectDelete.contains(cursorPosition):
+            elif self.rectDelete.contains(cursorPosition) and index != self.editable:
                 """ Emit pressed signal with model's index """
                 self.transactionDeletePressed.emit(index)
                 return True
@@ -220,9 +224,13 @@ class TransactionDelegate(QStyledItemDelegate):
         painter.setPen(QPen(QColor("#26374C")))
         rectBackground = QRect(option.rect.x()+option.rect.width()*1/60, option.rect.y()+option.rect.height()*1/5,
                                option.rect.width()-option.rect.width()*2/60, option.rect.height()-option.rect.height()*2/5)
-        if self.editable != index:
+        if self.editable != index and not(option.state & QStyle.State_Selected):
             painter.setBrush(QColor("transparent"))
             painter.drawRect(rectBackground)
+        elif self.editable != index and option.state & QStyle.State_Selected:
+            painter.setBrush(QColor("#19344D"))
+            painter.drawRect(rectBackground.x(), rectBackground.y()-option.rect.height()*1/6,
+                             rectBackground.width(), rectBackground.height()+option.rect.height()*2/6)
         else:
             painter.setBrush(QColor("#1A537D"))
             painter.drawRect(rectBackground.x(), rectBackground.y()-option.rect.height()*1/6,
@@ -461,25 +469,44 @@ class TransactionDelegate(QStyledItemDelegate):
                               25, self.rectName.height())
 
         optionMore = QStyleOptionButton()
-        optionMore.initFrom(self.edit)
-        optionMore.rect = self.rectEdit
-        optionMore.icon = self.edit.icon()
-        optionMore.iconSize = QtCore.QSize(18, 18)
-        optionMore.state = optionMore.state or QStyle.State_MouseOver
 
-        self.edit.style().drawControl(QStyle.CE_PushButton, optionMore, painter, self.edit)
+        if self.editable != index and option.state & QStyle.State_Selected:
+            optionMore.initFrom(self.edit)
+            optionMore.rect = self.rectEdit
+            optionMore.icon = self.edit.icon()
+            optionMore.iconSize = QtCore.QSize(18, 18)
+            optionMore.state = optionMore.state or QStyle.State_MouseOver
+
+            self.edit.style().drawControl(QStyle.CE_PushButton, optionMore, painter, self.edit)
+        elif self.editable == index:
+            optionMore.initFrom(self.apply)
+            optionMore.rect = self.rectEdit
+            optionMore.icon = self.apply.icon()
+            optionMore.iconSize = QtCore.QSize(18, 18)
+            optionMore.state = optionMore.state or QStyle.State_MouseOver
+
+            self.apply.style().drawControl(QStyle.CE_PushButton, optionMore, painter, self.apply)
 
         """ Buttons rects """
         self.rectDelete = QRect(rectBackground.width()+rectBackground.x()-rectIcon.x()/1.3, rectCategory.y(),
                                 25, self.rectName.height())
 
-        optionMore = QStyleOptionButton()
-        optionMore.initFrom(self.delete)
-        optionMore.rect = self.rectDelete
-        optionMore.icon = self.delete.icon()
-        optionMore.iconSize = QtCore.QSize(18, 18)
-        optionMore.state = optionMore.state or QStyle.State_MouseOver
+        if self.editable != index and option.state & QStyle.State_Selected:
+            optionMore = QStyleOptionButton()
+            optionMore.initFrom(self.delete)
+            optionMore.rect = self.rectDelete
+            optionMore.icon = self.delete.icon()
+            optionMore.iconSize = QtCore.QSize(18, 18)
+            optionMore.state = optionMore.state or QStyle.State_MouseOver
 
-        self.delete.style().drawControl(QStyle.CE_PushButton, optionMore, painter, self.delete)
+            self.delete.style().drawControl(QStyle.CE_PushButton, optionMore, painter, self.delete)
+        elif self.editable == index:
+            optionMore.initFrom(self.cancel)
+            optionMore.rect = self.rectDelete
+            optionMore.icon = self.cancel.icon()
+            optionMore.iconSize = QtCore.QSize(18, 18)
+            optionMore.state = optionMore.state or QStyle.State_MouseOver
+
+            self.cancel.style().drawControl(QStyle.CE_PushButton, optionMore, painter, self.cancel)
 
         painter.restore()
