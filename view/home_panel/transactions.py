@@ -301,11 +301,11 @@ class Transactions(QObject):
         :return: void
         """
 
-        value = [self.editName.text(), "Transport", self.editAmount.value(), str(self.editDate.date()),
+        value = [self.editName.text(), "Transport", self.editAmount.value(), self.editDate.date().toString("dd/MM/yyyy"),
                  self.editAccount.currentText(), self.editExpOrInc.activeType()]
 
         """ Remove transaction from model - [Name, Category, Amount, Date, Account, ExpenseOrIncome] """
-        self.transactionsFilterModel.setData(index, value)
+        self.transactionsFilterModel.modifyTransaction(index, value)
 
         """ Hide all widgets """
         self.editName.setVisible(False)

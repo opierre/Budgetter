@@ -56,7 +56,7 @@ class TransactionsFilterModel(QSortFilterProxyModel):
         """
 
         indexFromSource = self.mapToSource(index)
-        self.sourceModel().setData(indexFromSource, value)
+        self.sourceModel().setData(indexFromSource, value, Qt.DisplayRole)
 
     def filterAcceptsRow(self, source_row, source_parent):
         """
