@@ -14,7 +14,7 @@ class TransactionDelegate(QStyledItemDelegate):
     """
 
     """ Signal emitted on Edit button click """
-    transactionEditPressed = Signal(QModelIndex, QRect, QRect, QRect, QRect, QRectF)
+    transactionEditPressed = Signal(QModelIndex, QRect, QRect, QRect, QRect, QRectF, QRectF)
 
     """ Signal emitted on Delete button click """
     transactionDeletePressed = Signal(QModelIndex)
@@ -22,11 +22,17 @@ class TransactionDelegate(QStyledItemDelegate):
     """ Signal emitted on Apply button click """
     transactionModified = Signal(QModelIndex)
 
+    """ Signal emitted on Cancel button click """
+    transactionModifCanceled = Signal(QModelIndex)
+
     def __init__(self, parent=None, *args):
         QStyledItemDelegate.__init__(self, parent, *args)
 
         """ Store editable state """
         self.editable = False
+
+        """ Store selected state """
+        self.selected = False
 
         """ Store font for values """
         self.font = QFont()
@@ -42,6 +48,7 @@ class TransactionDelegate(QStyledItemDelegate):
         """ Store buttons rectangle """
         self.rectEdit = None
         self.rectDelete = None
+        self.rectCategory = None
         self.rectName = None
         self.rectAmount = None
         self.rectDate = None
@@ -89,49 +96,6 @@ class TransactionDelegate(QStyledItemDelegate):
 
         pass
 
-    def setEditorData(self, editor, index):
-        """
-        Override setEditorData()
-        :param editor: editor
-        :param index: index
-        :return: void
-        """
-
-        transaction = index.model().data(index, Qt.DisplayRole)
-
-        self.font.setFamily(u"Roboto")
-        self.font.setPointSize(11)
-
-        editor.setFont(self.font)
-
-        editor.setText(transaction[0])
-
-    def setModelData(self, editor, model, index):
-        """
-        Override setModelData()
-        :param editor: editor
-        :param model: model
-        :param index: index
-        :return: void
-        """
-
-        text = editor.text()
-
-        model.setData(index, [text, "Restaurants", 25.99, "20/02/2020", "Compte Chèque", "Income", False],
-                      Qt.DisplayRole)
-
-    def updateEditorGeometry(self, editor, option, index):
-        """
-        Override updateEditorGeometry()
-        :param editor: editor
-        :param option: option
-        :param index: index
-        :return: void
-        """
-
-        editor.setGeometry(option.rect.x()+0, option.rect.y()-0,
-                           option.rect.width(), option.rect.height())
-
     def editorEvent(self, event, model, option, index):
         """
         Override editorEvent to handle events
@@ -152,7 +116,7 @@ class TransactionDelegate(QStyledItemDelegate):
             if self.rectEdit.contains(cursorPosition) and index != self.editable:
                 """ Emit pressed signal with model's index and rect position """
                 self.transactionEditPressed.emit(index, self.rectName, self.rectAmount, self.rectDate, self.rectAccount,
-                                                 self.rectExpOrInc)
+                                                 self.rectExpOrInc, self.rectCategory)
                 return True
             elif self.rectDelete.contains(cursorPosition) and index != self.editable:
                 """ Emit pressed signal with model's index """
@@ -166,6 +130,14 @@ class TransactionDelegate(QStyledItemDelegate):
                 self.editable = False
 
                 return True
+            elif self.rectDelete.contains(cursorPosition) and index == self.editable:
+                """ Emit signal to cancel data update from external widgets """
+                self.transactionModifCanceled.emit(index)
+
+                """ Update editable item """
+                self.editable = False
+
+                return True
             else:
                 return False
 
@@ -173,11 +145,11 @@ class TransactionDelegate(QStyledItemDelegate):
             """ Store position on click """
             cursorPosition = event.pos()
 
-            if self.rectEdit.contains(cursorPosition):
+            if self.rectEdit.contains(cursorPosition) and self.selected == index:
                 """ Change cursor to pointing hand """
                 QApplication.setOverrideCursor(Qt.PointingHandCursor)
                 return True
-            elif self.rectDelete.contains(cursorPosition):
+            elif self.rectDelete.contains(cursorPosition) and self.selected == index:
                 """ Change cursor to pointing hand """
                 QApplication.setOverrideCursor(Qt.PointingHandCursor)
                 return True
@@ -239,6 +211,7 @@ class TransactionDelegate(QStyledItemDelegate):
             painter.setBrush(QColor("transparent"))
             painter.drawRect(rectBackground)
         elif self.editable != index and option.state & QStyle.State_Selected:
+            self.selected = index
             painter.setBrush(QColor("#19344D"))
             painter.drawRect(rectBackground.x(), rectBackground.y()-option.rect.height()*1/6,
                              rectBackground.width(), rectBackground.height()+option.rect.height()*2/6)
@@ -250,26 +223,27 @@ class TransactionDelegate(QStyledItemDelegate):
         """ Draw left icon background """
         painter.setPen(QPen(QColor("#21405D")))
         painter.setBrush(QColor("#21405D"))
-        rectIcon = QRect(rectBackground.x()+option.rect.width()*1/120, rectBackground.y()-option.rect.height()*1/30,
-                         rectBackground.height()+option.rect.height()*2/30, rectBackground.height()+option.rect.height()*2/30)
-        painter.drawRoundedRect(rectIcon, 1.0, 1.0)
+        self.rectCategory = QRect(rectBackground.x()+option.rect.width()*1/120, rectBackground.y()-option.rect.height()*1/30,
+                                  rectBackground.height()+option.rect.height()*2/30, rectBackground.height()+option.rect.height()*2/30)
+        painter.drawRoundedRect(self.rectCategory, 1.0, 1.0)
 
-        """ Draw icon and render svg """
-        painter.setPen(QPen(Qt.transparent))
-        painter.setBrush(QColor("transparent"))
-        rectSvg = QRect(rectIcon.x()+10, rectIcon.y()+10,
-                        rectIcon.width()-20, rectIcon.height()-20)
-        painter.drawRect(rectSvg)
+        if self.editable != index:
+            """ Draw icon and render svg """
+            painter.setPen(QPen(Qt.transparent))
+            painter.setBrush(QColor("transparent"))
+            rectSvg = QRect(self.rectCategory.x()+10, self.rectCategory.y()+10,
+                            self.rectCategory.width()-20, self.rectCategory.height()-20)
+            painter.drawRect(rectSvg)
 
-        svgRender = QSvgRenderer(":/images/images/restaurant-white-18dp_outlined.svg")
-        if category == "Restaurants":
             svgRender = QSvgRenderer(":/images/images/restaurant-white-18dp_outlined.svg")
-        elif category == "Transport":
-            svgRender = QSvgRenderer(":/images/images/directions_car-white-18dp_outlined.svg")
-        elif category == "Groceries":
-            svgRender = QSvgRenderer(":/images/images/local_grocery_store-white-18dp_outlined.svg")
-        svgRender.setAspectRatioMode(Qt.KeepAspectRatio)
-        svgRender.render(painter, rectSvg)
+            if category == "Restaurants":
+                svgRender = QSvgRenderer(":/images/images/restaurant-white-18dp_outlined.svg")
+            elif category == "Transport":
+                svgRender = QSvgRenderer(":/images/images/directions_car-white-18dp_outlined.svg")
+            elif category == "Groceries":
+                svgRender = QSvgRenderer(":/images/images/local_grocery_store-white-18dp_outlined.svg")
+            svgRender.setAspectRatioMode(Qt.KeepAspectRatio)
+            svgRender.render(painter, rectSvg)
 
         """ Set font on painter for name """
         self.font.setFamily(u"Roboto")
@@ -286,7 +260,7 @@ class TransactionDelegate(QStyledItemDelegate):
         pixelsHeight = fontMetrics.height()
 
         """ Set name on top """
-        self.rectName = QRect(rectIcon.x()+rectIcon.width()+option.rect.width()*1/140, rectIcon.y()+option.rect.height()*1/30,
+        self.rectName = QRect(self.rectCategory.x()+self.rectCategory.width()+option.rect.width()*1/140, self.rectCategory.y()+option.rect.height()*1/30,
                               pixelsWidth, pixelsHeight)
         if self.editable != index:
             painter.drawText(self.rectName, Qt.AlignLeft | Qt.AlignVCenter, name)
@@ -438,7 +412,7 @@ class TransactionDelegate(QStyledItemDelegate):
 
         """ Set income/expense on right corner """
         self.rectExpOrInc = QRectF(rectBackground.width()*3.7/4-pixelsWidth-(pixelsHeight+8)/2.5,
-                                   rectIcon.y()+(rectIcon.width()-pixelsHeight-8)/2.0,
+                                   self.rectCategory.y()+(self.rectCategory.width()-pixelsHeight-8)/2.0,
                                    pixelsWidth+(pixelsHeight + 8)/2.5+(pixelsHeight+8)/0.9, pixelsHeight+8)
 
         if self.editable != index:
@@ -464,7 +438,7 @@ class TransactionDelegate(QStyledItemDelegate):
             painter.setPen(pen)
 
             self.rectExpOrInc = QRectF(rectBackground.width() * 3.7 / 4 - pixelsWidth - (pixelsHeight + 8) / 2.5,
-                                       rectIcon.y() + (rectIcon.width() - pixelsHeight - 8) / 2.0,
+                                       self.rectCategory.y() + (self.rectCategory.width() - pixelsHeight - 8) / 2.0,
                                        (pixelsWidth + (pixelsHeight + 8) / 2.5 + (pixelsHeight + 8) / 0.9)*2/3,
                                        pixelsHeight + 8)
 
@@ -476,7 +450,7 @@ class TransactionDelegate(QStyledItemDelegate):
         painter.setBrush(QColor("transparent"))
 
         """ Button edit """
-        self.rectEdit = QRect(rectBackground.width()+rectBackground.x()-rectIcon.x()/1.3, self.rectName.y(),
+        self.rectEdit = QRect(rectBackground.width()+rectBackground.x()-self.rectCategory.x()/1.3, self.rectName.y(),
                               25, self.rectName.height())
 
         optionMore = QStyleOptionButton()
@@ -499,7 +473,7 @@ class TransactionDelegate(QStyledItemDelegate):
             self.apply.style().drawControl(QStyle.CE_PushButton, optionMore, painter, self.apply)
 
         """ Buttons rects """
-        self.rectDelete = QRect(rectBackground.width()+rectBackground.x()-rectIcon.x()/1.3, rectCategory.y(),
+        self.rectDelete = QRect(rectBackground.width()+rectBackground.x()-self.rectCategory.x()/1.3, rectCategory.y(),
                                 25, self.rectName.height())
 
         if self.editable != index and option.state & QStyle.State_Selected:
