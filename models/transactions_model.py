@@ -47,6 +47,17 @@ class TransactionsFilterModel(QSortFilterProxyModel):
         self.sourceModel().deleteTransaction(indexFromSource)
         self.endRemoveRows()
 
+    def modifyTransaction(self, index, value):
+        """
+        Call for modifyTransaction in source model
+        :param index: index in filtered model
+        :param value: value - [Name, Category, Amount, Date, Account, ExpenseOrIncome]
+        :return: void
+        """
+
+        indexFromSource = self.mapToSource(index)
+        self.sourceModel().setData(indexFromSource, value)
+
     def filterAcceptsRow(self, source_row, source_parent):
         """
         Override filterAcceptsRow
@@ -98,7 +109,7 @@ class TransactionsModel(QAbstractListModel):
         """
         Override setData() from QAbstractListModel
         :param index: index
-        :param value: value
+        :param value: value - [Name, Category, Amount, Date, Account, ExpenseOrIncome]
         :param role: role
         :return: according to role (text, ...)
         """
@@ -109,6 +120,8 @@ class TransactionsModel(QAbstractListModel):
         self.transactions[index.row()][3] = value[3]
         self.transactions[index.row()][4] = value[4]
         self.transactions[index.row()][5] = value[5]
+
+        self.dataChanged.emit(index, index)
 
         return True
 

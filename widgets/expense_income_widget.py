@@ -135,6 +135,17 @@ class ExpensesOrIncome(QWidget):
         else:
             self.incomeButton.setChecked(True)
 
+    def activeType(self):
+        """
+        Return active type
+        :return: active type
+        """
+
+        if self.expensesButton.isChecked():
+            return "Expenses"
+        else:
+            return "Income"
+
     def configureLayout(self):
         """
         Configure layout

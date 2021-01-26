@@ -124,6 +124,9 @@ class Transactions(QObject):
         """ Connect signal from Delete button in list view to delete item """
         self.transactionDelegate.transactionDeletePressed.connect(self.deleteTransaction)
 
+        """ Connect signal from Apply button in list view to modify item """
+        self.transactionDelegate.transactionModified.connect(self.modifyTransaction)
+
         """ Update filtering when click on button in status bar """
         self.expenses.clicked.connect(self.updateCurrentFiltering)
         self.income.clicked.connect(self.updateCurrentFiltering)
@@ -290,6 +293,26 @@ class Transactions(QObject):
 
         """ Remove transaction from model """
         self.transactionsFilterModel.deleteTransaction(index)
+
+    def modifyTransaction(self, index):
+        """
+        Modify transaction content on Apply click
+        :param index: index in model
+        :return: void
+        """
+
+        value = [self.editName.text(), "Transport", self.editAmount.value(), str(self.editDate.date()),
+                 self.editAccount.currentText(), self.editExpOrInc.activeType()]
+
+        """ Remove transaction from model - [Name, Category, Amount, Date, Account, ExpenseOrIncome] """
+        self.transactionsFilterModel.setData(index, value)
+
+        """ Hide all widgets """
+        self.editName.setVisible(False)
+        self.editAmount.setVisible(False)
+        self.editDate.setVisible(False)
+        self.editAccount.setVisible(False)
+        self.editExpOrInc.setVisible(False)
 
     def configureLayout(self):
         """

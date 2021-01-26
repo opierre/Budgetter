@@ -19,6 +19,9 @@ class TransactionDelegate(QStyledItemDelegate):
     """ Signal emitted on Delete button click """
     transactionDeletePressed = Signal(QModelIndex)
 
+    """ Signal emitted on Apply button click """
+    transactionModified = Signal(QModelIndex)
+
     def __init__(self, parent=None, *args):
         QStyledItemDelegate.__init__(self, parent, *args)
 
@@ -154,6 +157,14 @@ class TransactionDelegate(QStyledItemDelegate):
             elif self.rectDelete.contains(cursorPosition) and index != self.editable:
                 """ Emit pressed signal with model's index """
                 self.transactionDeletePressed.emit(index)
+                return True
+            elif self.rectEdit.contains(cursorPosition) and index == self.editable:
+                """ Emit signal to update data from external widgets """
+                self.transactionModified.emit(index)
+
+                """ Update editable item """
+                self.editable = False
+
                 return True
             else:
                 return False
