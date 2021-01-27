@@ -207,6 +207,8 @@ class Transactions(QObject):
         self.edit_account.setSizeAdjustPolicy(QComboBox.AdjustToContents)
         self.edit_account.addItems(["Livret A", "Compte Chèque", "Livret Jeune"])
         self.edit_account.setCursor(Qt.PointingHandCursor)
+        self.edit_account.view().window().setWindowFlags(Qt.Popup | Qt.FramelessWindowHint)
+        self.edit_account.view().window().setAttribute(Qt.WA_TranslucentBackground)
         self.edit_account.setVisible(False)
 
         """ Configure custom widget """

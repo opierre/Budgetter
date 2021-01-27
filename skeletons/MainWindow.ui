@@ -169,16 +169,16 @@ QComboBox QAbstractItemView
 	background: #212F41;
 	color: white;
 	border-top-style: inset;
-	border-width: 1px;
-	border-radius: 0px;
+	border-width: 0px;
+	border-radius: 3px;
 	border-color: #0190EA;
 	selection-background-color: #0190EA;
-	padding-top: 1px;
-	padding-bottom: 1px;
-	padding-left: 2px;
-	padding-right: 2px;
-	spacing: 10px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	padding-left: 0px;
+	padding-right: 0px;
 	outline: none;
+	margin-top: 5px;
 }
 
 QComboBox QScollBar:vertical
