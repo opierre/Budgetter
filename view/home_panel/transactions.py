@@ -216,7 +216,11 @@ class Transactions(QObject):
 
         """ Configure combobox for category """
         self.edit_category.setItemDelegate(CategoryComboBox())
-        self.edit_category.addItem(QIcon(":/images/images/local_grocery_store-white-18dp.svg"), "Livret A")
+        # self.edit_category.setView(CategoryView())
+        self.edit_category.addItem(QIcon(":/images/images/local_grocery_store-white-18dp.svg"), "")
+        self.edit_category.addItem(QIcon(":/images/images/local_grocery_store-white-18dp.svg"), "")
+        self.edit_category.addItem(QIcon(":/images/images/local_grocery_store-white-18dp.svg"), "")
+        self.edit_category.setVisible(False)
 
     def editTransaction(self, index, rectName, rectAmount, rectDate, rectAccount, rectExpOrInc, rectCategory):
         """
