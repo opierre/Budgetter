@@ -216,10 +216,14 @@ class Transactions(QObject):
 
         """ Configure combobox for category """
         self.edit_category.setItemDelegate(CategoryComboBox())
-        # self.edit_category.setView(CategoryView())
         self.edit_category.addItem(QIcon(":/images/images/local_grocery_store-white-18dp.svg"), "")
         self.edit_category.addItem(QIcon(":/images/images/local_grocery_store-white-18dp.svg"), "")
         self.edit_category.addItem(QIcon(":/images/images/local_grocery_store-white-18dp.svg"), "")
+        self.edit_category.view().setSpacing(2)
+        self.edit_category.setSizeAdjustPolicy(QComboBox.AdjustToContents)
+        self.edit_category.setCursor(Qt.PointingHandCursor)
+        self.edit_category.view().window().setWindowFlags(Qt.Popup | Qt.FramelessWindowHint)
+        self.edit_category.view().window().setAttribute(Qt.WA_TranslucentBackground)
         self.edit_category.setVisible(False)
 
     def editTransaction(self, index, rectName, rectAmount, rectDate, rectAccount, rectExpOrInc, rectCategory):
