@@ -1,4 +1,4 @@
-from PySide2.QtCore import QObject, Qt, QDate, QRect
+from PySide2.QtCore import QObject, Qt, QDate, QRect, QSize
 from PySide2.QtGui import QIcon, QFont, QFontMetrics
 from PySide2.QtWidgets import QVBoxLayout, QStatusBar, QWidget, QPushButton, QListView, QMenu, QFrame, QLineEdit, \
     QInputDialog, QDoubleSpinBox, QDateEdit, QAbstractItemView, QComboBox
@@ -224,6 +224,7 @@ class Transactions(QObject):
         self.edit_category.setCursor(Qt.PointingHandCursor)
         self.edit_category.view().window().setWindowFlags(Qt.Popup | Qt.FramelessWindowHint)
         self.edit_category.view().window().setAttribute(Qt.WA_TranslucentBackground)
+        self.edit_category.setIconSize(QSize(22, 22))
         self.edit_category.setVisible(False)
 
     def editTransaction(self, index, rectName, rectAmount, rectDate, rectAccount, rectExpOrInc, rectCategory):

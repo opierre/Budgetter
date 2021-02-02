@@ -24,7 +24,8 @@ class CategoryComboBox(QStyledItemDelegate):
         opt = option
         self.initStyleOption(opt, index)
 
-        opt.decorationSize.setWidth(opt.rect.width())
+        opt.decorationSize.setWidth(opt.rect.width()-1)
+        opt.decorationSize.setHeight(opt.rect.width()-1)
 
         style = opt.widget.style()
         style.drawControl(QStyle.CE_ItemViewItem, opt, painter, opt.widget)

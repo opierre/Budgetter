@@ -665,7 +665,7 @@ class Ui_MainWindow(object):
 "{\n"
 "	background-color: trans"
                         "parent;\n"
-"	border: none;\n"
+"	border: none;\n"                             
 "}\n"
 "\n"
 "QMenu \n"
