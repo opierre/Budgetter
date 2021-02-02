@@ -1,4 +1,4 @@
-from PySide2.QtCore import QObject, Qt, QDate, QRect, QSize
+from PySide2.QtCore import QObject, Qt, QDate, QRect, QSize, QModelIndex
 from PySide2.QtGui import QIcon, QFont, QFontMetrics
 from PySide2.QtWidgets import QVBoxLayout, QStatusBar, QWidget, QPushButton, QListView, QMenu, QFrame, QLineEdit, \
     QInputDialog, QDoubleSpinBox, QDateEdit, QAbstractItemView, QComboBox, QLabel
@@ -135,6 +135,9 @@ class Transactions(QObject):
         """ Connect signal from Cancel button in list view to abort modifications in item """
         self.transaction_delegate.transactionModifCanceled.connect(self.hide_edit_widgets)
 
+        """ Connect signal from click on + button """
+        self.ui_setup.transactions.titleBarClicked.connect(self.add_transaction)
+
         """ Update filtering when click on button in status bar """
         self.expenses.clicked.connect(self.update_current_filtering)
         self.income.clicked.connect(self.update_current_filtering)
@@ -175,7 +178,7 @@ class Transactions(QObject):
 
         if action == deleteAction:
             """ Remove transaction from model """
-            self.transactions_filter_model.deleteTransaction(index)
+            self.transactions_filter_model.delete_transaction(index)
 
     def configure_edit_widgets(self):
         """
@@ -336,13 +339,25 @@ class Transactions(QObject):
 
     def delete_transaction(self, index):
         """
-        Edit transaction on Edit click
+        Delete transaction on Delete click
         :param index: index in model
         :return: void
         """
 
         """ Remove transaction from model """
-        self.transactions_filter_model.deleteTransaction(index)
+        self.transactions_filter_model.delete_transaction(index)
+
+    def add_transaction(self):
+        """
+        Add transaction on + click
+        :return: void
+        """
+
+        """ Add transaction to model """
+        self.transactions_filter_model.add_transaction()
+
+        """ Set editable mode """
+        self.edit_transaction(QModelIndex())
 
     def modify_transaction(self, index):
         """
@@ -356,7 +371,7 @@ class Transactions(QObject):
                  self.edit_account.currentText(), self.edit_exp_or_inc.activeType()]
 
         """ Remove transaction from model - [Name, Category, Amount, Date, Account, ExpenseOrIncome] """
-        self.transactions_filter_model.modifyTransaction(index, value)
+        self.transactions_filter_model.modify_transaction(index, value)
 
         """ Hide editable widgets """
         self.hide_edit_widgets()
@@ -503,7 +518,7 @@ class Transactions(QObject):
         newFilter = pyObject.text()
 
         """ Update filter """
-        self.transactions_filter_model.updateFilter(newFilter)
+        self.transactions_filter_model.update_filter(newFilter)
 
         """ Update activated state """
         if newFilter == 'All':
@@ -540,7 +555,7 @@ class Transactions(QObject):
         newFilter = pyObject.text()
 
         """ Add filter """
-        self.transactions_filter_model.addFilter(newFilter)
+        self.transactions_filter_model.add_filter(newFilter)
 
         """ Update activated state """
         if newFilter == 'All':

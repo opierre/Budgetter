@@ -1,4 +1,4 @@
-from PySide2.QtCore import QAbstractListModel, Qt, QSortFilterProxyModel, QModelIndex
+from PySide2.QtCore import QAbstractListModel, Qt, QSortFilterProxyModel, QModelIndex, QDate
 
 
 class TransactionsFilterModel(QSortFilterProxyModel):
@@ -15,7 +15,7 @@ class TransactionsFilterModel(QSortFilterProxyModel):
         """ Default Filter for Accounts """
         self.account = "All"
 
-    def updateFilter(self, newFilter):
+    def update_filter(self, newFilter):
         """
         Update current filter
         :param newFilter: filter to set
@@ -25,7 +25,7 @@ class TransactionsFilterModel(QSortFilterProxyModel):
         self.type = newFilter
         self.invalidateFilter()
 
-    def addFilter(self, newFilter):
+    def add_filter(self, newFilter):
         """
         Add current filter
         :param newFilter: filter to set
@@ -35,7 +35,7 @@ class TransactionsFilterModel(QSortFilterProxyModel):
         self.account = newFilter
         self.invalidateFilter()
 
-    def deleteTransaction(self, index):
+    def delete_transaction(self, index):
         """
         Call for deleteTransaction in source model
         :param index: index in filtered model
@@ -44,10 +44,20 @@ class TransactionsFilterModel(QSortFilterProxyModel):
 
         self.beginRemoveRows(QModelIndex(), index.row(), index.row())
         indexFromSource = self.mapToSource(index)
-        self.sourceModel().deleteTransaction(indexFromSource)
+        self.sourceModel().delete_transaction(indexFromSource)
         self.endRemoveRows()
 
-    def modifyTransaction(self, index, value):
+    def add_transaction(self):
+        """
+        Call for add_transaction in source model
+        :return: void
+        """
+
+        self.beginInsertRows(QModelIndex(), 0, 0)
+        self.sourceModel().add_transaction()
+        self.endInsertRows()
+
+    def modify_transaction(self, index, value):
         """
         Call for modifyTransaction in source model
         :param index: index in filtered model
@@ -134,7 +144,7 @@ class TransactionsModel(QAbstractListModel):
 
         return len(self.transactions)
 
-    def deleteTransaction(self, index):
+    def delete_transaction(self, index):
         """
         Remove transaction from model according to index
         :param index: index in model
@@ -144,6 +154,18 @@ class TransactionsModel(QAbstractListModel):
         self.beginRemoveRows(QModelIndex(), index.row(), index.row())
         self.transactions.pop(index.row())
         self.endRemoveRows()
+
+    def add_transaction(self):
+        """
+        Add transaction to model
+        :return: void
+        """
+
+        self.beginInsertRows(QModelIndex(), 0, 0)
+        current_date = str(QDate.currentDate().day()) + '/' + str(QDate.currentDate().month()) + '/' + \
+                       str(QDate.currentDate().year())
+        self.transactions.insert(0, ["", "", 0, current_date, "", ""])
+        self.endInsertRows()
 
     def flags(self, index):
         """

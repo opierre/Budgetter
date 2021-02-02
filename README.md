@@ -9,6 +9,7 @@
   - [x] ~~Edit/Delete buttons in Menu~~
   - [x] ~~Filter on click in status bar~~
   - [x] ~~Edit option~~
+  - [ ] Sort per date
   - [ ] Add option
   - [ ] Undo/Redo ?
   - [ ] Search transaction button/textedit ?
