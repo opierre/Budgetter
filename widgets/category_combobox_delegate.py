@@ -1,7 +1,4 @@
-from PySide2.QtCore import QSize, Qt
-from PySide2.QtGui import QPalette, QIcon
-from PySide2.QtWidgets import QStyledItemDelegate, QStyle, QComboBox, QStylePainter, QStyleOptionComboBox, QListView, \
-    QStyleOptionViewItem
+from PySide2.QtWidgets import QStyledItemDelegate, QStyle
 
 
 class CategoryComboBox(QStyledItemDelegate):
@@ -21,37 +18,12 @@ class CategoryComboBox(QStyledItemDelegate):
         :return: void
         """
 
+        """ Init options """
         opt = option
         self.initStyleOption(opt, index)
 
+        """ Set icon in center """
         opt.decorationSize.setWidth(opt.rect.width()-1)
-        opt.decorationSize.setHeight(opt.rect.width()-1)
 
-        style = opt.widget.style()
-        style.drawControl(QStyle.CE_ItemViewItem, opt, painter, opt.widget)
-
-
-# class CategoryView(QListView):
-#     """
-#     Category combobox with icons
-#     """
-#
-#     def __init__(self, parent=None):
-#         super(CategoryView, self).__init__(parent)
-#
-#         self.setViewMode(QListView.IconMode)
-#         self.setFlow(QListView.TopToBottom)
-#         self.setWrapping(False)
-#
-#     def viewOptions(self):
-#         """
-#         Override viewOptions()
-#         :return: QStyleOptionViewItem
-#         """
-#
-#         ''' Set icon on the top and center of combo box item '''
-#         option = QListView.viewOptions(self)
-#         option.decorationAlignment = Qt.AlignHCenter | Qt.AlignVCenter
-#         option.decorationPosition = QStyleOptionViewItem.Top
-#         option.displayAlignment = Qt.AlignCenter
-#         return option
+        """ Draw item """
+        opt.widget.style().drawControl(QStyle.CE_ItemViewItem, opt, painter, opt.widget)

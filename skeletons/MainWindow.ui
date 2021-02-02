@@ -181,6 +181,11 @@ QComboBox QAbstractItemView
 	margin-top: 5px;
 }
 
+QComboBox QAbstractItemView::item
+{
+	min-height: 35px;
+}
+
 QComboBox QScollBar:vertical
 {
 	border: 0px;
@@ -643,6 +648,20 @@ QListView
 {
 	background-color: transparent;
 	border: none;
+}
+
+QListView::item
+{
+	background: #212F41;
+	color: white;
+	outline: none;
+}
+
+QListView::item:hover
+{
+	background: #0190EA;
+	color: white;
+	outline: none;
 }
 
 QMenu 

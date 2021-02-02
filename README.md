@@ -8,7 +8,7 @@
 * Transaction content:
   - [x] ~~Edit/Delete buttons in Menu~~
   - [x] ~~Filter on click in status bar~~
-  - [ ] Edit option
+  - [x] ~~Edit option~~
   - [ ] Add option
   - [ ] Undo/Redo ?
   - [ ] Search transaction button/textedit ?
