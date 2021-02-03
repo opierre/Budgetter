@@ -119,6 +119,10 @@ class TransactionDelegate(QStyledItemDelegate):
                 self.transactionEditPressed.emit(index, self.rect_name, self.rect_amount, self.rect_date,
                                                  self.rect_account, self.rect_exp_or_inc, self.rect_category,
                                                  self.rect_category_name)
+
+                """ Set transaction editable to paint different """
+                self.set_editable(index)
+
                 return True
             elif self.rect_delete.contains(cursorPosition) and index != self.editable:
                 """ Emit pressed signal with model's index """

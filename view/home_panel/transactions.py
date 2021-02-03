@@ -264,9 +264,6 @@ class Transactions(QObject):
         :return: void
         """
 
-        """ Set transaction editable to paint different """
-        self.transaction_delegate.set_editable(index)
-
         """ Configure Name widget """
         self.edit_name.setText(self.transactions_model.data(index, Qt.DisplayRole)[0])
         fontMetrics = QFontMetrics(self.edit_name.font())
@@ -357,7 +354,8 @@ class Transactions(QObject):
         self.transactions_filter_model.add_transaction()
 
         """ Set editable mode """
-        self.edit_transaction(QModelIndex())
+        index = self.transactions_filter_model.index(0, 0)
+        self.transaction_delegate.set_editable(index)
 
     def modify_transaction(self, index):
         """
