@@ -274,7 +274,10 @@ class Transactions(QObject):
 
         """ Configure ComboBox/Label widget """
         selectedCategory = self.transactions_model.data(index, Qt.DisplayRole)[1]
-        self.edit_category_name.setText(selectedCategory)
+        if selectedCategory == '':
+            self.edit_category.setCurrentIndex(-1)
+        else:
+            self.edit_category_name.setText(selectedCategory)
         self.edit_category.setGeometry(rectCategory.x(), rectCategory.y(), rectCategory.width(), rectCategory.height())
         self.edit_category_name.setGeometry(rectCategoryName.x(), rectCategoryName.y(), rectCategoryName.width(), rectCategoryName.height())
         self.edit_category.setVisible(True)
@@ -356,6 +359,10 @@ class Transactions(QObject):
         """ Set editable mode """
         index = self.transactions_filter_model.index(0, 0)
         self.transaction_delegate.set_editable(index)
+
+        """ Retrieve all rects """
+        output = self.transaction_delegate.get_first_row_rects()
+        self.edit_transaction(index, output[0], output[1], output[2], output[3], output[4], output[5], output[6])
 
     def modify_transaction(self, index):
         """

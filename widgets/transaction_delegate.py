@@ -1,7 +1,7 @@
 import datetime
 
 from PySide2 import QtCore
-from PySide2.QtCore import QSize, Qt, QRect, QRectF, QPointF, Signal, QModelIndex
+from PySide2.QtCore import QSize, Qt, QRect, QRectF, QPointF, Signal, QModelIndex, QEvent
 from PySide2.QtGui import QPen, QColor, QPainter, QFont, QFontMetrics, QIcon
 from PySide2.QtSvg import QSvgRenderer
 from PySide2.QtWidgets import QStyledItemDelegate, QPushButton, QStyleOptionButton, QStyle, \
@@ -56,6 +56,15 @@ class TransactionDelegate(QStyledItemDelegate):
         self.rect_account = None
         self.rect_exp_or_inc = None
 
+        """ Store buttons rectangle for first row on add """
+        self.rect_category_first_row = None
+        self.rect_category_name_first_row = None
+        self.rect_name_first_row = None
+        self.rect_amount_first_row = None
+        self.rect_date_first_row = None
+        self.rect_account_first_row = None
+        self.rect_exp_or_inc_first_row = None
+
         """ Configure Widgets """
         self.configure_widgets()
 
@@ -85,6 +94,20 @@ class TransactionDelegate(QStyledItemDelegate):
         """
 
         self.editable = index
+
+    def get_first_row_rects(self):
+        """
+        Retrieve first row rectangles
+        :return: first row rectangles
+        """
+
+        return [self.rect_name_first_row,
+                self.rect_amount_first_row,
+                self.rect_date_first_row,
+                self.rect_account_first_row,
+                self.rect_exp_or_inc_first_row,
+                self.rect_category_first_row,
+                self.rect_category_name_first_row]
 
     def createEditor(self, parent, option, index):
         """
@@ -502,3 +525,12 @@ class TransactionDelegate(QStyledItemDelegate):
             self.cancel.style().drawControl(QStyle.CE_PushButton, optionMore, painter, self.cancel)
 
         painter.restore()
+
+        if index.row() == 0:
+            self.rect_category_first_row = self.rect_category
+            self.rect_category_name_first_row = self.rect_category_name
+            self.rect_name_first_row = self.rect_name
+            self.rect_amount_first_row = self.rect_amount
+            self.rect_date_first_row = self.rect_date
+            self.rect_account_first_row = self.rect_account
+            self.rect_exp_or_inc_first_row = self.rect_exp_or_inc

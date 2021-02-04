@@ -162,9 +162,8 @@ class TransactionsModel(QAbstractListModel):
         """
 
         self.beginInsertRows(QModelIndex(), 0, 0)
-        current_date = str(QDate.currentDate().day()) + '/' + str(QDate.currentDate().month()) + '/' + \
-                       str(QDate.currentDate().year())
-        self.transactions.insert(0, ["", "", 0, current_date, "", ""])
+        current_date = QDate.currentDate().toString("dd/MM/yyyy")
+        self.transactions.insert(0, ["Name", "", 0, current_date, "", "Expenses"])
         self.endInsertRows()
 
     def flags(self, index):
