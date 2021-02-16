@@ -11,6 +11,12 @@ class Account(models.Model):
     bank = models.ForeignKey(Bank, on_delete=models.CASCADE)
 
 
+class Category(models.Model):
+    name = models.CharField(max_length=1000, blank=False, null=False)
+    amount = models.FloatField(blank=True, null=True)
+    nb_transactions = models.IntegerField(blank=True, null=True)
+
+
 class Transaction(models.Model):
     name = models.CharField(max_length=1000, blank=False, null=False)
     category = models.CharField(max_length=1000, blank=False, null=False)

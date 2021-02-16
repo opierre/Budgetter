@@ -1,6 +1,6 @@
 from rest_framework.serializers import ModelSerializer
 
-from dashboard.models import Transaction, Bank, Account
+from dashboard.models import Transaction, Bank, Account, Category
 
 
 class BankSerializer(ModelSerializer):
@@ -20,5 +20,12 @@ class TransactionSerializer(ModelSerializer):
 
     class Meta:
         model = Transaction
+        fields = '__all__'
+
+
+class CategorySerializer(ModelSerializer):
+
+    class Meta:
+        model = Category
         fields = '__all__'
 
