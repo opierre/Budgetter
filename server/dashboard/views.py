@@ -1,7 +1,7 @@
 from rest_framework.viewsets import ModelViewSet
 
-from dashboard.models import Transaction, Bank, Account, Category
-from dashboard.serializers import TransactionSerializer, BankSerializer, AccountSerializer, CategorySerializer
+from dashboard.models import Transaction, Bank, Account
+from dashboard.serializers import TransactionSerializer, BankSerializer, AccountSerializer
 
 
 class BankViewSet(ModelViewSet):
@@ -19,11 +19,14 @@ class TransactionViewSet(ModelViewSet):
     serializer_class = TransactionSerializer
 
 
-class CategoryViewSet(ModelViewSet):
-    queryset = Category.objects.all()
-    serializer_class = CategorySerializer
-
-
 class TopCategoriesViewSet(ModelViewSet):
-    queryset = Category.objects.annotate()[:6]
+    queryset = Transaction.objects.all()
     serializer_class = TransactionSerializer
+
+    def get_queryset(self):
+
+        if ('year' and 'month') in self.request.GET:
+            year = self.request.GET['year']
+            month = self.request.GET['month']
+
+            query_set = Transaction.objects.filter(date__year=year, date__month=month)

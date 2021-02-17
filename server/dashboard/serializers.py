@@ -22,10 +22,3 @@ class TransactionSerializer(ModelSerializer):
         model = Transaction
         fields = '__all__'
 
-
-class CategorySerializer(ModelSerializer):
-
-    class Meta:
-        model = Category
-        fields = '__all__'
-
