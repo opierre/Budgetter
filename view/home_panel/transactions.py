@@ -4,6 +4,8 @@ from PySide2.QtWidgets import QVBoxLayout, QStatusBar, QWidget, QPushButton, QLi
     QInputDialog, QDoubleSpinBox, QDateEdit, QAbstractItemView, QComboBox, QLabel
 
 from models.transactions_model import TransactionsModel, TransactionsFilterModel
+from utils.rest_client import RestClient
+from utils.xml_json_converter import XMLJSONConverter
 from widgets.calendar_widget import CalendarWidget
 from widgets.category_combobox_delegate import CategoryComboBox
 from widgets.expense_income_widget import ExpensesOrIncome
@@ -377,6 +379,10 @@ class Transactions(QObject):
 
         """ Remove transaction from model - [Name, Category, Amount, Date, Account, ExpenseOrIncome] """
         self.transactions_filter_model.modify_transaction(index, value)
+
+        # TODO: to remove
+        json_data = XMLJSONConverter().convert_transaction_to_json(value)
+        rest_client = RestClient().POST("http://127.0.0.1:8000/dashboard/transaction/", json_data)
 
         """ Hide editable widgets """
         self.hide_edit_widgets()
