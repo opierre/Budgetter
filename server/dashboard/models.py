@@ -26,3 +26,9 @@ class Transaction(models.Model):
     ]
     type = models.CharField(max_length=1000, choices=TYPE_CHOICES, default=EXPENSES)
     comment = models.CharField(max_length=1000, blank=True, null=True)
+
+
+class TopCategory(models.Model):
+    name = models.CharField(max_length=1000, blank=False, null=False)
+    nbTransactions = models.IntegerField(blank=False, null=False)
+    amount = models.FloatField(blank=False, null=False)
