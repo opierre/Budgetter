@@ -162,8 +162,9 @@ class TransactionsModel(QAbstractListModel):
         """
 
         self.beginInsertRows(QModelIndex(), 0, 0)
+        previous_type = self.data(self.index(0, 0, QModelIndex()), Qt.DisplayRole)[-1]
         current_date = QDate.currentDate().toString("dd/MM/yyyy")
-        self.transactions.insert(0, ["Name", "", 0, current_date, "", "Expenses"])
+        self.transactions.insert(0, ["Name", "", 0, current_date, "", previous_type])
         self.endInsertRows()
 
     def flags(self, index):

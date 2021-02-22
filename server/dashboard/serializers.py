@@ -1,3 +1,4 @@
+from rest_framework.relations import SlugRelatedField
 from rest_framework.serializers import ModelSerializer
 
 from dashboard.models import Transaction, Bank, Account, TopCategory
@@ -17,6 +18,12 @@ class AccountSerializer(ModelSerializer):
 
 
 class TransactionSerializer(ModelSerializer):
+    account = SlugRelatedField(
+        many=False,
+        read_only=False,
+        slug_field='name',
+        queryset=Account.objects.all()
+     )
 
     class Meta:
         model = Transaction

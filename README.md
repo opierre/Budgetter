@@ -10,12 +10,25 @@
   - [x] ~~Filter on click in status bar~~
   - [x] ~~Edit option~~
   - [ ] Sort per date
-  - [ ] Add option
+  - [x] Add option
+  - [ ] Shortcuts: Del/Enter
   - [ ] Undo/Redo ?
+  - [ ] View comment with eye icon
   - [ ] Search transaction button/textedit ?
 * Second menu :
   - [ ] Each QDockWidget on a single page (*hide/show*)
 * Error/Info Pop-Up
-* DB creation
 * Settings
 * Logo
+
+* DB creation:
+  - [ ] Thread to handle calls
+  - [ ] Handle exceptions
+
+## TOFIX
+
+* Transaction panel :
+  - [ ] Circle around expenses on select
+  - [ ] Max size on amount
+  - [ ] Max size on name
+  - [ ] Mouse cursor when add buton clicked

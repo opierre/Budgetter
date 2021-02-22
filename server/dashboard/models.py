@@ -18,8 +18,8 @@ class Transaction(models.Model):
     date = models.DateField(blank=False, null=False)
     account = models.ForeignKey(Account, blank=False, null=True, on_delete=models.CASCADE)
 
-    EXPENSES = 'EXP'
-    INCOME = 'INC'
+    EXPENSES = 'Expenses'
+    INCOME = 'Income'
     TYPE_CHOICES = [
         (EXPENSES, 'Expenses'),
         (INCOME, 'Income'),
