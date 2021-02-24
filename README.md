@@ -10,7 +10,7 @@
   - [x] ~~Filter on click in status bar~~
   - [x] ~~Edit option~~
   - [ ] Sort per date
-  - [x] Add option
+  - [x] ~~Add option~~
   - [ ] Shortcuts: Del/Enter
   - [ ] Undo/Redo ?
   - [ ] View comment with eye icon
@@ -31,4 +31,3 @@
   - [ ] Circle around expenses on select
   - [ ] Max size on amount
   - [ ] Max size on name
-  - [ ] Mouse cursor when add buton clicked

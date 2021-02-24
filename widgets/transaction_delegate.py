@@ -14,7 +14,7 @@ class TransactionDelegate(QStyledItemDelegate):
     """
 
     """ Signal emitted on Edit button click """
-    transactionEditPressed = Signal(QModelIndex, QRect, QRect, QRect, QRect, QRectF, QRectF, QRectF)
+    transactionEditPressed = Signal(QModelIndex, QRect, QRect, QRect, QRect, QRectF, QRectF, QRectF, QRect, QRect)
 
     """ Signal emitted on Delete button click """
     transactionDeletePressed = Signal(QModelIndex)
@@ -41,10 +41,6 @@ class TransactionDelegate(QStyledItemDelegate):
         self.edit = QPushButton()
         self.delete = QPushButton()
 
-        """ Apply/Cancel QPushButtons """
-        self.apply = QPushButton()
-        self.cancel = QPushButton()
-
         """ Store buttons rectangle """
         self.rect_edit = None
         self.rect_delete = None
@@ -64,6 +60,8 @@ class TransactionDelegate(QStyledItemDelegate):
         self.rect_date_first_row = None
         self.rect_account_first_row = None
         self.rect_exp_or_inc_first_row = None
+        self.rect_edit_first_row = None
+        self.rect_delete_first_row = None
 
         """ Configure Widgets """
         self.configure_widgets()
@@ -77,14 +75,10 @@ class TransactionDelegate(QStyledItemDelegate):
         """ Set icon """
         self.edit.setIcon(QIcon(":/images/images/edit-white-18dp.svg"))
         self.delete.setIcon(QIcon(":/images/images/delete-white-18dp.svg"))
-        self.apply.setIcon(QIcon(":/images/images/check-white-18dp.svg"))
-        self.cancel.setIcon(QIcon(":/images/images/close-white-18dp.svg"))
 
         """ Set background color """
         self.edit.setStyleSheet("background-color: transparent;\n")
         self.delete.setStyleSheet("background-color: transparent;\n")
-        self.apply.setStyleSheet("background-color: transparent;\n")
-        self.cancel.setStyleSheet("background-color: transparent;\n")
 
     def set_editable(self, index):
         """
@@ -94,6 +88,7 @@ class TransactionDelegate(QStyledItemDelegate):
         """
 
         self.editable = index
+        self.selected = index
 
     def get_first_row_rects(self):
         """
@@ -107,7 +102,9 @@ class TransactionDelegate(QStyledItemDelegate):
                 self.rect_account_first_row,
                 self.rect_exp_or_inc_first_row,
                 self.rect_category_first_row,
-                self.rect_category_name_first_row]
+                self.rect_category_name_first_row,
+                self.rect_edit_first_row,
+                self.rect_delete_first_row]
 
     def createEditor(self, parent, option, index):
         """
@@ -141,7 +138,7 @@ class TransactionDelegate(QStyledItemDelegate):
                 """ Emit pressed signal with model's index and rect position """
                 self.transactionEditPressed.emit(index, self.rect_name, self.rect_amount, self.rect_date,
                                                  self.rect_account, self.rect_exp_or_inc, self.rect_category,
-                                                 self.rect_category_name)
+                                                 self.rect_category_name, self.rect_edit, self.rect_delete)
 
                 """ Set transaction editable to paint different """
                 self.set_editable(index)
@@ -150,22 +147,6 @@ class TransactionDelegate(QStyledItemDelegate):
             elif self.rect_delete.contains(cursorPosition) and index != self.editable:
                 """ Emit pressed signal with model's index """
                 self.transactionDeletePressed.emit(index)
-                return True
-            elif self.rect_edit.contains(cursorPosition) and index == self.editable:
-                """ Emit signal to update data from external widgets """
-                self.transactionModified.emit(index)
-
-                """ Update editable item """
-                self.editable = False
-
-                return True
-            elif self.rect_delete.contains(cursorPosition) and index == self.editable:
-                """ Emit signal to cancel data update from external widgets """
-                self.transactionModifCanceled.emit(index)
-
-                """ Update editable item """
-                self.editable = False
-
                 return True
             else:
                 return False
@@ -493,14 +474,14 @@ class TransactionDelegate(QStyledItemDelegate):
             optionMore.state = optionMore.state or QStyle.State_MouseOver
 
             self.edit.style().drawControl(QStyle.CE_PushButton, optionMore, painter, self.edit)
-        elif self.editable == index:
-            optionMore.initFrom(self.apply)
-            optionMore.rect = self.rect_edit
-            optionMore.icon = self.apply.icon()
-            optionMore.iconSize = QtCore.QSize(18, 18)
-            optionMore.state = optionMore.state or QStyle.State_MouseOver
-
-            self.apply.style().drawControl(QStyle.CE_PushButton, optionMore, painter, self.apply)
+        # elif self.editable == index:
+        #     optionMore.initFrom(self.apply)
+        #     optionMore.rect = self.rect_edit
+        #     optionMore.icon = self.apply.icon()
+        #     optionMore.iconSize = QtCore.QSize(18, 18)
+        #     optionMore.state = optionMore.state or QStyle.State_MouseOver
+        #
+        #     self.apply.style().drawControl(QStyle.CE_PushButton, optionMore, painter, self.apply)
 
         """ Buttons rects """
         self.rect_delete = QRect(rectBackground.width() + rectBackground.x() - self.rect_category.x() / 1.3, self.rect_category_name.y(),
@@ -515,14 +496,14 @@ class TransactionDelegate(QStyledItemDelegate):
             optionMore.state = optionMore.state or QStyle.State_MouseOver
 
             self.delete.style().drawControl(QStyle.CE_PushButton, optionMore, painter, self.delete)
-        elif self.editable == index:
-            optionMore.initFrom(self.cancel)
-            optionMore.rect = self.rect_delete
-            optionMore.icon = self.cancel.icon()
-            optionMore.iconSize = QtCore.QSize(18, 18)
-            optionMore.state = optionMore.state or QStyle.State_MouseOver
-
-            self.cancel.style().drawControl(QStyle.CE_PushButton, optionMore, painter, self.cancel)
+        # elif self.editable == index:
+        #     optionMore.initFrom(self.cancel)
+        #     optionMore.rect = self.rect_delete
+        #     optionMore.icon = self.cancel.icon()
+        #     optionMore.iconSize = QtCore.QSize(18, 18)
+        #     optionMore.state = optionMore.state or QStyle.State_MouseOver
+        #
+        #     self.cancel.style().drawControl(QStyle.CE_PushButton, optionMore, painter, self.cancel)
 
         painter.restore()
 
@@ -534,3 +515,5 @@ class TransactionDelegate(QStyledItemDelegate):
             self.rect_date_first_row = self.rect_date
             self.rect_account_first_row = self.rect_account
             self.rect_exp_or_inc_first_row = self.rect_exp_or_inc
+            self.rect_edit_first_row = self.rect_edit
+            self.rect_delete_first_row = self.rect_delete

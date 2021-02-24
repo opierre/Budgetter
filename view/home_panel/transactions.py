@@ -1,11 +1,10 @@
-from PySide2.QtCore import QObject, Qt, QDate, QRect, QSize, QModelIndex
+from PySide2.QtCore import QObject, Qt, QDate, QRect, QSize, QModelIndex, QItemSelectionModel
 from PySide2.QtGui import QIcon, QFont, QFontMetrics
 from PySide2.QtWidgets import QVBoxLayout, QStatusBar, QWidget, QPushButton, QListView, QMenu, QFrame, QLineEdit, \
     QInputDialog, QDoubleSpinBox, QDateEdit, QAbstractItemView, QComboBox, QLabel
 
 from models.transactions_model import TransactionsModel, TransactionsFilterModel
 from utils.rest_client import RestClient
-from utils.xml_json_converter import XMLJSONConverter
 from widgets.calendar_widget import CalendarWidget
 from widgets.category_combobox_delegate import CategoryComboBox
 from widgets.expense_income_widget import ExpensesOrIncome
@@ -74,6 +73,10 @@ class Transactions(QObject):
 
         """ Store Combobox for type expense selection on transaction """
         self.edit_exp_or_inc = ExpensesOrIncome(self.transactions_listview)
+
+        """ Store Apply/Cancel QPushButtons when in edit mode """
+        self.apply = QPushButton(parent=self.transactions_listview)
+        self.cancel = QPushButton(parent=self.transactions_listview)
 
         """ Model for filtering """
         self.transactions_filter_model = TransactionsFilterModel()
@@ -243,6 +246,20 @@ class Transactions(QObject):
         self.edit_category.setVisible(False)
         self.edit_category_name.setVisible(False)
 
+        """ Configure Apply/Cancel buttons """
+        self.apply.setIcon(QIcon(":/images/images/check-white-18dp.svg"))
+        self.cancel.setIcon(QIcon(":/images/images/close-white-18dp.svg"))
+        self.apply.setIconSize(QSize(18, 18))
+        self.cancel.setIconSize(QSize(18, 18))
+        self.apply.setCursor(Qt.PointingHandCursor)
+        self.cancel.setCursor(Qt.PointingHandCursor)
+        self.apply.setStyleSheet("background-color: transparent;\n")
+        self.cancel.setStyleSheet("background-color: transparent;\n")
+        self.apply.setVisible(False)
+        self.cancel.setVisible(False)
+        self.apply.clicked.connect(self.modify_transaction)
+        self.cancel.clicked.connect(self.hide_edit_widgets)
+
     def update_category_name(self, name):
         """
         Update category name
@@ -258,7 +275,8 @@ class Transactions(QObject):
         pixels_width = font_metrics.width(self.edit_category_name.text())
         self.edit_category_name.setFixedWidth(pixels_width)
 
-    def edit_transaction(self, index, rectName, rectAmount, rectDate, rectAccount, rectExpOrInc, rectCategory, rectCategoryName):
+    def edit_transaction(self, index, rectName, rectAmount, rectDate, rectAccount, rectExpOrInc, rectCategory,
+                         rectCategoryName, rectEdit, rectDelete):
         """
         Edit transaction on Edit click
         :param index: item's index
@@ -269,6 +287,8 @@ class Transactions(QObject):
         :param rectExpOrInc: rect where to put ExpOrInc
         :param rectCategory: rect where to put Category
         :param rectCategoryName: rect where to put Category Name
+        :param rectEdit: rect where to put Apply button
+        :param rectDelete: rect where to put Cancel button
         :return: void
         """
 
@@ -323,6 +343,12 @@ class Transactions(QObject):
         self.edit_exp_or_inc.setActiveType(selectedExpOrInc)
         self.edit_exp_or_inc.setVisible(True)
 
+        """ Configure Apply/Cancel buttons """
+        self.apply.setGeometry(rectEdit)
+        self.cancel.setGeometry(rectDelete)
+        self.apply.setVisible(True)
+        self.cancel.setVisible(True)
+
     def resize_edit_widget(self):
         """
         Resize sender object (width especially) according to typed content
@@ -368,9 +394,14 @@ class Transactions(QObject):
         index = self.transactions_filter_model.index(0, 0)
         self.transaction_delegate.set_editable(index)
 
+        """ Select line """
+        selection_model = self.transactions_listview.selectionModel()
+        selection_model.select(index, QItemSelectionModel.ClearAndSelect)
+
         """ Retrieve all rects """
         output = self.transaction_delegate.get_first_row_rects()
-        self.edit_transaction(index, output[0], output[1], output[2], output[3], output[4], output[5], output[6])
+        self.edit_transaction(index, output[0], output[1], output[2], output[3], output[4], output[5], output[6],
+                              output[7], output[8])
 
     def modify_transaction(self, index):
         """
@@ -383,11 +414,15 @@ class Transactions(QObject):
                  "amount": self.edit_amount.value(), "date": self.edit_date.date().toString("dd/MM/yyyy"),
                  "account": self.edit_account.currentText(), "type": self.edit_exp_or_inc.activeType()}
 
-        """ Remove transaction from model - [Name, Category, Amount, Date, Account, ExpenseOrIncome] """
-        self.transactions_filter_model.modify_transaction(index, value)
+        """ Remove transaction from model """
+        self.transactions_filter_model.modify_transaction(self.transaction_delegate.editable, value)
 
         # TODO: to remove
         rest_client = RestClient().POST("http://127.0.0.1:8000/dashboard/transaction/", value)
+
+        """ Clear selection """
+        selection_model = self.transactions_listview.selectionModel()
+        selection_model.select(self.transaction_delegate.editable, QItemSelectionModel.Clear)
 
         """ Hide editable widgets """
         self.hide_edit_widgets()
@@ -406,6 +441,11 @@ class Transactions(QObject):
         self.edit_exp_or_inc.setVisible(False)
         self.edit_category.setVisible(False)
         self.edit_category_name.setVisible(False)
+        self.apply.setVisible(False)
+        self.cancel.setVisible(False)
+
+        """ Disable editable state """
+        self.transaction_delegate.set_editable(False)
 
     def configure_layout(self):
         """

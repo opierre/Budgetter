@@ -61,7 +61,7 @@ class TransactionsFilterModel(QSortFilterProxyModel):
         """
         Call for modifyTransaction in source model
         :param index: index in filtered model
-        :param value: value - [Name, Category, Amount, Date, Account, ExpenseOrIncome]
+        :param value: value
         :return: void
         """
 
@@ -83,11 +83,11 @@ class TransactionsFilterModel(QSortFilterProxyModel):
         if self.type == 'All' and self.account == 'All':
             return True
         elif self.type == 'All' and self.account != 'All':
-            return transaction[-3] == self.account
+            return transaction["account"] == self.account
         elif self.type != 'All' and self.account == 'All':
-            return transaction[-2] == self.type
+            return transaction["type"] == self.type
         elif self.type != 'All' and self.account != 'All':
-            return (transaction[-2] == self.type) and (transaction[-3] == self.account)
+            return (transaction["type"] == self.type) and (transaction["account"] == self.account)
 
 
 class TransactionsModel(QAbstractListModel):
@@ -119,7 +119,7 @@ class TransactionsModel(QAbstractListModel):
         """
         Override setData() from QAbstractListModel
         :param index: index
-        :param value: value - [Name, Category, Amount, Date, Account, ExpenseOrIncome]
+        :param value: value
         :param role: role
         :return: according to role (text, ...)
         """
