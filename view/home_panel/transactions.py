@@ -79,24 +79,33 @@ class Transactions(QObject):
         self.transactions_filter_model = TransactionsFilterModel()
 
         """ Model to handle data in transactions list """
-        self.transactions_model = TransactionsModel([["Flunch",
-                                                      "Restaurants",
-                                                      25.99,
-                                                      "20/02/2020",
-                                                      "Compte Chèque",
-                                                      "Income"],
-                                                     ["Gasoil",
-                                                      "Transport",
-                                                      40.01,
-                                                      "12/05/2020",
-                                                      "Livret A",
-                                                      "Expenses"],
-                                                     ["Computer",
-                                                      "Groceries",
-                                                      900.99,
-                                                      "24/05/2020",
-                                                      "Livret Jeune",
-                                                      "Expenses"]])
+        d = [
+            {
+                "name": "Flunch",
+                "category": "Restaurants",
+                "amount": 25.99,
+                "date": "20/02/2020",
+                "account": "Compte Chèque",
+                "type": "Income"
+            },
+            {
+                "name": "Gasoil",
+                "category": "Transport",
+                "amount": 40.01,
+                "date": "12/05/2020",
+                "account": "Livret A",
+                "type": "Expenses"
+            },
+            {
+                "name": "Computer",
+                "category": "Groceries",
+                "amount": 900.99,
+                "date": "24/05/2020",
+                "account": "Livret Jeune",
+                "type": "Expenses"
+            }
+        ]
+        self.transactions_model = TransactionsModel(d)
 
         """ Configure edit widgets """
         self.configure_edit_widgets()
@@ -264,7 +273,7 @@ class Transactions(QObject):
         """
 
         """ Configure Name widget """
-        self.edit_name.setText(self.transactions_model.data(index, Qt.DisplayRole)[0])
+        self.edit_name.setText(self.transactions_model.data(index, Qt.DisplayRole)["name"])
         fontMetrics = QFontMetrics(self.edit_name.font())
         pixelsWidth = fontMetrics.width(self.edit_name.text())
         pixelsHeight = fontMetrics.height()
@@ -272,7 +281,7 @@ class Transactions(QObject):
         self.edit_name.setVisible(True)
 
         """ Configure ComboBox/Label widget """
-        selectedCategory = self.transactions_model.data(index, Qt.DisplayRole)[1]
+        selectedCategory = self.transactions_model.data(index, Qt.DisplayRole)["category"]
         if selectedCategory == '':
             self.edit_category.setCurrentIndex(-1)
         else:
@@ -283,7 +292,7 @@ class Transactions(QObject):
         self.edit_category_name.setVisible(True)
 
         """ Configure Amount widget """
-        amount = self.transactions_model.data(index, Qt.DisplayRole)[2]
+        amount = self.transactions_model.data(index, Qt.DisplayRole)["amount"]
         self.edit_amount.setValue(amount)
         fontMetrics = QFontMetrics(self.edit_amount.font())
         pixelsWidth = fontMetrics.width(str(self.edit_amount.value()))
@@ -292,7 +301,7 @@ class Transactions(QObject):
         self.edit_amount.setVisible(True)
 
         """ Configure DateEdit widget """
-        dateStr = self.transactions_model.data(index, Qt.DisplayRole)[3]
+        dateStr = self.transactions_model.data(index, Qt.DisplayRole)["date"]
         self.edit_date.setDate(QDate.fromString(dateStr, 'dd/MM/yyyy'))
         fontMetrics = QFontMetrics(self.edit_date.font())
         pixelsWidth = fontMetrics.width(self.edit_date.date().toString('dd/MM/yyyy'))
@@ -301,13 +310,13 @@ class Transactions(QObject):
         self.edit_date.setVisible(True)
 
         """ Configure ComboBox widget """
-        selectedAccount = self.transactions_model.data(index, Qt.DisplayRole)[4]
+        selectedAccount = self.transactions_model.data(index, Qt.DisplayRole)["account"]
         self.edit_account.setCurrentText(selectedAccount)
         self.edit_account.move(rectAccount.x(), rectAccount.y() - 3)
         self.edit_account.setVisible(True)
 
         """ Configure Custom widget """
-        selectedExpOrInc = self.transactions_model.data(index, Qt.DisplayRole)[5]
+        selectedExpOrInc = self.transactions_model.data(index, Qt.DisplayRole)["type"]
         rectExpOrIncResized = QRect(round(rectExpOrInc.x()), round(rectExpOrInc.y()),
                                     round(rectExpOrInc.width() * 2 / 3), round(rectExpOrInc.height()))
         self.edit_exp_or_inc.setGeometry(rectExpOrIncResized)
@@ -370,16 +379,15 @@ class Transactions(QObject):
         :return: void
         """
 
-        value = [self.edit_name.text(), self.edit_category_name.text(), self.edit_amount.value(),
-                 self.edit_date.date().toString("dd/MM/yyyy"),
-                 self.edit_account.currentText(), self.edit_exp_or_inc.activeType()]
+        value = {"name": self.edit_name.text(), "category": self.edit_category_name.text(),
+                 "amount": self.edit_amount.value(), "date": self.edit_date.date().toString("dd/MM/yyyy"),
+                 "account": self.edit_account.currentText(), "type": self.edit_exp_or_inc.activeType()}
 
         """ Remove transaction from model - [Name, Category, Amount, Date, Account, ExpenseOrIncome] """
         self.transactions_filter_model.modify_transaction(index, value)
 
         # TODO: to remove
-        json_data = XMLJSONConverter().convert_transaction_to_json(value)
-        rest_client = RestClient().POST("http://127.0.0.1:8000/dashboard/transaction/", json_data)
+        rest_client = RestClient().POST("http://127.0.0.1:8000/dashboard/transaction/", value)
 
         """ Hide editable widgets """
         self.hide_edit_widgets()

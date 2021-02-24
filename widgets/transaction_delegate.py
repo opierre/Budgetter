@@ -215,14 +215,14 @@ class TransactionDelegate(QStyledItemDelegate):
 
         """ Get values """
         value = index.data(Qt.DisplayRole)
-        name = str(value[0])
-        category = str(value[1])
-        amount = value[2]
+        name = str(value["name"])
+        category = str(value["category"])
+        amount = value["amount"]
         amount = "{:,.2f}".format(amount).replace(",", " ") + " €"
-        date = str(value[3])
+        date = str(value["date"])
         date = datetime.datetime.strptime(date, '%d/%m/%Y').strftime('%d %b %Y')
-        account = str(value[4])
-        expOrInc = str(value[5])
+        account = str(value["account"])
+        expOrInc = str(value["type"])
 
         """ Draw bottom border """
         painter.setPen(QPen(QColor("#344457")))

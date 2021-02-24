@@ -98,8 +98,8 @@ class TransactionsModel(QAbstractListModel):
     def __init__(self, transactions=None):
         super().__init__()
 
-        """ Store transactions - Name/Category/Amount/Date/Account/IncomeOrExpense """
-        self.transactions = transactions or []
+        """ Store transactions """
+        self.transactions = transactions or dict()
 
     def data(self, index, role):
         """
@@ -124,12 +124,12 @@ class TransactionsModel(QAbstractListModel):
         :return: according to role (text, ...)
         """
 
-        self.transactions[index.row()][0] = value[0]
-        self.transactions[index.row()][1] = value[1]
-        self.transactions[index.row()][2] = value[2]
-        self.transactions[index.row()][3] = value[3]
-        self.transactions[index.row()][4] = value[4]
-        self.transactions[index.row()][5] = value[5]
+        self.transactions[index.row()]["name"] = value["name"]
+        self.transactions[index.row()]["category"] = value["category"]
+        self.transactions[index.row()]["amount"] = value["amount"]
+        self.transactions[index.row()]["date"] = value["date"]
+        self.transactions[index.row()]["account"] = value["account"]
+        self.transactions[index.row()]["type"] = value["type"]
 
         self.dataChanged.emit(index, index)
 
@@ -162,9 +162,10 @@ class TransactionsModel(QAbstractListModel):
         """
 
         self.beginInsertRows(QModelIndex(), 0, 0)
-        previous_type = self.data(self.index(0, 0, QModelIndex()), Qt.DisplayRole)[-1]
+        previous_type = self.data(self.index(0, 0, QModelIndex()), Qt.DisplayRole)["type"]
         current_date = QDate.currentDate().toString("dd/MM/yyyy")
-        self.transactions.insert(0, ["Name", "", 0, current_date, "", previous_type])
+        self.transactions.insert(0, {"name": "Name", "category": "", "amount": 0, "date": current_date,
+                                     "account": "", "type": previous_type})
         self.endInsertRows()
 
     def flags(self, index):
