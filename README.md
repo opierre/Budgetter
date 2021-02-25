@@ -9,7 +9,7 @@
   - [x] ~~Edit/Delete buttons in Menu~~
   - [x] ~~Filter on click in status bar~~
   - [x] ~~Edit option~~
-  - [ ] Sort per date
+  - [x] ~~Sort per date~~
   - [x] ~~Add option~~
   - [ ] Shortcuts: Del/Enter
   - [ ] Undo/Redo ?

@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from PySide2.QtCore import QAbstractListModel, Qt, QSortFilterProxyModel, QModelIndex, QDate
 
 
@@ -73,7 +75,7 @@ class TransactionsFilterModel(QSortFilterProxyModel):
         Override filterAcceptsRow
         :param source_row: source_row
         :param source_parent: source_parent
-        :return: void
+        :return: bool
         """
 
         src_model = self.sourceModel()
@@ -88,6 +90,22 @@ class TransactionsFilterModel(QSortFilterProxyModel):
             return transaction["type"] == self.type
         elif self.type != 'All' and self.account != 'All':
             return (transaction["type"] == self.type) and (transaction["account"] == self.account)
+
+    def lessThan(self, source_left, source_right):
+        """
+        Override lessThan
+        :param source_left: source_left
+        :param source_right: source_right
+        :return: bool
+        """
+
+        left_data_date = self.sourceModel().data(source_left, Qt.DisplayRole)["date"]
+        right_data_date = self.sourceModel().data(source_right, Qt.DisplayRole)["date"]
+
+        left_date = datetime.strptime(left_data_date, "%d/%m/%Y")
+        right_date = datetime.strptime(right_data_date, "%d/%m/%Y")
+
+        return left_date < right_date
 
 
 class TransactionsModel(QAbstractListModel):

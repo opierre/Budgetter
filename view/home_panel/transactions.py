@@ -253,12 +253,14 @@ class Transactions(QObject):
         self.cancel.setIconSize(QSize(18, 18))
         self.apply.setCursor(Qt.PointingHandCursor)
         self.cancel.setCursor(Qt.PointingHandCursor)
-        self.apply.setStyleSheet("background-color: transparent;\n")
-        self.cancel.setStyleSheet("background-color: transparent;\n")
+        # self.apply.setStyleSheet("QPushButton:hover{border-radius-color: transparent;\n")
+        # self.cancel.setStyleSheet("background-color: transparent;\n")
         self.apply.setVisible(False)
         self.cancel.setVisible(False)
         self.apply.clicked.connect(self.modify_transaction)
         self.cancel.clicked.connect(self.hide_edit_widgets)
+        self.apply.setObjectName(u"apply_cancel")
+        self.cancel.setObjectName(u"apply_cancel")
 
     def update_category_name(self, name):
         """
@@ -293,7 +295,7 @@ class Transactions(QObject):
         """
 
         """ Configure Name widget """
-        self.edit_name.setText(self.transactions_model.data(index, Qt.DisplayRole)["name"])
+        self.edit_name.setText(self.transactions_filter_model.data(index, Qt.DisplayRole)["name"])
         fontMetrics = QFontMetrics(self.edit_name.font())
         pixelsWidth = fontMetrics.width(self.edit_name.text())
         pixelsHeight = fontMetrics.height()
@@ -301,7 +303,7 @@ class Transactions(QObject):
         self.edit_name.setVisible(True)
 
         """ Configure ComboBox/Label widget """
-        selectedCategory = self.transactions_model.data(index, Qt.DisplayRole)["category"]
+        selectedCategory = self.transactions_filter_model.data(index, Qt.DisplayRole)["category"]
         if selectedCategory == '':
             self.edit_category.setCurrentIndex(-1)
         else:
@@ -312,7 +314,7 @@ class Transactions(QObject):
         self.edit_category_name.setVisible(True)
 
         """ Configure Amount widget """
-        amount = self.transactions_model.data(index, Qt.DisplayRole)["amount"]
+        amount = self.transactions_filter_model.data(index, Qt.DisplayRole)["amount"]
         self.edit_amount.setValue(amount)
         fontMetrics = QFontMetrics(self.edit_amount.font())
         pixelsWidth = fontMetrics.width(str(self.edit_amount.value()))
@@ -321,7 +323,7 @@ class Transactions(QObject):
         self.edit_amount.setVisible(True)
 
         """ Configure DateEdit widget """
-        dateStr = self.transactions_model.data(index, Qt.DisplayRole)["date"]
+        dateStr = self.transactions_filter_model.data(index, Qt.DisplayRole)["date"]
         self.edit_date.setDate(QDate.fromString(dateStr, 'dd/MM/yyyy'))
         fontMetrics = QFontMetrics(self.edit_date.font())
         pixelsWidth = fontMetrics.width(self.edit_date.date().toString('dd/MM/yyyy'))
@@ -330,13 +332,13 @@ class Transactions(QObject):
         self.edit_date.setVisible(True)
 
         """ Configure ComboBox widget """
-        selectedAccount = self.transactions_model.data(index, Qt.DisplayRole)["account"]
+        selectedAccount = self.transactions_filter_model.data(index, Qt.DisplayRole)["account"]
         self.edit_account.setCurrentText(selectedAccount)
         self.edit_account.move(rectAccount.x(), rectAccount.y() - 3)
         self.edit_account.setVisible(True)
 
         """ Configure Custom widget """
-        selectedExpOrInc = self.transactions_model.data(index, Qt.DisplayRole)["type"]
+        selectedExpOrInc = self.transactions_filter_model.data(index, Qt.DisplayRole)["type"]
         rectExpOrIncResized = QRect(round(rectExpOrInc.x()), round(rectExpOrInc.y()),
                                     round(rectExpOrInc.width() * 2 / 3), round(rectExpOrInc.height()))
         self.edit_exp_or_inc.setGeometry(rectExpOrIncResized)
@@ -472,6 +474,7 @@ class Transactions(QObject):
 
         """ Date re-filtered if model changed """
         self.transactions_filter_model.setDynamicSortFilter(True)
+        self.transactions_filter_model.sort(0, Qt.DescendingOrder)
 
         """ Set model """
         self.transactions_listview.setModel(self.transactions_filter_model)
@@ -482,8 +485,8 @@ class Transactions(QObject):
         """ Set item delegate"""
         self.transactions_listview.setItemDelegate(self.transaction_delegate)
 
-        """ Set selection mode """
-        # self.transactionsListView.setSelectionMode(QAbstractItemView.SingleSelection)
+        """ Set sorting enable """
+        # self.transactions_listview.sort(QAbstractItemView.SingleSelection)
 
         """ Hide widgets for edition """
         self.edit_name.setVisible(False)

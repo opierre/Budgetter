@@ -474,14 +474,6 @@ class TransactionDelegate(QStyledItemDelegate):
             optionMore.state = optionMore.state or QStyle.State_MouseOver
 
             self.edit.style().drawControl(QStyle.CE_PushButton, optionMore, painter, self.edit)
-        # elif self.editable == index:
-        #     optionMore.initFrom(self.apply)
-        #     optionMore.rect = self.rect_edit
-        #     optionMore.icon = self.apply.icon()
-        #     optionMore.iconSize = QtCore.QSize(18, 18)
-        #     optionMore.state = optionMore.state or QStyle.State_MouseOver
-        #
-        #     self.apply.style().drawControl(QStyle.CE_PushButton, optionMore, painter, self.apply)
 
         """ Buttons rects """
         self.rect_delete = QRect(rectBackground.width() + rectBackground.x() - self.rect_category.x() / 1.3, self.rect_category_name.y(),
@@ -496,14 +488,6 @@ class TransactionDelegate(QStyledItemDelegate):
             optionMore.state = optionMore.state or QStyle.State_MouseOver
 
             self.delete.style().drawControl(QStyle.CE_PushButton, optionMore, painter, self.delete)
-        # elif self.editable == index:
-        #     optionMore.initFrom(self.cancel)
-        #     optionMore.rect = self.rect_delete
-        #     optionMore.icon = self.cancel.icon()
-        #     optionMore.iconSize = QtCore.QSize(18, 18)
-        #     optionMore.state = optionMore.state or QStyle.State_MouseOver
-        #
-        #     self.cancel.style().drawControl(QStyle.CE_PushButton, optionMore, painter, self.cancel)
 
         painter.restore()
 

@@ -117,6 +117,30 @@ QPushButton
 	color: white;
 }
 
+QPushButton#apply_cancel
+{
+	background-color: transparent;
+	border-radius: 9px;
+	border-color: transparent;
+	padding-left: 3px;
+	padding-right: 3px;
+	padding-top: 3px;
+	padding-bottom: 3px;
+	color: white;
+}
+
+QPushButton#apply_cancel:hover
+{
+	background-color: rgba(255, 255, 255, 50);
+	border-radius: 9px;
+	border-color: transparent;
+	padding-left: 3px;
+	padding-right: 3px;
+	padding-top: 3px;
+	padding-bottom: 3px;
+	color: white;
+}
+
 QComboBox 
 {
 	background-color: transparent;
