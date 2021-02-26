@@ -1,7 +1,7 @@
-from PySide2.QtCore import QObject, Qt, QDate, QRect, QSize, QModelIndex, QItemSelectionModel
+from PySide2.QtCore import QObject, Qt, QDate, QRect, QSize, QItemSelectionModel
 from PySide2.QtGui import QIcon, QFont, QFontMetrics
 from PySide2.QtWidgets import QVBoxLayout, QStatusBar, QWidget, QPushButton, QListView, QMenu, QFrame, QLineEdit, \
-    QInputDialog, QDoubleSpinBox, QDateEdit, QAbstractItemView, QComboBox, QLabel
+    QDoubleSpinBox, QDateEdit, QComboBox, QLabel
 
 from models.transactions_model import TransactionsModel, TransactionsFilterModel
 from utils.rest_client import RestClient
@@ -422,10 +422,6 @@ class Transactions(QObject):
         # TODO: to remove
         rest_client = RestClient().POST("http://127.0.0.1:8000/dashboard/transaction/", value)
 
-        """ Clear selection """
-        selection_model = self.transactions_listview.selectionModel()
-        selection_model.select(self.transaction_delegate.editable, QItemSelectionModel.Clear)
-
         """ Hide editable widgets """
         self.hide_edit_widgets()
 
@@ -445,6 +441,10 @@ class Transactions(QObject):
         self.edit_category_name.setVisible(False)
         self.apply.setVisible(False)
         self.cancel.setVisible(False)
+
+        """ Clear selection """
+        selection_model = self.transactions_listview.selectionModel()
+        selection_model.select(self.transaction_delegate.editable, QItemSelectionModel.Clear)
 
         """ Disable editable state """
         self.transaction_delegate.set_editable(False)
@@ -484,9 +484,6 @@ class Transactions(QObject):
 
         """ Set item delegate"""
         self.transactions_listview.setItemDelegate(self.transaction_delegate)
-
-        """ Set sorting enable """
-        # self.transactions_listview.sort(QAbstractItemView.SingleSelection)
 
         """ Hide widgets for edition """
         self.edit_name.setVisible(False)

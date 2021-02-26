@@ -2,7 +2,7 @@ import datetime
 
 from PySide2 import QtCore
 from PySide2.QtCore import QSize, Qt, QRect, QRectF, QPointF, Signal, QModelIndex, QEvent
-from PySide2.QtGui import QPen, QColor, QPainter, QFont, QFontMetrics, QIcon
+from PySide2.QtGui import QPen, QColor, QPainter, QFont, QFontMetrics, QIcon, QKeySequence
 from PySide2.QtSvg import QSvgRenderer
 from PySide2.QtWidgets import QStyledItemDelegate, QPushButton, QStyleOptionButton, QStyle, \
     QApplication
@@ -168,8 +168,24 @@ class TransactionDelegate(QStyledItemDelegate):
                 QApplication.restoreOverrideCursor()
                 return True
 
-        elif event.type() == QtCore.QEvent.KeyPress:
-            return True
+        # TODO: remove shortcut
+        # elif event.type() == QtCore.QEvent.KeyPress:
+        #     if event.matches(QKeySequence.Copy) and self.selected == index and self.editable != index:
+        #         """ Emit pressed signal with model's index """
+        #         self.transactionDeletePressed.emit(index)
+        #         return True
+        #     elif event.key() == Qt.Key_E and self.selected == index and self.editable != index:
+        #         """ Emit pressed signal with model's index and rect position """
+        #         self.transactionEditPressed.emit(index, self.rect_name, self.rect_amount, self.rect_date,
+        #                                          self.rect_account, self.rect_exp_or_inc, self.rect_category,
+        #                                          self.rect_category_name, self.rect_edit, self.rect_delete)
+        #
+        #         """ Set transaction editable to paint different """
+        #         self.set_editable(index)
+        #
+        #         return True
+        #     else:
+        #         print(event.key())
         else:
             return False
 
@@ -461,8 +477,8 @@ class TransactionDelegate(QStyledItemDelegate):
         painter.setBrush(QColor("transparent"))
 
         """ Button edit """
-        self.rect_edit = QRect(rectBackground.width() + rectBackground.x() - self.rect_category.x() / 1.3, self.rect_name.y(),
-                               25, self.rect_name.height())
+        self.rect_edit = QRect(rectBackground.width() + rectBackground.x() - self.rect_category.x() / 1.1,
+                               self.rect_name.y(), 25, self.rect_name.height())
 
         optionMore = QStyleOptionButton()
 
@@ -476,8 +492,8 @@ class TransactionDelegate(QStyledItemDelegate):
             self.edit.style().drawControl(QStyle.CE_PushButton, optionMore, painter, self.edit)
 
         """ Buttons rects """
-        self.rect_delete = QRect(rectBackground.width() + rectBackground.x() - self.rect_category.x() / 1.3, self.rect_category_name.y(),
-                                 25, self.rect_name.height())
+        self.rect_delete = QRect(rectBackground.width() + rectBackground.x() - self.rect_category.x() / 1.1,
+                                 self.rect_category_name.y(), 25, self.rect_name.height())
 
         if self.editable != index and option.state & QStyle.State_Selected:
             optionMore = QStyleOptionButton()

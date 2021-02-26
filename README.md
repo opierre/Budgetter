@@ -11,9 +11,8 @@
   - [x] ~~Edit option~~
   - [x] ~~Sort per date~~
   - [x] ~~Add option~~
-  - [ ] Shortcuts: Del/Enter
+  - [ ] ~~Shortcuts: Del/Enter~~
   - [ ] Undo/Redo ?
-  - [ ] View comment with eye icon
   - [ ] Search transaction button/textedit ?
 * Second menu :
   - [ ] Each QDockWidget on a single page (*hide/show*)

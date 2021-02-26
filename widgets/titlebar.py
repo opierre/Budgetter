@@ -21,9 +21,9 @@ class TitleBar(QWidget):
         self._title.setObjectName(u"titleBarTitle")
 
         """ Empty widget with spacer item """
-        self.emptyWidget = QWidget()
-        self.emptyWidget.setObjectName(u"titleBarEmptyWidget")
-        self.emptyLayout = QHBoxLayout(self.emptyWidget)
+        self.empty_widget = QWidget()
+        self.empty_widget.setObjectName(u"titleBarEmptyWidget")
+        self.empty_layout = QHBoxLayout(self.empty_widget)
 
         """ Spacer item """
         self.spacer = QSpacerItem(40, 10, QSizePolicy.Expanding, QSizePolicy.Minimum)
@@ -32,25 +32,29 @@ class TitleBar(QWidget):
         self._add = QPushButton()
         self._add.setObjectName(u"titleBarAdd")
 
+        """ Add button on top right corner """
+        self._search = LineEditWithIcon()
+        self._search.setObjectName(u"titleBarSearch")
+
         """ Set Widget to occupy all region """
-        self._addWidget = QWidget()
-        self._addWidget.setObjectName(u"leftAddWidget")
-        self._addLayout = QHBoxLayout(self._addWidget)
-        self._leftSpacer = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+        self._add_widget = QWidget()
+        self._add_widget.setObjectName(u"leftAddWidget")
+        self._add_layout = QHBoxLayout(self._add_widget)
+        self._left_spacer = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
         """ Layout for title bar """
         self.layout = QHBoxLayout(self)
 
         """ Configure widgets """
-        self.configureWidgets()
+        self.configure_widgets()
 
         """ Configure layout """
-        self.configureLayout()
+        self.configure_layout()
 
         """ Connect signals and slots """
-        self.connectWidgets()
+        self.connect_widgets()
 
-    def connectWidgets(self):
+    def connect_widgets(self):
         """
         Connect all slots and signals
         :return: void
@@ -59,7 +63,7 @@ class TitleBar(QWidget):
         """ Connect click on _add button to emit signal """
         self._add.clicked[bool].connect(self.clicked.emit)
 
-    def configureWidgets(self):
+    def configure_widgets(self):
         """
         Configure widgets inside container
         :return: void
@@ -72,18 +76,18 @@ class TitleBar(QWidget):
         self._add.setCheckable(True)
         self._add.setChecked(True)
 
-    def configureLayout(self):
+    def configure_layout(self):
         """
         Set elements in layout
         :return: void
         """
 
         """ Configure empty widget """
-        self.emptyLayout.addSpacerItem(self.spacer)
+        self.empty_layout.addSpacerItem(self.spacer)
 
         """ Configure widget with add button """
-        self._addLayout.addSpacerItem(self._leftSpacer)
-        self._addLayout.addWidget(self._add)
+        self._add_layout.addSpacerItem(self._left_spacer)
+        self._add_layout.addWidget(self._add)
         # self._addLayout.addSpacerItem(self._downSpacer)
 
         """ Set margins """
@@ -94,8 +98,8 @@ class TitleBar(QWidget):
 
         """ Add widgets to layout """
         self.layout.addWidget(self._title)
-        self.layout.addWidget(self.emptyWidget)
-        self.layout.addWidget(self._addWidget)
+        self.layout.addWidget(self.empty_widget)
+        self.layout.addWidget(self._add_widget)
 
     def setTitle(self, title):
         """
