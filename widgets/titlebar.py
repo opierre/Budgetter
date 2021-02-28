@@ -2,6 +2,8 @@ from PySide2.QtCore import QSize, Signal
 from PySide2.QtGui import QIcon, Qt
 from PySide2.QtWidgets import QWidget, QHBoxLayout, QLabel, QPushButton, QSpacerItem, QSizePolicy
 
+from widgets.lined_edit_with_icon import LineEditWithIcon
+
 
 class TitleBar(QWidget):
     """
@@ -29,17 +31,17 @@ class TitleBar(QWidget):
         self.spacer = QSpacerItem(40, 10, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
         """ Add button on top right corner """
-        self._add = QPushButton()
+        self._add = QPushButton(self)
         self._add.setObjectName(u"titleBarAdd")
 
         """ Add button on top right corner """
-        self._search = LineEditWithIcon()
+        self._search = LineEditWithIcon(QIcon(":/images/images/search-white-24dp.svg"), self)
         self._search.setObjectName(u"titleBarSearch")
 
         """ Set Widget to occupy all region """
-        self._add_widget = QWidget()
-        self._add_widget.setObjectName(u"leftAddWidget")
-        self._add_layout = QHBoxLayout(self._add_widget)
+        self._widget = QWidget()
+        self._widget.setObjectName(u"leftAddWidget")
+        self._layout = QHBoxLayout(self._widget)
         self._left_spacer = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
         """ Layout for title bar """
@@ -86,8 +88,9 @@ class TitleBar(QWidget):
         self.empty_layout.addSpacerItem(self.spacer)
 
         """ Configure widget with add button """
-        self._add_layout.addSpacerItem(self._left_spacer)
-        self._add_layout.addWidget(self._add)
+        self._layout.addSpacerItem(self._left_spacer)
+        self._layout.addWidget(self._search)
+        self._layout.addWidget(self._add)
         # self._addLayout.addSpacerItem(self._downSpacer)
 
         """ Set margins """
@@ -99,7 +102,7 @@ class TitleBar(QWidget):
         """ Add widgets to layout """
         self.layout.addWidget(self._title)
         self.layout.addWidget(self.empty_widget)
-        self.layout.addWidget(self._add_widget)
+        self.layout.addWidget(self._widget)
 
     def setTitle(self, title):
         """
