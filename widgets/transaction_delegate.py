@@ -231,26 +231,29 @@ class TransactionDelegate(QStyledItemDelegate):
 
         """ Draw item background """
         painter.setPen(QPen(QColor("#26374C")))
-        rectBackground = QRect(option.rect.x()+option.rect.width()*1/60, option.rect.y()+option.rect.height()*1/5,
-                               option.rect.width()-option.rect.width()*2/60, option.rect.height()-option.rect.height()*2/5)
+        rect_background = QRect(option.rect.x() + option.rect.width() * 1 / 60, option.rect.y() + option.rect.height() * 1 / 5,
+                                option.rect.width() - option.rect.width() * 2 / 60, option.rect.height() - option.rect.height() * 2 / 5)
         if self.editable != index and not(option.state & QStyle.State_Selected):
             painter.setBrush(QColor("transparent"))
-            painter.drawRect(rectBackground)
+            painter.drawRect(rect_background)
         elif self.editable != index and option.state & QStyle.State_Selected:
             self.selected = index
             painter.setBrush(QColor("#19344D"))
-            painter.drawRect(rectBackground.x(), rectBackground.y()-option.rect.height()*1/6,
-                             rectBackground.width(), rectBackground.height()+option.rect.height()*2/6)
+            painter.drawRect(rect_background.x(), rect_background.y() - option.rect.height() * 1 / 6,
+                             rect_background.width(), rect_background.height() + option.rect.height() * 2 / 6)
         else:
+            painter.setBrush(QColor("#1C293B"))
+            painter.drawRect(rect_background.x(), rect_background.y() - option.rect.height() * 1 / 6,
+                             rect_background.width()+2, option.rect.height()-2)
             painter.setBrush(QColor("#1A537D"))
-            painter.drawRect(rectBackground.x(), rectBackground.y()-option.rect.height()*1/6,
-                             rectBackground.width(), rectBackground.height()+option.rect.height()*2/6)
+            painter.drawRect(rect_background.x(), rect_background.y() - option.rect.height() * 1 / 6,
+                             rect_background.width(), rect_background.height() + option.rect.height() * 2 / 6)
 
         """ Draw left icon background """
         painter.setPen(QPen(QColor("#21405D")))
         painter.setBrush(QColor("#21405D"))
-        self.rect_category = QRect(rectBackground.x() + option.rect.width() * 1 / 120, rectBackground.y() - option.rect.height() * 1 / 30,
-                                   rectBackground.height() + option.rect.height() * 2 / 30, rectBackground.height() + option.rect.height() * 2 / 30)
+        self.rect_category = QRect(rect_background.x() + option.rect.width() * 1 / 120, rect_background.y() - option.rect.height() * 1 / 30,
+                                   rect_background.height() + option.rect.height() * 2 / 30, rect_background.height() + option.rect.height() * 2 / 30)
         painter.drawRoundedRect(self.rect_category, 1.0, 1.0)
 
         if self.editable != index:
@@ -324,7 +327,7 @@ class TransactionDelegate(QStyledItemDelegate):
         pixelsWidth = fontMetrics.width(amount)
 
         """ Set amount on right corner """
-        self.rect_amount = QRect(rectBackground.width() * 1 / 4, self.rect_name.y(),
+        self.rect_amount = QRect(rect_background.width() * 1 / 4, self.rect_name.y(),
                                  pixelsWidth, pixelsHeight)
         if self.editable != index:
             painter.drawText(self.rect_amount, Qt.AlignLeft | Qt.AlignVCenter, amount)
@@ -343,7 +346,7 @@ class TransactionDelegate(QStyledItemDelegate):
         pixelsHeight = fontMetrics.height()
 
         """ Set percentage beside amount """
-        rectAmountLabel = QRect(rectBackground.width()*1/4, self.rect_category_name.y(),
+        rectAmountLabel = QRect(rect_background.width() * 1 / 4, self.rect_category_name.y(),
                                 pixelsWidth, pixelsHeight)
         painter.drawText(rectAmountLabel, Qt.AlignLeft | Qt.AlignVCenter, "Amount")
 
@@ -361,7 +364,7 @@ class TransactionDelegate(QStyledItemDelegate):
         pixelsWidth = fontMetrics.width(date)
 
         """ Set date on right corner """
-        self.rect_date = QRect(rectBackground.width() * 1.8 / 4, self.rect_name.y(),
+        self.rect_date = QRect(rect_background.width() * 1.8 / 4, self.rect_name.y(),
                                pixelsWidth, pixelsHeight)
         if self.editable != index:
             painter.drawText(self.rect_date, Qt.AlignLeft | Qt.AlignVCenter, date)
@@ -380,7 +383,7 @@ class TransactionDelegate(QStyledItemDelegate):
         pixelsHeight = fontMetrics.height()
 
         """ Set date beside amount """
-        rectDateLabel = QRect(rectBackground.width()*1.8/4, self.rect_category_name.y(),
+        rectDateLabel = QRect(rect_background.width() * 1.8 / 4, self.rect_category_name.y(),
                               pixelsWidth, pixelsHeight)
         painter.drawText(rectDateLabel, Qt.AlignLeft | Qt.AlignVCenter, "Date")
 
@@ -398,7 +401,7 @@ class TransactionDelegate(QStyledItemDelegate):
         pixelsWidth = fontMetrics.width(account)
 
         """ Set account on right corner """
-        self.rect_account = QRect(rectBackground.width() * 2.6 / 4, self.rect_name.y(),
+        self.rect_account = QRect(rect_background.width() * 2.6 / 4, self.rect_name.y(),
                                   pixelsWidth, pixelsHeight)
 
         if self.editable != index:
@@ -418,7 +421,7 @@ class TransactionDelegate(QStyledItemDelegate):
         pixelsHeight = fontMetrics.height()
 
         """ Set account label beside account """
-        rectAccountLabel = QRect(rectBackground.width()*2.6/4, self.rect_category_name.y(),
+        rectAccountLabel = QRect(rect_background.width() * 2.6 / 4, self.rect_category_name.y(),
                                  pixelsWidth, pixelsHeight)
         painter.drawText(rectAccountLabel, Qt.AlignLeft | Qt.AlignVCenter, "Account")
 
@@ -438,7 +441,7 @@ class TransactionDelegate(QStyledItemDelegate):
         pixelsWidth = fontMetrics.width(expOrInc)
 
         """ Set income/expense on right corner """
-        self.rect_exp_or_inc = QRectF(rectBackground.width() * 3.7 / 4 - pixelsWidth - (pixelsHeight + 8) / 2.5,
+        self.rect_exp_or_inc = QRectF(rect_background.width() * 3.7 / 4 - pixelsWidth - (pixelsHeight + 8) / 2.5,
                                       self.rect_category.y() + (self.rect_category.width() - pixelsHeight - 8) / 2.0,
                                       pixelsWidth + (pixelsHeight + 8) / 2.5 + (pixelsHeight+8) / 0.9, pixelsHeight + 8)
 
@@ -464,7 +467,7 @@ class TransactionDelegate(QStyledItemDelegate):
             pen.setWidthF(1)
             painter.setPen(pen)
 
-            self.rect_exp_or_inc = QRectF(rectBackground.width() * 3.7 / 4 - pixelsWidth - (pixelsHeight + 8) / 2.5,
+            self.rect_exp_or_inc = QRectF(rect_background.width() * 3.7 / 4 - pixelsWidth - (pixelsHeight + 8) / 2.5,
                                           self.rect_category.y() + (self.rect_category.width() - pixelsHeight - 8) / 2.0,
                                           (pixelsWidth + (pixelsHeight + 8) / 2.5 + (pixelsHeight + 8) / 0.9) * 2 / 3,
                                           pixelsHeight + 8)
@@ -477,7 +480,7 @@ class TransactionDelegate(QStyledItemDelegate):
         painter.setBrush(QColor("transparent"))
 
         """ Button edit """
-        self.rect_edit = QRect(rectBackground.width() + rectBackground.x() - self.rect_category.x() / 1.1,
+        self.rect_edit = QRect(rect_background.width() + rect_background.x() - self.rect_category.x() / 1.1,
                                self.rect_name.y(), 25, self.rect_name.height())
 
         optionMore = QStyleOptionButton()
@@ -492,7 +495,7 @@ class TransactionDelegate(QStyledItemDelegate):
             self.edit.style().drawControl(QStyle.CE_PushButton, optionMore, painter, self.edit)
 
         """ Buttons rects """
-        self.rect_delete = QRect(rectBackground.width() + rectBackground.x() - self.rect_category.x() / 1.1,
+        self.rect_delete = QRect(rect_background.width() + rect_background.x() - self.rect_category.x() / 1.1,
                                  self.rect_category_name.y(), 25, self.rect_name.height())
 
         if self.editable != index and option.state & QStyle.State_Selected:

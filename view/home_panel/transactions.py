@@ -146,8 +146,9 @@ class Transactions(QObject):
         """ Connect signal from Cancel button in list view to abort modifications in item """
         self.transaction_delegate.transactionModifCanceled.connect(self.hide_edit_widgets)
 
-        """ Connect signal from click on + button """
+        """ Connect signal from click/edit on +/search button """
         self.ui_setup.transactions.titleBarClicked.connect(self.add_transaction)
+        self.ui_setup.transactions.titleBarSearched.connect(self.search_transaction)
 
         """ Update filtering when click on button in status bar """
         self.expenses.clicked.connect(self.update_current_filtering)
@@ -405,6 +406,29 @@ class Transactions(QObject):
         self.edit_transaction(index, output[0], output[1], output[2], output[3], output[4], output[5], output[6],
                               output[7], output[8])
 
+    def search_transaction(self, content):
+        """
+        Search transaction as filter
+        :param content: content to look for in transactions
+        :return: void
+        """
+
+        # """ Add transaction to model """
+        # self.transactions_filter_model.add_transaction()
+        #
+        # """ Set editable mode """
+        # index = self.transactions_filter_model.index(0, 0)
+        # self.transaction_delegate.set_editable(index)
+        #
+        # """ Select line """
+        # selection_model = self.transactions_listview.selectionModel()
+        # selection_model.select(index, QItemSelectionModel.ClearAndSelect)
+        #
+        # """ Retrieve all rects """
+        # output = self.transaction_delegate.get_first_row_rects()
+        # self.edit_transaction(index, output[0], output[1], output[2], output[3], output[4], output[5], output[6],
+        #                       output[7], output[8])
+
     def modify_transaction(self, index):
         """
         Modify transaction content on Apply click
@@ -559,7 +583,7 @@ class Transactions(QObject):
         """
 
         """ Set title """
-        self.ui_setup.transactions.setTitle("Transactions")
+        self.ui_setup.transactions.set_title("Transactions")
 
     def update_current_filtering(self):
         """

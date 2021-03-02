@@ -81,6 +81,19 @@ QLineEdit
 	selection-background-color: #0190EA;
 }
 
+QLineEdit#titleBarSearch
+{
+	border: 1px solid transparent;
+	border-radius: 10px;
+	padding-top: 1px;
+	padding-bottom: 1px;
+	padding-left: 2px;
+	padding-right: 2px;
+	background: rgba(44, 64, 90, 180);
+	color: white;
+	selection-background-color: #0190EA;
+}
+
 QLineEdit::hover
 {
 	border: 1px solid #0190EA;
@@ -90,6 +103,19 @@ QLineEdit::hover
 	padding-left: 2px;
 	padding-right: 2px;
 	background: transparent;
+	color: white;
+	selection-background-color: #0190EA;
+}
+
+QLineEdit#titleBarSearch::hover
+{
+	border: 1px solid transparent;
+	border-radius:10px;
+	padding-top: 1px;
+	padding-bottom: 1px;
+	padding-left: 2px;
+	padding-right: 2px;
+	background: rgba(44, 64, 90, 200);
 	color: white;
 	selection-background-color: #0190EA;
 }
@@ -339,90 +365,6 @@ QScrollArea &gt; QWidget &gt; QScrollBar
 	background: palette(base); 
 }
 
-Card 
-{
-	border-radius: 5px;
-	border-color: transparent;
-	border-width: 0px;
-	border-style: solid;
-	margin-top: 6ex;
-	margin-left: 1ex;
-	margin-right: 1ex;
-	padding-top: 30px;
-}
-
-Card::title
-{
-	background-color: transparent;
-	color: white;
-	padding: 0 14px;
-	margin-bottom: -55px;
-	subcontrol-origin: margin;
-	subcontrol-position: top left;
-}
-
-Card &gt; QLabel#amount 
-{
-	color: white;
-	text-align: right;
-	background-color: transparent;
-	border-style: none;
-	padding: 0px 0px;
-	font-family: &quot;Roboto&quot;;
-	margin-left: 55px;
-	margin-top: 15px;
-	font-size: 24pt;
-}
-
-Card &gt; QPushButton#monthTrend[positive=&quot;false&quot;] 
-{
-	color: #F20505;
-	text-align: left;
-	background-color: transparent;
-	border-style: none;
-	padding: 0px 0px;
-	margin-bottom: 10px;
-	font-family: &quot;Roboto&quot;;
-	font-size: 17pt;
-}
-
-Card &gt; QPushButton#monthTrend[positive=&quot;true&quot;] 
-{
-	color: #12A61C;
-	text-align: left;
-	background-color: transparent;
-	border-style: none;
-	padding: 0px 0px;
-	margin-bottom: 10px;
-	font-family: &quot;Roboto&quot;;
-	font-size: 17pt;
-}
-
-Card &gt; QPushButton#monthTrend[positive=&quot;none&quot;] 
-{
-	color: white;
-	text-align: left;
-	background-color: transparent;
-	border-style: none;
-	padding: 0px 0px;
-	margin-bottom: 10px;
-	font-family: &quot;Roboto&quot;;
-	font-size: 17pt;
-}
-
-Card &gt; QLabel#currency 
-{
-	color: rgba(255, 255, 255, 180);
-	text-align: left;
-	background-color: transparent;
-	border-style: none;
-	padding: 0px 0px;
-	margin-right: 25px;
-	margin-top: 18px;
-	font-family: &quot;Roboto&quot;;
-	font-size: 18pt;
-}
-
 QLabel#menuLabel 
 {
 	color: white;
@@ -436,23 +378,6 @@ QChartView
 QTableView 
 {
 	background-color: #141C26;
-}
-
-Thumbnail
-{
-	background-color: transparent;
-	border-radius: 30px;
-	border-color: #2d4057;
-	border-width: 1px;
-	border-style: solid;
-}
-
-Thumbnail::title
-{
-	background-color: transparent;
-	color: rgba(255, 255, 255, 230);
-	padding: 0px 0px;
-	margin-bottom: 0px;
 }
 
 QPushButton#logoExpense

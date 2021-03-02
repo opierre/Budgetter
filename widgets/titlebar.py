@@ -1,6 +1,6 @@
 from PySide2.QtCore import QSize, Signal
-from PySide2.QtGui import QIcon, Qt
-from PySide2.QtWidgets import QWidget, QHBoxLayout, QLabel, QPushButton, QSpacerItem, QSizePolicy
+from PySide2.QtGui import QIcon, Qt, QFont
+from PySide2.QtWidgets import QWidget, QHBoxLayout, QLabel, QPushButton, QSpacerItem, QSizePolicy, QAction
 
 from widgets.lined_edit_with_icon import LineEditWithIcon
 
@@ -9,6 +9,9 @@ class TitleBar(QWidget):
     """
     Title Bar
     """
+
+    """ Signal emitted when search bar editing finished - Content typed: str """
+    searched = Signal(str)
 
     """ Signal emitted when right corner button clicked - Checked state: bool """
     clicked = Signal(bool)
@@ -65,6 +68,9 @@ class TitleBar(QWidget):
         """ Connect click on _add button to emit signal """
         self._add.clicked[bool].connect(self.clicked.emit)
 
+        """ Connect text changed on _search line edit to emit signal """
+        self._search.textChanged[str].connect(self.searched.emit)
+
     def configure_widgets(self):
         """
         Configure widgets inside container
@@ -78,6 +84,12 @@ class TitleBar(QWidget):
         self._add.setCheckable(True)
         self._add.setChecked(True)
 
+        """ Configure Search bar on top right corner """
+        self._search.setFont(QFont("Roboto", 11, QFont.Normal))
+        self._search.setPlaceholderText("Search")
+        self._search.setClearButtonEnabled(True)
+        self._search.findChild(QAction, "_q_qlineeditclearaction").setIcon(QIcon(":/images/images/clear-white-18dp.svg"))
+
     def configure_layout(self):
         """
         Set elements in layout
@@ -87,10 +99,13 @@ class TitleBar(QWidget):
         """ Configure empty widget """
         self.empty_layout.addSpacerItem(self.spacer)
 
-        """ Configure widget with add button """
+        """ Configure widget with add button and search bar """
         self._layout.addSpacerItem(self._left_spacer)
         self._layout.addWidget(self._search)
         self._layout.addWidget(self._add)
+
+        """ Set spacing between search and add """
+        self._layout.setSpacing(20)
         # self._addLayout.addSpacerItem(self._downSpacer)
 
         """ Set margins """
@@ -104,7 +119,7 @@ class TitleBar(QWidget):
         self.layout.addWidget(self.empty_widget)
         self.layout.addWidget(self._widget)
 
-    def setTitle(self, title):
+    def set_title(self, title):
         """
         Set title
         :param title: title
@@ -113,7 +128,7 @@ class TitleBar(QWidget):
 
         self._title.setText(title)
 
-    def getTitle(self):
+    def get_title(self):
         """
         Return title
         :return: title
@@ -121,7 +136,7 @@ class TitleBar(QWidget):
 
         return self._title.text()
 
-    def setIcon(self, icon: QIcon):
+    def set_icon(self, icon: QIcon):
         """
         Replace QIcon with icon
         :param icon: QIcon to set
@@ -131,10 +146,18 @@ class TitleBar(QWidget):
         self._add.setIcon(icon)
         self._add.setIconSize(QSize(22, 22))
 
-    def disableButton(self):
+    def disable_button(self):
         """
         Hide button on top right corner if useless
         :return: void
         """
 
         self._add.hide()
+
+    def disable_search(self):
+        """
+        Hide search bar on top right corner if useless
+        :return: void
+        """
+
+        self._search.hide()

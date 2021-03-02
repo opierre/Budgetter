@@ -26,10 +26,10 @@ class LineEditWithIcon(QLineEdit):
         """ Update variable """
         self.icon = icon
 
-        if self.icon:
+        if not self.icon:
             self.setTextMargins(1, 1, 1, 1)
         else:
-            self.setTextMargins(20, 1, 1, 1)
+            self.setTextMargins(28, 1, 1, 1)
 
     def paintEvent(self, event):
         """
@@ -43,5 +43,5 @@ class LineEditWithIcon(QLineEdit):
         """ Draw icon on left """
         if self.icon:
             painter = QPainter(self)
-            pixmap = self.icon.pixmap(self.height() - 6, self.height() - 6)
-            painter.drawPixmap(2, 3, pixmap)
+            pixmap = self.icon.pixmap(24, 24)
+            painter.drawPixmap(3, 2, 24, 24, pixmap)

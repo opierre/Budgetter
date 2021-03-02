@@ -113,7 +113,9 @@ class Distribution(QObject):
         :return: void
         """
 
-        self.uiSetup.monthlyExpenses.disableTitleBarButton()
+        """ Hide all widgets in title bar """
+        self.uiSetup.monthlyExpenses.disable_title_bar_button()
+        self.uiSetup.monthlyExpenses.disable_search_bar()
 
     def setCurrentAndPreviousMonth(self):
         """

@@ -10,6 +10,9 @@ class Container(QDockWidget):
     Container
     """
 
+    """ Signal emitted when search bar in title bar is edited - Content typed: str """
+    titleBarSearched = Signal(str)
+
     """ Signal emitted when button in title bar has been clicked - Checked state: bool """
     titleBarClicked = Signal(bool)
 
@@ -46,28 +49,36 @@ class Container(QDockWidget):
         """ Add button to title """
         self.setTitleBarWidget(self.titleBar)
 
-    def setIcon(self, icon: QIcon):
+    def set_icon(self, icon: QIcon):
         """
         Replace QIcon with icon
         :param icon: QIcon to set
         :return: void
         """
 
-        self.titleBar.setIcon(icon)
+        self.titleBar.set_icon(icon)
 
-    def disableTitleBarButton(self):
+    def disable_title_bar_button(self):
         """
         Hide button on top right corner in title bar if useless
         :return: void
         """
 
-        self.titleBar.disableButton()
+        self.titleBar.disable_button()
 
-    def setTitle(self, title):
+    def disable_search_bar(self):
+        """
+        Hide search bar on top right corner in title bar if useless
+        :return: void
+        """
+
+        self.titleBar.disable_search()
+
+    def set_title(self, title):
         """
         Set title on Container title bar
         :param title: title to set
         :return: void
         """
 
-        self.titleBar.setTitle(title)
+        self.titleBar.set_title(title)

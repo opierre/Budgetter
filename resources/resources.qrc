@@ -1,5 +1,7 @@
 <RCC>
   <qresource prefix="images">
+    <file>images/clear-white-18dp.svg</file>
+    <file>images/clear-white-24dp.svg</file>
     <file>images/search-white-24dp.svg</file>
     <file>images/close-white-18dp.svg</file>
     <file>images/check-white-18dp.svg</file>
