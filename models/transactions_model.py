@@ -17,24 +17,40 @@ class TransactionsFilterModel(QSortFilterProxyModel):
         """ Default Filter for Accounts """
         self.account = "All"
 
-    def update_filter(self, newFilter):
+        """ Filters for search bar """
+        self.search = None
+        self.search_value = None
+
+    def update_filter(self, new_filter):
         """
         Update current filter
-        :param newFilter: filter to set
+        :param new_filter: filter to set
         :return: void
         """
 
-        self.type = newFilter
+        self.type = new_filter
         self.invalidateFilter()
 
-    def add_filter(self, newFilter):
+    def update_search_filter(self, search_filter, search_value):
         """
-        Add current filter
-        :param newFilter: filter to set
+        Update current filter on search bar
+        :param search_filter: filter to set
+        :param search_value: filter value to set
         :return: void
         """
 
-        self.account = newFilter
+        self.search = search_filter
+        self.search_value = search_value
+        self.invalidateFilter()
+
+    def add_filter(self, new_filter):
+        """
+        Add current filter
+        :param new_filter: filter to set
+        :return: void
+        """
+
+        self.account = new_filter
         self.invalidateFilter()
 
     def delete_transaction(self, index):
@@ -83,7 +99,19 @@ class TransactionsFilterModel(QSortFilterProxyModel):
         transaction = source_index.data(Qt.DisplayRole)
 
         if self.type == 'All' and self.account == 'All':
-            return True
+            if self.search is not None:
+                print(self.search)
+                print(self.search_value)
+                if "name=" in self.search:
+                    return transaction["name"].lower() == self.search_value.lower()
+                elif "date=" in self.search:
+                    return transaction["date"] == self.search_value
+                elif "amount=" in self.search:
+                    return transaction["amount"] == self.search_value
+                else:
+                    return True
+            else:
+                return True
         elif self.type == 'All' and self.account != 'All':
             return transaction["account"] == self.account
         elif self.type != 'All' and self.account == 'All':

@@ -40,6 +40,9 @@ class Container(QDockWidget):
         """ Emit signal when button in title bar has been clicked """
         self.titleBar.clicked.connect(self.titleBarClicked.emit)
 
+        """ Emit signal when text typed in search bar """
+        self.titleBar.searched.connect(self.titleBarSearched.emit)
+
     def configureWidgets(self):
         """
         Configure widgets inside container

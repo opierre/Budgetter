@@ -413,21 +413,44 @@ class Transactions(QObject):
         :return: void
         """
 
-        # """ Add transaction to model """
-        # self.transactions_filter_model.add_transaction()
-        #
-        # """ Set editable mode """
-        # index = self.transactions_filter_model.index(0, 0)
-        # self.transaction_delegate.set_editable(index)
-        #
-        # """ Select line """
-        # selection_model = self.transactions_listview.selectionModel()
-        # selection_model.select(index, QItemSelectionModel.ClearAndSelect)
-        #
-        # """ Retrieve all rects """
-        # output = self.transaction_delegate.get_first_row_rects()
-        # self.edit_transaction(index, output[0], output[1], output[2], output[3], output[4], output[5], output[6],
-        #                       output[7], output[8])
+        name = "name="
+        date = "date="
+        amount = "amount="
+
+        ''' Look for name/date/amount '''
+        if name in content:
+            start_index = content.find(name)
+            try:
+                end_index = content.index(" ", start_index)
+                name_value = content[start_index:end_index]
+            except ValueError:
+                name_value = content[start_index:]
+                pass
+
+            """ Filter model """
+            self.transactions_filter_model.update_search_filter(name, name_value)
+        elif date in content:
+            start_index = content.find(date) + len(date)
+            try:
+                end_index = content.index(" ", start_index)
+                date_value = content[start_index:end_index]
+            except ValueError:
+                date_value = content[start_index:]
+                pass
+
+            """ Filter model """
+            self.transactions_filter_model.update_search_filter(date, date_value)
+        elif amount in content:
+            start_index = content.find(amount) + len(amount)
+            try:
+                end_index = content.index(" ", start_index)
+                amount_value = content[start_index:end_index]
+            except ValueError:
+                amount_value = content[start_index:]
+                pass
+
+            """ Filter model """
+            self.transactions_filter_model.update_search_filter(amount, amount_value)
 
     def modify_transaction(self, index):
         """
