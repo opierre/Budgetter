@@ -419,7 +419,7 @@ class Transactions(QObject):
 
         ''' Look for name/date/amount '''
         if name in content:
-            start_index = content.find(name)
+            start_index = content.find(name) + len(name)
             try:
                 end_index = content.index(" ", start_index)
                 name_value = content[start_index:end_index]
@@ -451,6 +451,10 @@ class Transactions(QObject):
 
             """ Filter model """
             self.transactions_filter_model.update_search_filter(amount, amount_value)
+
+        else:
+            """ Reset filter model """
+            self.transactions_filter_model.update_search_filter(None, None)
 
     def modify_transaction(self, index):
         """

@@ -100,8 +100,6 @@ class TransactionsFilterModel(QSortFilterProxyModel):
 
         if self.type == 'All' and self.account == 'All':
             if self.search is not None:
-                print(self.search)
-                print(self.search_value)
                 if "name=" in self.search:
                     return transaction["name"].lower() == self.search_value.lower()
                 elif "date=" in self.search:
