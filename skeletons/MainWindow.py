@@ -892,7 +892,27 @@ class Ui_MainWindow(object):
         self.gridLayout_4.setObjectName(u"gridLayout_4")
         self.transactions.setWidget(self.dockWidgetContents_2)
 
-        self.gridLayout_2.addWidget(self.transactions, 0, 3, 1, 1)
+        self.gridLayout_2.addWidget(self.transactions, 1, 3, 1, 1)
+
+        self.accounts = Container(self.dashboard)
+        self.accounts.setObjectName(u"accounts")
+        self.accounts.setFont(font)
+        self.accounts.setFeatures(QDockWidget.NoDockWidgetFeatures)
+        self.accounts.setAllowedAreas(Qt.NoDockWidgetArea)
+        self.dockWidgetContents_3 = QWidget()
+        self.dockWidgetContents_3.setObjectName(u"dockWidgetContents_3")
+        self.gridLayout_5 = QGridLayout(self.dockWidgetContents_3)
+        self.gridLayout_5.setObjectName(u"gridLayout_5")
+        self.widgetDonut = QWidget(self.dockWidgetContents_3)
+        self.widgetDonut.setObjectName(u"widgetDonut")
+        self.verticalLayout = QVBoxLayout(self.widgetDonut)
+        self.verticalLayout.setObjectName(u"verticalLayout")
+
+        self.gridLayout_5.addWidget(self.widgetDonut, 0, 0, 1, 1)
+
+        self.accounts.setWidget(self.dockWidgetContents_3)
+
+        self.gridLayout_2.addWidget(self.accounts, 0, 3, 1, 1)
 
         self.monthlyExpenses = Container(self.dashboard)
         self.monthlyExpenses.setObjectName(u"monthlyExpenses")
@@ -910,7 +930,7 @@ class Ui_MainWindow(object):
         self.gridLayout_9.setContentsMargins(0, 0, 0, -1)
         self.monthlyExpenses.setWidget(self.dockWidgetContents)
 
-        self.gridLayout_2.addWidget(self.monthlyExpenses, 0, 4, 1, 1)
+        self.gridLayout_2.addWidget(self.monthlyExpenses, 0, 4, 2, 1)
 
         self.stackedWidget.addWidget(self.dashboard)
         self.page_2 = QWidget()
@@ -1094,6 +1114,7 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"Budgetter", None))
         self.transactions.setWindowTitle(QCoreApplication.translate("MainWindow", u"Transactions", None))
+        self.accounts.setWindowTitle(QCoreApplication.translate("MainWindow", u"Balance", None))
         self.monthlyExpenses.setWindowTitle(QCoreApplication.translate("MainWindow", u"Expenses Distribution", None))
         self.total.setTitle(QCoreApplication.translate("MainWindow", u"Total", None))
         self.savings.setTitle(QCoreApplication.translate("MainWindow", u"Savings", None))

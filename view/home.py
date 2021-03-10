@@ -18,7 +18,7 @@ class Home(QObject):
         self.mainWindow = parent
 
         """ Accounts groupBox """
-        # self._accounts = Accounts(gui)
+        self._accounts = Accounts(gui)
 
         """ Distribution groupBox """
         self._distribution = Distribution(gui)

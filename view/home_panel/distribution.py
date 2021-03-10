@@ -53,15 +53,15 @@ class Distribution(QObject):
         self.categoriesListView.setItemDelegate(self.distributionDelegate)
 
         """ Configure status bar """
-        self.configureStatusBar()
+        self.configure_status_bar()
 
         """ Configure layout """
-        self.configureLayout()
+        self.configure_layout()
 
         """ Configure TitleBar """
-        self.configureTitleBar()
+        self.configure_title_bar()
 
-    def configureLayout(self):
+    def configure_layout(self):
         """
         Configure layout inside of Container
         :return: void
@@ -75,14 +75,14 @@ class Distribution(QObject):
 
         self.uiSetup.monthlyExpenses.setWidget(widget)
 
-    def configureStatusBar(self):
+    def configure_status_bar(self):
         """
         Configure status bar
         :return: void
         """
 
         """ Set month content """
-        self.setCurrentAndPreviousMonth()
+        self.set_current_and_previous_month()
 
         """ Set states for activation """
         self.currentMonth.setProperty("activated", "true")
@@ -107,7 +107,7 @@ class Distribution(QObject):
         """ Hide settings """
         self.customStatusBar.hideSettings()
 
-    def configureTitleBar(self):
+    def configure_title_bar(self):
         """
         Configure TitleBar with icon
         :return: void
@@ -117,7 +117,7 @@ class Distribution(QObject):
         self.uiSetup.monthlyExpenses.disable_title_bar_button()
         self.uiSetup.monthlyExpenses.disable_search_bar()
 
-    def setCurrentAndPreviousMonth(self):
+    def set_current_and_previous_month(self):
         """
         Get current/previous month from locale and update display
         :return: void
