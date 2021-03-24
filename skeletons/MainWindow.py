@@ -896,6 +896,11 @@ class Ui_MainWindow(object):
 
         self.accounts = Container(self.dashboard)
         self.accounts.setObjectName(u"accounts")
+        sizePolicy1 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Fixed)
+        sizePolicy1.setHorizontalStretch(0)
+        sizePolicy1.setVerticalStretch(0)
+        sizePolicy1.setHeightForWidth(self.accounts.sizePolicy().hasHeightForWidth())
+        self.accounts.setSizePolicy(sizePolicy1)
         self.accounts.setFont(font)
         self.accounts.setFeatures(QDockWidget.NoDockWidgetFeatures)
         self.accounts.setAllowedAreas(Qt.NoDockWidgetArea)
@@ -905,10 +910,17 @@ class Ui_MainWindow(object):
         self.gridLayout_5.setObjectName(u"gridLayout_5")
         self.widgetDonut = QWidget(self.dockWidgetContents_3)
         self.widgetDonut.setObjectName(u"widgetDonut")
+        self.widgetDonut.setMinimumSize(QSize(200, 250))
+        self.widgetDonut.setMaximumSize(QSize(200, 250))
         self.verticalLayout = QVBoxLayout(self.widgetDonut)
         self.verticalLayout.setObjectName(u"verticalLayout")
 
         self.gridLayout_5.addWidget(self.widgetDonut, 0, 0, 1, 1)
+
+        self.listView = QListView(self.dockWidgetContents_3)
+        self.listView.setObjectName(u"listView")
+
+        self.gridLayout_5.addWidget(self.listView, 0, 1, 1, 1)
 
         self.accounts.setWidget(self.dockWidgetContents_3)
 
@@ -1003,11 +1015,11 @@ class Ui_MainWindow(object):
 
         self.drawer = Drawer(MainWindow)
         self.drawer.setObjectName(u"drawer")
-        sizePolicy1 = QSizePolicy(QSizePolicy.Fixed, QSizePolicy.Preferred)
-        sizePolicy1.setHorizontalStretch(0)
-        sizePolicy1.setVerticalStretch(0)
-        sizePolicy1.setHeightForWidth(self.drawer.sizePolicy().hasHeightForWidth())
-        self.drawer.setSizePolicy(sizePolicy1)
+        sizePolicy2 = QSizePolicy(QSizePolicy.Fixed, QSizePolicy.Preferred)
+        sizePolicy2.setHorizontalStretch(0)
+        sizePolicy2.setVerticalStretch(0)
+        sizePolicy2.setHeightForWidth(self.drawer.sizePolicy().hasHeightForWidth())
+        self.drawer.setSizePolicy(sizePolicy2)
         self.drawer.setMinimumSize(QSize(50, 0))
         self.drawer.setMaximumSize(QSize(50, 16777215))
         self.gridLayout_7 = QGridLayout(self.drawer)

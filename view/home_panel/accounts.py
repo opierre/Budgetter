@@ -3,6 +3,7 @@ from PySide2.QtGui import QPainter, QFont
 from PySide2.QtWidgets import QSpacerItem, QSizePolicy
 from PySide2.QtCharts import QtCharts
 
+from widgets.balance_widgets.donut_chat_widget import DonutChart
 from widgets.card import Card
 
 
@@ -35,22 +36,22 @@ class Accounts(QObject):
         :return: void
         """
 
-        series = QtCharts.QPieSeries()
-        series.setHoleSize(0.35)
-        series.append("Protein 4.2%", 4.2)
-        slice = series.append("Fat 15.6%", 15.6)
-        slice.setExploded()
-        slice.setLabelVisible()
-        series.append("Other 23.8%", 23.8)
-        series.append("Carbs 56.4%", 56.4)
+        # series = QtCharts.QPieSeries()
+        # series.setHoleSize(0.35)
+        # series.append("Protein 4.2%", 4.2)
+        # slice = series.append("Fat 15.6%", 15.6)
+        # slice.setExploded()
+        # slice.setLabelVisible()
+        # series.append("Other 23.8%", 23.8)
+        # series.append("Carbs 56.4%", 56.4)
 
-        chartView = QtCharts.QChartView(self.ui_setup.widgetDonut)
-        chartView.setRenderHint(QPainter.Antialiasing)
-        chartView.chart().setTitle("Donut with a lemon glaze (100g)")
-        chartView.chart().addSeries(series)
-        chartView.chart().legend().setAlignment(Qt.AlignBottom)
-        chartView.chart().setTheme(QtCharts.QChart.ChartThemeBlueCerulean)
-        chartView.chart().legend().setFont(QFont("Arial", 7))
+        chartView = DonutChart(self.ui_setup.widgetDonut)
+        # chartView.setRenderHint(QPainter.Antialiasing)
+        # chartView.chart().setTitle("Donut with a lemon glaze (100g)")
+        # chartView.chart().addSeries(series)
+        # chartView.chart().legend().setAlignment(Qt.AlignBottom)
+        # chartView.chart().setTheme(QtCharts.QChart.ChartThemeBlueCerulean)
+        # chartView.chart().legend().setFont(QFont("Arial", 7))
 
     def configure_title_bar(self):
         """
