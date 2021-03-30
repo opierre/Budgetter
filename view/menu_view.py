@@ -1,5 +1,6 @@
 from PySide2.QtCore import QObject
 from PySide2.QtGui import QIcon
+from PySide2.QtWidgets import QActionGroup
 
 
 class Menu(QObject):
@@ -14,70 +15,41 @@ class Menu(QObject):
         self.uiSetup = gui
         self.mainWindow = parent
 
-        """ Connect slots and signals """
-        self.connectMenuSlotsAndSignals()
+        """ Create QActionGroup to enable only one panel """
+        self.action_group = QActionGroup(self)
 
-    def connectMenuSlotsAndSignals(self):
+        """ Configure action group """
+        self.configure_action_group()
+
+        """ Connect slots and signals """
+        self.connect_slots_and_signals()
+
+    def connect_slots_and_signals(self):
         """
         Connect all slots and signals
         :return: void
         """
 
-        """ Connect click on menu button in top bar to opening drawer """
-        self.uiSetup.menu.clicked.connect(self.handleDrawerExpand)
-
-        """ Connect drawer animation finished to show labels on buttons (Expand) """
-        # self.uiSetup.drawer.animationFinished.connect(self.showLabels)
-        # self.uiSetup.drawer.animationStarted.connect(self.hideLabels)
-
         """ Connect click on buttons in drawer """
-        self.uiSetup.menuDashboard.clicked.connect(lambda: self.changePage(0))
-        self.uiSetup.menuGraph.clicked.connect(lambda: self.changePage(1))
-        self.uiSetup.menuInsights.clicked.connect(lambda: self.changePage(2))
+        self.uiSetup.actionDashboard.triggered.connect(lambda: self.change_page(0))
+        self.uiSetup.actionGraph.triggered.connect(lambda: self.change_page(1))
+        self.uiSetup.actionInsights.triggered.connect(lambda: self.change_page(2))
 
-    def handleDrawerExpand(self):
+    def configure_action_group(self):
         """
-        Expand or collapse drawer according to Menu button state
+        Configure toolbar action group
         :return: void
         """
 
-        if self.uiSetup.menu.isChecked():
-            """ Expand drawer """
-            self.uiSetup.drawer.expand()
+        """ Add action to group """
+        self.action_group.addAction(self.uiSetup.actionDashboard)
+        self.action_group.addAction(self.uiSetup.actionGraph)
+        self.action_group.addAction(self.uiSetup.actionInsights)
 
-        else:
-            """ Collapse drawer """
-            self.uiSetup.drawer.collapse()
+        """ Set group exclusive """
+        self.action_group.setExclusive(True)
 
-    # def showLabels(self):
-    #     """
-    #     Show buttons labels in drawer and modify expand button icon
-    #     :return: void
-    #     """
-    #
-    #     if self.uiSetup.drawer.getExpanded():
-    #         self.uiSetup.pushButtonHome.setText("  Home")
-    #         self.uiSetup.pushButtonManage.setText("  Manager")
-    #         self.uiSetup.pushButtonAnalytics.setText("  Analytics")
-    #
-    #         """ Change icon """
-    #         self.uiSetup.menu.setIcon(QIcon(":/images/images/keyboard_arrow_left-white-36dp.svg"))
-    #
-    #     else:
-    #         """ Change icon """
-    #         self.uiSetup.menu.setIcon(QIcon(":/images/images/menu-white-36dp.svg"))
-
-    # def hideLabels(self):
-    #     """
-    #     Hide buttons labels in drawer
-    #     :return: void
-    #     """
-    #
-    #     self.uiSetup.pushButtonHome.setText("")
-    #     self.uiSetup.pushButtonManage.setText("")
-    #     self.uiSetup.pushButtonAnalytics.setText("")
-
-    def changePage(self, pageNumber):
+    def change_page(self, pageNumber):
         """
         Change page by clicking on button in drawer
         :param pageNumber: page number to go to
@@ -87,34 +59,13 @@ class Menu(QObject):
         self.uiSetup.stackedWidget.slideInIdx(pageNumber)
 
         if pageNumber == 0:
-            """ Set Home button enlighted """
-            self.uiSetup.menuDashboard.setChecked(True)
-
-            """ Set other buttons to OFF """
-            self.uiSetup.menuGraph.setChecked(False)
-            self.uiSetup.menuInsights.setChecked(False)
-
             """ Update Header """
             self.uiSetup.menuLabel.setText("Dashboard")
 
         elif pageNumber == 1:
-            """ Set Manage button enlighted """
-            self.uiSetup.menuGraph.setChecked(True)
-
-            """ Set other buttons to OFF """
-            self.uiSetup.menuDashboard.setChecked(False)
-            self.uiSetup.menuInsights.setChecked(False)
-
             """ Update Header """
             self.uiSetup.menuLabel.setText("Graph")
 
         elif pageNumber == 2:
-            """ Set Analytics button enlighted """
-            self.uiSetup.menuInsights.setChecked(True)
-
-            """ Set other buttons to OFF """
-            self.uiSetup.menuDashboard.setChecked(False)
-            self.uiSetup.menuGraph.setChecked(False)
-
             """ Update Header """
             self.uiSetup.menuLabel.setText("Insights")

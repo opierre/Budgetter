@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
  <class>MainWindow</class>
- <widget class="QWidget" name="MainWindow">
+ <widget class="QMainWindow" name="MainWindow">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -10,18 +10,8 @@
     <height>723</height>
    </rect>
   </property>
-  <property name="sizePolicy">
-   <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-    <horstretch>0</horstretch>
-    <verstretch>0</verstretch>
-   </sizepolicy>
-  </property>
   <property name="windowTitle">
-   <string>Budgetter</string>
-  </property>
-  <property name="windowIcon">
-   <iconset>
-    <normaloff>:/images/images/bold-36px-#2ABFB0.png</normaloff>:/images/images/bold-36px-#2ABFB0.png</iconset>
+   <string>MainWindow</string>
   </property>
   <property name="styleSheet">
    <string notr="true">#MainWindow 
@@ -333,16 +323,6 @@ QPushButton[expanded=&quot;true&quot;]:pressed
 	border-color: transparent;
 	padding: 3px  3px;
 	color: rgba(36, 42, 117, 255);
-}
-
-QFrame#navigation 
-{
-	background-color: #1C293B;
-	margin-bottom: 0px;
-	margin-top: 0px;
-	border-style: none;
-	padding-left: 0px;
-	padding-right: 0px;
 }
 
 QFrame[frameShape=&quot;5&quot;] 
@@ -837,585 +817,461 @@ ExpensesOrIncome:hover
 {
 	background-color: transparent;
     border: 1px solid #0190EA;
+}
+
+QToolBar
+{
+	background-color: #1C293B;
+	border: none;
+	spacing: 10px;
+}
+
+QToolButton
+{
+	width: 40px;
+	height: 40px;
+	padding-left: 2px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	padding-right: 2px; 
+	background: transparent;
+	border: none;
+}
+
+QToolButton:hover
+{
+	width: 40px;
+	height: 40px;
+	padding-left: 2px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	padding-right: 2px; 
+	background: #19344D;
+	border: none;
+}
+
+QToolButton:checked
+{
+	width: 40px;
+	height: 40px;
+	padding-left: -1px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	padding-right: 2px; 
+    background-color: #19344D;
+	border-radius: 0px;
+    border-left: 3px solid #0093EE;
 }</string>
   </property>
-  <layout class="QGridLayout" name="gridLayout">
-   <property name="leftMargin">
-    <number>0</number>
-   </property>
-   <property name="topMargin">
-    <number>0</number>
-   </property>
-   <property name="rightMargin">
-    <number>0</number>
-   </property>
-   <property name="bottomMargin">
-    <number>0</number>
-   </property>
-   <property name="spacing">
-    <number>0</number>
-   </property>
-   <item row="1" column="1" colspan="3">
-    <widget class="SlidingStackedWidget" name="stackedWidget">
-     <property name="currentIndex">
-      <number>0</number>
-     </property>
-     <widget class="QWidget" name="dashboard">
-      <layout class="QGridLayout" name="gridLayout_2">
+  <property name="toolButtonStyle">
+   <enum>Qt::ToolButtonIconOnly</enum>
+  </property>
+  <property name="animated">
+   <bool>true</bool>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QGridLayout" name="gridLayout">
+    <property name="leftMargin">
+     <number>0</number>
+    </property>
+    <property name="topMargin">
+     <number>0</number>
+    </property>
+    <property name="rightMargin">
+     <number>0</number>
+    </property>
+    <property name="bottomMargin">
+     <number>0</number>
+    </property>
+    <property name="spacing">
+     <number>0</number>
+    </property>
+    <item row="0" column="0">
+     <widget class="QWidget" name="menuBar" native="true">
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>40</height>
+       </size>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout">
+       <property name="spacing">
+        <number>0</number>
+       </property>
        <property name="leftMargin">
         <number>15</number>
        </property>
        <property name="topMargin">
-        <number>15</number>
-       </property>
-       <property name="rightMargin">
-        <number>15</number>
+        <number>0</number>
        </property>
        <property name="bottomMargin">
-        <number>15</number>
+        <number>0</number>
        </property>
-       <property name="spacing">
-        <number>15</number>
-       </property>
-       <item row="1" column="3">
-        <widget class="Container" name="transactions">
-         <property name="minimumSize">
+       <item>
+        <widget class="QLabel" name="menuLabel">
+         <property name="font">
+          <font>
+           <family>Roboto</family>
+           <pointsize>14</pointsize>
+          </font>
+         </property>
+         <property name="text">
+          <string>Dashboard</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer name="horizontalSpacer">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
           <size>
            <width>40</width>
-           <height>46</height>
+           <height>20</height>
           </size>
          </property>
-         <property name="font">
-          <font>
-           <family>Roboto</family>
-           <pointsize>13</pointsize>
-          </font>
-         </property>
-         <property name="features">
-          <set>QDockWidget::NoDockWidgetFeatures</set>
-         </property>
-         <property name="allowedAreas">
-          <set>Qt::NoDockWidgetArea</set>
-         </property>
-         <property name="windowTitle">
-          <string>Transactions</string>
-         </property>
-         <widget class="QWidget" name="dockWidgetContents_2">
-          <layout class="QGridLayout" name="gridLayout_4"/>
-         </widget>
-        </widget>
+        </spacer>
        </item>
-       <item row="0" column="3">
-        <widget class="Container" name="accounts">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="font">
-          <font>
-           <family>Roboto</family>
-           <pointsize>13</pointsize>
-          </font>
-         </property>
-         <property name="features">
-          <set>QDockWidget::NoDockWidgetFeatures</set>
-         </property>
-         <property name="allowedAreas">
-          <set>Qt::NoDockWidgetArea</set>
-         </property>
-         <property name="windowTitle">
-          <string>Balance</string>
-         </property>
-         <widget class="QWidget" name="dockWidgetContents_3">
-          <layout class="QGridLayout" name="gridLayout_5">
-           <item row="0" column="0">
-            <widget class="QWidget" name="widgetDonut" native="true">
-             <property name="minimumSize">
-              <size>
-               <width>200</width>
-               <height>250</height>
-              </size>
-             </property>
-             <property name="maximumSize">
-              <size>
-               <width>200</width>
-               <height>250</height>
-              </size>
-             </property>
-             <layout class="QVBoxLayout" name="verticalLayout"/>
-            </widget>
-           </item>
-           <item row="0" column="1">
-            <widget class="QListView" name="listView"/>
-           </item>
-          </layout>
-         </widget>
-        </widget>
-       </item>
-       <item row="0" column="4" rowspan="2">
-        <widget class="Container" name="monthlyExpenses">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
+       <item>
+        <widget class="QPushButton" name="alerts">
          <property name="minimumSize">
           <size>
-           <width>94</width>
-           <height>59</height>
+           <width>45</width>
+           <height>39</height>
           </size>
          </property>
          <property name="maximumSize">
           <size>
-           <width>500</width>
-           <height>524287</height>
+           <width>45</width>
+           <height>39</height>
           </size>
          </property>
-         <property name="font">
-          <font>
-           <family>Roboto</family>
-           <pointsize>13</pointsize>
-          </font>
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
          </property>
-         <property name="features">
-          <set>QDockWidget::NoDockWidgetFeatures</set>
+         <property name="toolTip">
+          <string>Notifications</string>
          </property>
-         <property name="allowedAreas">
-          <set>Qt::NoDockWidgetArea</set>
+         <property name="text">
+          <string/>
          </property>
-         <property name="windowTitle">
-          <string>Expenses Distribution</string>
+         <property name="icon">
+          <iconset resource="../resources/resources.qrc">
+           <normaloff>:/images/images/notifications-white-24dp.svg</normaloff>:/images/images/notifications-white-24dp.svg</iconset>
          </property>
-         <widget class="QWidget" name="dockWidgetContents">
-          <layout class="QGridLayout" name="gridLayout_9">
-           <property name="leftMargin">
-            <number>0</number>
-           </property>
-           <property name="topMargin">
-            <number>0</number>
-           </property>
-           <property name="rightMargin">
-            <number>0</number>
-           </property>
-          </layout>
+         <property name="iconSize">
+          <size>
+           <width>24</width>
+           <height>24</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="settings">
+         <property name="minimumSize">
+          <size>
+           <width>45</width>
+           <height>39</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>45</width>
+           <height>39</height>
+          </size>
+         </property>
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
+         <property name="toolTip">
+          <string>Settings</string>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="icon">
+          <iconset resource="../resources/resources.qrc">
+           <normaloff>:/images/images/settings-white-24dp.svg</normaloff>:/images/images/settings-white-24dp.svg</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>24</width>
+           <height>24</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item row="1" column="0">
+     <widget class="SlidingStackedWidget" name="stackedWidget">
+      <property name="currentIndex">
+       <number>0</number>
+      </property>
+      <widget class="QWidget" name="dashboard">
+       <layout class="QGridLayout" name="gridLayout_2">
+        <property name="leftMargin">
+         <number>15</number>
+        </property>
+        <property name="topMargin">
+         <number>15</number>
+        </property>
+        <property name="rightMargin">
+         <number>15</number>
+        </property>
+        <property name="bottomMargin">
+         <number>15</number>
+        </property>
+        <property name="spacing">
+         <number>15</number>
+        </property>
+        <item row="1" column="3">
+         <widget class="Container" name="transactions">
+          <property name="minimumSize">
+           <size>
+            <width>46</width>
+            <height>46</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <family>Roboto</family>
+            <pointsize>13</pointsize>
+           </font>
+          </property>
+          <property name="features">
+           <set>QDockWidget::NoDockWidgetFeatures</set>
+          </property>
+          <property name="allowedAreas">
+           <set>Qt::NoDockWidgetArea</set>
+          </property>
+          <property name="windowTitle">
+           <string>Transactions</string>
+          </property>
+          <widget class="QWidget" name="dockWidgetContents_2">
+           <layout class="QGridLayout" name="gridLayout_4"/>
+          </widget>
          </widget>
-        </widget>
-       </item>
-      </layout>
+        </item>
+        <item row="0" column="3">
+         <widget class="Container" name="accounts">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="font">
+           <font>
+            <family>Roboto</family>
+            <pointsize>13</pointsize>
+           </font>
+          </property>
+          <property name="features">
+           <set>QDockWidget::NoDockWidgetFeatures</set>
+          </property>
+          <property name="allowedAreas">
+           <set>Qt::NoDockWidgetArea</set>
+          </property>
+          <property name="windowTitle">
+           <string>Balance</string>
+          </property>
+          <widget class="QWidget" name="dockWidgetContents_3">
+           <layout class="QGridLayout" name="gridLayout_5">
+            <item row="0" column="0">
+             <widget class="QWidget" name="widgetDonut" native="true">
+              <property name="minimumSize">
+               <size>
+                <width>200</width>
+                <height>250</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>200</width>
+                <height>250</height>
+               </size>
+              </property>
+              <layout class="QVBoxLayout" name="verticalLayout"/>
+             </widget>
+            </item>
+            <item row="0" column="1">
+             <widget class="QListView" name="listView"/>
+            </item>
+           </layout>
+          </widget>
+         </widget>
+        </item>
+        <item row="0" column="4" rowspan="2">
+         <widget class="Container" name="monthlyExpenses">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>94</width>
+            <height>59</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>500</width>
+            <height>524287</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <family>Roboto</family>
+            <pointsize>13</pointsize>
+           </font>
+          </property>
+          <property name="features">
+           <set>QDockWidget::NoDockWidgetFeatures</set>
+          </property>
+          <property name="allowedAreas">
+           <set>Qt::NoDockWidgetArea</set>
+          </property>
+          <property name="windowTitle">
+           <string>Expenses Distribution</string>
+          </property>
+          <widget class="QWidget" name="dockWidgetContents">
+           <layout class="QGridLayout" name="gridLayout_9">
+            <property name="leftMargin">
+             <number>0</number>
+            </property>
+            <property name="topMargin">
+             <number>0</number>
+            </property>
+            <property name="rightMargin">
+             <number>0</number>
+            </property>
+           </layout>
+          </widget>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="page_2">
+       <layout class="QGridLayout" name="gridLayout_3">
+        <item row="0" column="0">
+         <widget class="QGroupBox" name="total">
+          <property name="title">
+           <string>Total</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="0">
+         <widget class="QGroupBox" name="savings">
+          <property name="title">
+           <string>Savings</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="page"/>
      </widget>
-     <widget class="QWidget" name="page_2">
-      <layout class="QGridLayout" name="gridLayout_3">
-       <item row="0" column="0">
-        <widget class="QGroupBox" name="total">
-         <property name="title">
-          <string>Total</string>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="0">
-        <widget class="QGroupBox" name="savings">
-         <property name="title">
-          <string>Savings</string>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </widget>
-     <widget class="QWidget" name="page"/>
-    </widget>
-   </item>
-   <item row="0" column="1" colspan="3">
-    <widget class="QWidget" name="menuBar" native="true">
-     <property name="minimumSize">
-      <size>
-       <width>0</width>
-       <height>40</height>
-      </size>
-     </property>
-     <layout class="QHBoxLayout" name="horizontalLayout">
-      <property name="spacing">
-       <number>0</number>
-      </property>
-      <property name="leftMargin">
-       <number>15</number>
-      </property>
-      <property name="topMargin">
-       <number>0</number>
-      </property>
-      <property name="bottomMargin">
-       <number>0</number>
-      </property>
-      <item>
-       <widget class="QLabel" name="menuLabel">
-        <property name="font">
-         <font>
-          <family>Roboto</family>
-          <pointsize>14</pointsize>
-         </font>
-        </property>
-        <property name="text">
-         <string>Dashboard</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <spacer name="horizontalSpacer">
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>40</width>
-          <height>20</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
-      <item>
-       <widget class="QPushButton" name="alerts">
-        <property name="minimumSize">
-         <size>
-          <width>45</width>
-          <height>39</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>45</width>
-          <height>39</height>
-         </size>
-        </property>
-        <property name="cursor">
-         <cursorShape>PointingHandCursor</cursorShape>
-        </property>
-        <property name="toolTip">
-         <string>Notifications</string>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-        <property name="icon">
-         <iconset resource="../resources/resources.qrc">
-          <normaloff>:/images/images/notifications-white-24dp.svg</normaloff>:/images/images/notifications-white-24dp.svg</iconset>
-        </property>
-        <property name="iconSize">
-         <size>
-          <width>24</width>
-          <height>24</height>
-         </size>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QPushButton" name="settings">
-        <property name="minimumSize">
-         <size>
-          <width>45</width>
-          <height>39</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>45</width>
-          <height>39</height>
-         </size>
-        </property>
-        <property name="cursor">
-         <cursorShape>PointingHandCursor</cursorShape>
-        </property>
-        <property name="toolTip">
-         <string>Settings</string>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-        <property name="icon">
-         <iconset resource="../resources/resources.qrc">
-          <normaloff>:/images/images/settings-white-24dp.svg</normaloff>:/images/images/settings-white-24dp.svg</iconset>
-        </property>
-        <property name="iconSize">
-         <size>
-          <width>24</width>
-          <height>24</height>
-         </size>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </widget>
-   </item>
-   <item row="0" column="0" rowspan="2">
-    <widget class="Drawer" name="drawer" native="true">
-     <property name="sizePolicy">
-      <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
-       <horstretch>0</horstretch>
-       <verstretch>0</verstretch>
-      </sizepolicy>
-     </property>
-     <property name="minimumSize">
-      <size>
-       <width>50</width>
-       <height>0</height>
-      </size>
-     </property>
-     <property name="maximumSize">
-      <size>
-       <width>50</width>
-       <height>16777215</height>
-      </size>
-     </property>
-     <layout class="QGridLayout" name="gridLayout_7">
-      <property name="leftMargin">
-       <number>0</number>
-      </property>
-      <property name="topMargin">
-       <number>0</number>
-      </property>
-      <property name="rightMargin">
-       <number>0</number>
-      </property>
-      <property name="bottomMargin">
-       <number>0</number>
-      </property>
-      <item row="0" column="0">
-       <widget class="QFrame" name="navigation">
-        <property name="frameShape">
-         <enum>QFrame::StyledPanel</enum>
-        </property>
-        <property name="frameShadow">
-         <enum>QFrame::Raised</enum>
-        </property>
-        <layout class="QGridLayout" name="gridLayout_8">
-         <property name="leftMargin">
-          <number>0</number>
-         </property>
-         <property name="topMargin">
-          <number>0</number>
-         </property>
-         <property name="rightMargin">
-          <number>0</number>
-         </property>
-         <property name="bottomMargin">
-          <number>7</number>
-         </property>
-         <item row="1" column="0" colspan="2">
-          <layout class="QHBoxLayout" name="horizontalLayout_2">
-           <property name="spacing">
-            <number>0</number>
-           </property>
-           <item>
-            <widget class="QPushButton" name="menu">
-             <property name="minimumSize">
-              <size>
-               <width>50</width>
-               <height>40</height>
-              </size>
-             </property>
-             <property name="maximumSize">
-              <size>
-               <width>50</width>
-               <height>40</height>
-              </size>
-             </property>
-             <property name="cursor">
-              <cursorShape>PointingHandCursor</cursorShape>
-             </property>
-             <property name="text">
-              <string/>
-             </property>
-             <property name="icon">
-              <iconset resource="../resources/resources.qrc">
-               <normaloff>:/images/images/menu-white-36dp.svg</normaloff>:/images/images/menu-white-36dp.svg</iconset>
-             </property>
-             <property name="iconSize">
-              <size>
-               <width>24</width>
-               <height>24</height>
-              </size>
-             </property>
-             <property name="checkable">
-              <bool>true</bool>
-             </property>
-            </widget>
-           </item>
-          </layout>
-         </item>
-         <item row="3" column="0" colspan="2">
-          <layout class="QVBoxLayout" name="verticalLayout_2">
-           <property name="spacing">
-            <number>30</number>
-           </property>
-           <property name="topMargin">
-            <number>15</number>
-           </property>
-           <item>
-            <widget class="QPushButton" name="menuDashboard">
-             <property name="minimumSize">
-              <size>
-               <width>50</width>
-               <height>40</height>
-              </size>
-             </property>
-             <property name="maximumSize">
-              <size>
-               <width>50</width>
-               <height>40</height>
-              </size>
-             </property>
-             <property name="font">
-              <font>
-               <family>Roboto</family>
-               <pointsize>12</pointsize>
-              </font>
-             </property>
-             <property name="cursor">
-              <cursorShape>PointingHandCursor</cursorShape>
-             </property>
-             <property name="toolTip">
-              <string>Dashboard</string>
-             </property>
-             <property name="text">
-              <string/>
-             </property>
-             <property name="icon">
-              <iconset resource="../resources/resources.qrc">
-               <normaloff>:/images/images/dashboard-white-36dp.svg</normaloff>:/images/images/dashboard-white-36dp.svg</iconset>
-             </property>
-             <property name="iconSize">
-              <size>
-               <width>24</width>
-               <height>24</height>
-              </size>
-             </property>
-             <property name="checkable">
-              <bool>true</bool>
-             </property>
-             <property name="checked">
-              <bool>true</bool>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QPushButton" name="menuGraph">
-             <property name="minimumSize">
-              <size>
-               <width>50</width>
-               <height>40</height>
-              </size>
-             </property>
-             <property name="maximumSize">
-              <size>
-               <width>50</width>
-               <height>40</height>
-              </size>
-             </property>
-             <property name="font">
-              <font>
-               <family>Roboto</family>
-               <pointsize>12</pointsize>
-              </font>
-             </property>
-             <property name="cursor">
-              <cursorShape>PointingHandCursor</cursorShape>
-             </property>
-             <property name="toolTip">
-              <string>Graph</string>
-             </property>
-             <property name="text">
-              <string/>
-             </property>
-             <property name="icon">
-              <iconset resource="../resources/resources.qrc">
-               <normaloff>:/images/images/assessment-white-36dp.svg</normaloff>:/images/images/assessment-white-36dp.svg</iconset>
-             </property>
-             <property name="iconSize">
-              <size>
-               <width>24</width>
-               <height>24</height>
-              </size>
-             </property>
-             <property name="checkable">
-              <bool>true</bool>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QPushButton" name="menuInsights">
-             <property name="minimumSize">
-              <size>
-               <width>50</width>
-               <height>40</height>
-              </size>
-             </property>
-             <property name="maximumSize">
-              <size>
-               <width>50</width>
-               <height>40</height>
-              </size>
-             </property>
-             <property name="font">
-              <font>
-               <family>Roboto</family>
-               <pointsize>12</pointsize>
-              </font>
-             </property>
-             <property name="cursor">
-              <cursorShape>PointingHandCursor</cursorShape>
-             </property>
-             <property name="toolTip">
-              <string>Insights</string>
-             </property>
-             <property name="text">
-              <string/>
-             </property>
-             <property name="icon">
-              <iconset resource="../resources/resources.qrc">
-               <normaloff>:/images/images/insights-white-36dp.svg</normaloff>:/images/images/insights-white-36dp.svg</iconset>
-             </property>
-             <property name="iconSize">
-              <size>
-               <width>24</width>
-               <height>24</height>
-              </size>
-             </property>
-             <property name="checkable">
-              <bool>true</bool>
-             </property>
-            </widget>
-           </item>
-          </layout>
-         </item>
-         <item row="6" column="0" colspan="2">
-          <spacer name="verticalSpacer">
-           <property name="orientation">
-            <enum>Qt::Vertical</enum>
-           </property>
-           <property name="sizeHint" stdset="0">
-            <size>
-             <width>20</width>
-             <height>40</height>
-            </size>
-           </property>
-          </spacer>
-         </item>
-        </layout>
-       </widget>
-      </item>
-     </layout>
-    </widget>
-   </item>
-  </layout>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QToolBar" name="toolBar">
+   <property name="windowTitle">
+    <string>toolBar</string>
+   </property>
+   <property name="movable">
+    <bool>false</bool>
+   </property>
+   <property name="allowedAreas">
+    <set>Qt::NoToolBarArea</set>
+   </property>
+   <property name="floatable">
+    <bool>false</bool>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>LeftToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="actionMenu"/>
+   <addaction name="actionDashboard"/>
+   <addaction name="actionGraph"/>
+   <addaction name="actionInsights"/>
+  </widget>
+  <action name="actionDashboard">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="../resources/resources.qrc">
+     <normaloff>:/images/images/dashboard-white-36dp.svg</normaloff>:/images/images/dashboard-white-36dp.svg</iconset>
+   </property>
+   <property name="text">
+    <string>Dashboard</string>
+   </property>
+   <property name="toolTip">
+    <string>Dashboard</string>
+   </property>
+  </action>
+  <action name="actionMenu">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>false</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="../resources/resources.qrc">
+     <normaloff>:/images/images/menu-white-36dp.svg</normaloff>:/images/images/menu-white-36dp.svg</iconset>
+   </property>
+   <property name="text">
+    <string>Menu</string>
+   </property>
+   <property name="toolTip">
+    <string>Menu</string>
+   </property>
+  </action>
+  <action name="actionGraph">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="../resources/resources.qrc">
+     <normaloff>:/images/images/assessment-white-36dp.svg</normaloff>:/images/images/assessment-white-36dp.svg</iconset>
+   </property>
+   <property name="text">
+    <string>Graph</string>
+   </property>
+   <property name="toolTip">
+    <string>Graphs</string>
+   </property>
+  </action>
+  <action name="actionInsights">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="../resources/resources.qrc">
+     <normaloff>:/images/images/insights-white-36dp.svg</normaloff>:/images/images/insights-white-36dp.svg</iconset>
+   </property>
+   <property name="text">
+    <string>Insights</string>
+   </property>
+   <property name="toolTip">
+    <string>Insights</string>
+   </property>
+  </action>
  </widget>
  <customwidgets>
-  <customwidget>
-   <class>Drawer</class>
-   <extends>QWidget</extends>
-   <header>widgets/drawer.h</header>
-   <container>1</container>
-  </customwidget>
   <customwidget>
    <class>Container</class>
    <extends>QDockWidget</extends>

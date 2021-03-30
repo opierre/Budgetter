@@ -1,8 +1,8 @@
 from PySide2.QtCore import Signal
-from PySide2.QtWidgets import QWidget
+from PySide2.QtWidgets import QMainWindow
 
 
-class CustomWindow(QWidget):
+class CustomWindow(QMainWindow):
     """
     Custom window with signals
     """
