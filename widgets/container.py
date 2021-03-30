@@ -26,12 +26,12 @@ class Container(QDockWidget):
         self.titleBar = TitleBar(self)
 
         """ Configure widgets """
-        self.configureWidgets()
+        self.configure_widgets()
 
         """ Connect all slots and signals """
-        self.connectWidgets()
+        self.connect_slots_and_signals()
 
-    def connectWidgets(self):
+    def connect_slots_and_signals(self):
         """
         Connect all slots and signals
         :return: void
@@ -43,7 +43,7 @@ class Container(QDockWidget):
         """ Emit signal when text typed in search bar """
         self.titleBar.searched.connect(self.titleBarSearched.emit)
 
-    def configureWidgets(self):
+    def configure_widgets(self):
         """
         Configure widgets inside container
         :return: void

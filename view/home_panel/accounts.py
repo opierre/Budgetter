@@ -1,6 +1,6 @@
 from PySide2.QtCore import QObject, Qt
 from PySide2.QtGui import QPainter, QFont
-from PySide2.QtWidgets import QSpacerItem, QSizePolicy
+from PySide2.QtWidgets import QSpacerItem, QSizePolicy, QListView, QWidget, QVBoxLayout, QHBoxLayout
 from PySide2.QtCharts import QtCharts
 
 from widgets.balance_widgets.donut_chat_widget import DonutChart
@@ -18,40 +18,24 @@ class Accounts(QObject):
         """ Store gui """
         self.ui_setup = gui
 
-        """ Spacer item """
-        self.spacer = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+        """ ListView to display all accounts """
+        self.accounts_listview = QListView()
 
-        """ Configure chart """
-        self.configure_chart()
+        """ DonutChart to display balance distribution """
+        self.balance_chart = DonutChart()
+        self.balance_chart.add_slice(23)
+        self.balance_chart.add_slice(27)
+        self.balance_chart.add_slice(10)
+        self.balance_chart.add_slice(39)
+
+        """ Configure layout """
+        self.configure_layout()
 
         """ Configure title bar """
         self.configure_title_bar()
 
         """ Connect Account groupBox """
         # self.connectAccounts()
-
-    def configure_chart(self):
-        """
-        Configure chart
-        :return: void
-        """
-
-        # series = QtCharts.QPieSeries()
-        # series.setHoleSize(0.35)
-        # series.append("Protein 4.2%", 4.2)
-        # slice = series.append("Fat 15.6%", 15.6)
-        # slice.setExploded()
-        # slice.setLabelVisible()
-        # series.append("Other 23.8%", 23.8)
-        # series.append("Carbs 56.4%", 56.4)
-
-        chartView = DonutChart(self.ui_setup.widgetDonut)
-        # chartView.setRenderHint(QPainter.Antialiasing)
-        # chartView.chart().setTitle("Donut with a lemon glaze (100g)")
-        # chartView.chart().addSeries(series)
-        # chartView.chart().legend().setAlignment(Qt.AlignBottom)
-        # chartView.chart().setTheme(QtCharts.QChart.ChartThemeBlueCerulean)
-        # chartView.chart().legend().setFont(QFont("Arial", 7))
 
     def configure_title_bar(self):
         """
@@ -66,41 +50,16 @@ class Accounts(QObject):
         self.ui_setup.accounts.disable_title_bar_button()
         self.ui_setup.accounts.disable_search_bar()
 
-    def connectAccounts(self):
+    def configure_layout(self):
         """
-        Connect Accounts widgets
+        Configure layout inside of Container
         :return: void
         """
 
-        """ Connect click on groupBox to set always checked """
-        self.ui_setup.accounts.clicked.connect(self.checkGroupBox)
+        widget = QWidget()
+        layout = QHBoxLayout(widget)
+        layout.addWidget(self.balance_chart)
+        layout.addWidget(self.accounts_listview)
+        layout.setContentsMargins(30, 0, 0, 0)
 
-        self.addAccount()
-
-    def setAccounts(self, accountList):
-        """
-        Set accounts list to display in groupBox
-        :param accountList: accounts list
-        :return: void
-        """
-
-        for account in accountList:
-            print('alors')
-
-    def addAccount(self):
-        """
-        Add account to dashboard (max: 3)
-        :return: void
-        """
-
-        self.ui_setup.accounts.layout().addWidget(self.card2)
-        self.ui_setup.accounts.layout().addWidget(self.card3)
-        self.ui_setup.accounts.layout().addItem(self.spacer)
-
-    def checkGroupBox(self):
-        """
-        Set checkbox always enabled
-        :return: void
-        """
-
-        self.ui_setup.accounts.setChecked(True)
+        self.ui_setup.accounts.setWidget(widget)

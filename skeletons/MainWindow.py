@@ -998,11 +998,12 @@ class Ui_MainWindow(object):
 
         self.accounts = Container(self.dashboard)
         self.accounts.setObjectName(u"accounts")
-        sizePolicy = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Fixed)
+        sizePolicy = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.MinimumExpanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.accounts.sizePolicy().hasHeightForWidth())
         self.accounts.setSizePolicy(sizePolicy)
+        self.accounts.setMaximumSize(QSize(524287, 300))
         self.accounts.setFont(font1)
         self.accounts.setFeatures(QDockWidget.NoDockWidgetFeatures)
         self.accounts.setAllowedAreas(Qt.NoDockWidgetArea)
@@ -1010,20 +1011,6 @@ class Ui_MainWindow(object):
         self.dockWidgetContents_3.setObjectName(u"dockWidgetContents_3")
         self.gridLayout_5 = QGridLayout(self.dockWidgetContents_3)
         self.gridLayout_5.setObjectName(u"gridLayout_5")
-        self.widgetDonut = QWidget(self.dockWidgetContents_3)
-        self.widgetDonut.setObjectName(u"widgetDonut")
-        self.widgetDonut.setMinimumSize(QSize(200, 250))
-        self.widgetDonut.setMaximumSize(QSize(200, 250))
-        self.verticalLayout = QVBoxLayout(self.widgetDonut)
-        self.verticalLayout.setObjectName(u"verticalLayout")
-
-        self.gridLayout_5.addWidget(self.widgetDonut, 0, 0, 1, 1)
-
-        self.listView = QListView(self.dockWidgetContents_3)
-        self.listView.setObjectName(u"listView")
-
-        self.gridLayout_5.addWidget(self.listView, 0, 1, 1, 1)
-
         self.accounts.setWidget(self.dockWidgetContents_3)
 
         self.gridLayout_2.addWidget(self.accounts, 0, 3, 1, 1)
