@@ -1,4 +1,6 @@
-from PySide2.QtCore import Qt, QSize, QRect
+from math import cos, pi, sin
+
+from PySide2.QtCore import Qt, QSize, QRect, QPointF
 from PySide2.QtGui import QPainter, QPen, QColor, QFont, QFontMetrics
 from PySide2.QtWidgets import QWidget
 
@@ -102,6 +104,20 @@ class DonutChart(QWidget):
 
             """ Draw arc """
             painter.drawArc(rect, start_angle * 16, span_angle * 16)
+
+            """ Configure font for slice percentage """
+            font = QFont()
+            font.setFamily(u"Roboto")
+            font.setPointSize(10)
+            painter.setFont(font)
+
+            """ Set pen color """
+            pen.setColor(QColor("white"))
+            painter.setPen(pen)
+
+            angle = (span_angle - start_angle) / 2 + start_angle
+            rect = QPointF(self.rect().center().x() + cos(angle*pi/180), self.rect().center().y() + sin(angle*pi/180))
+            painter.drawText(rect, str(current_slice) + "%")
 
             """ Re-draw first one in case of last to hide overlapping """
             if current_index == last_index:
