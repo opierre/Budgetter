@@ -2,6 +2,8 @@ from PySide2.QtCore import Qt, QSize, QRect
 from PySide2.QtGui import QPainter, QPen, QColor, QFont, QFontMetrics
 from PySide2.QtWidgets import QWidget
 
+from utils.tools import convert_amount_to_str
+
 
 class DonutChart(QWidget):
     """
@@ -16,6 +18,9 @@ class DonutChart(QWidget):
 
         """ Store colors """
         self.colors = [QColor("#1CA9E9"), QColor("#0154C8"), QColor("#26C1C9"), QColor("#6658CB")]
+
+        """ Store total amount """
+        self.total_amount = 0
 
         """ Set fixed size """
         self.setFixedSize(200, 200)
@@ -45,7 +50,7 @@ class DonutChart(QWidget):
 
         """ Configure pen """
         pen = QPen()
-        pen.setWidthF(18.0)
+        pen.setWidthF(20.0)
         pen.setCapStyle(Qt.RoundCap)
 
         """ Draw slices """
@@ -135,8 +140,30 @@ class DonutChart(QWidget):
         pixelsHeight = fontMetrics.height()
 
         """ Set text """
-        rect = QRect(self.rect().x() + 10, self.rect().y() + 10, self.rect().width() - 20, self.rect().height() - 20)
+        rect = QRect(self.rect().x() + 10, self.rect().y() + 10, self.rect().width() - 20, pixelsHeight * 2 + 15)
         rect.moveCenter(self.rect().center())
-        painter.drawText(rect, Qt.AlignHCenter | Qt.AlignVCenter, "Current balance")
+        painter.drawText(rect, Qt.AlignHCenter | Qt.AlignBottom, "Current balance")
+
+        """ Configure font for total amount """
+        font = QFont()
+        font.setFamily(u"Roboto Medium")
+        font.setPointSize(14)
+        painter.setFont(font)
+
+        """ Set pen color """
+        pen.setColor(QColor("white"))
+        painter.setPen(pen)
+
+        total_amount_str = convert_amount_to_str(self.total_amount)
+        painter.drawText(rect, Qt.AlignHCenter | Qt.AlignTop, total_amount_str + " €")
 
         painter.end()
+
+    def set_total_amount(self, total_amount):
+        """
+        Update total amount
+        :param total_amount: total amount
+        :return: void
+        """
+
+        self.total_amount = total_amount

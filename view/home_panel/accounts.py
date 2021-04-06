@@ -27,6 +27,7 @@ class Accounts(QObject):
         self.balance_chart.add_slice(27)
         self.balance_chart.add_slice(10)
         self.balance_chart.add_slice(39)
+        self.balance_chart.set_total_amount(15307.8)
 
         """ Configure layout """
         self.configure_layout()
@@ -60,6 +61,6 @@ class Accounts(QObject):
         layout = QHBoxLayout(widget)
         layout.addWidget(self.balance_chart)
         layout.addWidget(self.accounts_listview)
-        layout.setContentsMargins(30, 0, 0, 0)
+        layout.setContentsMargins(30, 10, 0, 10)
 
         self.ui_setup.accounts.setWidget(widget)
