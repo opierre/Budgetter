@@ -1,6 +1,7 @@
-from math import cos, pi, sin
+import math
+from math import cos, pi, sin, sqrt
 
-from PySide2.QtCore import Qt, QSize, QRect, QPointF
+from PySide2.QtCore import Qt, QSize, QRect, QPointF, QRectF
 from PySide2.QtGui import QPainter, QPen, QColor, QFont, QFontMetrics
 from PySide2.QtWidgets import QWidget
 
@@ -25,7 +26,10 @@ class DonutChart(QWidget):
         self.total_amount = 0
 
         """ Set fixed size """
-        self.setFixedSize(200, 200)
+        self.setFixedSize(210, 210)
+
+        """ Set margins """
+        self.setContentsMargins(0, 0, 0, 0)
 
     def add_slice(self, percentage):
         """
@@ -52,7 +56,7 @@ class DonutChart(QWidget):
 
         """ Configure pen """
         pen = QPen()
-        pen.setWidthF(20.0)
+        pen.setWidthF(22.5)
         pen.setCapStyle(Qt.RoundCap)
 
         """ Draw slices """
@@ -74,6 +78,11 @@ class DonutChart(QWidget):
         previous_end_angle = 0
         current_index = 0
         last_index = len(self._slices)
+
+        """ Configure rectangle """
+        rect_origins = QRect(self.rect().x() + 10, self.rect().y() + 10,
+                             self.rect().width() - 30, self.rect().height() - 30)
+        rect_origins.moveCenter(self.rect().center())
 
         for current_slice in self._slices:
             """ Set span angles """
@@ -98,26 +107,33 @@ class DonutChart(QWidget):
             """ Update current index """
             current_index += 1
 
-            """ Configure rectangle """
-            rect = QRect(self.rect().x()+10, self.rect().y()+10, self.rect().width()-20, self.rect().height()-20)
-            rect.moveCenter(self.rect().center())
-
             """ Draw arc """
-            painter.drawArc(rect, start_angle * 16, span_angle * 16)
+            painter.drawArc(rect_origins, start_angle * 16, span_angle * 16)
 
             """ Configure font for slice percentage """
             font = QFont()
             font.setFamily(u"Roboto")
-            font.setPointSize(10)
+            font.setPointSize(8)
             painter.setFont(font)
 
             """ Set pen color """
             pen.setColor(QColor("white"))
             painter.setPen(pen)
 
-            angle = (span_angle - start_angle) / 2 + start_angle
-            rect = QPointF(self.rect().center().x() + cos(angle*pi/180), self.rect().center().y() + sin(angle*pi/180))
-            painter.drawText(rect, str(current_slice) + "%")
+            """ Compute middle arc coordinates """
+            x_label = self.rect().center().x() + (rect_origins.width() / 2.0) * math.cos(
+                (start_angle + span_angle / 2) * math.pi / 180) - 7
+            y_label = self.rect().center().y() - (rect_origins.width() / 2.0) * math.sin(
+                (start_angle + span_angle / 2) * math.pi / 180) - 6
+
+            """ Get text width """
+            label_perc = str(current_slice) + "%"
+            font_metrics = QFontMetrics(font)
+            pixels_width = font_metrics.width(label_perc)
+            pixels_height = font_metrics.height()
+            rect_label = QRectF(x_label, y_label, pixels_width, pixels_height)
+
+            painter.drawText(rect_label, Qt.AlignLeft | Qt.AlignVCenter, label_perc)
 
             """ Re-draw first one in case of last to hide overlapping """
             if current_index == last_index:
@@ -125,12 +141,8 @@ class DonutChart(QWidget):
                 pen.setColor(self.colors[0])
                 painter.setPen(pen)
 
-                """ Configure rectangle """
-                rect = QRect(self.rect().x()+10, self.rect().y()+10, self.rect().width()-20, self.rect().height()-20)
-                rect.moveCenter(self.rect().center())
-
                 """ Draw arc """
-                painter.drawArc(rect, first_start_angle * 16, first_span_angle * 16 * 1 / 10)
+                painter.drawArc(rect_origins, first_start_angle * 16, first_span_angle * 16 * 1 / 10)
 
     def draw_total_amount(self, pen, painter):
         """
@@ -161,7 +173,6 @@ class DonutChart(QWidget):
         painter.drawText(rect, Qt.AlignHCenter | Qt.AlignBottom, "Current balance")
 
         """ Configure font for total amount """
-        font = QFont()
         font.setFamily(u"Roboto Medium")
         font.setPointSize(14)
         painter.setFont(font)
