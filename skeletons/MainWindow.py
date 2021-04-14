@@ -24,7 +24,7 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(1176, 723)
+        MainWindow.resize(1216, 785)
         MainWindow.setStyleSheet(u"#MainWindow \n"
 "{\n"
 "	background: #212F41;\n"
@@ -979,23 +979,6 @@ class Ui_MainWindow(object):
         self.gridLayout_2.setSpacing(15)
         self.gridLayout_2.setObjectName(u"gridLayout_2")
         self.gridLayout_2.setContentsMargins(15, 15, 15, 15)
-        self.transactions = Container(self.dashboard)
-        self.transactions.setObjectName(u"transactions")
-        self.transactions.setMinimumSize(QSize(46, 46))
-        font1 = QFont()
-        font1.setFamily(u"Roboto")
-        font1.setPointSize(13)
-        self.transactions.setFont(font1)
-        self.transactions.setFeatures(QDockWidget.NoDockWidgetFeatures)
-        self.transactions.setAllowedAreas(Qt.NoDockWidgetArea)
-        self.dockWidgetContents_2 = QWidget()
-        self.dockWidgetContents_2.setObjectName(u"dockWidgetContents_2")
-        self.gridLayout_4 = QGridLayout(self.dockWidgetContents_2)
-        self.gridLayout_4.setObjectName(u"gridLayout_4")
-        self.transactions.setWidget(self.dockWidgetContents_2)
-
-        self.gridLayout_2.addWidget(self.transactions, 1, 3, 1, 1)
-
         self.accounts = Container(self.dashboard)
         self.accounts.setObjectName(u"accounts")
         sizePolicy = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.MinimumExpanding)
@@ -1003,7 +986,11 @@ class Ui_MainWindow(object):
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.accounts.sizePolicy().hasHeightForWidth())
         self.accounts.setSizePolicy(sizePolicy)
-        self.accounts.setMaximumSize(QSize(524287, 300))
+        self.accounts.setMinimumSize(QSize(40, 46))
+        self.accounts.setMaximumSize(QSize(650, 300))
+        font1 = QFont()
+        font1.setFamily(u"Roboto")
+        font1.setPointSize(13)
         self.accounts.setFont(font1)
         self.accounts.setFeatures(QDockWidget.NoDockWidgetFeatures)
         self.accounts.setAllowedAreas(Qt.NoDockWidgetArea)
@@ -1013,7 +1000,7 @@ class Ui_MainWindow(object):
         self.gridLayout_5.setObjectName(u"gridLayout_5")
         self.accounts.setWidget(self.dockWidgetContents_3)
 
-        self.gridLayout_2.addWidget(self.accounts, 0, 3, 1, 1)
+        self.gridLayout_2.addWidget(self.accounts, 0, 0, 1, 1)
 
         self.monthlyExpenses = Container(self.dashboard)
         self.monthlyExpenses.setObjectName(u"monthlyExpenses")
@@ -1035,6 +1022,38 @@ class Ui_MainWindow(object):
         self.monthlyExpenses.setWidget(self.dockWidgetContents)
 
         self.gridLayout_2.addWidget(self.monthlyExpenses, 0, 4, 2, 1)
+
+        self.spending = Container(self.dashboard)
+        self.spending.setObjectName(u"spending")
+        sizePolicy.setHeightForWidth(self.spending.sizePolicy().hasHeightForWidth())
+        self.spending.setSizePolicy(sizePolicy)
+        self.spending.setMinimumSize(QSize(40, 46))
+        self.spending.setMaximumSize(QSize(524287, 300))
+        self.spending.setFont(font1)
+        self.spending.setFeatures(QDockWidget.NoDockWidgetFeatures)
+        self.spending.setAllowedAreas(Qt.NoDockWidgetArea)
+        self.dockWidgetContents_8 = QWidget()
+        self.dockWidgetContents_8.setObjectName(u"dockWidgetContents_8")
+        self.gridLayout_91 = QGridLayout(self.dockWidgetContents_8)
+        self.gridLayout_91.setObjectName(u"gridLayout_91")
+        self.spending.setWidget(self.dockWidgetContents_8)
+
+        self.gridLayout_2.addWidget(self.spending, 0, 1, 1, 1)
+
+        self.transactions = Container(self.dashboard)
+        self.transactions.setObjectName(u"transactions")
+        self.transactions.setMinimumSize(QSize(40, 46))
+        self.transactions.setMaximumSize(QSize(524287, 524287))
+        self.transactions.setFont(font1)
+        self.transactions.setFeatures(QDockWidget.NoDockWidgetFeatures)
+        self.transactions.setAllowedAreas(Qt.NoDockWidgetArea)
+        self.dockWidgetContents_2 = QWidget()
+        self.dockWidgetContents_2.setObjectName(u"dockWidgetContents_2")
+        self.gridLayout_4 = QGridLayout(self.dockWidgetContents_2)
+        self.gridLayout_4.setObjectName(u"gridLayout_4")
+        self.transactions.setWidget(self.dockWidgetContents_2)
+
+        self.gridLayout_2.addWidget(self.transactions, 1, 0, 1, 2)
 
         self.stackedWidget.addWidget(self.dashboard)
         self.page_2 = QWidget()
@@ -1106,9 +1125,10 @@ class Ui_MainWindow(object):
         self.settings.setToolTip(QCoreApplication.translate("MainWindow", u"Settings", None))
 #endif // QT_CONFIG(tooltip)
         self.settings.setText("")
-        self.transactions.setWindowTitle(QCoreApplication.translate("MainWindow", u"Transactions", None))
         self.accounts.setWindowTitle(QCoreApplication.translate("MainWindow", u"Balance", None))
         self.monthlyExpenses.setWindowTitle(QCoreApplication.translate("MainWindow", u"Expenses Distribution", None))
+        self.spending.setWindowTitle(QCoreApplication.translate("MainWindow", u"Spending", None))
+        self.transactions.setWindowTitle(QCoreApplication.translate("MainWindow", u"Transactions", None))
         self.total.setTitle(QCoreApplication.translate("MainWindow", u"Total", None))
         self.savings.setTitle(QCoreApplication.translate("MainWindow", u"Savings", None))
         self.toolBar.setWindowTitle(QCoreApplication.translate("MainWindow", u"toolBar", None))

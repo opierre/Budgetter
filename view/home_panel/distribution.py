@@ -19,38 +19,38 @@ class Distribution(QObject):
         self.uiSetup = gui
 
         """ Store custom/classic status bar """
-        self.customStatusBar = StatusBar()
-        self.statusBar = QStatusBar()
+        self.custom_status_bar = StatusBar()
+        self.status_bar = QStatusBar()
 
         """ Current Month button """
-        self.currentMonth = QPushButton("September")
+        self.current_month = QPushButton("September")
 
         """ Previous Month button """
-        self.previousMonth = QPushButton("August")
+        self.previous_month = QPushButton("August")
 
         """ Store item delegate """
-        self.distributionDelegate = DistributionDelegate()
+        self.distribution_delegate = DistributionDelegate()
 
         """ ListView to display all categories """
-        self.categoriesListView = QListView()
+        self.categories_listview = QListView()
 
         """ Model to handle data in distribution list """
-        self.categoriesModel = DistributionModel([["Restaurants",
-                                                  3,
-                                                  22095.53,
-                                                  100],
-                                                  ["Transport",
+        self.categories_model = DistributionModel([["Restaurants",
+                                                    3,
+                                                    22095.53,
+                                                    100],
+                                                   ["Transport",
                                                    120,
                                                    209.12,
                                                    42],
-                                                  ["Groceries",
+                                                   ["Groceries",
                                                    1,
                                                    20.43,
                                                    5]
-                                                  ])
+                                                   ])
 
-        self.categoriesListView.setModel(self.categoriesModel)
-        self.categoriesListView.setItemDelegate(self.distributionDelegate)
+        self.categories_listview.setModel(self.categories_model)
+        self.categories_listview.setItemDelegate(self.distribution_delegate)
 
         """ Configure status bar """
         self.configure_status_bar()
@@ -69,8 +69,8 @@ class Distribution(QObject):
 
         widget = QWidget()
         layout = QVBoxLayout(widget)
-        layout.addWidget(self.categoriesListView)
-        layout.addWidget(self.statusBar)
+        layout.addWidget(self.categories_listview)
+        layout.addWidget(self.status_bar)
         layout.setContentsMargins(0, 10, 0, 0)
 
         self.uiSetup.monthlyExpenses.setWidget(widget)
@@ -85,27 +85,27 @@ class Distribution(QObject):
         self.set_current_and_previous_month()
 
         """ Set states for activation """
-        self.currentMonth.setProperty("activated", "true")
-        self.currentMonth.update()
-        self.previousMonth.setProperty("activated", "false")
-        self.previousMonth.update()
+        self.current_month.setProperty("activated", "true")
+        self.current_month.update()
+        self.previous_month.setProperty("activated", "false")
+        self.previous_month.update()
 
         """ Set cursor for left buttons """
-        self.currentMonth.setCursor(Qt.PointingHandCursor)
-        self.previousMonth.setCursor(Qt.PointingHandCursor)
+        self.current_month.setCursor(Qt.PointingHandCursor)
+        self.previous_month.setCursor(Qt.PointingHandCursor)
 
         """ Add custom status bar to classic one """
-        self.statusBar.addPermanentWidget(self.customStatusBar)
+        self.status_bar.addPermanentWidget(self.custom_status_bar)
 
         """ Add buttons on left corner """
-        self.statusBar.addWidget(self.currentMonth)
-        self.statusBar.addWidget(self.previousMonth)
+        self.status_bar.addWidget(self.current_month)
+        self.status_bar.addWidget(self.previous_month)
 
         """ Disable size grip """
-        self.statusBar.setSizeGripEnabled(False)
+        self.status_bar.setSizeGripEnabled(False)
 
         """ Hide settings """
-        self.customStatusBar.hideSettings()
+        self.custom_status_bar.hideSettings()
 
     def configure_title_bar(self):
         """
@@ -125,9 +125,9 @@ class Distribution(QObject):
 
         currentMonthNb = QDate.currentDate().month()
         currentMonth = QDate.currentDate().longMonthName(currentMonthNb)
-        self.currentMonth.setText(currentMonth.capitalize())
+        self.current_month.setText(currentMonth.capitalize())
 
         if currentMonthNb == 1:
             currentMonthNb = 13
         previousMonth = QDate.currentDate().longMonthName(currentMonthNb - 1)
-        self.previousMonth.setText(previousMonth.capitalize())
+        self.previous_month.setText(previousMonth.capitalize())
