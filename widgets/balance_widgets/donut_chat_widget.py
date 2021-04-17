@@ -25,6 +25,9 @@ class DonutChart(QWidget):
         """ Store total amount """
         self.total_amount = 0
 
+        """ Store trend """
+        self.trend = "FLAT"
+
         """ Set fixed size """
         self.setFixedSize(210, 210)
 
@@ -163,14 +166,17 @@ class DonutChart(QWidget):
         painter.setPen(pen)
 
         """ Get font metrics """
+        text = "Current balance"
         fontMetrics = QFontMetrics(font)
-        pixelsWidth = fontMetrics.width("Current balance")
+        pixelsWidth = fontMetrics.width(text)
         pixelsHeight = fontMetrics.height()
 
         """ Set text """
-        rect = QRect(self.rect().x() + 10, self.rect().y() + 10, self.rect().width() - 20, pixelsHeight * 2 + 15)
-        rect.moveCenter(self.rect().center())
-        painter.drawText(rect, Qt.AlignHCenter | Qt.AlignBottom, "Current balance")
+        rect_description = QRect(self.rect().x(), self.rect().y(), pixelsWidth, pixelsHeight)
+        rect_description.moveCenter(self.rect().center())
+        rect_description.moveBottom(rect_description.y() + rect_description.height() / 2)
+        painter.drawText(rect_description, Qt.AlignHCenter | Qt.AlignVCenter, text)
+        # painter.drawRect(rect_description)
 
         """ Configure font for total amount """
         font.setFamily(u"Roboto Medium")
@@ -181,8 +187,19 @@ class DonutChart(QWidget):
         pen.setColor(QColor("white"))
         painter.setPen(pen)
 
+        """ Get font metrics """
         total_amount_str = convert_amount_to_str(self.total_amount)
-        painter.drawText(rect, Qt.AlignHCenter | Qt.AlignTop, total_amount_str + " €")
+        value = total_amount_str + " €"
+        fontMetrics = QFontMetrics(font)
+        pixelsWidth = fontMetrics.width(value)
+        pixelsHeight = fontMetrics.height()
+
+        """ Set value """
+        rect_value = QRect(self.rect().x(), self.rect().y(), pixelsWidth, pixelsHeight)
+        rect_value.moveCenter(self.rect().center())
+        rect_value.moveTop(rect_value.y() - rect_value.height() / 2)
+        painter.drawText(rect_value, Qt.AlignHCenter | Qt.AlignVCenter, value)
+        #painter.drawRect(rect_value)
 
         painter.end()
 
@@ -194,3 +211,12 @@ class DonutChart(QWidget):
         """
 
         self.total_amount = total_amount
+
+    def set_trend(self, trend):
+        """
+        Update trend
+        :param trend: "FLAT"/"UP"/"DOWN"
+        :return: void
+        """
+
+        self.trend = trend

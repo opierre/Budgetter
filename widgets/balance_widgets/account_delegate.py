@@ -67,23 +67,21 @@ class AccountDelegate(QItemDelegate):
         rectIcon = QRect(rectBackground.x()+option.rect.width()*1/60, rectBackground.y()-option.rect.height()*1/30,
                          rectBackground.height()+option.rect.height()*1/5, rectBackground.height()+option.rect.height()*1/30)
         painter.drawRoundedRect(rectIcon, 1.0, 1.0)
-        #
-        # """ Draw icon and render svg """
-        # painter.setPen(QPen(Qt.transparent))
-        # painter.setBrush(QColor("transparent"))
-        # rectSvg = QRect(rectIcon.x()+10, rectIcon.y()+10,
-        #                 rectIcon.width()-20, rectIcon.height()-20)
-        # painter.drawRect(rectSvg)
-        #
-        # if category == "Restaurants":
-        #     svgRender = QSvgRenderer(":/images/images/restaurant-white-18dp.svg")
-        # elif category == "Transport":
-        #     svgRender = QSvgRenderer(":/images/images/directions_car-white-18dp.svg")
-        # elif category == "Groceries":
-        #     svgRender = QSvgRenderer(":/images/images/local_grocery_store-white-18dp.svg")
-        # svgRender.setAspectRatioMode(Qt.KeepAspectRatio)
-        # svgRender.render(painter, rectSvg)
-        #
+
+        """ Draw icon and render svg """
+        painter.setPen(QPen(Qt.transparent))
+        painter.setBrush(QColor("transparent"))
+        rectSvg = QRect(rectIcon.x(), rectIcon.y()+5,
+                        rectIcon.width(), rectIcon.height()-10)
+        painter.drawRect(rectSvg)
+
+        if bank.lower() == "Caisse d'Epargne".lower():
+            svgRender = QSvgRenderer(":/images/images/Caisse_depargne_Logo_bank.svg")
+        elif bank.lower() == "Crédit Agricole".lower():
+            svgRender = QSvgRenderer(":/images/images/Crédit_Agricole _bank.svg")
+        svgRender.setAspectRatioMode(Qt.KeepAspectRatio)
+        svgRender.render(painter, rectSvg)
+
         """ Set font on painter for account name """
         self.font.setFamily(u"Roboto")
         self.font.setPointSize(11)
