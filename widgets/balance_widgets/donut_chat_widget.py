@@ -3,6 +3,7 @@ from math import cos, pi, sin, sqrt
 
 from PySide2.QtCore import Qt, QSize, QRect, QPointF, QRectF
 from PySide2.QtGui import QPainter, QPen, QColor, QFont, QFontMetrics
+from PySide2.QtSvg import QSvgRenderer
 from PySide2.QtWidgets import QWidget
 
 from utils.tools import convert_amount_to_str
@@ -26,7 +27,7 @@ class DonutChart(QWidget):
         self.total_amount = 0
 
         """ Store trend """
-        self.trend = "FLAT"
+        self.trend = "UP"
 
         """ Set fixed size """
         self.setFixedSize(210, 210)
@@ -174,9 +175,8 @@ class DonutChart(QWidget):
         """ Set text """
         rect_description = QRect(self.rect().x(), self.rect().y(), pixelsWidth, pixelsHeight)
         rect_description.moveCenter(self.rect().center())
-        rect_description.moveBottom(rect_description.y() + rect_description.height() / 2)
+        rect_description.moveTop(rect_description.y() + rect_description.height() / 2 + 7)
         painter.drawText(rect_description, Qt.AlignHCenter | Qt.AlignVCenter, text)
-        # painter.drawRect(rect_description)
 
         """ Configure font for total amount """
         font.setFamily(u"Roboto Medium")
@@ -197,9 +197,22 @@ class DonutChart(QWidget):
         """ Set value """
         rect_value = QRect(self.rect().x(), self.rect().y(), pixelsWidth, pixelsHeight)
         rect_value.moveCenter(self.rect().center())
-        rect_value.moveTop(rect_value.y() - rect_value.height() / 2)
+        rect_value.moveBottom(rect_value.y() + rect_value.height() / 2)
         painter.drawText(rect_value, Qt.AlignHCenter | Qt.AlignVCenter, value)
-        #painter.drawRect(rect_value)
+
+        """ Set trend """
+        rect_trend = QRect(self.rect().x(), self.rect().y(), 24, 24)
+        rect_trend.moveCenter(self.rect().center())
+        rect_trend.moveTop(rect_description.y() + rect_description.height() + 6)
+
+        if self.trend == "UP":
+            svgRender = QSvgRenderer(":/images/images/trending_up_white_24dp.svg")
+        elif self.trend == "DOWN":
+            svgRender = QSvgRenderer(":/images/images/trending_down_white_24dp.svg")
+        else:
+            svgRender = QSvgRenderer(":/images/images/trending_flat_white_24dp.svg")
+        svgRender.setAspectRatioMode(Qt.KeepAspectRatio)
+        svgRender.render(painter, rect_trend)
 
         painter.end()
 

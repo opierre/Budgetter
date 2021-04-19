@@ -64,11 +64,13 @@ class AccountDelegate(QItemDelegate):
         """ Draw left icon background """
         painter.setPen(QPen(color))
         painter.setBrush(color)
+        painter.setOpacity(0.8)
         rectIcon = QRect(rectBackground.x()+option.rect.width()*1/60, rectBackground.y()-option.rect.height()*1/30,
                          rectBackground.height()+option.rect.height()*1/5, rectBackground.height()+option.rect.height()*1/30)
         painter.drawRoundedRect(rectIcon, 1.0, 1.0)
 
         """ Draw icon and render svg """
+        painter.setOpacity(1)
         painter.setPen(QPen(Qt.transparent))
         painter.setBrush(QColor("transparent"))
         rectSvg = QRect(rectIcon.x(), rectIcon.y()+5,
