@@ -2,6 +2,7 @@ from PySide2.QtCore import QObject
 
 from view.home_panel.accounts import Accounts
 from view.home_panel.distribution import Distribution
+from view.home_panel.spending import Spending
 from view.home_panel.transactions import Transactions
 
 
@@ -19,6 +20,9 @@ class Home(QObject):
 
         """ Accounts groupBox """
         self._accounts = Accounts(gui)
+
+        """ Spending groupBox """
+        self._spending = Spending(gui)
 
         """ Distribution groupBox """
         self._distribution = Distribution(gui)

@@ -562,6 +562,12 @@ QPushButton[activated=&quot;true&quot;]
 	font-family: &quot;Roboto&quot;;
 	font-size: 11pt;
 	margin-left: 10px;
+	padding-left: 8px;
+	padding-right: 8px;
+	padding-bottom: 4px;
+	padding-top: 4px;
+	border: 1px solid #165C8D;
+	border-radius: 4px;
 }
 
 QPushButton[activated=&quot;false&quot;] 
@@ -571,6 +577,12 @@ QPushButton[activated=&quot;false&quot;]
 	font-family: &quot;Roboto&quot;;
 	font-size: 11pt;
 	margin-left: 10px;
+	padding-left: 8px;
+	padding-right: 8px;
+	padding-bottom: 4px;
+	padding-top: 4px;
+	border: 1px solid transparent;
+	border-radius: 4px;
 }
 
 QListView 
@@ -823,7 +835,7 @@ QToolBar
 {
 	background-color: #1C293B;
 	border: none;
-	spacing: 15px;
+	spacing: 18px;
 }
 
 QToolButton
