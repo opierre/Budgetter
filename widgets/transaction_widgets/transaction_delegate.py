@@ -230,7 +230,7 @@ class TransactionDelegate(QStyledItemDelegate):
         self.draw_item_background(painter, option, index, rect_background)
 
         """ Draw left icon background """
-        self.rect_category = QRect(rect_background.x() + option.rect.width() * 1 / 120, rect_background.y() - option.rect.height() * 1 / 30,
+        self.rect_category = QRect(rect_background.x() + option.rect.width() * 1 / 35, rect_background.y() - option.rect.height() * 1 / 30,
                                    rect_background.height() + option.rect.height() * 2 / 30, rect_background.height() + option.rect.height() * 2 / 30)
         self.draw_left_icon(painter, index, category)
 
@@ -274,24 +274,18 @@ class TransactionDelegate(QStyledItemDelegate):
         pixelsWidth = fontMetrics.width(expOrInc)
 
         """ Set income/expense on right corner """
-        self.rect_exp_or_inc = QRectF(rect_background.width() * 3.7 / 4 - pixelsWidth - (pixelsHeight + 8) / 2.5,
+        #self.rect_exp_or_inc = QRectF(rect_background.width() * 3.7 / 4 - pixelsWidth - (pixelsHeight + 8) / 2.5,
+        self.rect_exp_or_inc = QRectF(rect_background.x() + option.rect.width() * 1 / 140,
                                       self.rect_category.y() + (self.rect_category.width() - pixelsHeight - 8) / 2.0,
                                       pixelsWidth + (pixelsHeight + 8) / 2.5 + (pixelsHeight+8) / 0.9, pixelsHeight + 8)
 
         if self.editable != index:
-            painter.drawRoundedRect(self.rect_exp_or_inc, 4.0, 4.0)
-
-            painter.setPen(QPen(QColor("white")))
-            painter.drawText(self.rect_exp_or_inc.x() + (pixelsHeight + 8) / 0.9, self.rect_exp_or_inc.y() + 5.0,
-                             pixelsWidth, pixelsHeight,
-                             Qt.AlignLeft | Qt.AlignVCenter, expOrInc)
-
             painter.setPen(Qt.NoPen)
             if expOrInc == "Income":
                 painter.setBrush(QColor("#6DD230"))
             else:
                 painter.setBrush(QColor("#FE4D97"))
-            rectEllipse = QRectF(self.rect_exp_or_inc.x() + (pixelsHeight + 8) / 2.5, self.rect_exp_or_inc.y() + (pixelsHeight + 8) / 3.5,
+            rectEllipse = QRectF(self.rect_exp_or_inc.x(), self.rect_exp_or_inc.y() + (pixelsHeight + 8) / 3.5,
                                  (pixelsHeight + 8) / 2.5, (pixelsHeight + 8) / 2.5)
             painter.drawEllipse(rectEllipse)
         else:
