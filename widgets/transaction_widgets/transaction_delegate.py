@@ -307,7 +307,7 @@ class TransactionDelegate(QStyledItemDelegate):
         painter.setBrush(QColor("transparent"))
 
         """ Button edit """
-        self.rect_edit = QRect(rect_background.width() + rect_background.x() - self.rect_category.x() / 1.1,
+        self.rect_edit = QRect(rect_background.width() + rect_background.x() - 25,
                                self.rect_name.y(), 25, self.rect_name.height())
 
         optionMore = QStyleOptionButton()
@@ -322,7 +322,7 @@ class TransactionDelegate(QStyledItemDelegate):
             self.edit.style().drawControl(QStyle.CE_PushButton, optionMore, painter, self.edit)
 
         """ Buttons rects """
-        self.rect_delete = QRect(rect_background.width() + rect_background.x() - self.rect_category.x() / 1.1,
+        self.rect_delete = QRect(rect_background.width() + rect_background.x() - 25,
                                  self.rect_category_name.y(), 25, self.rect_name.height())
 
         if self.editable != index and option.state & QStyle.State_Selected:
