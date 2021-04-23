@@ -174,6 +174,7 @@ class TransactionsModel(QAbstractListModel):
         self.transactions[index.row()]["date"] = value["date"]
         self.transactions[index.row()]["account"] = value["account"]
         self.transactions[index.row()]["type"] = value["type"]
+        self.transactions[index.row()]["means"] = value["means"]
 
         self.dataChanged.emit(index, index)
 
@@ -209,7 +210,7 @@ class TransactionsModel(QAbstractListModel):
         previous_type = self.data(self.index(0, 0, QModelIndex()), Qt.DisplayRole)["type"]
         current_date = QDate.currentDate().toString("dd/MM/yyyy")
         self.transactions.insert(0, {"name": "Name", "category": "", "amount": 0, "date": current_date,
-                                     "account": "", "type": previous_type})
+                                     "account": "", "type": previous_type, "means": ""})
         self.endInsertRows()
 
     def flags(self, index):

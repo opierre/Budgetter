@@ -51,6 +51,7 @@ class TransactionDelegate(QStyledItemDelegate):
         self.rect_date = None
         self.rect_account = None
         self.rect_exp_or_inc = None
+        self.rect_mean = None
 
         """ Store buttons rectangle for first row on add """
         self.rect_category_first_row = None
@@ -220,6 +221,7 @@ class TransactionDelegate(QStyledItemDelegate):
         date = datetime.datetime.strptime(date, '%d/%m/%Y').strftime('%d %b %Y')
         account = str(value["account"])
         expOrInc = str(value["type"])
+        means = str(value["means"])
 
         """ Draw separator """
         self.draw_separator(painter, option)
@@ -258,6 +260,9 @@ class TransactionDelegate(QStyledItemDelegate):
         """ Draw account label """
         self.draw_label(painter, rect_background, "Account", 2.6/4)
 
+        """ Draw mean icon """
+        self.draw_means(painter, rect_background, means)
+
         """ Set font on painter for income/expense """
         self.font.setFamily(u"Roboto")
         self.font.setPointSize(11)
@@ -274,7 +279,6 @@ class TransactionDelegate(QStyledItemDelegate):
         pixelsWidth = fontMetrics.width(expOrInc)
 
         """ Set income/expense on right corner """
-        #self.rect_exp_or_inc = QRectF(rect_background.width() * 3.7 / 4 - pixelsWidth - (pixelsHeight + 8) / 2.5,
         self.rect_exp_or_inc = QRectF(rect_background.x() + option.rect.width() * 1 / 140,
                                       self.rect_category.y() + (self.rect_category.width() - pixelsHeight - 8) / 2.0,
                                       pixelsWidth + (pixelsHeight + 8) / 2.5 + (pixelsHeight+8) / 0.9, pixelsHeight + 8)
@@ -364,6 +368,27 @@ class TransactionDelegate(QStyledItemDelegate):
                          option.rect.width()-option.rect.width()*1/60, option.rect.y()+option.rect.height()-1)
 
         painter.setRenderHint(QPainter.Antialiasing)
+
+    def draw_means(self, painter, rect_background, means):
+        """
+        Draw mean icon
+        :param painter: painter
+        :param rect_background: background rectangle
+        :param means: payment means
+        :return: void
+        """
+
+        self.rect_mean = QRectF(rect_background.width() * 3.5 / 4 - 24,
+                                rect_background.y() + (rect_background.height() - 24) / 2.0,
+                                24, 24)
+
+        svgRender = QSvgRenderer(":/images/images/credit_card_white_24dp.svg")
+        if means == "Espèces":
+            svgRender = QSvgRenderer(":/images/images/local_atm_white_24dp.svg")
+        elif means == "Virement":
+            svgRender = QSvgRenderer(":/images/images/swap_horiz_white_24dp.svg")
+        svgRender.setAspectRatioMode(Qt.KeepAspectRatio)
+        svgRender.render(painter, self.rect_mean)
 
     def draw_item_background(self, painter, option, index, rect_background):
         """

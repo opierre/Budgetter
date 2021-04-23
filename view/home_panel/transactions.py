@@ -89,7 +89,8 @@ class Transactions(QObject):
                 "amount": 25.99,
                 "date": "20/02/2020",
                 "account": "Compte Chèque",
-                "type": "Income"
+                "type": "Income",
+                "means": "Carte Bleue"
             },
             {
                 "name": "Gasoil",
@@ -97,7 +98,8 @@ class Transactions(QObject):
                 "amount": 40.01,
                 "date": "12/05/2020",
                 "account": "Livret A",
-                "type": "Expenses"
+                "type": "Expenses",
+                "means": "Espèces"
             },
             {
                 "name": "Computer",
@@ -105,7 +107,8 @@ class Transactions(QObject):
                 "amount": 900.99,
                 "date": "24/05/2020",
                 "account": "Livret Jeune",
-                "type": "Expenses"
+                "type": "Expenses",
+                "means": "Virement"
             }
         ]
         self.transactions_model = TransactionsModel(d)

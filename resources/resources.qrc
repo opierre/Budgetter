@@ -1,5 +1,8 @@
 <RCC>
   <qresource prefix="images">
+    <file>images/swap_horiz_white_24dp.svg</file>
+    <file>images/credit_card_white_24dp.svg</file>
+    <file>images/local_atm_white_24dp.svg</file>
     <file>images/Crédit_Agricole _bank.svg</file>
     <file>images/trending_up_white_24dp.svg</file>
     <file>images/trending_flat_white_24dp.svg</file>
