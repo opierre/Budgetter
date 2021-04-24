@@ -41,6 +41,9 @@ class TransactionDelegate(QStyledItemDelegate):
         self.edit = QPushButton()
         self.delete = QPushButton()
 
+        """ Show comment QPushButton """
+        self.comment = QPushButton()
+
         """ Store buttons rectangle """
         self.rect_edit = None
         self.rect_delete = None
@@ -52,6 +55,7 @@ class TransactionDelegate(QStyledItemDelegate):
         self.rect_account = None
         self.rect_exp_or_inc = None
         self.rect_mean = None
+        self.rect_comment = None
 
         """ Store buttons rectangle for first row on add """
         self.rect_category_first_row = None
@@ -76,10 +80,12 @@ class TransactionDelegate(QStyledItemDelegate):
         """ Set icon """
         self.edit.setIcon(QIcon(":/images/images/edit-white-18dp.svg"))
         self.delete.setIcon(QIcon(":/images/images/delete-white-18dp.svg"))
+        self.comment.setIcon(QIcon(":/images/images/notes_white_24dp.svg"))
 
         """ Set background color """
         self.edit.setStyleSheet("background-color: transparent;\n")
         self.delete.setStyleSheet("background-color: transparent;\n")
+        self.comment.setStyleSheet("background-color: transparent;\n")
 
     def set_editable(self, index):
         """
@@ -222,6 +228,7 @@ class TransactionDelegate(QStyledItemDelegate):
         account = str(value["account"])
         expOrInc = str(value["type"])
         means = str(value["means"])
+        comment = str(value["comment"])
 
         """ Draw separator """
         self.draw_separator(painter, option)
@@ -263,6 +270,9 @@ class TransactionDelegate(QStyledItemDelegate):
         """ Draw mean icon """
         self.draw_means(painter, rect_background, means)
 
+        """ Draw comment icon """
+        self.draw_comment(painter, rect_background, index, comment)
+
         """ Set font on painter for income/expense """
         self.font.setFamily(u"Roboto")
         self.font.setPointSize(11)
@@ -287,8 +297,10 @@ class TransactionDelegate(QStyledItemDelegate):
             painter.setPen(Qt.NoPen)
             if expOrInc == "Income":
                 painter.setBrush(QColor("#6DD230"))
-            else:
+            elif expOrInc == "Expenses":
                 painter.setBrush(QColor("#FE4D97"))
+            else:
+                painter.setBrush(QColor("#FACA00"))
             rectEllipse = QRectF(self.rect_exp_or_inc.x(), self.rect_exp_or_inc.y() + (pixelsHeight + 8) / 3.5,
                                  (pixelsHeight + 8) / 2.5, (pixelsHeight + 8) / 2.5)
             painter.drawEllipse(rectEllipse)
@@ -390,6 +402,30 @@ class TransactionDelegate(QStyledItemDelegate):
         svgRender.setAspectRatioMode(Qt.KeepAspectRatio)
         svgRender.render(painter, self.rect_mean)
 
+    def draw_comment(self, painter, rect_background, index, comment):
+        """
+        Draw mean icon
+        :param painter: painter
+        :param rect_background: background rectangle
+        :param index: index
+        :param comment: comment
+        :return: void
+        """
+
+        self.rect_comment = QRect(rect_background.width() * 3.85 / 4 - 24,
+                                  rect_background.y() + (rect_background.height() - 24) / 2.0,
+                                  24, 24)
+        optionMore = QStyleOptionButton()
+
+        if self.editable != index and comment != '':
+            optionMore.initFrom(self.comment)
+            optionMore.rect = self.rect_comment
+            optionMore.icon = self.comment.icon()
+            optionMore.iconSize = QtCore.QSize(24, 24)
+            optionMore.state = optionMore.state or QStyle.State_MouseOver
+
+            self.comment.style().drawControl(QStyle.CE_PushButton, optionMore, painter, self.comment)
+
     def draw_item_background(self, painter, option, index, rect_background):
         """
         Draw item background
@@ -446,6 +482,8 @@ class TransactionDelegate(QStyledItemDelegate):
                 svgRender = QSvgRenderer(":/images/images/directions_car-white-18dp_outlined.svg")
             elif category == "Groceries":
                 svgRender = QSvgRenderer(":/images/images/local_grocery_store-white-18dp_outlined.svg")
+            elif category == "Transfer":
+                svgRender = QSvgRenderer(":/images/images/swap_horiz_white_18dp_outlined.svg")
             svgRender.setAspectRatioMode(Qt.KeepAspectRatio)
             svgRender.render(painter, rectSvg)
 

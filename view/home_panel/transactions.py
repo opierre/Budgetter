@@ -90,7 +90,8 @@ class Transactions(QObject):
                 "date": "20/02/2020",
                 "account": "Compte Chèque",
                 "type": "Income",
-                "means": "Carte Bleue"
+                "means": "Carte Bleue",
+                "comment": ""
             },
             {
                 "name": "Gasoil",
@@ -99,7 +100,8 @@ class Transactions(QObject):
                 "date": "12/05/2020",
                 "account": "Livret A",
                 "type": "Expenses",
-                "means": "Espèces"
+                "means": "Espèces",
+                "comment": ""
             },
             {
                 "name": "Computer",
@@ -108,7 +110,18 @@ class Transactions(QObject):
                 "date": "24/05/2020",
                 "account": "Livret Jeune",
                 "type": "Expenses",
-                "means": "Virement"
+                "means": "Virement",
+                "comment": ""
+            },
+            {
+                "name": "Virement",
+                "category": "Transfer",
+                "amount": 245.00,
+                "date": "22/05/2020",
+                "account": "Livret Jeune",
+                "type": "Transfer",
+                "means": "Virement",
+                "comment": "Virement vers Livret A"
             }
         ]
         self.transactions_model = TransactionsModel(d)
