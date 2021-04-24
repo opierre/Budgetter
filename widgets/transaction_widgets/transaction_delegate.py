@@ -43,6 +43,7 @@ class TransactionDelegate(QStyledItemDelegate):
 
         """ Show comment QPushButton """
         self.comment = QPushButton()
+        self.comment.setCursor(Qt.PointingHandCursor)
 
         """ Store buttons rectangle """
         self.rect_edit = None
@@ -167,6 +168,10 @@ class TransactionDelegate(QStyledItemDelegate):
                 QApplication.setOverrideCursor(Qt.PointingHandCursor)
                 return True
             elif self.rect_delete.contains(cursorPosition) and self.selected == index:
+                """ Change cursor to pointing hand """
+                QApplication.setOverrideCursor(Qt.PointingHandCursor)
+                return True
+            elif self.rect_comment.contains(cursorPosition) and self.selected == index:
                 """ Change cursor to pointing hand """
                 QApplication.setOverrideCursor(Qt.PointingHandCursor)
                 return True
