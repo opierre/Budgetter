@@ -25,6 +25,9 @@ class TransactionDelegate(QStyledItemDelegate):
     """ Signal emitted on Cancel button click """
     transactionModifCanceled = Signal(QModelIndex)
 
+    """ Signal emitted when hovering comment button - Rectangle with comment (QRect) / Data index (QModelIndex) """
+    commentHovered = Signal(QRect, QModelIndex)
+
     def __init__(self, parent=None, *args):
         QStyledItemDelegate.__init__(self, parent, *args)
 
@@ -171,9 +174,9 @@ class TransactionDelegate(QStyledItemDelegate):
                 """ Change cursor to pointing hand """
                 QApplication.setOverrideCursor(Qt.PointingHandCursor)
                 return True
-            elif self.rect_comment.contains(cursorPosition) and self.selected == index:
-                """ Change cursor to pointing hand """
-                QApplication.setOverrideCursor(Qt.PointingHandCursor)
+            elif self.rect_comment.contains(cursorPosition):
+                """ Emit hovered signal """
+                self.commentHovered.emit(self.rect_comment, index)
                 return True
             else:
                 """ Reset cursor shape """
@@ -423,6 +426,9 @@ class TransactionDelegate(QStyledItemDelegate):
         optionMore = QStyleOptionButton()
 
         if self.editable != index and comment != '':
+            """ Set tooltip """
+            self.comment.setToolTip(comment)
+
             optionMore.initFrom(self.comment)
             optionMore.rect = self.rect_comment
             optionMore.icon = self.comment.icon()

@@ -37,6 +37,9 @@ class Transactions(QObject):
         """ Incomes button - Type """
         self.income = QPushButton("Income")
 
+        """ Transfers button - Type """
+        self.transfer = QPushButton("Transfer")
+
         """ All button - Account """
         self.allAccount = QPushButton("All")
 
@@ -111,7 +114,7 @@ class Transactions(QObject):
                 "account": "Livret Jeune",
                 "type": "Expenses",
                 "means": "Virement",
-                "comment": ""
+                "comment": "Télétravail"
             },
             {
                 "name": "Virement",
@@ -162,6 +165,9 @@ class Transactions(QObject):
         """ Connect signal from Cancel button in list view to abort modifications in item """
         self.transaction_delegate.transactionModifCanceled.connect(self.hide_edit_widgets)
 
+        """ Connect signal from comment hovered button in list view to open menu with comment content """
+        self.transaction_delegate.commentHovered.connect(self.display_comment)
+
         """ Connect signal from click/edit on +/search button """
         self.ui_setup.transactions.titleBarClicked.connect(self.add_transaction)
         self.ui_setup.transactions.titleBarSearched.connect(self.search_transaction)
@@ -170,6 +176,7 @@ class Transactions(QObject):
         self.expenses.clicked.connect(self.update_current_filtering)
         self.income.clicked.connect(self.update_current_filtering)
         self.all.clicked.connect(self.update_current_filtering)
+        self.transfer.clicked.connect(self.update_current_filtering)
 
         """ Update filtering when click on button in status bar """
         self.allAccount.clicked.connect(self.add_filter)
@@ -207,6 +214,16 @@ class Transactions(QObject):
         if action == deleteAction:
             """ Remove transaction from model """
             self.transactions_filter_model.delete_transaction(index)
+
+    def display_comment(self, rectangle, index):
+        """
+        Display comment for current index
+        :param rectangle: rectangle position
+        :param index: current index hovered
+        :return: void
+        """
+
+        pass
 
     def configure_edit_widgets(self):
         """
@@ -570,6 +587,8 @@ class Transactions(QObject):
         self.expenses.update()
         self.income.setProperty("activated", "false")
         self.income.update()
+        self.transfer.setProperty("activated", "false")
+        self.transfer.update()
 
         """ Set states for activation """
         self.allAccount.setProperty("activated", "true")
@@ -585,6 +604,7 @@ class Transactions(QObject):
         self.all.setCursor(Qt.PointingHandCursor)
         self.expenses.setCursor(Qt.PointingHandCursor)
         self.income.setCursor(Qt.PointingHandCursor)
+        self.transfer.setCursor(Qt.PointingHandCursor)
 
         """ Set cursor for left buttons """
         self.allAccount.setCursor(Qt.PointingHandCursor)
@@ -599,6 +619,7 @@ class Transactions(QObject):
         self.status_bar.addWidget(self.all)
         self.status_bar.addWidget(self.expenses)
         self.status_bar.addWidget(self.income)
+        self.status_bar.addWidget(self.transfer)
 
         """ Add separator """
         vline = QFrame()
@@ -648,14 +669,22 @@ class Transactions(QObject):
             self.all.setProperty("activated", "true")
             self.expenses.setProperty("activated", "false")
             self.income.setProperty("activated", "false")
+            self.transfer.setProperty("activated", "false")
         elif newFilter == 'Expenses':
             self.all.setProperty("activated", "false")
             self.expenses.setProperty("activated", "true")
             self.income.setProperty("activated", "false")
-        else:
+            self.transfer.setProperty("activated", "false")
+        elif newFilter == 'Income':
             self.all.setProperty("activated", "false")
             self.expenses.setProperty("activated", "false")
             self.income.setProperty("activated", "true")
+            self.transfer.setProperty("activated", "false")
+        else:
+            self.all.setProperty("activated", "false")
+            self.expenses.setProperty("activated", "false")
+            self.income.setProperty("activated", "false")
+            self.transfer.setProperty("activated", "true")
 
         """ Update style """
         self.all.style().unpolish(self.all)
@@ -664,6 +693,8 @@ class Transactions(QObject):
         self.expenses.style().polish(self.expenses)
         self.income.style().unpolish(self.income)
         self.income.style().polish(self.income)
+        self.transfer.style().unpolish(self.transfer)
+        self.transfer.style().polish(self.transfer)
 
     def add_filter(self):
         """
