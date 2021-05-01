@@ -172,24 +172,38 @@ QPushButton#apply_cancel:hover
 
 QComboBox 
 {
-	background-color: transparent;
-	border: 1px solid #21405D;
-	color: white;
-	padding-top: 1px;
-	padding-bottom: 1px;
+	border: 1px solid transparent;
+	border-radius: 2px;
+	padding-top: 2px;
+	padding-bottom: 2px;
 	padding-left: 2px;
 	padding-right: 2px;
+	background: rgba(44, 64, 90, 255);
+	color: white;
 }
 
 QComboBox::hover
 {
-	background-color: transparent;
-	border: 1px solid #0190EA;
-	color: white;
-	padding-top: 1px;
-	padding-bottom: 1px;
+	border: 1px solid rgba(255, 255, 255, 200);
+	border-radius: 2px;
+	padding-top: 2px;
+	padding-bottom: 2px;
 	padding-left: 2px;
 	padding-right: 2px;
+	background: rgba(44, 64, 90, 255);
+	color: white;
+}
+
+QComboBox::focus
+{
+	border: 1px solid #0190EA;
+	border-radius: 2px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	padding-left: 2px;
+	padding-right: 2px;
+	background: rgba(44, 64, 90, 255);
+	color: white;
 }
 
 QComboBox::drop-down
@@ -723,25 +737,40 @@ QDoubleSpinBox::down-button:pressed
 
 QDateEdit
 {
-    background-color: transparent;
-    border: 1px solid #21405D;
-	color: white;
-	padding-top: 1px;
-	padding-bottom: 1px;
+	border: 1px solid transparent;
+	border-radius: 2px;
+	padding-top: 2px;
+	padding-bottom: 2px;
 	padding-left: 2px;
 	padding-right: 2px;
+	background: rgba(44, 64, 90, 255);
+	color: white;
 	selection-background-color: #0190EA;
 }
 
 QDateEdit:hover
 {
-    background-color: transparent;
-    border: 1px solid #0190EA;
-	color: white;
-	padding-top: 1px;
-	padding-bottom: 1px;
+	border: 1px solid rgba(255, 255, 255, 200);
+	border-radius: 2px;
+	padding-top: 2px;
+	padding-bottom: 2px;
 	padding-left: 2px;
 	padding-right: 2px;
+	background: rgba(44, 64, 90, 255);
+	color: white;
+	selection-background-color: #0190EA;
+}
+
+QDateEdit:focus
+{
+	border: 1px solid #0190EA;
+	border-radius: 2px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	padding-left: 2px;
+	padding-right: 2px;
+	background: rgba(44, 64, 90, 255);
+	color: white;
 	selection-background-color: #0190EA;
 }
 
