@@ -44,6 +44,10 @@ class TransactionDelegate(QStyledItemDelegate):
         self.edit = QPushButton()
         self.delete = QPushButton()
 
+        """ Hover on Edit/Delete QPushButtons """
+        self.edit_hover = False
+        self.delete_hover = False
+
         """ Show comment QPushButton """
         self.comment = QPushButton()
         self.comment.setCursor(Qt.PointingHandCursor)
@@ -169,18 +173,38 @@ class TransactionDelegate(QStyledItemDelegate):
             if self.rect_edit.contains(cursorPosition) and self.selected == index:
                 """ Change cursor to pointing hand """
                 QApplication.setOverrideCursor(Qt.PointingHandCursor)
+
+                """ Ask for color background """
+                self.edit_hover = True
+                self.delete_hover = False
+
                 return True
             elif self.rect_delete.contains(cursorPosition) and self.selected == index:
                 """ Change cursor to pointing hand """
                 QApplication.setOverrideCursor(Qt.PointingHandCursor)
+
+                """ Ask for color background """
+                self.delete_hover = True
+                self.edit_hover = False
+
                 return True
             elif self.rect_comment.contains(cursorPosition):
                 """ Emit hovered signal """
                 self.commentHovered.emit(self.rect_comment, index)
+
+                """ Ask for color background """
+                self.edit_hover = False
+                self.delete_hover = False
+
                 return True
             else:
                 """ Reset cursor shape """
                 QApplication.restoreOverrideCursor()
+
+                """ Ask for color background """
+                self.edit_hover = False
+                self.delete_hover = False
+
                 return True
 
         # TODO: remove shortcut
@@ -331,8 +355,8 @@ class TransactionDelegate(QStyledItemDelegate):
         painter.setBrush(QColor("transparent"))
 
         """ Button edit """
-        self.rect_edit = QRect(rect_background.width() + rect_background.x() - 25,
-                               self.rect_name.y(), 25, self.rect_name.height())
+        self.rect_edit = QRect(rect_background.width() + rect_background.x() - 35,
+                               rect_background.y(), 25, 25)
 
         optionMore = QStyleOptionButton()
 
@@ -345,9 +369,16 @@ class TransactionDelegate(QStyledItemDelegate):
 
             self.edit.style().drawControl(QStyle.CE_PushButton, optionMore, painter, self.edit)
 
-        """ Buttons rects """
-        self.rect_delete = QRect(rect_background.width() + rect_background.x() - 25,
-                                 self.rect_category_name.y(), 25, self.rect_name.height())
+        if self.edit_hover is True:
+            """ Configure brush """
+            painter.setBrush(QColor(255, 255, 255, 50))
+
+            """ Draw hover effect """
+            painter.drawEllipse(self.rect_edit)
+
+        """ Buttons delete """
+        self.rect_delete = QRect(rect_background.width() + rect_background.x() - 35,
+                                 rect_background.y() + (rect_background.height() - 25), 25, 25)
 
         if self.editable != index and option.state & QStyle.State_Selected:
             optionMore = QStyleOptionButton()
@@ -358,6 +389,13 @@ class TransactionDelegate(QStyledItemDelegate):
             optionMore.state = optionMore.state or QStyle.State_MouseOver
 
             self.delete.style().drawControl(QStyle.CE_PushButton, optionMore, painter, self.delete)
+
+        if self.delete_hover is True:
+            """ Configure brush """
+            painter.setBrush(QColor(255, 255, 255, 50))
+
+            """ Draw hover effect """
+            painter.drawEllipse(self.rect_delete)
 
         painter.restore()
 
