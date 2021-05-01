@@ -2,7 +2,7 @@ from PySide2.QtCore import QSize, Signal
 from PySide2.QtGui import QIcon, Qt, QFont
 from PySide2.QtWidgets import QWidget, QHBoxLayout, QLabel, QPushButton, QSpacerItem, QSizePolicy, QAction
 
-from widgets.lined_edit_with_icon import LineEditWithIcon
+from widgets.line_edit_with_icon import LineEditWithIcon
 
 
 class TitleBar(QWidget):

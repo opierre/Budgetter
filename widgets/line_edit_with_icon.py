@@ -44,4 +44,5 @@ class LineEditWithIcon(QLineEdit):
         if self.icon:
             painter = QPainter(self)
             pixmap = self.icon.pixmap(24, 24)
-            painter.drawPixmap(3, 2, 24, 24, pixmap)
+            height = (self.rect().height() - 24) / 2.0
+            painter.drawPixmap(3, self.rect().y() + height, 24, 24, pixmap)

@@ -60,13 +60,13 @@ QGroupBox::title
 
 QLineEdit 
 {
-	border: 1px solid #21405D;
-	border-radius: 0px;
-	padding-top: 1px;
-	padding-bottom: 1px;
+	border: 1px solid transparent;
+	border-radius: 2px;
+	padding-top: 2px;
+	padding-bottom: 2px;
 	padding-left: 2px;
 	padding-right: 2px;
-	background: transparent;
+	background: rgba(44, 64, 90, 255);
 	color: white;
 	selection-background-color: #0190EA;
 }
@@ -74,25 +74,38 @@ QLineEdit
 QLineEdit#titleBarSearch
 {
 	border: 1px solid transparent;
-	border-radius: 10px;
-	padding-top: 1px;
-	padding-bottom: 1px;
+	border-radius: 8px;
+	padding-top: 3px;
+	padding-bottom: 3px;
 	padding-left: 2px;
 	padding-right: 2px;
-	background: rgba(44, 64, 90, 180);
+	background: rgba(44, 64, 90, 255);
 	color: white;
 	selection-background-color: #0190EA;
 }
 
 QLineEdit::hover
 {
-	border: 1px solid #0190EA;
-	border-radius: 0px;
-	padding-top: 1px;
-	padding-bottom: 1px;
+	border: 1px solid rgba(255, 255, 255, 200);
+	border-radius: 2px;
+	padding-top: 2px;
+	padding-bottom: 2px;
 	padding-left: 2px;
 	padding-right: 2px;
-	background: transparent;
+	background: rgba(44, 64, 90, 255);
+	color: white;
+	selection-background-color: #0190EA;
+}
+
+QLineEdit::focus
+{
+	border: 1px solid #0190EA;
+	border-radius: 2px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	padding-left: 2px;
+	padding-right: 2px;
+	background: rgba(44, 64, 90, 255);
 	color: white;
 	selection-background-color: #0190EA;
 }
@@ -100,12 +113,12 @@ QLineEdit::hover
 QLineEdit#titleBarSearch::hover
 {
 	border: 1px solid transparent;
-	border-radius:10px;
-	padding-top: 1px;
-	padding-bottom: 1px;
+	border-radius: 8px;
+	padding-top: 3px;
+	padding-bottom: 3px;
 	padding-left: 2px;
 	padding-right: 2px;
-	background: rgba(44, 64, 90, 200);
+	background: rgba(44, 64, 90, 255);
 	color: white;
 	selection-background-color: #0190EA;
 }
@@ -636,25 +649,37 @@ QMenu::icon
 
 QDoubleSpinBox 
 {
-    padding-right: 5px;
-	background-color: transparent;
-	border: 1px solid #21405D;
-	border-radius: 0px;
-	padding-left: 3px;
-	padding-top: 1px;
-	padding-bottom: 1px;
+	border: 1px solid transparent;
+	border-radius: 2px;
+	padding-top: 3px;
+	padding-bottom: 3px;
+	padding-left: 2px;
+	padding-right: 5px;
+	background: rgba(44, 64, 90, 255);
 	color: white;
 	selection-background-color: #0190EA;
 }
 
 QDoubleSpinBox:hover {
-    padding-right: 5px;
-	background-color: transparent;
+	border: 1px solid rgba(255, 255, 255, 200);
+	border-radius: 2px;
+	padding-top: 3px;
+	padding-bottom: 3px;
+	padding-left: 2px;
+	padding-right: 5px;
+	background: rgba(44, 64, 90, 255);
+	color: white;
+	selection-background-color: #0190EA;
+}
+
+QDoubleSpinBox:focus {
 	border: 1px solid #0190EA;
-	border-radius: 0px;
-	padding-left: 3px;
-	padding-top: 1px;
-	padding-bottom: 1px;
+	border-radius: 2px;
+	padding-top: 3px;
+	padding-bottom: 3px;
+	padding-left: 2px;
+	padding-right: 5px;
+	background: rgba(44, 64, 90, 255);
 	color: white;
 	selection-background-color: #0190EA;
 }
