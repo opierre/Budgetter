@@ -73,7 +73,10 @@ class CircleCheckbox(QPushButton):
             pen.setColor(QColor("#0190EA"))
             painter.setPen(pen)
         else:
-            painter.setPen(QColor("transparent"))
+            pen = QPen()
+            pen.setWidthF(1.5)
+            pen.setColor(QColor("transparent"))
+            painter.setPen(pen)
 
         """ Draw circle """
         rectEllipse = QRectF(self.rect().x(), self.rect().y(),
@@ -169,7 +172,7 @@ class ExpensesIncomeTransfer(QWidget):
         :return: void
         """
 
-        """ CHeck only middle button """
+        """ Check only middle button """
         self.top_button.setChecked(False)
         self.middle_button.setChecked(True)
         self.bottom_button.setChecked(False)
@@ -216,6 +219,19 @@ class ExpensesIncomeTransfer(QWidget):
         self.layout.addWidget(self.top_button)
         self.layout.addWidget(self.middle_button)
         self.layout.addWidget(self.bottom_button)
+
+    def paintEvent(self, event):
+        painter = QPainter(self)
+
+        pen = QPen()
+        pen.setWidthF(1.5)
+        pen.setColor(QColor("#0190EA"))
+        painter.setPen(pen)
+
+        painter.drawRect(self.rect())
+
+
+
 
 
 if __name__ == "__main__":

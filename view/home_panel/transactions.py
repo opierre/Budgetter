@@ -374,8 +374,10 @@ class Transactions(QObject):
         """ Configure Custom widget """
         selectedExpOrInc = self.transactions_filter_model.data(index, Qt.DisplayRole)["type"]
         rectExpOrIncResized = QRect(round(rectExpOrInc.x()), round(rectExpOrInc.y()),
-                                    round(rectExpOrInc.width() * 2 / 3), round(rectExpOrInc.height()))
-        self.edit_exp_or_inc.setGeometry(rectExpOrIncResized)
+                                    round(rectExpOrInc.width()), round(rectExpOrInc.height()))
+        print(rectExpOrIncResized)
+        self.edit_exp_or_inc.setGeometry(rectExpOrInc.x(), rectExpOrInc.y(), rectExpOrInc.height(), rectExpOrInc.width())
+        self.edit_exp_or_inc.move(rectExpOrInc.x(), rectExpOrInc.y())
         self.edit_exp_or_inc.set_active_type(selectedExpOrInc)
         self.edit_exp_or_inc.setVisible(True)
 
