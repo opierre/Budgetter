@@ -7,7 +7,7 @@ from models.transactions_model import TransactionsModel, TransactionsFilterModel
 from utils.rest_client import RestClient
 from widgets.transaction_widgets.calendar_widget import CalendarWidget
 from widgets.transaction_widgets.category_combobox_delegate import CategoryComboBox
-from widgets.transaction_widgets.expense_income_transfer_widget import ExpensesOrIncome
+from widgets.transaction_widgets.expense_income_transfer_widget import ExpensesIncomeTransfer
 from widgets.statusbar import StatusBar
 from widgets.transaction_widgets.transaction_delegate import TransactionDelegate
 
@@ -75,7 +75,7 @@ class Transactions(QObject):
         self.edit_account = QComboBox(self.transactions_listview)
 
         """ Store Combobox for type expense selection on transaction """
-        self.edit_exp_or_inc = ExpensesOrIncome(self.transactions_listview)
+        self.edit_exp_or_inc = ExpensesIncomeTransfer(self.transactions_listview)
 
         """ Store Apply/Cancel QPushButtons when in edit mode """
         self.apply = QPushButton(parent=self.transactions_listview)
@@ -376,7 +376,7 @@ class Transactions(QObject):
         rectExpOrIncResized = QRect(round(rectExpOrInc.x()), round(rectExpOrInc.y()),
                                     round(rectExpOrInc.width() * 2 / 3), round(rectExpOrInc.height()))
         self.edit_exp_or_inc.setGeometry(rectExpOrIncResized)
-        self.edit_exp_or_inc.setActiveType(selectedExpOrInc)
+        self.edit_exp_or_inc.set_active_type(selectedExpOrInc)
         self.edit_exp_or_inc.setVisible(True)
 
         """ Configure Apply/Cancel buttons """
@@ -498,7 +498,7 @@ class Transactions(QObject):
 
         value = {"name": self.edit_name.text(), "category": self.edit_category_name.text(),
                  "amount": self.edit_amount.value(), "date": self.edit_date.date().toString("dd/MM/yyyy"),
-                 "account": self.edit_account.currentText(), "type": self.edit_exp_or_inc.activeType()}
+                 "account": self.edit_account.currentText(), "type": self.edit_exp_or_inc.active_type()}
 
         """ Remove transaction from model """
         self.transactions_filter_model.modify_transaction(self.transaction_delegate.editable, value)

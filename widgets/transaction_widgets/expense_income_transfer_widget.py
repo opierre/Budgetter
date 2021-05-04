@@ -1,24 +1,26 @@
 import sys
 
-from PySide2.QtCore import Qt, QRectF
+from PySide2.QtCore import Qt, QRectF, Signal
 from PySide2.QtGui import QPainter, QColor, QPen
-from PySide2.QtWidgets import QWidget, QHBoxLayout, QPushButton, QApplication, \
+from PySide2.QtWidgets import QWidget, QVBoxLayout, QPushButton, QApplication, \
     QStyleOptionButton, QStyle
 
 
-class ExpOrIncRadio(QPushButton):
+class CircleCheckbox(QPushButton):
     """
-    Expenses or Income Radio Button
+    Circle Button
     """
 
-    def __init__(self, parent=None, expOrInc=None):
-        super(ExpOrIncRadio, self).__init__(parent)
+    """ Signal emitted when type clicked - Type (str) """
+    typeClicked = Signal(str)
+
+    def __init__(self, parent=None, _type=None):
+        super(CircleCheckbox, self).__init__(parent)
 
         """ Store type """
-        self.expOrInc = expOrInc
+        self._type = _type
 
-        """ Set exclusive selection in widget """
-        self.setAutoExclusive(True)
+        """ Set checkable """
         self.setCheckable(True)
 
         """ Set margins """
@@ -27,14 +29,25 @@ class ExpOrIncRadio(QPushButton):
         """ Set cursors """
         self.setCursor(Qt.PointingHandCursor)
 
-    def setType(self, typeToSet):
+        """ Connect click signal to emit typeClicked """
+        self.clicked.connect(self.emit_type)
+
+    def emit_type(self):
         """
-        Change type of radio button
-        :param typeToSet: 'Income'/'Expenses'
+        Emit signal with selected type
         :return: void
         """
 
-        self.expOrInc = typeToSet
+        self.typeClicked.emit(self._type)
+
+    def set_type(self, _type):
+        """
+        Change type of radio button
+        :param _type: 'Income'/'Expenses'/'Transfer'
+        :return: void
+        """
+
+        self._type = _type
 
     def paintEvent(self, event):
         """
@@ -72,14 +85,18 @@ class ExpOrIncRadio(QPushButton):
 
         """ Set color according to type """
         painter.setPen(Qt.NoPen)
-        if self.expOrInc == 'Income' and opt.state & QStyle.State_On:
+        if self._type == 'Income' and opt.state & QStyle.State_On:
             painter.setBrush(QColor(109, 210, 48, 255))
-        elif self.expOrInc == 'Income' and not(opt.state & QStyle.State_Selected):
+        elif self._type == 'Income' and not(opt.state & QStyle.State_Selected):
             painter.setBrush(QColor(109, 210, 48, 128))
-        elif self.expOrInc == 'Expenses' and opt.state & QStyle.State_On:
+        elif self._type == 'Expenses' and opt.state & QStyle.State_On:
             painter.setBrush(QColor(254, 77, 151, 255))
-        elif self.expOrInc == 'Expenses' and not(opt.state & QStyle.State_Selected):
+        elif self._type == 'Expenses' and not(opt.state & QStyle.State_Selected):
             painter.setBrush(QColor(254, 77, 151, 128))
+        elif self._type == 'Transfer' and opt.state & QStyle.State_On:
+            painter.setBrush(QColor(250, 202, 0, 255))
+        elif self._type == 'Transfer' and not(opt.state & QStyle.State_Selected):
+            painter.setBrush(QColor(250, 202, 0, 128))
 
         """ Draw circle """
         rectEllipse = QRectF(self.rect().x(), self.rect().y(),
@@ -90,63 +107,100 @@ class ExpOrIncRadio(QPushButton):
         painter.drawEllipse(rectEllipse)
 
 
-class ExpensesOrIncome(QWidget):
+class ExpensesIncomeTransfer(QWidget):
     """
-    Widget to pick Expenses or Income option in transaction item
+    Widget to pick Expenses or Income or Transfer option in transaction item
     """
 
     def __init__(self, parent=None):
-        super(ExpensesOrIncome, self).__init__(parent)
+        super(ExpensesIncomeTransfer, self).__init__(parent)
+
+        """ Store active type """
+        self._active_type = None
 
         """ Store layout """
-        self.layout = QHBoxLayout(self)
+        self.layout = QVBoxLayout(self)
 
-        """ Store left button """
-        self.incomeButton = ExpOrIncRadio(self)
+        """ Store first button """
+        self.top_button = CircleCheckbox(self)
 
-        """ Store right button """
-        self.expensesButton = ExpOrIncRadio(self)
+        """ Store second button """
+        self.middle_button = CircleCheckbox(self)
+
+        """ Store third button """
+        self.bottom_button = CircleCheckbox(self)
 
         """ Configure widgets """
-        self.configureWidgets()
+        self.configure_widgets()
 
         """ Configure layout """
-        self.configureLayout()
+        self.configure_layout()
 
-    def configureWidgets(self):
+        """ Connect all slots and signals """
+        self.connect_slots_and_signals()
+
+    def connect_slots_and_signals(self):
+        """
+        Connect all slots and signals
+        :return: void
+        """
+
+        """ Connect all typeCliked from buttons """
+        # self.top_button.typeClicked.connect(self.handle_click)
+        # self.middle_button.typeClicked.connect(self.handle_click)
+        # self.bottom_button.typeClicked.connect(self.handle_click)
+        pass
+
+    def configure_widgets(self):
         """
         Configure both push buttons
         :return: void
         """
 
         """ Set type """
-        self.incomeButton.setType("Income")
-        self.expensesButton.setType("Expenses")
+        self.top_button.set_type("Income")
+        self.middle_button.set_type("Expenses")
+        self.bottom_button.set_type("Transfer")
 
-    def setActiveType(self, activeType):
+    def set_active_type(self, active_type):
         """
         Select one button according to active type parameter
-        :param activeType: "Expenses"/"Income"
+        :param active_type: "Expenses"/"Income"/"Transfer"
         :return: void
         """
 
-        if activeType == "Expenses":
-            self.expensesButton.setChecked(True)
-        else:
-            self.incomeButton.setChecked(True)
+        """ CHeck only middle button """
+        self.top_button.setChecked(False)
+        self.middle_button.setChecked(True)
+        self.bottom_button.setChecked(False)
 
-    def activeType(self):
+        if active_type == "Expenses":
+            self.middle_button.set_type("Expenses")
+            self.top_button.set_type("Income")
+            self.bottom_button.set_type("Transfer")
+        elif active_type == "Income":
+            self.middle_button.set_type("Income")
+            self.top_button.set_type("Expenses")
+            self.bottom_button.set_type("Transfer")
+        else:
+            self.middle_button.set_type("Transfer")
+            self.top_button.set_type("Income")
+            self.bottom_button.set_type("Expenses")
+
+    def active_type(self):
         """
         Return active type
         :return: active type
         """
 
-        if self.expensesButton.isChecked():
+        if self.middle_button.isChecked():
             return "Expenses"
+        elif self.bottom_button.isChecked():
+            return "Transfer"
         else:
             return "Income"
 
-    def configureLayout(self):
+    def configure_layout(self):
         """
         Configure layout
         :return: void
@@ -159,14 +213,15 @@ class ExpensesOrIncome(QWidget):
         self.layout.setSpacing(0)
 
         """ Add widgets to layout """
-        self.layout.addWidget(self.incomeButton)
-        self.layout.addWidget(self.expensesButton)
+        self.layout.addWidget(self.top_button)
+        self.layout.addWidget(self.middle_button)
+        self.layout.addWidget(self.bottom_button)
 
 
 if __name__ == "__main__":
     app = QApplication([])
-    widget = ExpensesOrIncome()
-    widget.setStyleSheet("background-color: #1A537D;")
+    widget = ExpensesIncomeTransfer()
+    widget.setStyleSheet("background-color: rgba(44, 64, 90, 255);")
     # widget.setFixedWidth(20)
     widget.show()
     sys.exit(app.exec_())
