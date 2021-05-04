@@ -356,7 +356,7 @@ class TransactionDelegate(QStyledItemDelegate):
 
         """ Button edit """
         self.rect_edit = QRect(rect_background.width() + rect_background.x() - 35,
-                               rect_background.y(), 25, 25)
+                               self.rect_name.y() - 2, 25, 25)
 
         optionMore = QStyleOptionButton()
 
@@ -378,7 +378,7 @@ class TransactionDelegate(QStyledItemDelegate):
 
         """ Buttons delete """
         self.rect_delete = QRect(rect_background.width() + rect_background.x() - 35,
-                                 rect_background.y() + (rect_background.height() - 25), 25, 25)
+                                 self.rect_category_name.y() - 2, 25, 25)
 
         if self.editable != index and option.state & QStyle.State_Selected:
             optionMore = QStyleOptionButton()
