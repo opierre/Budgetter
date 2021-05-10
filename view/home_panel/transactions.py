@@ -376,8 +376,9 @@ class Transactions(QObject):
         rectExpOrIncResized = QRect(round(rectExpOrInc.x()), round(rectExpOrInc.y()),
                                     round(rectExpOrInc.width()), round(rectExpOrInc.height()))
         print(rectExpOrIncResized)
-        self.edit_exp_or_inc.setGeometry(rectExpOrInc.x(), rectExpOrInc.y(), rectExpOrInc.height(), rectExpOrInc.width())
-        self.edit_exp_or_inc.move(rectExpOrInc.x(), rectExpOrInc.y())
+        self.edit_exp_or_inc.setGeometry(rectExpOrInc.x(), rectExpOrInc.y(), rectExpOrInc.width(), rectExpOrInc.height())
+        # self.edit_exp_or_inc.move(rectExpOrInc.x(), rectExpOrInc.y())
+        # self.edit_exp_or_inc.setFixedWidth(rectExpOrIncResized.width())
         self.edit_exp_or_inc.set_active_type(selectedExpOrInc)
         self.edit_exp_or_inc.setVisible(True)
 

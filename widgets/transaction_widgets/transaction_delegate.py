@@ -321,12 +321,14 @@ class TransactionDelegate(QStyledItemDelegate):
         pixelsWidth = fontMetrics.width(expOrInc)
 
         """ Set income/expense on right corner """
-        self.rect_exp_or_inc = QRectF(rect_background.x() + option.rect.width() * 1 / 140,
-                                      self.rect_category.y() + (self.rect_category.width() - pixelsHeight - 8) / 2.0,
-                                      pixelsWidth + (pixelsHeight + 8) / 2.5 + (pixelsHeight+8) / 0.9, pixelsHeight + 8)
-
-        rect_ellipse = QRectF(self.rect_exp_or_inc.x(), self.rect_exp_or_inc.y() + (pixelsHeight + 8) / 3.5,
+        rect_ellipse = QRectF(rect_background.x() + option.rect.width() * 1 / 140,
+                              self.rect_category.y() + (self.rect_category.width() - pixelsHeight - 8) / 2.0 + (pixelsHeight + 8) / 3.5,
                               (pixelsHeight + 8) / 2.5, (pixelsHeight + 8) / 2.5)
+
+        self.rect_exp_or_inc = QRectF(rect_ellipse.x() - 2,
+                                      rect_ellipse.y() - rect_ellipse.height() - 5,
+                                      rect_ellipse.width() + 4,
+                                      rect_ellipse.height() * 3.0 + 10)
 
         if self.editable != index:
             painter.setPen(Qt.NoPen)
@@ -339,18 +341,6 @@ class TransactionDelegate(QStyledItemDelegate):
 
             """ Draw ellipse """
             painter.drawEllipse(rect_ellipse)
-        else:
-            """ Set income/expense pen color """
-            pen = QPen(QColor("#26374C"))
-            pen.setWidthF(1)
-            painter.setPen(pen)
-
-            self.rect_exp_or_inc = QRectF(rect_ellipse.x() - 2,
-                                          rect_ellipse.y() - rect_ellipse.height() - 5,
-                                          rect_ellipse.width() + 4,
-                                          rect_ellipse.height() * 3.0 + 10)
-
-            painter.drawRoundedRect(self.rect_exp_or_inc, 4.0, 4.0)
 
         pen = QPen(QColor("#1B5179"))
         pen.setWidthF(1)

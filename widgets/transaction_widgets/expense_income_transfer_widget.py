@@ -220,19 +220,6 @@ class ExpensesIncomeTransfer(QWidget):
         self.layout.addWidget(self.middle_button)
         self.layout.addWidget(self.bottom_button)
 
-    def paintEvent(self, event):
-        painter = QPainter(self)
-
-        pen = QPen()
-        pen.setWidthF(1.5)
-        pen.setColor(QColor("#0190EA"))
-        painter.setPen(pen)
-
-        painter.drawRect(self.rect())
-
-
-
-
 
 if __name__ == "__main__":
     app = QApplication([])
