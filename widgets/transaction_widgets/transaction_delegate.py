@@ -158,10 +158,17 @@ class TransactionDelegate(QStyledItemDelegate):
                 """ Set transaction editable to paint different """
                 self.set_editable(index)
 
+                """ Remove hover """
+                self.edit_hover = False
+
                 return True
             elif self.rect_delete.contains(cursorPosition) and index != self.editable:
                 """ Emit pressed signal with model's index """
                 self.transactionDeletePressed.emit(index)
+
+                """ Remove hover """
+                self.delete_hover = False
+
                 return True
             else:
                 return False
@@ -325,10 +332,7 @@ class TransactionDelegate(QStyledItemDelegate):
                               self.rect_category.y() + (self.rect_category.width() - pixelsHeight - 8) / 2.0 + (pixelsHeight + 8) / 3.5,
                               (pixelsHeight + 8) / 2.5, (pixelsHeight + 8) / 2.5)
 
-        self.rect_exp_or_inc = QRectF(rect_ellipse.x() - 2,
-                                      rect_ellipse.y() - rect_ellipse.height() - 5,
-                                      rect_ellipse.width() + 4,
-                                      rect_ellipse.height() * 3.0 + 10)
+        self.rect_exp_or_inc = rect_ellipse
 
         if self.editable != index:
             painter.setPen(Qt.NoPen)

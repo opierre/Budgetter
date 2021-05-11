@@ -11,9 +11,6 @@ class CircleCheckbox(QPushButton):
     Circle Button
     """
 
-    """ Signal emitted when type clicked - Type (str) """
-    typeClicked = Signal(str)
-
     def __init__(self, parent=None, _type=None):
         super(CircleCheckbox, self).__init__(parent)
 
@@ -28,17 +25,6 @@ class CircleCheckbox(QPushButton):
 
         """ Set cursors """
         self.setCursor(Qt.PointingHandCursor)
-
-        """ Connect click signal to emit typeClicked """
-        self.clicked.connect(self.emit_type)
-
-    def emit_type(self):
-        """
-        Emit signal with selected type
-        :return: void
-        """
-
-        self.typeClicked.emit(self._type)
 
     def set_type(self, _type):
         """
@@ -149,10 +135,30 @@ class ExpensesIncomeTransfer(QWidget):
         """
 
         """ Connect all typeCliked from buttons """
-        # self.top_button.typeClicked.connect(self.handle_click)
-        # self.middle_button.typeClicked.connect(self.handle_click)
-        # self.bottom_button.typeClicked.connect(self.handle_click)
-        pass
+        self.top_button.clicked.connect(self.handle_click)
+        self.middle_button.clicked.connect(self.handle_click)
+        self.bottom_button.clicked.connect(self.handle_click)
+
+    def handle_click(self):
+        """
+        Handle click on one button to deselect others
+        :return: void
+        """
+
+        sender = self.sender()
+
+        if sender == self.top_button:
+            self.top_button.setChecked(True)
+            self.middle_button.setChecked(False)
+            self.bottom_button.setChecked(False)
+        elif sender == self.middle_button:
+            self.middle_button.setChecked(True)
+            self.top_button.setChecked(False)
+            self.bottom_button.setChecked(False)
+        elif sender == self.bottom_button:
+            self.bottom_button.setChecked(True)
+            self.top_button.setChecked(False)
+            self.middle_button.setChecked(False)
 
     def configure_widgets(self):
         """

@@ -373,12 +373,15 @@ class Transactions(QObject):
 
         """ Configure Custom widget """
         selectedExpOrInc = self.transactions_filter_model.data(index, Qt.DisplayRole)["type"]
-        rectExpOrIncResized = QRect(round(rectExpOrInc.x()), round(rectExpOrInc.y()),
-                                    round(rectExpOrInc.width()), round(rectExpOrInc.height()))
-        print(rectExpOrIncResized)
-        self.edit_exp_or_inc.setGeometry(rectExpOrInc.x(), rectExpOrInc.y(), rectExpOrInc.width(), rectExpOrInc.height())
-        # self.edit_exp_or_inc.move(rectExpOrInc.x(), rectExpOrInc.y())
-        # self.edit_exp_or_inc.setFixedWidth(rectExpOrIncResized.width())
+        rectExpOrIncResized = QRect(round(rectExpOrInc.x() - 6), round(rectExpOrInc.y() - rectExpOrInc.height() - 6),
+                                    round(rectExpOrInc.width() + 6), round(rectExpOrInc.height() * 3 + 2 * 6))
+
+        # self.edit_exp_or_inc.setGeometry(rectExpOrInc.x(), rectExpOrInc.y(),
+        #                                  rectExpOrInc.width(),
+        #                                  rectExpOrInc.height())
+        self.edit_exp_or_inc.move(rectExpOrInc.x() - 4, self.edit_category.y())
+        self.edit_exp_or_inc.setFixedWidth(rectExpOrInc.width() + 9)
+        self.edit_exp_or_inc.setFixedHeight(self.edit_category.height())
         self.edit_exp_or_inc.set_active_type(selectedExpOrInc)
         self.edit_exp_or_inc.setVisible(True)
 
