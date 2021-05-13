@@ -14,7 +14,8 @@ class TransactionDelegate(QStyledItemDelegate):
     """
 
     """ Signal emitted on Edit button click """
-    transactionEditPressed = Signal(QModelIndex, QRect, QRect, QRect, QRect, QRectF, QRectF, QRectF, QRect, QRect)
+    transactionEditPressed = Signal(QModelIndex, QRect, QRect, QRect, QRect, QRectF, QRectF, QRectF, QRectF,
+                                    QRect, QRect)
 
     """ Signal emitted on Delete button click """
     transactionDeletePressed = Signal(QModelIndex)
@@ -73,6 +74,7 @@ class TransactionDelegate(QStyledItemDelegate):
         self.rect_date_first_row = None
         self.rect_account_first_row = None
         self.rect_exp_or_inc_first_row = None
+        self.rect_means_first_row = None
         self.rect_edit_first_row = None
         self.rect_delete_first_row = None
 
@@ -118,6 +120,7 @@ class TransactionDelegate(QStyledItemDelegate):
                 self.rect_exp_or_inc_first_row,
                 self.rect_category_first_row,
                 self.rect_category_name_first_row,
+                self.rect_means,
                 self.rect_edit_first_row,
                 self.rect_delete_first_row]
 
@@ -153,7 +156,8 @@ class TransactionDelegate(QStyledItemDelegate):
                 """ Emit pressed signal with model's index and rect position """
                 self.transactionEditPressed.emit(index, self.rect_name, self.rect_amount, self.rect_date,
                                                  self.rect_account, self.rect_exp_or_inc, self.rect_category,
-                                                 self.rect_category_name, self.rect_edit, self.rect_delete)
+                                                 self.rect_category_name, self.rect_mean, self.rect_edit,
+                                                 self.rect_delete)
 
                 """ Set transaction editable to paint different """
                 self.set_editable(index)
@@ -307,7 +311,7 @@ class TransactionDelegate(QStyledItemDelegate):
         self.draw_label(painter, rect_background, "Account", 2.6/4)
 
         """ Draw mean icon """
-        self.draw_means(painter, rect_background, means)
+        self.draw_means(painter, rect_background, means, index)
 
         """ Draw comment icon """
         self.draw_comment(painter, rect_background, index, comment)
@@ -325,9 +329,8 @@ class TransactionDelegate(QStyledItemDelegate):
         """ Get font metrics """
         fontMetrics = QFontMetrics(self.font)
         pixelsHeight = fontMetrics.height()
-        pixelsWidth = fontMetrics.width(expOrInc)
 
-        """ Set income/expense on right corner """
+        """ Set income/expense on left corner """
         rect_ellipse = QRectF(rect_background.x() + option.rect.width() * 1 / 140,
                               self.rect_category.y() + (self.rect_category.width() - pixelsHeight - 8) / 2.0 + (pixelsHeight + 8) / 3.5,
                               (pixelsHeight + 8) / 2.5, (pixelsHeight + 8) / 2.5)
@@ -424,26 +427,27 @@ class TransactionDelegate(QStyledItemDelegate):
 
         painter.setRenderHint(QPainter.Antialiasing)
 
-    def draw_means(self, painter, rect_background, means):
+    def draw_means(self, painter, rect_background, means, index):
         """
         Draw mean icon
         :param painter: painter
         :param rect_background: background rectangle
         :param means: payment means
+        :param index: current index
         :return: void
         """
 
         self.rect_mean = QRectF(rect_background.width() * 3.5 / 4 - 24,
                                 rect_background.y() + (rect_background.height() - 24) / 2.0,
                                 24, 24)
-
-        svgRender = QSvgRenderer(":/images/images/credit_card_white_24dp.svg")
-        if means == "Espèces":
-            svgRender = QSvgRenderer(":/images/images/local_atm_white_24dp.svg")
-        elif means == "Virement":
-            svgRender = QSvgRenderer(":/images/images/swap_horiz_white_24dp.svg")
-        svgRender.setAspectRatioMode(Qt.KeepAspectRatio)
-        svgRender.render(painter, self.rect_mean)
+        if self.editable != index:
+            svgRender = QSvgRenderer(":/images/images/credit_card_white_24dp.svg")
+            if means == "Espèces":
+                svgRender = QSvgRenderer(":/images/images/local_atm_white_24dp.svg")
+            elif means == "Virement":
+                svgRender = QSvgRenderer(":/images/images/swap_horiz_white_24dp.svg")
+            svgRender.setAspectRatioMode(Qt.KeepAspectRatio)
+            svgRender.render(painter, self.rect_mean)
 
     def draw_comment(self, painter, rect_background, index, comment):
         """

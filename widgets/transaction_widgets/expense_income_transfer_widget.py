@@ -1,6 +1,6 @@
 import sys
 
-from PySide2.QtCore import Qt, QRectF, Signal
+from PySide2.QtCore import Qt, QRectF, Signal, QRect
 from PySide2.QtGui import QPainter, QColor, QPen
 from PySide2.QtWidgets import QWidget, QVBoxLayout, QPushButton, QApplication, \
     QStyleOptionButton, QStyle
@@ -196,19 +196,6 @@ class ExpensesIncomeTransfer(QWidget):
             self.top_button.set_type("Income")
             self.bottom_button.set_type("Expenses")
 
-    def active_type(self):
-        """
-        Return active type
-        :return: active type
-        """
-
-        if self.middle_button.isChecked():
-            return "Expenses"
-        elif self.bottom_button.isChecked():
-            return "Transfer"
-        else:
-            return "Income"
-
     def configure_layout(self):
         """
         Configure layout
@@ -225,6 +212,22 @@ class ExpensesIncomeTransfer(QWidget):
         self.layout.addWidget(self.top_button)
         self.layout.addWidget(self.middle_button)
         self.layout.addWidget(self.bottom_button)
+
+    def paintEvent(self, event):
+        """
+        Override paintEvent()
+        :param event: event
+        :return: void
+        """
+
+        painter = QPainter(self)
+
+        """ Configure pen and brush """
+        painter.setPen(Qt.NoPen)
+        painter.setBrush(QColor(44, 64, 90, 255))
+
+        """ Paint background """
+        painter.drawRoundedRect(self.rect(), 2, 2)
 
 
 if __name__ == "__main__":

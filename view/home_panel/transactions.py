@@ -9,6 +9,7 @@ from widgets.transaction_widgets.calendar_widget import CalendarWidget
 from widgets.transaction_widgets.category_combobox_delegate import CategoryComboBox
 from widgets.transaction_widgets.expense_income_transfer_widget import ExpensesIncomeTransfer
 from widgets.statusbar import StatusBar
+from widgets.transaction_widgets.means_widget import Mean
 from widgets.transaction_widgets.transaction_delegate import TransactionDelegate
 
 
@@ -76,6 +77,9 @@ class Transactions(QObject):
 
         """ Store Combobox for type expense selection on transaction """
         self.edit_exp_or_inc = ExpensesIncomeTransfer(self.transactions_listview)
+
+        """ Store mean widget """
+        self.mean = Mean(self.transactions_listview)
 
         """ Store Apply/Cancel QPushButtons when in edit mode """
         self.apply = QPushButton(parent=self.transactions_listview)
@@ -262,6 +266,7 @@ class Transactions(QObject):
 
         """ Configure custom widget """
         self.edit_exp_or_inc.setVisible(False)
+        self.mean.setVisible(False)
 
         """ Configure combobox/label for category """
         self.edit_category.setItemDelegate(CategoryComboBox())
@@ -312,7 +317,7 @@ class Transactions(QObject):
         self.edit_category_name.setFixedWidth(pixels_width)
 
     def edit_transaction(self, index, rectName, rectAmount, rectDate, rectAccount, rectExpOrInc, rectCategory,
-                         rectCategoryName, rectEdit, rectDelete):
+                         rectCategoryName, rect_mean, rectEdit, rectDelete):
         """
         Edit transaction on Edit click
         :param index: item's index
@@ -323,6 +328,7 @@ class Transactions(QObject):
         :param rectExpOrInc: rect where to put ExpOrInc
         :param rectCategory: rect where to put Category
         :param rectCategoryName: rect where to put Category Name
+        :param rect_mean: rect where to put Means button
         :param rectEdit: rect where to put Apply button
         :param rectDelete: rect where to put Cancel button
         :return: void
@@ -373,17 +379,19 @@ class Transactions(QObject):
 
         """ Configure Custom widget """
         selectedExpOrInc = self.transactions_filter_model.data(index, Qt.DisplayRole)["type"]
-        rectExpOrIncResized = QRect(round(rectExpOrInc.x() - 6), round(rectExpOrInc.y() - rectExpOrInc.height() - 6),
-                                    round(rectExpOrInc.width() + 6), round(rectExpOrInc.height() * 3 + 2 * 6))
-
-        # self.edit_exp_or_inc.setGeometry(rectExpOrInc.x(), rectExpOrInc.y(),
-        #                                  rectExpOrInc.width(),
-        #                                  rectExpOrInc.height())
         self.edit_exp_or_inc.move(rectExpOrInc.x() - 4, self.edit_category.y())
         self.edit_exp_or_inc.setFixedWidth(rectExpOrInc.width() + 9)
         self.edit_exp_or_inc.setFixedHeight(self.edit_category.height())
         self.edit_exp_or_inc.set_active_type(selectedExpOrInc)
         self.edit_exp_or_inc.setVisible(True)
+
+        """ Configure Mean widget """
+        mean = self.transactions_filter_model.data(index, Qt.DisplayRole)["means"]
+        self.mean.move(rect_mean.x() - rect_mean.width() - 5, rect_mean.y() - 5)
+        self.mean.setFixedWidth(rect_mean.width() * 3 + 10)
+        self.mean.setFixedHeight(rect_mean.height() + 10)
+        self.mean.set_active_type(mean)
+        self.mean.setVisible(True)
 
         """ Configure Apply/Cancel buttons """
         self.apply.setGeometry(rectEdit)
