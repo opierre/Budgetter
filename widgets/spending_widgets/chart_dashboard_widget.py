@@ -1,5 +1,5 @@
 from PySide2.QtCore import Qt
-from PySide2.QtGui import QPainter, QColor, QLinearGradient, QBrush
+from PySide2.QtGui import QPainter, QColor, QLinearGradient, QBrush, QPen
 from PySide2.QtWidgets import QWidget
 
 
@@ -33,4 +33,26 @@ class ChartDashboard(QWidget):
 
         """ Draw background """
         painter.drawRoundedRect(self.rect(), 5, 5)
+
+        """ Draw upper line """
+        self.draw_separator(painter)
+
+    def draw_separator(self, painter):
+        """
+        Draw upper separator between months and line
+        :param painter: painter
+        :return: void
+        """
+
+        """ Configure pen """
+        pen = QPen()
+        pen.setColor(QColor(255, 255, 255))
+        pen.setWidthF(1.5)
+        painter.setPen(pen)
+        painter.setOpacity(0.06)
+
+        """ Draw line """
+        painter.drawLine(self.rect().x(), self.rect().y() + self.rect().height() * 1/5,
+                         self.rect().width(), self.rect().y() + self.rect().height() * 1/5)
+
 
