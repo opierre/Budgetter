@@ -58,16 +58,43 @@ class DonutChart(QWidget):
         """ Improve rendering """
         painter.setRenderHint(QPainter.Antialiasing)
 
+        """ Draw slices background """
+        self.draw_background(painter)
+
         """ Configure pen """
         pen = QPen()
         pen.setWidthF(22.5)
         pen.setCapStyle(Qt.RoundCap)
+        painter.setOpacity(1)
 
         """ Draw slices """
         self.draw_slices(pen, painter)
 
         """ Draw middle text """
         self.draw_total_amount(pen, painter)
+
+    def draw_background(self, painter):
+        """
+        Draw background as shadow effect
+        :param painter: painter
+        :return: void
+        """
+
+        """ Configure pen """
+        pen = QPen()
+        pen.setWidthF(28.5)
+        pen.setCapStyle(Qt.RoundCap)
+        pen.setColor(QColor("#1C293B"))
+        painter.setPen(pen)
+        painter.setOpacity(0.3)
+
+        """ Configure rectangle """
+        rect_origins = QRect(self.rect().x() + 10, self.rect().y() + 10,
+                             self.rect().width() - 30, self.rect().height() - 30)
+        rect_origins.moveCenter(self.rect().center())
+
+        """ Draw arc """
+        painter.drawEllipse(rect_origins)
 
     def draw_slices(self, pen, painter):
         """
