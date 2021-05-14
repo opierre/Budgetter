@@ -203,7 +203,7 @@ class ExpensesIncomeTransfer(QWidget):
         """
 
         """ Set contents margin """
-        self.layout.setContentsMargins(0, 0, 0, 0)
+        self.layout.setContentsMargins(0, 1, 0, 0)
 
         """ Set Spacing """
         self.layout.setSpacing(0)

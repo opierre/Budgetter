@@ -79,7 +79,7 @@ class Transactions(QObject):
         self.edit_exp_or_inc = ExpensesIncomeTransfer(self.transactions_listview)
 
         """ Store mean widget """
-        self.mean = Mean(self.transactions_listview)
+        self.edit_mean = Mean(self.transactions_listview)
 
         """ Store Apply/Cancel QPushButtons when in edit mode """
         self.apply = QPushButton(parent=self.transactions_listview)
@@ -266,7 +266,7 @@ class Transactions(QObject):
 
         """ Configure custom widget """
         self.edit_exp_or_inc.setVisible(False)
-        self.mean.setVisible(False)
+        self.edit_mean.setVisible(False)
 
         """ Configure combobox/label for category """
         self.edit_category.setItemDelegate(CategoryComboBox())
@@ -387,11 +387,11 @@ class Transactions(QObject):
 
         """ Configure Mean widget """
         mean = self.transactions_filter_model.data(index, Qt.DisplayRole)["means"]
-        self.mean.move(rect_mean.x() - rect_mean.width() - 5, rect_mean.y() - 5)
-        self.mean.setFixedWidth(rect_mean.width() * 3 + 10)
-        self.mean.setFixedHeight(rect_mean.height() + 10)
-        self.mean.set_active_type(mean)
-        self.mean.setVisible(True)
+        self.edit_mean.move(rect_mean.x() - rect_mean.width() - 10, rect_mean.y() - 5)
+        self.edit_mean.setFixedWidth(rect_mean.width() * 3 + 20)
+        self.edit_mean.setFixedHeight(rect_mean.height() + 10)
+        self.edit_mean.set_active_type(mean)
+        self.edit_mean.setVisible(True)
 
         """ Configure Apply/Cancel buttons """
         self.apply.setGeometry(rectEdit)
@@ -535,6 +535,7 @@ class Transactions(QObject):
         self.edit_date.setVisible(False)
         self.edit_account.setVisible(False)
         self.edit_exp_or_inc.setVisible(False)
+        self.edit_mean.setVisible(False)
         self.edit_category.setVisible(False)
         self.edit_category_name.setVisible(False)
         self.apply.setVisible(False)

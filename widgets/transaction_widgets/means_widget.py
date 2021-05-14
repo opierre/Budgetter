@@ -1,9 +1,7 @@
-import sys
-
-from PySide2.QtCore import Qt, QRectF, Signal, QRect
-from PySide2.QtGui import QPainter, QColor, QPen
+from PySide2.QtCore import Qt, QFile, QTextStream
+from PySide2.QtGui import QPainter, QColor
 from PySide2.QtSvg import QSvgRenderer
-from PySide2.QtWidgets import QWidget, QHBoxLayout, QPushButton, QApplication, \
+from PySide2.QtWidgets import QWidget, QHBoxLayout, QPushButton, \
     QStyleOptionButton, QStyle
 
 
@@ -56,12 +54,29 @@ class MeanCheckbox(QPushButton):
         painter.setBrush(Qt.NoBrush)
         painter.setPen(Qt.NoPen)
 
-        """ Draw image """
-        svgRender = QSvgRenderer(":/images/images/credit_card_white_24dp.svg")
+        """ Load SVG content """
+        svg_string_file = QFile(":/images/images/credit_card_white_24dp.svg")
         if self._type == "Espèces":
-            svgRender = QSvgRenderer(":/images/images/local_atm_white_24dp.svg")
+            svg_string_file = QFile(":/images/images/local_atm_white_24dp.svg")
         elif self._type == "Virement":
-            svgRender = QSvgRenderer(":/images/images/swap_horiz_white_24dp.svg")
+            svg_string_file = QFile(":/images/images/swap_horiz_white_24dp.svg")
+
+        """ Replace fill color in SVG """
+        svg_string = ''
+        if svg_string_file.open(QFile.ReadOnly | QFile.Text):
+            textStream = QTextStream(svg_string_file)
+            svg_string = textStream.readAll()
+            svg_string_file.close()
+
+        if opt.state & QStyle.State_On:
+            pass
+        elif not(opt.state & QStyle.State_Selected):
+            svg_string = svg_string.replace("fill=\"#0190EA\"", "fill=\"white\" fill-opacity=\"0.65\"")
+
+        svg_bytes = bytearray(svg_string, encoding='utf-8')
+
+        """ Load SVG as bytes """
+        svgRender = QSvgRenderer(svg_bytes)
         svgRender.setAspectRatioMode(Qt.KeepAspectRatio)
         svgRender.render(painter, self.rect())
 
@@ -141,6 +156,11 @@ class Mean(QWidget):
         self.center_button.set_type("Espèces")
         self.right_button.set_type("Carte")
 
+        """ Set height """
+        self.left_button.setFixedHeight(self.rect().height())
+        self.center_button.setFixedHeight(self.rect().height())
+        self.right_button.setFixedHeight(self.rect().height())
+
     def set_active_type(self, active_type):
         """
         Select one button according to active type parameter
@@ -173,15 +193,15 @@ class Mean(QWidget):
         """
 
         """ Set contents margin """
-        self.layout.setContentsMargins(0, 0, 0, 0)
+        self.layout.setContentsMargins(4, 0, 4, 0)
 
         """ Set Spacing """
-        self.layout.setSpacing(0)
+        self.layout.setSpacing(5)
 
         """ Add widgets to layout """
-        # self.layout.addWidget(self.left_button)
+        self.layout.addWidget(self.left_button)
         self.layout.addWidget(self.center_button)
-        # self.layout.addWidget(self.right_button)
+        self.layout.addWidget(self.right_button)
 
     def paintEvent(self, event):
         """
