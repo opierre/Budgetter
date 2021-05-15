@@ -1,4 +1,4 @@
-from PySide2.QtCore import Qt
+from PySide2.QtCore import Qt, QDate
 from PySide2.QtGui import QPainter, QColor, QLinearGradient, QBrush, QPen
 from PySide2.QtWidgets import QWidget
 
@@ -10,6 +10,18 @@ class ChartDashboard(QWidget):
 
     def __init__(self, parent=None):
         super(ChartDashboard, self).__init__(parent)
+
+        """ Store current month """
+        self.current_month = 5
+
+    def set_current_month(self, month):
+        """
+        Update current month
+        :param month: current month
+        :return: void
+        """
+
+        self.current_month = month
 
     def paintEvent(self, event):
         """
@@ -37,6 +49,9 @@ class ChartDashboard(QWidget):
         """ Draw upper line """
         self.draw_separator(painter)
 
+        """ Draw month buttons """
+        self.draw_months(painter)
+
     def draw_separator(self, painter):
         """
         Draw upper separator between months and line
@@ -54,5 +69,15 @@ class ChartDashboard(QWidget):
         """ Draw line """
         painter.drawLine(self.rect().x(), self.rect().y() + self.rect().height() * 1/5,
                          self.rect().width(), self.rect().y() + self.rect().height() * 1/5)
+
+    def draw_months(self, painter):
+        """
+        Draw months as buttons
+        :param painter: painter
+        :return: void
+        """
+
+        """ Get current month """
+        current_month = QDate.currentDate().month()
 
 
