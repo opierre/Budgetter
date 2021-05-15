@@ -1,6 +1,6 @@
-from PySide2.QtCore import Qt, QDate
+from PySide2.QtCore import Qt, QDate, QRectF
 from PySide2.QtGui import QPainter, QColor, QLinearGradient, QBrush, QPen
-from PySide2.QtWidgets import QWidget
+from PySide2.QtWidgets import QWidget, QPushButton, QStyleOptionButton, QStyle
 
 
 class ChartDashboard(QWidget):
@@ -12,16 +12,33 @@ class ChartDashboard(QWidget):
         super(ChartDashboard, self).__init__(parent)
 
         """ Store current month """
-        self.current_month = 5
+        self.current_month = 1
 
-    def set_current_month(self, month):
+        """ Store buttons """
+        self.months = [QPushButton(), QPushButton(), QPushButton(), QPushButton(), QPushButton(), QPushButton()]
+
+        """ Get all months """
+        self.get_months()
+
+    def get_months(self):
         """
-        Update current month
-        :param month: current month
+        Get months
         :return: void
         """
 
-        self.current_month = month
+        """ Get current month """
+        current_month_nb = QDate.currentDate().month()
+        current_month = QDate.currentDate().longMonthName(current_month_nb)
+        self.month[5].setText(current_month.capitalize())
+
+        """ Get 5 previous month """
+        for index in range(1, 6):
+            if current_month_nb == 1:
+                current_month_nb = 13
+            previous_month = QDate.currentDate().longMonthName(current_month_nb - 1)
+            self.months[5 - index].setText(previous_month.capitalize())
+
+            current_month_nb -= 1
 
     def paintEvent(self, event):
         """
@@ -77,7 +94,19 @@ class ChartDashboard(QWidget):
         :return: void
         """
 
-        """ Get current month """
-        current_month = QDate.currentDate().month()
+        if len(self.months) == 6:
+            for index in range(0, 6):
+                """ Align rectangle for button """
+                button_rectangle = QRectF(self.rect().x() + 5 + (self.rect().width() - 10) * index / 6.0,
+                                          self.rect().y() + (self.rect().height() * 1 / 5) / 3.0,
+                                          20, (self.rect().height() * 1 / 5) * 2.0 / 3.0)
 
+                """ Create buttons """
+                optionMore = QStyleOptionButton()
+
+                optionMore.initFrom(self.months[index])
+                optionMore.rect = self.rect_comment
+                optionMore.state = optionMore.state or QStyle.State_MouseOver
+
+                self.months[index].style().drawControl(QStyle.CE_PushButton, optionMore, painter, self.months[index])
 
