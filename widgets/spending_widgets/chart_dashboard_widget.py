@@ -1,6 +1,6 @@
 from PySide2.QtCore import Qt, QDate, QRect
-from PySide2.QtGui import QPainter, QColor, QLinearGradient, QBrush, QPen
-from PySide2.QtWidgets import QWidget, QPushButton, QStyleOptionButton, QStyle
+from PySide2.QtGui import QPainter, QColor, QLinearGradient, QBrush, QPen, QFont
+from PySide2.QtWidgets import QWidget, QPushButton, QStyleOptionButton, QStyle, QButtonGroup
 
 
 class ChartDashboard(QWidget):
@@ -15,7 +15,16 @@ class ChartDashboard(QWidget):
         self.current_month = 1
 
         """ Store buttons """
-        self.months = [QPushButton(), QPushButton(), QPushButton(), QPushButton(), QPushButton(), QPushButton()]
+        self.months = [QPushButton(self),
+                       QPushButton(self),
+                       QPushButton(self),
+                       QPushButton(self),
+                       QPushButton(self),
+                       QPushButton(self)]
+
+        """ Set buttons group exclusive """
+        self.button_group = QButtonGroup()
+        self.button_group.setExclusive(True)
 
         """ Get all months """
         self.get_months()
@@ -26,10 +35,37 @@ class ChartDashboard(QWidget):
         :return: void
         """
 
+        stylesheet = "QPushButton"\
+                     "{"\
+                     "  background-color: transparent; "\
+                     "  color: rgba(255, 255, 255, 100);"\
+                     "  font-family: \"Roboto Medium\";"\
+                     "  font-size: 12pts;"\
+                     "  border-top-left-radius: 2px;"\
+                     "  border-top-right-radius: 2px;"\
+                     "  border-bottom-left-radius: 0px;"\
+                     "  border-bottom-right-radius: 0px;"\
+                     "}"\
+                     "QPushButton::checked" \
+                     "{" \
+                     "  background-color: rgba(255, 255, 255, 30); " \
+                     "  color: rgba(255, 255, 255, 200);" \
+                     "  font-family: \"Roboto Black\";" \
+                     "  font-size: 12pts;" \
+                     "  border-top-left-radius: 2px;"\
+                     "  border-top-right-radius: 2px;"\
+                     "  border-bottom-left-radius: 0px;"\
+                     "  border-bottom-right-radius: 0px;"\
+                     "}"
+
         """ Get current month """
         current_month_nb = QDate.currentDate().month()
         current_month = QDate.currentDate().longMonthName(current_month_nb)
         self.months[5].setText(current_month.upper()[0:3])
+        self.months[5].setStyleSheet(stylesheet)
+        self.months[5].setCursor(Qt.PointingHandCursor)
+        self.months[5].setCheckable(True)
+        self.button_group.addButton(self.months[5])
 
         """ Get 5 previous month and update stylesheet """
         for index in range(1, 6):
@@ -37,8 +73,10 @@ class ChartDashboard(QWidget):
                 current_month_nb = 13
             previous_month = QDate.currentDate().longMonthName(current_month_nb - 1)
             self.months[5 - index].setText(previous_month.upper()[0:3])
-            self.months[5 - index].setStyleSheet("background-color: transparent; color: red;")
+            self.months[5 - index].setStyleSheet(stylesheet)
             self.months[5 - index].setCursor(Qt.PointingHandCursor)
+            self.months[5 - index].setCheckable(True)
+            self.button_group.addButton(self.months[5 - index])
 
             current_month_nb -= 1
 
@@ -86,8 +124,8 @@ class ChartDashboard(QWidget):
         painter.setOpacity(0.06)
 
         """ Draw line """
-        painter.drawLine(self.rect().x(), self.rect().y() + self.rect().height() * 1/5,
-                         self.rect().width(), self.rect().y() + self.rect().height() * 1/5)
+        painter.drawLine(self.rect().x(), self.rect().y() + self.rect().height() * 1/6,
+                         self.rect().width(), self.rect().y() + self.rect().height() * 1/6)
 
     def draw_months(self, painter):
         """
@@ -102,22 +140,29 @@ class ChartDashboard(QWidget):
                 button_rectangle = QRect(self.rect().x() + 0 + (self.rect().width() - 0) * index / 6.0,
                                          self.rect().y(),
                                          self.rect().width() / 6.0,
-                                         self.rect().height() * 1 / 5)
+                                         self.rect().height() * 1 / 6)
 
-                # """ Create buttons """
-                # optionMore = QStyleOptionButton()
-                #
-                # optionMore.initFrom(self.months[index])
-                # optionMore.text = self.months[index].text()
-                # optionMore.rect = button_rectangle
-                # optionMore.state = optionMore.state or QStyle.State_MouseOver
-                #
-                # self.months[index].style().drawControl(QStyle.CE_PushButton, optionMore, painter, self.months[index])
-
+                """ Define buttons positions """
                 self.months[index].resize(button_rectangle.size())
+                self.months[index].move(button_rectangle.x(), button_rectangle.y())
 
-                # painter.save()
-                # painter.translate(button_rectangle.topLeft())
-                self.months[index].render(painter, button_rectangle.topLeft())
-                # painter.restore()
+                if self.months[index].isChecked():
+                    print(index)
+                    painter.setPen(Qt.NoPen)
 
+                    """ Set gradient """
+                    rectangle_background = QRect(button_rectangle.x(),
+                                                 button_rectangle.y() + button_rectangle.width(),
+                                                 button_rectangle.width(),
+                                                 self.rect().height())
+                    gradient = QLinearGradient(rectangle_background.x(),
+                                               rectangle_background.y(),
+                                               rectangle_background.x() + rectangle_background.width(),
+                                               rectangle_background.height())
+                    print(rectangle_background)
+                    gradient.setColorAt(0, QColor(0, 255, 255, 30))
+                    gradient.setColorAt(1, QColor(255, 255, 0, 200))
+                    brush = QBrush(gradient)
+                    painter.setBrush(brush)
+
+                    painter.drawRect(rectangle_background)
