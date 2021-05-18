@@ -100,6 +100,7 @@ class ChartDashboard(QWidget):
         brush = QBrush(gradient)
         painter.setBrush(brush)
 
+        print(self.rect())
         """ Draw background """
         painter.drawRoundedRect(self.rect(), 5, 5)
 
@@ -134,6 +135,9 @@ class ChartDashboard(QWidget):
         :return: void
         """
 
+        painter.setPen(Qt.NoPen)
+        painter.setOpacity(1)
+
         if len(self.months) == 6:
             for index in range(0, 6):
                 """ Align rectangle for button """
@@ -146,23 +150,25 @@ class ChartDashboard(QWidget):
                 self.months[index].resize(button_rectangle.size())
                 self.months[index].move(button_rectangle.x(), button_rectangle.y())
 
-                if self.months[index].isChecked():
+                if self.months[index].isChecked() is True:
+                #if index == 4:
                     print(index)
-                    painter.setPen(Qt.NoPen)
 
                     """ Set gradient """
                     rectangle_background = QRect(button_rectangle.x(),
-                                                 button_rectangle.y() + button_rectangle.width(),
+                                                 button_rectangle.y() + button_rectangle.height(),
                                                  button_rectangle.width(),
                                                  self.rect().height())
                     gradient = QLinearGradient(rectangle_background.x(),
                                                rectangle_background.y(),
-                                               rectangle_background.x() + rectangle_background.width(),
+                                               rectangle_background.x(),
                                                rectangle_background.height())
                     print(rectangle_background)
-                    gradient.setColorAt(0, QColor(0, 255, 255, 30))
-                    gradient.setColorAt(1, QColor(255, 255, 0, 200))
+                    gradient.setColorAt(0, QColor(255, 255, 255, 30))
+                    gradient.setColorAt(1, QColor(255, 255, 255, 0))
                     brush = QBrush(gradient)
                     painter.setBrush(brush)
+
+                    print(rectangle_background)
 
                     painter.drawRect(rectangle_background)
