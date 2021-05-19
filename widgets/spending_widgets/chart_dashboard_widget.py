@@ -1,4 +1,4 @@
-from PySide2.QtCore import Qt, QDate, QRect
+from PySide2.QtCore import Qt, QDate, QRect, QRectF
 from PySide2.QtGui import QPainter, QColor, QLinearGradient, QBrush, QPen, QFont
 from PySide2.QtWidgets import QWidget, QPushButton, QStyleOptionButton, QStyle, QButtonGroup
 
@@ -22,12 +22,27 @@ class ChartDashboard(QWidget):
                        QPushButton(self),
                        QPushButton(self)]
 
+        """ Store values for months """
+        self.values = [12345, 12, 4567, 9348, 30494, 987]
+
         """ Set buttons group exclusive """
         self.button_group = QButtonGroup()
         self.button_group.setExclusive(True)
 
         """ Get all months """
         self.get_months()
+
+        """ Connect slots and signals """
+        self.connect_slots_and_signals()
+
+    def connect_slots_and_signals(self):
+        """
+        Connect all slots and signals
+        :return: void
+        """
+
+        """ Connect click on button to update current month """
+        self.button_group.buttonClicked.connect(self.update)
 
     def get_months(self):
         """
@@ -80,6 +95,18 @@ class ChartDashboard(QWidget):
 
             current_month_nb -= 1
 
+    def set_values(self, values):
+        """
+        Set value for each month
+        :param values: values [1 --> 6]
+        :return: void
+        """
+
+        self.values.clear()
+
+        for value in enumerate(values):
+            self.values.append(value)
+
     def paintEvent(self, event):
         """
         Override paintEvent()
@@ -109,6 +136,12 @@ class ChartDashboard(QWidget):
 
         """ Draw month buttons """
         self.draw_months(painter)
+
+        """ Draw amount for selected month """
+        self.draw_amount(painter)
+
+        """ Draw values """
+        self.draw_values(painter)
 
     def draw_separator(self, painter):
         """
@@ -151,10 +184,7 @@ class ChartDashboard(QWidget):
                 self.months[index].move(button_rectangle.x(), button_rectangle.y())
 
                 if self.months[index].isChecked() is True:
-                #if index == 4:
-                    print(index)
-
-                    """ Set gradient """
+                    """ Set white gradient """
                     rectangle_background = QRect(button_rectangle.x(),
                                                  button_rectangle.y() + button_rectangle.height(),
                                                  button_rectangle.width(),
@@ -163,12 +193,41 @@ class ChartDashboard(QWidget):
                                                rectangle_background.y(),
                                                rectangle_background.x(),
                                                rectangle_background.height())
-                    print(rectangle_background)
                     gradient.setColorAt(0, QColor(255, 255, 255, 30))
-                    gradient.setColorAt(1, QColor(255, 255, 255, 0))
+                    gradient.setColorAt(1, QColor(255, 255, 255, 5))
                     brush = QBrush(gradient)
                     painter.setBrush(brush)
 
-                    print(rectangle_background)
-
+                    """ Draw gradient """
                     painter.drawRect(rectangle_background)
+
+                    """ Update current month """
+                    self.current_month = index
+
+    def draw_amount(self, painter):
+        """
+        Draw amount for selected month
+        :param painter: painter
+        :return: void
+        """
+
+        rectangle_amount = QRectF(self.rect().x() + self.rect().width() * 1 / 24,
+                                  self.rect().y() + self.rect().height() * 1 / 4,
+                                  56,
+                                  24)
+
+        pen = QPen(QColor("white"), 1, c=Qt.RoundCap)
+        painter.setPen(pen)
+        painter.setBrush(Qt.NoBrush)
+        painter.setFont(QFont("Roboto Black", 12, QFont.Normal))
+        painter.drawText(rectangle_amount, str(self.values[self.current_month])) #, Qt.AlignCenter)
+        painter.drawRect(rectangle_amount)
+
+    def draw_values(self, painter):
+        """
+        Draw points for each value
+        :param painter: painter
+        :return: void
+        """
+
+        pass
