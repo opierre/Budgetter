@@ -2,6 +2,8 @@ from PySide2.QtCore import Qt, QDate, QRect, QRectF
 from PySide2.QtGui import QPainter, QColor, QLinearGradient, QBrush, QPen, QFont
 from PySide2.QtWidgets import QWidget, QPushButton, QStyleOptionButton, QStyle, QButtonGroup
 
+from utils.tools import convert_amount_to_str
+
 
 class ChartDashboard(QWidget):
     """
@@ -127,7 +129,6 @@ class ChartDashboard(QWidget):
         brush = QBrush(gradient)
         painter.setBrush(brush)
 
-        print(self.rect())
         """ Draw background """
         painter.drawRoundedRect(self.rect(), 5, 5)
 
@@ -138,7 +139,10 @@ class ChartDashboard(QWidget):
         self.draw_months(painter)
 
         """ Draw amount for selected month """
-        self.draw_amount(painter)
+        rectangle_amount = self.draw_amount(painter)
+
+        """ Draw period underneath amount """
+        self.draw_period(painter, rectangle_amount)
 
         """ Draw values """
         self.draw_values(painter)
@@ -208,20 +212,57 @@ class ChartDashboard(QWidget):
         """
         Draw amount for selected month
         :param painter: painter
-        :return: void
+        :return: rectangle where amount has been drawn
         """
 
+        """ Set rectangle """
         rectangle_amount = QRectF(self.rect().x() + self.rect().width() * 1 / 24,
                                   self.rect().y() + self.rect().height() * 1 / 4,
-                                  56,
-                                  24)
+                                  self.rect().width() / 4.5,
+                                  28)
 
+        """ Configure pen and painter """
         pen = QPen(QColor("white"), 1, c=Qt.RoundCap)
         painter.setPen(pen)
         painter.setBrush(Qt.NoBrush)
-        painter.setFont(QFont("Roboto Black", 12, QFont.Normal))
-        painter.drawText(rectangle_amount, str(self.values[self.current_month])) #, Qt.AlignCenter)
-        painter.drawRect(rectangle_amount)
+        painter.setFont(QFont("Roboto Black", 18, QFont.Normal))
+
+        """ Set text """
+        text = convert_amount_to_str(self.values[self.current_month]) + " €"
+        painter.drawText(rectangle_amount, Qt.AlignCenter, text)
+
+        return rectangle_amount
+
+    def draw_period(self, painter, rectangle_amount):
+        """
+        Draw period for selected month
+        :param painter: painter
+        :param rectangle_amount: upper rectangle
+        :return: void
+        """
+
+        """ Set rectangle """
+        rectangle_period = QRectF(rectangle_amount.x(),
+                                  rectangle_amount.y() + rectangle_amount.height(),
+                                  rectangle_amount.width(),
+                                  rectangle_amount.height())
+
+        """ Configure pen and painter """
+        pen = QPen(QColor("#c4c9cf"), 1, c=Qt.RoundCap)
+        painter.setPen(pen)
+        painter.setBrush(Qt.NoBrush)
+        painter.setOpacity(0.8)
+        painter.setFont(QFont("Roboto Medium", 8, QFont.Normal))
+
+        """ Set text """
+        month_number = (QDate.currentDate().month() - (5 - self.current_month)) % 12
+        if month_number == 0:
+            month_number = 12
+        days_in_month = QDate(QDate.currentDate().year(), month_number, 1).daysInMonth()
+        text = "01 " + self.months[self.current_month].text() + ' - ' + str(days_in_month) + " " + \
+               self.months[self.current_month].text()
+        painter.drawText(rectangle_period, Qt.AlignCenter, text)
+        painter.setOpacity(1)
 
     def draw_values(self, painter):
         """

@@ -134,8 +134,8 @@ class AccountDelegate(QItemDelegate):
         pixelsHeight = fontMetrics.height()
 
         """ Set amount on right corner """
-        rect_amount = QRect(rectBackground.width()+rectBackground.x()-pixelsWidth-option.rect.width()*1/50, rectCategory.y(),
-                           pixelsWidth, pixelsHeight)
+        rect_amount = QRect(rectBackground.width()+rectBackground.x()-pixelsWidth-option.rect.width()*1/50,
+                            rectCategory.y(), pixelsWidth, pixelsHeight)
         painter.drawText(rect_amount, Qt.AlignRight | Qt.AlignVCenter, amount)
 
         """ Set rect for trend drawing """
