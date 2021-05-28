@@ -20,7 +20,7 @@ class Spending(QObject):
         self.ui_setup = gui
 
         """ Chart widget """
-        self.chart_widget = ChartDashboard()
+        self.chart_widget = ChartDashboard(self.ui_setup.spending)
 
         """ Configure layout """
         self.configure_layout()

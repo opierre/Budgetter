@@ -1,8 +1,10 @@
 from PySide2.QtCore import Qt, QDate, QRect, QRectF
 from PySide2.QtGui import QPainter, QColor, QLinearGradient, QBrush, QPen, QFont
 from PySide2.QtWidgets import QWidget, QPushButton, QStyleOptionButton, QStyle, QButtonGroup
+from PySide2.QtCharts import QtCharts
 
 from utils.tools import convert_amount_to_str
+from widgets.spending_widgets.spending_chart_widget import SpendingChart
 
 
 class ChartDashboard(QWidget):
@@ -29,13 +31,35 @@ class ChartDashboard(QWidget):
 
         """ Set buttons group exclusive """
         self.button_group = QButtonGroup()
-        self.button_group.setExclusive(True)
 
         """ Get all months """
         self.get_months()
 
+        """ Store chart """
+        self.chart = SpendingChart()
+        self.chart_view = QtCharts.QChartView(self.chart)
+
+        """ Configure widgets """
+        self.configure_widgets()
+
         """ Connect slots and signals """
         self.connect_slots_and_signals()
+
+    def configure_widgets(self):
+        """
+        Configure child widgets
+        :return: void
+        """
+
+        """ Set buttons group exclusive """
+        self.button_group.setExclusive(True)
+
+        """ Configure chart view """
+        self.chart_view.setRenderHint(QPainter.Antialiasing)
+        self.chart_view.setVisible(True)
+
+        """ Configure chart """
+        self.chart.set_values(self.values)
 
     def connect_slots_and_signals(self):
         """
@@ -142,10 +166,10 @@ class ChartDashboard(QWidget):
         rectangle_amount = self.draw_amount(painter)
 
         """ Draw period underneath amount """
-        self.draw_period(painter, rectangle_amount)
+        rectangle_period = self.draw_period(painter, rectangle_amount)
 
         """ Draw values """
-        self.draw_values(painter)
+        self.draw_values(painter, rectangle_period)
 
     def draw_separator(self, painter):
         """
@@ -238,7 +262,7 @@ class ChartDashboard(QWidget):
         Draw period for selected month
         :param painter: painter
         :param rectangle_amount: upper rectangle
-        :return: void
+        :return: rectangle where period has been drawn
         """
 
         """ Set rectangle """
@@ -264,11 +288,19 @@ class ChartDashboard(QWidget):
         painter.drawText(rectangle_period, Qt.AlignCenter, text)
         painter.setOpacity(1)
 
-    def draw_values(self, painter):
+        return rectangle_period
+
+    def draw_values(self, painter, rectangle_period):
         """
         Draw points for each value
         :param painter: painter
+        :param rectangle_period: rectangle with period
         :return: void
         """
 
-        pass
+        """ Draw chart view """
+        self.chart_view.setGeometry(self.rect().x(), rectangle_period.y() + rectangle_period.height() + 5,
+                                    self.rect().width(),
+                                    self.rect().height() - rectangle_period.y() + rectangle_period.height() + 5)
+
+        self.chart_view.setVisible(True)
