@@ -1,6 +1,6 @@
 from PySide2.QtCore import Qt, QDate, QRect, QRectF
 from PySide2.QtGui import QPainter, QColor, QLinearGradient, QBrush, QPen, QFont
-from PySide2.QtWidgets import QWidget, QPushButton, QStyleOptionButton, QStyle, QButtonGroup
+from PySide2.QtWidgets import QWidget, QPushButton, QStyleOptionButton, QStyle, QButtonGroup, QGridLayout
 from PySide2.QtCharts import QtCharts
 
 from utils.tools import convert_amount_to_str
@@ -38,6 +38,8 @@ class ChartDashboard(QWidget):
         """ Store chart """
         self.chart = SpendingChart()
         self.chart_view = QtCharts.QChartView(self.chart)
+        self._layout = QGridLayout(self)
+        self._layout.addWidget(self.chart_view)
 
         """ Configure widgets """
         self.configure_widgets()
@@ -299,8 +301,8 @@ class ChartDashboard(QWidget):
         """
 
         """ Draw chart view """
-        self.chart_view.setGeometry(self.rect().x(), rectangle_period.y() + rectangle_period.height() + 5,
+        self.chart_view.setGeometry(self.rect().x(), self.rect().y() + self.rect().height() * 1 / 6,
                                     self.rect().width(),
-                                    self.rect().height() - rectangle_period.y() + rectangle_period.height() + 5)
+                                    self.rect().height() - self.rect().height() * 1 / 6)
 
         self.chart_view.setVisible(True)

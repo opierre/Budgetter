@@ -1,7 +1,7 @@
 from PySide2 import QtGui, QtWidgets, QtCore
 from PySide2.QtCharts import QtCharts
 from PySide2.QtCore import Qt
-from PySide2.QtGui import QPen, QColor
+from PySide2.QtGui import QPen, QColor, QBrush
 
 
 class SpendingChart(QtCharts.QChart):
@@ -27,6 +27,9 @@ class SpendingChart(QtCharts.QChart):
         self.axis_x.setRange(0, 5)
         self.axis_x.setTickCount(1)
 
+        """ Customize stylesheet """
+        self.setBackgroundBrush(QBrush(QColor("red")))
+
     def set_values(self, values: list):
         """
         Set values to display
@@ -40,14 +43,15 @@ class SpendingChart(QtCharts.QChart):
         range_max = max(values)
         self.axis_y.setRange(0, range_max)
 
-        pen = QPen(QColor("red"))
-        pen.setWidthF(2.8)
+        pen = QPen(QColor("white"))
+        pen.setWidthF(4.0)
         pen.setCapStyle(Qt.RoundCap)
 
+        series = QtCharts.QSplineSeries()
         for index, value in enumerate(values):
-            series = QtCharts.QSplineSeries()
-            series.setPen(pen)
             series.append(index, value)
-            self.addSeries(series)
-            series.attachAxis(self.axis_x)
-            series.attachAxis(self.axis_y)
+
+        series.setPen(pen)
+        self.addSeries(series)
+        series.attachAxis(self.axis_x)
+        series.attachAxis(self.axis_y)
