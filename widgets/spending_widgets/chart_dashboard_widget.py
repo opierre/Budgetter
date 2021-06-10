@@ -16,7 +16,7 @@ class ChartDashboard(QWidget):
         super(ChartDashboard, self).__init__(parent)
 
         """ Store current month """
-        self.current_month = 1
+        self.current_month = 5
 
         """ Store buttons """
         self.months = [QPushButton(self),
@@ -55,6 +55,7 @@ class ChartDashboard(QWidget):
 
         """ Set buttons group exclusive """
         self.button_group.setExclusive(True)
+        self.months[-1].setChecked(True)
 
         """ Configure chart view """
         self.chart_view.setRenderHint(QPainter.Antialiasing)

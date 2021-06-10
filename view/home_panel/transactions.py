@@ -451,7 +451,7 @@ class Transactions(QObject):
         """ Retrieve all rects """
         output = self.transaction_delegate.get_first_row_rects()
         self.edit_transaction(index, output[0], output[1], output[2], output[3], output[4], output[5], output[6],
-                              output[7], output[8])
+                              output[7], output[8], output[9])
 
     def search_transaction(self, content):
         """
