@@ -120,7 +120,7 @@ class TransactionDelegate(QStyledItemDelegate):
                 self.rect_exp_or_inc_first_row,
                 self.rect_category_first_row,
                 self.rect_category_name_first_row,
-                self.rect_means,
+                self.rect_means_first_row,
                 self.rect_edit_first_row,
                 self.rect_delete_first_row]
 
@@ -409,6 +409,7 @@ class TransactionDelegate(QStyledItemDelegate):
             self.rect_exp_or_inc_first_row = self.rect_exp_or_inc
             self.rect_edit_first_row = self.rect_edit
             self.rect_delete_first_row = self.rect_delete
+            self.rect_means_first_row = self.rect_mean
 
     @staticmethod
     def draw_separator(painter, option):
