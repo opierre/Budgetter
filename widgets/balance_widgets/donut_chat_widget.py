@@ -82,11 +82,11 @@ class DonutChart(QWidget):
 
         """ Configure pen """
         pen = QPen()
-        pen.setWidthF(28.5)
+        pen.setWidthF(30.0)
         pen.setCapStyle(Qt.RoundCap)
         pen.setColor(QColor("#1C293B"))
         painter.setPen(pen)
-        painter.setOpacity(0.3)
+        painter.setOpacity(0.2)
 
         """ Configure rectangle """
         rect_origins = QRect(self.rect().x() + 10, self.rect().y() + 10,

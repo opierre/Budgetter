@@ -27,7 +27,7 @@ class ChartDashboard(QWidget):
                        QPushButton(self)]
 
         """ Store values for months """
-        self.values = [12345, 12, 4567, 9348, 30494, 987]
+        self.values = [2589, 1809, 1026, 1547, 1258, 987]
 
         """ Set buttons group exclusive """
         self.button_group = QButtonGroup()
@@ -62,6 +62,7 @@ class ChartDashboard(QWidget):
 
         """ Configure chart """
         self.chart.set_values(self.values)
+        self.chart.layout().setContentsMargins(0, 0, 0, 0)
 
     def connect_slots_and_signals(self):
         """
@@ -301,8 +302,8 @@ class ChartDashboard(QWidget):
         """
 
         """ Draw chart view """
-        self.chart_view.setGeometry(self.rect().x(), self.rect().y() + self.rect().height() * 1 / 6,
+        self.chart_view.setGeometry(self.rect().x(), rectangle_period.y(),
                                     self.rect().width(),
-                                    self.rect().height() - self.rect().height() * 1 / 6)
+                                    self.rect().height() - rectangle_period.y())
 
         self.chart_view.setVisible(True)

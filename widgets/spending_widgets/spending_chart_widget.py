@@ -28,7 +28,9 @@ class SpendingChart(QtCharts.QChart):
         self.axis_x.setTickCount(1)
 
         """ Customize stylesheet """
-        self.setBackgroundBrush(QBrush(QColor("red")))
+        self.setBackgroundBrush(QBrush(QColor("transparent")))
+
+        self.setAnimationOptions(QtCharts.QChart.SeriesAnimations)
 
     def set_values(self, values: list):
         """
@@ -41,16 +43,19 @@ class SpendingChart(QtCharts.QChart):
             return
 
         range_max = max(values)
-        self.axis_y.setRange(0, range_max)
+        self.axis_y.setRange(0, range_max*11/10)
 
+        """ Configure pen """
         pen = QPen(QColor("white"))
-        pen.setWidthF(4.0)
+        pen.setWidthF(6.0)
         pen.setCapStyle(Qt.RoundCap)
 
+        """ Fulfill series """
         series = QtCharts.QSplineSeries()
         for index, value in enumerate(values):
             series.append(index, value)
 
+        """ Draw values """
         series.setPen(pen)
         self.addSeries(series)
         series.attachAxis(self.axis_x)
