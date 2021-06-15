@@ -274,7 +274,7 @@ class TransactionDelegate(QStyledItemDelegate):
         comment = str(value["comment"])
 
         """ Draw separator """
-        self.draw_separator(painter, option)
+        self.draw_separator(painter, option, index)
 
         """ Draw item background """
         rect_background = QRect(option.rect.x() + option.rect.width() * 1 / 60, option.rect.y() + option.rect.height() * 1 / 5,
@@ -411,20 +411,21 @@ class TransactionDelegate(QStyledItemDelegate):
             self.rect_delete_first_row = self.rect_delete
             self.rect_means_first_row = self.rect_mean
 
-    @staticmethod
-    def draw_separator(painter, option):
+    def draw_separator(self, painter, option, index):
         """
         Draw bottom line
         :param painter: painter
         :param option: option
+        :param index: index
         :return: void
         """
 
-        """ Draw bottom border """
-        painter.setPen(QPen(QColor("#344457")))
-        painter.setBrush(Qt.NoBrush)
-        painter.drawLine(option.rect.x()+option.rect.width()*1/60, option.rect.y()+option.rect.height()-1,
-                         option.rect.width()-option.rect.width()*1/60, option.rect.y()+option.rect.height()-1)
+        if self.editable != index:
+            """ Draw bottom border """
+            painter.setPen(QPen(QColor("#344457")))
+            painter.setBrush(Qt.NoBrush)
+            painter.drawLine(option.rect.x()+option.rect.width()*1/60, option.rect.y()+option.rect.height()-1,
+                             option.rect.width()-option.rect.width()*1/60, option.rect.y()+option.rect.height()-1)
 
         painter.setRenderHint(QPainter.Antialiasing)
 
@@ -499,8 +500,8 @@ class TransactionDelegate(QStyledItemDelegate):
             painter.setBrush(QColor("#1C293B"))
             painter.setOpacity(0.5)
             painter.drawRect(rect_background.x(), rect_background.y() - option.rect.height() * 1 / 6,
-                             rect_background.width() + 2, option.rect.height() - 2)
-            painter.setBrush(QColor("#1A537D"))
+                             rect_background.width() + 4, option.rect.height() + 0)
+            painter.setBrush(QColor("#015185"))
             painter.setOpacity(1)
             painter.drawRect(rect_background.x(), rect_background.y() - option.rect.height() * 1 / 6,
                              rect_background.width(), rect_background.height() + option.rect.height() * 2 / 6)

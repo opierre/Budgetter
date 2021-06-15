@@ -86,7 +86,7 @@ class DonutChart(QWidget):
         pen.setCapStyle(Qt.RoundCap)
         pen.setColor(QColor("#1C293B"))
         painter.setPen(pen)
-        painter.setOpacity(0.2)
+        painter.setOpacity(0.3)
 
         """ Configure rectangle """
         rect_origins = QRect(self.rect().x() + 10, self.rect().y() + 10,
