@@ -224,7 +224,7 @@ class ExpensesIncomeTransfer(QWidget):
 
         """ Configure pen and brush """
         painter.setPen(Qt.NoPen)
-        painter.setBrush(QColor(44, 64, 90, 255))
+        painter.setBrush(QColor(28, 41, 59, 128))
 
         """ Paint background """
         painter.drawRoundedRect(self.rect(), 2, 2)

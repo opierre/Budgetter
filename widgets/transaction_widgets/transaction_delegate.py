@@ -499,12 +499,13 @@ class TransactionDelegate(QStyledItemDelegate):
         else:
             painter.setBrush(QColor("#1C293B"))
             painter.setOpacity(0.5)
-            painter.drawRect(rect_background.x(), rect_background.y() - option.rect.height() * 1 / 6,
-                             rect_background.width() + 4, option.rect.height() + 0)
+            painter.drawRoundedRect(rect_background.x(), rect_background.y() - option.rect.height() * 1 / 6,
+                                    rect_background.width() + 4, option.rect.height() + 0, 7, 7)
             painter.setBrush(QColor("#015185"))
             painter.setOpacity(1)
-            painter.drawRect(rect_background.x(), rect_background.y() - option.rect.height() * 1 / 6,
-                             rect_background.width(), rect_background.height() + option.rect.height() * 2 / 6)
+            painter.drawRoundedRect(rect_background.x(), rect_background.y() - option.rect.height() * 1 / 6,
+                                    rect_background.width(), rect_background.height() + option.rect.height() * 2 / 6,
+                                    7, 7)
 
     def draw_left_icon(self, painter, index, category):
         """

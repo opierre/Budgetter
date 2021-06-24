@@ -78,7 +78,7 @@ class Ui_MainWindow(object):
 "	padding-left: 2px;\n"
 "	padding-right: 2px;\n"
 ""
-                        "	background: rgba(44, 64, 90, 255);\n"
+                        "	background: rgba(28, 41, 59, 128);\n"
 "	color: white;\n"
 "	selection-background-color: #0190EA;\n"
 "}\n"
@@ -104,7 +104,7 @@ class Ui_MainWindow(object):
 "	padding-bottom: 2px;\n"
 "	padding-left: 2px;\n"
 "	padding-right: 2px;\n"
-"	background: rgba(44, 64, 90, 255);\n"
+"	background: rgba(28, 41, 59, 128);\n"
 "	color: white;\n"
 "	selection-background-color: #0190EA;\n"
 "}\n"
@@ -117,7 +117,7 @@ class Ui_MainWindow(object):
 "	padding-bottom: 2px;\n"
 "	padding-left: 2px;\n"
 "	padding-right: 2px;\n"
-"	background: rgba(44, 64, 90, 255);\n"
+"	background: rgba(28, 41, 59, 128);\n"
 "	color: white;\n"
 "	selection-background-color: #0190EA;\n"
 "}\n"
@@ -192,7 +192,7 @@ class Ui_MainWindow(object):
 "	padding-bottom: 2px;\n"
 "	padding-left: 2px;\n"
 "	padding-right: 2px;\n"
-"	background: rgba(44, 64, 90, 255);\n"
+"	background: rgba(28, 41, 59, 128);\n"
 "	color: white;\n"
 "}\n"
 "\n"
@@ -204,7 +204,7 @@ class Ui_MainWindow(object):
 "	padding-bottom: 2px;\n"
 "	padding-left: 2px;\n"
 "	padding-right: 2px;\n"
-"	background: rgba(44, 64, 90, 255);\n"
+"	background: rgba(28, 41, 59, 128);\n"
 "	color: white;\n"
 "}\n"
 "\n"
@@ -216,7 +216,7 @@ class Ui_MainWindow(object):
 "	padding-bottom: 2px;\n"
 "	padding-left: 2px;\n"
 "	padding-right: 2px;\n"
-"	background: rgba(44, 64, 90, 255);\n"
+"	background: rgba(28, 41, 59, 128);\n"
 ""
                         "	color: white;\n"
 "}\n"
@@ -693,7 +693,7 @@ class Ui_MainWindow(object):
 "	padding-bottom: 3px;\n"
 "	padding-left: 2px;\n"
 "	padding-right: 5px;\n"
-"	background: rgba(44, 64, 90, 255);\n"
+"	background: rgba(28, 41, 59, 128);\n"
 "	color: white;\n"
 "	selection-background-color: #0190EA;\n"
 "}\n"
@@ -706,7 +706,7 @@ class Ui_MainWindow(object):
                         "ing-bottom: 3px;\n"
 "	padding-left: 2px;\n"
 "	padding-right: 5px;\n"
-"	background: rgba(44, 64, 90, 255);\n"
+"	background: rgba(28, 41, 59, 128);\n"
 "	color: white;\n"
 "	selection-background-color: #0190EA;\n"
 "}\n"
@@ -718,7 +718,7 @@ class Ui_MainWindow(object):
 "	padding-bottom: 3px;\n"
 "	padding-left: 2px;\n"
 "	padding-right: 5px;\n"
-"	background: rgba(44, 64, 90, 255);\n"
+"	background: rgba(28, 41, 59, 128);\n"
 "	color: white;\n"
 "	selection-background-color: #0190EA;\n"
 "}\n"
@@ -769,7 +769,7 @@ class Ui_MainWindow(object):
 "	padding-bottom: 2px;\n"
 "	padding-left: 2px;\n"
 "	padding-right: 2px;\n"
-"	background: rgba(44, 64, 90, 255);\n"
+"	background: rgba(28, 41, 59, 128);\n"
 "	color: white;\n"
 "	selection-background-color: #0190EA;\n"
 "}\n"
@@ -782,7 +782,7 @@ class Ui_MainWindow(object):
 "	padding-bottom: 2px;\n"
 "	padding-left: 2px;\n"
 "	padding-right: 2px;\n"
-"	background: rgba(44, 64, 90, 255);\n"
+"	background: rgba(28, 41, 59, 128);\n"
 "	color: white;\n"
 "	selection-background-color: #0190EA;\n"
 "}"
@@ -796,7 +796,7 @@ class Ui_MainWindow(object):
 "	padding-bottom: 2px;\n"
 "	padding-left: 2px;\n"
 "	padding-right: 2px;\n"
-"	background: rgba(44, 64, 90, 255);\n"
+"	background: rgba(28, 41, 59, 128);\n"
 "	color: white;\n"
 "	selection-background-color: #0190EA;\n"
 "}\n"
@@ -1063,7 +1063,7 @@ class Ui_MainWindow(object):
         self.gridLayout_4.setObjectName(u"gridLayout_4")
         self.transactions.setWidget(self.dockWidgetContents_2)
 
-        self.gridLayout_2.addWidget(self.transactions, 1, 0, 1, 2)
+        self.gridLayout_2.addWidget(self.transactions, 1, 0, 2, 2)
 
         self.accounts = Container(self.dashboard)
         self.accounts.setObjectName(u"accounts")
@@ -1102,15 +1102,33 @@ class Ui_MainWindow(object):
 
         self.gridLayout_2.addWidget(self.spending, 0, 1, 1, 1)
 
-        self.monthlyExpenses = Container(self.dashboard)
-        self.monthlyExpenses.setObjectName(u"monthlyExpenses")
+        self.shortcuts = Container(self.dashboard)
+        self.shortcuts.setObjectName(u"shortcuts")
         sizePolicy1 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
         sizePolicy1.setHorizontalStretch(0)
         sizePolicy1.setVerticalStretch(0)
+        sizePolicy1.setHeightForWidth(self.shortcuts.sizePolicy().hasHeightForWidth())
+        self.shortcuts.setSizePolicy(sizePolicy1)
+        self.shortcuts.setMinimumSize(QSize(94, 59))
+        self.shortcuts.setMaximumSize(QSize(500, 524287))
+        self.shortcuts.setFont(font1)
+        self.shortcuts.setFeatures(QDockWidget.NoDockWidgetFeatures)
+        self.shortcuts.setAllowedAreas(Qt.NoDockWidgetArea)
+        self.dockWidgetContents1 = QWidget()
+        self.dockWidgetContents1.setObjectName(u"dockWidgetContents1")
+        self.gridLayout_92 = QGridLayout(self.dockWidgetContents1)
+        self.gridLayout_92.setObjectName(u"gridLayout_92")
+        self.gridLayout_92.setContentsMargins(0, 0, 0, -1)
+        self.shortcuts.setWidget(self.dockWidgetContents1)
+
+        self.gridLayout_2.addWidget(self.shortcuts, 2, 4, 1, 1)
+
+        self.monthlyExpenses = Container(self.dashboard)
+        self.monthlyExpenses.setObjectName(u"monthlyExpenses")
         sizePolicy1.setHeightForWidth(self.monthlyExpenses.sizePolicy().hasHeightForWidth())
         self.monthlyExpenses.setSizePolicy(sizePolicy1)
-        self.monthlyExpenses.setMinimumSize(QSize(94, 59))
-        self.monthlyExpenses.setMaximumSize(QSize(500, 524287))
+        self.monthlyExpenses.setMinimumSize(QSize(40, 500))
+        self.monthlyExpenses.setMaximumSize(QSize(500, 500))
         self.monthlyExpenses.setFont(font1)
         self.monthlyExpenses.setFeatures(QDockWidget.NoDockWidgetFeatures)
         self.monthlyExpenses.setAllowedAreas(Qt.NoDockWidgetArea)
@@ -1196,6 +1214,7 @@ class Ui_MainWindow(object):
         self.transactions.setWindowTitle(QCoreApplication.translate("MainWindow", u"Transactions", None))
         self.accounts.setWindowTitle(QCoreApplication.translate("MainWindow", u"Balance", None))
         self.spending.setWindowTitle(QCoreApplication.translate("MainWindow", u"Spending", None))
+        self.shortcuts.setWindowTitle(QCoreApplication.translate("MainWindow", u"Shortcuts", None))
         self.monthlyExpenses.setWindowTitle(QCoreApplication.translate("MainWindow", u"Expenses Distribution", None))
         self.total.setTitle(QCoreApplication.translate("MainWindow", u"Total", None))
         self.savings.setTitle(QCoreApplication.translate("MainWindow", u"Savings", None))
