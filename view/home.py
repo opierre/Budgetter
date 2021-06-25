@@ -2,6 +2,7 @@ from PySide2.QtCore import QObject
 
 from view.home_panel.accounts import Accounts
 from view.home_panel.distribution import Distribution
+from view.home_panel.savings import Savings
 from view.home_panel.spending import Spending
 from view.home_panel.transactions import Transactions
 
@@ -30,10 +31,13 @@ class Home(QObject):
         """ Transactions groupBox """
         self._transactions = Transactions(gui, parent)
 
-        """ Connect slots and signals """
-        self.connectHomeSlotsAndSignals()
+        """ Savings groupbox """
+        self._savings = Savings(gui)
 
-    def connectHomeSlotsAndSignals(self):
+        """ Connect slots and signals """
+        self.connect_home_slots_and_signals()
+
+    def connect_home_slots_and_signals(self):
         """
         Connect all slots and signals
         :return: void

@@ -1,16 +1,12 @@
-from PySide2.QtCore import QObject, Qt
-from PySide2.QtGui import QPainter, QFont
-from PySide2.QtWidgets import QSpacerItem, QSizePolicy, QListView, QWidget, QVBoxLayout, QHBoxLayout
+from PySide2.QtCore import QObject
+from PySide2.QtWidgets import QWidget, QHBoxLayout
 
-from models.accounts_model import AccountsModel
-from widgets.balance_widgets.account_delegate import AccountDelegate
-from widgets.balance_widgets.donut_chat_widget import DonutChart
 from widgets.spending_widgets.chart_dashboard_widget import ChartDashboard
 
 
 class Spending(QObject):
     """
-    AccSpendingounts
+    Spending
     """
 
     def __init__(self, gui):
@@ -27,9 +23,6 @@ class Spending(QObject):
 
         """ Configure title bar """
         self.configure_title_bar()
-
-        """ Connect Account groupBox """
-        # self.connectAccounts()
 
     def configure_title_bar(self):
         """

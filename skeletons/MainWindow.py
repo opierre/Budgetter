@@ -1102,26 +1102,26 @@ class Ui_MainWindow(object):
 
         self.gridLayout_2.addWidget(self.spending, 0, 1, 1, 1)
 
-        self.shortcuts = Container(self.dashboard)
-        self.shortcuts.setObjectName(u"shortcuts")
+        self.savings = Container(self.dashboard)
+        self.savings.setObjectName(u"savings")
         sizePolicy1 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
         sizePolicy1.setHorizontalStretch(0)
         sizePolicy1.setVerticalStretch(0)
-        sizePolicy1.setHeightForWidth(self.shortcuts.sizePolicy().hasHeightForWidth())
-        self.shortcuts.setSizePolicy(sizePolicy1)
-        self.shortcuts.setMinimumSize(QSize(94, 59))
-        self.shortcuts.setMaximumSize(QSize(500, 524287))
-        self.shortcuts.setFont(font1)
-        self.shortcuts.setFeatures(QDockWidget.NoDockWidgetFeatures)
-        self.shortcuts.setAllowedAreas(Qt.NoDockWidgetArea)
+        sizePolicy1.setHeightForWidth(self.savings.sizePolicy().hasHeightForWidth())
+        self.savings.setSizePolicy(sizePolicy1)
+        self.savings.setMinimumSize(QSize(94, 59))
+        self.savings.setMaximumSize(QSize(500, 524287))
+        self.savings.setFont(font1)
+        self.savings.setFeatures(QDockWidget.NoDockWidgetFeatures)
+        self.savings.setAllowedAreas(Qt.NoDockWidgetArea)
         self.dockWidgetContents1 = QWidget()
         self.dockWidgetContents1.setObjectName(u"dockWidgetContents1")
         self.gridLayout_92 = QGridLayout(self.dockWidgetContents1)
         self.gridLayout_92.setObjectName(u"gridLayout_92")
         self.gridLayout_92.setContentsMargins(0, 0, 0, -1)
-        self.shortcuts.setWidget(self.dockWidgetContents1)
+        self.savings.setWidget(self.dockWidgetContents1)
 
-        self.gridLayout_2.addWidget(self.shortcuts, 2, 4, 1, 1)
+        self.gridLayout_2.addWidget(self.savings, 2, 4, 1, 1)
 
         self.monthlyExpenses = Container(self.dashboard)
         self.monthlyExpenses.setObjectName(u"monthlyExpenses")
@@ -1151,10 +1151,10 @@ class Ui_MainWindow(object):
 
         self.gridLayout_3.addWidget(self.total, 0, 0, 1, 1)
 
-        self.savings = QGroupBox(self.page_2)
-        self.savings.setObjectName(u"savings")
+        self.savingsaa = QGroupBox(self.page_2)
+        self.savingsaa.setObjectName(u"savingsaa")
 
-        self.gridLayout_3.addWidget(self.savings, 1, 0, 1, 1)
+        self.gridLayout_3.addWidget(self.savingsaa, 1, 0, 1, 1)
 
         self.stackedWidget.addWidget(self.page_2)
         self.page = QWidget()
@@ -1214,10 +1214,10 @@ class Ui_MainWindow(object):
         self.transactions.setWindowTitle(QCoreApplication.translate("MainWindow", u"Transactions", None))
         self.accounts.setWindowTitle(QCoreApplication.translate("MainWindow", u"Balance", None))
         self.spending.setWindowTitle(QCoreApplication.translate("MainWindow", u"Spending", None))
-        self.shortcuts.setWindowTitle(QCoreApplication.translate("MainWindow", u"Shortcuts", None))
+        self.savings.setWindowTitle(QCoreApplication.translate("MainWindow", u"Shortcuts", None))
         self.monthlyExpenses.setWindowTitle(QCoreApplication.translate("MainWindow", u"Expenses Distribution", None))
         self.total.setTitle(QCoreApplication.translate("MainWindow", u"Total", None))
-        self.savings.setTitle(QCoreApplication.translate("MainWindow", u"Savings", None))
+        self.savingsaa.setTitle(QCoreApplication.translate("MainWindow", u"Savings", None))
         self.toolBar.setWindowTitle(QCoreApplication.translate("MainWindow", u"toolBar", None))
     # retranslateUi
 
