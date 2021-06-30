@@ -5,6 +5,7 @@ from PySide2.QtWidgets import QSpacerItem, QSizePolicy, QListView, QWidget, QVBo
 from models.accounts_model import AccountsModel
 from widgets.balance_widgets.account_delegate import AccountDelegate
 from widgets.balance_widgets.donut_chat_widget import DonutChart
+from widgets.saving_widgets.saving_dashboard_widget import SavingDashboard
 from widgets.spending_widgets.chart_dashboard_widget import ChartDashboard
 
 
@@ -20,7 +21,7 @@ class Savings(QObject):
         self.ui_setup = gui
 
         """ Chart widget """
-        # self.chart_widget = ChartDashboard(self.ui_setup.spending)
+        self.chart_widget = SavingDashboard(self.ui_setup.savings)
 
         """ Configure layout """
         self.configure_layout()
@@ -53,7 +54,7 @@ class Savings(QObject):
         widget = QWidget()
         layout = QHBoxLayout(widget)
         layout.setSpacing(0)
-        # layout.addWidget(self.chart_widget)
+        layout.addWidget(self.chart_widget)
         layout.setContentsMargins(20, 20, 20, 20)
 
-#        self.ui_setup.savings.setWidget(widget)
+        self.ui_setup.savings.setWidget(widget)

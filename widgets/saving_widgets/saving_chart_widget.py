@@ -1,6 +1,6 @@
 from PySide2 import QtGui, QtWidgets, QtCore
 from PySide2.QtCharts import QtCharts
-from PySide2.QtCore import Qt
+from PySide2.QtCore import Qt, QDateTime
 from PySide2.QtGui import QPen, QColor, QBrush
 
 
@@ -15,48 +15,39 @@ class SavingChart(QtCharts.QChart):
         """ Hide legend """
         self.legend().hide()
 
-        """ Set axis and hide them """
-        self.axis_x = QtCharts.QValueAxis()
+        """ Set axis """
+        self.axis_x = QtCharts.QDateTimeAxis()
+        self.axis_x.setFormat("MMM-yy")
         self.axis_y = QtCharts.QValueAxis()
-        self.axis_x.setVisible(True)
-        self.axis_y.setVisible(True)
-
-        """ Configure axis range and add them to chart """
-        self.addAxis(self.axis_x, QtCore.Qt.AlignBottom)
-        self.addAxis(self.axis_y, QtCore.Qt.AlignLeft)
-        self.axis_x.setRange(0, 5)
-        self.axis_x.setTickCount(1)
 
         """ Customize stylesheet """
         self.setBackgroundBrush(QBrush(QColor("transparent")))
 
         self.setAnimationOptions(QtCharts.QChart.SeriesAnimations)
 
-    def set_values(self, values: list):
+    def set_values(self, values: dict):
         """
         Set values to display
         :param values: list of values
         :return: void
         """
 
-        if len(values) != 6:
-            return
-
-        range_max = max(values)
-        self.axis_y.setRange(0, range_max*11/10)
-
         """ Configure pen """
-        pen = QPen(QColor("white"))
+        pen = QPen(QColor("#6dd230"))
         pen.setWidthF(6.0)
         pen.setCapStyle(Qt.RoundCap)
 
         """ Fulfill series """
         series = QtCharts.QSplineSeries()
-        for index, value in enumerate(values):
-            series.append(index, value)
+        for key, value in values.items():
+            series.append(QDateTime.fromString(key, "MMMM-yyyy").toMSecsSinceEpoch(), value)
 
         """ Draw values """
         series.setPen(pen)
         self.addSeries(series)
+
+        """ Set axes """
+        self.addAxis(self.axis_x, Qt.AlignBottom)
+        self.addAxis(self.axis_y, Qt.AlignLeft)
         series.attachAxis(self.axis_x)
         series.attachAxis(self.axis_y)
