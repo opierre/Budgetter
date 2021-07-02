@@ -1,4 +1,4 @@
-from PySide2.QtCore import QObject, Qt
+from PySide2.QtCore import QObject, Qt, QMargins
 from PySide2.QtGui import QPainter, QFont
 from PySide2.QtWidgets import QSpacerItem, QSizePolicy, QListView, QWidget, QVBoxLayout, QHBoxLayout
 
@@ -55,6 +55,7 @@ class Savings(QObject):
         layout = QHBoxLayout(widget)
         layout.setSpacing(0)
         layout.addWidget(self.chart_widget)
-        layout.setContentsMargins(20, 20, 20, 20)
+        layout.setContentsMargins(0, 20, 0, 0)
 
         self.ui_setup.savings.setWidget(widget)
+

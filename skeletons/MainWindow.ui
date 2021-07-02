@@ -927,6 +927,12 @@ QToolButton:checked
     background-color: #19344D;
 	border-radius: 0px;
     border-left: 3px solid #0093EE;
+}
+
+QMainWindow::separator
+{
+  width: 0px; /* when vertical */
+  height: 0px; /* when horizontal */
 }</string>
   </property>
   <property name="toolButtonStyle">
@@ -1234,6 +1240,9 @@ QToolButton:checked
             <pointsize>13</pointsize>
            </font>
           </property>
+          <property name="styleSheet">
+           <string notr="true"/>
+          </property>
           <property name="features">
            <set>QDockWidget::NoDockWidgetFeatures</set>
           </property>
@@ -1252,6 +1261,12 @@ QToolButton:checked
              <number>0</number>
             </property>
             <property name="rightMargin">
+             <number>0</number>
+            </property>
+            <property name="bottomMargin">
+             <number>0</number>
+            </property>
+            <property name="spacing">
              <number>0</number>
             </property>
            </layout>

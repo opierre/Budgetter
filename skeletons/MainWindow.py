@@ -957,6 +957,12 @@ class Ui_MainWindow(object):
 "    background-color: #19344D;\n"
 "	border-radius: 0px;\n"
 "    border-left: 3px solid #0093EE;\n"
+"}\n"
+"\n"
+"QMainWindow::separator\n"
+"{\n"
+"  width: 0px; /* when vertical */\n"
+"  height: 0px; /* when horizontal */\n"
 "}")
         MainWindow.setToolButtonStyle(Qt.ToolButtonIconOnly)
         MainWindow.setAnimated(True)
@@ -1112,13 +1118,15 @@ class Ui_MainWindow(object):
         self.savings.setMinimumSize(QSize(94, 59))
         self.savings.setMaximumSize(QSize(500, 524287))
         self.savings.setFont(font1)
+        self.savings.setStyleSheet(u"")
         self.savings.setFeatures(QDockWidget.NoDockWidgetFeatures)
         self.savings.setAllowedAreas(Qt.NoDockWidgetArea)
         self.dockWidgetContents1 = QWidget()
         self.dockWidgetContents1.setObjectName(u"dockWidgetContents1")
         self.gridLayout_92 = QGridLayout(self.dockWidgetContents1)
+        self.gridLayout_92.setSpacing(0)
         self.gridLayout_92.setObjectName(u"gridLayout_92")
-        self.gridLayout_92.setContentsMargins(0, 0, 0, -1)
+        self.gridLayout_92.setContentsMargins(0, 0, 0, 0)
         self.savings.setWidget(self.dockWidgetContents1)
 
         self.gridLayout_2.addWidget(self.savings, 2, 4, 1, 1)

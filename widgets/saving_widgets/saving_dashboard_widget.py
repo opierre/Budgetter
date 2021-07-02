@@ -1,3 +1,4 @@
+from PySide2.QtCore import QMargins
 from PySide2.QtGui import QPainter
 from PySide2.QtWidgets import QWidget, QGridLayout
 from PySide2.QtCharts import QtCharts
@@ -19,7 +20,10 @@ class SavingDashboard(QWidget):
                        "Mars-2021": 15469,
                        "Avril-2021": 14356,
                        "Mai-2021": 25098,
-                       "Juin-2021": 29087}
+                       "Juin-2021": 26098,
+                       "Juillet-2021": 22054,
+                       "Août-2021": 25098,
+                       "Septembre-2021": 29087}
 
         """ Store chart """
         self.chart = SavingChart()
@@ -43,6 +47,8 @@ class SavingDashboard(QWidget):
         """ Configure chart """
         self.chart.set_values(self.values)
         self.chart.layout().setContentsMargins(0, 0, 0, 0)
+        self.chart.setBackgroundRoundness(0)
+        self.chart.setMargins(QMargins(0, 0, 0, 0))
 
     def set_values(self, values):
         """
