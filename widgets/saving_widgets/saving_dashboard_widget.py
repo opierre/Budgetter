@@ -1,5 +1,5 @@
-from PySide2.QtCore import QMargins
-from PySide2.QtGui import QPainter
+from PySide2.QtCore import QMargins, Qt, QPointF
+from PySide2.QtGui import QPainter, QPen, QLinearGradient, QColor, QGradient
 from PySide2.QtWidgets import QWidget, QGridLayout
 from PySide2.QtCharts import QtCharts
 
@@ -29,6 +29,7 @@ class SavingDashboard(QWidget):
         self.chart = SavingChart()
         self.chart_view = QtCharts.QChartView(self.chart)
         self._layout = QGridLayout(self)
+        self._layout.setContentsMargins(0, 0, 0, 0)
         self._layout.addWidget(self.chart_view)
 
         """ Configure widgets """

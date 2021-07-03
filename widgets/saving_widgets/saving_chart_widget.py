@@ -15,17 +15,24 @@ class SavingChart(QtCharts.QChart):
         """ Hide legend """
         self.legend().hide()
 
-        """ Set axis """
+        """ Set x axis """
         self.axis_x = QtCharts.QDateTimeAxis()
         self.axis_x.setFormat("MMM-yy")
-        # self.axis_x.setTickCount(6)
         self.axis_x.setVisible(False)
 
+        """ Set y axis """
         self.axis_y = QtCharts.QValueAxis()
+        self.axis_y.setMin(0)
         self.axis_y.setVisible(False)
 
+        """ Store series """
+        self.area_series = None
+        self.series_lower = QtCharts.QSplineSeries()
+        self.series_upper = QtCharts.QSplineSeries()
+        self.series_finale = QtCharts.QLineSeries()
+
         """ Customize stylesheet """
-        #self.setBackgroundBrush(QBrush(QColor("transparent")))
+        self.setBackgroundBrush(QBrush(QColor("transparent")))
 
         self.setAnimationOptions(QtCharts.QChart.SeriesAnimations)
 
@@ -42,23 +49,32 @@ class SavingChart(QtCharts.QChart):
         pen.setCapStyle(Qt.RoundCap)
 
         """ Fulfill series """
-        series = QtCharts.QSplineSeries()
         for key, value in values.items():
-            series.append(float(QDateTime.fromString(key, "MMMM-yyyy").toMSecsSinceEpoch()), value)
+            self.series_upper.append(float(QDateTime.fromString(key, "MMMM-yyyy").toMSecsSinceEpoch()), value)
+            self.series_finale.append(float(QDateTime.fromString(key, "MMMM-yyyy").toMSecsSinceEpoch()), value)
+            self.series_lower.append(float(QDateTime.fromString(key, "MMMM-yyyy").toMSecsSinceEpoch()), 0)
+
+        """ Create Area series """
+        self.area_series = QtCharts.QAreaSeries(self.series_upper, self.series_lower)
 
         gradient = QLinearGradient(QPointF(0, 0), QPointF(0, 1))
-        gradient.setColorAt(0.0, 0x3cc63c)
-        gradient.setColorAt(1.0, 0x26f626)
-        gradient.setCoordinateMode(QGradient.ObjectBoundingMode)
-        series.setBrush(gradient)
+        gradient.setColorAt(0.0, QColor("#35536D"))
+        gradient.setColorAt(1.0, QColor("transparent"))
+        gradient.setCoordinateMode(QGradient.ObjectMode)
+        self.area_series.setBrush(gradient)
 
-        """ Draw values """
-        series.setPen(pen)
-        self.addSeries(series)
+        self.series_finale.setPen(pen)
+        self.series_finale.attachAxis(self.axis_x)
+        self.series_finale.attachAxis(self.axis_y)
 
         """ Set axes """
-        self.addAxis(self.axis_x, Qt.AlignBottom)
-        self.addAxis(self.axis_y, Qt.AlignLeft)
-        series.attachAxis(self.axis_x)
-        series.attachAxis(self.axis_y)
+        #self.addAxis(self.axis_x, Qt.AlignBottom)
+        #self.addAxis(self.axis_y, Qt.AlignLeft)
+
+        """ Draw values """
+        self.area_series.setPen(pen)
+        self.area_series.setBorderColor(QColor('transparent'))
+        self.addSeries(self.area_series)
+        self.addSeries(self.series_finale)
+
 

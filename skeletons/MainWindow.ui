@@ -927,12 +927,6 @@ QToolButton:checked
     background-color: #19344D;
 	border-radius: 0px;
     border-left: 3px solid #0093EE;
-}
-
-QMainWindow::separator
-{
-  width: 0px; /* when vertical */
-  height: 0px; /* when horizontal */
 }</string>
   </property>
   <property name="toolButtonStyle">

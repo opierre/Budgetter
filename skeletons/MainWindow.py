@@ -957,12 +957,6 @@ class Ui_MainWindow(object):
 "    background-color: #19344D;\n"
 "	border-radius: 0px;\n"
 "    border-left: 3px solid #0093EE;\n"
-"}\n"
-"\n"
-"QMainWindow::separator\n"
-"{\n"
-"  width: 0px; /* when vertical */\n"
-"  height: 0px; /* when horizontal */\n"
 "}")
         MainWindow.setToolButtonStyle(Qt.ToolButtonIconOnly)
         MainWindow.setAnimated(True)
