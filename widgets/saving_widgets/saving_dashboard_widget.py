@@ -3,6 +3,7 @@ from PySide2.QtGui import QPainter, QPen, QLinearGradient, QColor, QGradient
 from PySide2.QtWidgets import QWidget, QGridLayout
 from PySide2.QtCharts import QtCharts
 
+from widgets.callout__chartview import CalloutChartView
 from widgets.saving_widgets.saving_chart_widget import SavingChart
 
 
@@ -28,6 +29,7 @@ class SavingDashboard(QWidget):
         """ Store chart """
         self.chart = SavingChart()
         self.chart_view = QtCharts.QChartView(self.chart)
+        # self.chart_view = CalloutChartView(self.chart.series_finale, parent=self.chart)
         self._layout = QGridLayout(self)
         self._layout.setContentsMargins(0, 0, 0, 0)
         self._layout.addWidget(self.chart_view)
