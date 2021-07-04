@@ -28,7 +28,7 @@ class SavingChart(QtCharts.QChart):
         self.axis_y.setVisible(False)
 
         """ Store series """
-        self.area_series = None
+        self.area_series = QtCharts.QAreaSeries()
         self.series_lower = QtCharts.QLineSeries()
         self.series_upper = QtCharts.QLineSeries()
         self.series_finale = QtCharts.QLineSeries()
@@ -64,7 +64,8 @@ class SavingChart(QtCharts.QChart):
             self.series_lower.append(float(QDateTime.fromString(key, "MMMM-yyyy").toMSecsSinceEpoch()), 0)
 
         """ Create Area series """
-        self.area_series = QtCharts.QAreaSeries(self.series_upper, self.series_lower)
+        self.area_series.setLowerSeries(self.series_lower)
+        self.area_series.setUpperSeries(self.series_upper)
 
         """ Creat gradient to fulfill area zone """
         gradient = QLinearGradient(QPointF(0, 0), QPointF(0, 1))
@@ -112,6 +113,7 @@ class SavingChart(QtCharts.QChart):
 
         """ Connect click on series finale to display scatter """
         self.series_finale.clicked[QPointF].connect(self.show_point)
+        self.area_series.clicked[QPointF].connect(self.show_point)
 
     def show_point(self, clicked_point):
         """

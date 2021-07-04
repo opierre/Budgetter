@@ -1,9 +1,8 @@
-from PySide2.QtCore import QMargins, Qt, QPointF
-from PySide2.QtGui import QPainter, QPen, QLinearGradient, QColor, QGradient
+from PySide2.QtCore import QMargins
+from PySide2.QtGui import QPainter
 from PySide2.QtWidgets import QWidget, QGridLayout
 from PySide2.QtCharts import QtCharts
 
-from widgets.callout__chartview import CalloutChartView
 from widgets.saving_widgets.saving_chart_widget import SavingChart
 
 
