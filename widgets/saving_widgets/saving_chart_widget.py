@@ -75,7 +75,10 @@ class SavingChart(QtCharts.QChart):
         """ Set brush and pen for series """
         self.area_series.setBrush(gradient)
         self.series_finale.setPen(pen)
+
+        """ Configure scatter series pen and brush """
         self.series_scatter.setPen(pen)
+        self.series_scatter.setBrush(QColor("#26374C"))
 
         """ Remove border from area zone """
         self.area_series.setPen(pen)
@@ -95,6 +98,8 @@ class SavingChart(QtCharts.QChart):
         self.series_finale.attachAxis(self.axis_y)
         self.area_series.attachAxis(self.axis_x)
         self.area_series.attachAxis(self.axis_y)
+        self.series_scatter.attachAxis(self.axis_x)
+        self.series_scatter.attachAxis(self.axis_y)
 
         """ Configure y axis """
         self.axis_y.setRange(0, max_value * 12/10)
