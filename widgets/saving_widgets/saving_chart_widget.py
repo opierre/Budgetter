@@ -27,8 +27,8 @@ class SavingChart(QtCharts.QChart):
 
         """ Store series """
         self.area_series = None
-        self.series_lower = QtCharts.QSplineSeries()
-        self.series_upper = QtCharts.QSplineSeries()
+        self.series_lower = QtCharts.QLineSeries()
+        self.series_upper = QtCharts.QLineSeries()
         self.series_finale = QtCharts.QLineSeries()
 
         """ Customize stylesheet """
@@ -45,11 +45,14 @@ class SavingChart(QtCharts.QChart):
 
         """ Configure pen """
         pen = QPen(QColor("#6dd230"))
-        pen.setWidthF(6.0)
+        pen.setWidthF(3.0)
         pen.setCapStyle(Qt.RoundCap)
 
         """ Fulfill series """
+        max_value = 0
         for key, value in values.items():
+            if value > max_value:
+                max_value = value
             self.series_upper.append(float(QDateTime.fromString(key, "MMMM-yyyy").toMSecsSinceEpoch()), value)
             self.series_finale.append(float(QDateTime.fromString(key, "MMMM-yyyy").toMSecsSinceEpoch()), value)
             self.series_lower.append(float(QDateTime.fromString(key, "MMMM-yyyy").toMSecsSinceEpoch()), 0)
@@ -57,24 +60,34 @@ class SavingChart(QtCharts.QChart):
         """ Create Area series """
         self.area_series = QtCharts.QAreaSeries(self.series_upper, self.series_lower)
 
+        """ Creat gradient to fulfill area zone """
         gradient = QLinearGradient(QPointF(0, 0), QPointF(0, 1))
         gradient.setColorAt(0.0, QColor("#35536D"))
         gradient.setColorAt(1.0, QColor("transparent"))
         gradient.setCoordinateMode(QGradient.ObjectMode)
+
+        """ Set brush and pen for series """
         self.area_series.setBrush(gradient)
-
         self.series_finale.setPen(pen)
-        self.series_finale.attachAxis(self.axis_x)
-        self.series_finale.attachAxis(self.axis_y)
 
-        """ Set axes """
-        #self.addAxis(self.axis_x, Qt.AlignBottom)
-        #self.addAxis(self.axis_y, Qt.AlignLeft)
-
-        """ Draw values """
+        """ Remove border from area zone """
         self.area_series.setPen(pen)
         self.area_series.setBorderColor(QColor('transparent'))
+
+        """ Add series to graph """
         self.addSeries(self.area_series)
         self.addSeries(self.series_finale)
 
+        """ Set axes """
+        self.addAxis(self.axis_x, Qt.AlignBottom)
+        self.addAxis(self.axis_y, Qt.AlignLeft)
+
+        """ Attach axes to series """
+        self.series_finale.attachAxis(self.axis_x)
+        self.series_finale.attachAxis(self.axis_y)
+        self.area_series.attachAxis(self.axis_x)
+        self.area_series.attachAxis(self.axis_y)
+
+        """ Configure y axis """
+        self.axis_y.setRange(0, max_value * 12/10)
 

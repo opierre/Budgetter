@@ -123,11 +123,11 @@ class Distribution(QObject):
         :return: void
         """
 
-        currentMonthNb = QDate.currentDate().month()
-        currentMonth = QDate.currentDate().longMonthName(currentMonthNb)
-        self.current_month.setText(currentMonth.capitalize())
+        current_month_nb = QDate.currentDate().month()
+        current_month = QDate.currentDate().longMonthName(current_month_nb)
+        self.current_month.setText(current_month.capitalize())
 
-        if currentMonthNb == 1:
-            currentMonthNb = 13
-        previousMonth = QDate.currentDate().longMonthName(currentMonthNb - 1)
-        self.previous_month.setText(previousMonth.capitalize())
+        if current_month_nb == 1:
+            current_month_nb = 13
+        previous_month = QDate.currentDate().longMonthName(current_month_nb - 1)
+        self.previous_month.setText(previous_month.capitalize())
