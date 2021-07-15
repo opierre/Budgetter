@@ -1,6 +1,5 @@
 import math
 
-from PySide2 import QtGui, QtWidgets, QtCore
 from PySide2.QtCharts import QtCharts
 from PySide2.QtCore import Qt, QDateTime, QPointF
 from PySide2.QtGui import QPen, QColor, QBrush, QLinearGradient, QGradient
