@@ -58,10 +58,6 @@ class SavingDashboard(QWidget):
         :return: void
         """
 
-        """ Configure chart view """
-        self.chart_view.setRenderHint(QPainter.Antialiasing)
-        self.chart_view.setVisible(True)
-
         """ Configure chart """
         self.chart_view.set_values(self.values)
 

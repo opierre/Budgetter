@@ -2,7 +2,7 @@ from typing import List
 
 from PySide2.QtCharts import QtCharts
 from PySide2.QtCore import QPointF, QRectF, QRect, Qt, QSizeF, QMargins
-from PySide2.QtGui import QFontMetrics, QFont, QPainterPath, QPainter, QColor, QResizeEvent, QMouseEvent
+from PySide2.QtGui import QFontMetrics, QFont, QPainterPath, QPainter, QColor, QResizeEvent, QMouseEvent, QBrush
 from PySide2.QtWidgets import QGraphicsView, QGraphicsSceneMouseEvent, QGraphicsItem, QStyleOptionGraphicsItem, QWidget, \
     QGraphicsScene, QGraphicsSimpleTextItem
 
@@ -109,33 +109,28 @@ class CalloutChartView(QGraphicsView):
     def __init__(self, parent=None):
         super().__init__(parent)
         self.m_callouts: List[Callout] = []
-        self.setDragMode(QGraphicsView.NoDrag)
-        self.setVerticalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
-        self.setHorizontalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
+        # self.setDragMode(QGraphicsView.NoDrag)
+        # self.setVerticalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
+        # self.setHorizontalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
 
         # chart
-        self.m_chart = SavingChart(parent)
+        self.m_chart = SavingChart()
         self.m_chart.layout().setContentsMargins(0, 0, 0, 0)
         self.m_chart.setBackgroundRoundness(0)
         self.m_chart.setMargins(QMargins(0, 0, 0, 0))
+
+        # self.setBackgroundBrush(QBrush(QColor("#26374C")))
 
         self.setRenderHint(QPainter.Antialiasing)
 
         self.setScene(QGraphicsScene())
         self.scene().addItem(self.m_chart)
 
-        self.m_coordX = QGraphicsSimpleTextItem(self.m_chart)
-        self.m_coordX.setPos(self.m_chart.size().width() / 2 - 50, self.m_chart.size().height() - 20)
-        self.m_coordX.setText("X: ")
-        self.m_coordY = QGraphicsSimpleTextItem(self.m_chart)
-        self.m_coordY.setPos(self.m_chart.size().width() / 2 + 50, self.m_chart.size().height() - 20)
-        self.m_coordY.setText("Y: ")
-
         self.m_tooltip = Callout(self.m_chart)
         self.scene().addItem(self.m_tooltip)
 
         self.m_chart.series_finale.clicked.connect(self.keep_callout)
-        self.m_chart.series_finale.hovered.connect(self.tooltip)
+        # self.m_chart.series_finale.hovered.connect(self.tooltip)
 
     def set_values(self, values):
         """
@@ -152,31 +147,25 @@ class CalloutChartView(QGraphicsView):
         if scene := self.scene():
             scene.setSceneRect(QRectF(QPointF(0, 0), QSizeF(event.size())))
             self.m_chart.resize(QSizeF(event.size()))
-            self.m_coordX.setPos(self.m_chart.size().width() / 2 - 50, self.m_chart.size().height() - 20)
-            self.m_coordY.setPos(self.m_chart.size().width() / 2 + 50, self.m_chart.size().height() - 20)
 
             for callout in self.m_callouts:
                 callout.updateGeometry()
 
         super().resizeEvent(event)
 
-    def mouseMoveEvent(self, event: QMouseEvent):
-        from_chart = self.m_chart.mapToValue(event.pos())
-        self.m_coordX.setText(f"X: {from_chart.x()}")
-        self.m_coordX.setText(f"Y: {from_chart.y()}")
-        super().mouseMoveEvent(event)
-
-    def keep_callout(self):
-        self.m_callouts.append(self.m_tooltip)
-        self.m_tooltip = Callout(self.m_chart)
-        self.scene().addItem(self.m_tooltip)
+    def keep_callout(self, point: QPointF):
+        self.m_tooltip.setText(f"X: {point.x()} \nY: {point.y()} ")
+        self.m_tooltip.m_anchor = point
+        self.m_tooltip.setZValue(11)
+        self.m_tooltip.updateGeometry()
+        self.m_tooltip.show()
 
     def tooltip(self, point: QPointF, state: bool):
         if not self.m_tooltip:
             self.m_tooltip = Callout(self.m_chart)
 
         if state:
-            self.m_tooltip.setText(f"X: {point.x()} \nY: {point.x()} ")
+            self.m_tooltip.setText(f"X: {point.x()} \nY: {point.y()} ")
             self.m_tooltip.m_anchor = point
             self.m_tooltip.setZValue(11)
             self.m_tooltip.updateGeometry()
@@ -184,3 +173,13 @@ class CalloutChartView(QGraphicsView):
         else:
             self.m_tooltip.hide()
 
+    def drawBackground(self, painter, rect):
+        """
+        Override drawBackground()
+
+        :param painter: QPainter
+        :param rect: QRect
+        :return: void
+        """
+
+        painter.fillRect(rect, QBrush(QColor("transparent")))
