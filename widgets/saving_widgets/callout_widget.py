@@ -1,7 +1,7 @@
 from typing import List
 
 from PySide2.QtCharts import QtCharts
-from PySide2.QtCore import QPointF, QRectF, QRect, Qt, QSizeF
+from PySide2.QtCore import QPointF, QRectF, QRect, Qt, QSizeF, QMargins
 from PySide2.QtGui import QFontMetrics, QFont, QPainterPath, QPainter, QColor, QResizeEvent, QMouseEvent
 from PySide2.QtWidgets import QGraphicsView, QGraphicsSceneMouseEvent, QGraphicsItem, QStyleOptionGraphicsItem, QWidget, \
     QGraphicsScene, QGraphicsSimpleTextItem
@@ -115,7 +115,9 @@ class CalloutChartView(QGraphicsView):
 
         # chart
         self.m_chart = SavingChart(parent)
-        self.series = QtCharts.QLineSeries()
+        self.m_chart.layout().setContentsMargins(0, 0, 0, 0)
+        self.m_chart.setBackgroundRoundness(0)
+        self.m_chart.setMargins(QMargins(0, 0, 0, 0))
 
         self.setRenderHint(QPainter.Antialiasing)
 
@@ -132,7 +134,19 @@ class CalloutChartView(QGraphicsView):
         self.m_tooltip = Callout(self.m_chart)
         self.scene().addItem(self.m_tooltip)
 
-        self.series.clicked.connect(self.keep_callout)
+        self.m_chart.series_finale.clicked.connect(self.keep_callout)
+        self.m_chart.series_finale.hovered.connect(self.tooltip)
+
+    def set_values(self, values):
+        """
+        Set values on series for callout display
+
+        :param values: values to set as dict
+        :return: void
+        """
+
+        """ Set values on chat """
+        self.m_chart.set_values(values)
 
     def resizeEvent(self, event: QResizeEvent):
         if scene := self.scene():

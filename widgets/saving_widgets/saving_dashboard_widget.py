@@ -3,6 +3,7 @@ from PySide2.QtGui import QPainter
 from PySide2.QtWidgets import QWidget, QGridLayout
 from PySide2.QtCharts import QtCharts
 
+from widgets.saving_widgets.callout_widget import Callout, CalloutChartView
 from widgets.saving_widgets.saving_chart_widget import SavingChart
 
 
@@ -26,15 +27,30 @@ class SavingDashboard(QWidget):
                        "Septembre-2021": 29087}
 
         """ Store chart """
-        self.chart = SavingChart()
-        self.chart_view = QtCharts.QChartView(self.chart)
+        # self.chart = SavingChart()
+        # self.chart_view = QtCharts.QChartView(self.chart)
+        self.chart_view = CalloutChartView()
         # self.chart_view = CalloutChartView(self.chart.series_finale, parent=self.chart)
         self._layout = QGridLayout(self)
         self._layout.setContentsMargins(0, 0, 0, 0)
         self._layout.addWidget(self.chart_view)
 
+        """ Connect all slots and signals """
+        self.connect_slots_and_signals()
+
         """ Configure widgets """
         self.configure_widgets()
+
+    def connect_slots_and_signals(self):
+        """
+        Connect all slots and signals
+
+        :return: void
+        """
+
+        """ Connect click on series finale to display values """
+        # self.chart.series_finale.clicked.connect(self.show_label)
+        pass
 
     def configure_widgets(self):
         """
@@ -47,34 +63,31 @@ class SavingDashboard(QWidget):
         self.chart_view.setVisible(True)
 
         """ Configure chart """
-        self.chart.set_values(self.values)
-        self.chart.layout().setContentsMargins(0, 0, 0, 0)
-        self.chart.setBackgroundRoundness(0)
-        self.chart.setMargins(QMargins(0, 0, 0, 0))
+        self.chart_view.set_values(self.values)
 
-    def set_values(self, values):
-        """
-        Set value for each month
-        :param values: values [1 --> 6]
-        :return: void
-        """
-
-        self.values.clear()
-
-        for value in enumerate(values):
-            self.values.append(value)
-
-        self.draw_values()
-
-    def draw_values(self):
-        """
-        Draw points for each value
-        :return: void
-        """
-
-        """ Draw chart view """
-        self.chart_view.setGeometry(self.rect().x(), self.rect().y(),
-                                    self.rect().width(),
-                                    self.rect().height())
-
-        self.chart_view.setVisible(True)
+    # def set_values(self, values):
+    #     """
+    #     Set value for each month
+    #     :param values: values [1 --> 6]
+    #     :return: void
+    #     """
+    #
+    #     self.values.clear()
+    #
+    #     for value in enumerate(values):
+    #         self.values.append(value)
+    #
+    #     self.draw_values()
+    #
+    # def draw_values(self):
+    #     """
+    #     Draw points for each value
+    #     :return: void
+    #     """
+    #
+    #     """ Draw chart view """
+    #     self.chart_view.setGeometry(self.rect().x(), self.rect().y(),
+    #                                 self.rect().width(),
+    #                                 self.rect().height())
+    #
+    #     self.chart_view.setVisible(True)
