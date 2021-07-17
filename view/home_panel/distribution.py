@@ -4,7 +4,7 @@ from PySide2.QtWidgets import QVBoxLayout, QStatusBar, QWidget, QPushButton, QLi
 
 from models.distribution_model import DistributionModel
 from widgets.distribution_delegate import DistributionDelegate
-from widgets.statusbar import StatusBar
+from widgets.status_bar import StatusBar
 
 
 class Distribution(QObject):
@@ -107,7 +107,7 @@ class Distribution(QObject):
         self.status_bar.setSizeGripEnabled(False)
 
         """ Hide settings """
-        self.custom_status_bar.hideSettings()
+        self.custom_status_bar.hide_settings()
 
     def configure_title_bar(self):
         """

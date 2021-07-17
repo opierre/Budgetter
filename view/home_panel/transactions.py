@@ -8,7 +8,7 @@ from utils.rest_client import RestClient
 from widgets.transaction_widgets.calendar_widget import CalendarWidget
 from widgets.transaction_widgets.category_combobox_delegate import CategoryComboBox
 from widgets.transaction_widgets.expense_income_transfer_widget import ExpensesIncomeTransfer
-from widgets.statusbar import StatusBar
+from widgets.status_bar import StatusBar
 from widgets.transaction_widgets.means_widget import Mean
 from widgets.transaction_widgets.transaction_delegate import TransactionDelegate
 
@@ -653,7 +653,7 @@ class Transactions(QObject):
         self.status_bar.setSizeGripEnabled(False)
 
         """ Hide settings """
-        self.custom_status_bar.hideSettings()
+        self.custom_status_bar.hide_settings()
 
     def configure_title_bar(self):
         """

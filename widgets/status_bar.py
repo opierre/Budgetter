@@ -1,6 +1,6 @@
 from PySide2.QtCore import QSize
 from PySide2.QtGui import QIcon, Qt
-from PySide2.QtWidgets import QWidget, QHBoxLayout, QPushButton, QComboBox
+from PySide2.QtWidgets import QWidget, QHBoxLayout, QPushButton
 
 
 class StatusBar(QWidget):
@@ -10,22 +10,27 @@ class StatusBar(QWidget):
 
         self.parent = parent
 
-        """ Add button on bottom right corner """
+        """ Add buttons on bottom right corner """
         self._settings = QPushButton()
         self._settings.setObjectName(u"statusBarSettings")
+        self._previous = QPushButton()
+        self._previous.setObjectName(u"statusBarPrevious")
+        self._next = QPushButton()
+        self._next.setObjectName(u"statusBarNext")
 
         """ Layout for status bar """
         self.layout = QHBoxLayout(self)
 
         """ Configure widgets """
-        self.configureWidgets()
+        self.configure_widgets()
 
         """ Configure layout """
-        self.configureLayout()
+        self.configure_layout()
 
-    def configureWidgets(self):
+    def configure_widgets(self):
         """
         Configure widgets inside container
+
         :return: void
         """
 
@@ -34,9 +39,22 @@ class StatusBar(QWidget):
         self._settings.setIconSize(QSize(22, 22))
         self._settings.setCursor(Qt.PointingHandCursor)
 
-    def configureLayout(self):
+        """ Configure Previous button on bottom right corner """
+        self._previous.setIcon(QIcon(":/images/images/more_horiz-white-24dp.svg"))
+        self._previous.setIconSize(QSize(22, 22))
+        self._previous.setCursor(Qt.PointingHandCursor)
+        self._previous.setVisible(False)
+
+        """ Configure Add button on bottom right corner """
+        self._next.setIcon(QIcon(":/images/images/more_horiz-white-24dp.svg"))
+        self._next.setIconSize(QSize(22, 22))
+        self._next.setCursor(Qt.PointingHandCursor)
+        self._next.setVisible(False)
+
+    def configure_layout(self):
         """
         Set elements in layout
+
         :return: void
         """
 
@@ -46,9 +64,10 @@ class StatusBar(QWidget):
         """ Add widgets to layout """
         self.layout.addWidget(self._settings)
 
-    def showSettings(self, _bool: bool):
+    def show_settings(self, _bool: bool):
         """
         Show settings button with three dots
+
         :param _bool: True/False
         :return: void
         """
@@ -58,11 +77,19 @@ class StatusBar(QWidget):
         else:
             self._settings.hide()
 
-    def hideSettings(self):
+    def hide_settings(self):
         """
         Hide settings button
+
         :return: void
         """
 
         self._settings.setIcon(QIcon(":/images/images/more_horiz-white-24dp_hidden.svg"))
         self._settings.setCursor(Qt.ArrowCursor)
+
+    def show_previous_next(self):
+        """
+        Show previous/next arrows in place of settings
+
+        :return: void
+        """

@@ -3,7 +3,7 @@ from PySide2.QtWidgets import QWidget, QVBoxLayout, QStatusBar, \
     QPushButton
 
 from widgets.saving_widgets.saving_dashboard_widget import SavingDashboard
-from widgets.statusbar import StatusBar
+from widgets.status_bar import StatusBar
 
 
 class Savings(QObject):
@@ -117,6 +117,9 @@ class Savings(QObject):
         self.current_year.setCursor(Qt.PointingHandCursor)
         self.previous_year.setCursor(Qt.PointingHandCursor)
 
+        """ Show next and previous arrows """
+        self.custom_status_bar.show_previous_next()
+
         """ Add custom status bar to classic one """
         self.status_bar.addPermanentWidget(self.custom_status_bar)
 
@@ -128,7 +131,7 @@ class Savings(QObject):
         self.status_bar.setSizeGripEnabled(False)
 
         """ Hide settings """
-        self.custom_status_bar.hideSettings()
+        self.custom_status_bar.hide_settings()
 
     def set_current_and_previous_year(self):
         """
