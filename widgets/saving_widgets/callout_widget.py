@@ -1,7 +1,7 @@
 from PySide2.QtCharts import QtCharts
 from PySide2.QtCore import QPointF, QRectF, QRect, Qt, QSizeF, QMargins, QDateTime
 from PySide2.QtGui import QFontMetrics, QFont, QPainterPath, QPainter, QColor, QResizeEvent
-from PySide2.QtWidgets import QGraphicsView, QGraphicsSceneMouseEvent, QGraphicsItem, QGraphicsScene, QApplication
+from PySide2.QtWidgets import QGraphicsView, QGraphicsItem, QGraphicsScene
 
 from utils.tools import convert_amount_to_str
 from widgets.saving_widgets.saving_chart_widget import SavingChart

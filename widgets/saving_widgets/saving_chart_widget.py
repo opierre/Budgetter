@@ -21,7 +21,7 @@ class SavingChart(QtCharts.QChart):
 
         """ Set x axis """
         self.axis_x = QtCharts.QDateTimeAxis()
-        self.axis_x.setFormat("MMM-yy")
+        self.axis_x.setFormat("MMMM-yyyy")
         self.axis_x.setVisible(False)
 
         """ Set y axis """
@@ -58,10 +58,6 @@ class SavingChart(QtCharts.QChart):
         self.series_upper.clear()
         self.series_scatter.clear()
         self.series_finale.clear()
-
-        """ Remove previous axes """
-        self.removeAxis(self.axis_x)
-        self.removeAxis(self.axis_y)
 
         """ Configure pen """
         pen = QPen(QColor("#6dd230"))
@@ -123,7 +119,8 @@ class SavingChart(QtCharts.QChart):
 
         """ Configure y axis """
         self.axis_y.setRange(0, y_max_value * 12/10)
-        self.axis_x.setRange()
+        self.axis_x.setRange(QDateTime.fromMSecsSinceEpoch(self.series_finale.points()[0].x()),
+                             QDateTime.fromMSecsSinceEpoch(self.series_finale.points()[-1].x()))
 
         """ Display middle point """
         self.show_point(self.get_middle_value())
