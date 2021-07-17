@@ -30,7 +30,7 @@ class SavingChart(QtCharts.QChart):
         self.axis_y.setVisible(False)
 
         """ Store series """
-        self.area_series = QtCharts.QAreaSeries()
+        self.area_series = QtCharts.QAreaSeries(self)
         self.series_lower = QtCharts.QLineSeries()
         self.series_upper = QtCharts.QLineSeries()
         self.series_finale = QtCharts.QLineSeries()
@@ -53,19 +53,34 @@ class SavingChart(QtCharts.QChart):
         :return: void
         """
 
+        """ Clear previous values """
+        self.series_lower.clear()
+        self.series_upper.clear()
+        self.series_scatter.clear()
+        self.series_finale.clear()
+
+        """ Remove previous axes """
+        self.removeAxis(self.axis_x)
+        self.removeAxis(self.axis_y)
+
         """ Configure pen """
         pen = QPen(QColor("#6dd230"))
         pen.setWidthF(3.0)
         pen.setCapStyle(Qt.RoundCap)
 
         """ Fulfill series """
-        max_value = 0
+        y_max_value = 0
         for key, value in values.items():
-            if value > max_value:
-                max_value = value
-            self.series_upper.append(float(QDateTime.fromString(key, "MMMM-yyyy").toMSecsSinceEpoch()), value)
-            self.series_finale.append(float(QDateTime.fromString(key, "MMMM-yyyy").toMSecsSinceEpoch()), value)
-            self.series_lower.append(float(QDateTime.fromString(key, "MMMM-yyyy").toMSecsSinceEpoch()), 0)
+            """ Update Y-Axis range """
+            if value > y_max_value:
+                y_max_value = value
+
+            """ Update X-Axis range """
+            x_value = float(QDateTime.fromString(key, "MMMM-yyyy").toMSecsSinceEpoch())
+
+            self.series_upper.append(x_value, value)
+            self.series_finale.append(x_value, value)
+            self.series_lower.append(x_value, 0)
 
         """ Create Area series """
         self.area_series.setLowerSeries(self.series_lower)
@@ -107,7 +122,8 @@ class SavingChart(QtCharts.QChart):
         self.series_scatter.attachAxis(self.axis_y)
 
         """ Configure y axis """
-        self.axis_y.setRange(0, max_value * 12/10)
+        self.axis_y.setRange(0, y_max_value * 12/10)
+        self.axis_x.setRange()
 
         """ Display middle point """
         self.show_point(self.get_middle_value())

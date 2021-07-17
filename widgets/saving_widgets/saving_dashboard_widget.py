@@ -23,7 +23,20 @@ class SavingDashboard(QWidget):
                         "Septembre-2021": 29087.98,
                         "Octobre-2021": 25043.23,
                         "Novembre-2021": 25098.45,
-                        "Décembre-2021": 28034.00}]
+                        "Décembre-2021": 28034.00},
+                       {"Janvier-2020": 4235.23,
+                        "Février-2020": 4565.23,
+                        "Mars-2020": 5454.34,
+                        "Avril-2020": 5674.76,
+                        "Mai-2020": 7345.87,
+                        "Juin-2020": 8340.89,
+                        "Juillet-2020": 8957.54,
+                        "Août-2020": 11100.34,
+                        "Septembre-2020": 11550.12,
+                        "Octobre-2020": 11567.87,
+                        "Novembre-2020": 11978.78,
+                        "Décembre-2020": 12010.98}
+                       ]
 
         """ Store chart view """
         self.chart_view = CalloutChartView()
@@ -45,13 +58,17 @@ class SavingDashboard(QWidget):
         self._layout.addWidget(self.chart_view)
 
         """ Configure chart """
-        self.chart_view.set_values(self.values)
+        self.chart_view.set_values(self.values[0])
 
-    def display_first_callout(self):
+    def set_current_year_values(self, boolean):
         """
-        Disaply first callout after windows resized
+        Display current year values if True, previous year values otherwise
 
+        :param boolean: True/False
         :return: void
         """
 
-        self.chart_view.displ
+        if boolean:
+            self.chart_view.set_values(self.values[0])
+        else:
+            self.chart_view.set_values(self.values[1])

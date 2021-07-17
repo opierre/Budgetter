@@ -182,7 +182,7 @@ class CalloutChartView(QGraphicsView):
         self.chart.setBackgroundRoundness(0)
         self.chart.setMargins(QMargins(0, 0, 0, 0))
 
-    def set_values(self, values):
+    def set_values(self, values: dict):
         """
         Set values on series for callout display
 
@@ -191,7 +191,7 @@ class CalloutChartView(QGraphicsView):
         """
 
         """ Set values on chat """
-        self.chart.set_values(values[0])
+        self.chart.set_values(values)
 
     def resizeEvent(self, event: QResizeEvent):
         """

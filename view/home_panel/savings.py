@@ -39,6 +39,50 @@ class Savings(QObject):
         """ Configure status bar """
         self.configure_status_bar()
 
+        """ Connect all slots and signals """
+        self.connect_slots_and_signals()
+
+    def connect_slots_and_signals(self):
+        """
+        Connect all slots and signals
+
+        :return: void
+        """
+
+        """ Connect click on buttons to disaply new values """
+        self.current_year.clicked.connect(self.display_values)
+        self.previous_year.clicked.connect(self.display_values)
+
+    def display_values(self):
+        """
+        Disaply values according to clicked button
+
+        :return: void
+        """
+
+        sender = self.sender()
+
+        if sender == self.current_year:
+            """ Update stylesheet """
+            self.current_year.setProperty("activated", "true")
+            self.previous_year.setProperty("activated", "false")
+
+            """ Update values to display """
+            self.chart_widget.set_current_year_values(True)
+        else:
+            """ Update stylesheet """
+            self.current_year.setProperty("activated", "false")
+            self.previous_year.setProperty("activated", "true")
+
+            """ Update values to display """
+            self.chart_widget.set_current_year_values(False)
+
+        """ Update display style """
+        self.current_year.style().unpolish(self.current_year)
+        self.current_year.style().polish(self.current_year)
+        self.previous_year.style().unpolish(self.previous_year)
+        self.previous_year.style().polish(self.previous_year)
+
     def configure_title_bar(self):
         """
         Configure TitleBar with icon
