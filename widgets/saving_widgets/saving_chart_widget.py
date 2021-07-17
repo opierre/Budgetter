@@ -10,8 +10,8 @@ class SavingChart(QtCharts.QChart):
     Saving chart
     """
 
-    """ Signal emmitted when click on chart - Point clicked """
-    pointClicked = Signal(QPointF)
+    """ Signal emmitted when click on chart - Point clicked / Alignment of Callout """
+    pointClicked = Signal(QPointF, Qt.Alignment)
 
     def __init__(self, parent=None):
         super().__init__(parent)
@@ -149,8 +149,15 @@ class SavingChart(QtCharts.QChart):
         self.series_scatter.clear()
         self.series_scatter.append(closest)
 
+        """ Retrieve position in list """
+        points = self.series_finale.points()
+        index = points.index(closest)
+
         """ Emit signal to display callout """
-        self.pointClicked.emit(closest)
+        if index >= len(points) / 2:
+            self.pointClicked.emit(closest, Qt.AlignRight)
+        else:
+            self.pointClicked.emit(closest, Qt.AlignLeft)
 
     def get_middle_value(self):
         """

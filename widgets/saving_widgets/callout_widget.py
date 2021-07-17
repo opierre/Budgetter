@@ -54,15 +54,20 @@ class Callout(QGraphicsItem):
         self.complete_rect = QRectF(self.text_rect.adjusted(-5, -5, 5, 5))
         self.update_geometry()
 
-    def update_geometry(self):
+    def update_geometry(self, alignment=Qt.AlignLeft):
         """
         Update geometry to shift from anchor
 
+        :param alignment: alignment of callout
         :return: void
         """
 
         self.prepareGeometryChange()
-        self.setPos(self.chart.mapToPosition(self.anchor) + QPointF(10, -50))
+
+        if alignment == Qt.AlignLeft:
+            self.setPos(self.chart.mapToPosition(self.anchor) + QPointF(10, -50))
+        else:
+            self.setPos(self.chart.mapToPosition(self.anchor) + QPointF(-self.complete_rect.width() - 5, -50))
 
     def boundingRect(self) -> QRectF:
         """
@@ -71,13 +76,18 @@ class Callout(QGraphicsItem):
         :return: bounding rect as QRectF
         """
 
+        """ Retrieve position from chart """
         from_parent = self.mapFromParent(self.chart.mapToPosition(self.anchor))
+
+        """ Define anchor from parent """
         anchor = QPointF(from_parent)
+
         rect = QRectF()
         rect.setLeft(min(self.complete_rect.left(), anchor.x()))
         rect.setRight(max(self.complete_rect.right(), anchor.x()))
         rect.setTop(min(self.complete_rect.top(), anchor.y()))
         rect.setBottom(max(self.complete_rect.bottom(), anchor.y()))
+
         return rect
 
     def paint(self, painter, option, widget):
@@ -196,11 +206,12 @@ class CalloutChartView(QGraphicsView):
 
         super().resizeEvent(event)
 
-    def display_callout(self, point: QPointF):
+    def display_callout(self, point: QPointF, alignment: Qt.Alignment):
         """
         Display callout
 
-        :param point: Point to disaplay legend on
+        :param point: Point to display legend on
+        :param alignment: alignment to display callout on left or right
         :return: void
         """
 
@@ -214,5 +225,5 @@ class CalloutChartView(QGraphicsView):
 
         """ Update display settings """
         self.tooltip.setZValue(11)
-        self.tooltip.update_geometry()
+        self.tooltip.update_geometry(alignment)
         self.tooltip.show()

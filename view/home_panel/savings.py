@@ -120,4 +120,5 @@ class Savings(QObject):
         :return: void
         """
 
-        self.chart_widget.chart_view.display_callout(self.chart_widget.chart_view.chart.get_middle_value())
+        self.chart_widget.chart_view.display_callout(self.chart_widget.chart_view.chart.get_middle_value(),
+                                                     alignment=Qt.AlignLeft)
