@@ -39,12 +39,10 @@ class Savings(QObject):
         """ Configure status bar """
         self.configure_status_bar()
 
-        """ Connect Account groupBox """
-        # self.connectAccounts()
-
     def configure_title_bar(self):
         """
         Configure TitleBar with icon
+
         :return: void
         """
 
@@ -58,6 +56,7 @@ class Savings(QObject):
     def configure_status_bar(self):
         """
         Configure status bar
+
         :return: void
         """
 
@@ -90,6 +89,7 @@ class Savings(QObject):
     def set_current_and_previous_year(self):
         """
         Get current/previous year from locale and update display
+
         :return: void
         """
 
@@ -100,6 +100,7 @@ class Savings(QObject):
     def configure_layout(self):
         """
         Configure layout inside of Container
+
         :return: void
         """
 
@@ -112,3 +113,11 @@ class Savings(QObject):
 
         self.ui_setup.savings.setWidget(widget)
 
+    def display_tooltip(self):
+        """
+        Disaply tooltip after windows resized
+
+        :return: void
+        """
+
+        self.chart_widget.chart_view.display_callout(self.chart_widget.chart_view.chart.get_middle_value())

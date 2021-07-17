@@ -40,7 +40,17 @@ class Home(QObject):
     def connect_home_slots_and_signals(self):
         """
         Connect all slots and signals
+
         :return: void
         """
 
         print('coucou')
+
+    def display_saving_tooltip(self):
+        """
+        Display saving tooltip after window resized
+
+        :return: void
+        """
+
+        self._savings.display_tooltip()

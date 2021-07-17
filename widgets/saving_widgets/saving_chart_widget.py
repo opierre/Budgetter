@@ -1,7 +1,7 @@
 import math
 
 from PySide2.QtCharts import QtCharts
-from PySide2.QtCore import Qt, QDateTime, QPointF
+from PySide2.QtCore import Qt, QDateTime, QPointF, Signal
 from PySide2.QtGui import QPen, QColor, QBrush, QLinearGradient, QGradient
 
 
@@ -9,6 +9,9 @@ class SavingChart(QtCharts.QChart):
     """
     Saving chart
     """
+
+    """ Signal emmitted when click on chart - Point clicked """
+    pointClicked = Signal(QPointF)
 
     def __init__(self, parent=None):
         super().__init__(parent)
@@ -36,6 +39,7 @@ class SavingChart(QtCharts.QChart):
         """ Customize stylesheet """
         self.setBackgroundBrush(QBrush(QColor("transparent")))
 
+        """ Set animation """
         self.setAnimationOptions(QtCharts.QChart.SeriesAnimations)
 
         """ Connect all slots and signals """
@@ -44,6 +48,7 @@ class SavingChart(QtCharts.QChart):
     def set_values(self, values: dict):
         """
         Set values to display
+
         :param values: list of values
         :return: void
         """
@@ -104,9 +109,13 @@ class SavingChart(QtCharts.QChart):
         """ Configure y axis """
         self.axis_y.setRange(0, max_value * 12/10)
 
+        """ Display middle point """
+        self.show_point(self.get_middle_value())
+
     def connect_slots_and_signals(self):
         """
         Connect all slots and signals from within chart
+
         :return: void
         """
 
@@ -117,6 +126,7 @@ class SavingChart(QtCharts.QChart):
     def show_point(self, clicked_point):
         """
         Display point on click
+
         :param clicked_point: QPointF
         :return: void
         """
@@ -138,3 +148,16 @@ class SavingChart(QtCharts.QChart):
         """ Remove previous point and append closest to click """
         self.series_scatter.clear()
         self.series_scatter.append(closest)
+
+        """ Emit signal to display callout """
+        self.pointClicked.emit(closest)
+
+    def get_middle_value(self):
+        """
+        Retrieve center value for initial display
+
+        :return: middle value as QPointF
+        """
+
+        middle_index = int(len(self.series_finale.points()) / 2)
+        return self.series_finale.points()[middle_index]

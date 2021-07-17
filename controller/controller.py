@@ -15,9 +15,9 @@ class Controller:
     def __init__(self):
 
         """ Create MainWindow """
-        self.mainWindow = CustomWindow()
+        self.main_window = CustomWindow()
         self.ui = Ui_MainWindow()
-        self.ui.setupUi(self.mainWindow)
+        self.ui.setupUi(self.main_window)
 
         # """ Store effects """
         # self.effectAccounts = QGraphicsDropShadowEffect()
@@ -28,16 +28,16 @@ class Controller:
         # self.configureGraphicalEffects()
 
         """ Left Drawer """
-        self.menuDrawer = Menu(self.mainWindow, self.ui)
+        self.menu_drawer = Menu(self.main_window, self.ui)
 
         """ Home Panel """
-        self.homePanel = Home(self.mainWindow, self.ui)
+        self.home_panel = Home(self.main_window, self.ui)
 
         """ Connect all signals/slots """
-        self.connectSlotsAndSignals()
+        self.connect_slots_and_signals()
 
         """ Show FullScreen """
-        self.mainWindow.showMaximized()
+        self.main_window.showMaximized()
 
     # def configureGraphicalEffects(self):
     #     """
@@ -64,11 +64,11 @@ class Controller:
     #     self.ui.transactions.setGraphicsEffect(self.effectDistribution)
     #     self.ui.distribution.setGraphicsEffect(self.effectTransactions)
 
-    def connectSlotsAndSignals(self):
+    def connect_slots_and_signals(self):
         """
         Connect all slots and signals
         :return: void
         """
 
-        """ Connect Custom Windows resize to resize drawer """
-        print('coucou')
+        """ Connect Custom Windows resize to display callout """
+        self.main_window.resizeEventSignal.connect(self.home_panel.display_saving_tooltip)

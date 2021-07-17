@@ -64,6 +64,7 @@ class Distribution(QObject):
     def configure_layout(self):
         """
         Configure layout inside of Container
+
         :return: void
         """
 
@@ -78,6 +79,7 @@ class Distribution(QObject):
     def configure_status_bar(self):
         """
         Configure status bar
+
         :return: void
         """
 
@@ -110,6 +112,7 @@ class Distribution(QObject):
     def configure_title_bar(self):
         """
         Configure TitleBar with icon
+
         :return: void
         """
 
@@ -120,6 +123,7 @@ class Distribution(QObject):
     def set_current_and_previous_month(self):
         """
         Get current/previous month from locale and update display
+
         :return: void
         """
 

@@ -1,10 +1,6 @@
-from PySide2.QtCore import QMargins
-from PySide2.QtGui import QPainter
 from PySide2.QtWidgets import QWidget, QGridLayout
-from PySide2.QtCharts import QtCharts
 
-from widgets.saving_widgets.callout_widget import Callout, CalloutChartView
-from widgets.saving_widgets.saving_chart_widget import SavingChart
+from widgets.saving_widgets.callout_widget import CalloutChartView
 
 
 class SavingDashboard(QWidget):
@@ -16,41 +12,27 @@ class SavingDashboard(QWidget):
         super(SavingDashboard, self).__init__(parent)
 
         """ Store values for months """
-        self.values = {"Janvier-2021": 12056,
-                       "Février-2021": 13450,
-                       "Mars-2021": 15469,
-                       "Avril-2021": 14356,
-                       "Mai-2021": 25098,
-                       "Juin-2021": 26098,
-                       "Juillet-2021": 22054,
-                       "Août-2021": 25098,
-                       "Septembre-2021": 29087}
+        self.values = [{"Janvier-2021": 12056,
+                        "Février-2021": 13450.12,
+                        "Mars-2021": 15469.35,
+                        "Avril-2021": 14356.00,
+                        "Mai-2021": 25098.63,
+                        "Juin-2021": 26098.57,
+                        "Juillet-2021": 22054.00,
+                        "Août-2021": 22000.45,
+                        "Septembre-2021": 29087.98,
+                        "Octobre-2021": 25043.23,
+                        "Novembre-2021": 25098.45,
+                        "Décembre-2021": 28034.00}]
 
-        """ Store chart """
-        # self.chart = SavingChart()
-        # self.chart_view = QtCharts.QChartView(self.chart)
+        """ Store chart view """
         self.chart_view = CalloutChartView()
-        # self.chart_view = CalloutChartView(self.chart.series_finale, parent=self.chart)
-        self._layout = QGridLayout(self)
-        self._layout.setContentsMargins(0, 0, 0, 0)
-        self._layout.addWidget(self.chart_view)
 
-        """ Connect all slots and signals """
-        self.connect_slots_and_signals()
+        """ Store layout for dashboard widget """
+        self._layout = QGridLayout(self)
 
         """ Configure widgets """
         self.configure_widgets()
-
-    def connect_slots_and_signals(self):
-        """
-        Connect all slots and signals
-
-        :return: void
-        """
-
-        """ Connect click on series finale to display values """
-        # self.chart.series_finale.clicked.connect(self.show_label)
-        pass
 
     def configure_widgets(self):
         """
@@ -58,32 +40,18 @@ class SavingDashboard(QWidget):
         :return: void
         """
 
+        """ Configure layout """
+        self._layout.setContentsMargins(0, 0, 0, 0)
+        self._layout.addWidget(self.chart_view)
+
         """ Configure chart """
         self.chart_view.set_values(self.values)
 
-    # def set_values(self, values):
-    #     """
-    #     Set value for each month
-    #     :param values: values [1 --> 6]
-    #     :return: void
-    #     """
-    #
-    #     self.values.clear()
-    #
-    #     for value in enumerate(values):
-    #         self.values.append(value)
-    #
-    #     self.draw_values()
-    #
-    # def draw_values(self):
-    #     """
-    #     Draw points for each value
-    #     :return: void
-    #     """
-    #
-    #     """ Draw chart view """
-    #     self.chart_view.setGeometry(self.rect().x(), self.rect().y(),
-    #                                 self.rect().width(),
-    #                                 self.rect().height())
-    #
-    #     self.chart_view.setVisible(True)
+    def display_first_callout(self):
+        """
+        Disaply first callout after windows resized
+
+        :return: void
+        """
+
+        self.chart_view.displ

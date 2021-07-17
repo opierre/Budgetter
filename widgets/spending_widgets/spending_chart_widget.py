@@ -1,4 +1,4 @@
-from PySide2 import QtGui, QtWidgets, QtCore
+from PySide2 import QtCore
 from PySide2.QtCharts import QtCharts
 from PySide2.QtCore import Qt
 from PySide2.QtGui import QPen, QColor, QBrush
@@ -30,11 +30,13 @@ class SpendingChart(QtCharts.QChart):
         """ Customize stylesheet """
         self.setBackgroundBrush(QBrush(QColor("transparent")))
 
+        """ Set animation on series """
         self.setAnimationOptions(QtCharts.QChart.SeriesAnimations)
 
     def set_values(self, values: list):
         """
         Set values to display
+
         :param values: list of values
         :return: void
         """

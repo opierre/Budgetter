@@ -481,26 +481,39 @@ class TransactionDelegate(QStyledItemDelegate):
     def draw_item_background(self, painter, option, index, rect_background):
         """
         Draw item background
+
         :param painter: painter
         :param option: option
         :param index: index
         :param rect_background: rect
         :return: void
         """
+
+        """ Set pen """
         painter.setPen(QPen(QColor("#26374C")))
+
         if self.editable != index and not (option.state & QStyle.State_Selected):
+            """ Item not selected and not editable """
             painter.setBrush(QColor("transparent"))
             painter.drawRect(rect_background)
+
         elif self.editable != index and option.state & QStyle.State_Selected:
+            """ Item selected and not editable """
             self.selected = index
             painter.setBrush(QColor("#19344D"))
             painter.drawRect(rect_background.x(), rect_background.y() - option.rect.height() * 1 / 6,
                              rect_background.width(), rect_background.height() + option.rect.height() * 2 / 6)
+
         else:
+            """ Item selected and editable """
             painter.setBrush(QColor("#1C293B"))
             painter.setOpacity(0.5)
+
+            """ Draw shadow """
             painter.drawRoundedRect(rect_background.x(), rect_background.y() - option.rect.height() * 1 / 6,
-                                    rect_background.width() + 4, option.rect.height() + 0, 7, 7)
+                                    rect_background.width() + 4, option.rect.height() + 2, 7, 7)
+
+            """ Draw background """
             painter.setBrush(QColor("#015185"))
             painter.setOpacity(1)
             painter.drawRoundedRect(rect_background.x(), rect_background.y() - option.rect.height() * 1 / 6,
