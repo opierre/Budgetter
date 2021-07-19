@@ -1,9 +1,18 @@
-from PySide2.QtCore import QSize
+from PySide2.QtCore import QSize, Signal
 from PySide2.QtGui import QIcon, Qt
 from PySide2.QtWidgets import QWidget, QHBoxLayout, QPushButton
 
 
 class StatusBar(QWidget):
+    """
+    Custom Status Bar
+    """
+
+    """ Signal emitted when click on Previous """
+    previousClicked = Signal()
+
+    """ Signal emitted when click on Next """
+    nextClicked = Signal()
 
     def __init__(self, parent=None):
         super().__init__(parent)
@@ -27,6 +36,20 @@ class StatusBar(QWidget):
         """ Configure layout """
         self.configure_layout()
 
+        """ Connect all slots and signals """
+        self.connect_slots_and_signals()
+
+    def connect_slots_and_signals(self):
+        """
+        Connect all slots and signals
+
+        :return: void
+        """
+
+        """ Connect click on previous/next buttons to emit signal """
+        self._previous.clicked.connect(self.previousClicked.emit)
+        self._next.clicked.connect(self.nextClicked.emit)
+
     def configure_widgets(self):
         """
         Configure widgets inside container
@@ -40,13 +63,13 @@ class StatusBar(QWidget):
         self._settings.setCursor(Qt.PointingHandCursor)
 
         """ Configure Previous button on bottom right corner """
-        self._previous.setIcon(QIcon(":/images/images/more_horiz-white-24dp.svg"))
+        self._previous.setIcon(QIcon(":/images/images/navigate_before_black_24dp.svg"))
         self._previous.setIconSize(QSize(22, 22))
         self._previous.setCursor(Qt.PointingHandCursor)
         self._previous.setVisible(False)
 
         """ Configure Add button on bottom right corner """
-        self._next.setIcon(QIcon(":/images/images/more_horiz-white-24dp.svg"))
+        self._next.setIcon(QIcon(":/images/images/navigate_next_black_24dp.svg"))
         self._next.setIconSize(QSize(22, 22))
         self._next.setCursor(Qt.PointingHandCursor)
         self._next.setVisible(False)
@@ -63,6 +86,8 @@ class StatusBar(QWidget):
 
         """ Add widgets to layout """
         self.layout.addWidget(self._settings)
+        self.layout.addWidget(self._previous)
+        self.layout.addWidget(self._next)
 
     def show_settings(self, _bool: bool):
         """
@@ -93,3 +118,7 @@ class StatusBar(QWidget):
 
         :return: void
         """
+
+        self._settings.hide()
+        self._next.show()
+        self._previous.show()

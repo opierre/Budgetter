@@ -571,7 +571,7 @@ QStatusBar::item
 	color: white;
 }
 
-QPushButton#statusBarSettings 
+QPushButton#statusBarSettings, QPushButton#statusBarPrevious, QPushButton#statusBarNext  
 {
 	background-color: #26374C;
 	border-top-left-radius: 0px;

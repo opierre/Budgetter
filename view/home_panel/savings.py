@@ -53,6 +53,10 @@ class Savings(QObject):
         self.current_year.clicked.connect(self.display_values)
         self.previous_year.clicked.connect(self.display_values)
 
+        """ Connect click on previous/next from status bar to move point """
+        self.custom_status_bar.nextClicked.connect(self.chart_widget.chart_view.chart.show_next)
+        self.custom_status_bar.previousClicked.connect(self.chart_widget.chart_view.chart.show_previous)
+
     def display_values(self):
         """
         Disaply values according to clicked button
@@ -162,7 +166,7 @@ class Savings(QObject):
 
     def display_tooltip(self):
         """
-        Disaply tooltip after windows resized
+        Display tooltip after windows resized
 
         :return: void
         """

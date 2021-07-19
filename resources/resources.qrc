@@ -1,5 +1,7 @@
 <RCC>
   <qresource prefix="images">
+    <file>images/navigate_before_black_24dp.svg</file>
+    <file>images/navigate_next_black_24dp.svg</file>
     <file>images/swap_horiz_white_18dp_outlined.svg</file>
     <file>images/notes_white_24dp.svg</file>
     <file>images/notes_white_24dp_hover.svg</file>

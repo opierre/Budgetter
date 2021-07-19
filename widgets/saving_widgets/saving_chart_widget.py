@@ -19,6 +19,9 @@ class SavingChart(QtCharts.QChart):
         """ Hide legend """
         self.legend().hide()
 
+        """ Store current clicked point """
+        self.current_point = None
+
         """ Set x axis """
         self.axis_x = QtCharts.QDateTimeAxis()
         self.axis_x.setFormat("MMMM-yyyy")
@@ -162,6 +165,9 @@ class SavingChart(QtCharts.QChart):
         self.series_scatter.clear()
         self.series_scatter.append(closest)
 
+        """ Update current point clicked """
+        self.current_point = closest
+
         """ Retrieve position in list """
         points = self.series_finale.points()
         index = points.index(closest)
@@ -181,3 +187,37 @@ class SavingChart(QtCharts.QChart):
 
         middle_index = int(len(self.series_finale.points()) / 2)
         return self.series_finale.points()[middle_index]
+
+    def show_next(self):
+        """
+        Show next point
+
+        :return: void
+        """
+
+        """ Retrieve position in list """
+        points = self.series_finale.points()
+        index = points.index(self.current_point)
+
+        if index < len(points) - 1:
+            index += 1
+
+        """ Show next point and callout """
+        self.show_point(points[index])
+
+    def show_previous(self):
+        """
+        Show next point
+
+        :return: void
+        """
+
+        """ Retrieve position in list """
+        points = self.series_finale.points()
+        index = points.index(self.current_point)
+
+        if index > 0:
+            index -= 1
+
+        """ Show previous point and callout """
+        self.show_point(points[index])
