@@ -355,12 +355,18 @@ class TransactionDelegate(QStyledItemDelegate):
         painter.setBrush(QColor("transparent"))
 
         """ Button edit """
-        self.rect_edit = QRect(rect_background.width() + rect_background.x() - 35,
-                               self.rect_name.y() - 2, 25, 25)
+        self.rect_edit = QRect(rect_background.width() + rect_background.x() - 15,
+                               option.rect.y(), 25, 25)
 
         optionMore = QStyleOptionButton()
 
         if self.editable != index and option.state & QStyle.State_Selected:
+            """ Draw background of edit as pastille """
+            painter.setBrush(QColor(1, 144, 234, 200))
+
+            """ Draw hover effect """
+            painter.drawEllipse(self.rect_edit)
+
             optionMore.initFrom(self.edit)
             optionMore.rect = self.rect_edit
             optionMore.icon = self.edit.icon()
@@ -369,18 +375,17 @@ class TransactionDelegate(QStyledItemDelegate):
 
             self.edit.style().drawControl(QStyle.CE_PushButton, optionMore, painter, self.edit)
 
-        if self.edit_hover is True:
-            """ Configure brush """
-            painter.setBrush(QColor(255, 255, 255, 50))
-
-            """ Draw hover effect """
-            painter.drawEllipse(self.rect_edit)
-
         """ Buttons delete """
-        self.rect_delete = QRect(rect_background.width() + rect_background.x() - 35,
-                                 self.rect_category_name.y() - 2, 25, 25)
+        self.rect_delete = QRect(rect_background.width() + rect_background.x() - 15,
+                                 option.rect.y() + option.rect.height() - 25, 25, 25)
 
         if self.editable != index and option.state & QStyle.State_Selected:
+            """ Draw background of edit as pastille """
+            painter.setBrush(QColor(226, 74, 141, 200))
+
+            """ Draw hover effect """
+            painter.drawEllipse(self.rect_delete)
+
             optionMore = QStyleOptionButton()
             optionMore.initFrom(self.delete)
             optionMore.rect = self.rect_delete
@@ -389,13 +394,6 @@ class TransactionDelegate(QStyledItemDelegate):
             optionMore.state = optionMore.state or QStyle.State_MouseOver
 
             self.delete.style().drawControl(QStyle.CE_PushButton, optionMore, painter, self.delete)
-
-        if self.delete_hover is True:
-            """ Configure brush """
-            painter.setBrush(QColor(255, 255, 255, 50))
-
-            """ Draw hover effect """
-            painter.drawEllipse(self.rect_delete)
 
         painter.restore()
 
@@ -493,18 +491,18 @@ class TransactionDelegate(QStyledItemDelegate):
         painter.setPen(QPen(QColor("#26374C")))
 
         if self.editable != index and not (option.state & QStyle.State_Selected):
-            """ Item not selected and not editable """
-            painter.setBrush(QColor("transparent"))
-            painter.drawRect(rect_background)
+            """ Do nothing """
+            pass
 
         elif self.editable != index and option.state & QStyle.State_Selected:
             """ Item selected and not editable """
             self.selected = index
             painter.setBrush(QColor("#19344D"))
-            painter.drawRect(rect_background.x(), rect_background.y() - option.rect.height() * 1 / 6,
-                             rect_background.width(), rect_background.height() + option.rect.height() * 2 / 6)
+            painter.drawRoundedRect(rect_background.x(), rect_background.y() - option.rect.height() * 1 / 6,
+                                    rect_background.width(), rect_background.height() + option.rect.height() * 2 / 6,
+                                    10, 10)
 
-        else:
+        elif self.editable == index and option.state & QStyle.State_Selected:
             """ Item selected and editable """
             painter.setBrush(QColor("#1C293B"))
             painter.setOpacity(0.5)
