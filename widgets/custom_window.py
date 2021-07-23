@@ -17,7 +17,7 @@ class CustomWindow(QMainWindow):
         """
         Override resize event
         :param event: resize event
-        :return: void
+        :return: None
         """
 
         self.resizeEventSignal.emit(self.height(), self.width())

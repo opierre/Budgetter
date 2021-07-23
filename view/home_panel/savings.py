@@ -46,7 +46,7 @@ class Savings(QObject):
         """
         Connect all slots and signals
 
-        :return: void
+        :return: None
         """
 
         """ Connect click on buttons to disaply new values """
@@ -61,7 +61,7 @@ class Savings(QObject):
         """
         Disaply values according to clicked button
 
-        :return: void
+        :return: None
         """
 
         sender = self.sender()
@@ -91,7 +91,7 @@ class Savings(QObject):
         """
         Configure TitleBar with icon
 
-        :return: void
+        :return: None
         """
 
         """ Set title """
@@ -105,7 +105,7 @@ class Savings(QObject):
         """
         Configure status bar
 
-        :return: void
+        :return: None
         """
 
         """ Set month content """
@@ -141,7 +141,7 @@ class Savings(QObject):
         """
         Get current/previous year from locale and update display
 
-        :return: void
+        :return: None
         """
 
         current_year = QDate.currentDate().year()
@@ -152,7 +152,7 @@ class Savings(QObject):
         """
         Configure layout inside of Container
 
-        :return: void
+        :return: None
         """
 
         widget = QWidget()
@@ -168,7 +168,7 @@ class Savings(QObject):
         """
         Display tooltip after windows resized
 
-        :return: void
+        :return: None
         """
 
         self.chart_widget.chart_view.display_callout(self.chart_widget.chart_view.chart.get_middle_value(),

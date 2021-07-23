@@ -29,7 +29,7 @@ class CalendarWidget(QCalendarWidget):
         :param painter: painter
         :param rect: rect
         :param date: date
-        :return: void
+        :return: None
         """
 
         if date == self.selectedDate():

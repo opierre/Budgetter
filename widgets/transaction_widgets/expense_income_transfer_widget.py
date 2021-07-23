@@ -30,7 +30,7 @@ class CircleCheckbox(QPushButton):
         """
         Change type of radio button
         :param _type: 'Income'/'Expenses'/'Transfer'
-        :return: void
+        :return: None
         """
 
         self._type = _type
@@ -39,7 +39,7 @@ class CircleCheckbox(QPushButton):
         """
         Override paintEvent()
         :param event: paint event
-        :return: void
+        :return: None
         """
 
         """ Define new painter """
@@ -131,7 +131,7 @@ class ExpensesIncomeTransfer(QWidget):
     def connect_slots_and_signals(self):
         """
         Connect all slots and signals
-        :return: void
+        :return: None
         """
 
         """ Connect all typeCliked from buttons """
@@ -142,7 +142,7 @@ class ExpensesIncomeTransfer(QWidget):
     def handle_click(self):
         """
         Handle click on one button to deselect others
-        :return: void
+        :return: None
         """
 
         sender = self.sender()
@@ -163,7 +163,7 @@ class ExpensesIncomeTransfer(QWidget):
     def configure_widgets(self):
         """
         Configure both push buttons
-        :return: void
+        :return: None
         """
 
         """ Set type """
@@ -175,7 +175,7 @@ class ExpensesIncomeTransfer(QWidget):
         """
         Select one button according to active type parameter
         :param active_type: "Expenses"/"Income"/"Transfer"
-        :return: void
+        :return: None
         """
 
         """ Check only middle button """
@@ -199,7 +199,7 @@ class ExpensesIncomeTransfer(QWidget):
     def configure_layout(self):
         """
         Configure layout
-        :return: void
+        :return: None
         """
 
         """ Set contents margin """
@@ -217,7 +217,7 @@ class ExpensesIncomeTransfer(QWidget):
         """
         Override paintEvent()
         :param event: event
-        :return: void
+        :return: None
         """
 
         painter = QPainter(self)

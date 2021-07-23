@@ -52,7 +52,7 @@ class Thumbnail(QGroupBox):
     def configureWidgets(self):
         """
         Configure widgets inside thumbnail
-        :return: void
+        :return: None
         """
 
         """ Set alignments """
@@ -74,7 +74,7 @@ class Thumbnail(QGroupBox):
     def connectWidgets(self):
         """
         Connect widgets inside thumbnail
-        :return: void
+        :return: None
         """
 
         """ Connect button to click """
@@ -83,7 +83,7 @@ class Thumbnail(QGroupBox):
     def configureLayout(self):
         """
         Set elements in layout
-        :return: void
+        :return: None
         """
 
         """ Set margins """
@@ -103,7 +103,7 @@ class Thumbnail(QGroupBox):
     def updateStyle(self):
         """
         Update style on checked button
-        :return: void
+        :return: None
         """
 
         state = self._logo.isChecked()
@@ -118,7 +118,7 @@ class Thumbnail(QGroupBox):
         """
         Update logo state according to click on thumbnail
         :param state: thumbnail state (checked or not)
-        :return: void
+        :return: None
         """
 
         category = self._category.text().lower()
@@ -131,7 +131,7 @@ class Thumbnail(QGroupBox):
         """
         Set Thumbnail category and according logo
         :param category: expense category
-        :return: void
+        :return: None
         """
 
         self._category.setText(category)
@@ -151,7 +151,7 @@ class Thumbnail(QGroupBox):
         """
         Set thumnail amount
         :param amount: amount
-        :return: void
+        :return: None
         """
 
         """ Set card amount """

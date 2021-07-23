@@ -37,7 +37,7 @@ class Drawer(QWidget):
     def configureAnimation(self):
         """
         Set animation properties
-        :return: void
+        :return: None
         """
 
         """ Define width starting value and animation duration for reaching max width """
@@ -61,7 +61,7 @@ class Drawer(QWidget):
     def setMaximumWidth(self, width):
         """
         Set maximum width for drawer
-        :return: void
+        :return: None
         """
 
         self._width = width
@@ -73,7 +73,7 @@ class Drawer(QWidget):
     def expand(self):
         """
         Expand drawer to display labels
-        :return: void
+        :return: None
         """
 
         """ Set animation drawer direction: forward from minWidth to maxWidth """
@@ -88,7 +88,7 @@ class Drawer(QWidget):
     def collapse(self):
         """
         Collapse drawer to hide labels
-        :return: void
+        :return: None
         """
 
         """ Set animation drawer direction: forward from minWidth to maxWidth """

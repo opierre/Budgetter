@@ -33,10 +33,10 @@ class TransactionDelegate(QStyledItemDelegate):
         QStyledItemDelegate.__init__(self, parent, *args)
 
         """ Store editable state """
-        self.editable = False
+        self.editable = QModelIndex()
 
         """ Store selected state """
-        self.selected = False
+        self.selected = QModelIndex()
 
         """ Store font for values """
         self.font = QFont()
@@ -84,11 +84,13 @@ class TransactionDelegate(QStyledItemDelegate):
     def configure_widgets(self):
         """
         Configure widgets on delegate item
-        :return: void
+        :return: None
         """
 
         """ Set icon """
+        self.edit.setIconSize(QSize(18, 18))
         self.edit.setIcon(QIcon(":/images/images/edit-white-18dp.svg"))
+        self.delete.setIconSize(QSize(18, 18))
         self.delete.setIcon(QIcon(":/images/images/delete-white-18dp.svg"))
         self.comment.setIcon(QIcon(":/images/images/notes_white_24dp.svg"))
 
@@ -101,7 +103,7 @@ class TransactionDelegate(QStyledItemDelegate):
         """
         Change value of editable index
         :param index: index of editable item
-        :return: void
+        :return: None
         """
 
         self.editable = index
@@ -124,24 +126,26 @@ class TransactionDelegate(QStyledItemDelegate):
                 self.rect_edit_first_row,
                 self.rect_delete_first_row]
 
-    def createEditor(self, parent, option, index):
+    def createEditor(self, parent, option, index: QModelIndex):
         """
         Override createEditor
+
         :param parent: parent
         :param option: option
-        :param index: index
-        :return: void
+        :param index: (QModelIndex) index
+        :return: None
         """
 
         pass
 
-    def editorEvent(self, event, model, option, index):
+    def editorEvent(self, event: QEvent, model, option, index: QModelIndex):
         """
         Override editorEvent to handle events
+
         :param event: event
         :param model: model
         :param option: option
-        :param index: index
+        :param index: (QModelIndex) index
         :return: bool
         """
 
@@ -255,7 +259,7 @@ class TransactionDelegate(QStyledItemDelegate):
         :param painter: painter
         :param option: option
         :param index: index
-        :return: void
+        :return: None
         """
 
         painter.save()
@@ -409,14 +413,21 @@ class TransactionDelegate(QStyledItemDelegate):
             self.rect_delete_first_row = self.rect_delete
             self.rect_means_first_row = self.rect_mean
 
-    def draw_separator(self, painter, option, index):
+    def draw_separator(self, painter: QPainter, option, index: QModelIndex):
         """
         Draw bottom line
-        :param painter: painter
+
+        :param painter: (QPainter) painter
         :param option: option
-        :param index: index
-        :return: void
+        :param index: (QModelIndex) index
+        :return: None
         """
+
+        painter.setRenderHint(QPainter.Antialiasing)
+
+        if type(self.editable) == QModelIndex:
+            if self.editable.row() == index.row() + 1:
+                return
 
         if self.editable != index:
             """ Draw bottom border """
@@ -425,8 +436,6 @@ class TransactionDelegate(QStyledItemDelegate):
             painter.drawLine(option.rect.x()+option.rect.width()*1/60, option.rect.y()+option.rect.height()-1,
                              option.rect.width()-option.rect.width()*1/60, option.rect.y()+option.rect.height()-1)
 
-        painter.setRenderHint(QPainter.Antialiasing)
-
     def draw_means(self, painter, rect_background, means, index):
         """
         Draw mean icon
@@ -434,7 +443,7 @@ class TransactionDelegate(QStyledItemDelegate):
         :param rect_background: background rectangle
         :param means: payment means
         :param index: current index
-        :return: void
+        :return: None
         """
 
         self.rect_mean = QRectF(rect_background.width() * 3.5 / 4 - 24,
@@ -456,7 +465,7 @@ class TransactionDelegate(QStyledItemDelegate):
         :param rect_background: background rectangle
         :param index: index
         :param comment: comment
-        :return: void
+        :return: None
         """
 
         self.rect_comment = QRect(rect_background.width() * 3.85 / 4 - 24,
@@ -476,15 +485,15 @@ class TransactionDelegate(QStyledItemDelegate):
 
             self.comment.style().drawControl(QStyle.CE_PushButton, optionMore, painter, self.comment)
 
-    def draw_item_background(self, painter, option, index, rect_background):
+    def draw_item_background(self, painter: QPainter, option, index: QModelIndex, rect_background: QRect):
         """
         Draw item background
 
-        :param painter: painter
+        :param painter: (QPainter) painter
         :param option: option
-        :param index: index
-        :param rect_background: rect
-        :return: void
+        :param index: (QModelIndex) index
+        :param rect_background: (QRect) rect
+        :return: None
         """
 
         """ Set pen """
@@ -505,16 +514,18 @@ class TransactionDelegate(QStyledItemDelegate):
         elif self.editable == index and option.state & QStyle.State_Selected:
             """ Item selected and editable """
             painter.setBrush(QColor("#1C293B"))
-            painter.setOpacity(0.5)
+            painter.setOpacity(0.35)
 
             """ Draw shadow """
             painter.drawRoundedRect(rect_background.x(), rect_background.y() - option.rect.height() * 1 / 6,
-                                    rect_background.width() + 4, option.rect.height() + 2, 7, 7)
+                                    rect_background.width() + 3,
+                                    rect_background.height() + option.rect.height() * 2 / 6 + 3,
+                                    7, 7)
 
             """ Draw background """
             painter.setBrush(QColor("#015185"))
             painter.setOpacity(1)
-            painter.drawRoundedRect(rect_background.x(), rect_background.y() - option.rect.height() * 1 / 6,
+            painter.drawRoundedRect(rect_background.x(), option.rect.y(),
                                     rect_background.width(), rect_background.height() + option.rect.height() * 2 / 6,
                                     7, 7)
 
@@ -524,7 +535,7 @@ class TransactionDelegate(QStyledItemDelegate):
         :param painter: painter
         :param index: index
         :param category: category
-        :return: void
+        :return: None
         """
 
         painter.setPen(QPen(QColor("#21405D")))
@@ -558,7 +569,7 @@ class TransactionDelegate(QStyledItemDelegate):
         :param option: option
         :param name: name
         :param index: index
-        :return: void
+        :return: None
         """
 
         """ Set font on painter for name """
@@ -589,7 +600,7 @@ class TransactionDelegate(QStyledItemDelegate):
         :param option: option
         :param index: index
         :param category: category
-        :return: void
+        :return: None
         """
 
         """ Set font on painter for category """
@@ -618,7 +629,7 @@ class TransactionDelegate(QStyledItemDelegate):
         :param rect_background: rect
         :param index: index
         :param amount: amount
-        :return: void
+        :return: None
         """
 
         """ Set font on painter for amount """
@@ -647,7 +658,7 @@ class TransactionDelegate(QStyledItemDelegate):
         :param rect_background: rect
         :param label: label to write
         :param x: x position
-        :return: void
+        :return: None
         """
 
         """ Set font on painter for percentage """
@@ -675,7 +686,7 @@ class TransactionDelegate(QStyledItemDelegate):
         :param rect_background: rect
         :param index: index
         :param date: date
-        :return: void
+        :return: None
         """
 
         """ Set font on painter for date """
@@ -704,7 +715,7 @@ class TransactionDelegate(QStyledItemDelegate):
         :param rect_background: rect
         :param index: index
         :param account: account
-        :return: void
+        :return: None
         """
 
         """ Set font on painter for date """

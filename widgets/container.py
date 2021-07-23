@@ -34,7 +34,7 @@ class Container(QDockWidget):
     def connect_slots_and_signals(self):
         """
         Connect all slots and signals
-        :return: void
+        :return: None
         """
 
         """ Emit signal when button in title bar has been clicked """
@@ -46,7 +46,7 @@ class Container(QDockWidget):
     def configure_widgets(self):
         """
         Configure widgets inside container
-        :return: void
+        :return: None
         """
 
         """ Add button to title """
@@ -56,7 +56,7 @@ class Container(QDockWidget):
         """
         Replace QIcon with icon
         :param icon: QIcon to set
-        :return: void
+        :return: None
         """
 
         self.titleBar.set_icon(icon)
@@ -64,7 +64,7 @@ class Container(QDockWidget):
     def disable_title_bar_button(self):
         """
         Hide button on top right corner in title bar if useless
-        :return: void
+        :return: None
         """
 
         self.titleBar.disable_button()
@@ -72,7 +72,7 @@ class Container(QDockWidget):
     def disable_search_bar(self):
         """
         Hide search bar on top right corner in title bar if useless
-        :return: void
+        :return: None
         """
 
         self.titleBar.disable_search()
@@ -81,7 +81,7 @@ class Container(QDockWidget):
         """
         Set title on Container title bar
         :param title: title to set
-        :return: void
+        :return: None
         """
 
         self.titleBar.set_title(title)

@@ -27,7 +27,7 @@ class Menu(QObject):
     def connect_slots_and_signals(self):
         """
         Connect all slots and signals
-        :return: void
+        :return: None
         """
 
         """ Connect click on buttons in drawer """
@@ -38,7 +38,7 @@ class Menu(QObject):
     def configure_action_group(self):
         """
         Configure toolbar action group
-        :return: void
+        :return: None
         """
 
         """ Add action to group """
@@ -53,7 +53,7 @@ class Menu(QObject):
         """
         Change page by clicking on button in drawer
         :param pageNumber: page number to go to
-        :return: void
+        :return: None
         """
 
         self.uiSetup.stackedWidget.slideInIdx(pageNumber)

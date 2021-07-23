@@ -38,7 +38,7 @@ class SpendingChart(QtCharts.QChart):
         Set values to display
 
         :param values: list of values
-        :return: void
+        :return: None
         """
 
         if len(values) != 6:

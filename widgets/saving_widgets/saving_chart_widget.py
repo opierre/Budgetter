@@ -53,7 +53,7 @@ class SavingChart(QtCharts.QChart):
         Set values to display
 
         :param values: list of values
-        :return: void
+        :return: None
         """
 
         """ Clear previous values """
@@ -132,7 +132,7 @@ class SavingChart(QtCharts.QChart):
         """
         Connect all slots and signals from within chart
 
-        :return: void
+        :return: None
         """
 
         """ Connect click on series finale to display scatter """
@@ -144,7 +144,7 @@ class SavingChart(QtCharts.QChart):
         Display point on click
 
         :param clicked_point: QPointF
-        :return: void
+        :return: None
         """
 
         """ Random max distance """
@@ -192,7 +192,7 @@ class SavingChart(QtCharts.QChart):
         """
         Show next point
 
-        :return: void
+        :return: None
         """
 
         """ Retrieve position in list """
@@ -209,7 +209,7 @@ class SavingChart(QtCharts.QChart):
         """
         Show next point
 
-        :return: void
+        :return: None
         """
 
         """ Retrieve position in list """

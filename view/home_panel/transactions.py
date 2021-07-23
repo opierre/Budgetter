@@ -154,7 +154,7 @@ class Transactions(QObject):
     def connect_slots_and_signals(self):
         """
         Connect all slots and signals
-        :return: void
+        :return: None
         """
 
         """ Connect signal from Edit button in list view to edit menu """
@@ -193,7 +193,7 @@ class Transactions(QObject):
         Open context menu on More click
         :param index: index in model
         :param position: position to open context menu
-        :return: void
+        :return: None
         """
 
         """ Add actions to QMenu """
@@ -224,7 +224,7 @@ class Transactions(QObject):
         Display comment for current index
         :param rectangle: rectangle position
         :param index: current index hovered
-        :return: void
+        :return: None
         """
 
         pass
@@ -232,7 +232,7 @@ class Transactions(QObject):
     def configure_edit_widgets(self):
         """
         Configure all edit widgets in transaction item
-        :return: void
+        :return: None
         """
 
         """ Configure Name widget """
@@ -292,20 +292,19 @@ class Transactions(QObject):
         self.cancel.setIconSize(QSize(18, 18))
         self.apply.setCursor(Qt.PointingHandCursor)
         self.cancel.setCursor(Qt.PointingHandCursor)
-        # self.apply.setStyleSheet("QPushButton:hover{border-radius-color: transparent;\n")
-        # self.cancel.setStyleSheet("background-color: transparent;\n")
         self.apply.setVisible(False)
         self.cancel.setVisible(False)
         self.apply.clicked.connect(self.modify_transaction)
         self.cancel.clicked.connect(self.hide_edit_widgets)
-        self.apply.setObjectName(u"apply_cancel")
-        self.cancel.setObjectName(u"apply_cancel")
+        self.apply.setObjectName(u"apply")
+        self.cancel.setObjectName(u"cancel")
 
-    def update_category_name(self, name):
+    def update_category_name(self, name: str):
         """
         Update category name
-        :param name: name
-        :return: void
+        
+        :param name: (str) name
+        :return: None
         """
 
         """ Set text """
@@ -316,22 +315,24 @@ class Transactions(QObject):
         pixels_width = font_metrics.width(self.edit_category_name.text())
         self.edit_category_name.setFixedWidth(pixels_width)
 
-    def edit_transaction(self, index, rectName, rectAmount, rectDate, rectAccount, rectExpOrInc, rectCategory,
-                         rectCategoryName, rect_mean, rectEdit, rectDelete):
+    def edit_transaction(self, index, rectName: QRect, rectAmount: QRect, rectDate: QRect, rectAccount: QRect,
+                         rectExpOrInc: QRect, rectCategory: QRect,
+                         rectCategoryName: QRect, rect_mean: QRect, rectEdit: QRect, rectDelete: QRect):
         """
         Edit transaction on Edit click
+
         :param index: item's index
-        :param rectName: rect where to put LineEdit
-        :param rectAmount: rect where to put DoubleSpinBox
-        :param rectDate: rect where to put DateEdit
-        :param rectAccount: rect where to put Combobox
-        :param rectExpOrInc: rect where to put ExpOrInc
-        :param rectCategory: rect where to put Category
-        :param rectCategoryName: rect where to put Category Name
-        :param rect_mean: rect where to put Means button
-        :param rectEdit: rect where to put Apply button
-        :param rectDelete: rect where to put Cancel button
-        :return: void
+        :param rectName: (QRect) rect where to put LineEdit
+        :param rectAmount: (QRect) rect where to put DoubleSpinBox
+        :param rectDate: (QRect) rect where to put DateEdit
+        :param rectAccount: (QRect) rect where to put Combobox
+        :param rectExpOrInc: (QRect) rect where to put ExpOrInc
+        :param rectCategory: (QRect) rect where to put Category
+        :param rectCategoryName: (QRect) rect where to put Category Name
+        :param rect_mean: (QRect) rect where to put Means button
+        :param rectEdit: (QRect) rect where to put Apply button
+        :param rectDelete: (QRect) rect where to put Cancel button
+        :return: None
         """
 
         """ Configure Name widget """
@@ -402,7 +403,7 @@ class Transactions(QObject):
     def resize_edit_widget(self):
         """
         Resize sender object (width especially) according to typed content
-        :return: void
+        :return: None
         """
 
         sender = self.sender()
@@ -425,7 +426,7 @@ class Transactions(QObject):
         """
         Delete transaction on Delete click
         :param index: index in model
-        :return: void
+        :return: None
         """
 
         """ Remove transaction from model """
@@ -434,7 +435,7 @@ class Transactions(QObject):
     def add_transaction(self):
         """
         Add transaction on + click
-        :return: void
+        :return: None
         """
 
         """ Add transaction to model """
@@ -457,7 +458,7 @@ class Transactions(QObject):
         """
         Search transaction as filter
         :param content: content to look for in transactions
-        :return: void
+        :return: None
         """
 
         name = "name="
@@ -507,7 +508,7 @@ class Transactions(QObject):
         """
         Modify transaction content on Apply click
         :param index: index in model
-        :return: void
+        :return: None
         """
 
         value = {"name": self.edit_name.text(), "category": self.edit_category_name.text(),
@@ -526,7 +527,7 @@ class Transactions(QObject):
     def hide_edit_widgets(self):
         """
         Hide all editable widgets in transaction item
-        :return: void
+        :return: None
         """
 
         """ Hide all widgets """
@@ -551,7 +552,7 @@ class Transactions(QObject):
     def configure_layout(self):
         """
         Configure layout inside of Container
-        :return: void
+        :return: None
         """
 
         widget = QWidget()
@@ -565,7 +566,7 @@ class Transactions(QObject):
     def configure_list_view(self):
         """
         Configure transactions list view to handle events/model
-        :return: void
+        :return: None
         """
 
         """ Set proxy model """
@@ -592,7 +593,7 @@ class Transactions(QObject):
     def configure_status_bar(self):
         """
         Configure status bar
-        :return: void
+        :return: None
         """
 
         """ Set states for activation """
@@ -658,7 +659,7 @@ class Transactions(QObject):
     def configure_title_bar(self):
         """
         Configure TitleBar with icon
-        :return: void
+        :return: None
         """
 
         """ Set title """
@@ -667,7 +668,7 @@ class Transactions(QObject):
     def update_current_filtering(self):
         """
         Update current filtering after click on button
-        :return: void
+        :return: None
         """
 
         """ Retrieve sender """
@@ -714,7 +715,7 @@ class Transactions(QObject):
     def add_filter(self):
         """
         Add filter to current filtering after click on button
-        :return: void
+        :return: None
         """
 
         """ Retrieve sender """

@@ -50,7 +50,7 @@ class ChartDashboard(QWidget):
     def configure_widgets(self):
         """
         Configure child widgets
-        :return: void
+        :return: None
         """
 
         """ Set buttons group exclusive """
@@ -68,7 +68,7 @@ class ChartDashboard(QWidget):
     def connect_slots_and_signals(self):
         """
         Connect all slots and signals
-        :return: void
+        :return: None
         """
 
         """ Connect click on button to update current month """
@@ -77,7 +77,7 @@ class ChartDashboard(QWidget):
     def get_months(self):
         """
         Get months
-        :return: void
+        :return: None
         """
 
         stylesheet = "QPushButton"\
@@ -129,7 +129,7 @@ class ChartDashboard(QWidget):
         """
         Set value for each month
         :param values: values [1 --> 6]
-        :return: void
+        :return: None
         """
 
         self.values.clear()
@@ -141,7 +141,7 @@ class ChartDashboard(QWidget):
         """
         Override paintEvent()
         :param event: QEvent
-        :return: void
+        :return: None
         """
 
         """ Get painter """
@@ -179,7 +179,7 @@ class ChartDashboard(QWidget):
         """
         Draw upper separator between months and line
         :param painter: painter
-        :return: void
+        :return: None
         """
 
         """ Configure pen """
@@ -197,7 +197,7 @@ class ChartDashboard(QWidget):
         """
         Draw months as buttons
         :param painter: painter
-        :return: void
+        :return: None
         """
 
         painter.setPen(Qt.NoPen)
@@ -299,7 +299,7 @@ class ChartDashboard(QWidget):
         Draw points for each value
         :param painter: painter
         :param rectangle_period: rectangle with period
-        :return: void
+        :return: None
         """
 
         """ Draw chart view """

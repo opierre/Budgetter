@@ -20,7 +20,7 @@ class LineEditWithIcon(QLineEdit):
         """
         Set icon on left
         :param icon: icon
-        :return: void
+        :return: None
         """
 
         """ Update variable """
@@ -35,7 +35,7 @@ class LineEditWithIcon(QLineEdit):
         """
         Override paintEvent
         :param event: event
-        :return: void
+        :return: None
         """
 
         super(LineEditWithIcon, self).paintEvent(event)

@@ -25,7 +25,7 @@ class TransactionsFilterModel(QSortFilterProxyModel):
         """
         Update current filter
         :param new_filter: filter to set
-        :return: void
+        :return: None
         """
 
         self.type = new_filter
@@ -36,7 +36,7 @@ class TransactionsFilterModel(QSortFilterProxyModel):
         Update current filter on search bar
         :param search_filter: filter to set
         :param search_value: filter value to set
-        :return: void
+        :return: None
         """
 
         self.search = search_filter
@@ -47,7 +47,7 @@ class TransactionsFilterModel(QSortFilterProxyModel):
         """
         Add current filter
         :param new_filter: filter to set
-        :return: void
+        :return: None
         """
 
         self.account = new_filter
@@ -57,7 +57,7 @@ class TransactionsFilterModel(QSortFilterProxyModel):
         """
         Call for deleteTransaction in source model
         :param index: index in filtered model
-        :return: void
+        :return: None
         """
 
         self.beginRemoveRows(QModelIndex(), index.row(), index.row())
@@ -68,7 +68,7 @@ class TransactionsFilterModel(QSortFilterProxyModel):
     def add_transaction(self):
         """
         Call for add_transaction in source model
-        :return: void
+        :return: None
         """
 
         self.beginInsertRows(QModelIndex(), 0, 0)
@@ -80,7 +80,7 @@ class TransactionsFilterModel(QSortFilterProxyModel):
         Call for modifyTransaction in source model
         :param index: index in filtered model
         :param value: value
-        :return: void
+        :return: None
         """
 
         indexFromSource = self.mapToSource(index)
@@ -194,7 +194,7 @@ class TransactionsModel(QAbstractListModel):
         """
         Remove transaction from model according to index
         :param index: index in model
-        :return: void
+        :return: None
         """
 
         self.beginRemoveRows(QModelIndex(), index.row(), index.row())
@@ -204,7 +204,7 @@ class TransactionsModel(QAbstractListModel):
     def add_transaction(self):
         """
         Add transaction to model
-        :return: void
+        :return: None
         """
 
         self.beginInsertRows(QModelIndex(), 0, 0)

@@ -50,7 +50,7 @@ class SavingDashboard(QWidget):
     def configure_widgets(self):
         """
         Configure child widgets
-        :return: void
+        :return: None
         """
 
         """ Configure layout """
@@ -65,7 +65,7 @@ class SavingDashboard(QWidget):
         Display current year values if True, previous year values otherwise
 
         :param boolean: True/False
-        :return: void
+        :return: None
         """
 
         if boolean:

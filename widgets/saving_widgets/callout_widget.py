@@ -36,7 +36,7 @@ class Callout(QGraphicsItem):
         Set text on callout
 
         :param text: text to set
-        :return: void
+        :return: None
         """
 
         """ Update text variable """
@@ -59,7 +59,7 @@ class Callout(QGraphicsItem):
         Update geometry to shift from anchor
 
         :param alignment: alignment of callout
-        :return: void
+        :return: None
         """
 
         self.prepareGeometryChange()
@@ -97,7 +97,7 @@ class Callout(QGraphicsItem):
         :param painter: QPainter
         :param option: QStyleOptionGraphicsItem
         :param widget: QWidget
-        :return: void
+        :return: None
         """
 
         """ Configure background shadow rect path """
@@ -155,7 +155,7 @@ class CalloutChartView(QGraphicsView):
         """
         Connect all slots and signals
 
-        :return: void
+        :return: None
         """
 
         """ Connect click on series to display callout """
@@ -165,7 +165,7 @@ class CalloutChartView(QGraphicsView):
         """
         Configure all widgets
 
-        :return: void
+        :return: None
         """
 
         """ Configure chart view appearance """
@@ -187,7 +187,7 @@ class CalloutChartView(QGraphicsView):
         Set values on series for callout display
 
         :param values: values to set as dict
-        :return: void
+        :return: None
         """
 
         """ Set values on chat """
@@ -198,7 +198,7 @@ class CalloutChartView(QGraphicsView):
         Override resizeEvent()
 
         :param event: QResizeEvent
-        :return: void
+        :return: None
         """
         if scene := self.scene():
             scene.setSceneRect(QRectF(QPointF(0, 0), QSizeF(event.size())))
@@ -212,7 +212,7 @@ class CalloutChartView(QGraphicsView):
 
         :param point: Point to display legend on
         :param alignment: alignment to display callout on left or right
-        :return: void
+        :return: None
         """
 
         """ Set text """

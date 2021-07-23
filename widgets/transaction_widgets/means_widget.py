@@ -29,7 +29,7 @@ class MeanCheckbox(QPushButton):
         """
         Change type of radio button
         :param _type: 'Espèces'/'Virement'/'Carte'
-        :return: void
+        :return: None
         """
 
         self._type = _type
@@ -38,7 +38,7 @@ class MeanCheckbox(QPushButton):
         """
         Override paintEvent()
         :param event: paint event
-        :return: void
+        :return: None
         """
 
         """ Define new painter """
@@ -116,7 +116,7 @@ class Mean(QWidget):
     def connect_slots_and_signals(self):
         """
         Connect all slots and signals
-        :return: void
+        :return: None
         """
 
         """ Connect all typeCliked from buttons """
@@ -127,7 +127,7 @@ class Mean(QWidget):
     def handle_click(self):
         """
         Handle click on one button to deselect others
-        :return: void
+        :return: None
         """
 
         sender = self.sender()
@@ -148,7 +148,7 @@ class Mean(QWidget):
     def configure_widgets(self):
         """
         Configure both push buttons
-        :return: void
+        :return: None
         """
 
         """ Set type """
@@ -165,7 +165,7 @@ class Mean(QWidget):
         """
         Select one button according to active type parameter
         :param active_type: "Virement"/"Espèces"/"Carte"
-        :return: void
+        :return: None
         """
 
         """ Check only middle button """
@@ -189,7 +189,7 @@ class Mean(QWidget):
     def configure_layout(self):
         """
         Configure layout
-        :return: void
+        :return: None
         """
 
         """ Set contents margin """
@@ -207,7 +207,7 @@ class Mean(QWidget):
         """
         Override paintEvent()
         :param event: event
-        :return: void
+        :return: None
         """
 
         painter = QPainter(self)

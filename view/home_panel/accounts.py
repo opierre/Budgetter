@@ -64,7 +64,7 @@ class Accounts(QObject):
     def configure_title_bar(self):
         """
         Configure TitleBar with icon
-        :return: void
+        :return: None
         """
 
         """ Set title """
@@ -77,7 +77,7 @@ class Accounts(QObject):
     def configure_layout(self):
         """
         Configure layout inside of Container
-        :return: void
+        :return: None
         """
 
         widget = QWidget()

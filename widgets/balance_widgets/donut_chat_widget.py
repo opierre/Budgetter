@@ -39,7 +39,7 @@ class DonutChart(QWidget):
         """
         Add slice with percentage value
         :param percentage: percentage value
-        :return: void
+        :return: None
         """
 
         self._slices.append(percentage)
@@ -48,7 +48,7 @@ class DonutChart(QWidget):
         """
         Override paintEvent()
         :param event: event
-        :return: void
+        :return: None
         """
 
         painter = QPainter()
@@ -77,7 +77,7 @@ class DonutChart(QWidget):
         """
         Draw background as shadow effect
         :param painter: painter
-        :return: void
+        :return: None
         """
 
         """ Configure pen """
@@ -101,7 +101,7 @@ class DonutChart(QWidget):
         Draw each slice
         :param pen: pen
         :param painter: painter
-        :return: void
+        :return: None
         """
 
         first_start_angle = 0
@@ -180,7 +180,7 @@ class DonutChart(QWidget):
         Draw total amouint in middle of rectangle
         :param pen: pen
         :param painter: painter
-        :return: void
+        :return: None
         """
 
         """ Configure font for description """
@@ -247,7 +247,7 @@ class DonutChart(QWidget):
         """
         Update total amount
         :param total_amount: total amount
-        :return: void
+        :return: None
         """
 
         self.total_amount = total_amount
@@ -256,7 +256,7 @@ class DonutChart(QWidget):
         """
         Update trend
         :param trend: "FLAT"/"UP"/"DOWN"
-        :return: void
+        :return: None
         """
 
         self.trend = trend

@@ -42,7 +42,7 @@ class Controller:
     # def configureGraphicalEffects(self):
     #     """
     #     Apply all grpahical effects to main widgets
-    #     :return: void
+    #     :return: None
     #     """
     #
     #     """ Configure effect """
@@ -67,7 +67,7 @@ class Controller:
     def connect_slots_and_signals(self):
         """
         Connect all slots and signals
-        :return: void
+        :return: None
         """
 
         """ Connect Custom Windows resize to display callout """

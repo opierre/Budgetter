@@ -43,7 +43,7 @@ class StatusBar(QWidget):
         """
         Connect all slots and signals
 
-        :return: void
+        :return: None
         """
 
         """ Connect click on previous/next buttons to emit signal """
@@ -54,7 +54,7 @@ class StatusBar(QWidget):
         """
         Configure widgets inside container
 
-        :return: void
+        :return: None
         """
 
         """ Configure Add button on bottom right corner """
@@ -78,7 +78,7 @@ class StatusBar(QWidget):
         """
         Set elements in layout
 
-        :return: void
+        :return: None
         """
 
         """ Set margins """
@@ -94,7 +94,7 @@ class StatusBar(QWidget):
         Show settings button with three dots
 
         :param _bool: True/False
-        :return: void
+        :return: None
         """
 
         if _bool:
@@ -106,7 +106,7 @@ class StatusBar(QWidget):
         """
         Hide settings button
 
-        :return: void
+        :return: None
         """
 
         self._settings.setIcon(QIcon(":/images/images/more_horiz-white-24dp_hidden.svg"))
@@ -116,7 +116,7 @@ class StatusBar(QWidget):
         """
         Show previous/next arrows in place of settings
 
-        :return: void
+        :return: None
         """
 
         self._settings.hide()

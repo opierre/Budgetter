@@ -15,7 +15,7 @@ class CategoryComboBox(QStyledItemDelegate):
         :param painter: painter
         :param option: option
         :param index: index
-        :return: void
+        :return: None
         """
 
         """ Init options """

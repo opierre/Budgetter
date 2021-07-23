@@ -22,7 +22,7 @@ class Thread(QThread):
         Setter for function and arguments
         :param function: function
         :param args: arguments
-        :return: void
+        :return: None
         """
 
         self.function = function
@@ -31,7 +31,7 @@ class Thread(QThread):
     def run(self):
         """
         Override run function from QThread
-        :return: void
+        :return: None
         """
 
         self.result = self.function(*self.arguments)

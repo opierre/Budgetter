@@ -33,7 +33,7 @@ class AccountDelegate(QItemDelegate):
         :param painter: painter
         :param option: option
         :param index: index
-        :return: void
+        :return: None
         """
 
         painter.save()

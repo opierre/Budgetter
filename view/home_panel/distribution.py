@@ -65,7 +65,7 @@ class Distribution(QObject):
         """
         Configure layout inside of Container
 
-        :return: void
+        :return: None
         """
 
         widget = QWidget()
@@ -80,7 +80,7 @@ class Distribution(QObject):
         """
         Configure status bar
 
-        :return: void
+        :return: None
         """
 
         """ Set month content """
@@ -113,7 +113,7 @@ class Distribution(QObject):
         """
         Configure TitleBar with icon
 
-        :return: void
+        :return: None
         """
 
         """ Hide all widgets in title bar """
@@ -124,7 +124,7 @@ class Distribution(QObject):
         """
         Get current/previous month from locale and update display
 
-        :return: void
+        :return: None
         """
 
         current_month_nb = QDate.currentDate().month()
