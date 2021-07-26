@@ -42,6 +42,9 @@ class Savings(QObject):
         """ Configure status bar """
         self.configure_status_bar()
 
+        """ Configure chart """
+        self.configure_chart()
+
         """ Connect all slots and signals """
         self.connect_slots_and_signals()
 
@@ -61,9 +64,39 @@ class Savings(QObject):
         self.custom_status_bar.nextClicked.connect(self.chart_widget.chart_view.chart.show_next)
         self.custom_status_bar.previousClicked.connect(self.chart_widget.chart_view.chart.show_previous)
 
+    def configure_chart(self):
+        """
+        Initialize data for chart
+
+        :return: None
+        """
+
+        values = {"January-2020": 4235.23,
+                  "February-2020": 4565.23,
+                  "March-2020": 5454.34,
+                  "April-2020": 5674.76,
+                  "May-2020": 7345.87,
+                  "June-2020": 8340.89,
+                  "July-2020": 8957.54,
+                  "August-2020": 11100.34,
+                  "September-2020": 11550.12,
+                  "October-2020": 11567.87,
+                  "November-2020": 11978.78,
+                  "December-2020": 12010.98,
+                  "January-2021": 12056,
+                  "February-2021": 13450.12,
+                  "March-2021": 15469.35,
+                  "April-2021": 14356.00,
+                  "May-2021": 25098.63,
+                  "June-2021": 26098.57,
+                  "July-2021": 22054.00,
+                  "August-2021": 22000.45}
+
+        self.chart_widget.set_values(values)
+
     def display_values(self):
         """
-        Disaply values according to clicked button
+        Display values according to clicked button
 
         :return: None
         """

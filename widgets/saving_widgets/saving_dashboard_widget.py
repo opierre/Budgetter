@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from PySide2.QtCore import QDate
 from PySide2.QtWidgets import QWidget, QGridLayout
 
@@ -13,26 +15,9 @@ class SavingDashboard(QWidget):
         super(SavingDashboard, self).__init__(parent)
 
         """ Store values for months """
-        self.values = {"Janvier-2021": 12056,
-                       "Février-2021": 13450.12,
-                       "Mars-2021": 15469.35,
-                       "Avril-2021": 14356.00,
-                       "Mai-2021": 25098.63,
-                       "Juin-2021": 26098.57,
-                       "Juillet-2021": 22054.00,
-                       "Août-2021": 22000.45,
-                       "Janvier-2020": 4235.23,
-                       "Février-2020": 4565.23,
-                       "Mars-2020": 5454.34,
-                       "Avril-2020": 5674.76,
-                       "Mai-2020": 7345.87,
-                       "Juin-2020": 8340.89,
-                       "Juillet-2020": 8957.54,
-                       "Août-2020": 11100.34,
-                       "Septembre-2020": 11550.12,
-                       "Octobre-2020": 11567.87,
-                       "Novembre-2020": 11978.78,
-                       "Décembre-2020": 12010.98}
+        self.values = dict()
+        self.current_year_values = dict()
+        self.previous_year_values = dict()
 
         """ Store chart view """
         self.chart_view = CalloutChartView()
@@ -53,31 +38,44 @@ class SavingDashboard(QWidget):
         self._layout.setContentsMargins(0, 0, 0, 0)
         self._layout.addWidget(self.chart_view)
 
-        """ Configure chart """
-        self.set_current_year_values(True)
-
-    def set_current_year_values(self, boolean):
+    def set_values(self, values: dict):
         """
-        Display current year values if True, previous year values otherwise
+        Set values from DB
 
-        :param boolean: True/False
+        :param values: (dict) values to set
         :return: None
         """
 
-        values = dict()
+        ''' Clear previous data '''
+        self.current_year_values.clear()
+        self.previous_year_values.clear()
+
+        ''' Order data by date '''
+        self.values = sorted(values.items(), key=lambda x: datetime.strptime(x[0], '%B-%Y'), reverse=False)
+
+        ''' Retrieve current year for parsing '''
+        current_year = str(QDate.currentDate().year())
+
+        for item in self.values:
+            if current_year in item[0]:
+                self.current_year_values[item[0]] = item[1]
+            else:
+                self.previous_year_values[item[0]] = item[1]
+
+        ''' Set 12 last months '''
+
+    def set_current_year_values(self, boolean: bool):
+        """
+        Display current year values if True, previous year values otherwise
+
+        :param boolean: (bool)
+        :return: None
+        """
 
         if boolean:
-            ''' Retrieve current year for parsing '''
-            year = str(QDate.currentDate().year())
-
+            self.chart_view.set_values(self.current_year_values)
         else:
-            ''' Retrieve previous year for parsing '''
-            year = str(QDate.currentDate().year() - 1)
-
-        for key, item in self.values.items():
-            if year in key:
-                values[key] = item
-        self.chart_view.set_values(values)
+            self.chart_view.set_values(self.previous_year_values)
 
     def set_last_months(self):
         """
@@ -88,11 +86,15 @@ class SavingDashboard(QWidget):
 
         values = dict()
 
-        ''' Reconstrcut values '''
-        for key, item in self.values.items():
-            if len(values) != 12:
-                values[key] = item
-            else:
-                break
+        if len(self.current_year_values) < 12:
+            ''' Reconstruct values '''
+            for item in reversed(self.values):
+                values[item[0]] = item[1]
+        else:
+            values = self.current_year_values
 
-        self.chart_view.set_values(values)
+        ''' Order values '''
+        ordered_values = sorted(values.items(), key=lambda x: datetime.strptime(x[0], '%B-%Y'), reverse=False)
+
+        ''' Display last 12 months values '''
+        self.chart_view.set_values(ordered_values[0])
