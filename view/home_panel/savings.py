@@ -1,4 +1,4 @@
-from PySide2.QtCore import QObject, Qt, QDate
+from PySide2.QtCore import QObject, Qt, QDate, QCoreApplication
 from PySide2.QtWidgets import QWidget, QVBoxLayout, QStatusBar, \
     QPushButton
 
@@ -22,7 +22,7 @@ class Savings(QObject):
         self.status_bar = QStatusBar()
 
         """ Last 12 months button """
-        self.last_twelve_months = QPushButton("Last 12 months")
+        self.last_twelve_months = QPushButton(QCoreApplication.translate("savings", "Last 12 months"))
 
         """ Current Year button """
         self.current_year = QPushButton("")

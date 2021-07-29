@@ -52,4 +52,7 @@
     <file>images/menu-white-36dp.svg</file>
     <file>images/dashboard-white-36dp.svg</file>
   </qresource>
+  <qresource prefix="i18n">
+    <file>i18n/fr_FR.qm</file>
+  </qresource>
 </RCC>
