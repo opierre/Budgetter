@@ -1,4 +1,4 @@
-from PySide2.QtCore import QObject, Qt, QDate
+from PySide2.QtCore import QObject, Qt, QDate, QCoreApplication
 from PySide2.QtGui import QIcon
 from PySide2.QtWidgets import QVBoxLayout, QStatusBar, QWidget, QPushButton, QListView, QSpacerItem, QSizePolicy
 
@@ -16,17 +16,17 @@ class Distribution(QObject):
         super(Distribution, self).__init__()
 
         """ Store gui """
-        self.uiSetup = gui
+        self.ui_setup = gui
 
         """ Store custom/classic status bar """
         self.custom_status_bar = StatusBar()
         self.status_bar = QStatusBar()
 
         """ Current Month button """
-        self.current_month = QPushButton("September")
+        self.current_month = QPushButton(QCoreApplication.translate("distribution", "September"))
 
         """ Previous Month button """
-        self.previous_month = QPushButton("August")
+        self.previous_month = QPushButton(QCoreApplication.translate("distribution", "August"))
 
         """ Store item delegate """
         self.distribution_delegate = DistributionDelegate()
@@ -74,7 +74,7 @@ class Distribution(QObject):
         layout.addWidget(self.status_bar)
         layout.setContentsMargins(0, 10, 0, 0)
 
-        self.uiSetup.monthlyExpenses.setWidget(widget)
+        self.ui_setup.monthlyExpenses.setWidget(widget)
 
     def configure_status_bar(self):
         """
@@ -116,9 +116,12 @@ class Distribution(QObject):
         :return: None
         """
 
+        """ Set title """
+        self.ui_setup.monthlyExpenses.set_title(QCoreApplication.translate("savings", "Expenses Distribution"))
+
         """ Hide all widgets in title bar """
-        self.uiSetup.monthlyExpenses.disable_title_bar_button()
-        self.uiSetup.monthlyExpenses.disable_search_bar()
+        self.ui_setup.monthlyExpenses.disable_title_bar_button()
+        self.ui_setup.monthlyExpenses.disable_search_bar()
 
     def set_current_and_previous_month(self):
         """

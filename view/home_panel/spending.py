@@ -1,4 +1,4 @@
-from PySide2.QtCore import QObject
+from PySide2.QtCore import QObject, QCoreApplication
 from PySide2.QtWidgets import QWidget, QHBoxLayout
 
 from widgets.spending_widgets.chart_dashboard_widget import ChartDashboard
@@ -31,7 +31,7 @@ class Spending(QObject):
         """
 
         """ Set title """
-        self.ui_setup.spending.set_title("Spending")
+        self.ui_setup.spending.set_title(QCoreApplication.translate("spending", "Spending"))
 
         """ Hide all widgets in title bar """
         self.ui_setup.spending.disable_title_bar_button()

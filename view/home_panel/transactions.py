@@ -1,4 +1,4 @@
-from PySide2.QtCore import QObject, Qt, QDate, QRect, QSize, QItemSelectionModel
+from PySide2.QtCore import QObject, Qt, QDate, QRect, QSize, QItemSelectionModel, QCoreApplication
 from PySide2.QtGui import QIcon, QFont, QFontMetrics
 from PySide2.QtWidgets import QVBoxLayout, QStatusBar, QWidget, QPushButton, QListView, QMenu, QFrame, QLineEdit, \
     QDoubleSpinBox, QDateEdit, QComboBox, QLabel
@@ -30,19 +30,19 @@ class Transactions(QObject):
         self.status_bar = QStatusBar()
 
         """ All button - Type """
-        self.all = QPushButton("All")
+        self.all = QPushButton(QCoreApplication.translate("transactions", "All"))
 
         """ Expenses button - Type """
-        self.expenses = QPushButton("Expenses")
+        self.expenses = QPushButton(QCoreApplication.translate("transactions", "Expenses"))
 
         """ Incomes button - Type """
-        self.income = QPushButton("Income")
+        self.income = QPushButton(QCoreApplication.translate("transactions", "Income"))
 
         """ Transfers button - Type """
-        self.transfer = QPushButton("Transfer")
+        self.transfer = QPushButton(QCoreApplication.translate("transactions", "Transfer"))
 
         """ All button - Account """
-        self.allAccount = QPushButton("All")
+        self.allAccount = QPushButton(QCoreApplication.translate("transactions", "All"))
 
         """ Account 1 button - Account """
         self.account1 = QPushButton("Livret A")
@@ -663,7 +663,7 @@ class Transactions(QObject):
         """
 
         """ Set title """
-        self.ui_setup.transactions.set_title("Transactions")
+        self.ui_setup.transactions.set_title(QCoreApplication.translate("transactions", "Transactions"))
 
     def update_current_filtering(self):
         """

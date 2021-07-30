@@ -62,6 +62,7 @@ class TitleBar(QWidget):
     def connect_widgets(self):
         """
         Connect all slots and signals
+
         :return: None
         """
 
@@ -74,6 +75,7 @@ class TitleBar(QWidget):
     def configure_widgets(self):
         """
         Configure widgets inside container
+
         :return: None
         """
 
@@ -93,6 +95,7 @@ class TitleBar(QWidget):
     def configure_layout(self):
         """
         Set elements in layout
+
         :return: None
         """
 
@@ -122,6 +125,7 @@ class TitleBar(QWidget):
     def set_title(self, title):
         """
         Set title
+
         :param title: title
         :return: None
         """
@@ -131,6 +135,7 @@ class TitleBar(QWidget):
     def get_title(self):
         """
         Return title
+
         :return: title
         """
 
@@ -139,7 +144,8 @@ class TitleBar(QWidget):
     def set_icon(self, icon: QIcon):
         """
         Replace QIcon with icon
-        :param icon: QIcon to set
+
+        :param icon: (QIcon) icon to set
         :return: None
         """
 
@@ -149,6 +155,7 @@ class TitleBar(QWidget):
     def disable_button(self):
         """
         Hide button on top right corner if useless
+
         :return: None
         """
 
@@ -157,6 +164,7 @@ class TitleBar(QWidget):
     def disable_search(self):
         """
         Hide search bar on top right corner if useless
+
         :return: None
         """
 

@@ -1,4 +1,4 @@
-from PySide2.QtCore import QObject
+from PySide2.QtCore import QObject, QCoreApplication
 from PySide2.QtWidgets import QListView, QWidget, QHBoxLayout
 
 from models.accounts_model import AccountsModel
@@ -67,7 +67,7 @@ class Accounts(QObject):
         """
 
         """ Set title """
-        self.ui_setup.accounts.set_title("Balance")
+        self.ui_setup.accounts.set_title(QCoreApplication.translate("accounts", "Balance"))
 
         """ Hide all widgets in title bar """
         self.ui_setup.accounts.disable_title_bar_button()

@@ -1,7 +1,7 @@
 from PySide2.QtCharts import QtCharts
 from PySide2.QtCore import QPointF, QRectF, QRect, Qt, QSizeF, QMargins, QDateTime
 from PySide2.QtGui import QFontMetrics, QFont, QPainterPath, QPainter, QColor, QResizeEvent
-from PySide2.QtWidgets import QGraphicsView, QGraphicsItem, QGraphicsScene
+from PySide2.QtWidgets import QGraphicsView, QGraphicsItem, QGraphicsScene, QStyleOptionGraphicsItem
 
 from utils.tools import convert_amount_to_str
 from widgets.saving_widgets.saving_chart_widget import SavingChart
@@ -54,11 +54,11 @@ class Callout(QGraphicsItem):
         self.complete_rect = QRectF(self.text_rect.adjusted(-5, -5, 5, 5))
         self.update_geometry()
 
-    def update_geometry(self, alignment=Qt.AlignLeft):
+    def update_geometry(self, alignment: Qt.AlignmentFlag = Qt.AlignLeft):
         """
         Update geometry to shift from anchor
 
-        :param alignment: alignment of callout
+        :param alignment: (Qt.AlignmentFlag) alignment of callout
         :return: None
         """
 
@@ -73,7 +73,7 @@ class Callout(QGraphicsItem):
         """
         Override boundingRect() from QGraphicsItem
 
-        :return: bounding rect as QRectF
+        :return: (QRectF) bounding rect
         """
 
         """ Retrieve position from chart """
@@ -90,13 +90,13 @@ class Callout(QGraphicsItem):
 
         return rect
 
-    def paint(self, painter, option, widget):
+    def paint(self, painter: QPainter, option: QStyleOptionGraphicsItem, widget):
         """
         Override paint() from QGraphicsItem
 
-        :param painter: QPainter
-        :param option: QStyleOptionGraphicsItem
-        :param widget: QWidget
+        :param painter: (QPainter) painter
+        :param option: (QStyleOptionGraphicsItem)
+        :param widget: widget
         :return: None
         """
 
@@ -206,12 +206,12 @@ class CalloutChartView(QGraphicsView):
 
         super().resizeEvent(event)
 
-    def display_callout(self, point: QPointF, alignment: Qt.Alignment):
+    def display_callout(self, point: QPointF, alignment: Qt.AlignmentFlag):
         """
         Display callout
 
-        :param point: Point to display legend on
-        :param alignment: alignment to display callout on left or right
+        :param point: (QPointF) Point to display legend on
+        :param alignment: (Qt.AlignmentFlag) alignment to display callout on left or right
         :return: None
         """
 

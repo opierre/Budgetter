@@ -1,4 +1,4 @@
-from PySide2.QtCore import QObject
+from PySide2.QtCore import QObject, QCoreApplication
 from PySide2.QtGui import QIcon
 from PySide2.QtWidgets import QActionGroup
 
@@ -60,12 +60,12 @@ class Menu(QObject):
 
         if pageNumber == 0:
             """ Update Header """
-            self.uiSetup.menuLabel.setText("Dashboard")
+            self.uiSetup.menuLabel.setText(QCoreApplication.translate("menu", "Dashboard"))
 
         elif pageNumber == 1:
             """ Update Header """
-            self.uiSetup.menuLabel.setText("Graph")
+            self.uiSetup.menuLabel.setText(QCoreApplication.translate("menu", "Graph"))
 
         elif pageNumber == 2:
             """ Update Header """
-            self.uiSetup.menuLabel.setText("Insights")
+            self.uiSetup.menuLabel.setText(QCoreApplication.translate("menu", "Insights"))

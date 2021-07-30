@@ -1,7 +1,7 @@
-from PySide2.QtCore import QSize, Qt, QRect, QRectF
+from PySide2.QtCore import QSize, Qt, QRect, QRectF, QModelIndex, QCoreApplication
 from PySide2.QtGui import QPen, QColor, QPainter, QFont, QFontMetrics
 from PySide2.QtSvg import QSvgRenderer
-from PySide2.QtWidgets import QItemDelegate
+from PySide2.QtWidgets import QItemDelegate, QStyleOptionViewItem
 
 from utils.tools import convert_amount_to_str
 
@@ -17,22 +17,24 @@ class AccountDelegate(QItemDelegate):
         """ Store font for values """
         self.font = QFont()
 
-    def sizeHint(self, optionQStyleOptionViewItem, index):
+    def sizeHint(self, optionQStyleOptionViewItem: QStyleOptionViewItem, index: QModelIndex):
         """
         Override sizeHint
-        :param optionQStyleOptionViewItem: optionQStyleOptionViewItem
-        :param index: index
+
+        :param optionQStyleOptionViewItem: (QStyleOptionViewItem) optionQStyleOptionViewItem
+        :param index: (QModelIndex) index
         :return: QSize(10, 70)
         """
 
         return QSize(10, 70)
 
-    def paint(self, painter, option, index):
+    def paint(self, painter: QPainter, option: QStyleOptionViewItem, index: QModelIndex):
         """
         Override paint
-        :param painter: painter
-        :param option: option
-        :param index: index
+
+        :param painter: (QPainter) painter
+        :param option: (QStyleOptionViewItem) option
+        :param index: (QModelIndex) index
         :return: None
         """
 
@@ -118,7 +120,8 @@ class AccountDelegate(QItemDelegate):
         """ Set number of transactions beside category """
         rectTransaction = QRect(rectCategory.x(), rectCategory.y()+rectCategory.height()+option.rect.height()*1/10,
                                 pixelsWidth, pixelsHeight)
-        painter.drawText(rectTransaction, Qt.AlignLeft | Qt.AlignVCenter, 'Account')
+        painter.drawText(rectTransaction, Qt.AlignLeft | Qt.AlignVCenter, QCoreApplication.translate("account_delegate",
+                                                                                                     'Account'))
 
         """ Set font on painter for amount """
         self.font.setFamily(u"Roboto")
@@ -166,6 +169,7 @@ class AccountDelegate(QItemDelegate):
         """ Set percentage beside amount """
         rectPerc = QRect(rectBackground.width()+rectBackground.x()-pixelsWidth-option.rect.width()*1/50, rectTransaction.y(),
                          pixelsWidth, pixelsHeight)
-        painter.drawText(rectPerc, Qt.AlignRight | Qt.AlignVCenter, 'Balance')
+        painter.drawText(rectPerc, Qt.AlignRight | Qt.AlignVCenter, QCoreApplication.translate("account_delegate",
+                                                                                               'Balance'))
 
         painter.restore()

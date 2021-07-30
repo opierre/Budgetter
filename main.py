@@ -8,7 +8,7 @@ from controller.controller import Controller
 if __name__ == "__main__":
     app = QApplication([])
     translator = QTranslator()
-    # translator.load(':/i18n/i18n/fr_FR.qm')
+    translator.load(':/i18n/i18n/fr_FR.qm')
     app.installTranslator(translator)
     widget = Controller()
     sys.exit(app.exec_())

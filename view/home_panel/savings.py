@@ -144,7 +144,7 @@ class Savings(QObject):
         """
 
         """ Set title """
-        self.ui_setup.savings.set_title("Savings")
+        self.ui_setup.savings.set_title(QCoreApplication.translate("savings", "Savings"))
 
         """ Hide all widgets in title bar """
         self.ui_setup.savings.disable_title_bar_button()

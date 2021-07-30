@@ -1,8 +1,8 @@
 import math
 from math import cos, pi, sin, sqrt
 
-from PySide2.QtCore import Qt, QSize, QRect, QPointF, QRectF
-from PySide2.QtGui import QPainter, QPen, QColor, QFont, QFontMetrics
+from PySide2.QtCore import Qt, QSize, QRect, QPointF, QRectF, QCoreApplication
+from PySide2.QtGui import QPainter, QPen, QColor, QFont, QFontMetrics, QPaintEvent
 from PySide2.QtSvg import QSvgRenderer
 from PySide2.QtWidgets import QWidget
 
@@ -35,19 +35,21 @@ class DonutChart(QWidget):
         """ Set margins """
         self.setContentsMargins(0, 0, 0, 0)
 
-    def add_slice(self, percentage):
+    def add_slice(self, percentage: int):
         """
         Add slice with percentage value
-        :param percentage: percentage value
+
+        :param percentage: (int) percentage value
         :return: None
         """
 
         self._slices.append(percentage)
 
-    def paintEvent(self, event):
+    def paintEvent(self, event: QPaintEvent):
         """
         Override paintEvent()
-        :param event: event
+
+        :param event: (QPaintEvent) event
         :return: None
         """
 
@@ -73,9 +75,10 @@ class DonutChart(QWidget):
         """ Draw middle text """
         self.draw_total_amount(pen, painter)
 
-    def draw_background(self, painter):
+    def draw_background(self, painter: QPainter):
         """
         Draw background as shadow effect
+
         :param painter: painter
         :return: None
         """
@@ -96,11 +99,12 @@ class DonutChart(QWidget):
         """ Draw arc """
         painter.drawEllipse(rect_origins)
 
-    def draw_slices(self, pen, painter):
+    def draw_slices(self, pen: QPen, painter: QPainter):
         """
         Draw each slice
-        :param pen: pen
-        :param painter: painter
+
+        :param pen: (QPen) pen
+        :param painter: (QPainter) painter
         :return: None
         """
 
@@ -178,8 +182,9 @@ class DonutChart(QWidget):
     def draw_total_amount(self, pen, painter):
         """
         Draw total amouint in middle of rectangle
-        :param pen: pen
-        :param painter: painter
+
+        :param pen: (QPen) pen
+        :param painter: (QPainter) painter
         :return: None
         """
 
@@ -194,7 +199,7 @@ class DonutChart(QWidget):
         painter.setPen(pen)
 
         """ Get font metrics """
-        text = "Current balance"
+        text = QCoreApplication.translate("donut_chart", "Current balance")
         fontMetrics = QFontMetrics(font)
         pixelsWidth = fontMetrics.width(text)
         pixelsHeight = fontMetrics.height()
@@ -243,19 +248,21 @@ class DonutChart(QWidget):
 
         painter.end()
 
-    def set_total_amount(self, total_amount):
+    def set_total_amount(self, total_amount: float):
         """
         Update total amount
-        :param total_amount: total amount
+
+        :param total_amount: (float) total amount
         :return: None
         """
 
         self.total_amount = total_amount
 
-    def set_trend(self, trend):
+    def set_trend(self, trend: str):
         """
         Update trend
-        :param trend: "FLAT"/"UP"/"DOWN"
+
+        :param trend: (str) "FLAT"/"UP"/"DOWN"
         :return: None
         """
 
