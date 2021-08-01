@@ -74,17 +74,17 @@ class CircleCheckbox(QPushButton):
 
         """ Set color according to type """
         painter.setPen(Qt.NoPen)
-        if self._type == 'Income' and opt.state & QStyle.State_On:
+        if self._type in {'Income', 'Revenus'} and opt.state & QStyle.State_On:
             painter.setBrush(QColor(109, 210, 48, 255))
-        elif self._type == 'Income' and not(opt.state & QStyle.State_Selected):
+        elif self._type in {'Income', 'Revenus'} and not(opt.state & QStyle.State_Selected):
             painter.setBrush(QColor(109, 210, 48, 128))
-        elif self._type == 'Expenses' and opt.state & QStyle.State_On:
+        elif self._type in {'Expenses', 'Dépenses'} and opt.state & QStyle.State_On:
             painter.setBrush(QColor(254, 77, 151, 255))
-        elif self._type == 'Expenses' and not(opt.state & QStyle.State_Selected):
+        elif self._type in {'Expenses', 'Dépenses'} and not(opt.state & QStyle.State_Selected):
             painter.setBrush(QColor(254, 77, 151, 128))
-        elif self._type == 'Transfer' and opt.state & QStyle.State_On:
+        elif self._type in {'Transfer', 'Transferts'} and opt.state & QStyle.State_On:
             painter.setBrush(QColor(250, 202, 0, 255))
-        elif self._type == 'Transfer' and not(opt.state & QStyle.State_Selected):
+        elif self._type in {'Transfer', 'Transferts'} and not(opt.state & QStyle.State_Selected):
             painter.setBrush(QColor(250, 202, 0, 128))
 
         """ Draw circle """
