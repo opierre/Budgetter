@@ -84,6 +84,7 @@ class TransactionDelegate(QStyledItemDelegate):
     def configure_widgets(self):
         """
         Configure widgets on delegate item
+
         :return: None
         """
 
@@ -102,6 +103,7 @@ class TransactionDelegate(QStyledItemDelegate):
     def set_editable(self, index):
         """
         Change value of editable index
+
         :param index: index of editable item
         :return: None
         """
@@ -112,6 +114,7 @@ class TransactionDelegate(QStyledItemDelegate):
     def get_first_row_rects(self):
         """
         Retrieve first row rectangles
+
         :return: first row rectangles
         """
 
@@ -246,6 +249,7 @@ class TransactionDelegate(QStyledItemDelegate):
     def sizeHint(self, optionQStyleOptionViewItem, index):
         """
         Override sizeHint
+
         :param optionQStyleOptionViewItem: optionQStyleOptionViewItem
         :param index: index
         :return: QSize(10, 70)
@@ -253,12 +257,13 @@ class TransactionDelegate(QStyledItemDelegate):
 
         return QSize(10, 70)
 
-    def paint(self, painter, option, index):
+    def paint(self, painter: QPainter, option, index: QModelIndex):
         """
         Override paint
-        :param painter: painter
+
+        :param painter: (QPainter) painter
         :param option: option
-        :param index: index
+        :param index: (QModelIndex) index
         :return: None
         """
 
@@ -300,19 +305,19 @@ class TransactionDelegate(QStyledItemDelegate):
         self.draw_amount(painter, rect_background, index, amount)
 
         """ Draw amount label """
-        self.draw_label(painter, rect_background, "Amount", 1/4)
+        self.draw_label(painter, rect_background, QApplication.translate("transaction_delegate", "Amount"), 1/4)
 
         """ Draw date """
         self.draw_date(painter, rect_background, index, date)
 
         """ Draw date label """
-        self.draw_label(painter, rect_background, "Date", 1.8/4)
+        self.draw_label(painter, rect_background, QApplication.translate("transaction_delegate", "Date"), 1.8/4)
 
         """ Draw account """
         self.draw_account(painter, rect_background, index, account)
 
         """ Draw account label """
-        self.draw_label(painter, rect_background, "Account", 2.6/4)
+        self.draw_label(painter, rect_background, QApplication.translate("transaction_delegate", "Account"), 2.6/4)
 
         """ Draw mean icon """
         self.draw_means(painter, rect_background, means, index)
@@ -436,10 +441,11 @@ class TransactionDelegate(QStyledItemDelegate):
             painter.drawLine(option.rect.x()+option.rect.width()*1/60, option.rect.y()+option.rect.height()-1,
                              option.rect.width()-option.rect.width()*1/60, option.rect.y()+option.rect.height()-1)
 
-    def draw_means(self, painter, rect_background, means, index):
+    def draw_means(self, painter: QPainter, rect_background, means, index):
         """
         Draw mean icon
-        :param painter: painter
+
+        :param painter: (QPainter) painter
         :param rect_background: background rectangle
         :param means: payment means
         :param index: current index
@@ -458,13 +464,14 @@ class TransactionDelegate(QStyledItemDelegate):
             svgRender.setAspectRatioMode(Qt.KeepAspectRatio)
             svgRender.render(painter, self.rect_mean)
 
-    def draw_comment(self, painter, rect_background, index, comment):
+    def draw_comment(self, painter, rect_background, index, comment: str):
         """
         Draw mean icon
-        :param painter: painter
+
+        :param painter: (QPainter) painter
         :param rect_background: background rectangle
         :param index: index
-        :param comment: comment
+        :param comment: (str) comment
         :return: None
         """
 
@@ -529,11 +536,12 @@ class TransactionDelegate(QStyledItemDelegate):
                                     rect_background.width(), rect_background.height() + option.rect.height() * 2 / 6,
                                     7, 7)
 
-    def draw_left_icon(self, painter, index, category):
+    def draw_left_icon(self, painter: QPainter, index: QModelIndex, category):
         """
         Draw left icon
-        :param painter: painter
-        :param index: index
+
+        :param painter: (QPainter) painter
+        :param index: (QModelIndex) index
         :param category: category
         :return: None
         """
@@ -562,13 +570,14 @@ class TransactionDelegate(QStyledItemDelegate):
             svgRender.setAspectRatioMode(Qt.KeepAspectRatio)
             svgRender.render(painter, rectSvg)
 
-    def draw_name(self, painter, option, name, index):
+    def draw_name(self, painter: QPainter, option, name, index: QModelIndex):
         """
         Draw name
-        :param painter: painter
+
+        :param painter: (QPainter) painter
         :param option: option
         :param name: name
-        :param index: index
+        :param index: (QModelIndex) index
         :return: None
         """
 
@@ -593,12 +602,13 @@ class TransactionDelegate(QStyledItemDelegate):
         if self.editable != index:
             painter.drawText(self.rect_name, Qt.AlignLeft | Qt.AlignVCenter, name)
 
-    def draw_category(self, painter, option, index, category):
+    def draw_category(self, painter: QPainter, option, index: QModelIndex, category):
         """
         Draw category
-        :param painter: painter
+
+        :param painter: (QPainter) painter
         :param option: option
-        :param index: index
+        :param index: (QModelIndex) index
         :param category: category
         :return: None
         """
@@ -622,12 +632,13 @@ class TransactionDelegate(QStyledItemDelegate):
         if self.editable != index:
             painter.drawText(self.rect_category_name, Qt.AlignLeft | Qt.AlignVCenter, category)
 
-    def draw_amount(self, painter, rect_background, index, amount):
+    def draw_amount(self, painter: QPainter, rect_background, index: QModelIndex, amount):
         """
         Draw amount
-        :param painter: painter
+
+        :param painter: (QPainter) painter
         :param rect_background: rect
-        :param index: index
+        :param index: (QModelIndex) index
         :param amount: amount
         :return: None
         """
@@ -651,10 +662,11 @@ class TransactionDelegate(QStyledItemDelegate):
         if self.editable != index:
             painter.drawText(self.rect_amount, Qt.AlignLeft | Qt.AlignVCenter, amount)
 
-    def draw_label(self, painter, rect_background, label, x):
+    def draw_label(self, painter: QPainter, rect_background, label, x):
         """
         Draw label
-        :param painter: painter
+
+        :param painter: (QPainter) painter
         :param rect_background: rect
         :param label: label to write
         :param x: x position
@@ -679,12 +691,13 @@ class TransactionDelegate(QStyledItemDelegate):
                                 pixelsWidth, pixelsHeight)
         painter.drawText(rectAmountLabel, Qt.AlignLeft | Qt.AlignVCenter, label)
 
-    def draw_date(self, painter, rect_background, index, date):
+    def draw_date(self, painter: QPainter, rect_background, index: QModelIndex, date):
         """
         Draw date
-        :param painter: painter
+
+        :param painter: (QPainter) painter
         :param rect_background: rect
-        :param index: index
+        :param index: (QModelIndex) index
         :param date: date
         :return: None
         """
@@ -708,12 +721,13 @@ class TransactionDelegate(QStyledItemDelegate):
         if self.editable != index:
             painter.drawText(self.rect_date, Qt.AlignLeft | Qt.AlignVCenter, date)
 
-    def draw_account(self, painter, rect_background, index, account):
+    def draw_account(self, painter: QPainter, rect_background, index: QModelIndex, account):
         """
         Draw account
-        :param painter: painter
+
+        :param painter: (QPainter) painter
         :param rect_background: rect
-        :param index: index
+        :param index: (QModelIndex) index
         :param account: account
         :return: None
         """

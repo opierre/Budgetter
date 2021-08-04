@@ -1,3 +1,5 @@
+from PySide2.QtCore import QModelIndex
+from PySide2.QtGui import QPainter
 from PySide2.QtWidgets import QStyledItemDelegate, QStyle
 
 
@@ -9,12 +11,13 @@ class CategoryComboBox(QStyledItemDelegate):
     def __init__(self, parent=None):
         super(CategoryComboBox, self).__init__(parent)
 
-    def paint(self, painter, option, index):
+    def paint(self, painter: QPainter, option, index: QModelIndex):
         """
         Override paint()
-        :param painter: painter
+
+        :param painter: (QPainter) painter
         :param option: option
-        :param index: index
+        :param index: (QModelIndex) index
         :return: None
         """
 

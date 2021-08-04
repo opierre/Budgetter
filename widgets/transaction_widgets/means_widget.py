@@ -25,10 +25,11 @@ class MeanCheckbox(QPushButton):
         """ Set cursors """
         self.setCursor(Qt.PointingHandCursor)
 
-    def set_type(self, _type):
+    def set_type(self, _type: str):
         """
         Change type of radio button
-        :param _type: 'Espèces'/'Virement'/'Carte'
+
+        :param _type: (str) 'Espèces'/'Virement'/'Carte'
         :return: None
         """
 
@@ -37,6 +38,7 @@ class MeanCheckbox(QPushButton):
     def paintEvent(self, event):
         """
         Override paintEvent()
+
         :param event: paint event
         :return: None
         """
@@ -116,6 +118,7 @@ class Mean(QWidget):
     def connect_slots_and_signals(self):
         """
         Connect all slots and signals
+
         :return: None
         """
 
@@ -127,6 +130,7 @@ class Mean(QWidget):
     def handle_click(self):
         """
         Handle click on one button to deselect others
+
         :return: None
         """
 
@@ -148,6 +152,7 @@ class Mean(QWidget):
     def configure_widgets(self):
         """
         Configure both push buttons
+
         :return: None
         """
 
@@ -161,10 +166,11 @@ class Mean(QWidget):
         self.center_button.setFixedHeight(self.rect().height())
         self.right_button.setFixedHeight(self.rect().height())
 
-    def set_active_type(self, active_type):
+    def set_active_type(self, active_type: str):
         """
         Select one button according to active type parameter
-        :param active_type: "Virement"/"Espèces"/"Carte"
+
+        :param active_type: (str) "Virement"/"Espèces"/"Carte"
         :return: None
         """
 
@@ -189,6 +195,7 @@ class Mean(QWidget):
     def configure_layout(self):
         """
         Configure layout
+
         :return: None
         """
 
@@ -206,6 +213,7 @@ class Mean(QWidget):
     def paintEvent(self, event):
         """
         Override paintEvent()
+
         :param event: event
         :return: None
         """

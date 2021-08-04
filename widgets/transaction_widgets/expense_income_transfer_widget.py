@@ -1,6 +1,6 @@
 import sys
 
-from PySide2.QtCore import Qt, QRectF, Signal, QRect
+from PySide2.QtCore import Qt, QRectF
 from PySide2.QtGui import QPainter, QColor, QPen
 from PySide2.QtWidgets import QWidget, QVBoxLayout, QPushButton, QApplication, \
     QStyleOptionButton, QStyle
@@ -26,9 +26,10 @@ class CircleCheckbox(QPushButton):
         """ Set cursors """
         self.setCursor(Qt.PointingHandCursor)
 
-    def set_type(self, _type):
+    def set_type(self, _type: str):
         """
         Change type of radio button
+
         :param _type: 'Income'/'Expenses'/'Transfer'
         :return: None
         """
@@ -38,6 +39,7 @@ class CircleCheckbox(QPushButton):
     def paintEvent(self, event):
         """
         Override paintEvent()
+
         :param event: paint event
         :return: None
         """
@@ -131,6 +133,7 @@ class ExpensesIncomeTransfer(QWidget):
     def connect_slots_and_signals(self):
         """
         Connect all slots and signals
+
         :return: None
         """
 
@@ -142,6 +145,7 @@ class ExpensesIncomeTransfer(QWidget):
     def handle_click(self):
         """
         Handle click on one button to deselect others
+
         :return: None
         """
 
@@ -163,6 +167,7 @@ class ExpensesIncomeTransfer(QWidget):
     def configure_widgets(self):
         """
         Configure both push buttons
+
         :return: None
         """
 
@@ -171,9 +176,10 @@ class ExpensesIncomeTransfer(QWidget):
         self.middle_button.set_type("Expenses")
         self.bottom_button.set_type("Transfer")
 
-    def set_active_type(self, active_type):
+    def set_active_type(self, active_type: str):
         """
         Select one button according to active type parameter
+
         :param active_type: "Expenses"/"Income"/"Transfer"
         :return: None
         """
@@ -199,6 +205,7 @@ class ExpensesIncomeTransfer(QWidget):
     def configure_layout(self):
         """
         Configure layout
+
         :return: None
         """
 
@@ -216,6 +223,7 @@ class ExpensesIncomeTransfer(QWidget):
     def paintEvent(self, event):
         """
         Override paintEvent()
+
         :param event: event
         :return: None
         """

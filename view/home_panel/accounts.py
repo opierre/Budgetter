@@ -3,7 +3,7 @@ from PySide2.QtWidgets import QListView, QWidget, QHBoxLayout
 
 from models.accounts_model import AccountsModel
 from widgets.balance_widgets.account_delegate import AccountDelegate
-from widgets.balance_widgets.donut_chat_widget import DonutChart
+from widgets.balance_widgets.donut_chart_widget import DonutChart
 
 
 class Accounts(QObject):

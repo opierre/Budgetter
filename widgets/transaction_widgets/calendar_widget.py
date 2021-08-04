@@ -26,6 +26,7 @@ class CalendarWidget(QCalendarWidget):
     def paintCell(self, painter, rect, date):
         """
         Override paintCell to display rounded selection
+
         :param painter: painter
         :param rect: rect
         :param date: date

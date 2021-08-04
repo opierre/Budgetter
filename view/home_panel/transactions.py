@@ -457,6 +457,7 @@ class Transactions(QObject):
     def search_transaction(self, content):
         """
         Search transaction as filter
+
         :param content: content to look for in transactions
         :return: None
         """
@@ -507,6 +508,7 @@ class Transactions(QObject):
     def modify_transaction(self, index):
         """
         Modify transaction content on Apply click
+
         :param index: index in model
         :return: None
         """
@@ -527,6 +529,7 @@ class Transactions(QObject):
     def hide_edit_widgets(self):
         """
         Hide all editable widgets in transaction item
+
         :return: None
         """
 
@@ -552,6 +555,7 @@ class Transactions(QObject):
     def configure_layout(self):
         """
         Configure layout inside of Container
+
         :return: None
         """
 
@@ -566,6 +570,7 @@ class Transactions(QObject):
     def configure_list_view(self):
         """
         Configure transactions list view to handle events/model
+
         :return: None
         """
 
@@ -593,6 +598,7 @@ class Transactions(QObject):
     def configure_status_bar(self):
         """
         Configure status bar
+
         :return: None
         """
 
@@ -659,6 +665,7 @@ class Transactions(QObject):
     def configure_title_bar(self):
         """
         Configure TitleBar with icon
+
         :return: None
         """
 
@@ -668,6 +675,7 @@ class Transactions(QObject):
     def update_current_filtering(self):
         """
         Update current filtering after click on button
+
         :return: None
         """
 
@@ -681,17 +689,17 @@ class Transactions(QObject):
         self.transactions_filter_model.update_filter(newFilter)
 
         """ Update activated state """
-        if newFilter == 'All':
+        if newFilter in {'All', 'Tout'}:
             self.all.setProperty("activated", "true")
             self.expenses.setProperty("activated", "false")
             self.income.setProperty("activated", "false")
             self.transfer.setProperty("activated", "false")
-        elif newFilter == 'Expenses':
+        elif newFilter in {'Expenses', 'Dépenses'}:
             self.all.setProperty("activated", "false")
             self.expenses.setProperty("activated", "true")
             self.income.setProperty("activated", "false")
             self.transfer.setProperty("activated", "false")
-        elif newFilter == 'Income':
+        elif newFilter in {'Income', 'Revenus'}:
             self.all.setProperty("activated", "false")
             self.expenses.setProperty("activated", "false")
             self.income.setProperty("activated", "true")
@@ -715,6 +723,7 @@ class Transactions(QObject):
     def add_filter(self):
         """
         Add filter to current filtering after click on button
+
         :return: None
         """
 

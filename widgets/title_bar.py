@@ -1,6 +1,6 @@
 from PySide2.QtCore import QSize, Signal
 from PySide2.QtGui import QIcon, Qt, QFont
-from PySide2.QtWidgets import QWidget, QHBoxLayout, QLabel, QPushButton, QSpacerItem, QSizePolicy, QAction
+from PySide2.QtWidgets import QWidget, QHBoxLayout, QLabel, QPushButton, QSpacerItem, QSizePolicy, QAction, QApplication
 
 from widgets.line_edit_with_icon import LineEditWithIcon
 
@@ -88,7 +88,7 @@ class TitleBar(QWidget):
 
         """ Configure Search bar on top right corner """
         self._search.setFont(QFont("Roboto", 11, QFont.Normal))
-        self._search.setPlaceholderText("Search")
+        self._search.setPlaceholderText(QApplication.translate("title_bar", "Search"))
         self._search.setClearButtonEnabled(True)
         self._search.findChild(QAction, "_q_qlineeditclearaction").setIcon(QIcon(":/images/images/clear-white-18dp.svg"))
 
