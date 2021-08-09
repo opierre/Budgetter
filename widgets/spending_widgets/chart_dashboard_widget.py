@@ -1,4 +1,4 @@
-from PySide2.QtCore import Qt, QDate, QRect, QRectF
+from PySide2.QtCore import Qt, QDate, QRect, QRectF, QLocale
 from PySide2.QtGui import QPainter, QColor, QLinearGradient, QBrush, QPen, QFont
 from PySide2.QtWidgets import QWidget, QPushButton, QStyleOptionButton, QStyle, QButtonGroup, QGridLayout
 from PySide2.QtCharts import QtCharts
@@ -50,6 +50,7 @@ class ChartDashboard(QWidget):
     def configure_widgets(self):
         """
         Configure child widgets
+
         :return: None
         """
 
@@ -68,6 +69,7 @@ class ChartDashboard(QWidget):
     def connect_slots_and_signals(self):
         """
         Connect all slots and signals
+
         :return: None
         """
 
@@ -77,6 +79,7 @@ class ChartDashboard(QWidget):
     def get_months(self):
         """
         Get months
+
         :return: None
         """
 
@@ -104,9 +107,8 @@ class ChartDashboard(QWidget):
                      "}"
 
         """ Get current month """
-        current_month_nb = QDate.currentDate().month()
-        current_month = QDate.currentDate().longMonthName(current_month_nb)
-        self.months[5].setText(current_month.upper()[0:3])
+        current_month = QLocale().toString(QDate.currentDate(), 'MMM')
+        self.months[5].setText(current_month.upper())
         self.months[5].setStyleSheet(stylesheet)
         self.months[5].setCursor(Qt.PointingHandCursor)
         self.months[5].setCheckable(True)
@@ -114,20 +116,17 @@ class ChartDashboard(QWidget):
 
         """ Get 5 previous month and update stylesheet """
         for index in range(1, 6):
-            if current_month_nb == 1:
-                current_month_nb = 13
-            previous_month = QDate.currentDate().longMonthName(current_month_nb - 1)
-            self.months[5 - index].setText(previous_month.upper()[0:3])
+            previous_month = QLocale().toString(QDate.currentDate().addMonths(-index), 'MMM')
+            self.months[5 - index].setText(previous_month.upper())
             self.months[5 - index].setStyleSheet(stylesheet)
             self.months[5 - index].setCursor(Qt.PointingHandCursor)
             self.months[5 - index].setCheckable(True)
             self.button_group.addButton(self.months[5 - index])
 
-            current_month_nb -= 1
-
     def set_values(self, values):
         """
         Set value for each month
+
         :param values: values [1 --> 6]
         :return: None
         """
@@ -140,6 +139,7 @@ class ChartDashboard(QWidget):
     def paintEvent(self, event):
         """
         Override paintEvent()
+
         :param event: QEvent
         :return: None
         """
@@ -175,10 +175,11 @@ class ChartDashboard(QWidget):
         """ Draw values """
         self.draw_values(painter, rectangle_period)
 
-    def draw_separator(self, painter):
+    def draw_separator(self, painter: QPainter):
         """
         Draw upper separator between months and line
-        :param painter: painter
+
+        :param painter: (QPainter) painter
         :return: None
         """
 
@@ -193,10 +194,11 @@ class ChartDashboard(QWidget):
         painter.drawLine(self.rect().x(), self.rect().y() + self.rect().height() * 1/6,
                          self.rect().width(), self.rect().y() + self.rect().height() * 1/6)
 
-    def draw_months(self, painter):
+    def draw_months(self, painter: QPainter):
         """
         Draw months as buttons
-        :param painter: painter
+
+        :param painter: (QPainter) painter
         :return: None
         """
 
@@ -236,11 +238,12 @@ class ChartDashboard(QWidget):
                     """ Update current month """
                     self.current_month = index
 
-    def draw_amount(self, painter):
+    def draw_amount(self, painter: QPainter):
         """
         Draw amount for selected month
-        :param painter: painter
-        :return: rectangle where amount has been drawn
+
+        :param painter: (QPainter) painter
+        :return: (QRectF) rectangle where amount has been drawn
         """
 
         """ Set rectangle """

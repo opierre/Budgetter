@@ -133,7 +133,5 @@ class Distribution(QObject):
         current_month = QLocale().toString(QDate.currentDate(), 'MMMM')
         self.current_month.setText(current_month.capitalize())
 
-        if current_month_nb == 1:
-            current_month_nb = 13
-        previous_month = QDate.currentDate().longMonthName(current_month_nb - 1)
+        previous_month = QLocale().toString(QDate.currentDate().addMonths(-1), 'MMMM')
         self.previous_month.setText(previous_month.capitalize())
