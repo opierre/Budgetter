@@ -1,5 +1,5 @@
 from PySide2.QtCharts import QtCharts
-from PySide2.QtCore import QPointF, QRectF, QRect, Qt, QSizeF, QMargins, QDateTime
+from PySide2.QtCore import QPointF, QRectF, QRect, Qt, QSizeF, QMargins, QDateTime, QLocale
 from PySide2.QtGui import QFontMetrics, QFont, QPainterPath, QPainter, QColor, QResizeEvent
 from PySide2.QtWidgets import QGraphicsView, QGraphicsItem, QGraphicsScene, QStyleOptionGraphicsItem
 
@@ -216,7 +216,7 @@ class CalloutChartView(QGraphicsView):
         """
 
         """ Set text """
-        x_value = QDateTime.fromMSecsSinceEpoch(point.x()).toString("MMMM yyyy").capitalize()
+        x_value = QLocale().toString(QDateTime.fromMSecsSinceEpoch(point.x()), "MMMM yyyy").capitalize()
         y_value = convert_amount_to_str(point.y())
         self.tooltip.set_text(f"{x_value}\n{y_value} €")
 

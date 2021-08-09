@@ -75,7 +75,7 @@ class SavingChart(QtCharts.QChart):
                 y_max_value = value
 
             """ Update X-Axis range """
-            x_value = float(QDateTime.fromString(key, "MMMM-yyyy").toMSecsSinceEpoch())
+            x_value = float(QDateTime.fromString(key, "MM-yyyy").toMSecsSinceEpoch())
 
             self.series_upper.append(x_value, value)
             self.series_finale.append(x_value, value)
