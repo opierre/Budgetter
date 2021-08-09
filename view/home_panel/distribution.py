@@ -1,4 +1,4 @@
-from PySide2.QtCore import QObject, Qt, QDate, QCoreApplication
+from PySide2.QtCore import QObject, Qt, QDate, QCoreApplication, QLocale
 from PySide2.QtGui import QIcon
 from PySide2.QtWidgets import QVBoxLayout, QStatusBar, QWidget, QPushButton, QListView, QSpacerItem, QSizePolicy
 
@@ -130,8 +130,7 @@ class Distribution(QObject):
         :return: None
         """
 
-        current_month_nb = QDate.currentDate().month()
-        current_month = QDate.currentDate().longMonthName(current_month_nb)
+        current_month = QLocale().toString(QDate.currentDate(), 'MMMM')
         self.current_month.setText(current_month.capitalize())
 
         if current_month_nb == 1:
