@@ -53,5 +53,4 @@ class Home(QObject):
         :return: None
         """
 
-        # self._savings.display_tooltip()
-        pass
+        self._savings.display_tooltip()

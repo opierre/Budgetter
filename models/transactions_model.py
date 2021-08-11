@@ -21,21 +21,23 @@ class TransactionsFilterModel(QSortFilterProxyModel):
         self.search = None
         self.search_value = None
 
-    def update_filter(self, new_filter):
+    def update_filter(self, new_filter: str):
         """
         Update current filter
-        :param new_filter: filter to set
+
+        :param new_filter: (str) filter to set
         :return: None
         """
 
         self.type = new_filter
         self.invalidateFilter()
 
-    def update_search_filter(self, search_filter, search_value):
+    def update_search_filter(self, search_filter: str, search_value: str):
         """
         Update current filter on search bar
-        :param search_filter: filter to set
-        :param search_value: filter value to set
+
+        :param search_filter: (str) filter to set
+        :param search_value: (str) filter value to set
         :return: None
         """
 
@@ -43,10 +45,11 @@ class TransactionsFilterModel(QSortFilterProxyModel):
         self.search_value = search_value
         self.invalidateFilter()
 
-    def add_filter(self, new_filter):
+    def add_filter(self, new_filter: str):
         """
         Add current filter
-        :param new_filter: filter to set
+
+        :param new_filter: (str) filter to set
         :return: None
         """
 
@@ -56,6 +59,7 @@ class TransactionsFilterModel(QSortFilterProxyModel):
     def delete_transaction(self, index):
         """
         Call for deleteTransaction in source model
+
         :param index: index in filtered model
         :return: None
         """
@@ -68,6 +72,7 @@ class TransactionsFilterModel(QSortFilterProxyModel):
     def add_transaction(self):
         """
         Call for add_transaction in source model
+
         :return: None
         """
 
@@ -101,11 +106,11 @@ class TransactionsFilterModel(QSortFilterProxyModel):
         if self.type == 'All' and self.account == 'All':
             if self.search is not None:
                 if "name=" in self.search:
-                    return transaction["name"].lower() == self.search_value.lower()
+                    return self.search_value.lower() in transaction["name"].lower()
                 elif "date=" in self.search:
-                    return transaction["date"] == self.search_value
+                    return self.search_value in transaction["date"]
                 elif "amount=" in self.search:
-                    return transaction["amount"] == self.search_value
+                    return self.search_value in transaction["amount"]
                 else:
                     return True
             else:
