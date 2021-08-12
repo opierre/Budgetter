@@ -130,6 +130,15 @@ class ExpensesIncomeTransfer(QWidget):
         """ Connect all slots and signals """
         self.connect_slots_and_signals()
 
+    def active_type(self):
+        """
+        Return active type
+
+        :return: (str) active type
+        """
+
+        return self._active_type
+
     def connect_slots_and_signals(self):
         """
         Connect all slots and signals
@@ -201,6 +210,8 @@ class ExpensesIncomeTransfer(QWidget):
             self.middle_button.set_type("Transfer")
             self.top_button.set_type("Income")
             self.bottom_button.set_type("Expenses")
+
+        self._active_type = active_type
 
     def configure_layout(self):
         """

@@ -166,6 +166,15 @@ class Mean(QWidget):
         self.center_button.setFixedHeight(self.rect().height())
         self.right_button.setFixedHeight(self.rect().height())
 
+    def active_type(self):
+        """
+        Return active type
+
+        :return: (str) active type
+        """
+
+        return self._active_type
+
     def set_active_type(self, active_type: str):
         """
         Select one button according to active type parameter
@@ -191,6 +200,8 @@ class Mean(QWidget):
             self.center_button.set_type("Carte")
             self.left_button.set_type("Espèces")
             self.right_button.set_type("Virement")
+
+        self._active_type = active_type
 
     def configure_layout(self):
         """

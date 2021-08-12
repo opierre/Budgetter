@@ -1,7 +1,7 @@
 from PySide2.QtCore import QObject, Qt, QDate, QRect, QSize, QItemSelectionModel, QCoreApplication
 from PySide2.QtGui import QIcon, QFont, QFontMetrics
 from PySide2.QtWidgets import QVBoxLayout, QStatusBar, QWidget, QPushButton, QListView, QMenu, QFrame, QLineEdit, \
-    QDoubleSpinBox, QDateEdit, QComboBox, QLabel
+    QDoubleSpinBox, QDateEdit, QComboBox, QLabel, QAbstractItemView
 
 from models.transactions_model import TransactionsModel, TransactionsFilterModel
 from utils.rest_client import RestClient
@@ -154,6 +154,7 @@ class Transactions(QObject):
     def connect_slots_and_signals(self):
         """
         Connect all slots and signals
+
         :return: None
         """
 
@@ -191,6 +192,7 @@ class Transactions(QObject):
     def open_context_menu(self, index, position, rectName):
         """
         Open context menu on More click
+
         :param index: index in model
         :param position: position to open context menu
         :return: None
@@ -222,6 +224,7 @@ class Transactions(QObject):
     def display_comment(self, rectangle, index):
         """
         Display comment for current index
+
         :param rectangle: rectangle position
         :param index: current index hovered
         :return: None
@@ -232,6 +235,7 @@ class Transactions(QObject):
     def configure_edit_widgets(self):
         """
         Configure all edit widgets in transaction item
+
         :return: None
         """
 
@@ -303,7 +307,7 @@ class Transactions(QObject):
         """
         Update category name
         
-        :param name: (str) name
+        :param name: name
         :return: None
         """
 
@@ -322,18 +326,21 @@ class Transactions(QObject):
         Edit transaction on Edit click
 
         :param index: item's index
-        :param rectName: (QRect) rect where to put LineEdit
-        :param rectAmount: (QRect) rect where to put DoubleSpinBox
-        :param rectDate: (QRect) rect where to put DateEdit
-        :param rectAccount: (QRect) rect where to put Combobox
-        :param rectExpOrInc: (QRect) rect where to put ExpOrInc
-        :param rectCategory: (QRect) rect where to put Category
-        :param rectCategoryName: (QRect) rect where to put Category Name
-        :param rect_mean: (QRect) rect where to put Means button
-        :param rectEdit: (QRect) rect where to put Apply button
-        :param rectDelete: (QRect) rect where to put Cancel button
+        :param rectName: rect where to put LineEdit
+        :param rectAmount: rect where to put DoubleSpinBox
+        :param rectDate: rect where to put DateEdit
+        :param rectAccount: rect where to put Combobox
+        :param rectExpOrInc: rect where to put ExpOrInc
+        :param rectCategory: rect where to put Category
+        :param rectCategoryName: rect where to put Category Name
+        :param rect_mean: rect where to put Means button
+        :param rectEdit: rect where to put Apply button
+        :param rectDelete: rect where to put Cancel button
         :return: None
         """
+
+        """ Disable selection """
+        self.transactions_listview.setSelectionMode(QAbstractItemView.NoSelection)
 
         """ Configure Name widget """
         self.edit_name.setText(self.transactions_filter_model.data(index, Qt.DisplayRole)["name"])
@@ -448,6 +455,7 @@ class Transactions(QObject):
         """ Select line """
         selection_model = self.transactions_listview.selectionModel()
         selection_model.select(index, QItemSelectionModel.ClearAndSelect)
+        self.transactions_listview.setSelectionMode(QAbstractItemView.NoSelection)
 
         """ Retrieve all rects """
         output = self.transaction_delegate.get_first_row_rects()
@@ -515,13 +523,14 @@ class Transactions(QObject):
 
         value = {"name": self.edit_name.text(), "category": self.edit_category_name.text(),
                  "amount": self.edit_amount.value(), "date": self.edit_date.date().toString("dd/MM/yyyy"),
-                 "account": self.edit_account.currentText(), "type": self.edit_exp_or_inc.active_type()}
+                 "account": self.edit_account.currentText(), "type": self.edit_exp_or_inc.active_type(),
+                 "means": self.edit_mean.active_type(), "comment": ""}
 
         """ Remove transaction from model """
         self.transactions_filter_model.modify_transaction(self.transaction_delegate.editable, value)
 
         # TODO: to remove
-        rest_client = RestClient().POST("http://127.0.0.1:8000/dashboard/transaction/", value)
+        # rest_client = RestClient().POST("http://127.0.0.1:8000/dashboard/transaction/", value)
 
         """ Hide editable widgets """
         self.hide_edit_widgets()
@@ -544,6 +553,9 @@ class Transactions(QObject):
         self.edit_category_name.setVisible(False)
         self.apply.setVisible(False)
         self.cancel.setVisible(False)
+
+        """ Re-enable selection """
+        self.transactions_listview.setSelectionMode(QAbstractItemView.SingleSelection)
 
         """ Clear selection """
         selection_model = self.transactions_listview.selectionModel()

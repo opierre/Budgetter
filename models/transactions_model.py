@@ -1,3 +1,4 @@
+import typing
 from datetime import datetime
 
 from PySide2.QtCore import QAbstractListModel, Qt, QSortFilterProxyModel, QModelIndex, QDate
@@ -94,9 +95,10 @@ class TransactionsFilterModel(QSortFilterProxyModel):
     def filterAcceptsRow(self, source_row, source_parent):
         """
         Override filterAcceptsRow
+
         :param source_row: source_row
         :param source_parent: source_parent
-        :return: bool
+        :return: (bool)
         """
 
         src_model = self.sourceModel()
@@ -110,7 +112,7 @@ class TransactionsFilterModel(QSortFilterProxyModel):
                 elif "date=" in self.search:
                     return self.search_value in transaction["date"]
                 elif "amount=" in self.search:
-                    return self.search_value in transaction["amount"]
+                    return str(self.search_value) in str(transaction["amount"])
                 else:
                     return True
             else:
@@ -124,10 +126,11 @@ class TransactionsFilterModel(QSortFilterProxyModel):
 
     def lessThan(self, source_left, source_right):
         """
-        Override lessThan
+        Override lessThan()
+
         :param source_left: source_left
         :param source_right: source_right
-        :return: bool
+        :return: (bool)
         """
 
         left_data_date = self.sourceModel().data(source_left, Qt.DisplayRole)["date"]
@@ -150,10 +153,11 @@ class TransactionsModel(QAbstractListModel):
         """ Store transactions """
         self.transactions = transactions or dict()
 
-    def data(self, index, role):
+    def data(self, index: QModelIndex, role=Qt.ItemDataRole.DisplayRole):
         """
         Override data() from QAbstractListModel
-        :param index: index
+
+        :param index: (QModelIndex) index
         :param role: role
         :return: according to role (text, ...)
         """
@@ -164,13 +168,14 @@ class TransactionsModel(QAbstractListModel):
             """ Return current transaction list """
             return transaction
 
-    def setData(self, index, value, role):
+    def setData(self, index: QModelIndex, value: typing.Any, role=Qt.ItemDataRole.EditRole) -> True:
         """
         Override setData() from QAbstractListModel
+
         :param index: index
         :param value: value
         :param role: role
-        :return: according to role (text, ...)
+        :return: True
         """
 
         self.transactions[index.row()]["name"] = value["name"]
@@ -189,8 +194,9 @@ class TransactionsModel(QAbstractListModel):
     def rowCount(self, index):
         """
         Override rowCount() from QAbstractListModel
+
         :param index: index
-        :return: length of datas
+        :return: (int) length of datas
         """
 
         return len(self.transactions)
@@ -198,6 +204,7 @@ class TransactionsModel(QAbstractListModel):
     def delete_transaction(self, index):
         """
         Remove transaction from model according to index
+
         :param index: index in model
         :return: None
         """
@@ -209,19 +216,21 @@ class TransactionsModel(QAbstractListModel):
     def add_transaction(self):
         """
         Add transaction to model
+
         :return: None
         """
 
         self.beginInsertRows(QModelIndex(), 0, 0)
         previous_type = self.data(self.index(0, 0, QModelIndex()), Qt.DisplayRole)["type"]
         current_date = QDate.currentDate().toString("dd/MM/yyyy")
-        self.transactions.insert(0, {"name": "Name", "category": "", "amount": 0, "date": current_date,
+        self.transactions.insert(0, {"name": "Enter name", "category": "", "amount": 0, "date": current_date,
                                      "account": "", "type": previous_type, "means": "Virement", "comment": ""})
         self.endInsertRows()
 
     def flags(self, index):
         """
         Override flags()
+
         :param index: index
         :return: flags
         """
