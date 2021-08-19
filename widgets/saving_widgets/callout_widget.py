@@ -19,39 +19,60 @@ class Callout(QGraphicsItem):
         self.chart: QtCharts.QChart = parent
 
         """ Store text to display """
-        self.text: str = ''
+        self.month: str = ''
+        self.amount: str = ''
 
         """ Store anchor to pin Callout """
         self.anchor: QPointF = QPointF()
 
         """ Store rectangles """
-        self.text_rect: QRectF = QRectF()
+        self.text_rect_up: QRectF = QRectF()
+        self.text_rect_down: QRectF = QRectF()
         self.complete_rect: QRectF = QRectF()
 
         """ Store font """
-        self.font = QFont("Roboto", 11, QFont.Normal)
+        self.font_top = QFont("Roboto", 11, QFont.Normal)
+        self.font_bottom = QFont("Roboto Medium", 11, QFont.Normal)
 
-    def set_text(self, text: str):
+    def set_text(self, month: str, amount: str):
         """
         Set text on callout
 
-        :param text: text to set
+        :param month: month to set
+        :param amount: amount to set
         :return: None
         """
 
         """ Update text variable """
-        self.text = text
+        self.month = month
+        self.amount = amount
 
         """ Compute font metrics to adjust rect size """
-        metrics = QFontMetrics(self.font)
-        self.text_rect = QRectF(metrics.boundingRect(QRect(0, 0, 150, 150), Qt.AlignLeft, self.text))
+        metrics_top = QFontMetrics(self.font_top)
+        metrics_bottom = QFontMetrics(self.font_bottom)
+        self.text_rect_up = QRectF(metrics_top.boundingRect(QRect(0, 0, 150, 150), Qt.AlignLeft, self.month))
+        self.text_rect_down = QRectF(metrics_bottom.boundingRect(QRect(0, 0, 150, 150), Qt.AlignCenter, self.amount))
 
-        """ Translate text rect """
-        self.text_rect.translate(0, 0)
+        """ Center bottom rect according to top rect """
+        self.text_rect_down.moveCenter(QPointF(self.text_rect_up.center().x(), self.text_rect_up.height() +
+                                               self.text_rect_down.height()/2 + 5))
 
         """ Change geometry """
         self.prepareGeometryChange()
-        self.complete_rect = QRectF(self.text_rect.adjusted(-5, -5, 5, 5))
+
+        if self.text_rect_up.width() >= self.text_rect_down.width():
+            self.complete_rect = QRectF(self.text_rect_up.adjusted(-5, -25, 5, 5).x(),
+                                        self.text_rect_up.adjusted(-5, -5, 5, 5).y(),
+                                        self.text_rect_up.adjusted(-5, -5, 5, 5).width(),
+                                        self.text_rect_up.adjusted(-5, -5, 5, 5).height() +
+                                        self.text_rect_down.adjusted(-5, -5, 5, 5).height() - 5)
+        else:
+            self.complete_rect = QRectF(self.text_rect_down.adjusted(-5, -5, 5, 5).x(),
+                                        self.text_rect_up.adjusted(-5, -5, 5, 5).y(),
+                                        self.text_rect_down.adjusted(-5, -5, 5, 5).width(),
+                                        self.text_rect_up.adjusted(-5, -5, 5, 5).height() +
+                                        self.text_rect_down.adjusted(-5, -5, 5, 5).height() - 5)
+
         self.update_geometry()
 
     def update_geometry(self, alignment: Qt.AlignmentFlag = Qt.AlignLeft):
@@ -65,9 +86,9 @@ class Callout(QGraphicsItem):
         self.prepareGeometryChange()
 
         if alignment == Qt.AlignLeft:
-            self.setPos(self.chart.mapToPosition(self.anchor) + QPointF(10, -50))
+            self.setPos(self.chart.mapToPosition(self.anchor) + QPointF(12, -55))
         else:
-            self.setPos(self.chart.mapToPosition(self.anchor) + QPointF(-self.complete_rect.width() - 5, -50))
+            self.setPos(self.chart.mapToPosition(self.anchor) + QPointF(-self.complete_rect.width() - 5, -55))
 
     def boundingRect(self) -> QRectF:
         """
@@ -101,34 +122,38 @@ class Callout(QGraphicsItem):
         """
 
         """ Configure background shadow rect path """
-        path_shadow = QPainterPath()
-        complete_rect_shadow = QRectF(self.complete_rect.x(), self.complete_rect.y(),
-                                      self.complete_rect.width() + 3, self.complete_rect.height() + 3)
-        path_shadow.addRoundedRect(complete_rect_shadow, 5, 5)
+        # path_shadow = QPainterPath()
+        # complete_rect_shadow = QRectF(self.complete_rect.x(), self.complete_rect.y(),
+        #                               self.complete_rect.width() + 3, self.complete_rect.height() + 3)
+        # path_shadow.addRoundedRect(complete_rect_shadow, 2, 2)
 
-        """ Configure shadow style """
-        painter.setPen(Qt.NoPen)
-        painter.setBrush(QColor("#1C293B"))
-
-        """ Draw shadow """
-        painter.drawPath(path_shadow)
+        # """ Configure shadow style """
+        # painter.setPen(Qt.NoPen)
+        # painter.setBrush(QColor("#1C293B"))
+        #
+        # """ Draw shadow """
+        # painter.drawPath(path_shadow)
 
         """ Configure background rect path """
         path = QPainterPath()
         complete_rect = self.complete_rect
-        path.addRoundedRect(complete_rect, 5, 5)
+        path.addRoundedRect(complete_rect, 2, 2)
 
         """ Configure background style """
         painter.setPen(Qt.NoPen)
-        painter.setBrush(QColor("#015185"))
+        painter.setBrush(QColor(25, 157, 229, 200))
 
         """ Draw background """
         painter.drawPath(path)
 
         """ Draw text """
-        painter.setFont(self.font)
+        painter.setFont(self.font_top)
+        painter.setPen(QColor("#26374C"))
+        painter.drawText(self.text_rect_up, self.month)
+
+        painter.setFont(self.font_bottom)
         painter.setPen(QColor(255, 255, 255))
-        painter.drawText(self.text_rect, self.text)
+        painter.drawText(self.text_rect_down, self.amount)
 
 
 class CalloutChartView(QGraphicsView):
@@ -218,7 +243,7 @@ class CalloutChartView(QGraphicsView):
         """ Set text """
         x_value = QLocale().toString(QDateTime.fromMSecsSinceEpoch(point.x()), "MMMM yyyy").capitalize()
         y_value = convert_amount_to_str(point.y())
-        self.tooltip.set_text(f"{x_value}\n{y_value} €")
+        self.tooltip.set_text(f"{x_value}", f"{y_value} €")
 
         """ Anchor callout """
         self.tooltip.anchor = point
