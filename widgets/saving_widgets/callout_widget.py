@@ -61,17 +61,16 @@ class Callout(QGraphicsItem):
         self.prepareGeometryChange()
 
         if self.text_rect_up.width() >= self.text_rect_down.width():
-            self.complete_rect = QRectF(self.text_rect_up.adjusted(-5, -25, 5, 5).x(),
-                                        self.text_rect_up.adjusted(-5, -5, 5, 5).y(),
-                                        self.text_rect_up.adjusted(-5, -5, 5, 5).width(),
-                                        self.text_rect_up.adjusted(-5, -5, 5, 5).height() +
-                                        self.text_rect_down.adjusted(-5, -5, 5, 5).height() - 5)
+            self.complete_rect = QRectF(self.text_rect_up.x() - 10,
+                                        self.text_rect_up.y() - 10,
+                                        self.text_rect_up.width() + 20,
+                                        self.text_rect_up.height() + self.text_rect_down.height() + 25)
         else:
-            self.complete_rect = QRectF(self.text_rect_down.adjusted(-5, -5, 5, 5).x(),
-                                        self.text_rect_up.adjusted(-5, -5, 5, 5).y(),
-                                        self.text_rect_down.adjusted(-5, -5, 5, 5).width(),
-                                        self.text_rect_up.adjusted(-5, -5, 5, 5).height() +
-                                        self.text_rect_down.adjusted(-5, -5, 5, 5).height() - 5)
+            self.complete_rect = QRectF(self.text_rect_down.x() - 10,
+                                        self.text_rect_up.y() - 10,
+                                        self.text_rect_down.width() + 20,
+
+                                        self.text_rect_up.height() + self.text_rect_down.height() + 25)
 
         self.update_geometry()
 
@@ -86,9 +85,13 @@ class Callout(QGraphicsItem):
         self.prepareGeometryChange()
 
         if alignment == Qt.AlignLeft:
-            self.setPos(self.chart.mapToPosition(self.anchor) + QPointF(12, -55))
+            """ Check that callout is not outside chart """
+            x_temp = self.chart.mapToPosition(self.anchor) + QPointF(15, -60)
+            print(x_temp)
+            print(self.chart.rect().x())
+            self.setPos(x_temp)
         else:
-            self.setPos(self.chart.mapToPosition(self.anchor) + QPointF(-self.complete_rect.width() - 5, -55))
+            self.setPos(self.chart.mapToPosition(self.anchor) + QPointF(-self.complete_rect.width() + 5, -60))
 
     def boundingRect(self) -> QRectF:
         """
@@ -141,7 +144,7 @@ class Callout(QGraphicsItem):
 
         """ Configure background style """
         painter.setPen(Qt.NoPen)
-        painter.setBrush(QColor(25, 157, 229, 200))
+        painter.setBrush(QColor(25, 157, 229, 230))
 
         """ Draw background """
         painter.drawPath(path)
