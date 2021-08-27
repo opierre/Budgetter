@@ -182,7 +182,7 @@ QPushButton#cancel
 	color: white;
 }
 
-QPushButton#cancell:hover
+QPushButton#cancel:hover
 {
 	background-color: rgba(226, 74, 141, 210);
 	border-radius: 12px;
