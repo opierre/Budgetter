@@ -2,7 +2,7 @@ import math
 from math import cos, pi, sin, sqrt
 
 from PySide2.QtCore import Qt, QSize, QRect, QPointF, QRectF, QCoreApplication
-from PySide2.QtGui import QPainter, QPen, QColor, QFont, QFontMetrics, QPaintEvent
+from PySide2.QtGui import QPainter, QPen, QColor, QFont, QFontMetrics, QPaintEvent, QBrush
 from PySide2.QtSvg import QSvgRenderer
 from PySide2.QtWidgets import QWidget
 
@@ -85,19 +85,20 @@ class DonutChart(QWidget):
 
         """ Configure pen """
         pen = QPen()
-        pen.setWidthF(30.0)
+        pen.setWidthF(1.0)
         pen.setCapStyle(Qt.RoundCap)
         pen.setColor(QColor("#1C293B"))
         painter.setPen(pen)
+        painter.setBrush(QBrush(QColor("#1C293B")))
         painter.setOpacity(1)
 
         """ Configure rectangle """
-        rect_origins = QRect(self.rect().center().x(), self.rect().center().y(),
-                             self.rect().width() / 2, self.rect().height() / 2)
+        rect_origins = QRectF(self.rect().center().x(), self.rect().center().y(),
+                              self.rect().width() / 1.5, self.rect().height() / 1.5)
         rect_origins.moveCenter(self.rect().center())
 
         """ Draw arc """
-        painter.draw(rect_origins)
+        painter.drawEllipse(rect_origins)
 
     def draw_slices(self, pen: QPen, painter: QPainter):
         """
@@ -115,8 +116,8 @@ class DonutChart(QWidget):
         last_index = len(self._slices)
 
         """ Configure rectangle """
-        rect_origins = QRect(self.rect().x() + 10, self.rect().y() + 10,
-                             self.rect().width() - 30, self.rect().height() - 30)
+        rect_origins = QRectF(self.rect().center().x(), self.rect().center().y(),
+                              self.rect().width() / 1.2, self.rect().height() / 1.2)
         rect_origins.moveCenter(self.rect().center())
 
         for current_slice in self._slices:
