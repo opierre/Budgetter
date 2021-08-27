@@ -89,15 +89,15 @@ class DonutChart(QWidget):
         pen.setCapStyle(Qt.RoundCap)
         pen.setColor(QColor("#1C293B"))
         painter.setPen(pen)
-        painter.setOpacity(0.3)
+        painter.setOpacity(1)
 
         """ Configure rectangle """
-        rect_origins = QRect(self.rect().x() + 10, self.rect().y() + 10,
-                             self.rect().width() - 30, self.rect().height() - 30)
+        rect_origins = QRect(self.rect().center().x(), self.rect().center().y(),
+                             self.rect().width() / 2, self.rect().height() / 2)
         rect_origins.moveCenter(self.rect().center())
 
         """ Draw arc """
-        painter.drawEllipse(rect_origins)
+        painter.draw(rect_origins)
 
     def draw_slices(self, pen: QPen, painter: QPainter):
         """
