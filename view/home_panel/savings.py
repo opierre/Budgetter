@@ -213,7 +213,7 @@ class Savings(QObject):
         layout.setSpacing(0)
         layout.addWidget(self.chart_widget)
         layout.addWidget(self.status_bar)
-        layout.setContentsMargins(0, 20, 0, 0)
+        layout.setContentsMargins(0, 0, 0, 0)
 
         self.ui_setup.savings.setWidget(widget)
 

@@ -87,11 +87,15 @@ class Callout(QGraphicsItem):
         if alignment == Qt.AlignLeft:
             """ Check that callout is not outside chart """
             x_temp = self.chart.mapToPosition(self.anchor) + QPointF(15, -60)
-            print(x_temp)
-            print(self.chart.rect().x())
             self.setPos(x_temp)
         else:
-            self.setPos(self.chart.mapToPosition(self.anchor) + QPointF(-self.complete_rect.width() + 5, -60))
+            x_temp = self.chart.mapToPosition(self.anchor) + QPointF(-self.complete_rect.width() + 5, -60)
+
+            """ Change from top to bottom anchor in case of high point """
+            if x_temp.y() < 10:
+                x_temp = self.chart.mapToPosition(self.anchor) + QPointF(-self.complete_rect.width() + 5, 18)
+
+            self.setPos(x_temp)
 
     def boundingRect(self) -> QRectF:
         """
