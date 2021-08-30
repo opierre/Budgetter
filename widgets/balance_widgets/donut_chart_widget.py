@@ -2,7 +2,8 @@ import math
 from math import cos, pi, sin, sqrt
 
 from PySide2.QtCore import Qt, QSize, QRect, QPointF, QRectF, QCoreApplication
-from PySide2.QtGui import QPainter, QPen, QColor, QFont, QFontMetrics, QPaintEvent, QBrush
+from PySide2.QtGui import QPainter, QPen, QColor, QFont, QFontMetrics, QPaintEvent, QBrush, QLinearGradient, QGradient, \
+    QConicalGradient
 from PySide2.QtSvg import QSvgRenderer
 from PySide2.QtWidgets import QWidget
 
@@ -137,7 +138,15 @@ class DonutChart(QWidget):
                 previous_end_angle = start_angle + span_angle
 
             """ Set pen color """
-            pen.setColor(self.colors[current_index])
+            gradient = QConicalGradient()
+            gradient.setCenter(self.rect().center())
+            gradient.setAngle(start_angle)
+            gradient.setColorAt(1.0, QColor(self.colors[current_index]))
+            gradient.setColorAt(0.0, QColor("transparent"))
+            gradient.setCoordinateMode(QGradient.ObjectMode)
+            brush_gradient = QBrush(gradient)
+            pen.setBrush(brush_gradient)
+            # pen.setColor(brush_gradient)
             painter.setPen(pen)
 
             """ Update current index """
@@ -178,7 +187,7 @@ class DonutChart(QWidget):
                 painter.setPen(pen)
 
                 """ Draw arc """
-                painter.drawArc(rect_origins, first_start_angle * 16, first_span_angle * 16 * 1 / 10)
+                # painter.drawArc(rect_origins, first_start_angle * 16, first_span_angle * 16 * 1 / 10)
 
     def draw_total_amount(self, pen, painter):
         """
