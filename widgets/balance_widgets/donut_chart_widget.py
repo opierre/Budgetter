@@ -137,16 +137,7 @@ class DonutChart(QWidget):
                 start_angle = previous_end_angle
                 previous_end_angle = start_angle + span_angle
 
-            """ Set pen color """
-            gradient = QConicalGradient()
-            gradient.setCenter(self.rect().center())
-            gradient.setAngle(start_angle)
-            gradient.setColorAt(1.0, QColor(self.colors[current_index]))
-            gradient.setColorAt(0.0, QColor("transparent"))
-            gradient.setCoordinateMode(QGradient.ObjectMode)
-            brush_gradient = QBrush(gradient)
-            pen.setBrush(brush_gradient)
-            # pen.setColor(brush_gradient)
+            pen.setColor(QColor(self.colors[current_index]))
             painter.setPen(pen)
 
             """ Update current index """
@@ -164,6 +155,7 @@ class DonutChart(QWidget):
             """ Set pen color """
             pen.setColor(QColor("white"))
             painter.setPen(pen)
+            painter.setOpacity(0.8)
 
             """ Compute middle arc coordinates """
             x_label = self.rect().center().x() + (rect_origins.width() / 2.0) * math.cos(
@@ -179,6 +171,7 @@ class DonutChart(QWidget):
             rect_label = QRectF(x_label, y_label, pixels_width, pixels_height)
 
             painter.drawText(rect_label, Qt.AlignLeft | Qt.AlignVCenter, label_perc)
+            painter.setOpacity(1.0)
 
             """ Re-draw first one in case of last to hide overlapping """
             if current_index == last_index:
@@ -187,7 +180,7 @@ class DonutChart(QWidget):
                 painter.setPen(pen)
 
                 """ Draw arc """
-                # painter.drawArc(rect_origins, first_start_angle * 16, first_span_angle * 16 * 1 / 10)
+                painter.drawArc(rect_origins, first_start_angle * 16, first_span_angle * 16 * 1 / 10)
 
     def draw_total_amount(self, pen, painter):
         """
