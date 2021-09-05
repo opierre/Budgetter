@@ -2,6 +2,7 @@ from PySide2.QtGui import QColor
 from PySide2.QtWidgets import QGraphicsDropShadowEffect
 
 from skeletons.MainWindow import Ui_MainWindow
+from view.graphs import Graphs
 from view.menu_view import Menu
 from view.home import Home
 from widgets.custom_window import CustomWindow
@@ -32,6 +33,9 @@ class Controller:
 
         """ Home Panel """
         self.home_panel = Home(self.main_window, self.ui)
+
+        """ Graphs Panel """
+        self.graphs_panel = Graphs(self.main_window, self.ui)
 
         """ Connect all signals/slots """
         self.connect_slots_and_signals()

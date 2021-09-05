@@ -4,6 +4,7 @@ SOURCES += \
     ./view/home_panel/spending.py   \
     ./view/home_panel/distribution.py   \
     ./view/home_panel/accounts.py   \
+    ./view/graphs_panel/income.py   \
     ./view/menu_view.py   \
     ./widgets/balance_widgets/account_delegate.py   \
     ./widgets/balance_widgets/donut_chart_widget.py   \

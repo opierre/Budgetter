@@ -951,6 +951,45 @@ QToolButton:checked
     background-color: #19344D;
 	border-radius: 0px;
     border-left: 3px solid #0093EE;
+}
+
+QComboBox#income_choice 
+{
+	border: 1px solid transparent;
+	border-bottom: 2px solid rgba(255, 255, 255, 200);
+	border-radius: 4px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	padding-left: 7px;
+	padding-right: 2px;
+	background: rgba(47, 67, 93, 200);
+	color: white;
+}
+
+QComboBox#income_choice::hover
+{
+	border: 1px solid transparent;
+	border-bottom: 2px solid rgba(1, 144, 234, 200);
+	border-radius: 4px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	padding-left: 7px;
+	padding-right: 2px;
+	background: rgba(47, 67, 93, 200);
+	color: white;
+}
+
+QComboBox#income_choice::focus
+{
+	border: 1px solid transparent;
+	border-bottom: 2px solid rgba(1, 144, 234, 200);
+	border-radius: 4px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	padding-left: 7px;
+	padding-right: 2px;
+	background: rgba(47, 67, 93, 200);
+	color: white;
 }</string>
   </property>
   <property name="toolButtonStyle">
@@ -1400,7 +1439,108 @@ QToolButton:checked
            <string>Income</string>
           </property>
           <widget class="QWidget" name="dockWidgetContents_231">
-           <layout class="QGridLayout" name="gridLayout_431"/>
+           <layout class="QGridLayout" name="gridLayout_431">
+            <item row="0" column="1" rowspan="6">
+             <widget class="QWidget" name="widget" native="true"/>
+            </item>
+            <item row="1" column="0">
+             <layout class="QVBoxLayout" name="verticalLayout">
+              <property name="spacing">
+               <number>15</number>
+              </property>
+              <property name="topMargin">
+               <number>15</number>
+              </property>
+              <property name="bottomMargin">
+               <number>15</number>
+              </property>
+              <item>
+               <widget class="QComboBox" name="income_choice">
+                <property name="minimumSize">
+                 <size>
+                  <width>200</width>
+                  <height>0</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>200</width>
+                  <height>16777215</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <family>Roboto</family>
+                  <pointsize>11</pointsize>
+                 </font>
+                </property>
+                <item>
+                 <property name="text">
+                  <string>All</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Wages</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Gifts</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="label_from_income">
+                <property name="font">
+                 <font>
+                  <family>Roboto</family>
+                  <pointsize>11</pointsize>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">color: white;</string>
+                </property>
+                <property name="text">
+                 <string>From:</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="label_2">
+                <property name="text">
+                 <string>To:</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <layout class="QHBoxLayout" name="horizontalLayout_2">
+                <item>
+                 <widget class="QPushButton" name="pushButton">
+                  <property name="text">
+                   <string>Refresh</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+             </layout>
+            </item>
+            <item row="5" column="0">
+             <spacer name="verticalSpacer">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>40</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
           </widget>
          </widget>
         </item>
