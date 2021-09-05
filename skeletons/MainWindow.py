@@ -1169,21 +1169,39 @@ class Ui_MainWindow(object):
         self.gridLayout_2.addWidget(self.monthlyExpenses, 0, 4, 2, 1)
 
         self.stackedWidget.addWidget(self.dashboard)
-        self.page_2 = QWidget()
-        self.page_2.setObjectName(u"page_2")
-        self.gridLayout_3 = QGridLayout(self.page_2)
+        self.graphs = QWidget()
+        self.graphs.setObjectName(u"graphs")
+        self.gridLayout_3 = QGridLayout(self.graphs)
         self.gridLayout_3.setObjectName(u"gridLayout_3")
-        self.total = QGroupBox(self.page_2)
-        self.total.setObjectName(u"total")
+        self.gridLayout_3.setVerticalSpacing(15)
+        self.gridLayout_3.setContentsMargins(15, 15, 15, 15)
+        self.expenses = Container(self.graphs)
+        self.expenses.setObjectName(u"expenses")
+        self.expenses.setFont(font1)
+        self.expenses.setFeatures(QDockWidget.NoDockWidgetFeatures)
+        self.expenses.setAllowedAreas(Qt.NoDockWidgetArea)
+        self.dockWidgetContents_23 = QWidget()
+        self.dockWidgetContents_23.setObjectName(u"dockWidgetContents_23")
+        self.gridLayout_43 = QGridLayout(self.dockWidgetContents_23)
+        self.gridLayout_43.setObjectName(u"gridLayout_43")
+        self.expenses.setWidget(self.dockWidgetContents_23)
 
-        self.gridLayout_3.addWidget(self.total, 0, 0, 1, 1)
+        self.gridLayout_3.addWidget(self.expenses, 1, 0, 1, 1)
 
-        self.savingsaa = QGroupBox(self.page_2)
-        self.savingsaa.setObjectName(u"savingsaa")
+        self.income = Container(self.graphs)
+        self.income.setObjectName(u"income")
+        self.income.setFont(font1)
+        self.income.setFeatures(QDockWidget.NoDockWidgetFeatures)
+        self.income.setAllowedAreas(Qt.NoDockWidgetArea)
+        self.dockWidgetContents_231 = QWidget()
+        self.dockWidgetContents_231.setObjectName(u"dockWidgetContents_231")
+        self.gridLayout_431 = QGridLayout(self.dockWidgetContents_231)
+        self.gridLayout_431.setObjectName(u"gridLayout_431")
+        self.income.setWidget(self.dockWidgetContents_231)
 
-        self.gridLayout_3.addWidget(self.savingsaa, 1, 0, 1, 1)
+        self.gridLayout_3.addWidget(self.income, 0, 0, 1, 1)
 
-        self.stackedWidget.addWidget(self.page_2)
+        self.stackedWidget.addWidget(self.graphs)
         self.page = QWidget()
         self.page.setObjectName(u"page")
         self.stackedWidget.addWidget(self.page)
@@ -1205,7 +1223,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.stackedWidget.setCurrentIndex(0)
+        self.stackedWidget.setCurrentIndex(1)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -1243,8 +1261,8 @@ class Ui_MainWindow(object):
         self.spending.setWindowTitle(QCoreApplication.translate("MainWindow", u"Spending", None))
         self.savings.setWindowTitle(QCoreApplication.translate("MainWindow", u"Shortcuts", None))
         self.monthlyExpenses.setWindowTitle(QCoreApplication.translate("MainWindow", u"Expenses Distribution", None))
-        self.total.setTitle(QCoreApplication.translate("MainWindow", u"Total", None))
-        self.savingsaa.setTitle(QCoreApplication.translate("MainWindow", u"Savings", None))
+        self.expenses.setWindowTitle(QCoreApplication.translate("MainWindow", u"Expenses", None))
+        self.income.setWindowTitle(QCoreApplication.translate("MainWindow", u"Income", None))
         self.toolBar.setWindowTitle(QCoreApplication.translate("MainWindow", u"toolBar", None))
     # retranslateUi
 

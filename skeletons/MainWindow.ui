@@ -1099,7 +1099,7 @@ QToolButton:checked
     <item row="1" column="0">
      <widget class="SlidingStackedWidget" name="stackedWidget">
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="dashboard">
        <layout class="QGridLayout" name="gridLayout_2">
@@ -1343,20 +1343,65 @@ QToolButton:checked
         </item>
        </layout>
       </widget>
-      <widget class="QWidget" name="page_2">
+      <widget class="QWidget" name="graphs">
        <layout class="QGridLayout" name="gridLayout_3">
-        <item row="0" column="0">
-         <widget class="QGroupBox" name="total">
-          <property name="title">
-           <string>Total</string>
+        <property name="leftMargin">
+         <number>15</number>
+        </property>
+        <property name="topMargin">
+         <number>15</number>
+        </property>
+        <property name="rightMargin">
+         <number>15</number>
+        </property>
+        <property name="bottomMargin">
+         <number>15</number>
+        </property>
+        <property name="verticalSpacing">
+         <number>15</number>
+        </property>
+        <item row="1" column="0">
+         <widget class="Container" name="expenses">
+          <property name="font">
+           <font>
+            <family>Roboto</family>
+            <pointsize>13</pointsize>
+           </font>
           </property>
+          <property name="features">
+           <set>QDockWidget::NoDockWidgetFeatures</set>
+          </property>
+          <property name="allowedAreas">
+           <set>Qt::NoDockWidgetArea</set>
+          </property>
+          <property name="windowTitle">
+           <string>Expenses</string>
+          </property>
+          <widget class="QWidget" name="dockWidgetContents_23">
+           <layout class="QGridLayout" name="gridLayout_43"/>
+          </widget>
          </widget>
         </item>
-        <item row="1" column="0">
-         <widget class="QGroupBox" name="savingsaa">
-          <property name="title">
-           <string>Savings</string>
+        <item row="0" column="0">
+         <widget class="Container" name="income">
+          <property name="font">
+           <font>
+            <family>Roboto</family>
+            <pointsize>13</pointsize>
+           </font>
           </property>
+          <property name="features">
+           <set>QDockWidget::NoDockWidgetFeatures</set>
+          </property>
+          <property name="allowedAreas">
+           <set>Qt::NoDockWidgetArea</set>
+          </property>
+          <property name="windowTitle">
+           <string>Income</string>
+          </property>
+          <widget class="QWidget" name="dockWidgetContents_231">
+           <layout class="QGridLayout" name="gridLayout_431"/>
+          </widget>
          </widget>
         </item>
        </layout>
