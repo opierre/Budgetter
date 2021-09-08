@@ -956,52 +956,52 @@ QToolButton:checked
 QComboBox#income_choice 
 {
 	border: 1px solid transparent;
-	border-bottom: 2px solid rgba(255, 255, 255, 200);
+	border-bottom: 1px solid rgba(255, 255, 255, 200);
 	border-radius: 4px;
 	padding-top: 2px;
 	padding-bottom: 2px;
 	padding-left: 7px;
 	padding-right: 2px;
-	background: rgba(47, 67, 93, 200);
+	background: rgba(47, 67, 93, 150);
 	color: white;
 }
 
 QComboBox#income_choice::hover
 {
 	border: 1px solid transparent;
-	border-bottom: 2px solid rgba(1, 144, 234, 200);
+	border-bottom: 1px solid rgba(1, 144, 234, 200);
 	border-radius: 4px;
 	padding-top: 2px;
 	padding-bottom: 2px;
 	padding-left: 7px;
 	padding-right: 2px;
-	background: rgba(47, 67, 93, 200);
+	background: rgba(47, 67, 93, 150);
 	color: white;
 }
 
 QComboBox#income_choice::focus
 {
 	border: 1px solid transparent;
-	border-bottom: 2px solid rgba(1, 144, 234, 200);
+	border-bottom: 1px solid rgba(1, 144, 234, 200);
 	border-radius: 4px;
 	padding-top: 2px;
 	padding-bottom: 2px;
 	padding-left: 7px;
 	padding-right: 2px;
-	background: rgba(47, 67, 93, 200);
+	background: rgba(47, 67, 93, 150);
 	color: white;
 }
 
 QDateEdit#dateEdit_income_from, QDateEdit#dateEdit_income_to 
 {
 	border: 1px solid transparent;
-	border-bottom: 2px solid rgba(255, 255, 255, 200);
+	border-bottom: 1px solid rgba(255, 255, 255, 200);
 	border-radius: 4px;
 	padding-top: 2px;
 	padding-bottom: 2px;
 	padding-left: 7px;
 	padding-right: 7px;
-	background: rgba(47, 67, 93, 200);
+	background: rgba(47, 67, 93, 150);
 	color: white;
 	selection-background-color: #0190EA;
 }
@@ -1009,13 +1009,13 @@ QDateEdit#dateEdit_income_from, QDateEdit#dateEdit_income_to
 QDateEdit#dateEdit_income_from:hover, QDateEdit#dateEdit_income_to:hover
 {
 	border: 1px solid transparent;
-	border-bottom: 2px solid rgba(1, 144, 234, 200);
+	border-bottom: 1px solid rgba(1, 144, 234, 200);
 	border-radius: 4px;
 	padding-top: 2px;
 	padding-bottom: 2px;
 	padding-left: 7px;
 	padding-right: 7px;
-	background: rgba(47, 67, 93, 200);
+	background: rgba(47, 67, 93, 150);
 	color: white;
 	selection-background-color: #0190EA;
 }
@@ -1023,13 +1023,13 @@ QDateEdit#dateEdit_income_from:hover, QDateEdit#dateEdit_income_to:hover
 QDateEdit#dateEdit_income_from:focus, QDateEdit#dateEdit_income_to:focus
 {
 	border: 1px solid transparent;
-	border-bottom: 2px solid rgba(1, 144, 234, 200);
+	border-bottom: 1px solid rgba(1, 144, 234, 200);
 	border-radius: 4px;
 	padding-top: 2px;
 	padding-bottom: 2px;
 	padding-left: 7px;
 	padding-right: 7px;
-	background: rgba(47, 67, 93, 200);
+	background: rgba(47, 67, 93, 150);
 	color: white;
 	selection-background-color: #0190EA;
 }
@@ -1044,6 +1044,23 @@ QDateEdit#dateEdit_income_from::drop-down, QDateEdit#dateEdit_income_to::drop-do
     subcontrol-origin: padding;
     background-color: transparent;
     border: none;
+}
+
+QWidget#widget_income
+{
+	background-color: #1C293B;
+	border: 1px solid transparent;
+	border-radius: 4px;
+}
+
+QPushButton#refresh_income
+{
+	background-color: transparent;
+	border-radius: 5px;
+	border-color: rgba(255, 255, 255, 200);
+	padding-left: 7px;
+	padding-right: 7px;
+	color: white;
 }</string>
   </property>
   <property name="toolButtonStyle">
@@ -1521,41 +1538,112 @@ QDateEdit#dateEdit_income_from::drop-down, QDateEdit#dateEdit_income_to::drop-do
                   <number>15</number>
                  </property>
                  <item>
-                  <widget class="QComboBox" name="income_choice">
-                   <property name="minimumSize">
-                    <size>
-                     <width>200</width>
-                     <height>0</height>
-                    </size>
-                   </property>
-                   <property name="maximumSize">
-                    <size>
-                     <width>200</width>
-                     <height>16777215</height>
-                    </size>
-                   </property>
-                   <property name="font">
-                    <font>
-                     <family>Roboto</family>
-                     <pointsize>11</pointsize>
-                    </font>
+                  <layout class="QHBoxLayout" name="horizontalLayout_5">
+                   <property name="bottomMargin">
+                    <number>20</number>
                    </property>
                    <item>
-                    <property name="text">
-                     <string>All</string>
-                    </property>
+                    <spacer name="horizontalSpacer_8">
+                     <property name="orientation">
+                      <enum>Qt::Horizontal</enum>
+                     </property>
+                     <property name="sizeHint" stdset="0">
+                      <size>
+                       <width>40</width>
+                       <height>20</height>
+                      </size>
+                     </property>
+                    </spacer>
                    </item>
                    <item>
-                    <property name="text">
-                     <string>Wages</string>
-                    </property>
+                    <widget class="QLabel" name="label_icon_category">
+                     <property name="minimumSize">
+                      <size>
+                       <width>26</width>
+                       <height>26</height>
+                      </size>
+                     </property>
+                     <property name="maximumSize">
+                      <size>
+                       <width>26</width>
+                       <height>26</height>
+                      </size>
+                     </property>
+                     <property name="text">
+                      <string/>
+                     </property>
+                     <property name="pixmap">
+                      <pixmap resource="../resources/resources.qrc">:/images/images/category_white_24dp.svg</pixmap>
+                     </property>
+                     <property name="scaledContents">
+                      <bool>false</bool>
+                     </property>
+                    </widget>
                    </item>
                    <item>
-                    <property name="text">
-                     <string>Gifts</string>
-                    </property>
+                    <spacer name="horizontalSpacer_6">
+                     <property name="orientation">
+                      <enum>Qt::Horizontal</enum>
+                     </property>
+                     <property name="sizeHint" stdset="0">
+                      <size>
+                       <width>40</width>
+                       <height>20</height>
+                      </size>
+                     </property>
+                    </spacer>
                    </item>
-                  </widget>
+                   <item>
+                    <widget class="QComboBox" name="income_choice">
+                     <property name="minimumSize">
+                      <size>
+                       <width>200</width>
+                       <height>0</height>
+                      </size>
+                     </property>
+                     <property name="maximumSize">
+                      <size>
+                       <width>200</width>
+                       <height>16777215</height>
+                      </size>
+                     </property>
+                     <property name="font">
+                      <font>
+                       <family>Roboto</family>
+                       <pointsize>11</pointsize>
+                      </font>
+                     </property>
+                     <item>
+                      <property name="text">
+                       <string>All</string>
+                      </property>
+                     </item>
+                     <item>
+                      <property name="text">
+                       <string>Wages</string>
+                      </property>
+                     </item>
+                     <item>
+                      <property name="text">
+                       <string>Gifts</string>
+                      </property>
+                     </item>
+                    </widget>
+                   </item>
+                   <item>
+                    <spacer name="horizontalSpacer_7">
+                     <property name="orientation">
+                      <enum>Qt::Horizontal</enum>
+                     </property>
+                     <property name="sizeHint" stdset="0">
+                      <size>
+                       <width>40</width>
+                       <height>20</height>
+                      </size>
+                     </property>
+                    </spacer>
+                   </item>
+                  </layout>
                  </item>
                  <item>
                   <layout class="QHBoxLayout" name="horizontalLayout_3">
@@ -1681,6 +1769,9 @@ QDateEdit#dateEdit_income_from::drop-down, QDateEdit#dateEdit_income_to::drop-do
                  </item>
                  <item>
                   <layout class="QHBoxLayout" name="horizontalLayout_2">
+                   <property name="topMargin">
+                    <number>20</number>
+                   </property>
                    <item>
                     <spacer name="horizontalSpacer_4">
                      <property name="orientation">
@@ -1695,9 +1786,28 @@ QDateEdit#dateEdit_income_from::drop-down, QDateEdit#dateEdit_income_to::drop-do
                     </spacer>
                    </item>
                    <item>
-                    <widget class="QPushButton" name="pushButton">
+                    <widget class="QPushButton" name="refresh_income">
+                     <property name="font">
+                      <font>
+                       <family>Roboto</family>
+                       <pointsize>11</pointsize>
+                      </font>
+                     </property>
+                     <property name="cursor">
+                      <cursorShape>PointingHandCursor</cursorShape>
+                     </property>
                      <property name="text">
                       <string>Refresh</string>
+                     </property>
+                     <property name="icon">
+                      <iconset resource="../resources/resources.qrc">
+                       <normaloff>:/images/images/refresh_white_18dp.svg</normaloff>:/images/images/refresh_white_18dp.svg</iconset>
+                     </property>
+                     <property name="iconSize">
+                      <size>
+                       <width>18</width>
+                       <height>18</height>
+                      </size>
                      </property>
                     </widget>
                    </item>
@@ -1718,24 +1828,24 @@ QDateEdit#dateEdit_income_from::drop-down, QDateEdit#dateEdit_income_to::drop-do
                  </item>
                 </layout>
                </item>
+               <item>
+                <spacer name="verticalSpacer">
+                 <property name="orientation">
+                  <enum>Qt::Vertical</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>20</width>
+                   <height>40</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
               </layout>
              </widget>
             </item>
             <item row="0" column="1" rowspan="6">
              <widget class="QWidget" name="widget_income_graph" native="true"/>
-            </item>
-            <item row="5" column="0">
-             <spacer name="verticalSpacer">
-              <property name="orientation">
-               <enum>Qt::Vertical</enum>
-              </property>
-              <property name="sizeHint" stdset="0">
-               <size>
-                <width>20</width>
-                <height>40</height>
-               </size>
-              </property>
-             </spacer>
             </item>
            </layout>
           </widget>
