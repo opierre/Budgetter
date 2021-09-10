@@ -1,5 +1,7 @@
 <RCC>
   <qresource prefix="images">
+    <file>images/expand_less_white_18dp.svg</file>
+    <file>images/expand_more_white_18dp.svg</file>
     <file>images/refresh_white_18dp.svg</file>
     <file>images/navigate_before_black_24dp.svg</file>
     <file>images/navigate_next_black_24dp.svg</file>
