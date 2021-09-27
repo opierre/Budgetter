@@ -1097,6 +1097,14 @@ QPushButton#refresh_income:pressed
 	padding-top: 5px;
 	padding-bottom: 5px;
 	color: white;
+}
+
+QPushButton#this_year_income, QPushButton#last_12_months_income
+{
+	background-color: transparent;
+	border: 1px solid rgba(66, 96, 135, 250); 
+	border-radius: 12px;
+	color: rgba(66, 96, 135, 250);
 }</string>
   </property>
   <property name="toolButtonStyle">
@@ -1598,14 +1606,14 @@ QPushButton#refresh_income:pressed
                      </property>
                      <property name="minimumSize">
                       <size>
-                       <width>32</width>
-                       <height>32</height>
+                       <width>36</width>
+                       <height>36</height>
                       </size>
                      </property>
                      <property name="maximumSize">
                       <size>
-                       <width>32</width>
-                       <height>32</height>
+                       <width>36</width>
+                       <height>36</height>
                       </size>
                      </property>
                      <property name="text">
@@ -1613,12 +1621,13 @@ QPushButton#refresh_income:pressed
                      </property>
                      <property name="icon">
                       <iconset resource="../resources/resources.qrc">
-                       <normaloff>:/images/images/category_white_24dp.svg</normaloff>:/images/images/category_white_24dp.svg</iconset>
+                       <normaloff>:/images/images/savings_black_24dp.svg</normaloff>
+                       <disabledoff>:/images/images/savings_black_24dp.svg</disabledoff>:/images/images/savings_black_24dp.svg</iconset>
                      </property>
                      <property name="iconSize">
                       <size>
-                       <width>28</width>
-                       <height>28</height>
+                       <width>36</width>
+                       <height>36</height>
                       </size>
                      </property>
                     </widget>
@@ -1866,6 +1875,83 @@ QPushButton#refresh_income:pressed
                       </size>
                      </property>
                     </spacer>
+                   </item>
+                  </layout>
+                 </item>
+                 <item>
+                  <layout class="QGridLayout" name="gridLayout_6">
+                   <property name="topMargin">
+                    <number>20</number>
+                   </property>
+                   <item row="0" column="0">
+                    <widget class="QPushButton" name="last_12_months_income">
+                     <property name="minimumSize">
+                      <size>
+                       <width>150</width>
+                       <height>28</height>
+                      </size>
+                     </property>
+                     <property name="maximumSize">
+                      <size>
+                       <width>150</width>
+                       <height>28</height>
+                      </size>
+                     </property>
+                     <property name="font">
+                      <font>
+                       <family>Roboto</family>
+                       <pointsize>11</pointsize>
+                      </font>
+                     </property>
+                     <property name="text">
+                      <string>Last 12 months</string>
+                     </property>
+                     <property name="icon">
+                      <iconset resource="../resources/resources.qrc">
+                       <normaloff>:/images/images/history_black_18dp.svg</normaloff>:/images/images/history_black_18dp.svg</iconset>
+                     </property>
+                     <property name="iconSize">
+                      <size>
+                       <width>18</width>
+                       <height>18</height>
+                      </size>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="1">
+                    <widget class="QPushButton" name="this_year_income">
+                     <property name="minimumSize">
+                      <size>
+                       <width>110</width>
+                       <height>28</height>
+                      </size>
+                     </property>
+                     <property name="maximumSize">
+                      <size>
+                       <width>110</width>
+                       <height>28</height>
+                      </size>
+                     </property>
+                     <property name="font">
+                      <font>
+                       <family>Roboto</family>
+                       <pointsize>11</pointsize>
+                      </font>
+                     </property>
+                     <property name="text">
+                      <string>This Year </string>
+                     </property>
+                     <property name="icon">
+                      <iconset resource="../resources/resources.qrc">
+                       <normaloff>:/images/images/date_range_black_18dp.svg</normaloff>:/images/images/date_range_black_18dp.svg</iconset>
+                     </property>
+                     <property name="iconSize">
+                      <size>
+                       <width>18</width>
+                       <height>18</height>
+                      </size>
+                     </property>
+                    </widget>
                    </item>
                   </layout>
                  </item>

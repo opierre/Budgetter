@@ -1,5 +1,8 @@
 <RCC>
   <qresource prefix="images">
+    <file>images/history_black_18dp.svg</file>
+    <file>images/date_range_black_18dp.svg</file>
+    <file>images/savings_black_24dp.svg</file>
     <file>images/expand_less_white_18dp.svg</file>
     <file>images/expand_more_white_18dp.svg</file>
     <file>images/refresh_white_18dp.svg</file>
