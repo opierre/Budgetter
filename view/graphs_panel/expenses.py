@@ -1,4 +1,5 @@
-from PySide2.QtCore import QObject, QCoreApplication
+from PySide2.QtCore import QObject, QCoreApplication, Qt
+from PySide2.QtGui import QFont
 from PySide2.QtWidgets import QListView, QWidget, QHBoxLayout
 
 
@@ -18,6 +19,9 @@ class Expenses(QObject):
 
         """ Configure title bar """
         self.configure_title_bar()
+
+        """ Configure widgets inside panel """
+        self.configure_panel()
 
         """ Connect Account groupBox """
         # self.connectAccounts()
@@ -49,3 +53,16 @@ class Expenses(QObject):
         layout.setContentsMargins(20, 10, 10, 10)
 
         # self.ui_setup.accounts.setWidget(widget)
+
+    def configure_panel(self):
+        """
+        Configure widgets' panel
+
+        :return: None
+        """
+
+        self.ui_setup.expenses_choice.setView(QListView())
+        self.ui_setup.expenses_choice.setFont(QFont("Roboto", 11))
+        # self.ui_setup.expenses_choice.view().setSpacing(2)
+        self.ui_setup.expenses_choice.view().window().setWindowFlags(Qt.Popup | Qt.FramelessWindowHint)
+        self.ui_setup.expenses_choice.view().window().setAttribute(Qt.WA_TranslucentBackground)
