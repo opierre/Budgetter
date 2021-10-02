@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1216</width>
-    <height>925</height>
+    <height>931</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -1105,6 +1105,7 @@ QPushButton#this_year_income, QPushButton#last_12_months_income, QPushButton#pre
 	border: 1px solid rgba(66, 96, 135, 250); 
 	border-radius: 12px;
 	color: rgba(66, 96, 135, 250);
+	outline: none;
 }
 
 QPushButton#this_year_income::checked, QPushButton#last_12_months_income::checked, QPushButton#previous_year_income::checked, QPushButton#this_year_expenses::checked, QPushButton#last_12_months_expenses::checked, QPushButton#previous_year_expenses::checked
@@ -1113,6 +1114,7 @@ QPushButton#this_year_income::checked, QPushButton#last_12_months_income::checke
 	border: 1px solid rgba(66, 96, 135, 250); 
 	border-radius: 12px;
 	color: rgba(255, 255, 255, 200);
+	outline: none;
 }</string>
   </property>
   <property name="toolButtonStyle">

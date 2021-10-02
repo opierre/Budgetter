@@ -23,6 +23,9 @@ class Expenses(QObject):
         """ Configure widgets inside panel """
         self.configure_panel()
 
+        """ Set income bar graph """
+        self.set_bar_graph()
+
         """ Connect Account groupBox """
         # self.connectAccounts()
 
@@ -61,8 +64,37 @@ class Expenses(QObject):
         :return: None
         """
 
+        ''' Set up combobox '''
         self.ui_setup.expenses_choice.setView(QListView())
-        self.ui_setup.expenses_choice.setFont(QFont("Roboto", 11))
-        # self.ui_setup.expenses_choice.view().setSpacing(2)
+        self.ui_setup.expenses_choice.setStyleSheet("QListView {"
+                                                    "font-size: 11pt;"
+                                                    "font-family: \"Roboto\";"
+                                                    "}"
+                                                    "QComboBox QAbstractItemView::item\n"
+                                                    "{\n"
+                                                    "	min-height: 25px;\n"
+                                                    "}\n"
+                                                    )
         self.ui_setup.expenses_choice.view().window().setWindowFlags(Qt.Popup | Qt.FramelessWindowHint)
         self.ui_setup.expenses_choice.view().window().setAttribute(Qt.WA_TranslucentBackground)
+
+        self.ui_setup.income_choice.setView(QListView())
+        self.ui_setup.income_choice.setStyleSheet("QListView {"
+                                                    "font-size: 11pt;"
+                                                    "font-family: \"Roboto\";"
+                                                    "}"
+                                                    "QComboBox QAbstractItemView::item\n"
+                                                    "{\n"
+                                                    "	min-height: 25px;\n"
+                                                    "}\n"
+                                                    )
+        self.ui_setup.income_choice.view().window().setWindowFlags(Qt.Popup | Qt.FramelessWindowHint)
+        self.ui_setup.income_choice.view().window().setAttribute(Qt.WA_TranslucentBackground)
+
+    def set_bar_graph(self):
+        """
+        Initialize bar graph with values stored
+
+        :return: None
+        """
+

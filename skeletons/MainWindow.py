@@ -24,7 +24,7 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(1216, 925)
+        MainWindow.resize(1216, 931)
         MainWindow.setStyleSheet(u"#MainWindow \n"
 "{\n"
 "	background: #212F41;\n"
@@ -1140,6 +1140,7 @@ class Ui_MainWindow(object):
 "	border: 1px solid rgba(66, 96, 135, 250); \n"
 "	border-radius: 12px;\n"
 "	color: rgba(66, 96, 135, 250);\n"
+"	outline: none;\n"
 "}\n"
 "\n"
 "QPushButton#this_year_income::checked, QPushButton#last_12_months_income::checked, QPushButton#previous_year_income::checked, QPushButton#this_year_expenses::checked, QPushButton#last_12_months_expenses::checked, QPushButton#previous_year_expenses::checked\n"
@@ -1147,8 +1148,9 @@ class Ui_MainWindow(object):
 "	background-color: rgba(66, 96, 135, 250);\n"
 "	border: 1px solid rgba(66, 96, 135, 250); \n"
 "	border-radius: 12px;\n"
-"	color: rgba(255"
-                        ", 255, 255, 200);\n"
+""
+                        "	color: rgba(255, 255, 255, 200);\n"
+"	outline: none;\n"
 "}")
         MainWindow.setToolButtonStyle(Qt.ToolButtonIconOnly)
         MainWindow.setAnimated(True)
