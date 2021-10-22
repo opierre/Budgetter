@@ -2,8 +2,8 @@ from PySide2.QtCore import QObject, Qt, QDate, QCoreApplication
 from PySide2.QtWidgets import QWidget, QVBoxLayout, QStatusBar, \
     QPushButton
 
-from widgets.saving_widgets.saving_dashboard_widget import SavingDashboard
-from widgets.status_bar import StatusBar
+from view.widgets.saving_widgets.saving_dashboard_widget import SavingDashboard
+from view.widgets.status_bar import StatusBar
 
 
 class Savings(QObject):

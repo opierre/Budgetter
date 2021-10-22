@@ -1,10 +1,10 @@
 from PySide2.QtCore import Qt, QDate, QRect, QRectF, QLocale
 from PySide2.QtGui import QPainter, QColor, QLinearGradient, QBrush, QPen, QFont
-from PySide2.QtWidgets import QWidget, QPushButton, QStyleOptionButton, QStyle, QButtonGroup, QGridLayout
+from PySide2.QtWidgets import QWidget, QPushButton, QButtonGroup, QGridLayout
 from PySide2.QtCharts import QtCharts
 
 from utils.tools import convert_amount_to_str
-from widgets.spending_widgets.spending_chart_widget import SpendingChart
+from view.widgets.spending_widgets.spending_chart_widget import SpendingChart
 
 
 class ChartDashboard(QWidget):

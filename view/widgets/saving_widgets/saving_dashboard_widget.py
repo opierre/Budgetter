@@ -3,7 +3,7 @@ from datetime import datetime
 from PySide2.QtCore import QDate
 from PySide2.QtWidgets import QWidget, QGridLayout
 
-from widgets.saving_widgets.callout_widget import CalloutChartView
+from view.widgets.saving_widgets.callout_widget import CalloutChartView
 
 
 class SavingDashboard(QWidget):

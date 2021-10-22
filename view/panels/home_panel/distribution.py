@@ -1,10 +1,9 @@
 from PySide2.QtCore import QObject, Qt, QDate, QCoreApplication, QLocale
-from PySide2.QtGui import QIcon
-from PySide2.QtWidgets import QVBoxLayout, QStatusBar, QWidget, QPushButton, QListView, QSpacerItem, QSizePolicy
+from PySide2.QtWidgets import QVBoxLayout, QStatusBar, QWidget, QPushButton, QListView
 
 from models.distribution_model import DistributionModel
-from widgets.distribution_delegate import DistributionDelegate
-from widgets.status_bar import StatusBar
+from view.widgets.distribution_delegate import DistributionDelegate
+from view.widgets.status_bar import StatusBar
 
 
 class Distribution(QObject):

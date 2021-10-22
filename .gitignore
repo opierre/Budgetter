@@ -76,6 +76,6 @@ Thumbs.db
 /.idea
 main.pyproject
 main.pyproject.user
-widgets/overlay.py
+view/widgets/overlay.py
 server/dashboard/migrations/
 server/server/database.py

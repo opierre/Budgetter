@@ -1,7 +1,7 @@
 from PySide2.QtCore import QObject, QCoreApplication
 from PySide2.QtWidgets import QWidget, QHBoxLayout
 
-from widgets.spending_widgets.chart_dashboard_widget import ChartDashboard
+from view.widgets.spending_widgets.chart_dashboard_widget import ChartDashboard
 
 
 class Spending(QObject):

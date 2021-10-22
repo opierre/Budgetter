@@ -1,10 +1,10 @@
 from PySide2.QtCore import QObject
 
-from view.home_panel.accounts import Accounts
-from view.home_panel.distribution import Distribution
-from view.home_panel.savings import Savings
-from view.home_panel.spending import Spending
-from view.home_panel.transactions import Transactions
+from view.panels.home_panel.accounts import Accounts
+from view.panels.home_panel.distribution import Distribution
+from view.panels.home_panel.savings import Savings
+from view.panels.home_panel.spending import Spending
+from view.panels.home_panel.transactions import Transactions
 
 
 class Home(QObject):

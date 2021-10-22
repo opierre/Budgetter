@@ -1,12 +1,7 @@
 from PySide2.QtCore import QObject
 
-from view.graphs_panel.expenses import Expenses
-from view.graphs_panel.income import Income
-from view.home_panel.accounts import Accounts
-from view.home_panel.distribution import Distribution
-from view.home_panel.savings import Savings
-from view.home_panel.spending import Spending
-from view.home_panel.transactions import Transactions
+from view.panels.graphs_panel.expenses import Expenses
+from view.panels.graphs_panel.income import Income
 
 
 class Graphs(QObject):

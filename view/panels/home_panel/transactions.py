@@ -4,13 +4,12 @@ from PySide2.QtWidgets import QVBoxLayout, QStatusBar, QWidget, QPushButton, QLi
     QDoubleSpinBox, QDateEdit, QComboBox, QLabel, QAbstractItemView
 
 from models.transactions_model import TransactionsModel, TransactionsFilterModel
-from utils.rest_client import RestClient
-from widgets.transaction_widgets.calendar_widget import CalendarWidget
-from widgets.transaction_widgets.category_combobox_delegate import CategoryComboBox
-from widgets.transaction_widgets.expense_income_transfer_widget import ExpensesIncomeTransfer
-from widgets.status_bar import StatusBar
-from widgets.transaction_widgets.means_widget import Mean
-from widgets.transaction_widgets.transaction_delegate import TransactionDelegate
+from view.widgets.transaction_widgets.calendar_widget import CalendarWidget
+from view.widgets.transaction_widgets.category_combobox_delegate import CategoryComboBox
+from view.widgets.transaction_widgets.expense_income_transfer_widget import ExpensesIncomeTransfer
+from view.widgets.status_bar import StatusBar
+from view.widgets.transaction_widgets.means_widget import Mean
+from view.widgets.transaction_widgets.transaction_delegate import TransactionDelegate
 
 
 class Transactions(QObject):

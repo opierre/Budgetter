@@ -2,7 +2,7 @@ from PySide2.QtCore import Signal
 from PySide2.QtGui import QIcon
 from PySide2.QtWidgets import QDockWidget
 
-from widgets.title_bar import TitleBar
+from view.widgets.title_bar import TitleBar
 
 
 class Container(QDockWidget):

@@ -1,11 +1,8 @@
-from PySide2.QtGui import QColor
-from PySide2.QtWidgets import QGraphicsDropShadowEffect
-
-from skeletons.MainWindow import Ui_MainWindow
-from view.graphs import Graphs
-from view.menu_view import Menu
-from view.home import Home
-from widgets.custom_window import CustomWindow
+from view.skeletons.MainWindow import Ui_MainWindow
+from view.panels.graphs import Graphs
+from view.panels.menu_view import Menu
+from view.panels.home import Home
+from view.widgets.custom_window import CustomWindow
 
 
 class Controller:

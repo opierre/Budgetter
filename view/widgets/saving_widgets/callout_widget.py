@@ -4,7 +4,7 @@ from PySide2.QtGui import QFontMetrics, QFont, QPainterPath, QPainter, QColor, Q
 from PySide2.QtWidgets import QGraphicsView, QGraphicsItem, QGraphicsScene, QStyleOptionGraphicsItem
 
 from utils.tools import convert_amount_to_str
-from widgets.saving_widgets.saving_chart_widget import SavingChart
+from view.widgets.saving_widgets.saving_chart_widget import SavingChart
 
 
 class Callout(QGraphicsItem):
