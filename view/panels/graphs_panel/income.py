@@ -1,4 +1,4 @@
-from PySide2.QtCore import QObject, QCoreApplication
+from PySide2.QtCore import QObject, QCoreApplication, QDate
 from PySide2.QtWidgets import QListView, QWidget, QHBoxLayout
 
 
@@ -18,6 +18,9 @@ class Income(QObject):
 
         """ Configure title bar """
         self.configure_title_bar()
+
+        """ Configure parameters """
+        self.configure_parameters()
 
         """ Connect Account groupBox """
         # self.connectAccounts()
@@ -49,3 +52,15 @@ class Income(QObject):
         layout.setContentsMargins(20, 10, 10, 10)
 
         # self.ui_setup.accounts.setWidget(widget)
+
+    def configure_parameters(self):
+        """
+        Configure parameters to look for
+
+        :return: None
+        """
+
+        """ Set current date """
+        self.ui_setup.dateEdit_income_to.setDate(QDate.currentDate())
+
+
