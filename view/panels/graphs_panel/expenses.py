@@ -1,4 +1,4 @@
-from PySide2.QtCore import QObject, QCoreApplication, Qt
+from PySide2.QtCore import QObject, QCoreApplication, Qt, QDate
 from PySide2.QtGui import QFont
 from PySide2.QtWidgets import QListView, QWidget, QHBoxLayout
 
@@ -26,8 +26,23 @@ class Expenses(QObject):
         """ Set income bar graph """
         self.set_bar_graph()
 
-        """ Connect Account groupBox """
-        # self.connectAccounts()
+        """ Configure parameters """
+        self.configure_parameters()
+
+        """ Connect income """
+        self.connect_slots_and_signals()
+
+    def connect_slots_and_signals(self):
+        """
+        Connect all slots and signals from Expenses panel
+
+        :return: None
+        """
+
+        """ Connect date range option checked to actualize date and refresh """
+        self.ui_setup.this_year_expenses.clicked.connect(self.change_date_range)
+        self.ui_setup.last_12_months_expenses.clicked.connect(self.change_date_range)
+        self.ui_setup.previous_year_expenses.clicked.connect(self.change_date_range)
 
     def configure_title_bar(self):
         """
@@ -64,7 +79,7 @@ class Expenses(QObject):
         :return: None
         """
 
-        ''' Set up combobox '''
+        """ Configure combobox for category """
         self.ui_setup.expenses_choice.setView(QListView())
         self.ui_setup.expenses_choice.setStyleSheet("QListView {"
                                                     "font-size: 11pt;"
@@ -78,19 +93,6 @@ class Expenses(QObject):
         self.ui_setup.expenses_choice.view().window().setWindowFlags(Qt.Popup | Qt.FramelessWindowHint)
         self.ui_setup.expenses_choice.view().window().setAttribute(Qt.WA_TranslucentBackground)
 
-        self.ui_setup.income_choice.setView(QListView())
-        self.ui_setup.income_choice.setStyleSheet("QListView {"
-                                                    "font-size: 11pt;"
-                                                    "font-family: \"Roboto\";"
-                                                    "}"
-                                                    "QComboBox QAbstractItemView::item\n"
-                                                    "{\n"
-                                                    "	min-height: 25px;\n"
-                                                    "}\n"
-                                                    )
-        self.ui_setup.income_choice.view().window().setWindowFlags(Qt.Popup | Qt.FramelessWindowHint)
-        self.ui_setup.income_choice.view().window().setAttribute(Qt.WA_TranslucentBackground)
-
     def set_bar_graph(self):
         """
         Initialize bar graph with values stored
@@ -98,3 +100,35 @@ class Expenses(QObject):
         :return: None
         """
 
+        pass
+
+    def configure_parameters(self):
+        """
+        Configure parameters to look for
+
+        :return: None
+        """
+
+        """ Set current date """
+        self.ui_setup.dateEdit_expenses_to.setDate(QDate.currentDate())
+        self.ui_setup.dateEdit_expenses_from.setDate(QDate.currentDate().addDays(-365))
+
+    def change_date_range(self):
+        """
+        Change date range according to only option box checked
+
+        :return: None
+        """
+
+        """ Get sender """
+        sender = self.sender()
+
+        if sender == self.ui_setup.this_year_expenses:
+            self.ui_setup.dateEdit_expenses_to.setDate(QDate.currentDate())
+            self.ui_setup.dateEdit_expenses_from.setDate(QDate.currentDate().addMonths(-QDate.currentDate().month()+1))
+        elif sender == self.ui_setup.last_12_months_expenses:
+            self.ui_setup.dateEdit_expenses_to.setDate(QDate.currentDate())
+            self.ui_setup.dateEdit_expenses_from.setDate(QDate.currentDate().addDays(-365))
+        elif sender == self.ui_setup.previous_year_expenses:
+            self.ui_setup.dateEdit_expenses_to.setDate(QDate.currentDate().addMonths(-QDate.currentDate().month()))
+            self.ui_setup.dateEdit_expenses_from.setDate(QDate.currentDate().addMonths(-QDate.currentDate().month()-11))

@@ -8,10 +8,11 @@
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
 
-from PySide2.QtCore import (QCoreApplication, QMetaObject,
-                            QSize, Qt)
-from PySide2.QtGui import (QCursor, QFont,
-                           QIcon)
+from PySide2.QtCore import (QCoreApplication, QDate, QDateTime, QMetaObject,
+    QObject, QPoint, QRect, QSize, QTime, QUrl, Qt)
+from PySide2.QtGui import (QBrush, QColor, QConicalGradient, QCursor, QFont,
+    QFontDatabase, QIcon, QKeySequence, QLinearGradient, QPalette, QPainter,
+    QPixmap, QRadialGradient)
 from PySide2.QtWidgets import *
 
 from view.widgets.container import Container
@@ -1512,7 +1513,7 @@ class Ui_MainWindow(object):
         self.this_year_expenses.setIconSize(QSize(18, 18))
         self.this_year_expenses.setCheckable(True)
         self.this_year_expenses.setChecked(False)
-        self.this_year_expenses.setAutoExclusive(False)
+        self.this_year_expenses.setAutoExclusive(True)
 
         self.gridLayout_7.addWidget(self.this_year_expenses, 0, 1, 1, 1)
 
@@ -1529,7 +1530,7 @@ class Ui_MainWindow(object):
         self.last_12_months_expenses.setIconSize(QSize(18, 18))
         self.last_12_months_expenses.setCheckable(True)
         self.last_12_months_expenses.setChecked(True)
-        self.last_12_months_expenses.setAutoExclusive(False)
+        self.last_12_months_expenses.setAutoExclusive(True)
 
         self.gridLayout_7.addWidget(self.last_12_months_expenses, 0, 0, 1, 1)
 
@@ -1548,6 +1549,7 @@ class Ui_MainWindow(object):
         self.previous_year_expenses.setIconSize(QSize(18, 18))
         self.previous_year_expenses.setCheckable(True)
         self.previous_year_expenses.setAutoRepeat(True)
+        self.previous_year_expenses.setAutoExclusive(True)
 
         self.horizontalLayout_11.addWidget(self.previous_year_expenses)
 
@@ -1731,7 +1733,7 @@ class Ui_MainWindow(object):
         self.this_year_income.setIconSize(QSize(18, 18))
         self.this_year_income.setCheckable(True)
         self.this_year_income.setChecked(False)
-        self.this_year_income.setAutoExclusive(False)
+        self.this_year_income.setAutoExclusive(True)
 
         self.gridLayout_6.addWidget(self.this_year_income, 0, 1, 1, 1)
 
@@ -1745,7 +1747,7 @@ class Ui_MainWindow(object):
         self.last_12_months_income.setIconSize(QSize(18, 18))
         self.last_12_months_income.setCheckable(True)
         self.last_12_months_income.setChecked(True)
-        self.last_12_months_income.setAutoExclusive(False)
+        self.last_12_months_income.setAutoExclusive(True)
 
         self.gridLayout_6.addWidget(self.last_12_months_income, 0, 0, 1, 1)
 
@@ -1761,6 +1763,7 @@ class Ui_MainWindow(object):
         self.previous_year_income.setIconSize(QSize(18, 18))
         self.previous_year_income.setCheckable(True)
         self.previous_year_income.setAutoRepeat(True)
+        self.previous_year_income.setAutoExclusive(True)
 
         self.horizontalLayout_6.addWidget(self.previous_year_income)
 

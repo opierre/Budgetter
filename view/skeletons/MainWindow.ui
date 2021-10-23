@@ -1934,7 +1934,7 @@ QPushButton#this_year_income::checked, QPushButton#last_12_months_income::checke
                       <bool>false</bool>
                      </property>
                      <property name="autoExclusive">
-                      <bool>false</bool>
+                      <bool>true</bool>
                      </property>
                     </widget>
                    </item>
@@ -1982,7 +1982,7 @@ QPushButton#this_year_income::checked, QPushButton#last_12_months_income::checke
                       <bool>true</bool>
                      </property>
                      <property name="autoExclusive">
-                      <bool>false</bool>
+                      <bool>true</bool>
                      </property>
                     </widget>
                    </item>
@@ -2029,6 +2029,9 @@ QPushButton#this_year_income::checked, QPushButton#last_12_months_income::checke
                         <bool>true</bool>
                        </property>
                        <property name="autoRepeat">
+                        <bool>true</bool>
+                       </property>
+                       <property name="autoExclusive">
                         <bool>true</bool>
                        </property>
                       </widget>
@@ -2462,7 +2465,7 @@ QPushButton#this_year_income::checked, QPushButton#last_12_months_income::checke
                       <bool>false</bool>
                      </property>
                      <property name="autoExclusive">
-                      <bool>false</bool>
+                      <bool>true</bool>
                      </property>
                     </widget>
                    </item>
@@ -2510,7 +2513,7 @@ QPushButton#this_year_income::checked, QPushButton#last_12_months_income::checke
                       <bool>true</bool>
                      </property>
                      <property name="autoExclusive">
-                      <bool>false</bool>
+                      <bool>true</bool>
                      </property>
                     </widget>
                    </item>
@@ -2557,6 +2560,9 @@ QPushButton#this_year_income::checked, QPushButton#last_12_months_income::checke
                         <bool>true</bool>
                        </property>
                        <property name="autoRepeat">
+                        <bool>true</bool>
+                       </property>
+                       <property name="autoExclusive">
                         <bool>true</bool>
                        </property>
                       </widget>
@@ -2679,13 +2685,13 @@ QPushButton#this_year_income::checked, QPushButton#last_12_months_income::checke
   <customwidget>
    <class>Container</class>
    <extends>QDockWidget</extends>
-   <header>widgets/container.h</header>
+   <header>view/widgets/container.h</header>
    <container>1</container>
   </customwidget>
   <customwidget>
    <class>SlidingStackedWidget</class>
    <extends>QStackedWidget</extends>
-   <header>widgets/sliding_stacked_widget.h</header>
+   <header>view/widgets/sliding_stacked_widget.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>
