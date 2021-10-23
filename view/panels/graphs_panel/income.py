@@ -1,5 +1,8 @@
+from PySide2.QtCharts import QtCharts
 from PySide2.QtCore import QObject, QCoreApplication, QDate, Qt
-from PySide2.QtWidgets import QListView, QWidget, QHBoxLayout
+from PySide2.QtWidgets import QListView, QWidget, QHBoxLayout, QVBoxLayout
+
+from view.widgets.bar_widgets.category_chart_widget import CategoryChart
 
 
 class Income(QObject):
@@ -13,8 +16,9 @@ class Income(QObject):
         """ Store gui """
         self.ui_setup = gui
 
-        """ Configure layout """
-        self.configure_layout()
+        """ Store chart view """
+        self.chart = CategoryChart()
+        self.chart_view = QtCharts.QChartView(self.chart)
 
         """ Configure title bar """
         self.configure_title_bar()
@@ -22,8 +26,16 @@ class Income(QObject):
         """ Configure panel """
         self.configure_panel()
 
+        """ Set bar graph """
+        # self.set_bar_graph()
+
         """ Configure parameters """
         self.configure_parameters()
+
+        """ Configure layout """
+        self.configure_layout()
+
+        self.set_values({})
 
         """ Connect income """
         self.connect_slots_and_signals()
@@ -82,11 +94,14 @@ class Income(QObject):
         """
 
         widget = QWidget()
-        layout = QHBoxLayout(widget)
-        layout.setSpacing(30)
-        layout.setContentsMargins(20, 10, 10, 10)
+        layout = QVBoxLayout(widget)
+        layout.setSpacing(0)
+        layout.addWidget(self.chart_view)
+        layout.setContentsMargins(0, 0, 0, 0)
 
-        # self.ui_setup.accounts.setWidget(widget)
+        self.ui_setup.widget_income_graph.setLayout(QVBoxLayout())
+        self.ui_setup.widget_income_graph.layout().setContentsMargins(0, 0, 0, 0)
+        self.ui_setup.widget_income_graph.layout().addWidget(widget)
 
     def configure_parameters(self):
         """
@@ -118,3 +133,56 @@ class Income(QObject):
         elif sender == self.ui_setup.previous_year_income:
             self.ui_setup.dateEdit_income_to.setDate(QDate.currentDate().addMonths(-QDate.currentDate().month()))
             self.ui_setup.dateEdit_income_from.setDate(QDate.currentDate().addMonths(-QDate.currentDate().month()-11))
+
+    def set_bar_graph(self):
+        """
+        Initialize bar graph with values stored
+
+        :return: None
+        """
+
+        self.series = QtCharts.QBarSeries()
+        self.chart_view.chart().addSeries(self.series)
+        self.chart_view.chart().createDefaultAxes()
+
+        self.axisX = QtCharts.QBarCategoryAxis()
+        categories = ["Jan", "Feb", "Mar", "Apr", "May", "Jun"]
+        self.axisX.append(categories)
+        self.axisX.setRange("Feb", "May")
+        self.chart_view.chart().setAxisX(self.axisX, self.series)
+
+    def set_values(self, values: dict):
+        """
+        Set values on series
+
+        :param values: values to set as dict
+        :return: None
+        """
+
+        values = {"01-2020": 4235.23,
+                  "02-2020": 4565.23,
+                  "03-2020": 5454.34,
+                  "04-2020": 5674.76,
+                  "05-2020": 7345.87,
+                  "06-2020": 8340.89,
+                  "07-2020": 8957.54,
+                  "08-2020": 11100.34,
+                  "09-2020": 11550.12,
+                  "10-2020": 11567.87,
+                  "11-2020": 11978.78,
+                  "12-2020": 12010.98,
+                  "01-2021": 12056,
+                  "02-2021": 13450.12,
+                  "03-2021": 15469.35,
+                  "04-2021": 14356.00,
+                  "05-2021": 25098.63,
+                  "06-2021": 26098.57,
+                  "07-2021": 22054.00,
+                  "08-2021": 22000.45}
+
+        """ Set values on chat """
+        self.chart.set_values(values)
+
+
+
+
