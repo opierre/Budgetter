@@ -18,9 +18,9 @@ class CategoryChart(QtCharts.QChart):
         self.current_point = None
 
         """ Set x axis """
-        self.axis_x = QtCharts.QDateTimeAxis()
-        self.axis_x.setFormat("MMMM-yyyy")
+        self.axis_x = QtCharts.QBarCategoryAxis()
         self.axis_x.setVisible(True)
+        self.axis_x.setGridLineVisible(False)
 
         """ Set y axis """
         self.axis_y = QtCharts.QValueAxis()
@@ -29,6 +29,7 @@ class CategoryChart(QtCharts.QChart):
 
         """ Store series """
         self.series = QtCharts.QBarSeries(self)
+        self.set = QtCharts.QBarSet("Category")
 
         """ Customize stylesheet """
         self.setBackgroundBrush(QBrush(QColor("transparent")))
@@ -57,18 +58,22 @@ class CategoryChart(QtCharts.QChart):
 
         """ Fulfill series """
         y_max_value = 0
+        x_values = []
         for key, value in values.items():
             """ Update Y-Axis range """
             if value > y_max_value:
                 y_max_value = value
 
             """ Update X-Axis range """
-            x_value = float(QDateTime.fromString(key, "MM-yyyy").toMSecsSinceEpoch())
+            # x_value = QDateTime.fromString(key, "MM-yyyy").toMSecsSinceEpoch()
+            x_value = QDateTime.toString(QDateTime.fromString(key, "MM-yyyy"), "MMM-yyyy")
 
-            self.series.append(x_value, value)
+            x_values.append(x_value)
+            self.set.append(value)
 
         """ Set brush and pen for series """
-        self.series.setPen(pen)
+        self.axis_x.append(x_values)
+        self.series.append(self.set)
 
         """ Add series to graph """
         self.addSeries(self.series)
@@ -83,8 +88,11 @@ class CategoryChart(QtCharts.QChart):
 
         """ Configure y axis """
         self.axis_y.setRange(0, y_max_value * 12/10)
-        self.axis_x.setRange(QDateTime.fromMSecsSinceEpoch(self.series.points()[0].x()),
-                             QDateTime.fromMSecsSinceEpoch(self.series.points()[-1].x()))
+        # self.setAxisX(self.axis_x, self.series)
+        # self.setAxisY(self.axis_y, self.series)
+
+        # self.axis_x.setRange(QDateTime.fromMSecsSinceEpoch(self.series.points()[0].x()),
+        #                      QDateTime.fromMSecsSinceEpoch(self.series.points()[-1].x()))
 
         """ Display middle point """
         # self.show_point(self.get_middle_value())
