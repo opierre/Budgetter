@@ -21,11 +21,13 @@ class CategoryChart(QtCharts.QChart):
         self.axis_x = QtCharts.QBarCategoryAxis()
         self.axis_x.setVisible(True)
         self.axis_x.setGridLineVisible(False)
+        self.axis_x.setLabelsColor(QColor("white"))
 
         """ Set y axis """
         self.axis_y = QtCharts.QValueAxis()
         self.axis_y.setMin(0)
         self.axis_y.setVisible(True)
+        self.axis_y.setLabelsColor(QColor("white"))
 
         """ Store series """
         self.series = QtCharts.QBarSeries(self)
@@ -36,6 +38,9 @@ class CategoryChart(QtCharts.QChart):
 
         """ Set animation """
         self.setAnimationOptions(QtCharts.QChart.SeriesAnimations)
+
+        """ Remove margins """
+        self.layout().setContentsMargins(0, 0, 0, 0)
 
         """ Connect all slots and signals """
         self.connect_slots_and_signals()
