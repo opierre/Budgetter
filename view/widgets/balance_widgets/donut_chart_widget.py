@@ -147,25 +147,30 @@ class DonutChart(QWidget):
                 start_angle = previous_end_angle
                 previous_end_angle = start_angle + span_angle
 
-            pen.setColor(QColor(self.colors[current_index]))
+            """ Set gradient on arcs """
+            gradient = QConicalGradient()
+            gradient.setCenter(rect_origins.center())
+            gradient.setAngle(start_angle)
+            gradient.setColorAt(current_slice / 100, QColor("transparent"))
+            gradient.setColorAt(0, QColor(self.colors[current_index]))
+            pen.setBrush(QBrush(gradient))
+            # pen.setColor(QColor(self.colors[current_index]))
             painter.setPen(pen)
-
-            """ Update current index """
-            current_index += 1
 
             """ Draw arc """
             painter.drawArc(rect_origins, start_angle * 16, span_angle * 16)
-
             painter.setOpacity(1.0)
 
             """ Re-draw first one in case of last to hide overlapping """
-            if current_index == last_index:
-                """ Set pen color """
-                pen.setColor(self.colors[0])
-                painter.setPen(pen)
+            """ Set pen color """
+            pen.setColor(self.colors[current_index])
+            painter.setPen(pen)
 
-                """ Draw arc """
-                painter.drawArc(rect_origins, first_start_angle * 16, first_span_angle * 16 * 1 / 10)
+            """ Draw arc """
+            painter.drawArc(rect_origins, start_angle * 16, span_angle * 16 * 1 / 100)
+
+            """ Update current index """
+            current_index += 1
 
     def draw_total_amount(self, pen, painter):
         """
