@@ -156,31 +156,6 @@ class DonutChart(QWidget):
             """ Draw arc """
             painter.drawArc(rect_origins, start_angle * 16, span_angle * 16)
 
-            """ Configure font for slice percentage """
-            font = QFont()
-            font.setFamily(u"Roboto")
-            font.setPointSize(8)
-            painter.setFont(font)
-
-            """ Set pen color """
-            pen.setColor(QColor("white"))
-            painter.setPen(pen)
-            painter.setOpacity(0.8)
-
-            """ Compute middle arc coordinates """
-            x_label = self.rect().center().x() + (rect_origins.width() / 2.0) * math.cos(
-                (start_angle + span_angle / 2) * math.pi / 180) - 7
-            y_label = self.rect().center().y() - (rect_origins.width() / 2.0) * math.sin(
-                (start_angle + span_angle / 2) * math.pi / 180) - 6
-
-            """ Get text width """
-            label_perc = str(current_slice) + "%"
-            font_metrics = QFontMetrics(font)
-            pixels_width = font_metrics.width(label_perc)
-            pixels_height = font_metrics.height()
-            rect_label = QRectF(x_label, y_label, pixels_width, pixels_height)
-
-            painter.drawText(rect_label, Qt.AlignLeft | Qt.AlignVCenter, label_perc)
             painter.setOpacity(1.0)
 
             """ Re-draw first one in case of last to hide overlapping """
