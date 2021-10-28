@@ -636,8 +636,14 @@ class Transactions(QObject):
         """ Set cursor for left buttons """
         self.all.setCursor(Qt.PointingHandCursor)
         self.expenses.setCursor(Qt.PointingHandCursor)
+        self.expenses.setIconSize(QSize(18, 18))
+        self.expenses.setIcon(QIcon(":/images/images/hdr_weak_black_18dp_expenses.svg"))
         self.income.setCursor(Qt.PointingHandCursor)
+        self.income.setIconSize(QSize(18, 18))
+        self.income.setIcon(QIcon(":/images/images/hdr_weak_black_18dp_income.svg"))
         self.transfer.setCursor(Qt.PointingHandCursor)
+        self.transfer.setIconSize(QSize(18, 18))
+        self.transfer.setIcon(QIcon(":/images/images/hdr_weak_black_18dp_transfer.svg"))
 
         """ Set cursor for left buttons """
         self.allAccount.setCursor(Qt.PointingHandCursor)

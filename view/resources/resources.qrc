@@ -1,5 +1,8 @@
 <RCC>
   <qresource prefix="images">
+    <file>images/hdr_weak_black_18dp_transfer.svg</file>
+    <file>images/hdr_weak_black_18dp_income.svg</file>
+    <file>images/hdr_weak_black_18dp_expenses.svg</file>
     <file>images/payments_black_24dp.svg</file>
     <file>images/date_range_black_18dp_checked.svg</file>
     <file>images/history_black_18dp_checked.svg</file>
