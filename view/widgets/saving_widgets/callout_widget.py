@@ -128,19 +128,6 @@ class Callout(QGraphicsItem):
         :return: None
         """
 
-        """ Configure background shadow rect path """
-        # path_shadow = QPainterPath()
-        # complete_rect_shadow = QRectF(self.complete_rect.x(), self.complete_rect.y(),
-        #                               self.complete_rect.width() + 3, self.complete_rect.height() + 3)
-        # path_shadow.addRoundedRect(complete_rect_shadow, 2, 2)
-
-        # """ Configure shadow style """
-        # painter.setPen(Qt.NoPen)
-        # painter.setBrush(QColor("#1C293B"))
-        #
-        # """ Draw shadow """
-        # painter.drawPath(path_shadow)
-
         """ Configure background rect path """
         path = QPainterPath()
         complete_rect = self.complete_rect

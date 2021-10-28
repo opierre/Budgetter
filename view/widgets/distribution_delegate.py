@@ -1,5 +1,5 @@
-from PySide2.QtCore import QSize, Qt, QRect
-from PySide2.QtGui import QPen, QColor, QPainter, QFont, QFontMetrics
+from PySide2.QtCore import QSize, Qt, QRect, QPointF
+from PySide2.QtGui import QPen, QColor, QPainter, QFont, QFontMetrics, QLinearGradient, QGradient
 from PySide2.QtSvg import QSvgRenderer
 from PySide2.QtWidgets import QItemDelegate
 
@@ -65,7 +65,11 @@ class DistributionDelegate(QItemDelegate):
 
         """ Draw percentage background """
         painter.setPen(QPen(QColor("#21405D")))
-        painter.setBrush(QColor("#21405D"))
+        gradient = QLinearGradient(QPointF(0, 0), QPointF(1, 0))
+        gradient.setColorAt(0.0, QColor("#1A537D"))
+        gradient.setColorAt(1.0, QColor("transparent"))
+        gradient.setCoordinateMode(QGradient.ObjectMode)
+        painter.setBrush(gradient)
         rectPercentage = QRect(rectBackground.x()+rectBackground.width(), option.rect.y()+10,
                                -(rectBackground.width()-(option.rect.width()*1/3))*(value[3]/100),
                                option.rect.height()-20)
@@ -144,7 +148,8 @@ class DistributionDelegate(QItemDelegate):
         pixelsHeight = fontMetrics.height()
 
         """ Set amount on right corner """
-        rectAmount = QRect(rectBackground.width()+rectBackground.x()-pixelsWidth-option.rect.width()*1/50, rectCategory.y(),
+        rectAmount = QRect(rectBackground.width()+rectBackground.x()-pixelsWidth-option.rect.width()*1/50,
+                           rectCategory.y(),
                            pixelsWidth, pixelsHeight)
         painter.drawText(rectAmount, Qt.AlignRight | Qt.AlignVCenter, amount)
 
