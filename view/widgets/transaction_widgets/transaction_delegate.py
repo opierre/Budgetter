@@ -90,9 +90,9 @@ class TransactionDelegate(QStyledItemDelegate):
 
         """ Set icon """
         self.edit.setIconSize(QSize(18, 18))
-        self.edit.setIcon(QIcon(":/images/images/edit-white-18dp.svg"))
+        self.edit.setIcon(QIcon(":/images/images/edit_white_18dp.svg"))
         self.delete.setIconSize(QSize(18, 18))
-        self.delete.setIcon(QIcon(":/images/images/delete-white-18dp.svg"))
+        self.delete.setIcon(QIcon(":/images/images/delete_forever_white_18dp.svg"))
         self.comment.setIcon(QIcon(":/images/images/notes_white_24dp.svg"))
 
         """ Set background color """
@@ -371,7 +371,8 @@ class TransactionDelegate(QStyledItemDelegate):
 
         if self.editable != index and option.state & QStyle.State_Selected:
             """ Draw background of edit as pastille """
-            painter.setBrush(QColor(1, 144, 234, 200))
+            painter.setBrush(QColor(1, 144, 234, 150))
+            painter.setPen(QColor(1, 144, 234, 150))
 
             """ Draw hover effect """
             painter.drawEllipse(self.rect_edit)
@@ -390,7 +391,8 @@ class TransactionDelegate(QStyledItemDelegate):
 
         if self.editable != index and option.state & QStyle.State_Selected:
             """ Draw background of edit as pastille """
-            painter.setBrush(QColor(226, 74, 141, 200))
+            painter.setBrush(QColor(226, 74, 141, 150))
+            painter.setPen(QColor(226, 74, 141, 150))
 
             """ Draw hover effect """
             painter.drawEllipse(self.rect_delete)
