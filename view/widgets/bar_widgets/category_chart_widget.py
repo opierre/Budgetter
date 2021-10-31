@@ -19,31 +19,47 @@ class CategoryChart(QtCharts.QChart):
 
         """ Set x axis """
         self.axis_x = QtCharts.QBarCategoryAxis()
-        self.axis_x.setVisible(True)
-        self.axis_x.setGridLineVisible(False)
-        self.axis_x.setLabelsColor(QColor("white"))
 
         """ Set y axis """
         self.axis_y = QtCharts.QValueAxis()
-        self.axis_y.setMin(0)
-        self.axis_y.setVisible(True)
-        self.axis_y.setLabelsColor(QColor("white"))
 
         """ Store series """
         self.series = QtCharts.QBarSeries(self)
         self.set = QtCharts.QBarSet("Category")
 
+        """ Configure chart """
+        self.configure_chart()
+
+        """ Connect all slots and signals """
+        self.connect_slots_and_signals()
+
+    def configure_chart(self):
+        """
+        Configure all chart aspects
+
+        :return: None
+        """
+
+        """ Configure X axis """
+        self.axis_x.setVisible(True)
+        self.axis_x.setGridLineVisible(False)
+        self.axis_x.setLabelsColor(QColor("white"))
+
+        """ Configure Y axis """
+        self.axis_y.setMin(0)
+        self.axis_y.setVisible(True)
+        self.axis_y.setLabelsColor(QColor("white"))
+
         """ Customize stylesheet """
         self.setBackgroundBrush(QBrush(QColor("transparent")))
+        self.set.setBrush(QColor("#1B70FB"))
+        self.set.setPen(QColor("#1C83FB"))
 
         """ Set animation """
         self.setAnimationOptions(QtCharts.QChart.SeriesAnimations)
 
         """ Remove margins """
         self.layout().setContentsMargins(0, 0, 0, 0)
-
-        """ Connect all slots and signals """
-        self.connect_slots_and_signals()
 
     def set_values(self, values: dict):
         """
@@ -70,7 +86,6 @@ class CategoryChart(QtCharts.QChart):
                 y_max_value = value
 
             """ Update X-Axis range """
-            # x_value = QDateTime.fromString(key, "MM-yyyy").toMSecsSinceEpoch()
             x_value = QDateTime.toString(QDateTime.fromString(key, "MM-yyyy"), "MMM-yyyy")
 
             x_values.append(x_value)
@@ -93,11 +108,6 @@ class CategoryChart(QtCharts.QChart):
 
         """ Configure y axis """
         self.axis_y.setRange(0, y_max_value * 12/10)
-        # self.setAxisX(self.axis_x, self.series)
-        # self.setAxisY(self.axis_y, self.series)
-
-        # self.axis_x.setRange(QDateTime.fromMSecsSinceEpoch(self.series.points()[0].x()),
-        #                      QDateTime.fromMSecsSinceEpoch(self.series.points()[-1].x()))
 
         """ Display middle point """
         # self.show_point(self.get_middle_value())
