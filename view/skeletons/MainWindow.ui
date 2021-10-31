@@ -2046,7 +2046,7 @@ QPushButton#this_year_income::checked, QPushButton#last_12_months_income::checke
              </widget>
             </item>
             <item row="0" column="1">
-             <widget class="QWidget" name="widget" native="true"/>
+             <widget class="QWidget" name="widget_expenses_graph" native="true"/>
             </item>
            </layout>
           </widget>

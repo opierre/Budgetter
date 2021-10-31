@@ -1,6 +1,6 @@
 from PySide2.QtCharts import QtCharts
-from PySide2.QtCore import Qt, QDateTime
-from PySide2.QtGui import QPen, QColor, QBrush
+from PySide2.QtCore import Qt, QDateTime, QPointF
+from PySide2.QtGui import QPen, QColor, QBrush, QLinearGradient, QGradient
 
 
 class CategoryChart(QtCharts.QChart):
@@ -8,11 +8,14 @@ class CategoryChart(QtCharts.QChart):
     Category chart
     """
 
-    def __init__(self, parent=None):
+    def __init__(self, chart_type: str, parent=None):
         super().__init__(parent)
 
         """ Hide legend """
         self.legend().hide()
+
+        """ Store chart type """
+        self.chart_type = chart_type
 
         """ Store current clicked point """
         self.current_point = None
@@ -52,8 +55,27 @@ class CategoryChart(QtCharts.QChart):
 
         """ Customize stylesheet """
         self.setBackgroundBrush(QBrush(QColor("transparent")))
-        self.set.setBrush(QColor("#1B70FB"))
-        self.set.setPen(QColor("#1C83FB"))
+
+        """ Configure gradient to fulfill bars """
+        gradient = QLinearGradient(QPointF(0, 0), QPointF(0, 1))
+
+        if self.chart_type == 'Income':
+            gradient.setColorAt(0.0, QColor("#23D0FE"))
+            gradient.setColorAt(1.0, QColor("#1A68FA"))
+        else:
+            gradient.setColorAt(0.0, QColor("#D821FE"))
+            gradient.setColorAt(1.0, QColor("#8118F9"))
+        gradient.setCoordinateMode(QGradient.ObjectMode)
+        self.set.setBrush(gradient)
+
+        """ Create pen to draw borders """
+        pen = QPen()
+        pen.setWidthF(5.0)
+        pen.setCapStyle(Qt.RoundCap)
+        pen.setJoinStyle(Qt.RoundJoin)
+        pen.setBrush(gradient)
+        self.set.setPen(pen)
+        self.series.setBarWidth(0.5)
 
         """ Set animation """
         self.setAnimationOptions(QtCharts.QChart.SeriesAnimations)

@@ -1565,10 +1565,10 @@ class Ui_MainWindow(object):
 
         self.gridLayout_43.addWidget(self.widget_expenses, 0, 0, 1, 1)
 
-        self.widget = QWidget(self.dockWidgetContents_23)
-        self.widget.setObjectName(u"widget")
+        self.widget_expenses_graph = QWidget(self.dockWidgetContents_23)
+        self.widget_expenses_graph.setObjectName(u"widget_expenses_graph")
 
-        self.gridLayout_43.addWidget(self.widget, 0, 1, 1, 1)
+        self.gridLayout_43.addWidget(self.widget_expenses_graph, 0, 1, 1, 1)
 
         self.expenses.setWidget(self.dockWidgetContents_23)
 

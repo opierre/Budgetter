@@ -1,6 +1,7 @@
 from PySide2.QtCharts import QtCharts
 from PySide2.QtCore import QObject, QCoreApplication, QDate, Qt
-from PySide2.QtWidgets import QListView, QWidget, QHBoxLayout, QVBoxLayout
+from PySide2.QtGui import QPainter
+from PySide2.QtWidgets import QListView, QWidget, QVBoxLayout
 
 from view.widgets.bar_widgets.category_chart_widget import CategoryChart
 
@@ -17,7 +18,7 @@ class Income(QObject):
         self.ui_setup = gui
 
         """ Store chart view """
-        self.chart = CategoryChart()
+        self.chart = CategoryChart("Income")
         self.chart_view = QtCharts.QChartView(self.chart)
 
         """ Configure title bar """
@@ -25,9 +26,6 @@ class Income(QObject):
 
         """ Configure panel """
         self.configure_panel()
-
-        """ Set bar graph """
-        # self.set_bar_graph()
 
         """ Configure parameters """
         self.configure_parameters()
@@ -58,6 +56,9 @@ class Income(QObject):
 
         :return: None
         """
+
+        """ Configure chart view """
+        self.chart_view.setRenderHint(QPainter.Antialiasing)
 
         """ Configure combobox for category """
         self.ui_setup.income_choice.setView(QListView())
@@ -134,23 +135,6 @@ class Income(QObject):
             self.ui_setup.dateEdit_income_to.setDate(QDate.currentDate().addMonths(-QDate.currentDate().month()))
             self.ui_setup.dateEdit_income_from.setDate(QDate.currentDate().addMonths(-QDate.currentDate().month()-11))
 
-    def set_bar_graph(self):
-        """
-        Initialize bar graph with values stored
-
-        :return: None
-        """
-
-        self.series = QtCharts.QBarSeries()
-        self.chart_view.chart().addSeries(self.series)
-        self.chart_view.chart().createDefaultAxes()
-
-        self.axisX = QtCharts.QBarCategoryAxis()
-        categories = ["Jan", "Feb", "Mar", "Apr", "May", "Jun"]
-        self.axisX.append(categories)
-        self.axisX.setRange("Feb", "May")
-        self.chart_view.chart().setAxisX(self.axisX, self.series)
-
     def set_values(self, values: dict):
         """
         Set values on series
@@ -182,7 +166,3 @@ class Income(QObject):
 
         """ Set values on chat """
         self.chart.set_values(values)
-
-
-
-
