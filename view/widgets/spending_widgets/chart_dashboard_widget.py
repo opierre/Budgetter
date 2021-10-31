@@ -152,8 +152,8 @@ class ChartDashboard(QWidget):
 
         """ Set gradient """
         gradient = QLinearGradient(self.rect().x(), self.rect().y(), self.rect().width(), self.rect().height())
-        gradient.setColorAt(0, QColor("#199DE5"))
-        gradient.setColorAt(1, QColor("#0154C8"))
+        gradient.setColorAt(1, QColor("#199DE5"))
+        gradient.setColorAt(0, QColor("#0154C8"))
         brush = QBrush(gradient)
         painter.setBrush(brush)
 
