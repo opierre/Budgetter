@@ -1,6 +1,6 @@
 from PySide2.QtCharts import QtCharts
 from PySide2.QtCore import Qt, QDateTime, QPointF
-from PySide2.QtGui import QPen, QColor, QBrush, QLinearGradient, QGradient
+from PySide2.QtGui import QPen, QColor, QBrush, QLinearGradient, QGradient, QFont
 
 
 class CategoryChart(QtCharts.QChart):
@@ -46,11 +46,14 @@ class CategoryChart(QtCharts.QChart):
         """ Configure X axis """
         self.axis_x.setVisible(True)
         self.axis_x.setGridLineVisible(False)
-        self.axis_x.setLabelsColor(QColor("white"))
+        self.axis_x.setLabelsColor(QColor("#9298a8"))
+        self.axis_x.setLabelsFont(QFont("Roboto", 10, QFont.Normal))
+        self.axis_x.setGridLineColor(QColor(66, 96, 135, 0))
+        # self.axis_x.setLabelsColor(QColor("#426087"))
 
         """ Configure Y axis """
         self.axis_y.setMin(0)
-        self.axis_y.setVisible(True)
+        self.axis_y.setVisible(False)
         self.axis_y.setLabelsColor(QColor("white"))
 
         """ Customize stylesheet """
@@ -108,7 +111,7 @@ class CategoryChart(QtCharts.QChart):
                 y_max_value = value
 
             """ Update X-Axis range """
-            x_value = QDateTime.toString(QDateTime.fromString(key, "MM-yyyy"), "MMM-yyyy")
+            x_value = QDateTime.toString(QDateTime.fromString(key, "MM-yyyy"), "MMM-yy")
 
             x_values.append(x_value)
             self.set.append(value)
