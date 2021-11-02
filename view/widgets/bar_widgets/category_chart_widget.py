@@ -1,6 +1,7 @@
 from PySide2.QtCharts import QtCharts
 from PySide2.QtCore import Qt, QDateTime, QPointF
 from PySide2.QtGui import QPen, QColor, QBrush, QLinearGradient, QGradient, QFont
+from PySide2.QtWidgets import QGraphicsBlurEffect
 
 
 class CategoryChart(QtCharts.QChart):
@@ -48,8 +49,9 @@ class CategoryChart(QtCharts.QChart):
         self.axis_x.setGridLineVisible(False)
         self.axis_x.setLabelsColor(QColor("#9298a8"))
         self.axis_x.setLabelsFont(QFont("Roboto", 10, QFont.Normal))
-        self.axis_x.setGridLineColor(QColor(66, 96, 135, 0))
-        # self.axis_x.setLabelsColor(QColor("#426087"))
+        pen = QPen(QColor(66, 96, 135, 200))
+        pen.setWidthF(2.0)
+        self.axis_x.setLinePen(pen)
 
         """ Configure Y axis """
         self.axis_y.setMin(0)
