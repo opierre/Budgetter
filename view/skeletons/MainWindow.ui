@@ -1059,43 +1059,43 @@ QWidget#widget_income, QWidget#widget_expenses
 	border-radius: 4px;
 }
 
-QPushButton#refresh_income, QPushButton#refresh_expenses
+QToolButton#refresh_income, QPushButton#refresh_expenses
 {
-	background-color: rgba(47, 67, 93, 150);
+	background-color: rgba(47, 67, 93, 0);
 	border: 1px solid;
-	border-radius: 4px;
+	border-radius: 28px;
 	border-color: transparent;
-	padding-left: 10px;
-	padding-right: 10px;
-	padding-top: 5px;
-	padding-bottom: 5px;
+	padding-left: 0px;
+	padding-right: 0px;
+	padding-top: 0px;
+	padding-bottom: 0px;
 	color: white;
 	outline: none;
 }
 
-QPushButton#refresh_income:hover, QPushButton#refresh_expenses:hover
+QToolButton#refresh_income:hover, QPushButton#refresh_expenses:hover
 {
-	background-color: rgba(1, 144, 234, 200);
+	background-color: rgba(1, 144, 234, 0);
 	border: 1px solid;
-	border-radius: 4px;
+	border-radius: 28px;
 	border-color: transparent;
-	padding-left: 10px;
-	padding-right: 10px;
-	padding-top: 5px;
-	padding-bottom: 5px;
+	padding-left: 0px;
+	padding-right: 0px;
+	padding-top: 0px;
+	padding-bottom: 0px;
 	color: white;
 }
 
-QPushButton#refresh_income:pressed, QPushButton#refresh_expenses:pressed
+QToolButton#refresh_income:pressed, QPushButton#refresh_expenses:pressed
 {
-	background-color: rgba(2, 113, 184, 220);
+	background-color: rgba(2, 113, 184, 0);
 	border: 1px solid;
-	border-radius: 4px;
+	border-radius: 28px;
 	border-color: transparent;
-	padding-left: 10px;
-	padding-right: 10px;
-	padding-top: 5px;
-	padding-bottom: 5px;
+	padding-left: 0px;
+	padding-right: 0px;
+	padding-top: 0px;
+	padding-bottom: 0px;
 	color: white;
 }
 
@@ -2217,183 +2217,181 @@ QPushButton#this_year_income::checked, QPushButton#last_12_months_income::checke
                   </layout>
                  </item>
                  <item>
-                  <layout class="QHBoxLayout" name="horizontalLayout_3">
-                   <property name="spacing">
-                    <number>20</number>
-                   </property>
+                  <layout class="QGridLayout" name="gridLayout_8">
                    <property name="leftMargin">
-                    <number>7</number>
+                    <number>4</number>
                    </property>
-                   <item>
-                    <widget class="QLabel" name="label_from_income">
-                     <property name="font">
-                      <font>
-                       <family>Roboto</family>
-                       <pointsize>11</pointsize>
-                      </font>
+                   <property name="rightMargin">
+                    <number>10</number>
+                   </property>
+                   <property name="horizontalSpacing">
+                    <number>10</number>
+                   </property>
+                   <property name="verticalSpacing">
+                    <number>15</number>
+                   </property>
+                   <item row="0" column="0">
+                    <layout class="QHBoxLayout" name="horizontalLayout_3">
+                     <property name="spacing">
+                      <number>20</number>
                      </property>
-                     <property name="styleSheet">
-                      <string notr="true">color: white;</string>
+                     <property name="leftMargin">
+                      <number>7</number>
                      </property>
-                     <property name="text">
-                      <string>From:</string>
-                     </property>
-                    </widget>
+                     <item>
+                      <widget class="QLabel" name="label_from_income">
+                       <property name="font">
+                        <font>
+                         <family>Roboto</family>
+                         <pointsize>11</pointsize>
+                        </font>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">color: white;</string>
+                       </property>
+                       <property name="text">
+                        <string>From:</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QDateEdit" name="dateEdit_income_from">
+                       <property name="font">
+                        <font>
+                         <family>Roboto</family>
+                         <pointsize>11</pointsize>
+                        </font>
+                       </property>
+                       <property name="frame">
+                        <bool>true</bool>
+                       </property>
+                       <property name="buttonSymbols">
+                        <enum>QAbstractSpinBox::NoButtons</enum>
+                       </property>
+                       <property name="displayFormat">
+                        <string>MMMM-yyyy</string>
+                       </property>
+                       <property name="calendarPopup">
+                        <bool>false</bool>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <spacer name="horizontalSpacer_2">
+                       <property name="orientation">
+                        <enum>Qt::Horizontal</enum>
+                       </property>
+                       <property name="sizeHint" stdset="0">
+                        <size>
+                         <width>40</width>
+                         <height>20</height>
+                        </size>
+                       </property>
+                      </spacer>
+                     </item>
+                    </layout>
                    </item>
-                   <item>
-                    <widget class="QDateEdit" name="dateEdit_income_from">
-                     <property name="font">
-                      <font>
-                       <family>Roboto</family>
-                       <pointsize>11</pointsize>
-                      </font>
+                   <item row="1" column="0">
+                    <layout class="QHBoxLayout" name="horizontalLayout_4">
+                     <property name="spacing">
+                      <number>20</number>
                      </property>
-                     <property name="frame">
-                      <bool>true</bool>
+                     <property name="leftMargin">
+                      <number>7</number>
                      </property>
-                     <property name="buttonSymbols">
-                      <enum>QAbstractSpinBox::NoButtons</enum>
-                     </property>
-                     <property name="displayFormat">
-                      <string>MMMM-yyyy</string>
-                     </property>
-                     <property name="calendarPopup">
-                      <bool>false</bool>
-                     </property>
-                    </widget>
+                     <item>
+                      <widget class="QLabel" name="label_2">
+                       <property name="minimumSize">
+                        <size>
+                         <width>39</width>
+                         <height>0</height>
+                        </size>
+                       </property>
+                       <property name="font">
+                        <font>
+                         <family>Roboto</family>
+                         <pointsize>11</pointsize>
+                        </font>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">color: white;</string>
+                       </property>
+                       <property name="text">
+                        <string>To:</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QDateEdit" name="dateEdit_income_to">
+                       <property name="font">
+                        <font>
+                         <family>Roboto</family>
+                         <pointsize>11</pointsize>
+                        </font>
+                       </property>
+                       <property name="buttonSymbols">
+                        <enum>QAbstractSpinBox::NoButtons</enum>
+                       </property>
+                       <property name="currentSection">
+                        <enum>QDateTimeEdit::MonthSection</enum>
+                       </property>
+                       <property name="displayFormat">
+                        <string>MMMM-yyyy</string>
+                       </property>
+                       <property name="calendarPopup">
+                        <bool>false</bool>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <spacer name="horizontalSpacer_3">
+                       <property name="orientation">
+                        <enum>Qt::Horizontal</enum>
+                       </property>
+                       <property name="sizeHint" stdset="0">
+                        <size>
+                         <width>40</width>
+                         <height>20</height>
+                        </size>
+                       </property>
+                      </spacer>
+                     </item>
+                    </layout>
                    </item>
-                   <item>
-                    <spacer name="horizontalSpacer_2">
-                     <property name="orientation">
-                      <enum>Qt::Horizontal</enum>
-                     </property>
-                     <property name="sizeHint" stdset="0">
+                   <item row="0" column="1" rowspan="2">
+                    <widget class="QToolButton" name="refresh_income">
+                     <property name="minimumSize">
                       <size>
-                       <width>40</width>
-                       <height>20</height>
+                       <width>58</width>
+                       <height>58</height>
                       </size>
                      </property>
-                    </spacer>
-                   </item>
-                  </layout>
-                 </item>
-                 <item>
-                  <layout class="QHBoxLayout" name="horizontalLayout_4">
-                   <property name="spacing">
-                    <number>38</number>
-                   </property>
-                   <property name="leftMargin">
-                    <number>7</number>
-                   </property>
-                   <item>
-                    <widget class="QLabel" name="label_2">
-                     <property name="font">
-                      <font>
-                       <family>Roboto</family>
-                       <pointsize>11</pointsize>
-                      </font>
-                     </property>
-                     <property name="styleSheet">
-                      <string notr="true">color: white;</string>
-                     </property>
-                     <property name="text">
-                      <string>To:</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item>
-                    <widget class="QDateEdit" name="dateEdit_income_to">
-                     <property name="font">
-                      <font>
-                       <family>Roboto</family>
-                       <pointsize>11</pointsize>
-                      </font>
-                     </property>
-                     <property name="buttonSymbols">
-                      <enum>QAbstractSpinBox::NoButtons</enum>
-                     </property>
-                     <property name="currentSection">
-                      <enum>QDateTimeEdit::MonthSection</enum>
-                     </property>
-                     <property name="displayFormat">
-                      <string>MMMM-yyyy</string>
-                     </property>
-                     <property name="calendarPopup">
-                      <bool>false</bool>
-                     </property>
-                    </widget>
-                   </item>
-                   <item>
-                    <spacer name="horizontalSpacer_3">
-                     <property name="orientation">
-                      <enum>Qt::Horizontal</enum>
-                     </property>
-                     <property name="sizeHint" stdset="0">
+                     <property name="maximumSize">
                       <size>
-                       <width>40</width>
-                       <height>20</height>
+                       <width>58</width>
+                       <height>58</height>
                       </size>
-                     </property>
-                    </spacer>
-                   </item>
-                  </layout>
-                 </item>
-                 <item>
-                  <layout class="QHBoxLayout" name="horizontalLayout_2">
-                   <property name="topMargin">
-                    <number>20</number>
-                   </property>
-                   <item>
-                    <spacer name="horizontalSpacer_4">
-                     <property name="orientation">
-                      <enum>Qt::Horizontal</enum>
-                     </property>
-                     <property name="sizeHint" stdset="0">
-                      <size>
-                       <width>40</width>
-                       <height>20</height>
-                      </size>
-                     </property>
-                    </spacer>
-                   </item>
-                   <item>
-                    <widget class="QPushButton" name="refresh_income">
-                     <property name="font">
-                      <font>
-                       <family>Roboto</family>
-                       <pointsize>11</pointsize>
-                      </font>
                      </property>
                      <property name="cursor">
                       <cursorShape>PointingHandCursor</cursorShape>
                      </property>
+                     <property name="toolTip">
+                      <string>Refresh</string>
+                     </property>
                      <property name="text">
-                      <string> Refresh </string>
+                      <string/>
                      </property>
                      <property name="icon">
                       <iconset resource="../resources/resources.qrc">
-                       <normaloff>:/images/images/refresh_white_18dp.svg</normaloff>:/images/images/refresh_white_18dp.svg</iconset>
+                       <normaloff>:/images/images/refresh_white_24dp.svg</normaloff>:/images/images/refresh_white_24dp.svg</iconset>
                      </property>
                      <property name="iconSize">
                       <size>
-                       <width>18</width>
-                       <height>18</height>
+                       <width>38</width>
+                       <height>24</height>
                       </size>
                      </property>
                     </widget>
-                   </item>
-                   <item>
-                    <spacer name="horizontalSpacer_5">
-                     <property name="orientation">
-                      <enum>Qt::Horizontal</enum>
-                     </property>
-                     <property name="sizeHint" stdset="0">
-                      <size>
-                       <width>40</width>
-                       <height>20</height>
-                      </size>
-                     </property>
-                    </spacer>
                    </item>
                   </layout>
                  </item>
