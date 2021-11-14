@@ -1093,44 +1093,44 @@ class Ui_MainWindow(object):
 "	border-radius: 4px;\n"
 "}\n"
 "\n"
-"QPushButton#refresh_income, QPushButton#refresh_expenses\n"
+"QToolButton#refresh_income, QPushButton#refresh_expenses\n"
 "{\n"
-"	background-color: rgba(47, 67, 93, 150);\n"
+"	background-color: rgba(47, 67, 93, 0);\n"
 "	border: 1px solid;\n"
-"	border-radius: 4px;\n"
+"	border-radius: 28px;\n"
 "	border-color: transparent;\n"
-"	padding-left: 10px;\n"
-"	padding-right: 10px;\n"
-"	padding-top: 5px;\n"
-"	padding-bottom: 5px;\n"
+"	padding-left: 0px;\n"
+"	padding-right: 0px;\n"
+"	padding-top: 0px;\n"
+"	padding-bottom: 0px;\n"
 "	color: white;\n"
 "	outline: none;\n"
 "}\n"
 "\n"
-"QPushButton#refresh_income:hover, QPushButton#refresh_expenses:hover\n"
+"QToolButton#refresh_income:hover, QPushButton#refresh_expenses:hover\n"
 "{\n"
-"	background-color: rgba(1, 144, 234, 200);\n"
+"	background-color: rgba(1, 144, 234, 0);\n"
 "	border: 1px solid;\n"
-"	border-radius: 4px;\n"
+"	border-radius: 28px;\n"
 "	border-color: transparent;\n"
-"	padding-left: 10px;\n"
-"	padding-right: 10px;\n"
-"	padding-top: 5px;\n"
-"	padding-bottom: 5px;\n"
+"	padding-left: 0px;\n"
+"	padding-right: 0px;\n"
+"	padding-top: 0px;\n"
+"	padding-bottom: 0px;\n"
 "	color: white;\n"
 "}\n"
 "\n"
-"QPushButton#refresh_income:pressed, QPushButton#refresh_expenses:pressed\n"
+"QToolButton#refresh_income:pressed, QPushButton#refresh_expenses:pressed\n"
 "{\n"
-"	backgr"
-                        "ound-color: rgba(2, 113, 184, 220);\n"
+"	background-c"
+                        "olor: rgba(2, 113, 184, 0);\n"
 "	border: 1px solid;\n"
-"	border-radius: 4px;\n"
+"	border-radius: 28px;\n"
 "	border-color: transparent;\n"
-"	padding-left: 10px;\n"
-"	padding-right: 10px;\n"
-"	padding-top: 5px;\n"
-"	padding-bottom: 5px;\n"
+"	padding-left: 0px;\n"
+"	padding-right: 0px;\n"
+"	padding-top: 0px;\n"
+"	padding-bottom: 0px;\n"
 "	color: white;\n"
 "}\n"
 "\n"
@@ -1148,8 +1148,8 @@ class Ui_MainWindow(object):
 "	background-color: rgba(66, 96, 135, 250);\n"
 "	border: 1px solid rgba(66, 96, 135, 250); \n"
 "	border-radius: 12px;\n"
-""
-                        "	color: rgba(255, 255, 255, 200);\n"
+"	colo"
+                        "r: rgba(255, 255, 255, 200);\n"
 "	outline: none;\n"
 "}")
         MainWindow.setToolButtonStyle(Qt.ToolButtonIconOnly)
@@ -1637,6 +1637,39 @@ class Ui_MainWindow(object):
 
         self.verticalLayout.addLayout(self.horizontalLayout_5)
 
+        self.gridLayout_8 = QGridLayout()
+        self.gridLayout_8.setObjectName(u"gridLayout_8")
+        self.gridLayout_8.setHorizontalSpacing(10)
+        self.gridLayout_8.setVerticalSpacing(15)
+        self.gridLayout_8.setContentsMargins(4, -1, 10, -1)
+        self.horizontalLayout_4 = QHBoxLayout()
+        self.horizontalLayout_4.setSpacing(20)
+        self.horizontalLayout_4.setObjectName(u"horizontalLayout_4")
+        self.horizontalLayout_4.setContentsMargins(7, -1, -1, -1)
+        self.label_2 = QLabel(self.widget_income)
+        self.label_2.setObjectName(u"label_2")
+        self.label_2.setMinimumSize(QSize(39, 0))
+        self.label_2.setFont(font2)
+        self.label_2.setStyleSheet(u"color: white;")
+
+        self.horizontalLayout_4.addWidget(self.label_2)
+
+        self.dateEdit_income_to = QDateEdit(self.widget_income)
+        self.dateEdit_income_to.setObjectName(u"dateEdit_income_to")
+        self.dateEdit_income_to.setFont(font2)
+        self.dateEdit_income_to.setButtonSymbols(QAbstractSpinBox.NoButtons)
+        self.dateEdit_income_to.setCurrentSection(QDateTimeEdit.MonthSection)
+        self.dateEdit_income_to.setCalendarPopup(False)
+
+        self.horizontalLayout_4.addWidget(self.dateEdit_income_to)
+
+        self.horizontalSpacer_3 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.horizontalLayout_4.addItem(self.horizontalSpacer_3)
+
+
+        self.gridLayout_8.addLayout(self.horizontalLayout_4, 1, 0, 1, 1)
+
         self.horizontalLayout_3 = QHBoxLayout()
         self.horizontalLayout_3.setSpacing(20)
         self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
@@ -1662,57 +1695,20 @@ class Ui_MainWindow(object):
         self.horizontalLayout_3.addItem(self.horizontalSpacer_2)
 
 
-        self.verticalLayout.addLayout(self.horizontalLayout_3)
+        self.gridLayout_8.addLayout(self.horizontalLayout_3, 0, 0, 1, 1)
 
-        self.horizontalLayout_4 = QHBoxLayout()
-        self.horizontalLayout_4.setSpacing(38)
-        self.horizontalLayout_4.setObjectName(u"horizontalLayout_4")
-        self.horizontalLayout_4.setContentsMargins(7, -1, -1, -1)
-        self.label_2 = QLabel(self.widget_income)
-        self.label_2.setObjectName(u"label_2")
-        self.label_2.setFont(font2)
-        self.label_2.setStyleSheet(u"color: white;")
-
-        self.horizontalLayout_4.addWidget(self.label_2)
-
-        self.dateEdit_income_to = QDateEdit(self.widget_income)
-        self.dateEdit_income_to.setObjectName(u"dateEdit_income_to")
-        self.dateEdit_income_to.setFont(font2)
-        self.dateEdit_income_to.setButtonSymbols(QAbstractSpinBox.NoButtons)
-        self.dateEdit_income_to.setCurrentSection(QDateTimeEdit.MonthSection)
-        self.dateEdit_income_to.setCalendarPopup(False)
-
-        self.horizontalLayout_4.addWidget(self.dateEdit_income_to)
-
-        self.horizontalSpacer_3 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
-
-        self.horizontalLayout_4.addItem(self.horizontalSpacer_3)
-
-
-        self.verticalLayout.addLayout(self.horizontalLayout_4)
-
-        self.horizontalLayout_2 = QHBoxLayout()
-        self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
-        self.horizontalLayout_2.setContentsMargins(-1, 20, -1, -1)
-        self.horizontalSpacer_4 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
-
-        self.horizontalLayout_2.addItem(self.horizontalSpacer_4)
-
-        self.refresh_income = QPushButton(self.widget_income)
+        self.refresh_income = QWidget(self.widget_income)
         self.refresh_income.setObjectName(u"refresh_income")
-        self.refresh_income.setFont(font2)
-        self.refresh_income.setCursor(QCursor(Qt.PointingHandCursor))
-        self.refresh_income.setIcon(icon7)
-        self.refresh_income.setIconSize(QSize(18, 18))
+        self.refresh_income.setMinimumSize(QSize(58, 58))
+        self.refresh_income.setMaximumSize(QSize(58, 58))
+        self.verticalLayout_5 = QVBoxLayout(self.refresh_income)
+        self.verticalLayout_5.setObjectName(u"verticalLayout_5")
+        self.verticalLayout_5.setContentsMargins(0, 0, 0, 0)
 
-        self.horizontalLayout_2.addWidget(self.refresh_income)
-
-        self.horizontalSpacer_5 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
-
-        self.horizontalLayout_2.addItem(self.horizontalSpacer_5)
+        self.gridLayout_8.addWidget(self.refresh_income, 0, 1, 2, 1)
 
 
-        self.verticalLayout.addLayout(self.horizontalLayout_2)
+        self.verticalLayout.addLayout(self.gridLayout_8)
 
         self.verticalSpacer = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
 
@@ -1868,11 +1864,10 @@ class Ui_MainWindow(object):
         self.income_choice.setItemText(1, QCoreApplication.translate("MainWindow", u"Wages", None))
         self.income_choice.setItemText(2, QCoreApplication.translate("MainWindow", u"Gifts", None))
 
-        self.label_from_income.setText(QCoreApplication.translate("MainWindow", u"From:", None))
-        self.dateEdit_income_from.setDisplayFormat(QCoreApplication.translate("MainWindow", u"MMMM-yyyy", None))
         self.label_2.setText(QCoreApplication.translate("MainWindow", u"To:", None))
         self.dateEdit_income_to.setDisplayFormat(QCoreApplication.translate("MainWindow", u"MMMM-yyyy", None))
-        self.refresh_income.setText(QCoreApplication.translate("MainWindow", u" Refresh ", None))
+        self.label_from_income.setText(QCoreApplication.translate("MainWindow", u"From:", None))
+        self.dateEdit_income_from.setDisplayFormat(QCoreApplication.translate("MainWindow", u"MMMM-yyyy", None))
         self.this_year_income.setText(QCoreApplication.translate("MainWindow", u"This year ", None))
         self.last_12_months_income.setText(QCoreApplication.translate("MainWindow", u"Last 12 months", None))
         self.previous_year_income.setText(QCoreApplication.translate("MainWindow", u"Previous year", None))

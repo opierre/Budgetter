@@ -1,7 +1,11 @@
+import time
+
 from PySide2.QtCharts import QtCharts
-from PySide2.QtCore import QObject, QCoreApplication, QDate, Qt
+from PySide2.QtCore import QObject, QCoreApplication, QDate, Qt, QUrl, QTimer
 from PySide2.QtGui import QPainter
-from PySide2.QtWidgets import QListView, QWidget, QVBoxLayout
+from PySide2.QtSvg import QSvgWidget
+from PySide2.QtWebEngineWidgets import QWebEngineView
+from PySide2.QtWidgets import QListView, QWidget, QVBoxLayout, QApplication
 
 from view.widgets.bar_widgets.category_chart_widget import CategoryChart
 
@@ -72,6 +76,22 @@ class Income(QObject):
                                                     "}\n")
         self.ui_setup.income_choice.view().window().setWindowFlags(Qt.Popup | Qt.FramelessWindowHint)
         self.ui_setup.income_choice.view().window().setAttribute(Qt.WA_TranslucentBackground)
+
+        """ Set webview to display animated icon """
+        self.button = QSvgWidget()
+        # self.button.page().setBackgroundColor(Qt.transparent)
+        # self.button.setStyleSheet("background-color: transparent;")
+        self.button.load(r"C:\Users\Pierre\Downloads\frames_searchtoclose\60fps\frame00.svg")
+        self.ui_setup.refresh_income.layout().addWidget(self.button)
+        QTimer.singleShot(3000, self.update_animation)
+        QTimer.singleShot(6000, self.update_animation)
+
+    def update_animation(self):
+        for index in range(0, 61):
+            time.sleep(0.016)
+            self.button.load(r"C:\Users\Pierre\Downloads\frames_searchtoclose\60fps\frame" + f"{index:02}" + ".svg")
+            QApplication.processEvents()
+
 
     def configure_title_bar(self):
         """
