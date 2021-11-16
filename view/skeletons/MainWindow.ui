@@ -1543,7 +1543,10 @@ QPushButton#this_year_income::checked, QPushButton#last_12_months_income::checke
           </property>
           <widget class="QWidget" name="dockWidgetContents_23">
            <layout class="QGridLayout" name="gridLayout_43">
-            <item row="0" column="0">
+            <item row="0" column="1">
+             <widget class="QWidget" name="widget_expenses_graph" native="true"/>
+            </item>
+            <item row="0" column="2">
              <widget class="QWidget" name="widget_expenses" native="true">
               <property name="sizePolicy">
                <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
@@ -1686,31 +1689,27 @@ QPushButton#this_year_income::checked, QPushButton#last_12_months_income::checke
                   </layout>
                  </item>
                  <item>
-                  <layout class="QHBoxLayout" name="horizontalLayout_8">
-                   <property name="spacing">
-                    <number>20</number>
-                   </property>
+                  <layout class="QGridLayout" name="gridLayout_10">
                    <property name="leftMargin">
                     <number>7</number>
                    </property>
-                   <item>
-                    <widget class="QLabel" name="label_from_income_2">
-                     <property name="font">
-                      <font>
-                       <family>Roboto</family>
-                       <pointsize>11</pointsize>
-                      </font>
-                     </property>
-                     <property name="styleSheet">
-                      <string notr="true">color: white;</string>
-                     </property>
-                     <property name="text">
-                      <string>From:</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item>
+                   <property name="rightMargin">
+                    <number>10</number>
+                   </property>
+                   <property name="horizontalSpacing">
+                    <number>20</number>
+                   </property>
+                   <property name="verticalSpacing">
+                    <number>15</number>
+                   </property>
+                   <item row="0" column="1">
                     <widget class="QDateEdit" name="dateEdit_expenses_from">
+                     <property name="maximumSize">
+                      <size>
+                       <width>125</width>
+                       <height>16777215</height>
+                      </size>
+                     </property>
                      <property name="font">
                       <font>
                        <family>Roboto</family>
@@ -1731,31 +1730,8 @@ QPushButton#this_year_income::checked, QPushButton#last_12_months_income::checke
                      </property>
                     </widget>
                    </item>
-                   <item>
-                    <spacer name="horizontalSpacer_12">
-                     <property name="orientation">
-                      <enum>Qt::Horizontal</enum>
-                     </property>
-                     <property name="sizeHint" stdset="0">
-                      <size>
-                       <width>40</width>
-                       <height>20</height>
-                      </size>
-                     </property>
-                    </spacer>
-                   </item>
-                  </layout>
-                 </item>
-                 <item>
-                  <layout class="QHBoxLayout" name="horizontalLayout_9">
-                   <property name="spacing">
-                    <number>38</number>
-                   </property>
-                   <property name="leftMargin">
-                    <number>7</number>
-                   </property>
-                   <item>
-                    <widget class="QLabel" name="label_3">
+                   <item row="0" column="0">
+                    <widget class="QLabel" name="label_from_income_2">
                      <property name="font">
                       <font>
                        <family>Roboto</family>
@@ -1766,12 +1742,18 @@ QPushButton#this_year_income::checked, QPushButton#last_12_months_income::checke
                       <string notr="true">color: white;</string>
                      </property>
                      <property name="text">
-                      <string>To:</string>
+                      <string>From:</string>
                      </property>
                     </widget>
                    </item>
-                   <item>
+                   <item row="1" column="1">
                     <widget class="QDateEdit" name="dateEdit_expenses_to">
+                     <property name="maximumSize">
+                      <size>
+                       <width>125</width>
+                       <height>16777215</height>
+                      </size>
+                     </property>
                      <property name="font">
                       <font>
                        <family>Roboto</family>
@@ -1792,67 +1774,40 @@ QPushButton#this_year_income::checked, QPushButton#last_12_months_income::checke
                      </property>
                     </widget>
                    </item>
-                   <item>
-                    <spacer name="horizontalSpacer_13">
-                     <property name="orientation">
-                      <enum>Qt::Horizontal</enum>
-                     </property>
-                     <property name="sizeHint" stdset="0">
+                   <item row="0" column="2" rowspan="2">
+                    <widget class="QWidget" name="refresh_expenses" native="true">
+                     <property name="minimumSize">
                       <size>
-                       <width>40</width>
-                       <height>20</height>
+                       <width>48</width>
+                       <height>48</height>
                       </size>
                      </property>
-                    </spacer>
-                   </item>
-                  </layout>
-                 </item>
-                 <item>
-                  <layout class="QHBoxLayout" name="horizontalLayout_10">
-                   <property name="topMargin">
-                    <number>20</number>
-                   </property>
-                   <item>
-                    <spacer name="horizontalSpacer_14">
-                     <property name="orientation">
-                      <enum>Qt::Horizontal</enum>
-                     </property>
-                     <property name="sizeHint" stdset="0">
+                     <property name="maximumSize">
                       <size>
-                       <width>40</width>
-                       <height>20</height>
+                       <width>48</width>
+                       <height>48</height>
                       </size>
                      </property>
-                    </spacer>
+                    </widget>
                    </item>
-                   <item>
-                    <widget class="QPushButton" name="refresh_expenses">
+                   <item row="1" column="0">
+                    <widget class="QLabel" name="label_3">
                      <property name="font">
                       <font>
                        <family>Roboto</family>
                        <pointsize>11</pointsize>
                       </font>
                      </property>
-                     <property name="cursor">
-                      <cursorShape>PointingHandCursor</cursorShape>
+                     <property name="styleSheet">
+                      <string notr="true">color: white;</string>
                      </property>
                      <property name="text">
-                      <string> Refresh </string>
-                     </property>
-                     <property name="icon">
-                      <iconset resource="../resources/resources.qrc">
-                       <normaloff>:/images/images/refresh_white_18dp.svg</normaloff>:/images/images/refresh_white_18dp.svg</iconset>
-                     </property>
-                     <property name="iconSize">
-                      <size>
-                       <width>18</width>
-                       <height>18</height>
-                      </size>
+                      <string>To:</string>
                      </property>
                     </widget>
                    </item>
-                   <item>
-                    <spacer name="horizontalSpacer_15">
+                   <item row="0" column="3" rowspan="2">
+                    <spacer name="horizontalSpacer_3">
                      <property name="orientation">
                       <enum>Qt::Horizontal</enum>
                      </property>
@@ -2045,9 +2000,6 @@ QPushButton#this_year_income::checked, QPushButton#last_12_months_income::checke
               </layout>
              </widget>
             </item>
-            <item row="0" column="1">
-             <widget class="QWidget" name="widget_expenses_graph" native="true"/>
-            </item>
            </layout>
           </widget>
          </widget>
@@ -2074,7 +2026,10 @@ QPushButton#this_year_income::checked, QPushButton#last_12_months_income::checke
             <property name="bottomMargin">
              <number>6</number>
             </property>
-            <item row="0" column="0" rowspan="4">
+            <item row="0" column="1" rowspan="4">
+             <widget class="QWidget" name="widget_income_graph" native="true"/>
+            </item>
+            <item row="0" column="2" rowspan="4">
              <widget class="QWidget" name="widget_income" native="true">
               <property name="sizePolicy">
                <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
@@ -2219,174 +2174,156 @@ QPushButton#this_year_income::checked, QPushButton#last_12_months_income::checke
                  <item>
                   <layout class="QGridLayout" name="gridLayout_8">
                    <property name="leftMargin">
-                    <number>4</number>
+                    <number>7</number>
                    </property>
                    <property name="rightMargin">
                     <number>10</number>
                    </property>
                    <property name="horizontalSpacing">
-                    <number>10</number>
+                    <number>20</number>
                    </property>
                    <property name="verticalSpacing">
                     <number>15</number>
                    </property>
-                   <item row="1" column="0">
-                    <layout class="QHBoxLayout" name="horizontalLayout_4">
-                     <property name="spacing">
-                      <number>20</number>
-                     </property>
-                     <property name="leftMargin">
-                      <number>7</number>
-                     </property>
-                     <item>
-                      <widget class="QLabel" name="label_2">
-                       <property name="minimumSize">
-                        <size>
-                         <width>39</width>
-                         <height>0</height>
-                        </size>
-                       </property>
-                       <property name="font">
-                        <font>
-                         <family>Roboto</family>
-                         <pointsize>11</pointsize>
-                        </font>
-                       </property>
-                       <property name="styleSheet">
-                        <string notr="true">color: white;</string>
-                       </property>
-                       <property name="text">
-                        <string>To:</string>
-                       </property>
-                      </widget>
-                     </item>
-                     <item>
-                      <widget class="QDateEdit" name="dateEdit_income_to">
-                       <property name="font">
-                        <font>
-                         <family>Roboto</family>
-                         <pointsize>11</pointsize>
-                        </font>
-                       </property>
-                       <property name="buttonSymbols">
-                        <enum>QAbstractSpinBox::NoButtons</enum>
-                       </property>
-                       <property name="currentSection">
-                        <enum>QDateTimeEdit::MonthSection</enum>
-                       </property>
-                       <property name="displayFormat">
-                        <string>MMMM-yyyy</string>
-                       </property>
-                       <property name="calendarPopup">
-                        <bool>false</bool>
-                       </property>
-                      </widget>
-                     </item>
-                     <item>
-                      <spacer name="horizontalSpacer_3">
-                       <property name="orientation">
-                        <enum>Qt::Horizontal</enum>
-                       </property>
-                       <property name="sizeHint" stdset="0">
-                        <size>
-                         <width>40</width>
-                         <height>20</height>
-                        </size>
-                       </property>
-                      </spacer>
-                     </item>
-                    </layout>
-                   </item>
                    <item row="0" column="0">
-                    <layout class="QHBoxLayout" name="horizontalLayout_3">
-                     <property name="spacing">
-                      <number>20</number>
+                    <widget class="QLabel" name="label_from_income">
+                     <property name="font">
+                      <font>
+                       <family>Roboto</family>
+                       <pointsize>11</pointsize>
+                      </font>
                      </property>
-                     <property name="leftMargin">
-                      <number>7</number>
+                     <property name="styleSheet">
+                      <string notr="true">color: white;</string>
                      </property>
-                     <item>
-                      <widget class="QLabel" name="label_from_income">
-                       <property name="font">
-                        <font>
-                         <family>Roboto</family>
-                         <pointsize>11</pointsize>
-                        </font>
-                       </property>
-                       <property name="styleSheet">
-                        <string notr="true">color: white;</string>
-                       </property>
-                       <property name="text">
-                        <string>From:</string>
-                       </property>
-                      </widget>
-                     </item>
-                     <item>
-                      <widget class="QDateEdit" name="dateEdit_income_from">
-                       <property name="font">
-                        <font>
-                         <family>Roboto</family>
-                         <pointsize>11</pointsize>
-                        </font>
-                       </property>
-                       <property name="frame">
-                        <bool>true</bool>
-                       </property>
-                       <property name="buttonSymbols">
-                        <enum>QAbstractSpinBox::NoButtons</enum>
-                       </property>
-                       <property name="displayFormat">
-                        <string>MMMM-yyyy</string>
-                       </property>
-                       <property name="calendarPopup">
-                        <bool>false</bool>
-                       </property>
-                      </widget>
-                     </item>
-                     <item>
-                      <spacer name="horizontalSpacer_2">
-                       <property name="orientation">
-                        <enum>Qt::Horizontal</enum>
-                       </property>
-                       <property name="sizeHint" stdset="0">
-                        <size>
-                         <width>40</width>
-                         <height>20</height>
-                        </size>
-                       </property>
-                      </spacer>
-                     </item>
-                    </layout>
+                     <property name="text">
+                      <string>From:</string>
+                     </property>
+                    </widget>
                    </item>
-                   <item row="0" column="1" rowspan="2">
+                   <item row="0" column="1">
+                    <widget class="QDateEdit" name="dateEdit_income_from">
+                     <property name="maximumSize">
+                      <size>
+                       <width>125</width>
+                       <height>16777215</height>
+                      </size>
+                     </property>
+                     <property name="font">
+                      <font>
+                       <family>Roboto</family>
+                       <pointsize>11</pointsize>
+                      </font>
+                     </property>
+                     <property name="frame">
+                      <bool>true</bool>
+                     </property>
+                     <property name="buttonSymbols">
+                      <enum>QAbstractSpinBox::NoButtons</enum>
+                     </property>
+                     <property name="displayFormat">
+                      <string>MMMM-yyyy</string>
+                     </property>
+                     <property name="calendarPopup">
+                      <bool>false</bool>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="1" column="0" rowspan="2">
+                    <widget class="QLabel" name="label_2">
+                     <property name="minimumSize">
+                      <size>
+                       <width>39</width>
+                       <height>0</height>
+                      </size>
+                     </property>
+                     <property name="font">
+                      <font>
+                       <family>Roboto</family>
+                       <pointsize>11</pointsize>
+                      </font>
+                     </property>
+                     <property name="styleSheet">
+                      <string notr="true">color: white;</string>
+                     </property>
+                     <property name="text">
+                      <string>To:</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="1" column="1" rowspan="2">
+                    <widget class="QDateEdit" name="dateEdit_income_to">
+                     <property name="maximumSize">
+                      <size>
+                       <width>125</width>
+                       <height>16777215</height>
+                      </size>
+                     </property>
+                     <property name="font">
+                      <font>
+                       <family>Roboto</family>
+                       <pointsize>11</pointsize>
+                      </font>
+                     </property>
+                     <property name="buttonSymbols">
+                      <enum>QAbstractSpinBox::NoButtons</enum>
+                     </property>
+                     <property name="currentSection">
+                      <enum>QDateTimeEdit::MonthSection</enum>
+                     </property>
+                     <property name="displayFormat">
+                      <string>MMMM-yyyy</string>
+                     </property>
+                     <property name="calendarPopup">
+                      <bool>false</bool>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="2" rowspan="3">
                     <widget class="QWidget" name="refresh_income" native="true">
                      <property name="minimumSize">
                       <size>
-                       <width>58</width>
-                       <height>58</height>
+                       <width>48</width>
+                       <height>48</height>
                       </size>
                      </property>
                      <property name="maximumSize">
                       <size>
-                       <width>58</width>
-                       <height>58</height>
+                       <width>48</width>
+                       <height>48</height>
                       </size>
+                     </property>
+                     <property name="cursor">
+                      <cursorShape>PointingHandCursor</cursorShape>
                      </property>
                      <layout class="QVBoxLayout" name="verticalLayout_5">
                       <property name="leftMargin">
-                       <number>0</number>
+                       <number>6</number>
                       </property>
                       <property name="topMargin">
-                       <number>0</number>
+                       <number>6</number>
                       </property>
                       <property name="rightMargin">
-                       <number>0</number>
+                       <number>6</number>
                       </property>
                       <property name="bottomMargin">
-                       <number>0</number>
+                       <number>6</number>
                       </property>
                      </layout>
                     </widget>
+                   </item>
+                   <item row="0" column="3" rowspan="3">
+                    <spacer name="horizontalSpacer_2">
+                     <property name="orientation">
+                      <enum>Qt::Horizontal</enum>
+                     </property>
+                     <property name="sizeHint" stdset="0">
+                      <size>
+                       <width>40</width>
+                       <height>20</height>
+                      </size>
+                     </property>
+                    </spacer>
                    </item>
                   </layout>
                  </item>
@@ -2568,9 +2505,6 @@ QPushButton#this_year_income::checked, QPushButton#last_12_months_income::checke
                </item>
               </layout>
              </widget>
-            </item>
-            <item row="0" column="1" rowspan="4">
-             <widget class="QWidget" name="widget_income_graph" native="true"/>
             </item>
            </layout>
           </widget>

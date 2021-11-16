@@ -1353,6 +1353,11 @@ class Ui_MainWindow(object):
         self.dockWidgetContents_23.setObjectName(u"dockWidgetContents_23")
         self.gridLayout_43 = QGridLayout(self.dockWidgetContents_23)
         self.gridLayout_43.setObjectName(u"gridLayout_43")
+        self.widget_expenses_graph = QWidget(self.dockWidgetContents_23)
+        self.widget_expenses_graph.setObjectName(u"widget_expenses_graph")
+
+        self.gridLayout_43.addWidget(self.widget_expenses_graph, 0, 1, 1, 1)
+
         self.widget_expenses = QWidget(self.dockWidgetContents_23)
         self.widget_expenses.setObjectName(u"widget_expenses")
         sizePolicy2 = QSizePolicy(QSizePolicy.Minimum, QSizePolicy.Preferred)
@@ -1412,84 +1417,58 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_4.addLayout(self.horizontalLayout_7)
 
-        self.horizontalLayout_8 = QHBoxLayout()
-        self.horizontalLayout_8.setSpacing(20)
-        self.horizontalLayout_8.setObjectName(u"horizontalLayout_8")
-        self.horizontalLayout_8.setContentsMargins(7, -1, -1, -1)
-        self.label_from_income_2 = QLabel(self.widget_expenses)
-        self.label_from_income_2.setObjectName(u"label_from_income_2")
-        self.label_from_income_2.setFont(font2)
-        self.label_from_income_2.setStyleSheet(u"color: white;")
-
-        self.horizontalLayout_8.addWidget(self.label_from_income_2)
-
+        self.gridLayout_10 = QGridLayout()
+        self.gridLayout_10.setObjectName(u"gridLayout_10")
+        self.gridLayout_10.setHorizontalSpacing(20)
+        self.gridLayout_10.setVerticalSpacing(15)
+        self.gridLayout_10.setContentsMargins(7, -1, 10, -1)
         self.dateEdit_expenses_from = QDateEdit(self.widget_expenses)
         self.dateEdit_expenses_from.setObjectName(u"dateEdit_expenses_from")
+        self.dateEdit_expenses_from.setMaximumSize(QSize(125, 16777215))
         self.dateEdit_expenses_from.setFont(font2)
         self.dateEdit_expenses_from.setFrame(True)
         self.dateEdit_expenses_from.setButtonSymbols(QAbstractSpinBox.NoButtons)
         self.dateEdit_expenses_from.setCalendarPopup(False)
 
-        self.horizontalLayout_8.addWidget(self.dateEdit_expenses_from)
+        self.gridLayout_10.addWidget(self.dateEdit_expenses_from, 0, 1, 1, 1)
 
-        self.horizontalSpacer_12 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+        self.label_from_income_2 = QLabel(self.widget_expenses)
+        self.label_from_income_2.setObjectName(u"label_from_income_2")
+        self.label_from_income_2.setFont(font2)
+        self.label_from_income_2.setStyleSheet(u"color: white;")
 
-        self.horizontalLayout_8.addItem(self.horizontalSpacer_12)
-
-
-        self.verticalLayout_4.addLayout(self.horizontalLayout_8)
-
-        self.horizontalLayout_9 = QHBoxLayout()
-        self.horizontalLayout_9.setSpacing(38)
-        self.horizontalLayout_9.setObjectName(u"horizontalLayout_9")
-        self.horizontalLayout_9.setContentsMargins(7, -1, -1, -1)
-        self.label_3 = QLabel(self.widget_expenses)
-        self.label_3.setObjectName(u"label_3")
-        self.label_3.setFont(font2)
-        self.label_3.setStyleSheet(u"color: white;")
-
-        self.horizontalLayout_9.addWidget(self.label_3)
+        self.gridLayout_10.addWidget(self.label_from_income_2, 0, 0, 1, 1)
 
         self.dateEdit_expenses_to = QDateEdit(self.widget_expenses)
         self.dateEdit_expenses_to.setObjectName(u"dateEdit_expenses_to")
+        self.dateEdit_expenses_to.setMaximumSize(QSize(125, 16777215))
         self.dateEdit_expenses_to.setFont(font2)
         self.dateEdit_expenses_to.setButtonSymbols(QAbstractSpinBox.NoButtons)
         self.dateEdit_expenses_to.setCurrentSection(QDateTimeEdit.MonthSection)
         self.dateEdit_expenses_to.setCalendarPopup(False)
 
-        self.horizontalLayout_9.addWidget(self.dateEdit_expenses_to)
+        self.gridLayout_10.addWidget(self.dateEdit_expenses_to, 1, 1, 1, 1)
 
-        self.horizontalSpacer_13 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
-
-        self.horizontalLayout_9.addItem(self.horizontalSpacer_13)
-
-
-        self.verticalLayout_4.addLayout(self.horizontalLayout_9)
-
-        self.horizontalLayout_10 = QHBoxLayout()
-        self.horizontalLayout_10.setObjectName(u"horizontalLayout_10")
-        self.horizontalLayout_10.setContentsMargins(-1, 20, -1, -1)
-        self.horizontalSpacer_14 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
-
-        self.horizontalLayout_10.addItem(self.horizontalSpacer_14)
-
-        self.refresh_expenses = QPushButton(self.widget_expenses)
+        self.refresh_expenses = QWidget(self.widget_expenses)
         self.refresh_expenses.setObjectName(u"refresh_expenses")
-        self.refresh_expenses.setFont(font2)
-        self.refresh_expenses.setCursor(QCursor(Qt.PointingHandCursor))
-        icon7 = QIcon()
-        icon7.addFile(u":/images/images/refresh_white_18dp.svg", QSize(), QIcon.Normal, QIcon.Off)
-        self.refresh_expenses.setIcon(icon7)
-        self.refresh_expenses.setIconSize(QSize(18, 18))
+        self.refresh_expenses.setMinimumSize(QSize(48, 48))
+        self.refresh_expenses.setMaximumSize(QSize(48, 48))
 
-        self.horizontalLayout_10.addWidget(self.refresh_expenses)
+        self.gridLayout_10.addWidget(self.refresh_expenses, 0, 2, 2, 1)
 
-        self.horizontalSpacer_15 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+        self.label_3 = QLabel(self.widget_expenses)
+        self.label_3.setObjectName(u"label_3")
+        self.label_3.setFont(font2)
+        self.label_3.setStyleSheet(u"color: white;")
 
-        self.horizontalLayout_10.addItem(self.horizontalSpacer_15)
+        self.gridLayout_10.addWidget(self.label_3, 1, 0, 1, 1)
+
+        self.horizontalSpacer_3 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.gridLayout_10.addItem(self.horizontalSpacer_3, 0, 3, 2, 1)
 
 
-        self.verticalLayout_4.addLayout(self.horizontalLayout_10)
+        self.verticalLayout_4.addLayout(self.gridLayout_10)
 
         self.verticalSpacer_2 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
 
@@ -1506,10 +1485,10 @@ class Ui_MainWindow(object):
         self.this_year_expenses.setMaximumSize(QSize(110, 28))
         self.this_year_expenses.setFont(font2)
         self.this_year_expenses.setCursor(QCursor(Qt.PointingHandCursor))
-        icon8 = QIcon()
-        icon8.addFile(u":/images/images/date_range_black_18dp.svg", QSize(), QIcon.Normal, QIcon.Off)
-        icon8.addFile(u":/images/images/date_range_black_18dp_checked.svg", QSize(), QIcon.Active, QIcon.On)
-        self.this_year_expenses.setIcon(icon8)
+        icon7 = QIcon()
+        icon7.addFile(u":/images/images/date_range_black_18dp.svg", QSize(), QIcon.Normal, QIcon.Off)
+        icon7.addFile(u":/images/images/date_range_black_18dp_checked.svg", QSize(), QIcon.Active, QIcon.On)
+        self.this_year_expenses.setIcon(icon7)
         self.this_year_expenses.setIconSize(QSize(18, 18))
         self.this_year_expenses.setCheckable(True)
         self.this_year_expenses.setChecked(False)
@@ -1523,10 +1502,10 @@ class Ui_MainWindow(object):
         self.last_12_months_expenses.setMaximumSize(QSize(150, 28))
         self.last_12_months_expenses.setFont(font2)
         self.last_12_months_expenses.setCursor(QCursor(Qt.PointingHandCursor))
-        icon9 = QIcon()
-        icon9.addFile(u":/images/images/history_black_18dp.svg", QSize(), QIcon.Normal, QIcon.Off)
-        icon9.addFile(u":/images/images/history_black_18dp_checked.svg", QSize(), QIcon.Active, QIcon.On)
-        self.last_12_months_expenses.setIcon(icon9)
+        icon8 = QIcon()
+        icon8.addFile(u":/images/images/history_black_18dp.svg", QSize(), QIcon.Normal, QIcon.Off)
+        icon8.addFile(u":/images/images/history_black_18dp_checked.svg", QSize(), QIcon.Active, QIcon.On)
+        self.last_12_months_expenses.setIcon(icon8)
         self.last_12_months_expenses.setIconSize(QSize(18, 18))
         self.last_12_months_expenses.setCheckable(True)
         self.last_12_months_expenses.setChecked(True)
@@ -1542,10 +1521,10 @@ class Ui_MainWindow(object):
         self.previous_year_expenses.setMaximumSize(QSize(140, 28))
         self.previous_year_expenses.setFont(font2)
         self.previous_year_expenses.setCursor(QCursor(Qt.PointingHandCursor))
-        icon10 = QIcon()
-        icon10.addFile(u":/images/images/calendar_today_black_18dp.svg", QSize(), QIcon.Normal, QIcon.Off)
-        icon10.addFile(u":/images/images/calendar_today_black_18dp_checked.svg", QSize(), QIcon.Active, QIcon.On)
-        self.previous_year_expenses.setIcon(icon10)
+        icon9 = QIcon()
+        icon9.addFile(u":/images/images/calendar_today_black_18dp.svg", QSize(), QIcon.Normal, QIcon.Off)
+        icon9.addFile(u":/images/images/calendar_today_black_18dp_checked.svg", QSize(), QIcon.Active, QIcon.On)
+        self.previous_year_expenses.setIcon(icon9)
         self.previous_year_expenses.setIconSize(QSize(18, 18))
         self.previous_year_expenses.setCheckable(True)
         self.previous_year_expenses.setAutoRepeat(True)
@@ -1563,12 +1542,7 @@ class Ui_MainWindow(object):
         self.verticalLayout_3.addLayout(self.verticalLayout_4)
 
 
-        self.gridLayout_43.addWidget(self.widget_expenses, 0, 0, 1, 1)
-
-        self.widget_expenses_graph = QWidget(self.dockWidgetContents_23)
-        self.widget_expenses_graph.setObjectName(u"widget_expenses_graph")
-
-        self.gridLayout_43.addWidget(self.widget_expenses_graph, 0, 1, 1, 1)
+        self.gridLayout_43.addWidget(self.widget_expenses, 0, 2, 1, 1)
 
         self.expenses.setWidget(self.dockWidgetContents_23)
 
@@ -1584,6 +1558,11 @@ class Ui_MainWindow(object):
         self.gridLayout_431 = QGridLayout(self.dockWidgetContents_231)
         self.gridLayout_431.setObjectName(u"gridLayout_431")
         self.gridLayout_431.setContentsMargins(-1, -1, -1, 6)
+        self.widget_income_graph = QWidget(self.dockWidgetContents_231)
+        self.widget_income_graph.setObjectName(u"widget_income_graph")
+
+        self.gridLayout_431.addWidget(self.widget_income_graph, 0, 1, 4, 1)
+
         self.widget_income = QWidget(self.dockWidgetContents_231)
         self.widget_income.setObjectName(u"widget_income")
         sizePolicy2.setHeightForWidth(self.widget_income.sizePolicy().hasHeightForWidth())
@@ -1607,10 +1586,10 @@ class Ui_MainWindow(object):
         self.toolButton_icon_category.setEnabled(False)
         self.toolButton_icon_category.setMinimumSize(QSize(36, 36))
         self.toolButton_icon_category.setMaximumSize(QSize(36, 36))
-        icon11 = QIcon()
-        icon11.addFile(u":/images/images/savings_black_24dp.svg", QSize(), QIcon.Normal, QIcon.Off)
-        icon11.addFile(u":/images/images/savings_black_24dp.svg", QSize(), QIcon.Disabled, QIcon.Off)
-        self.toolButton_icon_category.setIcon(icon11)
+        icon10 = QIcon()
+        icon10.addFile(u":/images/images/savings_black_24dp.svg", QSize(), QIcon.Normal, QIcon.Off)
+        icon10.addFile(u":/images/images/savings_black_24dp.svg", QSize(), QIcon.Disabled, QIcon.Off)
+        self.toolButton_icon_category.setIcon(icon10)
         self.toolButton_icon_category.setIconSize(QSize(36, 36))
 
         self.horizontalLayout_5.addWidget(self.toolButton_icon_category)
@@ -1639,73 +1618,58 @@ class Ui_MainWindow(object):
 
         self.gridLayout_8 = QGridLayout()
         self.gridLayout_8.setObjectName(u"gridLayout_8")
-        self.gridLayout_8.setHorizontalSpacing(10)
+        self.gridLayout_8.setHorizontalSpacing(20)
         self.gridLayout_8.setVerticalSpacing(15)
-        self.gridLayout_8.setContentsMargins(4, -1, 10, -1)
-        self.horizontalLayout_4 = QHBoxLayout()
-        self.horizontalLayout_4.setSpacing(20)
-        self.horizontalLayout_4.setObjectName(u"horizontalLayout_4")
-        self.horizontalLayout_4.setContentsMargins(7, -1, -1, -1)
+        self.gridLayout_8.setContentsMargins(7, -1, 10, -1)
+        self.label_from_income = QLabel(self.widget_income)
+        self.label_from_income.setObjectName(u"label_from_income")
+        self.label_from_income.setFont(font2)
+        self.label_from_income.setStyleSheet(u"color: white;")
+
+        self.gridLayout_8.addWidget(self.label_from_income, 0, 0, 1, 1)
+
+        self.dateEdit_income_from = QDateEdit(self.widget_income)
+        self.dateEdit_income_from.setObjectName(u"dateEdit_income_from")
+        self.dateEdit_income_from.setMaximumSize(QSize(125, 16777215))
+        self.dateEdit_income_from.setFont(font2)
+        self.dateEdit_income_from.setFrame(True)
+        self.dateEdit_income_from.setButtonSymbols(QAbstractSpinBox.NoButtons)
+        self.dateEdit_income_from.setCalendarPopup(False)
+
+        self.gridLayout_8.addWidget(self.dateEdit_income_from, 0, 1, 1, 1)
+
         self.label_2 = QLabel(self.widget_income)
         self.label_2.setObjectName(u"label_2")
         self.label_2.setMinimumSize(QSize(39, 0))
         self.label_2.setFont(font2)
         self.label_2.setStyleSheet(u"color: white;")
 
-        self.horizontalLayout_4.addWidget(self.label_2)
+        self.gridLayout_8.addWidget(self.label_2, 1, 0, 2, 1)
 
         self.dateEdit_income_to = QDateEdit(self.widget_income)
         self.dateEdit_income_to.setObjectName(u"dateEdit_income_to")
+        self.dateEdit_income_to.setMaximumSize(QSize(125, 16777215))
         self.dateEdit_income_to.setFont(font2)
         self.dateEdit_income_to.setButtonSymbols(QAbstractSpinBox.NoButtons)
         self.dateEdit_income_to.setCurrentSection(QDateTimeEdit.MonthSection)
         self.dateEdit_income_to.setCalendarPopup(False)
 
-        self.horizontalLayout_4.addWidget(self.dateEdit_income_to)
-
-        self.horizontalSpacer_3 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
-
-        self.horizontalLayout_4.addItem(self.horizontalSpacer_3)
-
-
-        self.gridLayout_8.addLayout(self.horizontalLayout_4, 1, 0, 1, 1)
-
-        self.horizontalLayout_3 = QHBoxLayout()
-        self.horizontalLayout_3.setSpacing(20)
-        self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
-        self.horizontalLayout_3.setContentsMargins(7, -1, -1, -1)
-        self.label_from_income = QLabel(self.widget_income)
-        self.label_from_income.setObjectName(u"label_from_income")
-        self.label_from_income.setFont(font2)
-        self.label_from_income.setStyleSheet(u"color: white;")
-
-        self.horizontalLayout_3.addWidget(self.label_from_income)
-
-        self.dateEdit_income_from = QDateEdit(self.widget_income)
-        self.dateEdit_income_from.setObjectName(u"dateEdit_income_from")
-        self.dateEdit_income_from.setFont(font2)
-        self.dateEdit_income_from.setFrame(True)
-        self.dateEdit_income_from.setButtonSymbols(QAbstractSpinBox.NoButtons)
-        self.dateEdit_income_from.setCalendarPopup(False)
-
-        self.horizontalLayout_3.addWidget(self.dateEdit_income_from)
-
-        self.horizontalSpacer_2 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
-
-        self.horizontalLayout_3.addItem(self.horizontalSpacer_2)
-
-
-        self.gridLayout_8.addLayout(self.horizontalLayout_3, 0, 0, 1, 1)
+        self.gridLayout_8.addWidget(self.dateEdit_income_to, 1, 1, 2, 1)
 
         self.refresh_income = QWidget(self.widget_income)
         self.refresh_income.setObjectName(u"refresh_income")
-        self.refresh_income.setMinimumSize(QSize(58, 58))
-        self.refresh_income.setMaximumSize(QSize(58, 58))
+        self.refresh_income.setMinimumSize(QSize(48, 48))
+        self.refresh_income.setMaximumSize(QSize(48, 48))
+        self.refresh_income.setCursor(QCursor(Qt.PointingHandCursor))
         self.verticalLayout_5 = QVBoxLayout(self.refresh_income)
         self.verticalLayout_5.setObjectName(u"verticalLayout_5")
-        self.verticalLayout_5.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_5.setContentsMargins(6, 6, 6, 6)
 
-        self.gridLayout_8.addWidget(self.refresh_income, 0, 1, 2, 1)
+        self.gridLayout_8.addWidget(self.refresh_income, 0, 2, 3, 1)
+
+        self.horizontalSpacer_2 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.gridLayout_8.addItem(self.horizontalSpacer_2, 0, 3, 3, 1)
 
 
         self.verticalLayout.addLayout(self.gridLayout_8)
@@ -1725,7 +1689,7 @@ class Ui_MainWindow(object):
         self.this_year_income.setMaximumSize(QSize(110, 28))
         self.this_year_income.setFont(font2)
         self.this_year_income.setCursor(QCursor(Qt.PointingHandCursor))
-        self.this_year_income.setIcon(icon8)
+        self.this_year_income.setIcon(icon7)
         self.this_year_income.setIconSize(QSize(18, 18))
         self.this_year_income.setCheckable(True)
         self.this_year_income.setChecked(False)
@@ -1739,7 +1703,7 @@ class Ui_MainWindow(object):
         self.last_12_months_income.setMaximumSize(QSize(150, 28))
         self.last_12_months_income.setFont(font2)
         self.last_12_months_income.setCursor(QCursor(Qt.PointingHandCursor))
-        self.last_12_months_income.setIcon(icon9)
+        self.last_12_months_income.setIcon(icon8)
         self.last_12_months_income.setIconSize(QSize(18, 18))
         self.last_12_months_income.setCheckable(True)
         self.last_12_months_income.setChecked(True)
@@ -1755,7 +1719,7 @@ class Ui_MainWindow(object):
         self.previous_year_income.setMaximumSize(QSize(140, 28))
         self.previous_year_income.setFont(font2)
         self.previous_year_income.setCursor(QCursor(Qt.PointingHandCursor))
-        self.previous_year_income.setIcon(icon10)
+        self.previous_year_income.setIcon(icon9)
         self.previous_year_income.setIconSize(QSize(18, 18))
         self.previous_year_income.setCheckable(True)
         self.previous_year_income.setAutoRepeat(True)
@@ -1773,12 +1737,7 @@ class Ui_MainWindow(object):
         self.verticalLayout_2.addLayout(self.verticalLayout)
 
 
-        self.gridLayout_431.addWidget(self.widget_income, 0, 0, 4, 1)
-
-        self.widget_income_graph = QWidget(self.dockWidgetContents_231)
-        self.widget_income_graph.setObjectName(u"widget_income_graph")
-
-        self.gridLayout_431.addWidget(self.widget_income_graph, 0, 1, 4, 1)
+        self.gridLayout_431.addWidget(self.widget_income, 0, 2, 4, 1)
 
         self.income.setWidget(self.dockWidgetContents_231)
 
@@ -1850,11 +1809,10 @@ class Ui_MainWindow(object):
         self.expenses_choice.setItemText(1, QCoreApplication.translate("MainWindow", u"Restaurants", None))
         self.expenses_choice.setItemText(2, QCoreApplication.translate("MainWindow", u"Gas", None))
 
-        self.label_from_income_2.setText(QCoreApplication.translate("MainWindow", u"From:", None))
         self.dateEdit_expenses_from.setDisplayFormat(QCoreApplication.translate("MainWindow", u"MMMM-yyyy", None))
-        self.label_3.setText(QCoreApplication.translate("MainWindow", u"To:", None))
+        self.label_from_income_2.setText(QCoreApplication.translate("MainWindow", u"From:", None))
         self.dateEdit_expenses_to.setDisplayFormat(QCoreApplication.translate("MainWindow", u"MMMM-yyyy", None))
-        self.refresh_expenses.setText(QCoreApplication.translate("MainWindow", u" Refresh ", None))
+        self.label_3.setText(QCoreApplication.translate("MainWindow", u"To:", None))
         self.this_year_expenses.setText(QCoreApplication.translate("MainWindow", u"This year ", None))
         self.last_12_months_expenses.setText(QCoreApplication.translate("MainWindow", u"Last 12 months", None))
         self.previous_year_expenses.setText(QCoreApplication.translate("MainWindow", u"Previous year", None))
@@ -1864,10 +1822,10 @@ class Ui_MainWindow(object):
         self.income_choice.setItemText(1, QCoreApplication.translate("MainWindow", u"Wages", None))
         self.income_choice.setItemText(2, QCoreApplication.translate("MainWindow", u"Gifts", None))
 
-        self.label_2.setText(QCoreApplication.translate("MainWindow", u"To:", None))
-        self.dateEdit_income_to.setDisplayFormat(QCoreApplication.translate("MainWindow", u"MMMM-yyyy", None))
         self.label_from_income.setText(QCoreApplication.translate("MainWindow", u"From:", None))
         self.dateEdit_income_from.setDisplayFormat(QCoreApplication.translate("MainWindow", u"MMMM-yyyy", None))
+        self.label_2.setText(QCoreApplication.translate("MainWindow", u"To:", None))
+        self.dateEdit_income_to.setDisplayFormat(QCoreApplication.translate("MainWindow", u"MMMM-yyyy", None))
         self.this_year_income.setText(QCoreApplication.translate("MainWindow", u"This year ", None))
         self.last_12_months_income.setText(QCoreApplication.translate("MainWindow", u"Last 12 months", None))
         self.previous_year_income.setText(QCoreApplication.translate("MainWindow", u"Previous year", None))
