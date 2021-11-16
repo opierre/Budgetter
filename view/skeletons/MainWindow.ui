@@ -1706,7 +1706,7 @@ QPushButton#this_year_income::checked, QPushButton#last_12_months_income::checke
                     <widget class="QDateEdit" name="dateEdit_expenses_from">
                      <property name="maximumSize">
                       <size>
-                       <width>125</width>
+                       <width>130</width>
                        <height>16777215</height>
                       </size>
                      </property>
@@ -1750,7 +1750,7 @@ QPushButton#this_year_income::checked, QPushButton#last_12_months_income::checke
                     <widget class="QDateEdit" name="dateEdit_expenses_to">
                      <property name="maximumSize">
                       <size>
-                       <width>125</width>
+                       <width>130</width>
                        <height>16777215</height>
                       </size>
                      </property>
@@ -1778,14 +1778,14 @@ QPushButton#this_year_income::checked, QPushButton#last_12_months_income::checke
                     <widget class="QWidget" name="refresh_expenses" native="true">
                      <property name="minimumSize">
                       <size>
-                       <width>48</width>
-                       <height>48</height>
+                       <width>54</width>
+                       <height>54</height>
                       </size>
                      </property>
                      <property name="maximumSize">
                       <size>
-                       <width>48</width>
-                       <height>48</height>
+                       <width>54</width>
+                       <height>54</height>
                       </size>
                      </property>
                     </widget>
@@ -2205,7 +2205,7 @@ QPushButton#this_year_income::checked, QPushButton#last_12_months_income::checke
                     <widget class="QDateEdit" name="dateEdit_income_from">
                      <property name="maximumSize">
                       <size>
-                       <width>125</width>
+                       <width>130</width>
                        <height>16777215</height>
                       </size>
                      </property>
@@ -2255,7 +2255,7 @@ QPushButton#this_year_income::checked, QPushButton#last_12_months_income::checke
                     <widget class="QDateEdit" name="dateEdit_income_to">
                      <property name="maximumSize">
                       <size>
-                       <width>125</width>
+                       <width>130</width>
                        <height>16777215</height>
                       </size>
                      </property>
@@ -2280,17 +2280,17 @@ QPushButton#this_year_income::checked, QPushButton#last_12_months_income::checke
                     </widget>
                    </item>
                    <item row="0" column="2" rowspan="3">
-                    <widget class="QWidget" name="refresh_income" native="true">
+                    <widget class="AnimatedButton" name="refresh_income" native="true">
                      <property name="minimumSize">
                       <size>
-                       <width>48</width>
-                       <height>48</height>
+                       <width>54</width>
+                       <height>54</height>
                       </size>
                      </property>
                      <property name="maximumSize">
                       <size>
-                       <width>48</width>
-                       <height>48</height>
+                       <width>54</width>
+                       <height>54</height>
                       </size>
                      </property>
                      <property name="cursor">
@@ -2619,6 +2619,12 @@ QPushButton#this_year_income::checked, QPushButton#last_12_months_income::checke
    <class>SlidingStackedWidget</class>
    <extends>QStackedWidget</extends>
    <header>view/widgets/sliding_stacked_widget.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>AnimatedButton</class>
+   <extends>QWidget</extends>
+   <header>view/widgets/animated_button.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>

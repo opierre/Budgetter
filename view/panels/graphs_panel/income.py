@@ -78,20 +78,7 @@ class Income(QObject):
         self.ui_setup.income_choice.view().window().setAttribute(Qt.WA_TranslucentBackground)
 
         """ Set webview to display animated icon """
-        self.button = QSvgWidget()
-        # self.button.page().setBackgroundColor(Qt.transparent)
-        # self.button.setStyleSheet("background-color: transparent;")
-        self.button.load(r"C:\Users\Pierre\Downloads\frames_searchtoclose\60fps\frame00.svg")
-        self.ui_setup.refresh_income.layout().addWidget(self.button)
-        QTimer.singleShot(3000, self.update_animation)
-        QTimer.singleShot(6000, self.update_animation)
-
-    def update_animation(self):
-        for index in range(0, 61):
-            time.sleep(0.016)
-            self.button.load(r"C:\Users\Pierre\Downloads\frames_searchtoclose\60fps\frame" + f"{index:02}" + ".svg")
-            QApplication.processEvents()
-
+        self.ui_setup.refresh_income.set_animation_type("refresh_to_bars")
 
     def configure_title_bar(self):
         """

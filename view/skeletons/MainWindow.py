@@ -17,6 +17,7 @@ from PySide2.QtWidgets import *
 
 from view.widgets.container import Container
 from view.widgets.sliding_stacked_widget import SlidingStackedWidget
+from view.widgets.animated_button import AnimatedButton
 
 import resources_rc
 
@@ -1424,7 +1425,7 @@ class Ui_MainWindow(object):
         self.gridLayout_10.setContentsMargins(7, -1, 10, -1)
         self.dateEdit_expenses_from = QDateEdit(self.widget_expenses)
         self.dateEdit_expenses_from.setObjectName(u"dateEdit_expenses_from")
-        self.dateEdit_expenses_from.setMaximumSize(QSize(125, 16777215))
+        self.dateEdit_expenses_from.setMaximumSize(QSize(130, 16777215))
         self.dateEdit_expenses_from.setFont(font2)
         self.dateEdit_expenses_from.setFrame(True)
         self.dateEdit_expenses_from.setButtonSymbols(QAbstractSpinBox.NoButtons)
@@ -1441,7 +1442,7 @@ class Ui_MainWindow(object):
 
         self.dateEdit_expenses_to = QDateEdit(self.widget_expenses)
         self.dateEdit_expenses_to.setObjectName(u"dateEdit_expenses_to")
-        self.dateEdit_expenses_to.setMaximumSize(QSize(125, 16777215))
+        self.dateEdit_expenses_to.setMaximumSize(QSize(130, 16777215))
         self.dateEdit_expenses_to.setFont(font2)
         self.dateEdit_expenses_to.setButtonSymbols(QAbstractSpinBox.NoButtons)
         self.dateEdit_expenses_to.setCurrentSection(QDateTimeEdit.MonthSection)
@@ -1630,7 +1631,7 @@ class Ui_MainWindow(object):
 
         self.dateEdit_income_from = QDateEdit(self.widget_income)
         self.dateEdit_income_from.setObjectName(u"dateEdit_income_from")
-        self.dateEdit_income_from.setMaximumSize(QSize(125, 16777215))
+        self.dateEdit_income_from.setMaximumSize(QSize(130, 16777215))
         self.dateEdit_income_from.setFont(font2)
         self.dateEdit_income_from.setFrame(True)
         self.dateEdit_income_from.setButtonSymbols(QAbstractSpinBox.NoButtons)
@@ -1648,7 +1649,7 @@ class Ui_MainWindow(object):
 
         self.dateEdit_income_to = QDateEdit(self.widget_income)
         self.dateEdit_income_to.setObjectName(u"dateEdit_income_to")
-        self.dateEdit_income_to.setMaximumSize(QSize(125, 16777215))
+        self.dateEdit_income_to.setMaximumSize(QSize(130, 16777215))
         self.dateEdit_income_to.setFont(font2)
         self.dateEdit_income_to.setButtonSymbols(QAbstractSpinBox.NoButtons)
         self.dateEdit_income_to.setCurrentSection(QDateTimeEdit.MonthSection)
@@ -1656,10 +1657,10 @@ class Ui_MainWindow(object):
 
         self.gridLayout_8.addWidget(self.dateEdit_income_to, 1, 1, 2, 1)
 
-        self.refresh_income = QWidget(self.widget_income)
+        self.refresh_income = AnimatedButton(self.widget_income)
         self.refresh_income.setObjectName(u"refresh_income")
-        self.refresh_income.setMinimumSize(QSize(48, 48))
-        self.refresh_income.setMaximumSize(QSize(48, 48))
+        self.refresh_income.setMinimumSize(QSize(54, 54))
+        self.refresh_income.setMaximumSize(QSize(54, 54))
         self.refresh_income.setCursor(QCursor(Qt.PointingHandCursor))
         self.verticalLayout_5 = QVBoxLayout(self.refresh_income)
         self.verticalLayout_5.setObjectName(u"verticalLayout_5")
