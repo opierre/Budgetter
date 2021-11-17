@@ -66,6 +66,9 @@ class Income(QObject):
         self.ui_setup.dateEdit_income_from.dateChanged.connect(self.update_range_option)
         self.ui_setup.dateEdit_income_to.dateChanged.connect(self.update_range_option)
 
+        """ Connect click on refresh button """
+        self.ui_setup.refresh_income.clicked.connect(self.refresh)
+
     def configure_panel(self):
         """
         Configure panel look and field

@@ -1,6 +1,6 @@
 from enum import Enum
 
-from PySide2.QtCore import QTimer
+from PySide2.QtCore import QTimer, Signal
 from PySide2.QtGui import QMouseEvent
 from PySide2.QtSvg import QSvgWidget
 from PySide2.QtWidgets import QWidget, QApplication, QVBoxLayout
@@ -16,6 +16,9 @@ class AnimatedButton(QWidget):
     """
     Button with animated icon
     """
+
+    ''' Signal emitted on click '''
+    clicked = Signal()
 
     def __init__(self, parent=None):
         super(AnimatedButton, self).__init__(parent)
@@ -145,9 +148,10 @@ class AnimatedButton(QWidget):
         :return: None
         """
 
-        self.direction = DIRECTIONS.PLAY
-        self.repeat = repeat
-        self.timer.start(16)
+        if not self.timer.isActive():
+            self.direction = DIRECTIONS.PLAY
+            self.repeat = repeat
+            self.timer.start(16)
 
     def stop(self):
         """
@@ -156,8 +160,9 @@ class AnimatedButton(QWidget):
         :return: None
         """
 
-        self.timer.stop()
-        self.frame_counter = 0
+        if self.timer.isActive():
+            self.timer.stop()
+            self.frame_counter = 0
 
     def mousePressEvent(self, event: QMouseEvent):
         """
@@ -167,5 +172,5 @@ class AnimatedButton(QWidget):
         :return: None
         """
 
-        if not self.timer.isActive():
-            self.start()
+        self.clicked.emit()
+        super(AnimatedButton, self).mousePressEvent(event)
