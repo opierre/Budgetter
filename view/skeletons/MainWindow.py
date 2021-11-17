@@ -994,7 +994,7 @@ class Ui_MainWindow(object):
 "	padding-bottom: 2px;\n"
 "	padding-left: 7px;\n"
 "	padding-right: 2px;\n"
-"	background: rgba(47, 67, 93, 150);\n"
+"	background: #1C293B;\n"
 "	color: white;\n"
 "}\n"
 "\n"
@@ -1007,21 +1007,21 @@ class Ui_MainWindow(object):
 "	padding-bottom: 2px;\n"
 "	padding-left: 7px;\n"
 "	padding-right: 2px;\n"
-"	background: rgba(47, 67, 93, 150);\n"
+"	background: #1C293B;\n"
 "	color: white;\n"
 "}\n"
 "\n"
 "QComboBox#income_choice::focus, QComboBox#expenses_choice::focus\n"
 "{\n"
 "	border: 1px solid transparent;\n"
-"	border-bottom: 1px solid rgb"
-                        "a(1, 144, 234, 200);\n"
-"	border-radius: 4px;\n"
+"	border-bottom: 1px solid rgba(1, 144, 234, 200);\n"
+"	bo"
+                        "rder-radius: 4px;\n"
 "	padding-top: 2px;\n"
 "	padding-bottom: 2px;\n"
 "	padding-left: 7px;\n"
 "	padding-right: 2px;\n"
-"	background: rgba(47, 67, 93, 150);\n"
+"	background: #1C293B;\n"
 "	color: white;\n"
 "}\n"
 "\n"
@@ -1050,10 +1050,10 @@ class Ui_MainWindow(object):
 "	border-radius: 4px;\n"
 "	padding-top: 2px;\n"
 "	padding-bottom: 2px;\n"
-"	padding-left: "
-                        "7px;\n"
+"	padding-left: 7px;\n"
 "	padding-right: 7px;\n"
-"	background: rgba(47, 67, 93, 150);\n"
+"	backgro"
+                        "und: rgba(47, 67, 93, 150);\n"
 "	color: white;\n"
 "	selection-background-color: #0190EA;\n"
 "}\n"
@@ -1081,10 +1081,10 @@ class Ui_MainWindow(object):
 "	padding-bottom: 2px;\n"
 "	padding-left: 7px;\n"
 "	padding-right: 7px;\n"
-"	background: rgba(4"
-                        "7, 67, 93, 150);\n"
+"	background: rgba(47, 67, 93, 150);\n"
 "	color: white;\n"
-"	selection-background-color: #0190EA;\n"
+"	s"
+                        "election-background-color: #0190EA;\n"
 "}\n"
 "\n"
 "QWidget#widget_income, QWidget#widget_expenses\n"
@@ -1123,9 +1123,9 @@ class Ui_MainWindow(object):
 "\n"
 "QToolButton#refresh_income:pressed, QPushButton#refresh_expenses:pressed\n"
 "{\n"
-"	background-c"
-                        "olor: rgba(2, 113, 184, 0);\n"
-"	border: 1px solid;\n"
+"	background-color: rgba(2, 113, 184, 0);\n"
+"	border: 1"
+                        "px solid;\n"
 "	border-radius: 28px;\n"
 "	border-color: transparent;\n"
 "	padding-left: 0px;\n"
@@ -1149,9 +1149,22 @@ class Ui_MainWindow(object):
 "	background-color: rgba(66, 96, 135, 250);\n"
 "	border: 1px solid rgba(66, 96, 135, 250); \n"
 "	border-radius: 12px;\n"
-"	colo"
-                        "r: rgba(255, 255, 255, 200);\n"
-"	outline: none;\n"
+"	color: rgba(255, 255, 255, 200);\n"
+"	outline:"
+                        " none;\n"
+"}\n"
+"\n"
+"QFrame#frame_expenses, QFrame#frame_income\n"
+"{\n"
+"	background-color: rgba(66, 96, 135, 80);\n"
+"	border-bottom-left-radius: 28px;\n"
+"	border-bottom-right-radius: 28px;\n"
+"	border-top-right-radius: 4px;\n"
+"	border-top-left-radius: 4px;\n"
+"	border-top: 1px inset rgba(66, 96, 135, 100);\n"
+"	border-left: 1px inset rgba(66, 96, 135, 100);\n"
+"	border-right: 1px outset rgba(66, 96, 135, 100);\n"
+"	border-bottom: none;\n"
 "}")
         MainWindow.setToolButtonStyle(Qt.ToolButtonIconOnly)
         MainWindow.setAnimated(True)
@@ -1368,19 +1381,21 @@ class Ui_MainWindow(object):
         self.widget_expenses.setSizePolicy(sizePolicy2)
         self.widget_expenses.setMaximumSize(QSize(300, 16777215))
         self.verticalLayout_3 = QVBoxLayout(self.widget_expenses)
+        self.verticalLayout_3.setSpacing(15)
         self.verticalLayout_3.setObjectName(u"verticalLayout_3")
-        self.verticalLayout_4 = QVBoxLayout()
-        self.verticalLayout_4.setSpacing(15)
-        self.verticalLayout_4.setObjectName(u"verticalLayout_4")
-        self.verticalLayout_4.setContentsMargins(-1, 15, -1, 15)
-        self.horizontalLayout_7 = QHBoxLayout()
-        self.horizontalLayout_7.setObjectName(u"horizontalLayout_7")
-        self.horizontalLayout_7.setContentsMargins(-1, -1, -1, 20)
-        self.horizontalSpacer_9 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+        self.verticalLayout_3.setContentsMargins(0, 0, 0, 18)
+        self.frame_expenses = QFrame(self.widget_expenses)
+        self.frame_expenses.setObjectName(u"frame_expenses")
+        self.frame_expenses.setFrameShape(QFrame.StyledPanel)
+        self.frame_expenses.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_2 = QHBoxLayout(self.frame_expenses)
+        self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
+        self.horizontalLayout_2.setContentsMargins(9, 20, 9, 20)
+        self.horizontalSpacer_5 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
-        self.horizontalLayout_7.addItem(self.horizontalSpacer_9)
+        self.horizontalLayout_2.addItem(self.horizontalSpacer_5)
 
-        self.toolButton_icon_category_2 = QToolButton(self.widget_expenses)
+        self.toolButton_icon_category_2 = QToolButton(self.frame_expenses)
         self.toolButton_icon_category_2.setObjectName(u"toolButton_icon_category_2")
         self.toolButton_icon_category_2.setEnabled(False)
         self.toolButton_icon_category_2.setMinimumSize(QSize(36, 36))
@@ -1391,13 +1406,13 @@ class Ui_MainWindow(object):
         self.toolButton_icon_category_2.setIcon(icon6)
         self.toolButton_icon_category_2.setIconSize(QSize(36, 36))
 
-        self.horizontalLayout_7.addWidget(self.toolButton_icon_category_2)
+        self.horizontalLayout_2.addWidget(self.toolButton_icon_category_2)
 
-        self.horizontalSpacer_10 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+        self.horizontalSpacer_9 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
-        self.horizontalLayout_7.addItem(self.horizontalSpacer_10)
+        self.horizontalLayout_2.addItem(self.horizontalSpacer_9)
 
-        self.expenses_choice = QComboBox(self.widget_expenses)
+        self.expenses_choice = QComboBox(self.frame_expenses)
         self.expenses_choice.addItem("")
         self.expenses_choice.addItem("")
         self.expenses_choice.addItem("")
@@ -1409,20 +1424,20 @@ class Ui_MainWindow(object):
         font2.setPointSize(11)
         self.expenses_choice.setFont(font2)
 
-        self.horizontalLayout_7.addWidget(self.expenses_choice)
+        self.horizontalLayout_2.addWidget(self.expenses_choice)
 
-        self.horizontalSpacer_11 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+        self.horizontalSpacer_4 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
-        self.horizontalLayout_7.addItem(self.horizontalSpacer_11)
+        self.horizontalLayout_2.addItem(self.horizontalSpacer_4)
 
 
-        self.verticalLayout_4.addLayout(self.horizontalLayout_7)
+        self.verticalLayout_3.addWidget(self.frame_expenses)
 
         self.gridLayout_10 = QGridLayout()
         self.gridLayout_10.setObjectName(u"gridLayout_10")
         self.gridLayout_10.setHorizontalSpacing(20)
         self.gridLayout_10.setVerticalSpacing(15)
-        self.gridLayout_10.setContentsMargins(7, -1, 10, -1)
+        self.gridLayout_10.setContentsMargins(16, 8, 19, -1)
         self.dateEdit_expenses_from = QDateEdit(self.widget_expenses)
         self.dateEdit_expenses_from.setObjectName(u"dateEdit_expenses_from")
         self.dateEdit_expenses_from.setMaximumSize(QSize(130, 16777215))
@@ -1470,17 +1485,17 @@ class Ui_MainWindow(object):
         self.gridLayout_10.addItem(self.horizontalSpacer_3, 0, 3, 2, 1)
 
 
-        self.verticalLayout_4.addLayout(self.gridLayout_10)
+        self.verticalLayout_3.addLayout(self.gridLayout_10)
 
         self.verticalSpacer_2 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
 
-        self.verticalLayout_4.addItem(self.verticalSpacer_2)
+        self.verticalLayout_3.addItem(self.verticalSpacer_2)
 
         self.gridLayout_7 = QGridLayout()
         self.gridLayout_7.setObjectName(u"gridLayout_7")
         self.gridLayout_7.setHorizontalSpacing(6)
         self.gridLayout_7.setVerticalSpacing(15)
-        self.gridLayout_7.setContentsMargins(-1, 20, -1, -1)
+        self.gridLayout_7.setContentsMargins(9, 20, 9, -1)
         self.this_year_expenses = QPushButton(self.widget_expenses)
         self.this_year_expenses.setObjectName(u"this_year_expenses")
         self.this_year_expenses.setMinimumSize(QSize(110, 28))
@@ -1538,10 +1553,7 @@ class Ui_MainWindow(object):
         self.gridLayout_7.addLayout(self.horizontalLayout_11, 1, 0, 1, 2)
 
 
-        self.verticalLayout_4.addLayout(self.gridLayout_7)
-
-
-        self.verticalLayout_3.addLayout(self.verticalLayout_4)
+        self.verticalLayout_3.addLayout(self.gridLayout_7)
 
 
         self.gridLayout_43.addWidget(self.widget_expenses, 0, 2, 1, 1)
@@ -1571,19 +1583,21 @@ class Ui_MainWindow(object):
         self.widget_income.setSizePolicy(sizePolicy2)
         self.widget_income.setMaximumSize(QSize(300, 16777215))
         self.verticalLayout_2 = QVBoxLayout(self.widget_income)
+        self.verticalLayout_2.setSpacing(15)
         self.verticalLayout_2.setObjectName(u"verticalLayout_2")
-        self.verticalLayout = QVBoxLayout()
-        self.verticalLayout.setSpacing(15)
-        self.verticalLayout.setObjectName(u"verticalLayout")
-        self.verticalLayout.setContentsMargins(-1, 15, -1, 15)
-        self.horizontalLayout_5 = QHBoxLayout()
-        self.horizontalLayout_5.setObjectName(u"horizontalLayout_5")
-        self.horizontalLayout_5.setContentsMargins(-1, -1, -1, 20)
+        self.verticalLayout_2.setContentsMargins(0, 0, 0, 18)
+        self.frame_income = QFrame(self.widget_income)
+        self.frame_income.setObjectName(u"frame_income")
+        self.frame_income.setFrameShape(QFrame.StyledPanel)
+        self.frame_income.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_3 = QHBoxLayout(self.frame_income)
+        self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
+        self.horizontalLayout_3.setContentsMargins(-1, 20, -1, 20)
         self.horizontalSpacer_8 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
-        self.horizontalLayout_5.addItem(self.horizontalSpacer_8)
+        self.horizontalLayout_3.addItem(self.horizontalSpacer_8)
 
-        self.toolButton_icon_category = QToolButton(self.widget_income)
+        self.toolButton_icon_category = QToolButton(self.frame_income)
         self.toolButton_icon_category.setObjectName(u"toolButton_icon_category")
         self.toolButton_icon_category.setEnabled(False)
         self.toolButton_icon_category.setMinimumSize(QSize(36, 36))
@@ -1594,13 +1608,13 @@ class Ui_MainWindow(object):
         self.toolButton_icon_category.setIcon(icon10)
         self.toolButton_icon_category.setIconSize(QSize(36, 36))
 
-        self.horizontalLayout_5.addWidget(self.toolButton_icon_category)
+        self.horizontalLayout_3.addWidget(self.toolButton_icon_category)
 
         self.horizontalSpacer_6 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
-        self.horizontalLayout_5.addItem(self.horizontalSpacer_6)
+        self.horizontalLayout_3.addItem(self.horizontalSpacer_6)
 
-        self.income_choice = QComboBox(self.widget_income)
+        self.income_choice = QComboBox(self.frame_income)
         self.income_choice.addItem("")
         self.income_choice.addItem("")
         self.income_choice.addItem("")
@@ -1609,20 +1623,20 @@ class Ui_MainWindow(object):
         self.income_choice.setMaximumSize(QSize(200, 16777215))
         self.income_choice.setFont(font2)
 
-        self.horizontalLayout_5.addWidget(self.income_choice)
+        self.horizontalLayout_3.addWidget(self.income_choice)
 
         self.horizontalSpacer_7 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
-        self.horizontalLayout_5.addItem(self.horizontalSpacer_7)
+        self.horizontalLayout_3.addItem(self.horizontalSpacer_7)
 
 
-        self.verticalLayout.addLayout(self.horizontalLayout_5)
+        self.verticalLayout_2.addWidget(self.frame_income)
 
         self.gridLayout_8 = QGridLayout()
         self.gridLayout_8.setObjectName(u"gridLayout_8")
         self.gridLayout_8.setHorizontalSpacing(20)
         self.gridLayout_8.setVerticalSpacing(15)
-        self.gridLayout_8.setContentsMargins(7, -1, 10, -1)
+        self.gridLayout_8.setContentsMargins(16, 8, 19, -1)
         self.label_from_income = QLabel(self.widget_income)
         self.label_from_income.setObjectName(u"label_from_income")
         self.label_from_income.setFont(font2)
@@ -1674,17 +1688,17 @@ class Ui_MainWindow(object):
         self.gridLayout_8.addItem(self.horizontalSpacer_2, 0, 3, 3, 1)
 
 
-        self.verticalLayout.addLayout(self.gridLayout_8)
+        self.verticalLayout_2.addLayout(self.gridLayout_8)
 
         self.verticalSpacer = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
 
-        self.verticalLayout.addItem(self.verticalSpacer)
+        self.verticalLayout_2.addItem(self.verticalSpacer)
 
         self.gridLayout_6 = QGridLayout()
         self.gridLayout_6.setObjectName(u"gridLayout_6")
         self.gridLayout_6.setHorizontalSpacing(6)
         self.gridLayout_6.setVerticalSpacing(15)
-        self.gridLayout_6.setContentsMargins(-1, 20, -1, -1)
+        self.gridLayout_6.setContentsMargins(9, 20, 9, -1)
         self.this_year_income = QPushButton(self.widget_income)
         self.this_year_income.setObjectName(u"this_year_income")
         self.this_year_income.setMinimumSize(QSize(110, 28))
@@ -1733,10 +1747,7 @@ class Ui_MainWindow(object):
         self.gridLayout_6.addLayout(self.horizontalLayout_6, 1, 0, 1, 2)
 
 
-        self.verticalLayout.addLayout(self.gridLayout_6)
-
-
-        self.verticalLayout_2.addLayout(self.verticalLayout)
+        self.verticalLayout_2.addLayout(self.gridLayout_6)
 
 
         self.gridLayout_431.addWidget(self.widget_income, 0, 2, 4, 1)
