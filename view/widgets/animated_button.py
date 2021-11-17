@@ -29,6 +29,9 @@ class AnimatedButton(QWidget):
         ''' Store frame counter '''
         self.frame_counter = 0
 
+        ''' Store number of repetitions '''
+        self.repeat = 1000
+
         ''' Store animation direction '''
         self.direction = None
 
@@ -102,6 +105,14 @@ class AnimatedButton(QWidget):
         ''' Update frame count '''
         self.frame_counter += 1
         if self.frame_counter > 60:
+            if self.repeat != 1000:
+                ''' Update repeat till 0 '''
+                self.repeat -= 1
+
+                if self.repeat <= 0:
+                    self.stop()
+                    return
+
             ''' Rewind animation from end '''
             self.frame_counter = 60
             self.direction = DIRECTIONS.REWIND
@@ -126,14 +137,16 @@ class AnimatedButton(QWidget):
             self.direction = DIRECTIONS.PLAY
             QApplication.processEvents()
 
-    def start(self):
+    def start(self, repeat: int = 1000):
         """
         Start animation
 
+        :param repeat: number of repetitions
         :return: None
         """
 
         self.direction = DIRECTIONS.PLAY
+        self.repeat = repeat
         self.timer.start(16)
 
     def stop(self):

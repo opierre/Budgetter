@@ -1,7 +1,6 @@
 from PySide2.QtCharts import QtCharts
-from PySide2.QtCore import Qt, QDateTime, QPointF
+from PySide2.QtCore import Qt, QDateTime, QPointF, QDate
 from PySide2.QtGui import QPen, QColor, QBrush, QLinearGradient, QGradient, QFont
-from PySide2.QtWidgets import QGraphicsBlurEffect
 
 
 class CategoryChart(QtCharts.QChart):
@@ -30,6 +29,10 @@ class CategoryChart(QtCharts.QChart):
         """ Store series """
         self.series = QtCharts.QBarSeries(self)
         self.set = QtCharts.QBarSet("Category")
+
+        """ Store limits """
+        self.local_max_x = None
+        self.local_min_x = None
 
         """ Configure chart """
         self.configure_chart()
@@ -118,16 +121,20 @@ class CategoryChart(QtCharts.QChart):
             x_values.append(x_value)
             self.set.append(value)
 
+        """ Update local max and min """
+        self.local_max_x = x_values[-1]
+        self.local_min_x = x_values[0]
+
         """ Set brush and pen for series """
-        self.axis_x.append(x_values)
+        self.axis_x.setCategories(x_values)
         self.series.append(self.set)
 
         """ Add series to graph """
         self.addSeries(self.series)
 
         """ Set axes """
-        self.addAxis(self.axis_x, Qt.AlignBottom)
-        self.addAxis(self.axis_y, Qt.AlignLeft)
+        self.setAxisX(self.axis_x)
+        self.setAxisY(self.axis_y)
 
         """ Attach axes to series """
         self.series.attachAxis(self.axis_x)
@@ -149,3 +156,24 @@ class CategoryChart(QtCharts.QChart):
         """ Connect click on series finale to display scatter """
         # self.series_finale.clicked[QPointF].connect(self.show_point)
         # self.area_series.clicked[QPointF].connect(self.show_point)
+
+    def set_range(self, from_date: QDate, to_date: QDate):
+        """
+        Update range
+
+        :param from_date: date from
+        :param to_date: date to
+        :return: None
+        """
+
+        """ Check limits """
+        local_min = QDate.fromString(self.local_min_x, "MMM-yy")
+        local_min.setDate(local_min.year() + 100, local_min.month(), local_min.day())
+        local_max = QDate.fromString(self.local_max_x, "MMM-yy")
+        local_max.setDate(local_max.year() + 100, local_max.month(), local_max.day())
+        if from_date < local_min:
+            from_date = local_min
+        if to_date > local_max:
+            to_date = local_max
+
+        self.axis_x.setRange(from_date.toString("MMM-yy"), to_date.toString("MMM-yy"))

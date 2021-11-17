@@ -25,6 +25,14 @@ class Income(QObject):
         self.chart = CategoryChart("Income")
         self.chart_view = QtCharts.QChartView(self.chart)
 
+        """ Store range options """
+        self.this_year_option = {"to": QDate.currentDate(),
+                                 "from": QDate.currentDate().addMonths(-QDate.currentDate().month()+1)}
+        self.last_12_months_income = {"to": QDate.currentDate(),
+                                      "from": QDate.currentDate().addDays(-365)}
+        self.previous_year_income = {"to": QDate.currentDate().addMonths(-QDate.currentDate().month()),
+                                     "from": QDate.currentDate().addMonths(-QDate.currentDate().month()-11)}
+
         """ Configure title bar """
         self.configure_title_bar()
 
@@ -50,9 +58,13 @@ class Income(QObject):
         """
 
         """ Connect date range option checked to actualize date and refresh """
-        self.ui_setup.this_year_income.clicked.connect(self.change_date_range)
-        self.ui_setup.last_12_months_income.clicked.connect(self.change_date_range)
-        self.ui_setup.previous_year_income.clicked.connect(self.change_date_range)
+        self.ui_setup.this_year_income.clicked.connect(self.change_date_option)
+        self.ui_setup.last_12_months_income.clicked.connect(self.change_date_option)
+        self.ui_setup.previous_year_income.clicked.connect(self.change_date_option)
+
+        """ Connect manual change to deselect range options """
+        self.ui_setup.dateEdit_income_from.dateChanged.connect(self.update_range_option)
+        self.ui_setup.dateEdit_income_to.dateChanged.connect(self.update_range_option)
 
     def configure_panel(self):
         """
@@ -67,13 +79,13 @@ class Income(QObject):
         """ Configure combobox for category """
         self.ui_setup.income_choice.setView(QListView())
         self.ui_setup.income_choice.setStyleSheet("QListView {"
-                                                    "font-size: 11pt;"
-                                                    "font-family: \"Roboto\";"
-                                                    "}"
-                                                    "QComboBox QAbstractItemView::item\n"
-                                                    "{\n"
-                                                    "	min-height: 25px;\n"
-                                                    "}\n")
+                                                  "font-size: 11pt;"
+                                                  "font-family: \"Roboto\";"
+                                                  "}"
+                                                  "QComboBox QAbstractItemView::item\n"
+                                                  "{\n"
+                                                  "	min-height: 25px;\n"
+                                                  "}\n")
         self.ui_setup.income_choice.view().window().setWindowFlags(Qt.Popup | Qt.FramelessWindowHint)
         self.ui_setup.income_choice.view().window().setAttribute(Qt.WA_TranslucentBackground)
 
@@ -122,7 +134,7 @@ class Income(QObject):
         self.ui_setup.dateEdit_income_to.setDate(QDate.currentDate())
         self.ui_setup.dateEdit_income_from.setDate(QDate.currentDate().addDays(-365))
 
-    def change_date_range(self):
+    def change_date_option(self):
         """
         Change date range according to only option box checked
 
@@ -132,15 +144,69 @@ class Income(QObject):
         """ Get sender """
         sender = self.sender()
 
+        """ Disconnect signals to avoid conflicts """
+        self.ui_setup.dateEdit_income_from.dateChanged.disconnect(self.update_range_option)
+        self.ui_setup.dateEdit_income_to.dateChanged.disconnect(self.update_range_option)
+
         if sender == self.ui_setup.this_year_income:
-            self.ui_setup.dateEdit_income_to.setDate(QDate.currentDate())
-            self.ui_setup.dateEdit_income_from.setDate(QDate.currentDate().addMonths(-QDate.currentDate().month()+1))
+            self.ui_setup.dateEdit_income_to.setDate(self.this_year_option["to"])
+            self.ui_setup.dateEdit_income_from.setDate(self.this_year_option["from"])
         elif sender == self.ui_setup.last_12_months_income:
-            self.ui_setup.dateEdit_income_to.setDate(QDate.currentDate())
-            self.ui_setup.dateEdit_income_from.setDate(QDate.currentDate().addDays(-365))
+            self.ui_setup.dateEdit_income_to.setDate(self.last_12_months_income["to"])
+            self.ui_setup.dateEdit_income_from.setDate(self.last_12_months_income["from"])
         elif sender == self.ui_setup.previous_year_income:
-            self.ui_setup.dateEdit_income_to.setDate(QDate.currentDate().addMonths(-QDate.currentDate().month()))
-            self.ui_setup.dateEdit_income_from.setDate(QDate.currentDate().addMonths(-QDate.currentDate().month()-11))
+            self.ui_setup.dateEdit_income_to.setDate(self.previous_year_income["to"])
+            self.ui_setup.dateEdit_income_from.setDate(self.previous_year_income["from"])
+
+        """ Refresh bars """
+        self.refresh()
+
+        """ Re-connect signals to avoid conflicts """
+        self.ui_setup.dateEdit_income_from.dateChanged.connect(self.update_range_option)
+        self.ui_setup.dateEdit_income_to.dateChanged.connect(self.update_range_option)
+
+    def update_range_option(self):
+        """
+        Update range option (select/deselect)
+
+        :return: None
+        """
+
+        """ Retrieve dates """
+        from_date = self.ui_setup.dateEdit_income_from.date()
+        to_date = self.ui_setup.dateEdit_income_to.date()
+
+        """ Compare dates to each range option """
+        if from_date == self.this_year_option["from"] and to_date == self.this_year_option["to"]:
+            self.ui_setup.this_year_income.setChecked(True)
+        elif from_date == self.last_12_months_income["from"] and to_date == self.last_12_months_income["to"]:
+            self.ui_setup.last_12_months_income.setChecked(True)
+        elif from_date == self.previous_year_income["from"] and to_date == self.previous_year_income["to"]:
+            self.ui_setup.previous_year_income.setChecked(True)
+        else:
+            self.ui_setup.this_year_income.setAutoExclusive(False)
+            self.ui_setup.this_year_income.setChecked(False)
+            self.ui_setup.this_year_income.setAutoExclusive(True)
+            self.ui_setup.last_12_months_income.setAutoExclusive(False)
+            self.ui_setup.last_12_months_income.setChecked(False)
+            self.ui_setup.last_12_months_income.setAutoExclusive(True)
+            self.ui_setup.previous_year_income.setAutoExclusive(False)
+            self.ui_setup.previous_year_income.setChecked(False)
+            self.ui_setup.previous_year_income.setAutoExclusive(True)
+
+    def refresh(self):
+        """
+        Refresh displayed values
+
+        :return: None
+        """
+
+        """ Start animation """
+        self.ui_setup.refresh_income.start(1)
+        QApplication.processEvents()
+
+        """ Set date range """
+        self.chart.set_range(self.ui_setup.dateEdit_income_from.date(), self.ui_setup.dateEdit_income_to.date())
 
     def set_values(self, values: dict):
         """
@@ -169,7 +235,9 @@ class Income(QObject):
                   "05-2021": 25098.63,
                   "06-2021": 26098.57,
                   "07-2021": 22054.00,
-                  "08-2021": 22000.45}
+                  "09-2021": 22000.45,
+                  "10-2021": 20012.45,
+                  "11-2021": 18042.45}
 
         """ Set values on chat """
         self.chart.set_values(values)
