@@ -1,10 +1,6 @@
-import time
-
 from PySide2.QtCharts import QtCharts
-from PySide2.QtCore import QObject, QCoreApplication, QDate, Qt, QUrl, QTimer
+from PySide2.QtCore import QObject, QCoreApplication, QDate, Qt
 from PySide2.QtGui import QPainter
-from PySide2.QtSvg import QSvgWidget
-from PySide2.QtWebEngineWidgets import QWebEngineView
 from PySide2.QtWidgets import QListView, QWidget, QVBoxLayout, QApplication
 
 from view.widgets.bar_widgets.category_chart_widget import CategoryChart

@@ -1,7 +1,7 @@
 from PySide2.QtCharts import QtCharts
 from PySide2.QtCore import QObject, QCoreApplication, Qt, QDate
 from PySide2.QtGui import QPainter
-from PySide2.QtWidgets import QListView, QWidget, QVBoxLayout
+from PySide2.QtWidgets import QListView, QWidget, QVBoxLayout, QApplication
 
 from view.widgets.bar_widgets.category_chart_widget import CategoryChart
 
@@ -20,6 +20,14 @@ class Expenses(QObject):
         """ Store chart view """
         self.chart = CategoryChart("Expenses")
         self.chart_view = QtCharts.QChartView(self.chart)
+
+        """ Store range options """
+        self.this_year_option = {"to": QDate.currentDate(),
+                                 "from": QDate.currentDate().addMonths(-QDate.currentDate().month()+1)}
+        self.last_12_months = {"to": QDate.currentDate(),
+                               "from": QDate.currentDate().addDays(-365)}
+        self.previous_year = {"to": QDate.currentDate().addMonths(-QDate.currentDate().month()),
+                              "from": QDate.currentDate().addMonths(-QDate.currentDate().month()-11)}
 
         """ Configure title bar """
         self.configure_title_bar()
@@ -46,9 +54,16 @@ class Expenses(QObject):
         """
 
         """ Connect date range option checked to actualize date and refresh """
-        self.ui_setup.this_year_expenses.clicked.connect(self.change_date_range)
-        self.ui_setup.last_12_months_expenses.clicked.connect(self.change_date_range)
-        self.ui_setup.previous_year_expenses.clicked.connect(self.change_date_range)
+        self.ui_setup.this_year_expenses.clicked.connect(self.change_date_option)
+        self.ui_setup.last_12_months_expenses.clicked.connect(self.change_date_option)
+        self.ui_setup.previous_year_expenses.clicked.connect(self.change_date_option)
+
+        """ Connect manual change to deselect range options """
+        self.ui_setup.dateEdit_expenses_from.dateChanged.connect(self.update_range_option)
+        self.ui_setup.dateEdit_expenses_to.dateChanged.connect(self.update_range_option)
+
+        """ Connect click on refresh button """
+        self.ui_setup.refresh_expenses.clicked.connect(self.refresh)
 
     def configure_title_bar(self):
         """
@@ -119,7 +134,7 @@ class Expenses(QObject):
         self.ui_setup.dateEdit_expenses_to.setDate(QDate.currentDate())
         self.ui_setup.dateEdit_expenses_from.setDate(QDate.currentDate().addDays(-365))
 
-    def change_date_range(self):
+    def change_date_option(self):
         """
         Change date range according to only option box checked
 
@@ -129,15 +144,69 @@ class Expenses(QObject):
         """ Get sender """
         sender = self.sender()
 
+        """ Disconnect signals to avoid conflicts """
+        self.ui_setup.dateEdit_expenses_from.dateChanged.disconnect(self.update_range_option)
+        self.ui_setup.dateEdit_expenses_to.dateChanged.disconnect(self.update_range_option)
+
         if sender == self.ui_setup.this_year_expenses:
-            self.ui_setup.dateEdit_expenses_to.setDate(QDate.currentDate())
-            self.ui_setup.dateEdit_expenses_from.setDate(QDate.currentDate().addMonths(-QDate.currentDate().month()+1))
+            self.ui_setup.dateEdit_expenses_to.setDate(self.this_year_option["to"])
+            self.ui_setup.dateEdit_expenses_from.setDate(self.this_year_option["from"])
         elif sender == self.ui_setup.last_12_months_expenses:
-            self.ui_setup.dateEdit_expenses_to.setDate(QDate.currentDate())
-            self.ui_setup.dateEdit_expenses_from.setDate(QDate.currentDate().addDays(-365))
+            self.ui_setup.dateEdit_expenses_to.setDate(self.last_12_months["to"])
+            self.ui_setup.dateEdit_expenses_from.setDate(self.last_12_months["from"])
         elif sender == self.ui_setup.previous_year_expenses:
-            self.ui_setup.dateEdit_expenses_to.setDate(QDate.currentDate().addMonths(-QDate.currentDate().month()))
-            self.ui_setup.dateEdit_expenses_from.setDate(QDate.currentDate().addMonths(-QDate.currentDate().month()-11))
+            self.ui_setup.dateEdit_expenses_to.setDate(self.previous_year["to"])
+            self.ui_setup.dateEdit_expenses_from.setDate(self.previous_year["from"])
+
+        """ Refresh bars """
+        self.refresh()
+
+        """ Re-connect signals to avoid conflicts """
+        self.ui_setup.dateEdit_expenses_from.dateChanged.connect(self.update_range_option)
+        self.ui_setup.dateEdit_expenses_to.dateChanged.connect(self.update_range_option)
+
+    def update_range_option(self):
+        """
+        Update range option (select/deselect)
+
+        :return: None
+        """
+
+        """ Retrieve dates """
+        from_date = self.ui_setup.dateEdit_expenses_from.date()
+        to_date = self.ui_setup.dateEdit_expenses_to.date()
+
+        """ Compare dates to each range option """
+        if from_date == self.this_year_option["from"] and to_date == self.this_year_option["to"]:
+            self.ui_setup.this_year_expenses.setChecked(True)
+        elif from_date == self.last_12_months["from"] and to_date == self.last_12_months["to"]:
+            self.ui_setup.last_12_months_expenses.setChecked(True)
+        elif from_date == self.previous_year["from"] and to_date == self.previous_year["to"]:
+            self.ui_setup.previous_year_expenses.setChecked(True)
+        else:
+            self.ui_setup.this_year_expenses.setAutoExclusive(False)
+            self.ui_setup.this_year_expenses.setChecked(False)
+            self.ui_setup.this_year_expenses.setAutoExclusive(True)
+            self.ui_setup.last_12_months_expenses.setAutoExclusive(False)
+            self.ui_setup.last_12_months_expenses.setChecked(False)
+            self.ui_setup.last_12_months_expenses.setAutoExclusive(True)
+            self.ui_setup.previous_year_expenses.setAutoExclusive(False)
+            self.ui_setup.previous_year_expenses.setChecked(False)
+            self.ui_setup.previous_year_expenses.setAutoExclusive(True)
+
+    def refresh(self):
+        """
+        Refresh displayed values
+
+        :return: None
+        """
+
+        """ Start animation """
+        self.ui_setup.refresh_expenses.start(1)
+        QApplication.processEvents()
+
+        """ Set date range """
+        self.chart.set_range(self.ui_setup.dateEdit_expenses_from.date(), self.ui_setup.dateEdit_expenses_to.date())
 
     def set_values(self, values: dict):
         """
