@@ -77,8 +77,8 @@ class Income(QObject):
         self.ui_setup.income_choice.view().window().setWindowFlags(Qt.Popup | Qt.FramelessWindowHint)
         self.ui_setup.income_choice.view().window().setAttribute(Qt.WA_TranslucentBackground)
 
-        """ Set webview to display animated icon """
-        self.ui_setup.refresh_income.set_animation_type("refresh_to_bars")
+        """ Set widget to display animated icon """
+        self.ui_setup.refresh_income.set_animation_type("bars_blue")
 
     def configure_title_bar(self):
         """

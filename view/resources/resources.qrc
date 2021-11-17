@@ -1,4 +1,131 @@
 <RCC>
+  <qresource prefix="animated">
+    <file>animated/bars_purple/frame00.svg</file>
+    <file>animated/bars_purple/frame01.svg</file>
+    <file>animated/bars_purple/frame02.svg</file>
+    <file>animated/bars_purple/frame03.svg</file>
+    <file>animated/bars_purple/frame04.svg</file>
+    <file>animated/bars_purple/frame05.svg</file>
+    <file>animated/bars_purple/frame06.svg</file>
+    <file>animated/bars_purple/frame07.svg</file>
+    <file>animated/bars_purple/frame08.svg</file>
+    <file>animated/bars_purple/frame09.svg</file>
+    <file>animated/bars_purple/frame10.svg</file>
+    <file>animated/bars_purple/frame11.svg</file>
+    <file>animated/bars_purple/frame12.svg</file>
+    <file>animated/bars_purple/frame13.svg</file>
+    <file>animated/bars_purple/frame14.svg</file>
+    <file>animated/bars_purple/frame15.svg</file>
+    <file>animated/bars_purple/frame16.svg</file>
+    <file>animated/bars_purple/frame17.svg</file>
+    <file>animated/bars_purple/frame18.svg</file>
+    <file>animated/bars_purple/frame19.svg</file>
+    <file>animated/bars_purple/frame20.svg</file>
+    <file>animated/bars_purple/frame21.svg</file>
+    <file>animated/bars_purple/frame22.svg</file>
+    <file>animated/bars_purple/frame23.svg</file>
+    <file>animated/bars_purple/frame24.svg</file>
+    <file>animated/bars_purple/frame25.svg</file>
+    <file>animated/bars_purple/frame26.svg</file>
+    <file>animated/bars_purple/frame27.svg</file>
+    <file>animated/bars_purple/frame28.svg</file>
+    <file>animated/bars_purple/frame29.svg</file>
+    <file>animated/bars_purple/frame30.svg</file>
+    <file>animated/bars_purple/frame31.svg</file>
+    <file>animated/bars_purple/frame32.svg</file>
+    <file>animated/bars_purple/frame33.svg</file>
+    <file>animated/bars_purple/frame34.svg</file>
+    <file>animated/bars_purple/frame35.svg</file>
+    <file>animated/bars_purple/frame36.svg</file>
+    <file>animated/bars_purple/frame37.svg</file>
+    <file>animated/bars_purple/frame38.svg</file>
+    <file>animated/bars_purple/frame39.svg</file>
+    <file>animated/bars_purple/frame40.svg</file>
+    <file>animated/bars_purple/frame41.svg</file>
+    <file>animated/bars_purple/frame42.svg</file>
+    <file>animated/bars_purple/frame43.svg</file>
+    <file>animated/bars_purple/frame44.svg</file>
+    <file>animated/bars_purple/frame45.svg</file>
+    <file>animated/bars_purple/frame46.svg</file>
+    <file>animated/bars_purple/frame47.svg</file>
+    <file>animated/bars_purple/frame48.svg</file>
+    <file>animated/bars_purple/frame49.svg</file>
+    <file>animated/bars_purple/frame50.svg</file>
+    <file>animated/bars_purple/frame51.svg</file>
+    <file>animated/bars_purple/frame52.svg</file>
+    <file>animated/bars_purple/frame53.svg</file>
+    <file>animated/bars_purple/frame54.svg</file>
+    <file>animated/bars_purple/frame55.svg</file>
+    <file>animated/bars_purple/frame56.svg</file>
+    <file>animated/bars_purple/frame57.svg</file>
+    <file>animated/bars_purple/frame58.svg</file>
+    <file>animated/bars_purple/frame59.svg</file>
+    <file>animated/bars_purple/frame60.svg</file>
+    <file>animated/bars_blue/frame00.svg</file>
+    <file>animated/bars_blue/frame01.svg</file>
+    <file>animated/bars_blue/frame02.svg</file>
+    <file>animated/bars_blue/frame03.svg</file>
+    <file>animated/bars_blue/frame04.svg</file>
+    <file>animated/bars_blue/frame05.svg</file>
+    <file>animated/bars_blue/frame06.svg</file>
+    <file>animated/bars_blue/frame07.svg</file>
+    <file>animated/bars_blue/frame08.svg</file>
+    <file>animated/bars_blue/frame09.svg</file>
+    <file>animated/bars_blue/frame10.svg</file>
+    <file>animated/bars_blue/frame11.svg</file>
+    <file>animated/bars_blue/frame12.svg</file>
+    <file>animated/bars_blue/frame13.svg</file>
+    <file>animated/bars_blue/frame14.svg</file>
+    <file>animated/bars_blue/frame15.svg</file>
+    <file>animated/bars_blue/frame16.svg</file>
+    <file>animated/bars_blue/frame17.svg</file>
+    <file>animated/bars_blue/frame18.svg</file>
+    <file>animated/bars_blue/frame19.svg</file>
+    <file>animated/bars_blue/frame20.svg</file>
+    <file>animated/bars_blue/frame21.svg</file>
+    <file>animated/bars_blue/frame22.svg</file>
+    <file>animated/bars_blue/frame23.svg</file>
+    <file>animated/bars_blue/frame24.svg</file>
+    <file>animated/bars_blue/frame25.svg</file>
+    <file>animated/bars_blue/frame26.svg</file>
+    <file>animated/bars_blue/frame27.svg</file>
+    <file>animated/bars_blue/frame28.svg</file>
+    <file>animated/bars_blue/frame29.svg</file>
+    <file>animated/bars_blue/frame30.svg</file>
+    <file>animated/bars_blue/frame31.svg</file>
+    <file>animated/bars_blue/frame32.svg</file>
+    <file>animated/bars_blue/frame33.svg</file>
+    <file>animated/bars_blue/frame34.svg</file>
+    <file>animated/bars_blue/frame35.svg</file>
+    <file>animated/bars_blue/frame36.svg</file>
+    <file>animated/bars_blue/frame37.svg</file>
+    <file>animated/bars_blue/frame38.svg</file>
+    <file>animated/bars_blue/frame39.svg</file>
+    <file>animated/bars_blue/frame40.svg</file>
+    <file>animated/bars_blue/frame41.svg</file>
+    <file>animated/bars_blue/frame42.svg</file>
+    <file>animated/bars_blue/frame43.svg</file>
+    <file>animated/bars_blue/frame44.svg</file>
+    <file>animated/bars_blue/frame45.svg</file>
+    <file>animated/bars_blue/frame46.svg</file>
+    <file>animated/bars_blue/frame47.svg</file>
+    <file>animated/bars_blue/frame48.svg</file>
+    <file>animated/bars_blue/frame49.svg</file>
+    <file>animated/bars_blue/frame50.svg</file>
+    <file>animated/bars_blue/frame51.svg</file>
+    <file>animated/bars_blue/frame52.svg</file>
+    <file>animated/bars_blue/frame53.svg</file>
+    <file>animated/bars_blue/frame54.svg</file>
+    <file>animated/bars_blue/frame55.svg</file>
+    <file>animated/bars_blue/frame56.svg</file>
+    <file>animated/bars_blue/frame57.svg</file>
+    <file>animated/bars_blue/frame58.svg</file>
+    <file>animated/bars_blue/frame59.svg</file>
+    <file>animated/bars_blue/frame60.svg</file>
+  </qresource>
+  <qresource prefix="i18n">
+    <file>i18n/fr_FR.qm</file>
+  </qresource>
   <qresource prefix="images">
     <file>images/refresh_white_24dp.svg</file>
     <file>images/delete_forever_white_18dp.svg</file>
@@ -69,9 +196,5 @@
     <file>images/notifications-white-24dp.svg</file>
     <file>images/menu-white-36dp.svg</file>
     <file>images/dashboard-white-36dp.svg</file>
-  </qresource>
-  <qresource prefix="animated"/>
-  <qresource prefix="i18n">
-    <file>i18n/fr_FR.qm</file>
   </qresource>
 </RCC>

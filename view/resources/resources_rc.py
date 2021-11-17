@@ -3175,277 +3175,6140 @@ s\x00f\x00e\x00r\x00t\x00s\x08\x00\x00\x00\x00\
 \x06\x00\x00\x00\x08Transfer\x07\x00\x00\
 \x00\x0ctransactions\x01\x88\
 \x00\x00\x00\x02\x03\x01\
-\x00\x00\x00\xf6\
+\x00\x00\x03\x0b\
 <\
-html>\x0a<head>\x0a  <\
-link rel=\x22styles\
-heet\x22 type=\x22text\
-/css\x22 href=\x22qrc:\
-/animated/animat\
-ed/sprite_60fps.\
-css\x22/>\x0a</head>\x0a<\
-body>\x0a  <div cla\
-ss=\x22shapeshifter\
- play\x22 style=\x22ba\
-ckground-image: \
-url(qrc:/animate\
-d/animated/sprit\
-e_60fps.svg)\x22></\
-div>\x0a</body>\x0a</h\
-tml>\x0a\
-\x00\x00\x01U\
-@\
-keyframes play60\
- {\x0a  0% {\x0a    ba\
-ckground-positio\
-n: 0px 0px;\x0a  }\x0a\
-  100% {\x0a    bac\
-kground-position\
-: -1464px 0px;\x0a \
- }\x0a}\x0a.shapeshift\
-er {\x0a  animation\
--duration: 1000m\
-s;\x0a  animation-t\
-iming-function: \
-steps(60);\x0a  wid\
-th: 28px;\x0a  heig\
-ht: 28px;\x0a  back\
-ground-repeat: n\
-o-repeat;\x0a  tran\
-sform: scale(2);\
-\x0a}\x0a.shapeshifter\
-.play {\x0a  animat\
-ion-name: play60\
-;\x0a}\x0a\
-\x00\x00\x0e#\
-\x00\
-\x00\x9btx\x9c\xed\x9d\xc9\x8e\x1cG\x92\x86\xef\x03\xcc\
-;$j\xae\xc9\xa0-\xee\xb64D\x1d\xe6\xacy\x08\
-aD\x91\xc2h\xc4\x86H\x88\xdd\xf3\xf4\xf3[.l\
-vwzg\x04sAf\x22y`9\xab\xca\xbd\xbc\
-<\xbe0\xff\x7f_\x8c\xdf}\xfc\xe3\xdd\xea/\xff\xfb\
-\xebo\x1f\xdf\xbc\xbc\xff\xf4\xe9\xcf\x7fz\xfd\xfa\xf3\xe7\
-\xcf\xd3g\x9d>\xfc\xfe\xee\xb5\x10\xd1k|\xc7\xcb\xea\
-\x8f_\xde~\xfe\xcf\x0f\x7fy\xf3B+Zq\xb3\xb6\
-\x92\xf6\xb2\xfa\xfc\xcbO\x9f\xde\xbfy\xa9\x7f\xbf\xac\xde\
-\xbf\xfd\xe5\xdd\xfbOo^\xf0\x85\xef\xff\xfd\xdfV\xf8\
-\xf3\xdd\x9f\x7f\xfc\xf4~\xf5\xd3\x9b\x97\xffb\x9d4r\
-\xb5\xfd\xf0\xdf2q\x8bW\x9b\xbfW\xdbr\x9fLW\
-\xf4\xca'\xf7\xdd\x17^\xfd\xed\x0b\xbb\xe2\xe6\x8b\xf8\xa6\
-\xaf\xebm\xcb\xdb\xda\xab\xed7|\xf5\xe5\xed\x17\xb6\xc5\
-]\xed\xff{\xd9vm\xfb\xe7\xe7_~\xfd\xf5\xcd\xcb\
-o\x1f~{\xfb\xb2\xfa\xf8\xe9\xf7\x0f\xff\xf3\xf6\xcd\xcb\
-\x7f\xd0\xe6\xcf\xfe\x13\xaf\xf6\xbf\xe3\x14/\xaf\xff\xf9\xf7\
-\x8a\x95\xfd`+\x8e\x97\xa5m\xed?\xf5\xd3\x8f\x1f\xdf\
-\xff\xf8\xfb\xef?\xfe\x15C\xbbf\x9b\xd2\xa9\x9bx\x8b\
-\xe6\xceM\xff\xae\xbb_U\xf9\xf0\xf3\xcf\x1f\xdfb\xb0\
-\xf75\xf4@\xe7le\xbfr\xc3\xd3Z\xdc\xb9\xc1\x0f\
-\xdd\xf5\x93i\x92\xec\xcd\x9bk#7VY\xe7\xd4I\
-;w\xd6\xe4\xe6\x9c\xf9r\xb0\xb3\xbb\x8a\xfd@g\xd5\
-\x1f\x93\x90& D\xe9F\x11A\xc7\xee\x88\x11\xe3\xc7\
-d\xc4\xf0\xa6\xfe\xd0\xdb\x8d2\x82\x8e\xdd\x11#\xd1\x1f\
-\x93\x91\xc4\x9b\xfa\x03\xda\xbdMF\xd0\xb1;b\x84)\
-\x1f\x13\x12\xe6zW_\xb1\xacXn\x11\x13&\xb9+\
-N\xf4Qe\xab\xc6ms\x22w\xa5]\xb9?\xa8x\
-e\x93\xdb\xe6\xa4\xdf\x95~\xe5xP\x01\xcba\xb7\xcd\
-\x89\xdf\x95\x86\x15zP\x11+L\xb7\xcdI\xde\x95\x8e\
-\x15y\x08\x1d{`\xb8\xb4MM{\xa6\xa7Ys\xe2\
-\xb6\xa6\x89e\xf3\x09e\xef!\xd6\xac\x1f{\xd2\xfbF\
-\x0e\x92\xa8\xb7\xad\x94E\xeeJ)K\x7f\x08\xa5|\x98\
-D\xd2\x08r\xb7\x8c\x8e\xc1\x01\x89]\x94#XB\x9d\
-\x85\xa5\xcd\x00q\xd3\xc6A\x10\xfbmKqiw%\
-\xc5\xc5\x1fB\x8a\x1f\x02\x11\xbf\x91[K\x92H\xe2\xf4\
-\xb6\xe6\x89\xa3w<7J\xa10;\x8a\xe1\xae\x85C\
-\xc3\x16\xb7-\xf4\xc5\xefJ\xe8+=\x84\xd0?D\xa1\
-L\xadg\x97\x06\x8b\x8e\x10\x18\xb1\xc6\x8f#\xc10\xe1\
-\x19+&e\xcc\x04G9\xdc\xb7qp\xe4n\xdbI\
-H\xde\x95\x93Py\x08'q\x08D\xbca\xe0\x8e\x0d\
-\xd8\xe1/\xb2\xb5N\x10\x88\xdd\x13A\x910|\xad\x1d\
-\x17\x88\xbb6\xfc\xd0\xc8\xe9m[\x15\xe5\xbb\xb2*\xda\
-\x1e\xd5\xaa\xc0\x83%\xdc\x04\x86+\xc8\x9a\x18\xb5u\xc3\
-\x0f\x8d.\xcceUz\x10\x1f{\xd0\xfb6\x0e\x8e\x5c\
-\xbfm\xa7\xa2\xed\xae\x9c\x8a\xfa\xa3:\x15\x89\xa9\x82\x1e\
-\xc6E\x05\xcf\x94\xd4\xd66\x09\xe3!3\x9bQt\xb5\
-\xe1\x88\x7f\x01q\xd7\xc6\xe1\x91\xbbm\xa7\xa2vWN\
-E\xf3Q\x9d\x8a\xd8\xd4\x93z\x91G\x16\xd9\xfb\xda\xf1\
-\xd40L\x81\xa9\xb6\xc3\x08\xf7\xa3V\xe5K\x13\x87N\
-\xd4\xd0m{\x15\xcd\xbb\xf2*M\x1e\xd5\xab\x08\xe6\xe1\
-\xc0\xbc\xaa\x22\xda\xe1\x90\xb3a\xb8\xc2\xc5M\x0ccH\
-\xde\x8fO\xcc\xfb&\x0e\x0e\xdcm[\x95\xc6weU\
-0\xed<*\x872\xc1\xa0x\x13D.\xd8^\x18\xe7\
-5\xe3[\x93\xe1\x95\x1b>Q#xt\x0d\xf1K#\
-\x87\x86\xae\xdf\xb6WizW^\xa5\x19\xbc\x8aK\xbd\
-?\x05\xe3\xa6\xf4P<\xd2\xd4\xcd\xd23\x88\x18<\xca\
-\x1a\xbfff'6\xc2\xe70\x8c!Gq\xdc\xb6q\
-\xf0\xc4\xab\xdf\xb6aivA\xc3\xa2,\xac\xe1\x8a\xa1\
-\x89H\x07\x8d-,:\xb3\x1a\x0c^\xc3D2\xa0Q\
-\xf9\xd0\xbalK\x00\xc8\x8e\x17\x7f\x83\xe2\xa6\xf4H(\
-rL\x8dY$\x05\xd1\x90z\x9a\xd6\xc3\xe6\x0e\x08a\
-Y\x9cD\xda\xd1\xc8\xf8\xa5\x8d\x83\xe3w\xdb\x9e\xa5\xc5\
-\x05=\x8b\x9a35k,AR\xda\xa7\xd5\xb6Um\
-^%\xec\xe10.jZ\xcf\xaf\x06\xf3\xdd\xf7\x7f\xfb\
-I_\x9d\x0af\x87\xb9\xec\xceQdnK\xb7C\xe6\
-\x99\xe8\x84\x7fV\xef\xe9\xd2##)|\x0d\xd8T\x9a\
-f\x98B\x16\xa6\xb2\xfd\xd3\xcf=\x8c\xc0\xb6\xa1/\xa3\
-\xfa\x0f\x83)W\xb64\xb3Q\xfd\xc7\x87~\x1ek3\
-D\x16SowL,\x8e\x90I\x94`V%1\xfd\
-\x226`\x1e\x86\x90\x1fA\xdbkC\xe2\xab\x0d\x85\xd7\
-\xef\x8e\xe0\xdbx\xa2\xde\xea\x22\x13\xf0\xdd\x96\x1e\x0e\xdf\
-6QPs\xc9\x142\xcc=\xba\xc6\xb4\xdd\xa2\xe6\xfc\
-$c\x83d\x9aE\xc5\xae\x9d!\x15\xed\xcaF\xe8[\
-\xe9\xd5\xf3\x18\xa2!\xbd\xa6\xdc\x13st@\x04\x18\x05\
-\xe8es\xc4\x0aJ\xd0\xcc>\xa6\xd7-3u\x01\xbd\
-\xd6\xa6\xe0\xf0T\x0c\xf9\xae\xf4p\xf42\x9e&\x06\xaf\
-A\x07\x18b\x80\xe5\x1a\x1e\xa8G\x10&\xfbD<h\
-e\xcb\xe7`\xb1k\xa8\x8f\xb0\xf0+\xbb\xa7o\xc5\xb7\
-\x9f\xc7E\x0d\xf1\x85P\xc5$\x85\xe1\xd6\x8e\x99m\x1d\
-S*\xa2D\x13\xeb\x81\x07@|\x98^\x9e 2\xe0\
-a\x17\xd0\x1bPl\xc9\xbd{\xd1\xbb-=\x1a\xbd9\
-\xe1\x9do\x88\x06d\xe1]\xc9\xd7\xb5\x94\xc4\xc0\xd6<\
-\x19\x03\x8c\x980\x07\x8a};#&\xf2\xca^\xeb[\
-\xd9\x8d\xf3x\xae\x01\xbb`0\x9d{@'xbr\
-+x\x8d8\x14C\x07\xb5\xc6\xa4>\x82\xb7[\xb4\x05\
-\xba\xc1@,|\x8aR[})=\x1a\xbb1Qk\
-Qs\x164.&\xfe\xbe\xae\xe5x\x86\x99\xc0\xe8\xc2\
-9\x90\xf6\x7f\xf9T\xf6\xa3\xbbog\xc0\x84\xf1\x95\xbd\
-\xd97\xb2kt\x1e\x8f6d\xd7\x0aSH\x07\xc8\x06\
-\xd7\x16`\x17\xb2\xa1\x02\x05|p\xf6\x8c\xc1\x9a\x018\
-\x80\x943Y\x00\xaf\xf6\xa9\xd7\x0e5\xaf\x8a\xfcM\xe9\
-\xd1\xe0\x85\xd3\xc2\x0b\xdd\xad;\xfc\x80\x07T\x98\xc4$\
-\xee5\xa5\x09\xa6P\xbc\xb2m\x0e\x15\xbbvF\x8e\xcd\
-\xda}86;\xd3\x0d\xef\x01\xbcR\xa8\x8ab\xb8\xcb\
-~\xa5\xb5\xb5\x17\xce\xde\x9b\x08g\x0f@<\x827\xd5\
-\xd3x\x01\xbc\x1d\x82D\x829W\xd0*\xdb\xd2\xa3\xc1\
-\x0b\x89\x90\x9e\xd9\x11\x1a{Y\xb6\xb6\x96\x84,kh\
-A\x1c\xcf\xd9}\xd6r\xc3\xae\x19\x1b1a\xf7\xe1\xd7\
-\xecL7\xcf\x87\xec:\xb4X\xa8\xd4\xc0\xa6\xf4\x00\xbb\
-\x04\xad@\x88\x1d\x90\xbd0\xc7\xd2\x0f\xc3\xab\x93\x07d\
-r_\x00o\xc8\x84\xf0\xd3X\x0b\xdem\xe9\xd1\xe0\xad\
-\xf5i\xf8\x05\x0e\xf1\x82U\xc4\xd7\xca\x93t\xd6\xc0X\
-R\xd6B\xf8\x1c,v\xed\xc8\x88\x8a\xbc\x0f\xbbfg\
-\xba\x13?\xa0\xb76\xa6`#\x10\x1b\xac\x1b\x22E\xac\
-mj\xe0\x0a\xbe\x18\xef7Tm\x0cV\x1b\x10\x1c\x1a\
-\xa5/\xd0\xbc\xf8-7\xafJ\xcbU\xee\x0a\x8f\xc6n\
-\xfd\x00\x8c^g\xbc\xf8\x04\x19\xc6\xeb:\xa4\xcc\xee \
-W\xf1\xf2:,\xdb\x1c(\xf6\xed\x0c\x98\xf0k\xdf\xcf\
-\xffFv\xfdL\xf7\xf4\x87\xec\xa6\xaaA\xea\xd6\xc2\x02\
-Th_w\xccr]{\xa7R\xc2\xe3\xc0\xdbk\x0b\
-\xc3i\x81jpL\xa0P\x7f\xc9}\xb5/<\x1a\xbb\
-\x5c\x87\xfc\x143R8\xf0\xe5\x5c\xd7=\x8f\xd6\x8c]\
-\x18\x81\xb4\x96\x1d\xe7 \xb1me\xb4\xd0\xe0\xd7\xce\x18\
-\xf0\xad\xe4\x9e)s\xc0\x80\xdcV1\x16\x9a\x01\xaa\x01\
-\xe4\xd6\x14\xd7+\x0eC3P#x8\xa6\x01\xb96\
-A {,0k\xdee\x8a^\xfb\xc8\xab\xd8\x15\x1e\
-\x8d\xdc\xda\xb6i\x86\xf9\xaa\xbcC\xb8\xd4!\xfe6\x11\
-8l\x89\x90\x8bw\xd7bV\xd8\xdd\xb63\xf2j~\
-\xed,\x06\xdf\xca\xee\x99\xb2\x19\x0c\xd9\x8d\x16\x89\xfan\
-\x04\x17\xbcnSv\xa2\xc8\xd2j\xec\x08\xac#ra\
-\xf0b\x89\x5cp(\x91\x0c\xe1\x02w[x<p\x19\
-\xce\x96\xeaX\xa1)\x9c(f\xae\x22\x17\xb1AR\xa1\
-\xc1zvLm\xb3\xc8\xdd64\x22\xe2\x94\xbc\x0a\xc7\
-\x91\xa0\x89Zv\x08\x9e\xce\x88]\x98\x8d\xbbo\xd0\x16\
-&A\x98\xb3l]\xe2p@\xdb\xd6\x1cu\xfbL\xe9\
-\x16\x06 \xf7I(\xa1|a\x91ar5\x0b\xe5\x1e\
-i\x02\x05\x81\x98l9:e\xe3\x93\xa8\xb8.\x90\x0f\
-Ax\xd4\x88E\x0d(o>>\x1c\xc9\xc5m7\xce\
-\xac#\x0e\x221kql_g\xb4\xc2\x10\xa7\xe4y\
-\x98\xc3\xad\x02Z\xab7\x0d\xb21(\xcd\x8a[S\xd2\
-\xda\xea\x16\xa8 \x1d0\xb0\xad9\x04\xf7L\xf9\x1f\x86\
-\xe0\xc2`\x08d\x1a'\xf4\x83\x14\xb7\x02oAR\xa7\
-\xe215\xb4\x11\xb6u\x18J\x17\xec\x0f\x87\x94\xc4\x96\
-\xbaL\xe9\xbb\xc2\x13\xdcY\xe0\x9e\x92\x16b\x0e\xb8\x09\
-\x99\xceBm\xb3\xcf\xdaY\xd6\x80\x22k\xdb\x95\x9c(\
-\xb9N\x15\x1d\xe6v[q\xd4\xed3e\x8b\x18r\xeb\
-pN\xb5\x19\x81.r\x1d\xb2\x85J\xc3$\x01hE\
-\xea\xc4\xe3\xe8\x90mL\x84\x97\xb4-\x09\xb8\x0d\xcc \
-\xac\xf7\x5c\xed\x0bOrg\x91{J\x1e\x89\xe3\x0c\xd4\
-\xa8pK\xeb \x01\xd3.bW\xe9\xc9:F\x04\x9f\
-\x09\x92M\xf8p\xf4\xdaU\x1ci\xf38Sz\x89\x01\
-\xb96\x11\xb1B\xa4C\xf7B\xc5\xf2Z'\xc8]k\
-\x0c\x07W\x0f@d\x10sc\xd2N!\x0bN5 \
-\xacOP$\x10S\x80g[x\x92;\x8b\xdcSr\
-O\x1cg@\xcb\xe6t\xb8I\xae{@\x08\xb2V\xc7\
-\xdd\x09\x1dJD\xb0\xbeY\x8a?\xac\x15v5\x87A\
-\xf7L9)\x86\xe8Bp2\xc6\xb9w\xf5\xda\xd0\x04\
-\xbbF\x06E\x0a\x83\x0c'\xe7\xb0\xcd#v\x0d\x22\xe8\
-\xeb<\x1fG\xd9\xcd\x0e\xde=\x5c\x81\xcf\xb6\xf0dw\
-\x0e\xbbyJ\xba\x8a\xe3\x10X\xe5'\xe0\xda\xb3\xce\xcd\
-*4\xe4\x02A\x0c\x86\xc2T7\xe0\x1bqx{u\
-W\x8fG\xe4\x9e)\x89\xc5\x90\xdcZ\xc9E\x98Uj\
-\x01\x9f\x06p[\xdbh\x85\x06\xf7\x95\x16C\xb5\x10\x1d\
-QzA\xccM\xce\x09\xea#HV\xbe+<\xb9\x9d\
-\xc5\xed)\xd9-\x8e#\x80\x08\xe4\x88Y\xe2\x01\xb7\xd3\
-`\xba\xd71I*\x97_\x87\xf0\x95<\xbc\xd6\xb4\xab\
-6Z\x1f\xcb3\xa5\xbc\x18b\xdb\xb2^,\xf2\xba\xa7\
-\xa7\xac\xe0V\x09\x8e-\x1cSE\x1d\x80\x1c\x9ce\xc8\
-\x89\x9aQ,P\xb9\xd9\xb4\xb2\xe6x/\xad\xb0-<\
-\xb9\x9d\xc5\xed)\xc90f0\x80\xe8\xea\xd2U\x9a\x93\
-6\x18\xae\xca\xa0\x80\xa8\x82h\xea\xc1\x0a\x0f><\xc2\
-\xbd\xad7\xea\xf6\x99rd\x0c\xc95\xe6V\xf9F\xb2\
-\xab\x22\xea\x82\x5c\x0e\x88\xf2:zj%}mD\xae\
-\xc0\xbd\xd1\x82\x83\x0ci\x0eI\xdd\x10\xcaW\xfb\xc2\x93\
-\xdcY\xe4\x9e\x92=c\xd6i\x16\xcc\x9c\x0d3,\xcc\
-\x8d1fYxt\xd72:p?\xca\xdd\xdb\x80\x81\
-}\xc5Q\xbf\xcf\x94Uc\x88n\xddQ+\x89#\x02\
-\xd5\xda*\x8d\x13dM\xdd&\x83\xcd4\xc6\xe8\x0f^\
-\xb9\x84\xca\xe0\xb0%\xecf\x9d\x1b\xab\x84\x8d+\xdb\x15\
-\x9e\xec\xcea\x97\xe9\x94\x94\x1b\xb3\x0e\x04\xb4\xe6\xddk\
-\xa1\x92\x02s\xad\x80\x82\xba\xa4T\x87\x90!v=\x87\
-\x07\xb1\xb6\xf5F\xec\x9e)\x13\xc7\x98\xdd\xac\x9b(\x89\
-w++\x09^\xb1KP\x02Z\xae\xad~\x99\xa1`\
-\xc0\xdc\xf2w\x17~\x8f\xa1\xcbT\xcb-\x1d\xd3\x12\xa2\
-\xc8\xae\xf0dw\x1e\xbb\xa7\xa4\xe9\x98\xb5\xad\x0a@\xc3\
-0\x03\xc3\xa8\xab\xd7\x81\xe3\xa9\x12\x14#p\xd6\xddE\
-muZ\xfe \x06\xfb\x9a\xc3\x9e\x9f)\x81\xc7\x10\xdf\
-0\xaa;\x80\xacM\xbaIu\x1c\x02X\xebBNm\
-\x0a\xd7\xbe\xc4\x88\xdfn\x9aK\xaeM\xd4Z\xf1\x14\xd0\
-\x0b\xe9\xc5\xef\xa6\xf0\xe4w\x1e\xbf\xa7$\xf7\x98\xb5\xb8\
-_\xdbQ\x0e|\xa3bR\xab\xbc\xb2\x95\xb0\x00\x14D\
-Z\xeb\xc3\xc5\xfd}\xc5a\xc7\xcf\x94\xf5c\x88/z\
-\x08\xb3\x06\x8d\x83\x8eB\xe8\x02_\xfc\x06\x11\xd0\xe1l\
-\xaa\xdd\x07\xfd\xce:\x00\x89o\x5cB\xaf\xc9TY\xc7\
-\x15\xd3\xe0\xae\xf0\xa4w\x1e\xbd\xa7$\x03\x99E\xaf!\
-\x82j%\xdc\xd0V\xdd\x06\xbd\x12\x9a\x80\xc0\x13\xea1\
-\x07\xdb\x12_*\x0e;~\xa6,!cz;\x94\x0b\
-4N\xa3\xcd\xd6o\xd1\xdb\xb8\x12\xa4\xd5\xfd@\xb5\xb1\
-es\x22\x8fE\xda!\xea\x0c\x8f\x85\xe4j_x\xd2\
-;\x8f\xdeS\xd2\x87\xcc[\xe3\x17v7\xad\x0b\xce\xb0\
-Ak\xaa3Z\xd0\x04\x80\x97\xcc\x5cu@\xef\xbe\xe2\
-\xb0\xe3g\xca+2\xa6\xb7\xd2W\x95|Q\xad<J\
-E/\x06\xab\x12\x87\xd4\x193\x05\xc5C|[W]\
-p\x0e\x92\xb9.\xc8S\xd7^\xf4\xd6\xc7'\xbc\xb3\xe0\
-\xe5S\x92\x8a\xcc[/m\x88\xb4\xce\xe5\xa4\xc3\xda\xe6\
-?F\x106H\xc9\xcd\xd9n\x1a\xed\xad\xee+\x0e;\
-~\xd9,#>\x11\xa6%j$bM<\xc1\xaeC\
-5\xd4\xf17\xaa\xfb\x81:\x90\xeb@\xb7\x82\xf3\x12\xdd\
-\x00e=\x19<b\x99\xb6\xcd\xc7'\xba\xf3\xd0=%\
-\xa3\xc8\xbc\x05\xd3\x80\xe7\xc1#\xe7\x12\xbe\xde\xc1.\x10\
-V\x84`D]\xeb}\xb8G\xb5\xab9:&_O\
-\xfc\xc2\xec\x8a\xd6\xe16\xbcu\x11\xb1\x91\x0d^I\xa6\
-\xad\x13\xc4x\x9d\xd7\x1c\x9c}\x04\xbd\x89\xe9d\xc1\xe6\
-Z9\x82\xca~Y\xec\xdeRB\xc6\xdb&\xf7\x94d\
-\x22\xf3L{S\xe2\x82T0\x19\x86n\xfec$\xef\
-\xadn%H\xdd\x05\xa3\xd1B\xef\xae\xea8\xec^6\
-\xbfH\xa1[\xb9\xfa%)\xeb\xa8\x7f\xdf\xa0\xbb9u\
-\x8c\xe1\xaf\xfb\xc3\xa3\xbb\xc2\x85n\xe4\x12\xc5\xcb!O\
-r\x97\x92{J*\x91y\x9aQ1\xb7v\x15\xaf\xc3\
-Q\xe2 \xb7\x12u\xba7\xe8\x07w\xaa\x8d\xd6\xe1\xed\
-\x99m\xdda\xdf/\x9b^\xe4\x9a\xe8\xa2\xf9'\xba\x0b\
-\xd1\x95S2\x89\xccC\xd7\xb2nE$\xd7\x19X)\
-r\x89j\xa3\xad{\x9d\x18\x10N\xa2\x81j\xdc\xd7\x1d\
-\xf6\xfd\xb2\xd9E\xae\x8a\xae\xd2\x13\xdd\xa5\xe8\x9e\x92G\
-d\xd4\xe6es~\x5c\x15\xa9\xde\x9eH-E\xea\x94\
-\xf4\x1e\xa36/\x9b\x8a\xe3\xaaH\xf9\xd3\xd5,F\xea\
-\x94\x9c\x1b\xa36/\x9b\x1f\xe3\x9aH)=\xed\xc6R\
-\xa4\xf4\x94T\x18\xa36/\x9b\xb6\xe2\xaaH\xc9\xd3\x06\
-,F\xea\x94\x1c\x15\xa36/\x9bO\xe2\xaaH\xf5\xa7\
-<_\x8c\xd4)\xa9#Fm^6\xcd\xc3U\x91\xf2\
-\xa7<_\x8c\xd4)9\x1dFm^6\xe1\xc2U\x91\
-\xca\xa7<_\x8aT;%\xdd\xc2\x08\xa9\xcb\xa6B\xb8\
-&RM\x9e\xf2|1R\xa7$B\x18\xb5y\xd9,\
-\x05WE\xaa=\xe5\xf9b\xa4N\xc9P0j\xf3\xb2\
-\xe9\x03\xce\x8d\xd4w\xaf?\xfe\xf1\xee\xfb\xff\x07\x92\xf9\
-\xc4\xf7\
+svg\x0a    xmlns=\x22h\
+ttp://www.w3.org\
+/2000/svg\x22\x0a    v\
+iewBox=\x220 0 24 2\
+4\x22\x0a    id=\x22vecto\
+r\x22\x0a    width=\x2224\
+px\x22\x0a    height=\x22\
+24px\x22>\x0a    <g id\
+=\x22group\x22>\x0a      \
+  <path\x0a        \
+    id=\x22path\x22\x0a  \
+          d=\x22M 6\
+.5 21 L 3 21 C 2\
+.45 21 2 20.55 2\
+ 20 L 2 6 C 2 5.\
+45 2.45 5 3 5 L \
+6.5 5 C 7.05 5 7\
+.5 5.45 7.5 6 L \
+7.5 20 C 7.5 20.\
+55 7.05 21 6.5 2\
+1 Z M 13.75 9.66\
+7 L 10.25 9.667 \
+C 9.7 9.667 9.25\
+ 10.117 9.25 10.\
+667 L 9.25 20 C \
+9.25 20.55 9.7 2\
+1 10.25 21 L 13.\
+75 21 C 14.3 21 \
+14.75 20.55 14.7\
+5 20 L 14.75 10.\
+667 C 14.75 10.1\
+17 14.3 9.667 13\
+.75 9.667 Z M 21\
+ 8.333 L 17.5 8.\
+333 C 16.95 8.33\
+3 16.5 8.783 16.\
+5 9.333 L 16.5 2\
+0 C 16.5 20.55 1\
+6.95 21 17.5 21 \
+L 21 21 C 21.55 \
+21 22 20.55 22 2\
+0 L 22 9.333 C 2\
+2 8.783 21.55 8.\
+333 21 8.333 Z\x22\x0a\
+            fill\
+=\x22#8518f9\x22\x0a     \
+       stroke-wi\
+dth=\x221\x22/>\x0a    </\
+g>\x0a</svg>\x0a\
+\x00\x00\x033\
+<\
+svg\x0a    xmlns=\x22h\
+ttp://www.w3.org\
+/2000/svg\x22\x0a    v\
+iewBox=\x220 0 24 2\
+4\x22\x0a    id=\x22vecto\
+r\x22\x0a    width=\x2224\
+px\x22\x0a    height=\x22\
+24px\x22>\x0a    <g id\
+=\x22group\x22>\x0a      \
+  <path\x0a        \
+    id=\x22path\x22\x0a  \
+          d=\x22M 6\
+.5 21 L 3 21 C 2\
+.45 21 2 20.55 2\
+ 20 L 2 9.667 C \
+2 9.117 2.45 8.6\
+67 3 8.667 L 6.5\
+ 8.667 C 7.05 8.\
+667 7.5 9.117 7.\
+5 9.667 L 7.5 20\
+ C 7.5 20.55 7.0\
+5 21 6.5 21 Z M \
+13.75 10.333 L 1\
+0.25 10.333 C 9.\
+7 10.333 9.25 10\
+.783 9.25 11.333\
+ L 9.25 20 C 9.2\
+5 20.55 9.7 21 1\
+0.25 21 L 13.75 \
+21 C 14.3 21 14.\
+75 20.55 14.75 2\
+0 L 14.75 11.333\
+ C 14.75 10.783 \
+14.3 10.333 13.7\
+5 10.333 Z M 21 \
+16.333 L 17.5 16\
+.333 C 16.95 16.\
+333 16.5 16.783 \
+16.5 17.333 L 16\
+.5 20 C 16.5 20.\
+55 16.95 21 17.5\
+ 21 L 21 21 C 21\
+.55 21 22 20.55 \
+22 20 L 22 17.33\
+3 C 22 16.783 21\
+.55 16.333 21 16\
+.333 Z\x22\x0a        \
+    fill=\x22#d821f\
+e\x22\x0a            s\
+troke-width=\x221\x22/\
+>\x0a    </g>\x0a</svg\
+>\x0a\
+\x00\x00\x03)\
+<\
+svg\x0a    xmlns=\x22h\
+ttp://www.w3.org\
+/2000/svg\x22\x0a    v\
+iewBox=\x220 0 24 2\
+4\x22\x0a    id=\x22vecto\
+r\x22\x0a    width=\x2224\
+px\x22\x0a    height=\x22\
+24px\x22>\x0a    <g id\
+=\x22group\x22>\x0a      \
+  <path\x0a        \
+    id=\x22path\x22\x0a  \
+          d=\x22M 6\
+.5 21 L 3 21 C 2\
+.45 21 2 20.55 2\
+ 20 L 2 12.667 C\
+ 2 12.117 2.45 1\
+1.667 3 11.667 L\
+ 6.5 11.667 C 7.\
+05 11.667 7.5 12\
+.117 7.5 12.667 \
+L 7.5 20 C 7.5 2\
+0.55 7.05 21 6.5\
+ 21 Z M 13.75 4.\
+333 L 10.25 4.33\
+3 C 9.7 4.333 9.\
+25 4.783 9.25 5.\
+333 L 9.25 20 C \
+9.25 20.55 9.7 2\
+1 10.25 21 L 13.\
+75 21 C 14.3 21 \
+14.75 20.55 14.7\
+5 20 L 14.75 5.3\
+33 C 14.75 4.783\
+ 14.3 4.333 13.7\
+5 4.333 Z M 21 8\
+.333 L 17.5 8.33\
+3 C 16.95 8.333 \
+16.5 8.783 16.5 \
+9.333 L 16.5 20 \
+C 16.5 20.55 16.\
+95 21 17.5 21 L \
+21 21 C 21.55 21\
+ 22 20.55 22 20 \
+L 22 9.333 C 22 \
+8.783 21.55 8.33\
+3 21 8.333 Z\x22\x0a  \
+          fill=\x22\
+#8518f9\x22\x0a       \
+     stroke-widt\
+h=\x221\x22/>\x0a    </g>\
+\x0a</svg>\x0a\
+\x00\x00\x03\x14\
+<\
+svg\x0a    xmlns=\x22h\
+ttp://www.w3.org\
+/2000/svg\x22\x0a    v\
+iewBox=\x220 0 24 2\
+4\x22\x0a    id=\x22vecto\
+r\x22\x0a    width=\x2224\
+px\x22\x0a    height=\x22\
+24px\x22>\x0a    <g id\
+=\x22group\x22>\x0a      \
+  <path\x0a        \
+    id=\x22path\x22\x0a  \
+          d=\x22M 6\
+.5 21 L 3 21 C 2\
+.45 21 2 20.55 2\
+ 20 L 2 12.667 C\
+ 2 12.117 2.45 1\
+1.667 3 11.667 L\
+ 6.5 11.667 C 7.\
+05 11.667 7.5 12\
+.117 7.5 12.667 \
+L 7.5 20 C 7.5 2\
+0.55 7.05 21 6.5\
+ 21 Z M 13.75 11\
+ L 10.25 11 C 9.\
+7 11 9.25 11.45 \
+9.25 12 L 9.25 2\
+0 C 9.25 20.55 9\
+.7 21 10.25 21 L\
+ 13.75 21 C 14.3\
+ 21 14.75 20.55 \
+14.75 20 L 14.75\
+ 12 C 14.75 11.4\
+5 14.3 11 13.75 \
+11 Z M 21 5.667 \
+L 17.5 5.667 C 1\
+6.95 5.667 16.5 \
+6.117 16.5 6.667\
+ L 16.5 20 C 16.\
+5 20.55 16.95 21\
+ 17.5 21 L 21 21\
+ C 21.55 21 22 2\
+0.55 22 20 L 22 \
+6.667 C 22 6.117\
+ 21.55 5.667 21 \
+5.667 Z\x22\x0a       \
+     fill=\x22#981a\
+fa\x22\x0a            \
+stroke-width=\x221\x22\
+/>\x0a    </g>\x0a</sv\
+g>\x0a\
+\x00\x00\x02\xdd\
+<\
+svg\x0a    xmlns=\x22h\
+ttp://www.w3.org\
+/2000/svg\x22\x0a    v\
+iewBox=\x220 0 24 2\
+4\x22\x0a    id=\x22vecto\
+r\x22\x0a    width=\x2224\
+px\x22\x0a    height=\x22\
+24px\x22>\x0a    <g id\
+=\x22group\x22>\x0a      \
+  <path\x0a        \
+    id=\x22path\x22\x0a  \
+          d=\x22M 6\
+.5 21 L 3 21 C 2\
+.45 21 2 20.55 2\
+ 20 L 2 4 C 2 3.\
+45 2.45 3 3 3 L \
+6.5 3 C 7.05 3 7\
+.5 3.45 7.5 4 L \
+7.5 20 C 7.5 20.\
+55 7.05 21 6.5 2\
+1 Z M 13.75 17 L\
+ 10.25 17 C 9.7 \
+17 9.25 17.45 9.\
+25 18 L 9.25 20 \
+C 9.25 20.55 9.7\
+ 21 10.25 21 L 1\
+3.75 21 C 14.3 2\
+1 14.75 20.55 14\
+.75 20 L 14.75 1\
+8 C 14.75 17.45 \
+14.3 17 13.75 17\
+ Z M 21 13 L 17.\
+5 13 C 16.95 13 \
+16.5 13.45 16.5 \
+14 L 16.5 20 C 1\
+6.5 20.55 16.95 \
+21 17.5 21 L 21 \
+21 C 21.55 21 22\
+ 20.55 22 20 L 2\
+2 14 C 22 13.45 \
+21.55 13 21 13 Z\
+\x22\x0a            fi\
+ll=\x22#cc20fd\x22\x0a   \
+         stroke-\
+width=\x221\x22/>\x0a    \
+</g>\x0a</svg>\x0a\
+\x00\x00\x03*\
+<\
+svg\x0a    xmlns=\x22h\
+ttp://www.w3.org\
+/2000/svg\x22\x0a    v\
+iewBox=\x220 0 24 2\
+4\x22\x0a    id=\x22vecto\
+r\x22\x0a    width=\x2224\
+px\x22\x0a    height=\x22\
+24px\x22>\x0a    <g id\
+=\x22group\x22>\x0a      \
+  <path\x0a        \
+    id=\x22path\x22\x0a  \
+          d=\x22M 6\
+.5 21 L 3 21 C 2\
+.45 21 2 20.55 2\
+ 20 L 2 7.333 C \
+2 6.783 2.45 6.3\
+33 3 6.333 L 6.5\
+ 6.333 C 7.05 6.\
+333 7.5 6.783 7.\
+5 7.333 L 7.5 20\
+ C 7.5 20.55 7.0\
+5 21 6.5 21 Z M \
+13.75 11.333 L 1\
+0.25 11.333 C 9.\
+7 11.333 9.25 11\
+.783 9.25 12.333\
+ L 9.25 20 C 9.2\
+5 20.55 9.7 21 1\
+0.25 21 L 13.75 \
+21 C 14.3 21 14.\
+75 20.55 14.75 2\
+0 L 14.75 12.333\
+ C 14.75 11.783 \
+14.3 11.333 13.7\
+5 11.333 Z M 21 \
+3.667 L 17.5 3.6\
+67 C 16.95 3.667\
+ 16.5 4.117 16.5\
+ 4.667 L 16.5 20\
+ C 16.5 20.55 16\
+.95 21 17.5 21 L\
+ 21 21 C 21.55 2\
+1 22 20.55 22 20\
+ L 22 4.667 C 22\
+ 4.117 21.55 3.6\
+67 21 3.667 Z\x22\x0a \
+           fill=\
+\x22#b01dfc\x22\x0a      \
+      stroke-wid\
+th=\x221\x22/>\x0a    </g\
+>\x0a</svg>\x0a\
+\x00\x00\x02\xcd\
+<\
+svg\x0a    xmlns=\x22h\
+ttp://www.w3.org\
+/2000/svg\x22\x0a    v\
+iewBox=\x220 0 24 2\
+4\x22\x0a    id=\x22vecto\
+r\x22\x0a    width=\x2224\
+px\x22\x0a    height=\x22\
+24px\x22>\x0a    <g id\
+=\x22group\x22>\x0a      \
+  <path\x0a        \
+    id=\x22path\x22\x0a  \
+          d=\x22M 6\
+.5 21 L 3 21 C 2\
+.45 21 2 20.55 2\
+ 20 L 2 7 C 2 6.\
+45 2.45 6 3 6 L \
+6.5 6 C 7.05 6 7\
+.5 6.45 7.5 7 L \
+7.5 20 C 7.5 20.\
+55 7.05 21 6.5 2\
+1 Z M 13.75 8 L \
+10.25 8 C 9.7 8 \
+9.25 8.45 9.25 9\
+ L 9.25 20 C 9.2\
+5 20.55 9.7 21 1\
+0.25 21 L 13.75 \
+21 C 14.3 21 14.\
+75 20.55 14.75 2\
+0 L 14.75 9 C 14\
+.75 8.45 14.3 8 \
+13.75 8 Z M 21 9\
+ L 17.5 9 C 16.9\
+5 9 16.5 9.45 16\
+.5 10 L 16.5 20 \
+C 16.5 20.55 16.\
+95 21 17.5 21 L \
+21 21 C 21.55 21\
+ 22 20.55 22 20 \
+L 22 10 C 22 9.4\
+5 21.55 9 21 9 Z\
+\x22\x0a            fi\
+ll=\x22#8318f9\x22\x0a   \
+         stroke-\
+width=\x221\x22/>\x0a    \
+</g>\x0a</svg>\x0a\
+\x00\x00\x036\
+<\
+svg\x0a    xmlns=\x22h\
+ttp://www.w3.org\
+/2000/svg\x22\x0a    v\
+iewBox=\x220 0 24 2\
+4\x22\x0a    id=\x22vecto\
+r\x22\x0a    width=\x2224\
+px\x22\x0a    height=\x22\
+24px\x22>\x0a    <g id\
+=\x22group\x22>\x0a      \
+  <path\x0a        \
+    id=\x22path\x22\x0a  \
+          d=\x22M 6\
+.5 21 L 3 21 C 2\
+.45 21 2 20.55 2\
+ 20 L 2 11.333 C\
+ 2 10.783 2.45 1\
+0.333 3 10.333 L\
+ 6.5 10.333 C 7.\
+05 10.333 7.5 10\
+.783 7.5 11.333 \
+L 7.5 20 C 7.5 2\
+0.55 7.05 21 6.5\
+ 21 Z M 13.75 9.\
+667 L 10.25 9.66\
+7 C 9.7 9.667 9.\
+25 10.117 9.25 1\
+0.667 L 9.25 20 \
+C 9.25 20.55 9.7\
+ 21 10.25 21 L 1\
+3.75 21 C 14.3 2\
+1 14.75 20.55 14\
+.75 20 L 14.75 1\
+0.667 C 14.75 10\
+.117 14.3 9.667 \
+13.75 9.667 Z M \
+21 15.667 L 17.5\
+ 15.667 C 16.95 \
+15.667 16.5 16.1\
+17 16.5 16.667 L\
+ 16.5 20 C 16.5 \
+20.55 16.95 21 1\
+7.5 21 L 21 21 C\
+ 21.55 21 22 20.\
+55 22 20 L 22 16\
+.667 C 22 16.117\
+ 21.55 15.667 21\
+ 15.667 Z\x22\x0a     \
+       fill=\x22#d8\
+21fe\x22\x0a          \
+  stroke-width=\x22\
+1\x22/>\x0a    </g>\x0a</\
+svg>\x0a\
+\x00\x00\x02\xd3\
+<\
+svg\x0a    xmlns=\x22h\
+ttp://www.w3.org\
+/2000/svg\x22\x0a    v\
+iewBox=\x220 0 24 2\
+4\x22\x0a    id=\x22vecto\
+r\x22\x0a    width=\x2224\
+px\x22\x0a    height=\x22\
+24px\x22>\x0a    <g id\
+=\x22group\x22>\x0a      \
+  <path\x0a        \
+    id=\x22path\x22\x0a  \
+          d=\x22M 6\
+.5 21 L 3 21 C 2\
+.45 21 2 20.55 2\
+ 20 L 2 14 C 2 1\
+3.45 2.45 13 3 1\
+3 L 6.5 13 C 7.0\
+5 13 7.5 13.45 7\
+.5 14 L 7.5 20 C\
+ 7.5 20.55 7.05 \
+21 6.5 21 Z M 13\
+.75 5 L 10.25 5 \
+C 9.7 5 9.25 5.4\
+5 9.25 6 L 9.25 \
+20 C 9.25 20.55 \
+9.7 21 10.25 21 \
+L 13.75 21 C 14.\
+3 21 14.75 20.55\
+ 14.75 20 L 14.7\
+5 6 C 14.75 5.45\
+ 14.3 5 13.75 5 \
+Z M 21 7 L 17.5 \
+7 C 16.95 7 16.5\
+ 7.45 16.5 8 L 1\
+6.5 20 C 16.5 20\
+.55 16.95 21 17.\
+5 21 L 21 21 C 2\
+1.55 21 22 20.55\
+ 22 20 L 22 8 C \
+22 7.45 21.55 7 \
+21 7 Z\x22\x0a        \
+    fill=\x22#8619f\
+9\x22\x0a            s\
+troke-width=\x221\x22/\
+>\x0a    </g>\x0a</svg\
+>\x0a\
+\x00\x00\x03\x14\
+<\
+svg\x0a    xmlns=\x22h\
+ttp://www.w3.org\
+/2000/svg\x22\x0a    v\
+iewBox=\x220 0 24 2\
+4\x22\x0a    id=\x22vecto\
+r\x22\x0a    width=\x2224\
+px\x22\x0a    height=\x22\
+24px\x22>\x0a    <g id\
+=\x22group\x22>\x0a      \
+  <path\x0a        \
+    id=\x22path\x22\x0a  \
+          d=\x22M 6\
+.5 21 L 3 21 C 2\
+.45 21 2 20.55 2\
+ 20 L 2 11.333 C\
+ 2 10.783 2.45 1\
+0.333 3 10.333 L\
+ 6.5 10.333 C 7.\
+05 10.333 7.5 10\
+.783 7.5 11.333 \
+L 7.5 20 C 7.5 2\
+0.55 7.05 21 6.5\
+ 21 Z M 13.75 12\
+ L 10.25 12 C 9.\
+7 12 9.25 12.45 \
+9.25 13 L 9.25 2\
+0 C 9.25 20.55 9\
+.7 21 10.25 21 L\
+ 13.75 21 C 14.3\
+ 21 14.75 20.55 \
+14.75 20 L 14.75\
+ 13 C 14.75 12.4\
+5 14.3 12 13.75 \
+12 Z M 21 6.333 \
+L 17.5 6.333 C 1\
+6.95 6.333 16.5 \
+6.783 16.5 7.333\
+ L 16.5 20 C 16.\
+5 20.55 16.95 21\
+ 17.5 21 L 21 21\
+ C 21.55 21 22 2\
+0.55 22 20 L 22 \
+7.333 C 22 6.783\
+ 21.55 6.333 21 \
+6.333 Z\x22\x0a       \
+     fill=\x22#9d1b\
+fb\x22\x0a            \
+stroke-width=\x221\x22\
+/>\x0a    </g>\x0a</sv\
+g>\x0a\
+\x00\x00\x03\x15\
+<\
+svg\x0a    xmlns=\x22h\
+ttp://www.w3.org\
+/2000/svg\x22\x0a    v\
+iewBox=\x220 0 24 2\
+4\x22\x0a    id=\x22vecto\
+r\x22\x0a    width=\x2224\
+px\x22\x0a    height=\x22\
+24px\x22>\x0a    <g id\
+=\x22group\x22>\x0a      \
+  <path\x0a        \
+    id=\x22path\x22\x0a  \
+          d=\x22M 6\
+.5 21 L 3 21 C 2\
+.45 21 2 20.55 2\
+ 20 L 2 4.667 C \
+2 4.117 2.45 3.6\
+67 3 3.667 L 6.5\
+ 3.667 C 7.05 3.\
+667 7.5 4.117 7.\
+5 4.667 L 7.5 20\
+ C 7.5 20.55 7.0\
+5 21 6.5 21 Z M \
+13.75 16 L 10.25\
+ 16 C 9.7 16 9.2\
+5 16.45 9.25 17 \
+L 9.25 20 C 9.25\
+ 20.55 9.7 21 10\
+.25 21 L 13.75 2\
+1 C 14.3 21 14.7\
+5 20.55 14.75 20\
+ L 14.75 17 C 14\
+.75 16.45 14.3 1\
+6 13.75 16 Z M 2\
+1 13.667 L 17.5 \
+13.667 C 16.95 1\
+3.667 16.5 14.11\
+7 16.5 14.667 L \
+16.5 20 C 16.5 2\
+0.55 16.95 21 17\
+.5 21 L 21 21 C \
+21.55 21 22 20.5\
+5 22 20 L 22 14.\
+667 C 22 14.117 \
+21.55 13.667 21 \
+13.667 Z\x22\x0a      \
+      fill=\x22#d12\
+0fe\x22\x0a           \
+ stroke-width=\x221\
+\x22/>\x0a    </g>\x0a</s\
+vg>\x0a\
+\x00\x00\x03*\
+<\
+svg\x0a    xmlns=\x22h\
+ttp://www.w3.org\
+/2000/svg\x22\x0a    v\
+iewBox=\x220 0 24 2\
+4\x22\x0a    id=\x22vecto\
+r\x22\x0a    width=\x2224\
+px\x22\x0a    height=\x22\
+24px\x22>\x0a    <g id\
+=\x22group\x22>\x0a      \
+  <path\x0a        \
+    id=\x22path\x22\x0a  \
+          d=\x22M 6\
+.5 21 L 3 21 C 2\
+.45 21 2 20.55 2\
+ 20 L 2 6.667 C \
+2 6.117 2.45 5.6\
+67 3 5.667 L 6.5\
+ 5.667 C 7.05 5.\
+667 7.5 6.117 7.\
+5 6.667 L 7.5 20\
+ C 7.5 20.55 7.0\
+5 21 6.5 21 Z M \
+13.75 11.667 L 1\
+0.25 11.667 C 9.\
+7 11.667 9.25 12\
+.117 9.25 12.667\
+ L 9.25 20 C 9.2\
+5 20.55 9.7 21 1\
+0.25 21 L 13.75 \
+21 C 14.3 21 14.\
+75 20.55 14.75 2\
+0 L 14.75 12.667\
+ C 14.75 12.117 \
+14.3 11.667 13.7\
+5 11.667 Z M 21 \
+4.333 L 17.5 4.3\
+33 C 16.95 4.333\
+ 16.5 4.783 16.5\
+ 5.333 L 16.5 20\
+ C 16.5 20.55 16\
+.95 21 17.5 21 L\
+ 21 21 C 21.55 2\
+1 22 20.55 22 20\
+ L 22 5.333 C 22\
+ 4.783 21.55 4.3\
+33 21 4.333 Z\x22\x0a \
+           fill=\
+\x22#a91cfb\x22\x0a      \
+      stroke-wid\
+th=\x221\x22/>\x0a    </g\
+>\x0a</svg>\x0a\
+\x00\x00\x03\x0b\
+<\
+svg\x0a    xmlns=\x22h\
+ttp://www.w3.org\
+/2000/svg\x22\x0a    v\
+iewBox=\x220 0 24 2\
+4\x22\x0a    id=\x22vecto\
+r\x22\x0a    width=\x2224\
+px\x22\x0a    height=\x22\
+24px\x22>\x0a    <g id\
+=\x22group\x22>\x0a      \
+  <path\x0a        \
+    id=\x22path\x22\x0a  \
+          d=\x22M 6\
+.5 21 L 3 21 C 2\
+.45 21 2 20.55 2\
+ 20 L 2 8 C 2 7.\
+45 2.45 7 3 7 L \
+6.5 7 C 7.05 7 7\
+.5 7.45 7.5 8 L \
+7.5 20 C 7.5 20.\
+55 7.05 21 6.5 2\
+1 Z M 13.75 6.33\
+3 L 10.25 6.333 \
+C 9.7 6.333 9.25\
+ 6.783 9.25 7.33\
+3 L 9.25 20 C 9.\
+25 20.55 9.7 21 \
+10.25 21 L 13.75\
+ 21 C 14.3 21 14\
+.75 20.55 14.75 \
+20 L 14.75 7.333\
+ C 14.75 6.783 1\
+4.3 6.333 13.75 \
+6.333 Z M 21 9.6\
+67 L 17.5 9.667 \
+C 16.95 9.667 16\
+.5 10.117 16.5 1\
+0.667 L 16.5 20 \
+C 16.5 20.55 16.\
+95 21 17.5 21 L \
+21 21 C 21.55 21\
+ 22 20.55 22 20 \
+L 22 10.667 C 22\
+ 10.117 21.55 9.\
+667 21 9.667 Z\x22\x0a\
+            fill\
+=\x22#8218f9\x22\x0a     \
+       stroke-wi\
+dth=\x221\x22/>\x0a    </\
+g>\x0a</svg>\x0a\
+\x00\x00\x02\xde\
+<\
+svg\x0a    xmlns=\x22h\
+ttp://www.w3.org\
+/2000/svg\x22\x0a    v\
+iewBox=\x220 0 24 2\
+4\x22\x0a    id=\x22vecto\
+r\x22\x0a    width=\x2224\
+px\x22\x0a    height=\x22\
+24px\x22>\x0a    <g id\
+=\x22group\x22>\x0a      \
+  <path\x0a        \
+    id=\x22path\x22\x0a  \
+          d=\x22M 6\
+.5 21 L 3 21 C 2\
+.45 21 2 20.55 2\
+ 20 L 2 13 C 2 1\
+2.45 2.45 12 3 1\
+2 L 6.5 12 C 7.0\
+5 12 7.5 12.45 7\
+.5 13 L 7.5 20 C\
+ 7.5 20.55 7.05 \
+21 6.5 21 Z M 13\
+.75 9 L 10.25 9 \
+C 9.7 9 9.25 9.4\
+5 9.25 10 L 9.25\
+ 20 C 9.25 20.55\
+ 9.7 21 10.25 21\
+ L 13.75 21 C 14\
+.3 21 14.75 20.5\
+5 14.75 20 L 14.\
+75 10 C 14.75 9.\
+45 14.3 9 13.75 \
+9 Z M 21 15 L 17\
+.5 15 C 16.95 15\
+ 16.5 15.45 16.5\
+ 16 L 16.5 20 C \
+16.5 20.55 16.95\
+ 21 17.5 21 L 21\
+ 21 C 21.55 21 2\
+2 20.55 22 20 L \
+22 16 C 22 15.45\
+ 21.55 15 21 15 \
+Z\x22\x0a            f\
+ill=\x22#d821fe\x22\x0a  \
+          stroke\
+-width=\x221\x22/>\x0a   \
+ </g>\x0a</svg>\x0a\
+\x00\x00\x03)\
+<\
+svg\x0a    xmlns=\x22h\
+ttp://www.w3.org\
+/2000/svg\x22\x0a    v\
+iewBox=\x220 0 24 2\
+4\x22\x0a    id=\x22vecto\
+r\x22\x0a    width=\x2224\
+px\x22\x0a    height=\x22\
+24px\x22>\x0a    <g id\
+=\x22group\x22>\x0a      \
+  <path\x0a        \
+    id=\x22path\x22\x0a  \
+          d=\x22M 6\
+.5 21 L 3 21 C 2\
+.45 21 2 20.55 2\
+ 20 L 2 15.333 C\
+ 2 14.783 2.45 1\
+4.333 3 14.333 L\
+ 6.5 14.333 C 7.\
+05 14.333 7.5 14\
+.783 7.5 15.333 \
+L 7.5 20 C 7.5 2\
+0.55 7.05 21 6.5\
+ 21 Z M 13.75 5.\
+667 L 10.25 5.66\
+7 C 9.7 5.667 9.\
+25 6.117 9.25 6.\
+667 L 9.25 20 C \
+9.25 20.55 9.7 2\
+1 10.25 21 L 13.\
+75 21 C 14.3 21 \
+14.75 20.55 14.7\
+5 20 L 14.75 6.6\
+67 C 14.75 6.117\
+ 14.3 5.667 13.7\
+5 5.667 Z M 21 5\
+.667 L 17.5 5.66\
+7 C 16.95 5.667 \
+16.5 6.117 16.5 \
+6.667 L 16.5 20 \
+C 16.5 20.55 16.\
+95 21 17.5 21 L \
+21 21 C 21.55 21\
+ 22 20.55 22 20 \
+L 22 6.667 C 22 \
+6.117 21.55 5.66\
+7 21 5.667 Z\x22\x0a  \
+          fill=\x22\
+#8819f9\x22\x0a       \
+     stroke-widt\
+h=\x221\x22/>\x0a    </g>\
+\x0a</svg>\x0a\
+\x00\x00\x03\x0b\
+<\
+svg\x0a    xmlns=\x22h\
+ttp://www.w3.org\
+/2000/svg\x22\x0a    v\
+iewBox=\x220 0 24 2\
+4\x22\x0a    id=\x22vecto\
+r\x22\x0a    width=\x2224\
+px\x22\x0a    height=\x22\
+24px\x22>\x0a    <g id\
+=\x22group\x22>\x0a      \
+  <path\x0a        \
+    id=\x22path\x22\x0a  \
+          d=\x22M 6\
+.5 21 L 3 21 C 2\
+.45 21 2 20.55 2\
+ 20 L 2 14.667 C\
+ 2 14.117 2.45 1\
+3.667 3 13.667 L\
+ 6.5 13.667 C 7.\
+05 13.667 7.5 14\
+.117 7.5 14.667 \
+L 7.5 20 C 7.5 2\
+0.55 7.05 21 6.5\
+ 21 Z M 13.75 3.\
+667 L 10.25 3.66\
+7 C 9.7 3.667 9.\
+25 4.117 9.25 4.\
+667 L 9.25 20 C \
+9.25 20.55 9.7 2\
+1 10.25 21 L 13.\
+75 21 C 14.3 21 \
+14.75 20.55 14.7\
+5 20 L 14.75 4.6\
+67 C 14.75 4.117\
+ 14.3 3.667 13.7\
+5 3.667 Z M 21 8\
+ L 17.5 8 C 16.9\
+5 8 16.5 8.45 16\
+.5 9 L 16.5 20 C\
+ 16.5 20.55 16.9\
+5 21 17.5 21 L 2\
+1 21 C 21.55 21 \
+22 20.55 22 20 L\
+ 22 9 C 22 8.45 \
+21.55 8 21 8 Z\x22\x0a\
+            fill\
+=\x22#cf20fe\x22\x0a     \
+       stroke-wi\
+dth=\x221\x22/>\x0a    </\
+g>\x0a</svg>\x0a\
+\x00\x00\x02\xd6\
+<\
+svg\x0a    xmlns=\x22h\
+ttp://www.w3.org\
+/2000/svg\x22\x0a    v\
+iewBox=\x220 0 24 2\
+4\x22\x0a    id=\x22vecto\
+r\x22\x0a    width=\x2224\
+px\x22\x0a    height=\x22\
+24px\x22>\x0a    <g id\
+=\x22group\x22>\x0a      \
+  <path\x0a        \
+    id=\x22path\x22\x0a  \
+          d=\x22M 6\
+.5 21 L 3 21 C 2\
+.45 21 2 20.55 2\
+ 20 L 2 10 C 2 9\
+.45 2.45 9 3 9 L\
+ 6.5 9 C 7.05 9 \
+7.5 9.45 7.5 10 \
+L 7.5 20 C 7.5 2\
+0.55 7.05 21 6.5\
+ 21 Z M 13.75 13\
+ L 10.25 13 C 9.\
+7 13 9.25 13.45 \
+9.25 14 L 9.25 2\
+0 C 9.25 20.55 9\
+.7 21 10.25 21 L\
+ 13.75 21 C 14.3\
+ 21 14.75 20.55 \
+14.75 20 L 14.75\
+ 14 C 14.75 13.4\
+5 14.3 13 13.75 \
+13 Z M 21 7 L 17\
+.5 7 C 16.95 7 1\
+6.5 7.45 16.5 8 \
+L 16.5 20 C 16.5\
+ 20.55 16.95 21 \
+17.5 21 L 21 21 \
+C 21.55 21 22 20\
+.55 22 20 L 22 8\
+ C 22 7.45 21.55\
+ 7 21 7 Z\x22\x0a     \
+       fill=\x22#a3\
+1bfb\x22\x0a          \
+  stroke-width=\x22\
+1\x22/>\x0a    </g>\x0a</\
+svg>\x0a\
+\x00\x00\x03\x15\
+<\
+svg\x0a    xmlns=\x22h\
+ttp://www.w3.org\
+/2000/svg\x22\x0a    v\
+iewBox=\x220 0 24 2\
+4\x22\x0a    id=\x22vecto\
+r\x22\x0a    width=\x2224\
+px\x22\x0a    height=\x22\
+24px\x22>\x0a    <g id\
+=\x22group\x22>\x0a      \
+  <path\x0a        \
+    id=\x22path\x22\x0a  \
+          d=\x22M 6\
+.5 21 L 3 21 C 2\
+.45 21 2 20.55 2\
+ 20 L 2 5.333 C \
+2 4.783 2.45 4.3\
+33 3 4.333 L 6.5\
+ 4.333 C 7.05 4.\
+333 7.5 4.783 7.\
+5 5.333 L 7.5 20\
+ C 7.5 20.55 7.0\
+5 21 6.5 21 Z M \
+13.75 15 L 10.25\
+ 15 C 9.7 15 9.2\
+5 15.45 9.25 16 \
+L 9.25 20 C 9.25\
+ 20.55 9.7 21 10\
+.25 21 L 13.75 2\
+1 C 14.3 21 14.7\
+5 20.55 14.75 20\
+ L 14.75 16 C 14\
+.75 15.45 14.3 1\
+5 13.75 15 Z M 2\
+1 14.333 L 17.5 \
+14.333 C 16.95 1\
+4.333 16.5 14.78\
+3 16.5 15.333 L \
+16.5 20 C 16.5 2\
+0.55 16.95 21 17\
+.5 21 L 21 21 C \
+21.55 21 22 20.5\
+5 22 20 L 22 15.\
+333 C 22 14.783 \
+21.55 14.333 21 \
+14.333 Z\x22\x0a      \
+      fill=\x22#d42\
+1fe\x22\x0a           \
+ stroke-width=\x221\
+\x22/>\x0a    </g>\x0a</s\
+vg>\x0a\
+\x00\x00\x02\xd6\
+<\
+svg\x0a    xmlns=\x22h\
+ttp://www.w3.org\
+/2000/svg\x22\x0a    v\
+iewBox=\x220 0 24 2\
+4\x22\x0a    id=\x22vecto\
+r\x22\x0a    width=\x2224\
+px\x22\x0a    height=\x22\
+24px\x22>\x0a    <g id\
+=\x22group\x22>\x0a      \
+  <path\x0a        \
+    id=\x22path\x22\x0a  \
+          d=\x22M 6\
+.5 21 L 3 21 C 2\
+.45 21 2 20.55 2\
+ 20 L 2 10 C 2 9\
+.45 2.45 9 3 9 L\
+ 6.5 9 C 7.05 9 \
+7.5 9.45 7.5 10 \
+L 7.5 20 C 7.5 2\
+0.55 7.05 21 6.5\
+ 21 Z M 13.75 3 \
+L 10.25 3 C 9.7 \
+3 9.25 3.45 9.25\
+ 4 L 9.25 20 C 9\
+.25 20.55 9.7 21\
+ 10.25 21 L 13.7\
+5 21 C 14.3 21 1\
+4.75 20.55 14.75\
+ 20 L 14.75 4 C \
+14.75 3.45 14.3 \
+3 13.75 3 Z M 21\
+ 11 L 17.5 11 C \
+16.95 11 16.5 11\
+.45 16.5 12 L 16\
+.5 20 C 16.5 20.\
+55 16.95 21 17.5\
+ 21 L 21 21 C 21\
+.55 21 22 20.55 \
+22 20 L 22 12 C \
+22 11.45 21.55 1\
+1 21 11 Z\x22\x0a     \
+       fill=\x22#81\
+18f9\x22\x0a          \
+  stroke-width=\x22\
+1\x22/>\x0a    </g>\x0a</\
+svg>\x0a\
+\x00\x00\x03\x10\
+<\
+svg\x0a    xmlns=\x22h\
+ttp://www.w3.org\
+/2000/svg\x22\x0a    v\
+iewBox=\x220 0 24 2\
+4\x22\x0a    id=\x22vecto\
+r\x22\x0a    width=\x2224\
+px\x22\x0a    height=\x22\
+24px\x22>\x0a    <g id\
+=\x22group\x22>\x0a      \
+  <path\x0a        \
+    id=\x22path\x22\x0a  \
+          d=\x22M 6\
+.5 21 L 3 21 C 2\
+.45 21 2 20.55 2\
+ 20 L 2 9 C 2 8.\
+45 2.45 8 3 8 L \
+6.5 8 C 7.05 8 7\
+.5 8.45 7.5 9 L \
+7.5 20 C 7.5 20.\
+55 7.05 21 6.5 2\
+1 Z M 13.75 4.66\
+7 L 10.25 4.667 \
+C 9.7 4.667 9.25\
+ 5.117 9.25 5.66\
+7 L 9.25 20 C 9.\
+25 20.55 9.7 21 \
+10.25 21 L 13.75\
+ 21 C 14.3 21 14\
+.75 20.55 14.75 \
+20 L 14.75 5.667\
+ C 14.75 5.117 1\
+4.3 4.667 13.75 \
+4.667 Z M 21 10.\
+333 L 17.5 10.33\
+3 C 16.95 10.333\
+ 16.5 10.783 16.\
+5 11.333 L 16.5 \
+20 C 16.5 20.55 \
+16.95 21 17.5 21\
+ L 21 21 C 21.55\
+ 21 22 20.55 22 \
+20 L 22 11.333 C\
+ 22 10.783 21.55\
+ 10.333 21 10.33\
+3 Z\x22\x0a           \
+ fill=\x22#8118f9\x22\x0a\
+            stro\
+ke-width=\x221\x22/>\x0a \
+   </g>\x0a</svg>\x0a\
+\x00\x00\x032\
+<\
+svg\x0a    xmlns=\x22h\
+ttp://www.w3.org\
+/2000/svg\x22\x0a    v\
+iewBox=\x220 0 24 2\
+4\x22\x0a    id=\x22vecto\
+r\x22\x0a    width=\x2224\
+px\x22\x0a    height=\x22\
+24px\x22>\x0a    <g id\
+=\x22group\x22>\x0a      \
+  <path\x0a        \
+    id=\x22path\x22\x0a  \
+          d=\x22M 6\
+.5 21 L 3 21 C 2\
+.45 21 2 20.55 2\
+ 20 L 2 14.667 C\
+ 2 14.117 2.45 1\
+3.667 3 13.667 L\
+ 6.5 13.667 C 7.\
+05 13.667 7.5 14\
+.117 7.5 14.667 \
+L 7.5 20 C 7.5 2\
+0.55 7.05 21 6.5\
+ 21 Z M 13.75 8.\
+333 L 10.25 8.33\
+3 C 9.7 8.333 9.\
+25 8.783 9.25 9.\
+333 L 9.25 20 C \
+9.25 20.55 9.7 2\
+1 10.25 21 L 13.\
+75 21 C 14.3 21 \
+14.75 20.55 14.7\
+5 20 L 14.75 9.3\
+33 C 14.75 8.783\
+ 14.3 8.333 13.7\
+5 8.333 Z M 21 1\
+4.333 L 17.5 14.\
+333 C 16.95 14.3\
+33 16.5 14.783 1\
+6.5 15.333 L 16.\
+5 20 C 16.5 20.5\
+5 16.95 21 17.5 \
+21 L 21 21 C 21.\
+55 21 22 20.55 2\
+2 20 L 22 15.333\
+ C 22 14.783 21.\
+55 14.333 21 14.\
+333 Z\x22\x0a         \
+   fill=\x22#d721fe\
+\x22\x0a            st\
+roke-width=\x221\x22/>\
+\x0a    </g>\x0a</svg>\
+\x0a\
+\x00\x00\x02\xd3\
+<\
+svg\x0a    xmlns=\x22h\
+ttp://www.w3.org\
+/2000/svg\x22\x0a    v\
+iewBox=\x220 0 24 2\
+4\x22\x0a    id=\x22vecto\
+r\x22\x0a    width=\x2224\
+px\x22\x0a    height=\x22\
+24px\x22>\x0a    <g id\
+=\x22group\x22>\x0a      \
+  <path\x0a        \
+    id=\x22path\x22\x0a  \
+          d=\x22M 6\
+.5 21 L 3 21 C 2\
+.45 21 2 20.55 2\
+ 20 L 2 14 C 2 1\
+3.45 2.45 13 3 1\
+3 L 6.5 13 C 7.0\
+5 13 7.5 13.45 7\
+.5 14 L 7.5 20 C\
+ 7.5 20.55 7.05 \
+21 6.5 21 Z M 13\
+.75 3 L 10.25 3 \
+C 9.7 3 9.25 3.4\
+5 9.25 4 L 9.25 \
+20 C 9.25 20.55 \
+9.7 21 10.25 21 \
+L 13.75 21 C 14.\
+3 21 14.75 20.55\
+ 14.75 20 L 14.7\
+5 4 C 14.75 3.45\
+ 14.3 3 13.75 3 \
+Z M 21 7 L 17.5 \
+7 C 16.95 7 16.5\
+ 7.45 16.5 8 L 1\
+6.5 20 C 16.5 20\
+.55 16.95 21 17.\
+5 21 L 21 21 C 2\
+1.55 21 22 20.55\
+ 22 20 L 22 8 C \
+22 7.45 21.55 7 \
+21 7 Z\x22\x0a        \
+    fill=\x22#cd20f\
+d\x22\x0a            s\
+troke-width=\x221\x22/\
+>\x0a    </g>\x0a</svg\
+>\x0a\
+\x00\x00\x02\xf2\
+<\
+svg\x0a    xmlns=\x22h\
+ttp://www.w3.org\
+/2000/svg\x22\x0a    v\
+iewBox=\x220 0 24 2\
+4\x22\x0a    id=\x22vecto\
+r\x22\x0a    width=\x2224\
+px\x22\x0a    height=\x22\
+24px\x22>\x0a    <g id\
+=\x22group\x22>\x0a      \
+  <path\x0a        \
+    id=\x22path\x22\x0a  \
+          d=\x22M 6\
+.5 21 L 3 21 C 2\
+.45 21 2 20.55 2\
+ 20 L 2 9 C 2 8.\
+45 2.45 8 3 8 L \
+6.5 8 C 7.05 8 7\
+.5 8.45 7.5 9 L \
+7.5 20 C 7.5 20.\
+55 7.05 21 6.5 2\
+1 Z M 13.75 13.6\
+67 L 10.25 13.66\
+7 C 9.7 13.667 9\
+.25 14.117 9.25 \
+14.667 L 9.25 20\
+ C 9.25 20.55 9.\
+7 21 10.25 21 L \
+13.75 21 C 14.3 \
+21 14.75 20.55 1\
+4.75 20 L 14.75 \
+14.667 C 14.75 1\
+4.117 14.3 13.66\
+7 13.75 13.667 Z\
+ M 21 8 L 17.5 8\
+ C 16.95 8 16.5 \
+8.45 16.5 9 L 16\
+.5 20 C 16.5 20.\
+55 16.95 21 17.5\
+ 21 L 21 21 C 21\
+.55 21 22 20.55 \
+22 20 L 22 9 C 2\
+2 8.45 21.55 8 2\
+1 8 Z\x22\x0a         \
+   fill=\x22#a91cfb\
+\x22\x0a            st\
+roke-width=\x221\x22/>\
+\x0a    </g>\x0a</svg>\
+\x0a\
+\x00\x00\x02\xdd\
+<\
+svg\x0a    xmlns=\x22h\
+ttp://www.w3.org\
+/2000/svg\x22\x0a    v\
+iewBox=\x220 0 24 2\
+4\x22\x0a    id=\x22vecto\
+r\x22\x0a    width=\x2224\
+px\x22\x0a    height=\x22\
+24px\x22>\x0a    <g id\
+=\x22group\x22>\x0a      \
+  <path\x0a        \
+    id=\x22path\x22\x0a  \
+          d=\x22M 6\
+.5 21 L 3 21 C 2\
+.45 21 2 20.55 2\
+ 20 L 2 6 C 2 5.\
+45 2.45 5 3 5 L \
+6.5 5 C 7.05 5 7\
+.5 5.45 7.5 6 L \
+7.5 20 C 7.5 20.\
+55 7.05 21 6.5 2\
+1 Z M 13.75 14 L\
+ 10.25 14 C 9.7 \
+14 9.25 14.45 9.\
+25 15 L 9.25 20 \
+C 9.25 20.55 9.7\
+ 21 10.25 21 L 1\
+3.75 21 C 14.3 2\
+1 14.75 20.55 14\
+.75 20 L 14.75 1\
+5 C 14.75 14.45 \
+14.3 14 13.75 14\
+ Z M 21 15 L 17.\
+5 15 C 16.95 15 \
+16.5 15.45 16.5 \
+16 L 16.5 20 C 1\
+6.5 20.55 16.95 \
+21 17.5 21 L 21 \
+21 C 21.55 21 22\
+ 20.55 22 20 L 2\
+2 16 C 22 15.45 \
+21.55 15 21 15 Z\
+\x22\x0a            fi\
+ll=\x22#d621fe\x22\x0a   \
+         stroke-\
+width=\x221\x22/>\x0a    \
+</g>\x0a</svg>\x0a\
+\x00\x00\x02\xd6\
+<\
+svg\x0a    xmlns=\x22h\
+ttp://www.w3.org\
+/2000/svg\x22\x0a    v\
+iewBox=\x220 0 24 2\
+4\x22\x0a    id=\x22vecto\
+r\x22\x0a    width=\x2224\
+px\x22\x0a    height=\x22\
+24px\x22>\x0a    <g id\
+=\x22group\x22>\x0a      \
+  <path\x0a        \
+    id=\x22path\x22\x0a  \
+          d=\x22M 6\
+.5 21 L 3 21 C 2\
+.45 21 2 20.55 2\
+ 20 L 2 10 C 2 9\
+.45 2.45 9 3 9 L\
+ 6.5 9 C 7.05 9 \
+7.5 9.45 7.5 10 \
+L 7.5 20 C 7.5 2\
+0.55 7.05 21 6.5\
+ 21 Z M 13.75 3 \
+L 10.25 3 C 9.7 \
+3 9.25 3.45 9.25\
+ 4 L 9.25 20 C 9\
+.25 20.55 9.7 21\
+ 10.25 21 L 13.7\
+5 21 C 14.3 21 1\
+4.75 20.55 14.75\
+ 20 L 14.75 4 C \
+14.75 3.45 14.3 \
+3 13.75 3 Z M 21\
+ 11 L 17.5 11 C \
+16.95 11 16.5 11\
+.45 16.5 12 L 16\
+.5 20 C 16.5 20.\
+55 16.95 21 17.5\
+ 21 L 21 21 C 21\
+.55 21 22 20.55 \
+22 20 L 22 12 C \
+22 11.45 21.55 1\
+1 21 11 Z\x22\x0a     \
+       fill=\x22#81\
+18f9\x22\x0a          \
+  stroke-width=\x22\
+1\x22/>\x0a    </g>\x0a</\
+svg>\x0a\
+\x00\x00\x02\xd6\
+<\
+svg\x0a    xmlns=\x22h\
+ttp://www.w3.org\
+/2000/svg\x22\x0a    v\
+iewBox=\x220 0 24 2\
+4\x22\x0a    id=\x22vecto\
+r\x22\x0a    width=\x2224\
+px\x22\x0a    height=\x22\
+24px\x22>\x0a    <g id\
+=\x22group\x22>\x0a      \
+  <path\x0a        \
+    id=\x22path\x22\x0a  \
+          d=\x22M 6\
+.5 21 L 3 21 C 2\
+.45 21 2 20.55 2\
+ 20 L 2 10 C 2 9\
+.45 2.45 9 3 9 L\
+ 6.5 9 C 7.05 9 \
+7.5 9.45 7.5 10 \
+L 7.5 20 C 7.5 2\
+0.55 7.05 21 6.5\
+ 21 Z M 13.75 3 \
+L 10.25 3 C 9.7 \
+3 9.25 3.45 9.25\
+ 4 L 9.25 20 C 9\
+.25 20.55 9.7 21\
+ 10.25 21 L 13.7\
+5 21 C 14.3 21 1\
+4.75 20.55 14.75\
+ 20 L 14.75 4 C \
+14.75 3.45 14.3 \
+3 13.75 3 Z M 21\
+ 11 L 17.5 11 C \
+16.95 11 16.5 11\
+.45 16.5 12 L 16\
+.5 20 C 16.5 20.\
+55 16.95 21 17.5\
+ 21 L 21 21 C 21\
+.55 21 22 20.55 \
+22 20 L 22 12 C \
+22 11.45 21.55 1\
+1 21 11 Z\x22\x0a     \
+       fill=\x22#81\
+18f9\x22\x0a          \
+  stroke-width=\x22\
+1\x22/>\x0a    </g>\x0a</\
+svg>\x0a\
+\x00\x00\x032\
+<\
+svg\x0a    xmlns=\x22h\
+ttp://www.w3.org\
+/2000/svg\x22\x0a    v\
+iewBox=\x220 0 24 2\
+4\x22\x0a    id=\x22vecto\
+r\x22\x0a    width=\x2224\
+px\x22\x0a    height=\x22\
+24px\x22>\x0a    <g id\
+=\x22group\x22>\x0a      \
+  <path\x0a        \
+    id=\x22path\x22\x0a  \
+          d=\x22M 6\
+.5 21 L 3 21 C 2\
+.45 21 2 20.55 2\
+ 20 L 2 16.333 C\
+ 2 15.783 2.45 1\
+5.333 3 15.333 L\
+ 6.5 15.333 C 7.\
+05 15.333 7.5 15\
+.783 7.5 16.333 \
+L 7.5 20 C 7.5 2\
+0.55 7.05 21 6.5\
+ 21 Z M 13.75 7.\
+667 L 10.25 7.66\
+7 C 9.7 7.667 9.\
+25 8.117 9.25 8.\
+667 L 9.25 20 C \
+9.25 20.55 9.7 2\
+1 10.25 21 L 13.\
+75 21 C 14.3 21 \
+14.75 20.55 14.7\
+5 20 L 14.75 8.6\
+67 C 14.75 8.117\
+ 14.3 7.667 13.7\
+5 7.667 Z M 21 1\
+3.667 L 17.5 13.\
+667 C 16.95 13.6\
+67 16.5 14.117 1\
+6.5 14.667 L 16.\
+5 20 C 16.5 20.5\
+5 16.95 21 17.5 \
+21 L 21 21 C 21.\
+55 21 22 20.55 2\
+2 20 L 22 14.667\
+ C 22 14.117 21.\
+55 13.667 21 13.\
+667 Z\x22\x0a         \
+   fill=\x22#d721fe\
+\x22\x0a            st\
+roke-width=\x221\x22/>\
+\x0a    </g>\x0a</svg>\
+\x0a\
+\x00\x00\x03\x0f\
+<\
+svg\x0a    xmlns=\x22h\
+ttp://www.w3.org\
+/2000/svg\x22\x0a    v\
+iewBox=\x220 0 24 2\
+4\x22\x0a    id=\x22vecto\
+r\x22\x0a    width=\x2224\
+px\x22\x0a    height=\x22\
+24px\x22>\x0a    <g id\
+=\x22group\x22>\x0a      \
+  <path\x0a        \
+    id=\x22path\x22\x0a  \
+          d=\x22M 6\
+.5 21 L 3 21 C 2\
+.45 21 2 20.55 2\
+ 20 L 2 13 C 2 1\
+2.45 2.45 12 3 1\
+2 L 6.5 12 C 7.0\
+5 12 7.5 12.45 7\
+.5 13 L 7.5 20 C\
+ 7.5 20.55 7.05 \
+21 6.5 21 Z M 13\
+.75 4.333 L 10.2\
+5 4.333 C 9.7 4.\
+333 9.25 4.783 9\
+.25 5.333 L 9.25\
+ 20 C 9.25 20.55\
+ 9.7 21 10.25 21\
+ L 13.75 21 C 14\
+.3 21 14.75 20.5\
+5 14.75 20 L 14.\
+75 5.333 C 14.75\
+ 4.783 14.3 4.33\
+3 13.75 4.333 Z \
+M 21 6.333 L 17.\
+5 6.333 C 16.95 \
+6.333 16.5 6.783\
+ 16.5 7.333 L 16\
+.5 20 C 16.5 20.\
+55 16.95 21 17.5\
+ 21 L 21 21 C 21\
+.55 21 22 20.55 \
+22 20 L 22 7.333\
+ C 22 6.783 21.5\
+5 6.333 21 6.333\
+ Z\x22\x0a            \
+fill=\x22#cb20fd\x22\x0a \
+           strok\
+e-width=\x221\x22/>\x0a  \
+  </g>\x0a</svg>\x0a\
+\x00\x00\x02\xf4\
+<\
+svg\x0a    xmlns=\x22h\
+ttp://www.w3.org\
+/2000/svg\x22\x0a    v\
+iewBox=\x220 0 24 2\
+4\x22\x0a    id=\x22vecto\
+r\x22\x0a    width=\x2224\
+px\x22\x0a    height=\x22\
+24px\x22>\x0a    <g id\
+=\x22group\x22>\x0a      \
+  <path\x0a        \
+    id=\x22path\x22\x0a  \
+          d=\x22M 6\
+.5 21 L 3 21 C 2\
+.45 21 2 20.55 2\
+ 20 L 2 8 C 2 7.\
+45 2.45 7 3 7 L \
+6.5 7 C 7.05 7 7\
+.5 7.45 7.5 8 L \
+7.5 20 C 7.5 20.\
+55 7.05 21 6.5 2\
+1 Z M 13.75 14.3\
+33 L 10.25 14.33\
+3 C 9.7 14.333 9\
+.25 14.783 9.25 \
+15.333 L 9.25 20\
+ C 9.25 20.55 9.\
+7 21 10.25 21 L \
+13.75 21 C 14.3 \
+21 14.75 20.55 1\
+4.75 20 L 14.75 \
+15.333 C 14.75 1\
+4.783 14.3 14.33\
+3 13.75 14.333 Z\
+ M 21 9 L 17.5 9\
+ C 16.95 9 16.5 \
+9.45 16.5 10 L 1\
+6.5 20 C 16.5 20\
+.55 16.95 21 17.\
+5 21 L 21 21 C 2\
+1.55 21 22 20.55\
+ 22 20 L 22 10 C\
+ 22 9.45 21.55 9\
+ 21 9 Z\x22\x0a       \
+     fill=\x22#b01d\
+fc\x22\x0a            \
+stroke-width=\x221\x22\
+/>\x0a    </g>\x0a</sv\
+g>\x0a\
+\x00\x00\x02\xd4\
+<\
+svg\x0a    xmlns=\x22h\
+ttp://www.w3.org\
+/2000/svg\x22\x0a    v\
+iewBox=\x220 0 24 2\
+4\x22\x0a    id=\x22vecto\
+r\x22\x0a    width=\x2224\
+px\x22\x0a    height=\x22\
+24px\x22>\x0a    <g id\
+=\x22group\x22>\x0a      \
+  <path\x0a        \
+    id=\x22path\x22\x0a  \
+          d=\x22M 6\
+.5 21 L 3 21 C 2\
+.45 21 2 20.55 2\
+ 20 L 2 6 C 2 5.\
+45 2.45 5 3 5 L \
+6.5 5 C 7.05 5 7\
+.5 5.45 7.5 6 L \
+7.5 20 C 7.5 20.\
+55 7.05 21 6.5 2\
+1 Z M 13.75 12 L\
+ 10.25 12 C 9.7 \
+12 9.25 12.45 9.\
+25 13 L 9.25 20 \
+C 9.25 20.55 9.7\
+ 21 10.25 21 L 1\
+3.75 21 C 14.3 2\
+1 14.75 20.55 14\
+.75 20 L 14.75 1\
+3 C 14.75 12.45 \
+14.3 12 13.75 12\
+ Z M 21 5 L 17.5\
+ 5 C 16.95 5 16.\
+5 5.45 16.5 6 L \
+16.5 20 C 16.5 2\
+0.55 16.95 21 17\
+.5 21 L 21 21 C \
+21.55 21 22 20.5\
+5 22 20 L 22 6 C\
+ 22 5.45 21.55 5\
+ 21 5 Z\x22\x0a       \
+     fill=\x22#a11b\
+fb\x22\x0a            \
+stroke-width=\x221\x22\
+/>\x0a    </g>\x0a</sv\
+g>\x0a\
+\x00\x00\x03\x15\
+<\
+svg\x0a    xmlns=\x22h\
+ttp://www.w3.org\
+/2000/svg\x22\x0a    v\
+iewBox=\x220 0 24 2\
+4\x22\x0a    id=\x22vecto\
+r\x22\x0a    width=\x2224\
+px\x22\x0a    height=\x22\
+24px\x22>\x0a    <g id\
+=\x22group\x22>\x0a      \
+  <path\x0a        \
+    id=\x22path\x22\x0a  \
+          d=\x22M 6\
+.5 21 L 3 21 C 2\
+.45 21 2 20.55 2\
+ 20 L 2 6.667 C \
+2 6.117 2.45 5.6\
+67 3 5.667 L 6.5\
+ 5.667 C 7.05 5.\
+667 7.5 6.117 7.\
+5 6.667 L 7.5 20\
+ C 7.5 20.55 7.0\
+5 21 6.5 21 Z M \
+13.75 13 L 10.25\
+ 13 C 9.7 13 9.2\
+5 13.45 9.25 14 \
+L 9.25 20 C 9.25\
+ 20.55 9.7 21 10\
+.25 21 L 13.75 2\
+1 C 14.3 21 14.7\
+5 20.55 14.75 20\
+ L 14.75 14 C 14\
+.75 13.45 14.3 1\
+3 13.75 13 Z M 2\
+1 15.667 L 17.5 \
+15.667 C 16.95 1\
+5.667 16.5 16.11\
+7 16.5 16.667 L \
+16.5 20 C 16.5 2\
+0.55 16.95 21 17\
+.5 21 L 21 21 C \
+21.55 21 22 20.5\
+5 22 20 L 22 16.\
+667 C 22 16.117 \
+21.55 15.667 21 \
+15.667 Z\x22\x0a      \
+      fill=\x22#d72\
+1fe\x22\x0a           \
+ stroke-width=\x221\
+\x22/>\x0a    </g>\x0a</s\
+vg>\x0a\
+\x00\x00\x02\xd6\
+<\
+svg\x0a    xmlns=\x22h\
+ttp://www.w3.org\
+/2000/svg\x22\x0a    v\
+iewBox=\x220 0 24 2\
+4\x22\x0a    id=\x22vecto\
+r\x22\x0a    width=\x2224\
+px\x22\x0a    height=\x22\
+24px\x22>\x0a    <g id\
+=\x22group\x22>\x0a      \
+  <path\x0a        \
+    id=\x22path\x22\x0a  \
+          d=\x22M 6\
+.5 21 L 3 21 C 2\
+.45 21 2 20.55 2\
+ 20 L 2 10 C 2 9\
+.45 2.45 9 3 9 L\
+ 6.5 9 C 7.05 9 \
+7.5 9.45 7.5 10 \
+L 7.5 20 C 7.5 2\
+0.55 7.05 21 6.5\
+ 21 Z M 13.75 3 \
+L 10.25 3 C 9.7 \
+3 9.25 3.45 9.25\
+ 4 L 9.25 20 C 9\
+.25 20.55 9.7 21\
+ 10.25 21 L 13.7\
+5 21 C 14.3 21 1\
+4.75 20.55 14.75\
+ 20 L 14.75 4 C \
+14.75 3.45 14.3 \
+3 13.75 3 Z M 21\
+ 11 L 17.5 11 C \
+16.95 11 16.5 11\
+.45 16.5 12 L 16\
+.5 20 C 16.5 20.\
+55 16.95 21 17.5\
+ 21 L 21 21 C 21\
+.55 21 22 20.55 \
+22 20 L 22 12 C \
+22 11.45 21.55 1\
+1 21 11 Z\x22\x0a     \
+       fill=\x22#81\
+18f9\x22\x0a          \
+  stroke-width=\x22\
+1\x22/>\x0a    </g>\x0a</\
+svg>\x0a\
+\x00\x00\x02\xdc\
+<\
+svg\x0a    xmlns=\x22h\
+ttp://www.w3.org\
+/2000/svg\x22\x0a    v\
+iewBox=\x220 0 24 2\
+4\x22\x0a    id=\x22vecto\
+r\x22\x0a    width=\x2224\
+px\x22\x0a    height=\x22\
+24px\x22>\x0a    <g id\
+=\x22group\x22>\x0a      \
+  <path\x0a        \
+    id=\x22path\x22\x0a  \
+          d=\x22M 6\
+.5 21 L 3 21 C 2\
+.45 21 2 20.55 2\
+ 20 L 2 18 C 2 1\
+7.45 2.45 17 3 1\
+7 L 6.5 17 C 7.0\
+5 17 7.5 17.45 7\
+.5 18 L 7.5 20 C\
+ 7.5 20.55 7.05 \
+21 6.5 21 Z M 13\
+.75 7 L 10.25 7 \
+C 9.7 7 9.25 7.4\
+5 9.25 8 L 9.25 \
+20 C 9.25 20.55 \
+9.7 21 10.25 21 \
+L 13.75 21 C 14.\
+3 21 14.75 20.55\
+ 14.75 20 L 14.7\
+5 8 C 14.75 7.45\
+ 14.3 7 13.75 7 \
+Z M 21 13 L 17.5\
+ 13 C 16.95 13 1\
+6.5 13.45 16.5 1\
+4 L 16.5 20 C 16\
+.5 20.55 16.95 2\
+1 17.5 21 L 21 2\
+1 C 21.55 21 22 \
+20.55 22 20 L 22\
+ 14 C 22 13.45 2\
+1.55 13 21 13 Z\x22\
+\x0a            fil\
+l=\x22#d621fe\x22\x0a    \
+        stroke-w\
+idth=\x221\x22/>\x0a    <\
+/g>\x0a</svg>\x0a\
+\x00\x00\x03)\
+<\
+svg\x0a    xmlns=\x22h\
+ttp://www.w3.org\
+/2000/svg\x22\x0a    v\
+iewBox=\x220 0 24 2\
+4\x22\x0a    id=\x22vecto\
+r\x22\x0a    width=\x2224\
+px\x22\x0a    height=\x22\
+24px\x22>\x0a    <g id\
+=\x22group\x22>\x0a      \
+  <path\x0a        \
+    id=\x22path\x22\x0a  \
+          d=\x22M 6\
+.5 21 L 3 21 C 2\
+.45 21 2 20.55 2\
+ 20 L 2 16.667 C\
+ 2 16.117 2.45 1\
+5.667 3 15.667 L\
+ 6.5 15.667 C 7.\
+05 15.667 7.5 16\
+.117 7.5 16.667 \
+L 7.5 20 C 7.5 2\
+0.55 7.05 21 6.5\
+ 21 Z M 13.75 6.\
+333 L 10.25 6.33\
+3 C 9.7 6.333 9.\
+25 6.783 9.25 7.\
+333 L 9.25 20 C \
+9.25 20.55 9.7 2\
+1 10.25 21 L 13.\
+75 21 C 14.3 21 \
+14.75 20.55 14.7\
+5 20 L 14.75 7.3\
+33 C 14.75 6.783\
+ 14.3 6.333 13.7\
+5 6.333 Z M 21 4\
+.333 L 17.5 4.33\
+3 C 16.95 4.333 \
+16.5 4.783 16.5 \
+5.333 L 16.5 20 \
+C 16.5 20.55 16.\
+95 21 17.5 21 L \
+21 21 C 21.55 21\
+ 22 20.55 22 20 \
+L 22 5.333 C 22 \
+4.783 21.55 4.33\
+3 21 4.333 Z\x22\x0a  \
+          fill=\x22\
+#8a19f9\x22\x0a       \
+     stroke-widt\
+h=\x221\x22/>\x0a    </g>\
+\x0a</svg>\x0a\
+\x00\x00\x03\x0f\
+<\
+svg\x0a    xmlns=\x22h\
+ttp://www.w3.org\
+/2000/svg\x22\x0a    v\
+iewBox=\x220 0 24 2\
+4\x22\x0a    id=\x22vecto\
+r\x22\x0a    width=\x2224\
+px\x22\x0a    height=\x22\
+24px\x22>\x0a    <g id\
+=\x22group\x22>\x0a      \
+  <path\x0a        \
+    id=\x22path\x22\x0a  \
+          d=\x22M 6\
+.5 21 L 3 21 C 2\
+.45 21 2 20.55 2\
+ 20 L 2 12 C 2 1\
+1.45 2.45 11 3 1\
+1 L 6.5 11 C 7.0\
+5 11 7.5 11.45 7\
+.5 12 L 7.5 20 C\
+ 7.5 20.55 7.05 \
+21 6.5 21 Z M 13\
+.75 5.667 L 10.2\
+5 5.667 C 9.7 5.\
+667 9.25 6.117 9\
+.25 6.667 L 9.25\
+ 20 C 9.25 20.55\
+ 9.7 21 10.25 21\
+ L 13.75 21 C 14\
+.3 21 14.75 20.5\
+5 14.75 20 L 14.\
+75 6.667 C 14.75\
+ 6.117 14.3 5.66\
+7 13.75 5.667 Z \
+M 21 5.667 L 17.\
+5 5.667 C 16.95 \
+5.667 16.5 6.117\
+ 16.5 6.667 L 16\
+.5 20 C 16.5 20.\
+55 16.95 21 17.5\
+ 21 L 21 21 C 21\
+.55 21 22 20.55 \
+22 20 L 22 6.667\
+ C 22 6.117 21.5\
+5 5.667 21 5.667\
+ Z\x22\x0a            \
+fill=\x22#c81ffd\x22\x0a \
+           strok\
+e-width=\x221\x22/>\x0a  \
+  </g>\x0a</svg>\x0a\
+\x00\x00\x03*\
+<\
+svg\x0a    xmlns=\x22h\
+ttp://www.w3.org\
+/2000/svg\x22\x0a    v\
+iewBox=\x220 0 24 2\
+4\x22\x0a    id=\x22vecto\
+r\x22\x0a    width=\x2224\
+px\x22\x0a    height=\x22\
+24px\x22>\x0a    <g id\
+=\x22group\x22>\x0a      \
+  <path\x0a        \
+    id=\x22path\x22\x0a  \
+          d=\x22M 6\
+.5 21 L 3 21 C 2\
+.45 21 2 20.55 2\
+ 20 L 2 5.333 C \
+2 4.783 2.45 4.3\
+33 3 4.333 L 6.5\
+ 4.333 C 7.05 4.\
+333 7.5 4.783 7.\
+5 5.333 L 7.5 20\
+ C 7.5 20.55 7.0\
+5 21 6.5 21 Z M \
+13.75 12.333 L 1\
+0.25 12.333 C 9.\
+7 12.333 9.25 12\
+.783 9.25 13.333\
+ L 9.25 20 C 9.2\
+5 20.55 9.7 21 1\
+0.25 21 L 13.75 \
+21 C 14.3 21 14.\
+75 20.55 14.75 2\
+0 L 14.75 13.333\
+ C 14.75 12.783 \
+14.3 12.333 13.7\
+5 12.333 Z M 21 \
+5.667 L 17.5 5.6\
+67 C 16.95 5.667\
+ 16.5 6.117 16.5\
+ 6.667 L 16.5 20\
+ C 16.5 20.55 16\
+.95 21 17.5 21 L\
+ 21 21 C 21.55 2\
+1 22 20.55 22 20\
+ L 22 6.667 C 22\
+ 6.117 21.55 5.6\
+67 21 5.667 Z\x22\x0a \
+           fill=\
+\x22#991bfa\x22\x0a      \
+      stroke-wid\
+th=\x221\x22/>\x0a    </g\
+>\x0a</svg>\x0a\
+\x00\x00\x03\x15\
+<\
+svg\x0a    xmlns=\x22h\
+ttp://www.w3.org\
+/2000/svg\x22\x0a    v\
+iewBox=\x220 0 24 2\
+4\x22\x0a    id=\x22vecto\
+r\x22\x0a    width=\x2224\
+px\x22\x0a    height=\x22\
+24px\x22>\x0a    <g id\
+=\x22group\x22>\x0a      \
+  <path\x0a        \
+    id=\x22path\x22\x0a  \
+          d=\x22M 6\
+.5 21 L 3 21 C 2\
+.45 21 2 20.55 2\
+ 20 L 2 7.333 C \
+2 6.783 2.45 6.3\
+33 3 6.333 L 6.5\
+ 6.333 C 7.05 6.\
+333 7.5 6.783 7.\
+5 7.333 L 7.5 20\
+ C 7.5 20.55 7.0\
+5 21 6.5 21 Z M \
+13.75 12 L 10.25\
+ 12 C 9.7 12 9.2\
+5 12.45 9.25 13 \
+L 9.25 20 C 9.25\
+ 20.55 9.7 21 10\
+.25 21 L 13.75 2\
+1 C 14.3 21 14.7\
+5 20.55 14.75 20\
+ L 14.75 13 C 14\
+.75 12.45 14.3 1\
+2 13.75 12 Z M 2\
+1 16.333 L 17.5 \
+16.333 C 16.95 1\
+6.333 16.5 16.78\
+3 16.5 17.333 L \
+16.5 20 C 16.5 2\
+0.55 16.95 21 17\
+.5 21 L 21 21 C \
+21.55 21 22 20.5\
+5 22 20 L 22 17.\
+333 C 22 16.783 \
+21.55 16.333 21 \
+16.333 Z\x22\x0a      \
+      fill=\x22#d82\
+1fe\x22\x0a           \
+ stroke-width=\x221\
+\x22/>\x0a    </g>\x0a</s\
+vg>\x0a\
+\x00\x00\x02\xd6\
+<\
+svg\x0a    xmlns=\x22h\
+ttp://www.w3.org\
+/2000/svg\x22\x0a    v\
+iewBox=\x220 0 24 2\
+4\x22\x0a    id=\x22vecto\
+r\x22\x0a    width=\x2224\
+px\x22\x0a    height=\x22\
+24px\x22>\x0a    <g id\
+=\x22group\x22>\x0a      \
+  <path\x0a        \
+    id=\x22path\x22\x0a  \
+          d=\x22M 6\
+.5 21 L 3 21 C 2\
+.45 21 2 20.55 2\
+ 20 L 2 10 C 2 9\
+.45 2.45 9 3 9 L\
+ 6.5 9 C 7.05 9 \
+7.5 9.45 7.5 10 \
+L 7.5 20 C 7.5 2\
+0.55 7.05 21 6.5\
+ 21 Z M 13.75 3 \
+L 10.25 3 C 9.7 \
+3 9.25 3.45 9.25\
+ 4 L 9.25 20 C 9\
+.25 20.55 9.7 21\
+ 10.25 21 L 13.7\
+5 21 C 14.3 21 1\
+4.75 20.55 14.75\
+ 20 L 14.75 4 C \
+14.75 3.45 14.3 \
+3 13.75 3 Z M 21\
+ 11 L 17.5 11 C \
+16.95 11 16.5 11\
+.45 16.5 12 L 16\
+.5 20 C 16.5 20.\
+55 16.95 21 17.5\
+ 21 L 21 21 C 21\
+.55 21 22 20.55 \
+22 20 L 22 12 C \
+22 11.45 21.55 1\
+1 21 11 Z\x22\x0a     \
+       fill=\x22#82\
+18f9\x22\x0a          \
+  stroke-width=\x22\
+1\x22/>\x0a    </g>\x0a</\
+svg>\x0a\
+\x00\x00\x03\x14\
+<\
+svg\x0a    xmlns=\x22h\
+ttp://www.w3.org\
+/2000/svg\x22\x0a    v\
+iewBox=\x220 0 24 2\
+4\x22\x0a    id=\x22vecto\
+r\x22\x0a    width=\x2224\
+px\x22\x0a    height=\x22\
+24px\x22>\x0a    <g id\
+=\x22group\x22>\x0a      \
+  <path\x0a        \
+    id=\x22path\x22\x0a  \
+          d=\x22M 6\
+.5 21 L 3 21 C 2\
+.45 21 2 20.55 2\
+ 20 L 2 17.333 C\
+ 2 16.783 2.45 1\
+6.333 3 16.333 L\
+ 6.5 16.333 C 7.\
+05 16.333 7.5 16\
+.783 7.5 17.333 \
+L 7.5 20 C 7.5 2\
+0.55 7.05 21 6.5\
+ 21 Z M 13.75 6.\
+333 L 10.25 6.33\
+3 C 9.7 6.333 9.\
+25 6.783 9.25 7.\
+333 L 9.25 20 C \
+9.25 20.55 9.7 2\
+1 10.25 21 L 13.\
+75 21 C 14.3 21 \
+14.75 20.55 14.7\
+5 20 L 14.75 7.3\
+33 C 14.75 6.783\
+ 14.3 6.333 13.7\
+5 6.333 Z M 21 1\
+2 L 17.5 12 C 16\
+.95 12 16.5 12.4\
+5 16.5 13 L 16.5\
+ 20 C 16.5 20.55\
+ 16.95 21 17.5 2\
+1 L 21 21 C 21.5\
+5 21 22 20.55 22\
+ 20 L 22 13 C 22\
+ 12.45 21.55 12 \
+21 12 Z\x22\x0a       \
+     fill=\x22#d521\
+fe\x22\x0a            \
+stroke-width=\x221\x22\
+/>\x0a    </g>\x0a</sv\
+g>\x0a\
+\x00\x00\x02\xd3\
+<\
+svg\x0a    xmlns=\x22h\
+ttp://www.w3.org\
+/2000/svg\x22\x0a    v\
+iewBox=\x220 0 24 2\
+4\x22\x0a    id=\x22vecto\
+r\x22\x0a    width=\x2224\
+px\x22\x0a    height=\x22\
+24px\x22>\x0a    <g id\
+=\x22group\x22>\x0a      \
+  <path\x0a        \
+    id=\x22path\x22\x0a  \
+          d=\x22M 6\
+.5 21 L 3 21 C 2\
+.45 21 2 20.55 2\
+ 20 L 2 18 C 2 1\
+7.45 2.45 17 3 1\
+7 L 6.5 17 C 7.0\
+5 17 7.5 17.45 7\
+.5 18 L 7.5 20 C\
+ 7.5 20.55 7.05 \
+21 6.5 21 Z M 13\
+.75 7 L 10.25 7 \
+C 9.7 7 9.25 7.4\
+5 9.25 8 L 9.25 \
+20 C 9.25 20.55 \
+9.7 21 10.25 21 \
+L 13.75 21 C 14.\
+3 21 14.75 20.55\
+ 14.75 20 L 14.7\
+5 8 C 14.75 7.45\
+ 14.3 7 13.75 7 \
+Z M 21 3 L 17.5 \
+3 C 16.95 3 16.5\
+ 3.45 16.5 4 L 1\
+6.5 20 C 16.5 20\
+.55 16.95 21 17.\
+5 21 L 21 21 C 2\
+1.55 21 22 20.55\
+ 22 20 L 22 4 C \
+22 3.45 21.55 3 \
+21 3 Z\x22\x0a        \
+    fill=\x22#8c19f\
+a\x22\x0a            s\
+troke-width=\x221\x22/\
+>\x0a    </g>\x0a</svg\
+>\x0a\
+\x00\x00\x02\xd3\
+<\
+svg\x0a    xmlns=\x22h\
+ttp://www.w3.org\
+/2000/svg\x22\x0a    v\
+iewBox=\x220 0 24 2\
+4\x22\x0a    id=\x22vecto\
+r\x22\x0a    width=\x2224\
+px\x22\x0a    height=\x22\
+24px\x22>\x0a    <g id\
+=\x22group\x22>\x0a      \
+  <path\x0a        \
+    id=\x22path\x22\x0a  \
+          d=\x22M 6\
+.5 21 L 3 21 C 2\
+.45 21 2 20.55 2\
+ 20 L 2 11 C 2 1\
+0.45 2.45 10 3 1\
+0 L 6.5 10 C 7.0\
+5 10 7.5 10.45 7\
+.5 11 L 7.5 20 C\
+ 7.5 20.55 7.05 \
+21 6.5 21 Z M 13\
+.75 7 L 10.25 7 \
+C 9.7 7 9.25 7.4\
+5 9.25 8 L 9.25 \
+20 C 9.25 20.55 \
+9.7 21 10.25 21 \
+L 13.75 21 C 14.\
+3 21 14.75 20.55\
+ 14.75 20 L 14.7\
+5 8 C 14.75 7.45\
+ 14.3 7 13.75 7 \
+Z M 21 5 L 17.5 \
+5 C 16.95 5 16.5\
+ 5.45 16.5 6 L 1\
+6.5 20 C 16.5 20\
+.55 16.95 21 17.\
+5 21 L 21 21 C 2\
+1.55 21 22 20.55\
+ 22 20 L 22 6 C \
+22 5.45 21.55 5 \
+21 5 Z\x22\x0a        \
+    fill=\x22#c41ff\
+d\x22\x0a            s\
+troke-width=\x221\x22/\
+>\x0a    </g>\x0a</svg\
+>\x0a\
+\x00\x00\x03*\
+<\
+svg\x0a    xmlns=\x22h\
+ttp://www.w3.org\
+/2000/svg\x22\x0a    v\
+iewBox=\x220 0 24 2\
+4\x22\x0a    id=\x22vecto\
+r\x22\x0a    width=\x2224\
+px\x22\x0a    height=\x22\
+24px\x22>\x0a    <g id\
+=\x22group\x22>\x0a      \
+  <path\x0a        \
+    id=\x22path\x22\x0a  \
+          d=\x22M 6\
+.5 21 L 3 21 C 2\
+.45 21 2 20.55 2\
+ 20 L 2 4.667 C \
+2 4.117 2.45 3.6\
+67 3 3.667 L 6.5\
+ 3.667 C 7.05 3.\
+667 7.5 4.117 7.\
+5 4.667 L 7.5 20\
+ C 7.5 20.55 7.0\
+5 21 6.5 21 Z M \
+13.75 12.667 L 1\
+0.25 12.667 C 9.\
+7 12.667 9.25 13\
+.117 9.25 13.667\
+ L 9.25 20 C 9.2\
+5 20.55 9.7 21 1\
+0.25 21 L 13.75 \
+21 C 14.3 21 14.\
+75 20.55 14.75 2\
+0 L 14.75 13.667\
+ C 14.75 13.117 \
+14.3 12.667 13.7\
+5 12.667 Z M 21 \
+6.333 L 17.5 6.3\
+33 C 16.95 6.333\
+ 16.5 6.783 16.5\
+ 7.333 L 16.5 20\
+ C 16.5 20.55 16\
+.95 21 17.5 21 L\
+ 21 21 C 21.55 2\
+1 22 20.55 22 20\
+ L 22 7.333 C 22\
+ 6.783 21.55 6.3\
+33 21 6.333 Z\x22\x0a \
+           fill=\
+\x22#921afa\x22\x0a      \
+      stroke-wid\
+th=\x221\x22/>\x0a    </g\
+>\x0a</svg>\x0a\
+\x00\x00\x02\xdd\
+<\
+svg\x0a    xmlns=\x22h\
+ttp://www.w3.org\
+/2000/svg\x22\x0a    v\
+iewBox=\x220 0 24 2\
+4\x22\x0a    id=\x22vecto\
+r\x22\x0a    width=\x2224\
+px\x22\x0a    height=\x22\
+24px\x22>\x0a    <g id\
+=\x22group\x22>\x0a      \
+  <path\x0a        \
+    id=\x22path\x22\x0a  \
+          d=\x22M 6\
+.5 21 L 3 21 C 2\
+.45 21 2 20.55 2\
+ 20 L 2 8 C 2 7.\
+45 2.45 7 3 7 L \
+6.5 7 C 7.05 7 7\
+.5 7.45 7.5 8 L \
+7.5 20 C 7.5 20.\
+55 7.05 21 6.5 2\
+1 Z M 13.75 11 L\
+ 10.25 11 C 9.7 \
+11 9.25 11.45 9.\
+25 12 L 9.25 20 \
+C 9.25 20.55 9.7\
+ 21 10.25 21 L 1\
+3.75 21 C 14.3 2\
+1 14.75 20.55 14\
+.75 20 L 14.75 1\
+2 C 14.75 11.45 \
+14.3 11 13.75 11\
+ Z M 21 17 L 17.\
+5 17 C 16.95 17 \
+16.5 17.45 16.5 \
+18 L 16.5 20 C 1\
+6.5 20.55 16.95 \
+21 17.5 21 L 21 \
+21 C 21.55 21 22\
+ 20.55 22 20 L 2\
+2 18 C 22 17.45 \
+21.55 17 21 17 Z\
+\x22\x0a            fi\
+ll=\x22#d821fe\x22\x0a   \
+         stroke-\
+width=\x221\x22/>\x0a    \
+</g>\x0a</svg>\x0a\
+\x00\x00\x02\xd6\
+<\
+svg\x0a    xmlns=\x22h\
+ttp://www.w3.org\
+/2000/svg\x22\x0a    v\
+iewBox=\x220 0 24 2\
+4\x22\x0a    id=\x22vecto\
+r\x22\x0a    width=\x2224\
+px\x22\x0a    height=\x22\
+24px\x22>\x0a    <g id\
+=\x22group\x22>\x0a      \
+  <path\x0a        \
+    id=\x22path\x22\x0a  \
+          d=\x22M 6\
+.5 21 L 3 21 C 2\
+.45 21 2 20.55 2\
+ 20 L 2 10 C 2 9\
+.45 2.45 9 3 9 L\
+ 6.5 9 C 7.05 9 \
+7.5 9.45 7.5 10 \
+L 7.5 20 C 7.5 2\
+0.55 7.05 21 6.5\
+ 21 Z M 13.75 3 \
+L 10.25 3 C 9.7 \
+3 9.25 3.45 9.25\
+ 4 L 9.25 20 C 9\
+.25 20.55 9.7 21\
+ 10.25 21 L 13.7\
+5 21 C 14.3 21 1\
+4.75 20.55 14.75\
+ 20 L 14.75 4 C \
+14.75 3.45 14.3 \
+3 13.75 3 Z M 21\
+ 11 L 17.5 11 C \
+16.95 11 16.5 11\
+.45 16.5 12 L 16\
+.5 20 C 16.5 20.\
+55 16.95 21 17.5\
+ 21 L 21 21 C 21\
+.55 21 22 20.55 \
+22 20 L 22 12 C \
+22 11.45 21.55 1\
+1 21 11 Z\x22\x0a     \
+       fill=\x22#82\
+18f9\x22\x0a          \
+  stroke-width=\x22\
+1\x22/>\x0a    </g>\x0a</\
+svg>\x0a\
+\x00\x00\x03\x14\
+<\
+svg\x0a    xmlns=\x22h\
+ttp://www.w3.org\
+/2000/svg\x22\x0a    v\
+iewBox=\x220 0 24 2\
+4\x22\x0a    id=\x22vecto\
+r\x22\x0a    width=\x2224\
+px\x22\x0a    height=\x22\
+24px\x22>\x0a    <g id\
+=\x22group\x22>\x0a      \
+  <path\x0a        \
+    id=\x22path\x22\x0a  \
+          d=\x22M 6\
+.5 21 L 3 21 C 2\
+.45 21 2 20.55 2\
+ 20 L 2 16.667 C\
+ 2 16.117 2.45 1\
+5.667 3 15.667 L\
+ 6.5 15.667 C 7.\
+05 15.667 7.5 16\
+.117 7.5 16.667 \
+L 7.5 20 C 7.5 2\
+0.55 7.05 21 6.5\
+ 21 Z M 13.75 5.\
+667 L 10.25 5.66\
+7 C 9.7 5.667 9.\
+25 6.117 9.25 6.\
+667 L 9.25 20 C \
+9.25 20.55 9.7 2\
+1 10.25 21 L 13.\
+75 21 C 14.3 21 \
+14.75 20.55 14.7\
+5 20 L 14.75 6.6\
+67 C 14.75 6.117\
+ 14.3 5.667 13.7\
+5 5.667 Z M 21 1\
+1 L 17.5 11 C 16\
+.95 11 16.5 11.4\
+5 16.5 12 L 16.5\
+ 20 C 16.5 20.55\
+ 16.95 21 17.5 2\
+1 L 21 21 C 21.5\
+5 21 22 20.55 22\
+ 20 L 22 12 C 22\
+ 11.45 21.55 11 \
+21 11 Z\x22\x0a       \
+     fill=\x22#d421\
+fe\x22\x0a            \
+stroke-width=\x221\x22\
+/>\x0a    </g>\x0a</sv\
+g>\x0a\
+\x00\x00\x03\x0b\
+<\
+svg\x0a    xmlns=\x22h\
+ttp://www.w3.org\
+/2000/svg\x22\x0a    v\
+iewBox=\x220 0 24 2\
+4\x22\x0a    id=\x22vecto\
+r\x22\x0a    width=\x2224\
+px\x22\x0a    height=\x22\
+24px\x22>\x0a    <g id\
+=\x22group\x22>\x0a      \
+  <path\x0a        \
+    id=\x22path\x22\x0a  \
+          d=\x22M 6\
+.5 21 L 3 21 C 2\
+.45 21 2 20.55 2\
+ 20 L 2 16.667 C\
+ 2 16.117 2.45 1\
+5.667 3 15.667 L\
+ 6.5 15.667 C 7.\
+05 15.667 7.5 16\
+.117 7.5 16.667 \
+L 7.5 20 C 7.5 2\
+0.55 7.05 21 6.5\
+ 21 Z M 13.75 8 \
+L 10.25 8 C 9.7 \
+8 9.25 8.45 9.25\
+ 9 L 9.25 20 C 9\
+.25 20.55 9.7 21\
+ 10.25 21 L 13.7\
+5 21 C 14.3 21 1\
+4.75 20.55 14.75\
+ 20 L 14.75 9 C \
+14.75 8.45 14.3 \
+8 13.75 8 Z M 21\
+ 3.667 L 17.5 3.\
+667 C 16.95 3.66\
+7 16.5 4.117 16.\
+5 4.667 L 16.5 2\
+0 C 16.5 20.55 1\
+6.95 21 17.5 21 \
+L 21 21 C 21.55 \
+21 22 20.55 22 2\
+0 L 22 4.667 C 2\
+2 4.117 21.55 3.\
+667 21 3.667 Z\x22\x0a\
+            fill\
+=\x22#8e19fa\x22\x0a     \
+       stroke-wi\
+dth=\x221\x22/>\x0a    </\
+g>\x0a</svg>\x0a\
+\x00\x00\x03\x09\
+<\
+svg\x0a    xmlns=\x22h\
+ttp://www.w3.org\
+/2000/svg\x22\x0a    v\
+iewBox=\x220 0 24 2\
+4\x22\x0a    id=\x22vecto\
+r\x22\x0a    width=\x2224\
+px\x22\x0a    height=\x22\
+24px\x22>\x0a    <g id\
+=\x22group\x22>\x0a      \
+  <path\x0a        \
+    id=\x22path\x22\x0a  \
+          d=\x22M 6\
+.5 21 L 3 21 C 2\
+.45 21 2 20.55 2\
+ 20 L 2 10 C 2 9\
+.45 2.45 9 3 9 L\
+ 6.5 9 C 7.05 9 \
+7.5 9.45 7.5 10 \
+L 7.5 20 C 7.5 2\
+0.55 7.05 21 6.5\
+ 21 Z M 13.75 8.\
+333 L 10.25 8.33\
+3 C 9.7 8.333 9.\
+25 8.783 9.25 9.\
+333 L 9.25 20 C \
+9.25 20.55 9.7 2\
+1 10.25 21 L 13.\
+75 21 C 14.3 21 \
+14.75 20.55 14.7\
+5 20 L 14.75 9.3\
+33 C 14.75 8.783\
+ 14.3 8.333 13.7\
+5 8.333 Z M 21 4\
+.333 L 17.5 4.33\
+3 C 16.95 4.333 \
+16.5 4.783 16.5 \
+5.333 L 16.5 20 \
+C 16.5 20.55 16.\
+95 21 17.5 21 L \
+21 21 C 21.55 21\
+ 22 20.55 22 20 \
+L 22 5.333 C 22 \
+4.783 21.55 4.33\
+3 21 4.333 Z\x22\x0a  \
+          fill=\x22\
+#c11ffd\x22\x0a       \
+     stroke-widt\
+h=\x221\x22/>\x0a    </g>\
+\x0a</svg>\x0a\
+\x00\x00\x02\xdd\
+<\
+svg\x0a    xmlns=\x22h\
+ttp://www.w3.org\
+/2000/svg\x22\x0a    v\
+iewBox=\x220 0 24 2\
+4\x22\x0a    id=\x22vecto\
+r\x22\x0a    width=\x2224\
+px\x22\x0a    height=\x22\
+24px\x22>\x0a    <g id\
+=\x22group\x22>\x0a      \
+  <path\x0a        \
+    id=\x22path\x22\x0a  \
+          d=\x22M 6\
+.5 21 L 3 21 C 2\
+.45 21 2 20.55 2\
+ 20 L 2 7 C 2 6.\
+45 2.45 6 3 6 L \
+6.5 6 C 7.05 6 7\
+.5 6.45 7.5 7 L \
+7.5 20 C 7.5 20.\
+55 7.05 21 6.5 2\
+1 Z M 13.75 15 L\
+ 10.25 15 C 9.7 \
+15 9.25 15.45 9.\
+25 16 L 9.25 20 \
+C 9.25 20.55 9.7\
+ 21 10.25 21 L 1\
+3.75 21 C 14.3 2\
+1 14.75 20.55 14\
+.75 20 L 14.75 1\
+6 C 14.75 15.45 \
+14.3 15 13.75 15\
+ Z M 21 10 L 17.\
+5 10 C 16.95 10 \
+16.5 10.45 16.5 \
+11 L 16.5 20 C 1\
+6.5 20.55 16.95 \
+21 17.5 21 L 21 \
+21 C 21.55 21 22\
+ 20.55 22 20 L 2\
+2 11 C 22 10.45 \
+21.55 10 21 10 Z\
+\x22\x0a            fi\
+ll=\x22#b81efc\x22\x0a   \
+         stroke-\
+width=\x221\x22/>\x0a    \
+</g>\x0a</svg>\x0a\
+\x00\x00\x02\xd4\
+<\
+svg\x0a    xmlns=\x22h\
+ttp://www.w3.org\
+/2000/svg\x22\x0a    v\
+iewBox=\x220 0 24 2\
+4\x22\x0a    id=\x22vecto\
+r\x22\x0a    width=\x2224\
+px\x22\x0a    height=\x22\
+24px\x22>\x0a    <g id\
+=\x22group\x22>\x0a      \
+  <path\x0a        \
+    id=\x22path\x22\x0a  \
+          d=\x22M 6\
+.5 21 L 3 21 C 2\
+.45 21 2 20.55 2\
+ 20 L 2 4 C 2 3.\
+45 2.45 3 3 3 L \
+6.5 3 C 7.05 3 7\
+.5 3.45 7.5 4 L \
+7.5 20 C 7.5 20.\
+55 7.05 21 6.5 2\
+1 Z M 13.75 13 L\
+ 10.25 13 C 9.7 \
+13 9.25 13.45 9.\
+25 14 L 9.25 20 \
+C 9.25 20.55 9.7\
+ 21 10.25 21 L 1\
+3.75 21 C 14.3 2\
+1 14.75 20.55 14\
+.75 20 L 14.75 1\
+4 C 14.75 13.45 \
+14.3 13 13.75 13\
+ Z M 21 7 L 17.5\
+ 7 C 16.95 7 16.\
+5 7.45 16.5 8 L \
+16.5 20 C 16.5 2\
+0.55 16.95 21 17\
+.5 21 L 21 21 C \
+21.55 21 22 20.5\
+5 22 20 L 22 8 C\
+ 22 7.45 21.55 7\
+ 21 7 Z\x22\x0a       \
+     fill=\x22#8d19\
+fa\x22\x0a            \
+stroke-width=\x221\x22\
+/>\x0a    </g>\x0a</sv\
+g>\x0a\
+\x00\x00\x02\xd6\
+<\
+svg\x0a    xmlns=\x22h\
+ttp://www.w3.org\
+/2000/svg\x22\x0a    v\
+iewBox=\x220 0 24 2\
+4\x22\x0a    id=\x22vecto\
+r\x22\x0a    width=\x2224\
+px\x22\x0a    height=\x22\
+24px\x22>\x0a    <g id\
+=\x22group\x22>\x0a      \
+  <path\x0a        \
+    id=\x22path\x22\x0a  \
+          d=\x22M 6\
+.5 21 L 3 21 C 2\
+.45 21 2 20.55 2\
+ 20 L 2 10 C 2 9\
+.45 2.45 9 3 9 L\
+ 6.5 9 C 7.05 9 \
+7.5 9.45 7.5 10 \
+L 7.5 20 C 7.5 2\
+0.55 7.05 21 6.5\
+ 21 Z M 13.75 3 \
+L 10.25 3 C 9.7 \
+3 9.25 3.45 9.25\
+ 4 L 9.25 20 C 9\
+.25 20.55 9.7 21\
+ 10.25 21 L 13.7\
+5 21 C 14.3 21 1\
+4.75 20.55 14.75\
+ 20 L 14.75 4 C \
+14.75 3.45 14.3 \
+3 13.75 3 Z M 21\
+ 11 L 17.5 11 C \
+16.95 11 16.5 11\
+.45 16.5 12 L 16\
+.5 20 C 16.5 20.\
+55 16.95 21 17.5\
+ 21 L 21 21 C 21\
+.55 21 22 20.55 \
+22 20 L 22 12 C \
+22 11.45 21.55 1\
+1 21 11 Z\x22\x0a     \
+       fill=\x22#83\
+18f9\x22\x0a          \
+  stroke-width=\x22\
+1\x22/>\x0a    </g>\x0a</\
+svg>\x0a\
+\x00\x00\x02\xdc\
+<\
+svg\x0a    xmlns=\x22h\
+ttp://www.w3.org\
+/2000/svg\x22\x0a    v\
+iewBox=\x220 0 24 2\
+4\x22\x0a    id=\x22vecto\
+r\x22\x0a    width=\x2224\
+px\x22\x0a    height=\x22\
+24px\x22>\x0a    <g id\
+=\x22group\x22>\x0a      \
+  <path\x0a        \
+    id=\x22path\x22\x0a  \
+          d=\x22M 6\
+.5 21 L 3 21 C 2\
+.45 21 2 20.55 2\
+ 20 L 2 16 C 2 1\
+5.45 2.45 15 3 1\
+5 L 6.5 15 C 7.0\
+5 15 7.5 15.45 7\
+.5 16 L 7.5 20 C\
+ 7.5 20.55 7.05 \
+21 6.5 21 Z M 13\
+.75 5 L 10.25 5 \
+C 9.7 5 9.25 5.4\
+5 9.25 6 L 9.25 \
+20 C 9.25 20.55 \
+9.7 21 10.25 21 \
+L 13.75 21 C 14.\
+3 21 14.75 20.55\
+ 14.75 20 L 14.7\
+5 6 C 14.75 5.45\
+ 14.3 5 13.75 5 \
+Z M 21 10 L 17.5\
+ 10 C 16.95 10 1\
+6.5 10.45 16.5 1\
+1 L 16.5 20 C 16\
+.5 20.55 16.95 2\
+1 17.5 21 L 21 2\
+1 C 21.55 21 22 \
+20.55 22 20 L 22\
+ 11 C 22 10.45 2\
+1.55 10 21 10 Z\x22\
+\x0a            fil\
+l=\x22#d320fe\x22\x0a    \
+        stroke-w\
+idth=\x221\x22/>\x0a    <\
+/g>\x0a</svg>\x0a\
+\x00\x00\x03\x0d\
+<\
+svg\x0a    xmlns=\x22h\
+ttp://www.w3.org\
+/2000/svg\x22\x0a    v\
+iewBox=\x220 0 24 2\
+4\x22\x0a    id=\x22vecto\
+r\x22\x0a    width=\x2224\
+px\x22\x0a    height=\x22\
+24px\x22>\x0a    <g id\
+=\x22group\x22>\x0a      \
+  <path\x0a        \
+    id=\x22path\x22\x0a  \
+          d=\x22M 6\
+.5 21 L 3 21 C 2\
+.45 21 2 20.55 2\
+ 20 L 2 15.333 C\
+ 2 14.783 2.45 1\
+4.333 3 14.333 L\
+ 6.5 14.333 C 7.\
+05 14.333 7.5 14\
+.783 7.5 15.333 \
+L 7.5 20 C 7.5 2\
+0.55 7.05 21 6.5\
+ 21 Z M 13.75 9 \
+L 10.25 9 C 9.7 \
+9 9.25 9.45 9.25\
+ 10 L 9.25 20 C \
+9.25 20.55 9.7 2\
+1 10.25 21 L 13.\
+75 21 C 14.3 21 \
+14.75 20.55 14.7\
+5 20 L 14.75 10 \
+C 14.75 9.45 14.\
+3 9 13.75 9 Z M \
+21 4.333 L 17.5 \
+4.333 C 16.95 4.\
+333 16.5 4.783 1\
+6.5 5.333 L 16.5\
+ 20 C 16.5 20.55\
+ 16.95 21 17.5 2\
+1 L 21 21 C 21.5\
+5 21 22 20.55 22\
+ 20 L 22 5.333 C\
+ 22 4.783 21.55 \
+4.333 21 4.333 Z\
+\x22\x0a            fi\
+ll=\x22#911afa\x22\x0a   \
+         stroke-\
+width=\x221\x22/>\x0a    \
+</g>\x0a</svg>\x0a\
+\x00\x00\x03\x0b\
+<\
+svg\x0a    xmlns=\x22h\
+ttp://www.w3.org\
+/2000/svg\x22\x0a    v\
+iewBox=\x220 0 24 2\
+4\x22\x0a    id=\x22vecto\
+r\x22\x0a    width=\x2224\
+px\x22\x0a    height=\x22\
+24px\x22>\x0a    <g id\
+=\x22group\x22>\x0a      \
+  <path\x0a        \
+    id=\x22path\x22\x0a  \
+          d=\x22M 6\
+.5 21 L 3 21 C 2\
+.45 21 2 20.55 2\
+ 20 L 2 9 C 2 8.\
+45 2.45 8 3 8 L \
+6.5 8 C 7.05 8 7\
+.5 8.45 7.5 9 L \
+7.5 20 C 7.5 20.\
+55 7.05 21 6.5 2\
+1 Z M 13.75 9.66\
+7 L 10.25 9.667 \
+C 9.7 9.667 9.25\
+ 10.117 9.25 10.\
+667 L 9.25 20 C \
+9.25 20.55 9.7 2\
+1 10.25 21 L 13.\
+75 21 C 14.3 21 \
+14.75 20.55 14.7\
+5 20 L 14.75 10.\
+667 C 14.75 10.1\
+17 14.3 9.667 13\
+.75 9.667 Z M 21\
+ 3.667 L 17.5 3.\
+667 C 16.95 3.66\
+7 16.5 4.117 16.\
+5 4.667 L 16.5 2\
+0 C 16.5 20.55 1\
+6.95 21 17.5 21 \
+L 21 21 C 21.55 \
+21 22 20.55 22 2\
+0 L 22 4.667 C 2\
+2 4.117 21.55 3.\
+667 21 3.667 Z\x22\x0a\
+            fill\
+=\x22#bc1efc\x22\x0a     \
+       stroke-wi\
+dth=\x221\x22/>\x0a    </\
+g>\x0a</svg>\x0a\
+\x00\x00\x02\xfb\
+<\
+svg\x0a    xmlns=\x22h\
+ttp://www.w3.org\
+/2000/svg\x22\x0a    v\
+iewBox=\x220 0 24 2\
+4\x22\x0a    id=\x22vecto\
+r\x22\x0a    width=\x2224\
+px\x22\x0a    height=\x22\
+24px\x22>\x0a    <g id\
+=\x22group\x22>\x0a      \
+  <path\x0a        \
+    id=\x22path\x22\x0a  \
+          d=\x22M 6\
+.5 21 L 3 21 C 2\
+.45 21 2 20.55 2\
+ 20 L 2 6 C 2 5.\
+45 2.45 5 3 5 L \
+6.5 5 C 7.05 5 7\
+.5 5.45 7.5 6 L \
+7.5 20 C 7.5 20.\
+55 7.05 21 6.5 2\
+1 Z M 13.75 15.6\
+67 L 10.25 15.66\
+7 C 9.7 15.667 9\
+.25 16.117 9.25 \
+16.667 L 9.25 20\
+ C 9.25 20.55 9.\
+7 21 10.25 21 L \
+13.75 21 C 14.3 \
+21 14.75 20.55 1\
+4.75 20 L 14.75 \
+16.667 C 14.75 1\
+6.117 14.3 15.66\
+7 13.75 15.667 Z\
+ M 21 11 L 17.5 \
+11 C 16.95 11 16\
+.5 11.45 16.5 12\
+ L 16.5 20 C 16.\
+5 20.55 16.95 21\
+ 17.5 21 L 21 21\
+ C 21.55 21 22 2\
+0.55 22 20 L 22 \
+12 C 22 11.45 21\
+.55 11 21 11 Z\x22\x0a\
+            fill\
+=\x22#c01efd\x22\x0a     \
+       stroke-wi\
+dth=\x221\x22/>\x0a    </\
+g>\x0a</svg>\x0a\
+\x00\x00\x03\x10\
+<\
+svg\x0a    xmlns=\x22h\
+ttp://www.w3.org\
+/2000/svg\x22\x0a    v\
+iewBox=\x220 0 24 2\
+4\x22\x0a    id=\x22vecto\
+r\x22\x0a    width=\x2224\
+px\x22\x0a    height=\x22\
+24px\x22>\x0a    <g id\
+=\x22group\x22>\x0a      \
+  <path\x0a        \
+    id=\x22path\x22\x0a  \
+          d=\x22M 6\
+.5 21 L 3 21 C 2\
+.45 21 2 20.55 2\
+ 20 L 2 5 C 2 4.\
+45 2.45 4 3 4 L \
+6.5 4 C 7.05 4 7\
+.5 4.45 7.5 5 L \
+7.5 20 C 7.5 20.\
+55 7.05 21 6.5 2\
+1 Z M 13.75 11.3\
+33 L 10.25 11.33\
+3 C 9.7 11.333 9\
+.25 11.783 9.25 \
+12.333 L 9.25 20\
+ C 9.25 20.55 9.\
+7 21 10.25 21 L \
+13.75 21 C 14.3 \
+21 14.75 20.55 1\
+4.75 20 L 14.75 \
+12.333 C 14.75 1\
+1.783 14.3 11.33\
+3 13.75 11.333 Z\
+ M 21 7.667 L 17\
+.5 7.667 C 16.95\
+ 7.667 16.5 8.11\
+7 16.5 8.667 L 1\
+6.5 20 C 16.5 20\
+.55 16.95 21 17.\
+5 21 L 21 21 C 2\
+1.55 21 22 20.55\
+ 22 20 L 22 8.66\
+7 C 22 8.117 21.\
+55 7.667 21 7.66\
+7 Z\x22\x0a           \
+ fill=\x22#8819f9\x22\x0a\
+            stro\
+ke-width=\x221\x22/>\x0a \
+   </g>\x0a</svg>\x0a\
+\x00\x00\x03-\
+<\
+svg\x0a    xmlns=\x22h\
+ttp://www.w3.org\
+/2000/svg\x22\x0a    v\
+iewBox=\x220 0 24 2\
+4\x22\x0a    id=\x22vecto\
+r\x22\x0a    width=\x2224\
+px\x22\x0a    height=\x22\
+24px\x22>\x0a    <g id\
+=\x22group\x22>\x0a      \
+  <path\x0a        \
+    id=\x22path\x22\x0a  \
+          d=\x22M 6\
+.5 21 L 3 21 C 2\
+.45 21 2 20.55 2\
+ 20 L 2 11.333 C\
+ 2 10.783 2.45 1\
+0.333 3 10.333 L\
+ 6.5 10.333 C 7.\
+05 10.333 7.5 10\
+.783 7.5 11.333 \
+L 7.5 20 C 7.5 2\
+0.55 7.05 21 6.5\
+ 21 Z M 13.75 3.\
+667 L 10.25 3.66\
+7 C 9.7 3.667 9.\
+25 4.117 9.25 4.\
+667 L 9.25 20 C \
+9.25 20.55 9.7 2\
+1 10.25 21 L 13.\
+75 21 C 14.3 21 \
+14.75 20.55 14.7\
+5 20 L 14.75 4.6\
+67 C 14.75 4.117\
+ 14.3 3.667 13.7\
+5 3.667 Z M 21 9\
+.667 L 17.5 9.66\
+7 C 16.95 9.667 \
+16.5 10.117 16.5\
+ 10.667 L 16.5 2\
+0 C 16.5 20.55 1\
+6.95 21 17.5 21 \
+L 21 21 C 21.55 \
+21 22 20.55 22 2\
+0 L 22 10.667 C \
+22 10.117 21.55 \
+9.667 21 9.667 Z\
+\x22\x0a            fi\
+ll=\x22#8418f9\x22\x0a   \
+         stroke-\
+width=\x221\x22/>\x0a    \
+</g>\x0a</svg>\x0a\
+\x00\x00\x03\x0d\
+<\
+svg\x0a    xmlns=\x22h\
+ttp://www.w3.org\
+/2000/svg\x22\x0a    v\
+iewBox=\x220 0 24 2\
+4\x22\x0a    id=\x22vecto\
+r\x22\x0a    width=\x2224\
+px\x22\x0a    height=\x22\
+24px\x22>\x0a    <g id\
+=\x22group\x22>\x0a      \
+  <path\x0a        \
+    id=\x22path\x22\x0a  \
+          d=\x22M 6\
+.5 21 L 3 21 C 2\
+.45 21 2 20.55 2\
+ 20 L 2 15.333 C\
+ 2 14.783 2.45 1\
+4.333 3 14.333 L\
+ 6.5 14.333 C 7.\
+05 14.333 7.5 14\
+.783 7.5 15.333 \
+L 7.5 20 C 7.5 2\
+0.55 7.05 21 6.5\
+ 21 Z M 13.75 4.\
+333 L 10.25 4.33\
+3 C 9.7 4.333 9.\
+25 4.783 9.25 5.\
+333 L 9.25 20 C \
+9.25 20.55 9.7 2\
+1 10.25 21 L 13.\
+75 21 C 14.3 21 \
+14.75 20.55 14.7\
+5 20 L 14.75 5.3\
+33 C 14.75 4.783\
+ 14.3 4.333 13.7\
+5 4.333 Z M 21 9\
+ L 17.5 9 C 16.9\
+5 9 16.5 9.45 16\
+.5 10 L 16.5 20 \
+C 16.5 20.55 16.\
+95 21 17.5 21 L \
+21 21 C 21.55 21\
+ 22 20.55 22 20 \
+L 22 10 C 22 9.4\
+5 21.55 9 21 9 Z\
+\x22\x0a            fi\
+ll=\x22#d120fe\x22\x0a   \
+         stroke-\
+width=\x221\x22/>\x0a    \
+</g>\x0a</svg>\x0a\
+\x00\x00\x02\xdc\
+<\
+svg\x0a    xmlns=\x22h\
+ttp://www.w3.org\
+/2000/svg\x22\x0a    v\
+iewBox=\x220 0 24 2\
+4\x22\x0a    id=\x22vecto\
+r\x22\x0a    width=\x2224\
+px\x22\x0a    height=\x22\
+24px\x22>\x0a    <g id\
+=\x22group\x22>\x0a      \
+  <path\x0a        \
+    id=\x22path\x22\x0a  \
+          d=\x22M 6\
+.5 21 L 3 21 C 2\
+.45 21 2 20.55 2\
+ 20 L 2 14 C 2 1\
+3.45 2.45 13 3 1\
+3 L 6.5 13 C 7.0\
+5 13 7.5 13.45 7\
+.5 14 L 7.5 20 C\
+ 7.5 20.55 7.05 \
+21 6.5 21 Z M 13\
+.75 10 L 10.25 1\
+0 C 9.7 10 9.25 \
+10.45 9.25 11 L \
+9.25 20 C 9.25 2\
+0.55 9.7 21 10.2\
+5 21 L 13.75 21 \
+C 14.3 21 14.75 \
+20.55 14.75 20 L\
+ 14.75 11 C 14.7\
+5 10.45 14.3 10 \
+13.75 10 Z M 21 \
+5 L 17.5 5 C 16.\
+95 5 16.5 5.45 1\
+6.5 6 L 16.5 20 \
+C 16.5 20.55 16.\
+95 21 17.5 21 L \
+21 21 C 21.55 21\
+ 22 20.55 22 20 \
+L 22 6 C 22 5.45\
+ 21.55 5 21 5 Z\x22\
+\x0a            fil\
+l=\x22#951afa\x22\x0a    \
+        stroke-w\
+idth=\x221\x22/>\x0a    <\
+/g>\x0a</svg>\x0a\
+\x00\x00\x02\xd4\
+<\
+svg\x0a    xmlns=\x22h\
+ttp://www.w3.org\
+/2000/svg\x22\x0a    v\
+iewBox=\x220 0 24 2\
+4\x22\x0a    id=\x22vecto\
+r\x22\x0a    width=\x2224\
+px\x22\x0a    height=\x22\
+24px\x22>\x0a    <g id\
+=\x22group\x22>\x0a      \
+  <path\x0a        \
+    id=\x22path\x22\x0a  \
+          d=\x22M 6\
+.5 21 L 3 21 C 2\
+.45 21 2 20.55 2\
+ 20 L 2 8 C 2 7.\
+45 2.45 7 3 7 L \
+6.5 7 C 7.05 7 7\
+.5 7.45 7.5 8 L \
+7.5 20 C 7.5 20.\
+55 7.05 21 6.5 2\
+1 Z M 13.75 11 L\
+ 10.25 11 C 9.7 \
+11 9.25 11.45 9.\
+25 12 L 9.25 20 \
+C 9.25 20.55 9.7\
+ 21 10.25 21 L 1\
+3.75 21 C 14.3 2\
+1 14.75 20.55 14\
+.75 20 L 14.75 1\
+2 C 14.75 11.45 \
+14.3 11 13.75 11\
+ Z M 21 3 L 17.5\
+ 3 C 16.95 3 16.\
+5 3.45 16.5 4 L \
+16.5 20 C 16.5 2\
+0.55 16.95 21 17\
+.5 21 L 21 21 C \
+21.55 21 22 20.5\
+5 22 20 L 22 4 C\
+ 22 3.45 21.55 3\
+ 21 3 Z\x22\x0a       \
+     fill=\x22#b61e\
+fc\x22\x0a            \
+stroke-width=\x221\x22\
+/>\x0a    </g>\x0a</sv\
+g>\x0a\
+\x00\x00\x02\xfb\
+<\
+svg\x0a    xmlns=\x22h\
+ttp://www.w3.org\
+/2000/svg\x22\x0a    v\
+iewBox=\x220 0 24 2\
+4\x22\x0a    id=\x22vecto\
+r\x22\x0a    width=\x2224\
+px\x22\x0a    height=\x22\
+24px\x22>\x0a    <g id\
+=\x22group\x22>\x0a      \
+  <path\x0a        \
+    id=\x22path\x22\x0a  \
+          d=\x22M 6\
+.5 21 L 3 21 C 2\
+.45 21 2 20.55 2\
+ 20 L 2 5 C 2 4.\
+45 2.45 4 3 4 L \
+6.5 4 C 7.05 4 7\
+.5 4.45 7.5 5 L \
+7.5 20 C 7.5 20.\
+55 7.05 21 6.5 2\
+1 Z M 13.75 16.3\
+33 L 10.25 16.33\
+3 C 9.7 16.333 9\
+.25 16.783 9.25 \
+17.333 L 9.25 20\
+ C 9.25 20.55 9.\
+7 21 10.25 21 L \
+13.75 21 C 14.3 \
+21 14.75 20.55 1\
+4.75 20 L 14.75 \
+17.333 C 14.75 1\
+6.783 14.3 16.33\
+3 13.75 16.333 Z\
+ M 21 12 L 17.5 \
+12 C 16.95 12 16\
+.5 12.45 16.5 13\
+ L 16.5 20 C 16.\
+5 20.55 16.95 21\
+ 17.5 21 L 21 21\
+ C 21.55 21 22 2\
+0.55 22 20 L 22 \
+13 C 22 12.45 21\
+.55 12 21 12 Z\x22\x0a\
+            fill\
+=\x22#c71ffd\x22\x0a     \
+       stroke-wi\
+dth=\x221\x22/>\x0a    </\
+g>\x0a</svg>\x0a\
+\x00\x00\x02\xd6\
+<\
+svg\x0a    xmlns=\x22h\
+ttp://www.w3.org\
+/2000/svg\x22\x0a    v\
+iewBox=\x220 0 24 2\
+4\x22\x0a    id=\x22vecto\
+r\x22\x0a    width=\x2224\
+px\x22\x0a    height=\x22\
+24px\x22>\x0a    <g id\
+=\x22group\x22>\x0a      \
+  <path\x0a        \
+    id=\x22path\x22\x0a  \
+          d=\x22M 6\
+.5 21 L 3 21 C 2\
+.45 21 2 20.55 2\
+ 20 L 2 10 C 2 9\
+.45 2.45 9 3 9 L\
+ 6.5 9 C 7.05 9 \
+7.5 9.45 7.5 10 \
+L 7.5 20 C 7.5 2\
+0.55 7.05 21 6.5\
+ 21 Z M 13.75 3 \
+L 10.25 3 C 9.7 \
+3 9.25 3.45 9.25\
+ 4 L 9.25 20 C 9\
+.25 20.55 9.7 21\
+ 10.25 21 L 13.7\
+5 21 C 14.3 21 1\
+4.75 20.55 14.75\
+ 20 L 14.75 4 C \
+14.75 3.45 14.3 \
+3 13.75 3 Z M 21\
+ 11 L 17.5 11 C \
+16.95 11 16.5 11\
+.45 16.5 12 L 16\
+.5 20 C 16.5 20.\
+55 16.95 21 17.5\
+ 21 L 21 21 C 21\
+.55 21 22 20.55 \
+22 20 L 22 12 C \
+22 11.45 21.55 1\
+1 21 11 Z\x22\x0a     \
+       fill=\x22#81\
+18f9\x22\x0a          \
+  stroke-width=\x22\
+1\x22/>\x0a    </g>\x0a</\
+svg>\x0a\
+\x00\x00\x03\x0b\
+<\
+svg\x0a    xmlns=\x22h\
+ttp://www.w3.org\
+/2000/svg\x22\x0a    v\
+iewBox=\x220 0 24 2\
+4\x22\x0a    id=\x22vecto\
+r\x22\x0a    width=\x2224\
+px\x22\x0a    height=\x22\
+24px\x22>\x0a    <g id\
+=\x22group\x22>\x0a      \
+  <path\x0a        \
+    id=\x22path\x22\x0a  \
+          d=\x22M 6\
+.5 21 L 3 21 C 2\
+.45 21 2 20.55 2\
+ 20 L 2 6 C 2 5.\
+45 2.45 5 3 5 L \
+6.5 5 C 7.05 5 7\
+.5 5.45 7.5 6 L \
+7.5 20 C 7.5 20.\
+55 7.05 21 6.5 2\
+1 Z M 13.75 9.66\
+7 L 10.25 9.667 \
+C 9.7 9.667 9.25\
+ 10.117 9.25 10.\
+667 L 9.25 20 C \
+9.25 20.55 9.7 2\
+1 10.25 21 L 13.\
+75 21 C 14.3 21 \
+14.75 20.55 14.7\
+5 20 L 14.75 10.\
+667 C 14.75 10.1\
+17 14.3 9.667 13\
+.75 9.667 Z M 21\
+ 8.333 L 17.5 8.\
+333 C 16.95 8.33\
+3 16.5 8.783 16.\
+5 9.333 L 16.5 2\
+0 C 16.5 20.55 1\
+6.95 21 17.5 21 \
+L 21 21 C 21.55 \
+21 22 20.55 22 2\
+0 L 22 9.333 C 2\
+2 8.783 21.55 8.\
+333 21 8.333 Z\x22\x0a\
+            fill\
+=\x22#1a6dfa\x22\x0a     \
+       stroke-wi\
+dth=\x221\x22/>\x0a    </\
+g>\x0a</svg>\x0a\
+\x00\x00\x033\
+<\
+svg\x0a    xmlns=\x22h\
+ttp://www.w3.org\
+/2000/svg\x22\x0a    v\
+iewBox=\x220 0 24 2\
+4\x22\x0a    id=\x22vecto\
+r\x22\x0a    width=\x2224\
+px\x22\x0a    height=\x22\
+24px\x22>\x0a    <g id\
+=\x22group\x22>\x0a      \
+  <path\x0a        \
+    id=\x22path\x22\x0a  \
+          d=\x22M 6\
+.5 21 L 3 21 C 2\
+.45 21 2 20.55 2\
+ 20 L 2 9.667 C \
+2 9.117 2.45 8.6\
+67 3 8.667 L 6.5\
+ 8.667 C 7.05 8.\
+667 7.5 9.117 7.\
+5 9.667 L 7.5 20\
+ C 7.5 20.55 7.0\
+5 21 6.5 21 Z M \
+13.75 10.333 L 1\
+0.25 10.333 C 9.\
+7 10.333 9.25 10\
+.783 9.25 11.333\
+ L 9.25 20 C 9.2\
+5 20.55 9.7 21 1\
+0.25 21 L 13.75 \
+21 C 14.3 21 14.\
+75 20.55 14.75 2\
+0 L 14.75 11.333\
+ C 14.75 10.783 \
+14.3 10.333 13.7\
+5 10.333 Z M 21 \
+16.333 L 17.5 16\
+.333 C 16.95 16.\
+333 16.5 16.783 \
+16.5 17.333 L 16\
+.5 20 C 16.5 20.\
+55 16.95 21 17.5\
+ 21 L 21 21 C 21\
+.55 21 22 20.55 \
+22 20 L 22 17.33\
+3 C 22 16.783 21\
+.55 16.333 21 16\
+.333 Z\x22\x0a        \
+    fill=\x22#23d0f\
+e\x22\x0a            s\
+troke-width=\x221\x22/\
+>\x0a    </g>\x0a</svg\
+>\x0a\
+\x00\x00\x03)\
+<\
+svg\x0a    xmlns=\x22h\
+ttp://www.w3.org\
+/2000/svg\x22\x0a    v\
+iewBox=\x220 0 24 2\
+4\x22\x0a    id=\x22vecto\
+r\x22\x0a    width=\x2224\
+px\x22\x0a    height=\x22\
+24px\x22>\x0a    <g id\
+=\x22group\x22>\x0a      \
+  <path\x0a        \
+    id=\x22path\x22\x0a  \
+          d=\x22M 6\
+.5 21 L 3 21 C 2\
+.45 21 2 20.55 2\
+ 20 L 2 12.667 C\
+ 2 12.117 2.45 1\
+1.667 3 11.667 L\
+ 6.5 11.667 C 7.\
+05 11.667 7.5 12\
+.117 7.5 12.667 \
+L 7.5 20 C 7.5 2\
+0.55 7.05 21 6.5\
+ 21 Z M 13.75 4.\
+333 L 10.25 4.33\
+3 C 9.7 4.333 9.\
+25 4.783 9.25 5.\
+333 L 9.25 20 C \
+9.25 20.55 9.7 2\
+1 10.25 21 L 13.\
+75 21 C 14.3 21 \
+14.75 20.55 14.7\
+5 20 L 14.75 5.3\
+33 C 14.75 4.783\
+ 14.3 4.333 13.7\
+5 4.333 Z M 21 8\
+.333 L 17.5 8.33\
+3 C 16.95 8.333 \
+16.5 8.783 16.5 \
+9.333 L 16.5 20 \
+C 16.5 20.55 16.\
+95 21 17.5 21 L \
+21 21 C 21.55 21\
+ 22 20.55 22 20 \
+L 22 9.333 C 22 \
+8.783 21.55 8.33\
+3 21 8.333 Z\x22\x0a  \
+          fill=\x22\
+#1a6dfa\x22\x0a       \
+     stroke-widt\
+h=\x221\x22/>\x0a    </g>\
+\x0a</svg>\x0a\
+\x00\x00\x03\x14\
+<\
+svg\x0a    xmlns=\x22h\
+ttp://www.w3.org\
+/2000/svg\x22\x0a    v\
+iewBox=\x220 0 24 2\
+4\x22\x0a    id=\x22vecto\
+r\x22\x0a    width=\x2224\
+px\x22\x0a    height=\x22\
+24px\x22>\x0a    <g id\
+=\x22group\x22>\x0a      \
+  <path\x0a        \
+    id=\x22path\x22\x0a  \
+          d=\x22M 6\
+.5 21 L 3 21 C 2\
+.45 21 2 20.55 2\
+ 20 L 2 12.667 C\
+ 2 12.117 2.45 1\
+1.667 3 11.667 L\
+ 6.5 11.667 C 7.\
+05 11.667 7.5 12\
+.117 7.5 12.667 \
+L 7.5 20 C 7.5 2\
+0.55 7.05 21 6.5\
+ 21 Z M 13.75 11\
+ L 10.25 11 C 9.\
+7 11 9.25 11.45 \
+9.25 12 L 9.25 2\
+0 C 9.25 20.55 9\
+.7 21 10.25 21 L\
+ 13.75 21 C 14.3\
+ 21 14.75 20.55 \
+14.75 20 L 14.75\
+ 12 C 14.75 11.4\
+5 14.3 11 13.75 \
+11 Z M 21 5.667 \
+L 17.5 5.667 C 1\
+6.95 5.667 16.5 \
+6.117 16.5 6.667\
+ L 16.5 20 C 16.\
+5 20.55 16.95 21\
+ 17.5 21 L 21 21\
+ C 21.55 21 22 2\
+0.55 22 20 L 22 \
+6.667 C 22 6.117\
+ 21.55 5.667 21 \
+5.667 Z\x22\x0a       \
+     fill=\x22#1c84\
+fb\x22\x0a            \
+stroke-width=\x221\x22\
+/>\x0a    </g>\x0a</sv\
+g>\x0a\
+\x00\x00\x02\xdd\
+<\
+svg\x0a    xmlns=\x22h\
+ttp://www.w3.org\
+/2000/svg\x22\x0a    v\
+iewBox=\x220 0 24 2\
+4\x22\x0a    id=\x22vecto\
+r\x22\x0a    width=\x2224\
+px\x22\x0a    height=\x22\
+24px\x22>\x0a    <g id\
+=\x22group\x22>\x0a      \
+  <path\x0a        \
+    id=\x22path\x22\x0a  \
+          d=\x22M 6\
+.5 21 L 3 21 C 2\
+.45 21 2 20.55 2\
+ 20 L 2 4 C 2 3.\
+45 2.45 3 3 3 L \
+6.5 3 C 7.05 3 7\
+.5 3.45 7.5 4 L \
+7.5 20 C 7.5 20.\
+55 7.05 21 6.5 2\
+1 Z M 13.75 17 L\
+ 10.25 17 C 9.7 \
+17 9.25 17.45 9.\
+25 18 L 9.25 20 \
+C 9.25 20.55 9.7\
+ 21 10.25 21 L 1\
+3.75 21 C 14.3 2\
+1 14.75 20.55 14\
+.75 20 L 14.75 1\
+8 C 14.75 17.45 \
+14.3 17 13.75 17\
+ Z M 21 13 L 17.\
+5 13 C 16.95 13 \
+16.5 13.45 16.5 \
+14 L 16.5 20 C 1\
+6.5 20.55 16.95 \
+21 17.5 21 L 21 \
+21 C 21.55 21 22\
+ 20.55 22 20 L 2\
+2 14 C 22 13.45 \
+21.55 13 21 13 Z\
+\x22\x0a            fi\
+ll=\x22#22c2fd\x22\x0a   \
+         stroke-\
+width=\x221\x22/>\x0a    \
+</g>\x0a</svg>\x0a\
+\x00\x00\x03*\
+<\
+svg\x0a    xmlns=\x22h\
+ttp://www.w3.org\
+/2000/svg\x22\x0a    v\
+iewBox=\x220 0 24 2\
+4\x22\x0a    id=\x22vecto\
+r\x22\x0a    width=\x2224\
+px\x22\x0a    height=\x22\
+24px\x22>\x0a    <g id\
+=\x22group\x22>\x0a      \
+  <path\x0a        \
+    id=\x22path\x22\x0a  \
+          d=\x22M 6\
+.5 21 L 3 21 C 2\
+.45 21 2 20.55 2\
+ 20 L 2 7.333 C \
+2 6.783 2.45 6.3\
+33 3 6.333 L 6.5\
+ 6.333 C 7.05 6.\
+333 7.5 6.783 7.\
+5 7.333 L 7.5 20\
+ C 7.5 20.55 7.0\
+5 21 6.5 21 Z M \
+13.75 11.333 L 1\
+0.25 11.333 C 9.\
+7 11.333 9.25 11\
+.783 9.25 12.333\
+ L 9.25 20 C 9.2\
+5 20.55 9.7 21 1\
+0.25 21 L 13.75 \
+21 C 14.3 21 14.\
+75 20.55 14.75 2\
+0 L 14.75 12.333\
+ C 14.75 11.783 \
+14.3 11.333 13.7\
+5 11.333 Z M 21 \
+3.667 L 17.5 3.6\
+67 C 16.95 3.667\
+ 16.5 4.117 16.5\
+ 4.667 L 16.5 20\
+ C 16.5 20.55 16\
+.95 21 17.5 21 L\
+ 21 21 C 21.55 2\
+1 22 20.55 22 20\
+ L 22 4.667 C 22\
+ 4.117 21.55 3.6\
+67 21 3.667 Z\x22\x0a \
+           fill=\
+\x22#1fa0fc\x22\x0a      \
+      stroke-wid\
+th=\x221\x22/>\x0a    </g\
+>\x0a</svg>\x0a\
+\x00\x00\x02\xcd\
+<\
+svg\x0a    xmlns=\x22h\
+ttp://www.w3.org\
+/2000/svg\x22\x0a    v\
+iewBox=\x220 0 24 2\
+4\x22\x0a    id=\x22vecto\
+r\x22\x0a    width=\x2224\
+px\x22\x0a    height=\x22\
+24px\x22>\x0a    <g id\
+=\x22group\x22>\x0a      \
+  <path\x0a        \
+    id=\x22path\x22\x0a  \
+          d=\x22M 6\
+.5 21 L 3 21 C 2\
+.45 21 2 20.55 2\
+ 20 L 2 7 C 2 6.\
+45 2.45 6 3 6 L \
+6.5 6 C 7.05 6 7\
+.5 6.45 7.5 7 L \
+7.5 20 C 7.5 20.\
+55 7.05 21 6.5 2\
+1 Z M 13.75 8 L \
+10.25 8 C 9.7 8 \
+9.25 8.45 9.25 9\
+ L 9.25 20 C 9.2\
+5 20.55 9.7 21 1\
+0.25 21 L 13.75 \
+21 C 14.3 21 14.\
+75 20.55 14.75 2\
+0 L 14.75 9 C 14\
+.75 8.45 14.3 8 \
+13.75 8 Z M 21 9\
+ L 17.5 9 C 16.9\
+5 9 16.5 9.45 16\
+.5 10 L 16.5 20 \
+C 16.5 20.55 16.\
+95 21 17.5 21 L \
+21 21 C 21.55 21\
+ 22 20.55 22 20 \
+L 22 10 C 22 9.4\
+5 21.55 9 21 9 Z\
+\x22\x0a            fi\
+ll=\x22#1a6bfa\x22\x0a   \
+         stroke-\
+width=\x221\x22/>\x0a    \
+</g>\x0a</svg>\x0a\
+\x00\x00\x036\
+<\
+svg\x0a    xmlns=\x22h\
+ttp://www.w3.org\
+/2000/svg\x22\x0a    v\
+iewBox=\x220 0 24 2\
+4\x22\x0a    id=\x22vecto\
+r\x22\x0a    width=\x2224\
+px\x22\x0a    height=\x22\
+24px\x22>\x0a    <g id\
+=\x22group\x22>\x0a      \
+  <path\x0a        \
+    id=\x22path\x22\x0a  \
+          d=\x22M 6\
+.5 21 L 3 21 C 2\
+.45 21 2 20.55 2\
+ 20 L 2 11.333 C\
+ 2 10.783 2.45 1\
+0.333 3 10.333 L\
+ 6.5 10.333 C 7.\
+05 10.333 7.5 10\
+.783 7.5 11.333 \
+L 7.5 20 C 7.5 2\
+0.55 7.05 21 6.5\
+ 21 Z M 13.75 9.\
+667 L 10.25 9.66\
+7 C 9.7 9.667 9.\
+25 10.117 9.25 1\
+0.667 L 9.25 20 \
+C 9.25 20.55 9.7\
+ 21 10.25 21 L 1\
+3.75 21 C 14.3 2\
+1 14.75 20.55 14\
+.75 20 L 14.75 1\
+0.667 C 14.75 10\
+.117 14.3 9.667 \
+13.75 9.667 Z M \
+21 15.667 L 17.5\
+ 15.667 C 16.95 \
+15.667 16.5 16.1\
+17 16.5 16.667 L\
+ 16.5 20 C 16.5 \
+20.55 16.95 21 1\
+7.5 21 L 21 21 C\
+ 21.55 21 22 20.\
+55 22 20 L 22 16\
+.667 C 22 16.117\
+ 21.55 15.667 21\
+ 15.667 Z\x22\x0a     \
+       fill=\x22#23\
+d0fe\x22\x0a          \
+  stroke-width=\x22\
+1\x22/>\x0a    </g>\x0a</\
+svg>\x0a\
+\x00\x00\x02\xd3\
+<\
+svg\x0a    xmlns=\x22h\
+ttp://www.w3.org\
+/2000/svg\x22\x0a    v\
+iewBox=\x220 0 24 2\
+4\x22\x0a    id=\x22vecto\
+r\x22\x0a    width=\x2224\
+px\x22\x0a    height=\x22\
+24px\x22>\x0a    <g id\
+=\x22group\x22>\x0a      \
+  <path\x0a        \
+    id=\x22path\x22\x0a  \
+          d=\x22M 6\
+.5 21 L 3 21 C 2\
+.45 21 2 20.55 2\
+ 20 L 2 14 C 2 1\
+3.45 2.45 13 3 1\
+3 L 6.5 13 C 7.0\
+5 13 7.5 13.45 7\
+.5 14 L 7.5 20 C\
+ 7.5 20.55 7.05 \
+21 6.5 21 Z M 13\
+.75 5 L 10.25 5 \
+C 9.7 5 9.25 5.4\
+5 9.25 6 L 9.25 \
+20 C 9.25 20.55 \
+9.7 21 10.25 21 \
+L 13.75 21 C 14.\
+3 21 14.75 20.55\
+ 14.75 20 L 14.7\
+5 6 C 14.75 5.45\
+ 14.3 5 13.75 5 \
+Z M 21 7 L 17.5 \
+7 C 16.95 7 16.5\
+ 7.45 16.5 8 L 1\
+6.5 20 C 16.5 20\
+.55 16.95 21 17.\
+5 21 L 21 21 C 2\
+1.55 21 22 20.55\
+ 22 20 L 22 8 C \
+22 7.45 21.55 7 \
+21 7 Z\x22\x0a        \
+    fill=\x22#1b6ef\
+a\x22\x0a            s\
+troke-width=\x221\x22/\
+>\x0a    </g>\x0a</svg\
+>\x0a\
+\x00\x00\x03\x14\
+<\
+svg\x0a    xmlns=\x22h\
+ttp://www.w3.org\
+/2000/svg\x22\x0a    v\
+iewBox=\x220 0 24 2\
+4\x22\x0a    id=\x22vecto\
+r\x22\x0a    width=\x2224\
+px\x22\x0a    height=\x22\
+24px\x22>\x0a    <g id\
+=\x22group\x22>\x0a      \
+  <path\x0a        \
+    id=\x22path\x22\x0a  \
+          d=\x22M 6\
+.5 21 L 3 21 C 2\
+.45 21 2 20.55 2\
+ 20 L 2 11.333 C\
+ 2 10.783 2.45 1\
+0.333 3 10.333 L\
+ 6.5 10.333 C 7.\
+05 10.333 7.5 10\
+.783 7.5 11.333 \
+L 7.5 20 C 7.5 2\
+0.55 7.05 21 6.5\
+ 21 Z M 13.75 12\
+ L 10.25 12 C 9.\
+7 12 9.25 12.45 \
+9.25 13 L 9.25 2\
+0 C 9.25 20.55 9\
+.7 21 10.25 21 L\
+ 13.75 21 C 14.3\
+ 21 14.75 20.55 \
+14.75 20 L 14.75\
+ 13 C 14.75 12.4\
+5 14.3 12 13.75 \
+12 Z M 21 6.333 \
+L 17.5 6.333 C 1\
+6.95 6.333 16.5 \
+6.783 16.5 7.333\
+ L 16.5 20 C 16.\
+5 20.55 16.95 21\
+ 17.5 21 L 21 21\
+ C 21.55 21 22 2\
+0.55 22 20 L 22 \
+7.333 C 22 6.783\
+ 21.55 6.333 21 \
+6.333 Z\x22\x0a       \
+     fill=\x22#1d8a\
+fb\x22\x0a            \
+stroke-width=\x221\x22\
+/>\x0a    </g>\x0a</sv\
+g>\x0a\
+\x00\x00\x03\x15\
+<\
+svg\x0a    xmlns=\x22h\
+ttp://www.w3.org\
+/2000/svg\x22\x0a    v\
+iewBox=\x220 0 24 2\
+4\x22\x0a    id=\x22vecto\
+r\x22\x0a    width=\x2224\
+px\x22\x0a    height=\x22\
+24px\x22>\x0a    <g id\
+=\x22group\x22>\x0a      \
+  <path\x0a        \
+    id=\x22path\x22\x0a  \
+          d=\x22M 6\
+.5 21 L 3 21 C 2\
+.45 21 2 20.55 2\
+ 20 L 2 4.667 C \
+2 4.117 2.45 3.6\
+67 3 3.667 L 6.5\
+ 3.667 C 7.05 3.\
+667 7.5 4.117 7.\
+5 4.667 L 7.5 20\
+ C 7.5 20.55 7.0\
+5 21 6.5 21 Z M \
+13.75 16 L 10.25\
+ 16 C 9.7 16 9.2\
+5 16.45 9.25 17 \
+L 9.25 20 C 9.25\
+ 20.55 9.7 21 10\
+.25 21 L 13.75 2\
+1 C 14.3 21 14.7\
+5 20.55 14.75 20\
+ L 14.75 17 C 14\
+.75 16.45 14.3 1\
+6 13.75 16 Z M 2\
+1 13.667 L 17.5 \
+13.667 C 16.95 1\
+3.667 16.5 14.11\
+7 16.5 14.667 L \
+16.5 20 C 16.5 2\
+0.55 16.95 21 17\
+.5 21 L 21 21 C \
+21.55 21 22 20.5\
+5 22 20 L 22 14.\
+667 C 22 14.117 \
+21.55 13.667 21 \
+13.667 Z\x22\x0a      \
+      fill=\x22#22c\
+7fe\x22\x0a           \
+ stroke-width=\x221\
+\x22/>\x0a    </g>\x0a</s\
+vg>\x0a\
+\x00\x00\x03*\
+<\
+svg\x0a    xmlns=\x22h\
+ttp://www.w3.org\
+/2000/svg\x22\x0a    v\
+iewBox=\x220 0 24 2\
+4\x22\x0a    id=\x22vecto\
+r\x22\x0a    width=\x2224\
+px\x22\x0a    height=\x22\
+24px\x22>\x0a    <g id\
+=\x22group\x22>\x0a      \
+  <path\x0a        \
+    id=\x22path\x22\x0a  \
+          d=\x22M 6\
+.5 21 L 3 21 C 2\
+.45 21 2 20.55 2\
+ 20 L 2 6.667 C \
+2 6.117 2.45 5.6\
+67 3 5.667 L 6.5\
+ 5.667 C 7.05 5.\
+667 7.5 6.117 7.\
+5 6.667 L 7.5 20\
+ C 7.5 20.55 7.0\
+5 21 6.5 21 Z M \
+13.75 11.667 L 1\
+0.25 11.667 C 9.\
+7 11.667 9.25 12\
+.117 9.25 12.667\
+ L 9.25 20 C 9.2\
+5 20.55 9.7 21 1\
+0.25 21 L 13.75 \
+21 C 14.3 21 14.\
+75 20.55 14.75 2\
+0 L 14.75 12.667\
+ C 14.75 12.117 \
+14.3 11.667 13.7\
+5 11.667 Z M 21 \
+4.333 L 17.5 4.3\
+33 C 16.95 4.333\
+ 16.5 4.783 16.5\
+ 5.333 L 16.5 20\
+ C 16.5 20.55 16\
+.95 21 17.5 21 L\
+ 21 21 C 21.55 2\
+1 22 20.55 22 20\
+ L 22 5.333 C 22\
+ 4.783 21.55 4.3\
+33 21 4.333 Z\x22\x0a \
+           fill=\
+\x22#1e98fc\x22\x0a      \
+      stroke-wid\
+th=\x221\x22/>\x0a    </g\
+>\x0a</svg>\x0a\
+\x00\x00\x03\x0b\
+<\
+svg\x0a    xmlns=\x22h\
+ttp://www.w3.org\
+/2000/svg\x22\x0a    v\
+iewBox=\x220 0 24 2\
+4\x22\x0a    id=\x22vecto\
+r\x22\x0a    width=\x2224\
+px\x22\x0a    height=\x22\
+24px\x22>\x0a    <g id\
+=\x22group\x22>\x0a      \
+  <path\x0a        \
+    id=\x22path\x22\x0a  \
+          d=\x22M 6\
+.5 21 L 3 21 C 2\
+.45 21 2 20.55 2\
+ 20 L 2 8 C 2 7.\
+45 2.45 7 3 7 L \
+6.5 7 C 7.05 7 7\
+.5 7.45 7.5 8 L \
+7.5 20 C 7.5 20.\
+55 7.05 21 6.5 2\
+1 Z M 13.75 6.33\
+3 L 10.25 6.333 \
+C 9.7 6.333 9.25\
+ 6.783 9.25 7.33\
+3 L 9.25 20 C 9.\
+25 20.55 9.7 21 \
+10.25 21 L 13.75\
+ 21 C 14.3 21 14\
+.75 20.55 14.75 \
+20 L 14.75 7.333\
+ C 14.75 6.783 1\
+4.3 6.333 13.75 \
+6.333 Z M 21 9.6\
+67 L 17.5 9.667 \
+C 16.95 9.667 16\
+.5 10.117 16.5 1\
+0.667 L 16.5 20 \
+C 16.5 20.55 16.\
+95 21 17.5 21 L \
+21 21 C 21.55 21\
+ 22 20.55 22 20 \
+L 22 10.667 C 22\
+ 10.117 21.55 9.\
+667 21 9.667 Z\x22\x0a\
+            fill\
+=\x22#1a69fa\x22\x0a     \
+       stroke-wi\
+dth=\x221\x22/>\x0a    </\
+g>\x0a</svg>\x0a\
+\x00\x00\x02\xde\
+<\
+svg\x0a    xmlns=\x22h\
+ttp://www.w3.org\
+/2000/svg\x22\x0a    v\
+iewBox=\x220 0 24 2\
+4\x22\x0a    id=\x22vecto\
+r\x22\x0a    width=\x2224\
+px\x22\x0a    height=\x22\
+24px\x22>\x0a    <g id\
+=\x22group\x22>\x0a      \
+  <path\x0a        \
+    id=\x22path\x22\x0a  \
+          d=\x22M 6\
+.5 21 L 3 21 C 2\
+.45 21 2 20.55 2\
+ 20 L 2 13 C 2 1\
+2.45 2.45 12 3 1\
+2 L 6.5 12 C 7.0\
+5 12 7.5 12.45 7\
+.5 13 L 7.5 20 C\
+ 7.5 20.55 7.05 \
+21 6.5 21 Z M 13\
+.75 9 L 10.25 9 \
+C 9.7 9 9.25 9.4\
+5 9.25 10 L 9.25\
+ 20 C 9.25 20.55\
+ 9.7 21 10.25 21\
+ L 13.75 21 C 14\
+.3 21 14.75 20.5\
+5 14.75 20 L 14.\
+75 10 C 14.75 9.\
+45 14.3 9 13.75 \
+9 Z M 21 15 L 17\
+.5 15 C 16.95 15\
+ 16.5 15.45 16.5\
+ 16 L 16.5 20 C \
+16.5 20.55 16.95\
+ 21 17.5 21 L 21\
+ 21 C 21.55 21 2\
+2 20.55 22 20 L \
+22 16 C 22 15.45\
+ 21.55 15 21 15 \
+Z\x22\x0a            f\
+ill=\x22#23cffe\x22\x0a  \
+          stroke\
+-width=\x221\x22/>\x0a   \
+ </g>\x0a</svg>\x0a\
+\x00\x00\x03)\
+<\
+svg\x0a    xmlns=\x22h\
+ttp://www.w3.org\
+/2000/svg\x22\x0a    v\
+iewBox=\x220 0 24 2\
+4\x22\x0a    id=\x22vecto\
+r\x22\x0a    width=\x2224\
+px\x22\x0a    height=\x22\
+24px\x22>\x0a    <g id\
+=\x22group\x22>\x0a      \
+  <path\x0a        \
+    id=\x22path\x22\x0a  \
+          d=\x22M 6\
+.5 21 L 3 21 C 2\
+.45 21 2 20.55 2\
+ 20 L 2 15.333 C\
+ 2 14.783 2.45 1\
+4.333 3 14.333 L\
+ 6.5 14.333 C 7.\
+05 14.333 7.5 14\
+.783 7.5 15.333 \
+L 7.5 20 C 7.5 2\
+0.55 7.05 21 6.5\
+ 21 Z M 13.75 5.\
+667 L 10.25 5.66\
+7 C 9.7 5.667 9.\
+25 6.117 9.25 6.\
+667 L 9.25 20 C \
+9.25 20.55 9.7 2\
+1 10.25 21 L 13.\
+75 21 C 14.3 21 \
+14.75 20.55 14.7\
+5 20 L 14.75 6.6\
+67 C 14.75 6.117\
+ 14.3 5.667 13.7\
+5 5.667 Z M 21 5\
+.667 L 17.5 5.66\
+7 C 16.95 5.667 \
+16.5 6.117 16.5 \
+6.667 L 16.5 20 \
+C 16.5 20.55 16.\
+95 21 17.5 21 L \
+21 21 C 21.55 21\
+ 22 20.55 22 20 \
+L 22 6.667 C 22 \
+6.117 21.55 5.66\
+7 21 5.667 Z\x22\x0a  \
+          fill=\x22\
+#1b70fa\x22\x0a       \
+     stroke-widt\
+h=\x221\x22/>\x0a    </g>\
+\x0a</svg>\x0a\
+\x00\x00\x03\x0b\
+<\
+svg\x0a    xmlns=\x22h\
+ttp://www.w3.org\
+/2000/svg\x22\x0a    v\
+iewBox=\x220 0 24 2\
+4\x22\x0a    id=\x22vecto\
+r\x22\x0a    width=\x2224\
+px\x22\x0a    height=\x22\
+24px\x22>\x0a    <g id\
+=\x22group\x22>\x0a      \
+  <path\x0a        \
+    id=\x22path\x22\x0a  \
+          d=\x22M 6\
+.5 21 L 3 21 C 2\
+.45 21 2 20.55 2\
+ 20 L 2 14.667 C\
+ 2 14.117 2.45 1\
+3.667 3 13.667 L\
+ 6.5 13.667 C 7.\
+05 13.667 7.5 14\
+.117 7.5 14.667 \
+L 7.5 20 C 7.5 2\
+0.55 7.05 21 6.5\
+ 21 Z M 13.75 3.\
+667 L 10.25 3.66\
+7 C 9.7 3.667 9.\
+25 4.117 9.25 4.\
+667 L 9.25 20 C \
+9.25 20.55 9.7 2\
+1 10.25 21 L 13.\
+75 21 C 14.3 21 \
+14.75 20.55 14.7\
+5 20 L 14.75 4.6\
+67 C 14.75 4.117\
+ 14.3 3.667 13.7\
+5 3.667 Z M 21 8\
+ L 17.5 8 C 16.9\
+5 8 16.5 8.45 16\
+.5 9 L 16.5 20 C\
+ 16.5 20.55 16.9\
+5 21 17.5 21 L 2\
+1 21 C 21.55 21 \
+22 20.55 22 20 L\
+ 22 9 C 22 8.45 \
+21.55 8 21 8 Z\x22\x0a\
+            fill\
+=\x22#22c6fe\x22\x0a     \
+       stroke-wi\
+dth=\x221\x22/>\x0a    </\
+g>\x0a</svg>\x0a\
+\x00\x00\x02\xd6\
+<\
+svg\x0a    xmlns=\x22h\
+ttp://www.w3.org\
+/2000/svg\x22\x0a    v\
+iewBox=\x220 0 24 2\
+4\x22\x0a    id=\x22vecto\
+r\x22\x0a    width=\x2224\
+px\x22\x0a    height=\x22\
+24px\x22>\x0a    <g id\
+=\x22group\x22>\x0a      \
+  <path\x0a        \
+    id=\x22path\x22\x0a  \
+          d=\x22M 6\
+.5 21 L 3 21 C 2\
+.45 21 2 20.55 2\
+ 20 L 2 10 C 2 9\
+.45 2.45 9 3 9 L\
+ 6.5 9 C 7.05 9 \
+7.5 9.45 7.5 10 \
+L 7.5 20 C 7.5 2\
+0.55 7.05 21 6.5\
+ 21 Z M 13.75 13\
+ L 10.25 13 C 9.\
+7 13 9.25 13.45 \
+9.25 14 L 9.25 2\
+0 C 9.25 20.55 9\
+.7 21 10.25 21 L\
+ 13.75 21 C 14.3\
+ 21 14.75 20.55 \
+14.75 20 L 14.75\
+ 14 C 14.75 13.4\
+5 14.3 13 13.75 \
+13 Z M 21 7 L 17\
+.5 7 C 16.95 7 1\
+6.5 7.45 16.5 8 \
+L 16.5 20 C 16.5\
+ 20.55 16.95 21 \
+17.5 21 L 21 21 \
+C 21.55 21 22 20\
+.55 22 20 L 22 8\
+ C 22 7.45 21.55\
+ 7 21 7 Z\x22\x0a     \
+       fill=\x22#1d\
+90fc\x22\x0a          \
+  stroke-width=\x22\
+1\x22/>\x0a    </g>\x0a</\
+svg>\x0a\
+\x00\x00\x03\x15\
+<\
+svg\x0a    xmlns=\x22h\
+ttp://www.w3.org\
+/2000/svg\x22\x0a    v\
+iewBox=\x220 0 24 2\
+4\x22\x0a    id=\x22vecto\
+r\x22\x0a    width=\x2224\
+px\x22\x0a    height=\x22\
+24px\x22>\x0a    <g id\
+=\x22group\x22>\x0a      \
+  <path\x0a        \
+    id=\x22path\x22\x0a  \
+          d=\x22M 6\
+.5 21 L 3 21 C 2\
+.45 21 2 20.55 2\
+ 20 L 2 5.333 C \
+2 4.783 2.45 4.3\
+33 3 4.333 L 6.5\
+ 4.333 C 7.05 4.\
+333 7.5 4.783 7.\
+5 5.333 L 7.5 20\
+ C 7.5 20.55 7.0\
+5 21 6.5 21 Z M \
+13.75 15 L 10.25\
+ 15 C 9.7 15 9.2\
+5 15.45 9.25 16 \
+L 9.25 20 C 9.25\
+ 20.55 9.7 21 10\
+.25 21 L 13.75 2\
+1 C 14.3 21 14.7\
+5 20.55 14.75 20\
+ L 14.75 16 C 14\
+.75 15.45 14.3 1\
+5 13.75 15 Z M 2\
+1 14.333 L 17.5 \
+14.333 C 16.95 1\
+4.333 16.5 14.78\
+3 16.5 15.333 L \
+16.5 20 C 16.5 2\
+0.55 16.95 21 17\
+.5 21 L 21 21 C \
+21.55 21 22 20.5\
+5 22 20 L 22 15.\
+333 C 22 14.783 \
+21.55 14.333 21 \
+14.333 Z\x22\x0a      \
+      fill=\x22#23c\
+bfe\x22\x0a           \
+ stroke-width=\x221\
+\x22/>\x0a    </g>\x0a</s\
+vg>\x0a\
+\x00\x00\x02\xd6\
+<\
+svg\x0a    xmlns=\x22h\
+ttp://www.w3.org\
+/2000/svg\x22\x0a    v\
+iewBox=\x220 0 24 2\
+4\x22\x0a    id=\x22vecto\
+r\x22\x0a    width=\x2224\
+px\x22\x0a    height=\x22\
+24px\x22>\x0a    <g id\
+=\x22group\x22>\x0a      \
+  <path\x0a        \
+    id=\x22path\x22\x0a  \
+          d=\x22M 6\
+.5 21 L 3 21 C 2\
+.45 21 2 20.55 2\
+ 20 L 2 10 C 2 9\
+.45 2.45 9 3 9 L\
+ 6.5 9 C 7.05 9 \
+7.5 9.45 7.5 10 \
+L 7.5 20 C 7.5 2\
+0.55 7.05 21 6.5\
+ 21 Z M 13.75 3 \
+L 10.25 3 C 9.7 \
+3 9.25 3.45 9.25\
+ 4 L 9.25 20 C 9\
+.25 20.55 9.7 21\
+ 10.25 21 L 13.7\
+5 21 C 14.3 21 1\
+4.75 20.55 14.75\
+ 20 L 14.75 4 C \
+14.75 3.45 14.3 \
+3 13.75 3 Z M 21\
+ 11 L 17.5 11 C \
+16.95 11 16.5 11\
+.45 16.5 12 L 16\
+.5 20 C 16.5 20.\
+55 16.95 21 17.5\
+ 21 L 21 21 C 21\
+.55 21 22 20.55 \
+22 20 L 22 12 C \
+22 11.45 21.55 1\
+1 21 11 Z\x22\x0a     \
+       fill=\x22#1a\
+68fa\x22\x0a          \
+  stroke-width=\x22\
+1\x22/>\x0a    </g>\x0a</\
+svg>\x0a\
+\x00\x00\x03\x10\
+<\
+svg\x0a    xmlns=\x22h\
+ttp://www.w3.org\
+/2000/svg\x22\x0a    v\
+iewBox=\x220 0 24 2\
+4\x22\x0a    id=\x22vecto\
+r\x22\x0a    width=\x2224\
+px\x22\x0a    height=\x22\
+24px\x22>\x0a    <g id\
+=\x22group\x22>\x0a      \
+  <path\x0a        \
+    id=\x22path\x22\x0a  \
+          d=\x22M 6\
+.5 21 L 3 21 C 2\
+.45 21 2 20.55 2\
+ 20 L 2 9 C 2 8.\
+45 2.45 8 3 8 L \
+6.5 8 C 7.05 8 7\
+.5 8.45 7.5 9 L \
+7.5 20 C 7.5 20.\
+55 7.05 21 6.5 2\
+1 Z M 13.75 4.66\
+7 L 10.25 4.667 \
+C 9.7 4.667 9.25\
+ 5.117 9.25 5.66\
+7 L 9.25 20 C 9.\
+25 20.55 9.7 21 \
+10.25 21 L 13.75\
+ 21 C 14.3 21 14\
+.75 20.55 14.75 \
+20 L 14.75 5.667\
+ C 14.75 5.117 1\
+4.3 4.667 13.75 \
+4.667 Z M 21 10.\
+333 L 17.5 10.33\
+3 C 16.95 10.333\
+ 16.5 10.783 16.\
+5 11.333 L 16.5 \
+20 C 16.5 20.55 \
+16.95 21 17.5 21\
+ L 21 21 C 21.55\
+ 21 22 20.55 22 \
+20 L 22 11.333 C\
+ 22 10.783 21.55\
+ 10.333 21 10.33\
+3 Z\x22\x0a           \
+ fill=\x22#1a68fa\x22\x0a\
+            stro\
+ke-width=\x221\x22/>\x0a \
+   </g>\x0a</svg>\x0a\
+\x00\x00\x032\
+<\
+svg\x0a    xmlns=\x22h\
+ttp://www.w3.org\
+/2000/svg\x22\x0a    v\
+iewBox=\x220 0 24 2\
+4\x22\x0a    id=\x22vecto\
+r\x22\x0a    width=\x2224\
+px\x22\x0a    height=\x22\
+24px\x22>\x0a    <g id\
+=\x22group\x22>\x0a      \
+  <path\x0a        \
+    id=\x22path\x22\x0a  \
+          d=\x22M 6\
+.5 21 L 3 21 C 2\
+.45 21 2 20.55 2\
+ 20 L 2 14.667 C\
+ 2 14.117 2.45 1\
+3.667 3 13.667 L\
+ 6.5 13.667 C 7.\
+05 13.667 7.5 14\
+.117 7.5 14.667 \
+L 7.5 20 C 7.5 2\
+0.55 7.05 21 6.5\
+ 21 Z M 13.75 8.\
+333 L 10.25 8.33\
+3 C 9.7 8.333 9.\
+25 8.783 9.25 9.\
+333 L 9.25 20 C \
+9.25 20.55 9.7 2\
+1 10.25 21 L 13.\
+75 21 C 14.3 21 \
+14.75 20.55 14.7\
+5 20 L 14.75 9.3\
+33 C 14.75 8.783\
+ 14.3 8.333 13.7\
+5 8.333 Z M 21 1\
+4.333 L 17.5 14.\
+333 C 16.95 14.3\
+33 16.5 14.783 1\
+6.5 15.333 L 16.\
+5 20 C 16.5 20.5\
+5 16.95 21 17.5 \
+21 L 21 21 C 21.\
+55 21 22 20.55 2\
+2 20 L 22 15.333\
+ C 22 14.783 21.\
+55 14.333 21 14.\
+333 Z\x22\x0a         \
+   fill=\x22#23cffe\
+\x22\x0a            st\
+roke-width=\x221\x22/>\
+\x0a    </g>\x0a</svg>\
+\x0a\
+\x00\x00\x02\xd3\
+<\
+svg\x0a    xmlns=\x22h\
+ttp://www.w3.org\
+/2000/svg\x22\x0a    v\
+iewBox=\x220 0 24 2\
+4\x22\x0a    id=\x22vecto\
+r\x22\x0a    width=\x2224\
+px\x22\x0a    height=\x22\
+24px\x22>\x0a    <g id\
+=\x22group\x22>\x0a      \
+  <path\x0a        \
+    id=\x22path\x22\x0a  \
+          d=\x22M 6\
+.5 21 L 3 21 C 2\
+.45 21 2 20.55 2\
+ 20 L 2 14 C 2 1\
+3.45 2.45 13 3 1\
+3 L 6.5 13 C 7.0\
+5 13 7.5 13.45 7\
+.5 14 L 7.5 20 C\
+ 7.5 20.55 7.05 \
+21 6.5 21 Z M 13\
+.75 3 L 10.25 3 \
+C 9.7 3 9.25 3.4\
+5 9.25 4 L 9.25 \
+20 C 9.25 20.55 \
+9.7 21 10.25 21 \
+L 13.75 21 C 14.\
+3 21 14.75 20.55\
+ 14.75 20 L 14.7\
+5 4 C 14.75 3.45\
+ 14.3 3 13.75 3 \
+Z M 21 7 L 17.5 \
+7 C 16.95 7 16.5\
+ 7.45 16.5 8 L 1\
+6.5 20 C 16.5 20\
+.55 16.95 21 17.\
+5 21 L 21 21 C 2\
+1.55 21 22 20.55\
+ 22 20 L 22 8 C \
+22 7.45 21.55 7 \
+21 7 Z\x22\x0a        \
+    fill=\x22#22c3f\
+e\x22\x0a            s\
+troke-width=\x221\x22/\
+>\x0a    </g>\x0a</svg\
+>\x0a\
+\x00\x00\x02\xf2\
+<\
+svg\x0a    xmlns=\x22h\
+ttp://www.w3.org\
+/2000/svg\x22\x0a    v\
+iewBox=\x220 0 24 2\
+4\x22\x0a    id=\x22vecto\
+r\x22\x0a    width=\x2224\
+px\x22\x0a    height=\x22\
+24px\x22>\x0a    <g id\
+=\x22group\x22>\x0a      \
+  <path\x0a        \
+    id=\x22path\x22\x0a  \
+          d=\x22M 6\
+.5 21 L 3 21 C 2\
+.45 21 2 20.55 2\
+ 20 L 2 9 C 2 8.\
+45 2.45 8 3 8 L \
+6.5 8 C 7.05 8 7\
+.5 8.45 7.5 9 L \
+7.5 20 C 7.5 20.\
+55 7.05 21 6.5 2\
+1 Z M 13.75 13.6\
+67 L 10.25 13.66\
+7 C 9.7 13.667 9\
+.25 14.117 9.25 \
+14.667 L 9.25 20\
+ C 9.25 20.55 9.\
+7 21 10.25 21 L \
+13.75 21 C 14.3 \
+21 14.75 20.55 1\
+4.75 20 L 14.75 \
+14.667 C 14.75 1\
+4.117 14.3 13.66\
+7 13.75 13.667 Z\
+ M 21 8 L 17.5 8\
+ C 16.95 8 16.5 \
+8.45 16.5 9 L 16\
+.5 20 C 16.5 20.\
+55 16.95 21 17.5\
+ 21 L 21 21 C 21\
+.55 21 22 20.55 \
+22 20 L 22 9 C 2\
+2 8.45 21.55 8 2\
+1 8 Z\x22\x0a         \
+   fill=\x22#1e98fc\
+\x22\x0a            st\
+roke-width=\x221\x22/>\
+\x0a    </g>\x0a</svg>\
+\x0a\
+\x00\x00\x02\xdd\
+<\
+svg\x0a    xmlns=\x22h\
+ttp://www.w3.org\
+/2000/svg\x22\x0a    v\
+iewBox=\x220 0 24 2\
+4\x22\x0a    id=\x22vecto\
+r\x22\x0a    width=\x2224\
+px\x22\x0a    height=\x22\
+24px\x22>\x0a    <g id\
+=\x22group\x22>\x0a      \
+  <path\x0a        \
+    id=\x22path\x22\x0a  \
+          d=\x22M 6\
+.5 21 L 3 21 C 2\
+.45 21 2 20.55 2\
+ 20 L 2 6 C 2 5.\
+45 2.45 5 3 5 L \
+6.5 5 C 7.05 5 7\
+.5 5.45 7.5 6 L \
+7.5 20 C 7.5 20.\
+55 7.05 21 6.5 2\
+1 Z M 13.75 14 L\
+ 10.25 14 C 9.7 \
+14 9.25 14.45 9.\
+25 15 L 9.25 20 \
+C 9.25 20.55 9.7\
+ 21 10.25 21 L 1\
+3.75 21 C 14.3 2\
+1 14.75 20.55 14\
+.75 20 L 14.75 1\
+5 C 14.75 14.45 \
+14.3 14 13.75 14\
+ Z M 21 15 L 17.\
+5 15 C 16.95 15 \
+16.5 15.45 16.5 \
+16 L 16.5 20 C 1\
+6.5 20.55 16.95 \
+21 17.5 21 L 21 \
+21 C 21.55 21 22\
+ 20.55 22 20 L 2\
+2 16 C 22 15.45 \
+21.55 15 21 15 Z\
+\x22\x0a            fi\
+ll=\x22#23cdfe\x22\x0a   \
+         stroke-\
+width=\x221\x22/>\x0a    \
+</g>\x0a</svg>\x0a\
+\x00\x00\x02\xd6\
+<\
+svg\x0a    xmlns=\x22h\
+ttp://www.w3.org\
+/2000/svg\x22\x0a    v\
+iewBox=\x220 0 24 2\
+4\x22\x0a    id=\x22vecto\
+r\x22\x0a    width=\x2224\
+px\x22\x0a    height=\x22\
+24px\x22>\x0a    <g id\
+=\x22group\x22>\x0a      \
+  <path\x0a        \
+    id=\x22path\x22\x0a  \
+          d=\x22M 6\
+.5 21 L 3 21 C 2\
+.45 21 2 20.55 2\
+ 20 L 2 10 C 2 9\
+.45 2.45 9 3 9 L\
+ 6.5 9 C 7.05 9 \
+7.5 9.45 7.5 10 \
+L 7.5 20 C 7.5 2\
+0.55 7.05 21 6.5\
+ 21 Z M 13.75 3 \
+L 10.25 3 C 9.7 \
+3 9.25 3.45 9.25\
+ 4 L 9.25 20 C 9\
+.25 20.55 9.7 21\
+ 10.25 21 L 13.7\
+5 21 C 14.3 21 1\
+4.75 20.55 14.75\
+ 20 L 14.75 4 C \
+14.75 3.45 14.3 \
+3 13.75 3 Z M 21\
+ 11 L 17.5 11 C \
+16.95 11 16.5 11\
+.45 16.5 12 L 16\
+.5 20 C 16.5 20.\
+55 16.95 21 17.5\
+ 21 L 21 21 C 21\
+.55 21 22 20.55 \
+22 20 L 22 12 C \
+22 11.45 21.55 1\
+1 21 11 Z\x22\x0a     \
+       fill=\x22#1a\
+68fa\x22\x0a          \
+  stroke-width=\x22\
+1\x22/>\x0a    </g>\x0a</\
+svg>\x0a\
+\x00\x00\x02\xd6\
+<\
+svg\x0a    xmlns=\x22h\
+ttp://www.w3.org\
+/2000/svg\x22\x0a    v\
+iewBox=\x220 0 24 2\
+4\x22\x0a    id=\x22vecto\
+r\x22\x0a    width=\x2224\
+px\x22\x0a    height=\x22\
+24px\x22>\x0a    <g id\
+=\x22group\x22>\x0a      \
+  <path\x0a        \
+    id=\x22path\x22\x0a  \
+          d=\x22M 6\
+.5 21 L 3 21 C 2\
+.45 21 2 20.55 2\
+ 20 L 2 10 C 2 9\
+.45 2.45 9 3 9 L\
+ 6.5 9 C 7.05 9 \
+7.5 9.45 7.5 10 \
+L 7.5 20 C 7.5 2\
+0.55 7.05 21 6.5\
+ 21 Z M 13.75 3 \
+L 10.25 3 C 9.7 \
+3 9.25 3.45 9.25\
+ 4 L 9.25 20 C 9\
+.25 20.55 9.7 21\
+ 10.25 21 L 13.7\
+5 21 C 14.3 21 1\
+4.75 20.55 14.75\
+ 20 L 14.75 4 C \
+14.75 3.45 14.3 \
+3 13.75 3 Z M 21\
+ 11 L 17.5 11 C \
+16.95 11 16.5 11\
+.45 16.5 12 L 16\
+.5 20 C 16.5 20.\
+55 16.95 21 17.5\
+ 21 L 21 21 C 21\
+.55 21 22 20.55 \
+22 20 L 22 12 C \
+22 11.45 21.55 1\
+1 21 11 Z\x22\x0a     \
+       fill=\x22#1a\
+68fa\x22\x0a          \
+  stroke-width=\x22\
+1\x22/>\x0a    </g>\x0a</\
+svg>\x0a\
+\x00\x00\x032\
+<\
+svg\x0a    xmlns=\x22h\
+ttp://www.w3.org\
+/2000/svg\x22\x0a    v\
+iewBox=\x220 0 24 2\
+4\x22\x0a    id=\x22vecto\
+r\x22\x0a    width=\x2224\
+px\x22\x0a    height=\x22\
+24px\x22>\x0a    <g id\
+=\x22group\x22>\x0a      \
+  <path\x0a        \
+    id=\x22path\x22\x0a  \
+          d=\x22M 6\
+.5 21 L 3 21 C 2\
+.45 21 2 20.55 2\
+ 20 L 2 16.333 C\
+ 2 15.783 2.45 1\
+5.333 3 15.333 L\
+ 6.5 15.333 C 7.\
+05 15.333 7.5 15\
+.783 7.5 16.333 \
+L 7.5 20 C 7.5 2\
+0.55 7.05 21 6.5\
+ 21 Z M 13.75 7.\
+667 L 10.25 7.66\
+7 C 9.7 7.667 9.\
+25 8.117 9.25 8.\
+667 L 9.25 20 C \
+9.25 20.55 9.7 2\
+1 10.25 21 L 13.\
+75 21 C 14.3 21 \
+14.75 20.55 14.7\
+5 20 L 14.75 8.6\
+67 C 14.75 8.117\
+ 14.3 7.667 13.7\
+5 7.667 Z M 21 1\
+3.667 L 17.5 13.\
+667 C 16.95 13.6\
+67 16.5 14.117 1\
+6.5 14.667 L 16.\
+5 20 C 16.5 20.5\
+5 16.95 21 17.5 \
+21 L 21 21 C 21.\
+55 21 22 20.55 2\
+2 20 L 22 14.667\
+ C 22 14.117 21.\
+55 13.667 21 13.\
+667 Z\x22\x0a         \
+   fill=\x22#23cefe\
+\x22\x0a            st\
+roke-width=\x221\x22/>\
+\x0a    </g>\x0a</svg>\
+\x0a\
+\x00\x00\x03\x0f\
+<\
+svg\x0a    xmlns=\x22h\
+ttp://www.w3.org\
+/2000/svg\x22\x0a    v\
+iewBox=\x220 0 24 2\
+4\x22\x0a    id=\x22vecto\
+r\x22\x0a    width=\x2224\
+px\x22\x0a    height=\x22\
+24px\x22>\x0a    <g id\
+=\x22group\x22>\x0a      \
+  <path\x0a        \
+    id=\x22path\x22\x0a  \
+          d=\x22M 6\
+.5 21 L 3 21 C 2\
+.45 21 2 20.55 2\
+ 20 L 2 13 C 2 1\
+2.45 2.45 12 3 1\
+2 L 6.5 12 C 7.0\
+5 12 7.5 12.45 7\
+.5 13 L 7.5 20 C\
+ 7.5 20.55 7.05 \
+21 6.5 21 Z M 13\
+.75 4.333 L 10.2\
+5 4.333 C 9.7 4.\
+333 9.25 4.783 9\
+.25 5.333 L 9.25\
+ 20 C 9.25 20.55\
+ 9.7 21 10.25 21\
+ L 13.75 21 C 14\
+.3 21 14.75 20.5\
+5 14.75 20 L 14.\
+75 5.333 C 14.75\
+ 4.783 14.3 4.33\
+3 13.75 4.333 Z \
+M 21 6.333 L 17.\
+5 6.333 C 16.95 \
+6.333 16.5 6.783\
+ 16.5 7.333 L 16\
+.5 20 C 16.5 20.\
+55 16.95 21 17.5\
+ 21 L 21 21 C 21\
+.55 21 22 20.55 \
+22 20 L 22 7.333\
+ C 22 6.783 21.5\
+5 6.333 21 6.333\
+ Z\x22\x0a            \
+fill=\x22#22c0fd\x22\x0a \
+           strok\
+e-width=\x221\x22/>\x0a  \
+  </g>\x0a</svg>\x0a\
+\x00\x00\x02\xf4\
+<\
+svg\x0a    xmlns=\x22h\
+ttp://www.w3.org\
+/2000/svg\x22\x0a    v\
+iewBox=\x220 0 24 2\
+4\x22\x0a    id=\x22vecto\
+r\x22\x0a    width=\x2224\
+px\x22\x0a    height=\x22\
+24px\x22>\x0a    <g id\
+=\x22group\x22>\x0a      \
+  <path\x0a        \
+    id=\x22path\x22\x0a  \
+          d=\x22M 6\
+.5 21 L 3 21 C 2\
+.45 21 2 20.55 2\
+ 20 L 2 8 C 2 7.\
+45 2.45 7 3 7 L \
+6.5 7 C 7.05 7 7\
+.5 7.45 7.5 8 L \
+7.5 20 C 7.5 20.\
+55 7.05 21 6.5 2\
+1 Z M 13.75 14.3\
+33 L 10.25 14.33\
+3 C 9.7 14.333 9\
+.25 14.783 9.25 \
+15.333 L 9.25 20\
+ C 9.25 20.55 9.\
+7 21 10.25 21 L \
+13.75 21 C 14.3 \
+21 14.75 20.55 1\
+4.75 20 L 14.75 \
+15.333 C 14.75 1\
+4.783 14.3 14.33\
+3 13.75 14.333 Z\
+ M 21 9 L 17.5 9\
+ C 16.95 9 16.5 \
+9.45 16.5 10 L 1\
+6.5 20 C 16.5 20\
+.55 16.95 21 17.\
+5 21 L 21 21 C 2\
+1.55 21 22 20.55\
+ 22 20 L 22 10 C\
+ 22 9.45 21.55 9\
+ 21 9 Z\x22\x0a       \
+     fill=\x22#1fa0\
+fc\x22\x0a            \
+stroke-width=\x221\x22\
+/>\x0a    </g>\x0a</sv\
+g>\x0a\
+\x00\x00\x02\xd4\
+<\
+svg\x0a    xmlns=\x22h\
+ttp://www.w3.org\
+/2000/svg\x22\x0a    v\
+iewBox=\x220 0 24 2\
+4\x22\x0a    id=\x22vecto\
+r\x22\x0a    width=\x2224\
+px\x22\x0a    height=\x22\
+24px\x22>\x0a    <g id\
+=\x22group\x22>\x0a      \
+  <path\x0a        \
+    id=\x22path\x22\x0a  \
+          d=\x22M 6\
+.5 21 L 3 21 C 2\
+.45 21 2 20.55 2\
+ 20 L 2 6 C 2 5.\
+45 2.45 5 3 5 L \
+6.5 5 C 7.05 5 7\
+.5 5.45 7.5 6 L \
+7.5 20 C 7.5 20.\
+55 7.05 21 6.5 2\
+1 Z M 13.75 12 L\
+ 10.25 12 C 9.7 \
+12 9.25 12.45 9.\
+25 13 L 9.25 20 \
+C 9.25 20.55 9.7\
+ 21 10.25 21 L 1\
+3.75 21 C 14.3 2\
+1 14.75 20.55 14\
+.75 20 L 14.75 1\
+3 C 14.75 12.45 \
+14.3 12 13.75 12\
+ Z M 21 5 L 17.5\
+ 5 C 16.95 5 16.\
+5 5.45 16.5 6 L \
+16.5 20 C 16.5 2\
+0.55 16.95 21 17\
+.5 21 L 21 21 C \
+21.55 21 22 20.5\
+5 22 20 L 22 6 C\
+ 22 5.45 21.55 5\
+ 21 5 Z\x22\x0a       \
+     fill=\x22#1d8e\
+fb\x22\x0a            \
+stroke-width=\x221\x22\
+/>\x0a    </g>\x0a</sv\
+g>\x0a\
+\x00\x00\x03\x15\
+<\
+svg\x0a    xmlns=\x22h\
+ttp://www.w3.org\
+/2000/svg\x22\x0a    v\
+iewBox=\x220 0 24 2\
+4\x22\x0a    id=\x22vecto\
+r\x22\x0a    width=\x2224\
+px\x22\x0a    height=\x22\
+24px\x22>\x0a    <g id\
+=\x22group\x22>\x0a      \
+  <path\x0a        \
+    id=\x22path\x22\x0a  \
+          d=\x22M 6\
+.5 21 L 3 21 C 2\
+.45 21 2 20.55 2\
+ 20 L 2 6.667 C \
+2 6.117 2.45 5.6\
+67 3 5.667 L 6.5\
+ 5.667 C 7.05 5.\
+667 7.5 6.117 7.\
+5 6.667 L 7.5 20\
+ C 7.5 20.55 7.0\
+5 21 6.5 21 Z M \
+13.75 13 L 10.25\
+ 13 C 9.7 13 9.2\
+5 13.45 9.25 14 \
+L 9.25 20 C 9.25\
+ 20.55 9.7 21 10\
+.25 21 L 13.75 2\
+1 C 14.3 21 14.7\
+5 20.55 14.75 20\
+ L 14.75 14 C 14\
+.75 13.45 14.3 1\
+3 13.75 13 Z M 2\
+1 15.667 L 17.5 \
+15.667 C 16.95 1\
+5.667 16.5 16.11\
+7 16.5 16.667 L \
+16.5 20 C 16.5 2\
+0.55 16.95 21 17\
+.5 21 L 21 21 C \
+21.55 21 22 20.5\
+5 22 20 L 22 16.\
+667 C 22 16.117 \
+21.55 15.667 21 \
+15.667 Z\x22\x0a      \
+      fill=\x22#23c\
+ffe\x22\x0a           \
+ stroke-width=\x221\
+\x22/>\x0a    </g>\x0a</s\
+vg>\x0a\
+\x00\x00\x02\xd6\
+<\
+svg\x0a    xmlns=\x22h\
+ttp://www.w3.org\
+/2000/svg\x22\x0a    v\
+iewBox=\x220 0 24 2\
+4\x22\x0a    id=\x22vecto\
+r\x22\x0a    width=\x2224\
+px\x22\x0a    height=\x22\
+24px\x22>\x0a    <g id\
+=\x22group\x22>\x0a      \
+  <path\x0a        \
+    id=\x22path\x22\x0a  \
+          d=\x22M 6\
+.5 21 L 3 21 C 2\
+.45 21 2 20.55 2\
+ 20 L 2 10 C 2 9\
+.45 2.45 9 3 9 L\
+ 6.5 9 C 7.05 9 \
+7.5 9.45 7.5 10 \
+L 7.5 20 C 7.5 2\
+0.55 7.05 21 6.5\
+ 21 Z M 13.75 3 \
+L 10.25 3 C 9.7 \
+3 9.25 3.45 9.25\
+ 4 L 9.25 20 C 9\
+.25 20.55 9.7 21\
+ 10.25 21 L 13.7\
+5 21 C 14.3 21 1\
+4.75 20.55 14.75\
+ 20 L 14.75 4 C \
+14.75 3.45 14.3 \
+3 13.75 3 Z M 21\
+ 11 L 17.5 11 C \
+16.95 11 16.5 11\
+.45 16.5 12 L 16\
+.5 20 C 16.5 20.\
+55 16.95 21 17.5\
+ 21 L 21 21 C 21\
+.55 21 22 20.55 \
+22 20 L 22 12 C \
+22 11.45 21.55 1\
+1 21 11 Z\x22\x0a     \
+       fill=\x22#1a\
+69fa\x22\x0a          \
+  stroke-width=\x22\
+1\x22/>\x0a    </g>\x0a</\
+svg>\x0a\
+\x00\x00\x02\xdc\
+<\
+svg\x0a    xmlns=\x22h\
+ttp://www.w3.org\
+/2000/svg\x22\x0a    v\
+iewBox=\x220 0 24 2\
+4\x22\x0a    id=\x22vecto\
+r\x22\x0a    width=\x2224\
+px\x22\x0a    height=\x22\
+24px\x22>\x0a    <g id\
+=\x22group\x22>\x0a      \
+  <path\x0a        \
+    id=\x22path\x22\x0a  \
+          d=\x22M 6\
+.5 21 L 3 21 C 2\
+.45 21 2 20.55 2\
+ 20 L 2 18 C 2 1\
+7.45 2.45 17 3 1\
+7 L 6.5 17 C 7.0\
+5 17 7.5 17.45 7\
+.5 18 L 7.5 20 C\
+ 7.5 20.55 7.05 \
+21 6.5 21 Z M 13\
+.75 7 L 10.25 7 \
+C 9.7 7 9.25 7.4\
+5 9.25 8 L 9.25 \
+20 C 9.25 20.55 \
+9.7 21 10.25 21 \
+L 13.75 21 C 14.\
+3 21 14.75 20.55\
+ 14.75 20 L 14.7\
+5 8 C 14.75 7.45\
+ 14.3 7 13.75 7 \
+Z M 21 13 L 17.5\
+ 13 C 16.95 13 1\
+6.5 13.45 16.5 1\
+4 L 16.5 20 C 16\
+.5 20.55 16.95 2\
+1 17.5 21 L 21 2\
+1 C 21.55 21 22 \
+20.55 22 20 L 22\
+ 14 C 22 13.45 2\
+1.55 13 21 13 Z\x22\
+\x0a            fil\
+l=\x22#23cdfe\x22\x0a    \
+        stroke-w\
+idth=\x221\x22/>\x0a    <\
+/g>\x0a</svg>\x0a\
+\x00\x00\x03)\
+<\
+svg\x0a    xmlns=\x22h\
+ttp://www.w3.org\
+/2000/svg\x22\x0a    v\
+iewBox=\x220 0 24 2\
+4\x22\x0a    id=\x22vecto\
+r\x22\x0a    width=\x2224\
+px\x22\x0a    height=\x22\
+24px\x22>\x0a    <g id\
+=\x22group\x22>\x0a      \
+  <path\x0a        \
+    id=\x22path\x22\x0a  \
+          d=\x22M 6\
+.5 21 L 3 21 C 2\
+.45 21 2 20.55 2\
+ 20 L 2 16.667 C\
+ 2 16.117 2.45 1\
+5.667 3 15.667 L\
+ 6.5 15.667 C 7.\
+05 15.667 7.5 16\
+.117 7.5 16.667 \
+L 7.5 20 C 7.5 2\
+0.55 7.05 21 6.5\
+ 21 Z M 13.75 6.\
+333 L 10.25 6.33\
+3 C 9.7 6.333 9.\
+25 6.783 9.25 7.\
+333 L 9.25 20 C \
+9.25 20.55 9.7 2\
+1 10.25 21 L 13.\
+75 21 C 14.3 21 \
+14.75 20.55 14.7\
+5 20 L 14.75 7.3\
+33 C 14.75 6.783\
+ 14.3 6.333 13.7\
+5 6.333 Z M 21 4\
+.333 L 17.5 4.33\
+3 C 16.95 4.333 \
+16.5 4.783 16.5 \
+5.333 L 16.5 20 \
+C 16.5 20.55 16.\
+95 21 17.5 21 L \
+21 21 C 21.55 21\
+ 22 20.55 22 20 \
+L 22 5.333 C 22 \
+4.783 21.55 4.33\
+3 21 4.333 Z\x22\x0a  \
+          fill=\x22\
+#1b72fa\x22\x0a       \
+     stroke-widt\
+h=\x221\x22/>\x0a    </g>\
+\x0a</svg>\x0a\
+\x00\x00\x03\x0f\
+<\
+svg\x0a    xmlns=\x22h\
+ttp://www.w3.org\
+/2000/svg\x22\x0a    v\
+iewBox=\x220 0 24 2\
+4\x22\x0a    id=\x22vecto\
+r\x22\x0a    width=\x2224\
+px\x22\x0a    height=\x22\
+24px\x22>\x0a    <g id\
+=\x22group\x22>\x0a      \
+  <path\x0a        \
+    id=\x22path\x22\x0a  \
+          d=\x22M 6\
+.5 21 L 3 21 C 2\
+.45 21 2 20.55 2\
+ 20 L 2 12 C 2 1\
+1.45 2.45 11 3 1\
+1 L 6.5 11 C 7.0\
+5 11 7.5 11.45 7\
+.5 12 L 7.5 20 C\
+ 7.5 20.55 7.05 \
+21 6.5 21 Z M 13\
+.75 5.667 L 10.2\
+5 5.667 C 9.7 5.\
+667 9.25 6.117 9\
+.25 6.667 L 9.25\
+ 20 C 9.25 20.55\
+ 9.7 21 10.25 21\
+ L 13.75 21 C 14\
+.3 21 14.75 20.5\
+5 14.75 20 L 14.\
+75 6.667 C 14.75\
+ 6.117 14.3 5.66\
+7 13.75 5.667 Z \
+M 21 5.667 L 17.\
+5 5.667 C 16.95 \
+5.667 16.5 6.117\
+ 16.5 6.667 L 16\
+.5 20 C 16.5 20.\
+55 16.95 21 17.5\
+ 21 L 21 21 C 21\
+.55 21 22 20.55 \
+22 20 L 22 6.667\
+ C 22 6.117 21.5\
+5 5.667 21 5.667\
+ Z\x22\x0a            \
+fill=\x22#21bdfd\x22\x0a \
+           strok\
+e-width=\x221\x22/>\x0a  \
+  </g>\x0a</svg>\x0a\
+\x00\x00\x03*\
+<\
+svg\x0a    xmlns=\x22h\
+ttp://www.w3.org\
+/2000/svg\x22\x0a    v\
+iewBox=\x220 0 24 2\
+4\x22\x0a    id=\x22vecto\
+r\x22\x0a    width=\x2224\
+px\x22\x0a    height=\x22\
+24px\x22>\x0a    <g id\
+=\x22group\x22>\x0a      \
+  <path\x0a        \
+    id=\x22path\x22\x0a  \
+          d=\x22M 6\
+.5 21 L 3 21 C 2\
+.45 21 2 20.55 2\
+ 20 L 2 5.333 C \
+2 4.783 2.45 4.3\
+33 3 4.333 L 6.5\
+ 4.333 C 7.05 4.\
+333 7.5 4.783 7.\
+5 5.333 L 7.5 20\
+ C 7.5 20.55 7.0\
+5 21 6.5 21 Z M \
+13.75 12.333 L 1\
+0.25 12.333 C 9.\
+7 12.333 9.25 12\
+.783 9.25 13.333\
+ L 9.25 20 C 9.2\
+5 20.55 9.7 21 1\
+0.25 21 L 13.75 \
+21 C 14.3 21 14.\
+75 20.55 14.75 2\
+0 L 14.75 13.333\
+ C 14.75 12.783 \
+14.3 12.333 13.7\
+5 12.333 Z M 21 \
+5.667 L 17.5 5.6\
+67 C 16.95 5.667\
+ 16.5 6.117 16.5\
+ 6.667 L 16.5 20\
+ C 16.5 20.55 16\
+.95 21 17.5 21 L\
+ 21 21 C 21.55 2\
+1 22 20.55 22 20\
+ L 22 6.667 C 22\
+ 6.117 21.55 5.6\
+67 21 5.667 Z\x22\x0a \
+           fill=\
+\x22#1d85fb\x22\x0a      \
+      stroke-wid\
+th=\x221\x22/>\x0a    </g\
+>\x0a</svg>\x0a\
+\x00\x00\x03\x15\
+<\
+svg\x0a    xmlns=\x22h\
+ttp://www.w3.org\
+/2000/svg\x22\x0a    v\
+iewBox=\x220 0 24 2\
+4\x22\x0a    id=\x22vecto\
+r\x22\x0a    width=\x2224\
+px\x22\x0a    height=\x22\
+24px\x22>\x0a    <g id\
+=\x22group\x22>\x0a      \
+  <path\x0a        \
+    id=\x22path\x22\x0a  \
+          d=\x22M 6\
+.5 21 L 3 21 C 2\
+.45 21 2 20.55 2\
+ 20 L 2 7.333 C \
+2 6.783 2.45 6.3\
+33 3 6.333 L 6.5\
+ 6.333 C 7.05 6.\
+333 7.5 6.783 7.\
+5 7.333 L 7.5 20\
+ C 7.5 20.55 7.0\
+5 21 6.5 21 Z M \
+13.75 12 L 10.25\
+ 12 C 9.7 12 9.2\
+5 12.45 9.25 13 \
+L 9.25 20 C 9.25\
+ 20.55 9.7 21 10\
+.25 21 L 13.75 2\
+1 C 14.3 21 14.7\
+5 20.55 14.75 20\
+ L 14.75 13 C 14\
+.75 12.45 14.3 1\
+2 13.75 12 Z M 2\
+1 16.333 L 17.5 \
+16.333 C 16.95 1\
+6.333 16.5 16.78\
+3 16.5 17.333 L \
+16.5 20 C 16.5 2\
+0.55 16.95 21 17\
+.5 21 L 21 21 C \
+21.55 21 22 20.5\
+5 22 20 L 22 17.\
+333 C 22 16.783 \
+21.55 16.333 21 \
+16.333 Z\x22\x0a      \
+      fill=\x22#23d\
+0fe\x22\x0a           \
+ stroke-width=\x221\
+\x22/>\x0a    </g>\x0a</s\
+vg>\x0a\
+\x00\x00\x02\xd6\
+<\
+svg\x0a    xmlns=\x22h\
+ttp://www.w3.org\
+/2000/svg\x22\x0a    v\
+iewBox=\x220 0 24 2\
+4\x22\x0a    id=\x22vecto\
+r\x22\x0a    width=\x2224\
+px\x22\x0a    height=\x22\
+24px\x22>\x0a    <g id\
+=\x22group\x22>\x0a      \
+  <path\x0a        \
+    id=\x22path\x22\x0a  \
+          d=\x22M 6\
+.5 21 L 3 21 C 2\
+.45 21 2 20.55 2\
+ 20 L 2 10 C 2 9\
+.45 2.45 9 3 9 L\
+ 6.5 9 C 7.05 9 \
+7.5 9.45 7.5 10 \
+L 7.5 20 C 7.5 2\
+0.55 7.05 21 6.5\
+ 21 Z M 13.75 3 \
+L 10.25 3 C 9.7 \
+3 9.25 3.45 9.25\
+ 4 L 9.25 20 C 9\
+.25 20.55 9.7 21\
+ 10.25 21 L 13.7\
+5 21 C 14.3 21 1\
+4.75 20.55 14.75\
+ 20 L 14.75 4 C \
+14.75 3.45 14.3 \
+3 13.75 3 Z M 21\
+ 11 L 17.5 11 C \
+16.95 11 16.5 11\
+.45 16.5 12 L 16\
+.5 20 C 16.5 20.\
+55 16.95 21 17.5\
+ 21 L 21 21 C 21\
+.55 21 22 20.55 \
+22 20 L 22 12 C \
+22 11.45 21.55 1\
+1 21 11 Z\x22\x0a     \
+       fill=\x22#1a\
+69fa\x22\x0a          \
+  stroke-width=\x22\
+1\x22/>\x0a    </g>\x0a</\
+svg>\x0a\
+\x00\x00\x03\x14\
+<\
+svg\x0a    xmlns=\x22h\
+ttp://www.w3.org\
+/2000/svg\x22\x0a    v\
+iewBox=\x220 0 24 2\
+4\x22\x0a    id=\x22vecto\
+r\x22\x0a    width=\x2224\
+px\x22\x0a    height=\x22\
+24px\x22>\x0a    <g id\
+=\x22group\x22>\x0a      \
+  <path\x0a        \
+    id=\x22path\x22\x0a  \
+          d=\x22M 6\
+.5 21 L 3 21 C 2\
+.45 21 2 20.55 2\
+ 20 L 2 17.333 C\
+ 2 16.783 2.45 1\
+6.333 3 16.333 L\
+ 6.5 16.333 C 7.\
+05 16.333 7.5 16\
+.783 7.5 17.333 \
+L 7.5 20 C 7.5 2\
+0.55 7.05 21 6.5\
+ 21 Z M 13.75 6.\
+333 L 10.25 6.33\
+3 C 9.7 6.333 9.\
+25 6.783 9.25 7.\
+333 L 9.25 20 C \
+9.25 20.55 9.7 2\
+1 10.25 21 L 13.\
+75 21 C 14.3 21 \
+14.75 20.55 14.7\
+5 20 L 14.75 7.3\
+33 C 14.75 6.783\
+ 14.3 6.333 13.7\
+5 6.333 Z M 21 1\
+2 L 17.5 12 C 16\
+.95 12 16.5 12.4\
+5 16.5 13 L 16.5\
+ 20 C 16.5 20.55\
+ 16.95 21 17.5 2\
+1 L 21 21 C 21.5\
+5 21 22 20.55 22\
+ 20 L 22 13 C 22\
+ 12.45 21.55 12 \
+21 12 Z\x22\x0a       \
+     fill=\x22#23cc\
+fe\x22\x0a            \
+stroke-width=\x221\x22\
+/>\x0a    </g>\x0a</sv\
+g>\x0a\
+\x00\x00\x02\xd3\
+<\
+svg\x0a    xmlns=\x22h\
+ttp://www.w3.org\
+/2000/svg\x22\x0a    v\
+iewBox=\x220 0 24 2\
+4\x22\x0a    id=\x22vecto\
+r\x22\x0a    width=\x2224\
+px\x22\x0a    height=\x22\
+24px\x22>\x0a    <g id\
+=\x22group\x22>\x0a      \
+  <path\x0a        \
+    id=\x22path\x22\x0a  \
+          d=\x22M 6\
+.5 21 L 3 21 C 2\
+.45 21 2 20.55 2\
+ 20 L 2 18 C 2 1\
+7.45 2.45 17 3 1\
+7 L 6.5 17 C 7.0\
+5 17 7.5 17.45 7\
+.5 18 L 7.5 20 C\
+ 7.5 20.55 7.05 \
+21 6.5 21 Z M 13\
+.75 7 L 10.25 7 \
+C 9.7 7 9.25 7.4\
+5 9.25 8 L 9.25 \
+20 C 9.25 20.55 \
+9.7 21 10.25 21 \
+L 13.75 21 C 14.\
+3 21 14.75 20.55\
+ 14.75 20 L 14.7\
+5 8 C 14.75 7.45\
+ 14.3 7 13.75 7 \
+Z M 21 3 L 17.5 \
+3 C 16.95 3 16.5\
+ 3.45 16.5 4 L 1\
+6.5 20 C 16.5 20\
+.55 16.95 21 17.\
+5 21 L 21 21 C 2\
+1.55 21 22 20.55\
+ 22 20 L 22 4 C \
+22 3.45 21.55 3 \
+21 3 Z\x22\x0a        \
+    fill=\x22#1b75f\
+a\x22\x0a            s\
+troke-width=\x221\x22/\
+>\x0a    </g>\x0a</svg\
+>\x0a\
+\x00\x00\x02\xd3\
+<\
+svg\x0a    xmlns=\x22h\
+ttp://www.w3.org\
+/2000/svg\x22\x0a    v\
+iewBox=\x220 0 24 2\
+4\x22\x0a    id=\x22vecto\
+r\x22\x0a    width=\x2224\
+px\x22\x0a    height=\x22\
+24px\x22>\x0a    <g id\
+=\x22group\x22>\x0a      \
+  <path\x0a        \
+    id=\x22path\x22\x0a  \
+          d=\x22M 6\
+.5 21 L 3 21 C 2\
+.45 21 2 20.55 2\
+ 20 L 2 11 C 2 1\
+0.45 2.45 10 3 1\
+0 L 6.5 10 C 7.0\
+5 10 7.5 10.45 7\
+.5 11 L 7.5 20 C\
+ 7.5 20.55 7.05 \
+21 6.5 21 Z M 13\
+.75 7 L 10.25 7 \
+C 9.7 7 9.25 7.4\
+5 9.25 8 L 9.25 \
+20 C 9.25 20.55 \
+9.7 21 10.25 21 \
+L 13.75 21 C 14.\
+3 21 14.75 20.55\
+ 14.75 20 L 14.7\
+5 8 C 14.75 7.45\
+ 14.3 7 13.75 7 \
+Z M 21 5 L 17.5 \
+5 C 16.95 5 16.5\
+ 5.45 16.5 6 L 1\
+6.5 20 C 16.5 20\
+.55 16.95 21 17.\
+5 21 L 21 21 C 2\
+1.55 21 22 20.55\
+ 22 20 L 22 6 C \
+22 5.45 21.55 5 \
+21 5 Z\x22\x0a        \
+    fill=\x22#21b9f\
+d\x22\x0a            s\
+troke-width=\x221\x22/\
+>\x0a    </g>\x0a</svg\
+>\x0a\
+\x00\x00\x03*\
+<\
+svg\x0a    xmlns=\x22h\
+ttp://www.w3.org\
+/2000/svg\x22\x0a    v\
+iewBox=\x220 0 24 2\
+4\x22\x0a    id=\x22vecto\
+r\x22\x0a    width=\x2224\
+px\x22\x0a    height=\x22\
+24px\x22>\x0a    <g id\
+=\x22group\x22>\x0a      \
+  <path\x0a        \
+    id=\x22path\x22\x0a  \
+          d=\x22M 6\
+.5 21 L 3 21 C 2\
+.45 21 2 20.55 2\
+ 20 L 2 4.667 C \
+2 4.117 2.45 3.6\
+67 3 3.667 L 6.5\
+ 3.667 C 7.05 3.\
+667 7.5 4.117 7.\
+5 4.667 L 7.5 20\
+ C 7.5 20.55 7.0\
+5 21 6.5 21 Z M \
+13.75 12.667 L 1\
+0.25 12.667 C 9.\
+7 12.667 9.25 13\
+.117 9.25 13.667\
+ L 9.25 20 C 9.2\
+5 20.55 9.7 21 1\
+0.25 21 L 13.75 \
+21 C 14.3 21 14.\
+75 20.55 14.75 2\
+0 L 14.75 13.667\
+ C 14.75 13.117 \
+14.3 12.667 13.7\
+5 12.667 Z M 21 \
+6.333 L 17.5 6.3\
+33 C 16.95 6.333\
+ 16.5 6.783 16.5\
+ 7.333 L 16.5 20\
+ C 16.5 20.55 16\
+.95 21 17.5 21 L\
+ 21 21 C 21.55 2\
+1 22 20.55 22 20\
+ L 22 7.333 C 22\
+ 6.783 21.55 6.3\
+33 21 6.333 Z\x22\x0a \
+           fill=\
+\x22#1c7dfb\x22\x0a      \
+      stroke-wid\
+th=\x221\x22/>\x0a    </g\
+>\x0a</svg>\x0a\
+\x00\x00\x02\xdd\
+<\
+svg\x0a    xmlns=\x22h\
+ttp://www.w3.org\
+/2000/svg\x22\x0a    v\
+iewBox=\x220 0 24 2\
+4\x22\x0a    id=\x22vecto\
+r\x22\x0a    width=\x2224\
+px\x22\x0a    height=\x22\
+24px\x22>\x0a    <g id\
+=\x22group\x22>\x0a      \
+  <path\x0a        \
+    id=\x22path\x22\x0a  \
+          d=\x22M 6\
+.5 21 L 3 21 C 2\
+.45 21 2 20.55 2\
+ 20 L 2 8 C 2 7.\
+45 2.45 7 3 7 L \
+6.5 7 C 7.05 7 7\
+.5 7.45 7.5 8 L \
+7.5 20 C 7.5 20.\
+55 7.05 21 6.5 2\
+1 Z M 13.75 11 L\
+ 10.25 11 C 9.7 \
+11 9.25 11.45 9.\
+25 12 L 9.25 20 \
+C 9.25 20.55 9.7\
+ 21 10.25 21 L 1\
+3.75 21 C 14.3 2\
+1 14.75 20.55 14\
+.75 20 L 14.75 1\
+2 C 14.75 11.45 \
+14.3 11 13.75 11\
+ Z M 21 17 L 17.\
+5 17 C 16.95 17 \
+16.5 17.45 16.5 \
+18 L 16.5 20 C 1\
+6.5 20.55 16.95 \
+21 17.5 21 L 21 \
+21 C 21.55 21 22\
+ 20.55 22 20 L 2\
+2 18 C 22 17.45 \
+21.55 17 21 17 Z\
+\x22\x0a            fi\
+ll=\x22#23d0fe\x22\x0a   \
+         stroke-\
+width=\x221\x22/>\x0a    \
+</g>\x0a</svg>\x0a\
+\x00\x00\x02\xd6\
+<\
+svg\x0a    xmlns=\x22h\
+ttp://www.w3.org\
+/2000/svg\x22\x0a    v\
+iewBox=\x220 0 24 2\
+4\x22\x0a    id=\x22vecto\
+r\x22\x0a    width=\x2224\
+px\x22\x0a    height=\x22\
+24px\x22>\x0a    <g id\
+=\x22group\x22>\x0a      \
+  <path\x0a        \
+    id=\x22path\x22\x0a  \
+          d=\x22M 6\
+.5 21 L 3 21 C 2\
+.45 21 2 20.55 2\
+ 20 L 2 10 C 2 9\
+.45 2.45 9 3 9 L\
+ 6.5 9 C 7.05 9 \
+7.5 9.45 7.5 10 \
+L 7.5 20 C 7.5 2\
+0.55 7.05 21 6.5\
+ 21 Z M 13.75 3 \
+L 10.25 3 C 9.7 \
+3 9.25 3.45 9.25\
+ 4 L 9.25 20 C 9\
+.25 20.55 9.7 21\
+ 10.25 21 L 13.7\
+5 21 C 14.3 21 1\
+4.75 20.55 14.75\
+ 20 L 14.75 4 C \
+14.75 3.45 14.3 \
+3 13.75 3 Z M 21\
+ 11 L 17.5 11 C \
+16.95 11 16.5 11\
+.45 16.5 12 L 16\
+.5 20 C 16.5 20.\
+55 16.95 21 17.5\
+ 21 L 21 21 C 21\
+.55 21 22 20.55 \
+22 20 L 22 12 C \
+22 11.45 21.55 1\
+1 21 11 Z\x22\x0a     \
+       fill=\x22#1a\
+6afa\x22\x0a          \
+  stroke-width=\x22\
+1\x22/>\x0a    </g>\x0a</\
+svg>\x0a\
+\x00\x00\x03\x14\
+<\
+svg\x0a    xmlns=\x22h\
+ttp://www.w3.org\
+/2000/svg\x22\x0a    v\
+iewBox=\x220 0 24 2\
+4\x22\x0a    id=\x22vecto\
+r\x22\x0a    width=\x2224\
+px\x22\x0a    height=\x22\
+24px\x22>\x0a    <g id\
+=\x22group\x22>\x0a      \
+  <path\x0a        \
+    id=\x22path\x22\x0a  \
+          d=\x22M 6\
+.5 21 L 3 21 C 2\
+.45 21 2 20.55 2\
+ 20 L 2 16.667 C\
+ 2 16.117 2.45 1\
+5.667 3 15.667 L\
+ 6.5 15.667 C 7.\
+05 15.667 7.5 16\
+.117 7.5 16.667 \
+L 7.5 20 C 7.5 2\
+0.55 7.05 21 6.5\
+ 21 Z M 13.75 5.\
+667 L 10.25 5.66\
+7 C 9.7 5.667 9.\
+25 6.117 9.25 6.\
+667 L 9.25 20 C \
+9.25 20.55 9.7 2\
+1 10.25 21 L 13.\
+75 21 C 14.3 21 \
+14.75 20.55 14.7\
+5 20 L 14.75 6.6\
+67 C 14.75 6.117\
+ 14.3 5.667 13.7\
+5 5.667 Z M 21 1\
+1 L 17.5 11 C 16\
+.95 11 16.5 11.4\
+5 16.5 12 L 16.5\
+ 20 C 16.5 20.55\
+ 16.95 21 17.5 2\
+1 L 21 21 C 21.5\
+5 21 22 20.55 22\
+ 20 L 22 12 C 22\
+ 11.45 21.55 11 \
+21 11 Z\x22\x0a       \
+     fill=\x22#23cb\
+fe\x22\x0a            \
+stroke-width=\x221\x22\
+/>\x0a    </g>\x0a</sv\
+g>\x0a\
+\x00\x00\x03\x0b\
+<\
+svg\x0a    xmlns=\x22h\
+ttp://www.w3.org\
+/2000/svg\x22\x0a    v\
+iewBox=\x220 0 24 2\
+4\x22\x0a    id=\x22vecto\
+r\x22\x0a    width=\x2224\
+px\x22\x0a    height=\x22\
+24px\x22>\x0a    <g id\
+=\x22group\x22>\x0a      \
+  <path\x0a        \
+    id=\x22path\x22\x0a  \
+          d=\x22M 6\
+.5 21 L 3 21 C 2\
+.45 21 2 20.55 2\
+ 20 L 2 16.667 C\
+ 2 16.117 2.45 1\
+5.667 3 15.667 L\
+ 6.5 15.667 C 7.\
+05 15.667 7.5 16\
+.117 7.5 16.667 \
+L 7.5 20 C 7.5 2\
+0.55 7.05 21 6.5\
+ 21 Z M 13.75 8 \
+L 10.25 8 C 9.7 \
+8 9.25 8.45 9.25\
+ 9 L 9.25 20 C 9\
+.25 20.55 9.7 21\
+ 10.25 21 L 13.7\
+5 21 C 14.3 21 1\
+4.75 20.55 14.75\
+ 20 L 14.75 9 C \
+14.75 8.45 14.3 \
+8 13.75 8 Z M 21\
+ 3.667 L 17.5 3.\
+667 C 16.95 3.66\
+7 16.5 4.117 16.\
+5 4.667 L 16.5 2\
+0 C 16.5 20.55 1\
+6.95 21 17.5 21 \
+L 21 21 C 21.55 \
+21 22 20.55 22 2\
+0 L 22 4.667 C 2\
+2 4.117 21.55 3.\
+667 21 3.667 Z\x22\x0a\
+            fill\
+=\x22#1b78fb\x22\x0a     \
+       stroke-wi\
+dth=\x221\x22/>\x0a    </\
+g>\x0a</svg>\x0a\
+\x00\x00\x03\x09\
+<\
+svg\x0a    xmlns=\x22h\
+ttp://www.w3.org\
+/2000/svg\x22\x0a    v\
+iewBox=\x220 0 24 2\
+4\x22\x0a    id=\x22vecto\
+r\x22\x0a    width=\x2224\
+px\x22\x0a    height=\x22\
+24px\x22>\x0a    <g id\
+=\x22group\x22>\x0a      \
+  <path\x0a        \
+    id=\x22path\x22\x0a  \
+          d=\x22M 6\
+.5 21 L 3 21 C 2\
+.45 21 2 20.55 2\
+ 20 L 2 10 C 2 9\
+.45 2.45 9 3 9 L\
+ 6.5 9 C 7.05 9 \
+7.5 9.45 7.5 10 \
+L 7.5 20 C 7.5 2\
+0.55 7.05 21 6.5\
+ 21 Z M 13.75 8.\
+333 L 10.25 8.33\
+3 C 9.7 8.333 9.\
+25 8.783 9.25 9.\
+333 L 9.25 20 C \
+9.25 20.55 9.7 2\
+1 10.25 21 L 13.\
+75 21 C 14.3 21 \
+14.75 20.55 14.7\
+5 20 L 14.75 9.3\
+33 C 14.75 8.783\
+ 14.3 8.333 13.7\
+5 8.333 Z M 21 4\
+.333 L 17.5 4.33\
+3 C 16.95 4.333 \
+16.5 4.783 16.5 \
+5.333 L 16.5 20 \
+C 16.5 20.55 16.\
+95 21 17.5 21 L \
+21 21 C 21.55 21\
+ 22 20.55 22 20 \
+L 22 5.333 C 22 \
+4.783 21.55 4.33\
+3 21 4.333 Z\x22\x0a  \
+          fill=\x22\
+#21b4fd\x22\x0a       \
+     stroke-widt\
+h=\x221\x22/>\x0a    </g>\
+\x0a</svg>\x0a\
+\x00\x00\x02\xdd\
+<\
+svg\x0a    xmlns=\x22h\
+ttp://www.w3.org\
+/2000/svg\x22\x0a    v\
+iewBox=\x220 0 24 2\
+4\x22\x0a    id=\x22vecto\
+r\x22\x0a    width=\x2224\
+px\x22\x0a    height=\x22\
+24px\x22>\x0a    <g id\
+=\x22group\x22>\x0a      \
+  <path\x0a        \
+    id=\x22path\x22\x0a  \
+          d=\x22M 6\
+.5 21 L 3 21 C 2\
+.45 21 2 20.55 2\
+ 20 L 2 7 C 2 6.\
+45 2.45 6 3 6 L \
+6.5 6 C 7.05 6 7\
+.5 6.45 7.5 7 L \
+7.5 20 C 7.5 20.\
+55 7.05 21 6.5 2\
+1 Z M 13.75 15 L\
+ 10.25 15 C 9.7 \
+15 9.25 15.45 9.\
+25 16 L 9.25 20 \
+C 9.25 20.55 9.7\
+ 21 10.25 21 L 1\
+3.75 21 C 14.3 2\
+1 14.75 20.55 14\
+.75 20 L 14.75 1\
+6 C 14.75 15.45 \
+14.3 15 13.75 15\
+ Z M 21 10 L 17.\
+5 10 C 16.95 10 \
+16.5 10.45 16.5 \
+11 L 16.5 20 C 1\
+6.5 20.55 16.95 \
+21 17.5 21 L 21 \
+21 C 21.55 21 22\
+ 20.55 22 20 L 2\
+2 11 C 22 10.45 \
+21.55 10 21 10 Z\
+\x22\x0a            fi\
+ll=\x22#20aafd\x22\x0a   \
+         stroke-\
+width=\x221\x22/>\x0a    \
+</g>\x0a</svg>\x0a\
+\x00\x00\x02\xd4\
+<\
+svg\x0a    xmlns=\x22h\
+ttp://www.w3.org\
+/2000/svg\x22\x0a    v\
+iewBox=\x220 0 24 2\
+4\x22\x0a    id=\x22vecto\
+r\x22\x0a    width=\x2224\
+px\x22\x0a    height=\x22\
+24px\x22>\x0a    <g id\
+=\x22group\x22>\x0a      \
+  <path\x0a        \
+    id=\x22path\x22\x0a  \
+          d=\x22M 6\
+.5 21 L 3 21 C 2\
+.45 21 2 20.55 2\
+ 20 L 2 4 C 2 3.\
+45 2.45 3 3 3 L \
+6.5 3 C 7.05 3 7\
+.5 3.45 7.5 4 L \
+7.5 20 C 7.5 20.\
+55 7.05 21 6.5 2\
+1 Z M 13.75 13 L\
+ 10.25 13 C 9.7 \
+13 9.25 13.45 9.\
+25 14 L 9.25 20 \
+C 9.25 20.55 9.7\
+ 21 10.25 21 L 1\
+3.75 21 C 14.3 2\
+1 14.75 20.55 14\
+.75 20 L 14.75 1\
+4 C 14.75 13.45 \
+14.3 13 13.75 13\
+ Z M 21 7 L 17.5\
+ 7 C 16.95 7 16.\
+5 7.45 16.5 8 L \
+16.5 20 C 16.5 2\
+0.55 16.95 21 17\
+.5 21 L 21 21 C \
+21.55 21 22 20.5\
+5 22 20 L 22 8 C\
+ 22 7.45 21.55 7\
+ 21 7 Z\x22\x0a       \
+     fill=\x22#1b76\
+fb\x22\x0a            \
+stroke-width=\x221\x22\
+/>\x0a    </g>\x0a</sv\
+g>\x0a\
+\x00\x00\x02\xd6\
+<\
+svg\x0a    xmlns=\x22h\
+ttp://www.w3.org\
+/2000/svg\x22\x0a    v\
+iewBox=\x220 0 24 2\
+4\x22\x0a    id=\x22vecto\
+r\x22\x0a    width=\x2224\
+px\x22\x0a    height=\x22\
+24px\x22>\x0a    <g id\
+=\x22group\x22>\x0a      \
+  <path\x0a        \
+    id=\x22path\x22\x0a  \
+          d=\x22M 6\
+.5 21 L 3 21 C 2\
+.45 21 2 20.55 2\
+ 20 L 2 10 C 2 9\
+.45 2.45 9 3 9 L\
+ 6.5 9 C 7.05 9 \
+7.5 9.45 7.5 10 \
+L 7.5 20 C 7.5 2\
+0.55 7.05 21 6.5\
+ 21 Z M 13.75 3 \
+L 10.25 3 C 9.7 \
+3 9.25 3.45 9.25\
+ 4 L 9.25 20 C 9\
+.25 20.55 9.7 21\
+ 10.25 21 L 13.7\
+5 21 C 14.3 21 1\
+4.75 20.55 14.75\
+ 20 L 14.75 4 C \
+14.75 3.45 14.3 \
+3 13.75 3 Z M 21\
+ 11 L 17.5 11 C \
+16.95 11 16.5 11\
+.45 16.5 12 L 16\
+.5 20 C 16.5 20.\
+55 16.95 21 17.5\
+ 21 L 21 21 C 21\
+.55 21 22 20.55 \
+22 20 L 22 12 C \
+22 11.45 21.55 1\
+1 21 11 Z\x22\x0a     \
+       fill=\x22#1a\
+6bfa\x22\x0a          \
+  stroke-width=\x22\
+1\x22/>\x0a    </g>\x0a</\
+svg>\x0a\
+\x00\x00\x02\xdc\
+<\
+svg\x0a    xmlns=\x22h\
+ttp://www.w3.org\
+/2000/svg\x22\x0a    v\
+iewBox=\x220 0 24 2\
+4\x22\x0a    id=\x22vecto\
+r\x22\x0a    width=\x2224\
+px\x22\x0a    height=\x22\
+24px\x22>\x0a    <g id\
+=\x22group\x22>\x0a      \
+  <path\x0a        \
+    id=\x22path\x22\x0a  \
+          d=\x22M 6\
+.5 21 L 3 21 C 2\
+.45 21 2 20.55 2\
+ 20 L 2 16 C 2 1\
+5.45 2.45 15 3 1\
+5 L 6.5 15 C 7.0\
+5 15 7.5 15.45 7\
+.5 16 L 7.5 20 C\
+ 7.5 20.55 7.05 \
+21 6.5 21 Z M 13\
+.75 5 L 10.25 5 \
+C 9.7 5 9.25 5.4\
+5 9.25 6 L 9.25 \
+20 C 9.25 20.55 \
+9.7 21 10.25 21 \
+L 13.75 21 C 14.\
+3 21 14.75 20.55\
+ 14.75 20 L 14.7\
+5 6 C 14.75 5.45\
+ 14.3 5 13.75 5 \
+Z M 21 10 L 17.5\
+ 10 C 16.95 10 1\
+6.5 10.45 16.5 1\
+1 L 16.5 20 C 16\
+.5 20.55 16.95 2\
+1 17.5 21 L 21 2\
+1 C 21.55 21 22 \
+20.55 22 20 L 22\
+ 11 C 22 10.45 2\
+1.55 10 21 10 Z\x22\
+\x0a            fil\
+l=\x22#22cafe\x22\x0a    \
+        stroke-w\
+idth=\x221\x22/>\x0a    <\
+/g>\x0a</svg>\x0a\
+\x00\x00\x03\x0d\
+<\
+svg\x0a    xmlns=\x22h\
+ttp://www.w3.org\
+/2000/svg\x22\x0a    v\
+iewBox=\x220 0 24 2\
+4\x22\x0a    id=\x22vecto\
+r\x22\x0a    width=\x2224\
+px\x22\x0a    height=\x22\
+24px\x22>\x0a    <g id\
+=\x22group\x22>\x0a      \
+  <path\x0a        \
+    id=\x22path\x22\x0a  \
+          d=\x22M 6\
+.5 21 L 3 21 C 2\
+.45 21 2 20.55 2\
+ 20 L 2 15.333 C\
+ 2 14.783 2.45 1\
+4.333 3 14.333 L\
+ 6.5 14.333 C 7.\
+05 14.333 7.5 14\
+.783 7.5 15.333 \
+L 7.5 20 C 7.5 2\
+0.55 7.05 21 6.5\
+ 21 Z M 13.75 9 \
+L 10.25 9 C 9.7 \
+9 9.25 9.45 9.25\
+ 10 L 9.25 20 C \
+9.25 20.55 9.7 2\
+1 10.25 21 L 13.\
+75 21 C 14.3 21 \
+14.75 20.55 14.7\
+5 20 L 14.75 10 \
+C 14.75 9.45 14.\
+3 9 13.75 9 Z M \
+21 4.333 L 17.5 \
+4.333 C 16.95 4.\
+333 16.5 4.783 1\
+6.5 5.333 L 16.5\
+ 20 C 16.5 20.55\
+ 16.95 21 17.5 2\
+1 L 21 21 C 21.5\
+5 21 22 20.55 22\
+ 20 L 22 5.333 C\
+ 22 4.783 21.55 \
+4.333 21 4.333 Z\
+\x22\x0a            fi\
+ll=\x22#1c7bfb\x22\x0a   \
+         stroke-\
+width=\x221\x22/>\x0a    \
+</g>\x0a</svg>\x0a\
+\x00\x00\x03\x0b\
+<\
+svg\x0a    xmlns=\x22h\
+ttp://www.w3.org\
+/2000/svg\x22\x0a    v\
+iewBox=\x220 0 24 2\
+4\x22\x0a    id=\x22vecto\
+r\x22\x0a    width=\x2224\
+px\x22\x0a    height=\x22\
+24px\x22>\x0a    <g id\
+=\x22group\x22>\x0a      \
+  <path\x0a        \
+    id=\x22path\x22\x0a  \
+          d=\x22M 6\
+.5 21 L 3 21 C 2\
+.45 21 2 20.55 2\
+ 20 L 2 9 C 2 8.\
+45 2.45 8 3 8 L \
+6.5 8 C 7.05 8 7\
+.5 8.45 7.5 9 L \
+7.5 20 C 7.5 20.\
+55 7.05 21 6.5 2\
+1 Z M 13.75 9.66\
+7 L 10.25 9.667 \
+C 9.7 9.667 9.25\
+ 10.117 9.25 10.\
+667 L 9.25 20 C \
+9.25 20.55 9.7 2\
+1 10.25 21 L 13.\
+75 21 C 14.3 21 \
+14.75 20.55 14.7\
+5 20 L 14.75 10.\
+667 C 14.75 10.1\
+17 14.3 9.667 13\
+.75 9.667 Z M 21\
+ 3.667 L 17.5 3.\
+667 C 16.95 3.66\
+7 16.5 4.117 16.\
+5 4.667 L 16.5 2\
+0 C 16.5 20.55 1\
+6.95 21 17.5 21 \
+L 21 21 C 21.55 \
+21 22 20.55 22 2\
+0 L 22 4.667 C 2\
+2 4.117 21.55 3.\
+667 21 3.667 Z\x22\x0a\
+            fill\
+=\x22#20aefd\x22\x0a     \
+       stroke-wi\
+dth=\x221\x22/>\x0a    </\
+g>\x0a</svg>\x0a\
+\x00\x00\x02\xfb\
+<\
+svg\x0a    xmlns=\x22h\
+ttp://www.w3.org\
+/2000/svg\x22\x0a    v\
+iewBox=\x220 0 24 2\
+4\x22\x0a    id=\x22vecto\
+r\x22\x0a    width=\x2224\
+px\x22\x0a    height=\x22\
+24px\x22>\x0a    <g id\
+=\x22group\x22>\x0a      \
+  <path\x0a        \
+    id=\x22path\x22\x0a  \
+          d=\x22M 6\
+.5 21 L 3 21 C 2\
+.45 21 2 20.55 2\
+ 20 L 2 6 C 2 5.\
+45 2.45 5 3 5 L \
+6.5 5 C 7.05 5 7\
+.5 5.45 7.5 6 L \
+7.5 20 C 7.5 20.\
+55 7.05 21 6.5 2\
+1 Z M 13.75 15.6\
+67 L 10.25 15.66\
+7 C 9.7 15.667 9\
+.25 16.117 9.25 \
+16.667 L 9.25 20\
+ C 9.25 20.55 9.\
+7 21 10.25 21 L \
+13.75 21 C 14.3 \
+21 14.75 20.55 1\
+4.75 20 L 14.75 \
+16.667 C 14.75 1\
+6.117 14.3 15.66\
+7 13.75 15.667 Z\
+ M 21 11 L 17.5 \
+11 C 16.95 11 16\
+.5 11.45 16.5 12\
+ L 16.5 20 C 16.\
+5 20.55 16.95 21\
+ 17.5 21 L 21 21\
+ C 21.55 21 22 2\
+0.55 22 20 L 22 \
+12 C 22 11.45 21\
+.55 11 21 11 Z\x22\x0a\
+            fill\
+=\x22#20b3fd\x22\x0a     \
+       stroke-wi\
+dth=\x221\x22/>\x0a    </\
+g>\x0a</svg>\x0a\
+\x00\x00\x03\x10\
+<\
+svg\x0a    xmlns=\x22h\
+ttp://www.w3.org\
+/2000/svg\x22\x0a    v\
+iewBox=\x220 0 24 2\
+4\x22\x0a    id=\x22vecto\
+r\x22\x0a    width=\x2224\
+px\x22\x0a    height=\x22\
+24px\x22>\x0a    <g id\
+=\x22group\x22>\x0a      \
+  <path\x0a        \
+    id=\x22path\x22\x0a  \
+          d=\x22M 6\
+.5 21 L 3 21 C 2\
+.45 21 2 20.55 2\
+ 20 L 2 5 C 2 4.\
+45 2.45 4 3 4 L \
+6.5 4 C 7.05 4 7\
+.5 4.45 7.5 5 L \
+7.5 20 C 7.5 20.\
+55 7.05 21 6.5 2\
+1 Z M 13.75 11.3\
+33 L 10.25 11.33\
+3 C 9.7 11.333 9\
+.25 11.783 9.25 \
+12.333 L 9.25 20\
+ C 9.25 20.55 9.\
+7 21 10.25 21 L \
+13.75 21 C 14.3 \
+21 14.75 20.55 1\
+4.75 20 L 14.75 \
+12.333 C 14.75 1\
+1.783 14.3 11.33\
+3 13.75 11.333 Z\
+ M 21 7.667 L 17\
+.5 7.667 C 16.95\
+ 7.667 16.5 8.11\
+7 16.5 8.667 L 1\
+6.5 20 C 16.5 20\
+.55 16.95 21 17.\
+5 21 L 21 21 C 2\
+1.55 21 22 20.55\
+ 22 20 L 22 8.66\
+7 C 22 8.117 21.\
+55 7.667 21 7.66\
+7 Z\x22\x0a           \
+ fill=\x22#1b71fa\x22\x0a\
+            stro\
+ke-width=\x221\x22/>\x0a \
+   </g>\x0a</svg>\x0a\
+\x00\x00\x03-\
+<\
+svg\x0a    xmlns=\x22h\
+ttp://www.w3.org\
+/2000/svg\x22\x0a    v\
+iewBox=\x220 0 24 2\
+4\x22\x0a    id=\x22vecto\
+r\x22\x0a    width=\x2224\
+px\x22\x0a    height=\x22\
+24px\x22>\x0a    <g id\
+=\x22group\x22>\x0a      \
+  <path\x0a        \
+    id=\x22path\x22\x0a  \
+          d=\x22M 6\
+.5 21 L 3 21 C 2\
+.45 21 2 20.55 2\
+ 20 L 2 11.333 C\
+ 2 10.783 2.45 1\
+0.333 3 10.333 L\
+ 6.5 10.333 C 7.\
+05 10.333 7.5 10\
+.783 7.5 11.333 \
+L 7.5 20 C 7.5 2\
+0.55 7.05 21 6.5\
+ 21 Z M 13.75 3.\
+667 L 10.25 3.66\
+7 C 9.7 3.667 9.\
+25 4.117 9.25 4.\
+667 L 9.25 20 C \
+9.25 20.55 9.7 2\
+1 10.25 21 L 13.\
+75 21 C 14.3 21 \
+14.75 20.55 14.7\
+5 20 L 14.75 4.6\
+67 C 14.75 4.117\
+ 14.3 3.667 13.7\
+5 3.667 Z M 21 9\
+.667 L 17.5 9.66\
+7 C 16.95 9.667 \
+16.5 10.117 16.5\
+ 10.667 L 16.5 2\
+0 C 16.5 20.55 1\
+6.95 21 17.5 21 \
+L 21 21 C 21.55 \
+21 22 20.55 22 2\
+0 L 22 10.667 C \
+22 10.117 21.55 \
+9.667 21 9.667 Z\
+\x22\x0a            fi\
+ll=\x22#1a6cfa\x22\x0a   \
+         stroke-\
+width=\x221\x22/>\x0a    \
+</g>\x0a</svg>\x0a\
+\x00\x00\x03\x0d\
+<\
+svg\x0a    xmlns=\x22h\
+ttp://www.w3.org\
+/2000/svg\x22\x0a    v\
+iewBox=\x220 0 24 2\
+4\x22\x0a    id=\x22vecto\
+r\x22\x0a    width=\x2224\
+px\x22\x0a    height=\x22\
+24px\x22>\x0a    <g id\
+=\x22group\x22>\x0a      \
+  <path\x0a        \
+    id=\x22path\x22\x0a  \
+          d=\x22M 6\
+.5 21 L 3 21 C 2\
+.45 21 2 20.55 2\
+ 20 L 2 15.333 C\
+ 2 14.783 2.45 1\
+4.333 3 14.333 L\
+ 6.5 14.333 C 7.\
+05 14.333 7.5 14\
+.783 7.5 15.333 \
+L 7.5 20 C 7.5 2\
+0.55 7.05 21 6.5\
+ 21 Z M 13.75 4.\
+333 L 10.25 4.33\
+3 C 9.7 4.333 9.\
+25 4.783 9.25 5.\
+333 L 9.25 20 C \
+9.25 20.55 9.7 2\
+1 10.25 21 L 13.\
+75 21 C 14.3 21 \
+14.75 20.55 14.7\
+5 20 L 14.75 5.3\
+33 C 14.75 4.783\
+ 14.3 4.333 13.7\
+5 4.333 Z M 21 9\
+ L 17.5 9 C 16.9\
+5 9 16.5 9.45 16\
+.5 10 L 16.5 20 \
+C 16.5 20.55 16.\
+95 21 17.5 21 L \
+21 21 C 21.55 21\
+ 22 20.55 22 20 \
+L 22 10 C 22 9.4\
+5 21.55 9 21 9 Z\
+\x22\x0a            fi\
+ll=\x22#22c8fe\x22\x0a   \
+         stroke-\
+width=\x221\x22/>\x0a    \
+</g>\x0a</svg>\x0a\
+\x00\x00\x02\xdc\
+<\
+svg\x0a    xmlns=\x22h\
+ttp://www.w3.org\
+/2000/svg\x22\x0a    v\
+iewBox=\x220 0 24 2\
+4\x22\x0a    id=\x22vecto\
+r\x22\x0a    width=\x2224\
+px\x22\x0a    height=\x22\
+24px\x22>\x0a    <g id\
+=\x22group\x22>\x0a      \
+  <path\x0a        \
+    id=\x22path\x22\x0a  \
+          d=\x22M 6\
+.5 21 L 3 21 C 2\
+.45 21 2 20.55 2\
+ 20 L 2 14 C 2 1\
+3.45 2.45 13 3 1\
+3 L 6.5 13 C 7.0\
+5 13 7.5 13.45 7\
+.5 14 L 7.5 20 C\
+ 7.5 20.55 7.05 \
+21 6.5 21 Z M 13\
+.75 10 L 10.25 1\
+0 C 9.7 10 9.25 \
+10.45 9.25 11 L \
+9.25 20 C 9.25 2\
+0.55 9.7 21 10.2\
+5 21 L 13.75 21 \
+C 14.3 21 14.75 \
+20.55 14.75 20 L\
+ 14.75 11 C 14.7\
+5 10.45 14.3 10 \
+13.75 10 Z M 21 \
+5 L 17.5 5 C 16.\
+95 5 16.5 5.45 1\
+6.5 6 L 16.5 20 \
+C 16.5 20.55 16.\
+95 21 17.5 21 L \
+21 21 C 21.55 21\
+ 22 20.55 22 20 \
+L 22 6 C 22 5.45\
+ 21.55 5 21 5 Z\x22\
+\x0a            fil\
+l=\x22#1c7ffb\x22\x0a    \
+        stroke-w\
+idth=\x221\x22/>\x0a    <\
+/g>\x0a</svg>\x0a\
+\x00\x00\x02\xd4\
+<\
+svg\x0a    xmlns=\x22h\
+ttp://www.w3.org\
+/2000/svg\x22\x0a    v\
+iewBox=\x220 0 24 2\
+4\x22\x0a    id=\x22vecto\
+r\x22\x0a    width=\x2224\
+px\x22\x0a    height=\x22\
+24px\x22>\x0a    <g id\
+=\x22group\x22>\x0a      \
+  <path\x0a        \
+    id=\x22path\x22\x0a  \
+          d=\x22M 6\
+.5 21 L 3 21 C 2\
+.45 21 2 20.55 2\
+ 20 L 2 8 C 2 7.\
+45 2.45 7 3 7 L \
+6.5 7 C 7.05 7 7\
+.5 7.45 7.5 8 L \
+7.5 20 C 7.5 20.\
+55 7.05 21 6.5 2\
+1 Z M 13.75 11 L\
+ 10.25 11 C 9.7 \
+11 9.25 11.45 9.\
+25 12 L 9.25 20 \
+C 9.25 20.55 9.7\
+ 21 10.25 21 L 1\
+3.75 21 C 14.3 2\
+1 14.75 20.55 14\
+.75 20 L 14.75 1\
+2 C 14.75 11.45 \
+14.3 11 13.75 11\
+ Z M 21 3 L 17.5\
+ 3 C 16.95 3 16.\
+5 3.45 16.5 4 L \
+16.5 20 C 16.5 2\
+0.55 16.95 21 17\
+.5 21 L 21 21 C \
+21.55 21 22 20.5\
+5 22 20 L 22 4 C\
+ 22 3.45 21.55 3\
+ 21 3 Z\x22\x0a       \
+     fill=\x22#20a8\
+fc\x22\x0a            \
+stroke-width=\x221\x22\
+/>\x0a    </g>\x0a</sv\
+g>\x0a\
+\x00\x00\x02\xfb\
+<\
+svg\x0a    xmlns=\x22h\
+ttp://www.w3.org\
+/2000/svg\x22\x0a    v\
+iewBox=\x220 0 24 2\
+4\x22\x0a    id=\x22vecto\
+r\x22\x0a    width=\x2224\
+px\x22\x0a    height=\x22\
+24px\x22>\x0a    <g id\
+=\x22group\x22>\x0a      \
+  <path\x0a        \
+    id=\x22path\x22\x0a  \
+          d=\x22M 6\
+.5 21 L 3 21 C 2\
+.45 21 2 20.55 2\
+ 20 L 2 5 C 2 4.\
+45 2.45 4 3 4 L \
+6.5 4 C 7.05 4 7\
+.5 4.45 7.5 5 L \
+7.5 20 C 7.5 20.\
+55 7.05 21 6.5 2\
+1 Z M 13.75 16.3\
+33 L 10.25 16.33\
+3 C 9.7 16.333 9\
+.25 16.783 9.25 \
+17.333 L 9.25 20\
+ C 9.25 20.55 9.\
+7 21 10.25 21 L \
+13.75 21 C 14.3 \
+21 14.75 20.55 1\
+4.75 20 L 14.75 \
+17.333 C 14.75 1\
+6.783 14.3 16.33\
+3 13.75 16.333 Z\
+ M 21 12 L 17.5 \
+12 C 16.95 12 16\
+.5 12.45 16.5 13\
+ L 16.5 20 C 16.\
+5 20.55 16.95 21\
+ 17.5 21 L 21 21\
+ C 21.55 21 22 2\
+0.55 22 20 L 22 \
+13 C 22 12.45 21\
+.55 12 21 12 Z\x22\x0a\
+            fill\
+=\x22#21bbfd\x22\x0a     \
+       stroke-wi\
+dth=\x221\x22/>\x0a    </\
+g>\x0a</svg>\x0a\
+\x00\x00\x02\xd6\
+<\
+svg\x0a    xmlns=\x22h\
+ttp://www.w3.org\
+/2000/svg\x22\x0a    v\
+iewBox=\x220 0 24 2\
+4\x22\x0a    id=\x22vecto\
+r\x22\x0a    width=\x2224\
+px\x22\x0a    height=\x22\
+24px\x22>\x0a    <g id\
+=\x22group\x22>\x0a      \
+  <path\x0a        \
+    id=\x22path\x22\x0a  \
+          d=\x22M 6\
+.5 21 L 3 21 C 2\
+.45 21 2 20.55 2\
+ 20 L 2 10 C 2 9\
+.45 2.45 9 3 9 L\
+ 6.5 9 C 7.05 9 \
+7.5 9.45 7.5 10 \
+L 7.5 20 C 7.5 2\
+0.55 7.05 21 6.5\
+ 21 Z M 13.75 3 \
+L 10.25 3 C 9.7 \
+3 9.25 3.45 9.25\
+ 4 L 9.25 20 C 9\
+.25 20.55 9.7 21\
+ 10.25 21 L 13.7\
+5 21 C 14.3 21 1\
+4.75 20.55 14.75\
+ 20 L 14.75 4 C \
+14.75 3.45 14.3 \
+3 13.75 3 Z M 21\
+ 11 L 17.5 11 C \
+16.95 11 16.5 11\
+.45 16.5 12 L 16\
+.5 20 C 16.5 20.\
+55 16.95 21 17.5\
+ 21 L 21 21 C 21\
+.55 21 22 20.55 \
+22 20 L 22 12 C \
+22 11.45 21.55 1\
+1 21 11 Z\x22\x0a     \
+       fill=\x22#1a\
+68fa\x22\x0a          \
+  stroke-width=\x22\
+1\x22/>\x0a    </g>\x0a</\
+svg>\x0a\
 "
 
 qt_resource_name = b"\
@@ -3819,25 +9682,264 @@ qt_resource_name = b"\
 \x08;X\xdd\
 \x00f\
 \x00r\x00_\x00F\x00R\x00.\x00q\x00m\
-\x00\x11\
-\x03\xe82\xbc\
-\x00s\
-\x00p\x00r\x00i\x00t\x00e\x00_\x006\x000\x00f\x00p\x00s\x00.\x00h\x00t\x00m\x00l\
-\
-\x00\x10\
-\x0c>\x86#\
-\x00s\
-\x00p\x00r\x00i\x00t\x00e\x00_\x006\x000\x00f\x00p\x00s\x00.\x00c\x00s\x00s\
-\x00\x10\
-\x0c>\x96G\
-\x00s\
-\x00p\x00r\x00i\x00t\x00e\x00_\x006\x000\x00f\x00p\x00s\x00.\x00s\x00v\x00g\
+\x00\x09\
+\x09\x95B\xb5\
+\x00b\
+\x00a\x00r\x00s\x00_\x00b\x00l\x00u\x00e\
+\x00\x0b\
+\x06\xad\x84\x05\
+\x00b\
+\x00a\x00r\x00s\x00_\x00p\x00u\x00r\x00p\x00l\x00e\
+\x00\x0b\
+\x08\xecJ\xa7\
+\x00f\
+\x00r\x00a\x00m\x00e\x000\x004\x00.\x00s\x00v\x00g\
+\x00\x0b\
+\x08\x83J\xa7\
+\x00f\
+\x00r\x00a\x00m\x00e\x002\x009\x00.\x00s\x00v\x00g\
+\x00\x0b\
+\x08^J\xa7\
+\x00f\
+\x00r\x00a\x00m\x00e\x005\x002\x00.\x00s\x00v\x00g\
+\x00\x0b\
+\x08\xacJ\xa7\
+\x00f\
+\x00r\x00a\x00m\x00e\x004\x004\x00.\x00s\x00v\x00g\
+\x00\x0b\
+\x08\xb2J\xa7\
+\x00f\
+\x00r\x00a\x00m\x00e\x003\x006\x00.\x00s\x00v\x00g\
+\x00\x0b\
+\x08\x9bJ\xa7\
+\x00f\
+\x00r\x00a\x00m\x00e\x001\x001\x00.\x00s\x00v\x00g\
+\x00\x0b\
+\x08\xf1J\xa7\
+\x00f\
+\x00r\x00a\x00m\x00e\x000\x003\x00.\x00s\x00v\x00g\
+\x00\x0b\
+\x08\x80J\xa7\
+\x00f\
+\x00r\x00a\x00m\x00e\x002\x008\x00.\x00s\x00v\x00g\
+\x00\x0b\
+\x08[J\xa7\
+\x00f\
+\x00r\x00a\x00m\x00e\x005\x001\x00.\x00s\x00v\x00g\
+\x00\x0b\
+\x08\xb1J\xa7\
+\x00f\
+\x00r\x00a\x00m\x00e\x004\x003\x00.\x00s\x00v\x00g\
+\x00\x0b\
+\x08\xbfJ\xa7\
+\x00f\
+\x00r\x00a\x00m\x00e\x003\x005\x00.\x00s\x00v\x00g\
+\x00\x0b\
+\x08\x98J\xa7\
+\x00f\
+\x00r\x00a\x00m\x00e\x001\x000\x00.\x00s\x00v\x00g\
+\x00\x0b\
+\x08\xeeJ\xa7\
+\x00f\
+\x00r\x00a\x00m\x00e\x000\x002\x00.\x00s\x00v\x00g\
+\x00\x0b\
+\x08\x85J\xa7\
+\x00f\
+\x00r\x00a\x00m\x00e\x002\x007\x00.\x00s\x00v\x00g\
+\x00\x0b\
+\x08XJ\xa7\
+\x00f\
+\x00r\x00a\x00m\x00e\x005\x000\x00.\x00s\x00v\x00g\
+\x00\x0b\
+\x08\x93J\xa7\
+\x00f\
+\x00r\x00a\x00m\x00e\x001\x009\x00.\x00s\x00v\x00g\
+\x00\x0b\
+\x08\xaeJ\xa7\
+\x00f\
+\x00r\x00a\x00m\x00e\x004\x002\x00.\x00s\x00v\x00g\
+\x00\x0b\
+\x08\xbcJ\xa7\
+\x00f\
+\x00r\x00a\x00m\x00e\x003\x004\x00.\x00s\x00v\x00g\
+\x00\x0b\
+\x08SJ\xa7\
+\x00f\
+\x00r\x00a\x00m\x00e\x005\x009\x00.\x00s\x00v\x00g\
+\x00\x0b\
+\x08\xebJ\xa7\
+\x00f\
+\x00r\x00a\x00m\x00e\x000\x001\x00.\x00s\x00v\x00g\
+\x00\x0b\
+\x08\x82J\xa7\
+\x00f\
+\x00r\x00a\x00m\x00e\x002\x006\x00.\x00s\x00v\x00g\
+\x00\x0b\
+\x08\x90J\xa7\
+\x00f\
+\x00r\x00a\x00m\x00e\x001\x008\x00.\x00s\x00v\x00g\
+\x00\x0b\
+\x08\xabJ\xa7\
+\x00f\
+\x00r\x00a\x00m\x00e\x004\x001\x00.\x00s\x00v\x00g\
+\x00\x0b\
+\x08\xc1J\xa7\
+\x00f\
+\x00r\x00a\x00m\x00e\x003\x003\x00.\x00s\x00v\x00g\
+\x00\x0b\
+\x08PJ\xa7\
+\x00f\
+\x00r\x00a\x00m\x00e\x005\x008\x00.\x00s\x00v\x00g\
+\x00\x0b\
+\x08\xe8J\xa7\
+\x00f\
+\x00r\x00a\x00m\x00e\x000\x000\x00.\x00s\x00v\x00g\
+\x00\x0b\
+\x08\x8fJ\xa7\
+\x00f\
+\x00r\x00a\x00m\x00e\x002\x005\x00.\x00s\x00v\x00g\
+\x00\x0b\
+\x08\x95J\xa7\
+\x00f\
+\x00r\x00a\x00m\x00e\x001\x007\x00.\x00s\x00v\x00g\
+\x00\x0b\
+\x08\xa8J\xa7\
+\x00f\
+\x00r\x00a\x00m\x00e\x004\x000\x00.\x00s\x00v\x00g\
+\x00\x0b\
+\x08\xe3J\xa7\
+\x00f\
+\x00r\x00a\x00m\x00e\x000\x009\x00.\x00s\x00v\x00g\
+\x00\x0b\
+\x08\xbeJ\xa7\
+\x00f\
+\x00r\x00a\x00m\x00e\x003\x002\x00.\x00s\x00v\x00g\
+\x00\x0b\
+\x08UJ\xa7\
+\x00f\
+\x00r\x00a\x00m\x00e\x005\x007\x00.\x00s\x00v\x00g\
+\x00\x0b\
+\x08\x8cJ\xa7\
+\x00f\
+\x00r\x00a\x00m\x00e\x002\x004\x00.\x00s\x00v\x00g\
+\x00\x0b\
+\x08\xa3J\xa7\
+\x00f\
+\x00r\x00a\x00m\x00e\x004\x009\x00.\x00s\x00v\x00g\
+\x00\x0b\
+\x08\x92J\xa7\
+\x00f\
+\x00r\x00a\x00m\x00e\x001\x006\x00.\x00s\x00v\x00g\
+\x00\x0b\
+\x08\xe0J\xa7\
+\x00f\
+\x00r\x00a\x00m\x00e\x000\x008\x00.\x00s\x00v\x00g\
+\x00\x0b\
+\x08\xbbJ\xa7\
+\x00f\
+\x00r\x00a\x00m\x00e\x003\x001\x00.\x00s\x00v\x00g\
+\x00\x0b\
+\x08RJ\xa7\
+\x00f\
+\x00r\x00a\x00m\x00e\x005\x006\x00.\x00s\x00v\x00g\
+\x00\x0b\
+\x08\x91J\xa7\
+\x00f\
+\x00r\x00a\x00m\x00e\x002\x003\x00.\x00s\x00v\x00g\
+\x00\x0b\
+\x08\xa0J\xa7\
+\x00f\
+\x00r\x00a\x00m\x00e\x004\x008\x00.\x00s\x00v\x00g\
+\x00\x0b\
+\x08\x9fJ\xa7\
+\x00f\
+\x00r\x00a\x00m\x00e\x001\x005\x00.\x00s\x00v\x00g\
+\x00\x0b\
+\x08\xe5J\xa7\
+\x00f\
+\x00r\x00a\x00m\x00e\x000\x007\x00.\x00s\x00v\x00g\
+\x00\x0b\
+\x08\xb8J\xa7\
+\x00f\
+\x00r\x00a\x00m\x00e\x003\x000\x00.\x00s\x00v\x00g\
+\x00\x0b\
+\x08_J\xa7\
+\x00f\
+\x00r\x00a\x00m\x00e\x005\x005\x00.\x00s\x00v\x00g\
+\x00\x0b\
+\x08\x8eJ\xa7\
+\x00f\
+\x00r\x00a\x00m\x00e\x002\x002\x00.\x00s\x00v\x00g\
+\x00\x0b\
+\x08\xa5J\xa7\
+\x00f\
+\x00r\x00a\x00m\x00e\x004\x007\x00.\x00s\x00v\x00g\
+\x00\x0b\
+\x08\x9cJ\xa7\
+\x00f\
+\x00r\x00a\x00m\x00e\x001\x004\x00.\x00s\x00v\x00g\
+\x00\x0b\
+\x08\xb3J\xa7\
+\x00f\
+\x00r\x00a\x00m\x00e\x003\x009\x00.\x00s\x00v\x00g\
+\x00\x0b\
+\x08\xe2J\xa7\
+\x00f\
+\x00r\x00a\x00m\x00e\x000\x006\x00.\x00s\x00v\x00g\
+\x00\x0b\
+\x08\x5cJ\xa7\
+\x00f\
+\x00r\x00a\x00m\x00e\x005\x004\x00.\x00s\x00v\x00g\
+\x00\x0b\
+\x08\x8bJ\xa7\
+\x00f\
+\x00r\x00a\x00m\x00e\x002\x001\x00.\x00s\x00v\x00g\
+\x00\x0b\
+\x08\xa2J\xa7\
+\x00f\
+\x00r\x00a\x00m\x00e\x004\x006\x00.\x00s\x00v\x00g\
+\x00\x0b\
+\x08\xa1J\xa7\
+\x00f\
+\x00r\x00a\x00m\x00e\x001\x003\x00.\x00s\x00v\x00g\
+\x00\x0b\
+\x08\xb0J\xa7\
+\x00f\
+\x00r\x00a\x00m\x00e\x003\x008\x00.\x00s\x00v\x00g\
+\x00\x0b\
+\x08\xefJ\xa7\
+\x00f\
+\x00r\x00a\x00m\x00e\x000\x005\x00.\x00s\x00v\x00g\
+\x00\x0b\
+\x08aJ\xa7\
+\x00f\
+\x00r\x00a\x00m\x00e\x005\x003\x00.\x00s\x00v\x00g\
+\x00\x0b\
+\x08\x88J\xa7\
+\x00f\
+\x00r\x00a\x00m\x00e\x002\x000\x00.\x00s\x00v\x00g\
+\x00\x0b\
+\x08\xafJ\xa7\
+\x00f\
+\x00r\x00a\x00m\x00e\x004\x005\x00.\x00s\x00v\x00g\
+\x00\x0b\
+\x08\x9eJ\xa7\
+\x00f\
+\x00r\x00a\x00m\x00e\x001\x002\x00.\x00s\x00v\x00g\
+\x00\x0b\
+\x08\xb5J\xa7\
+\x00f\
+\x00r\x00a\x00m\x00e\x003\x007\x00.\x00s\x00v\x00g\
+\x00\x0b\
+\x08HJ\xa7\
+\x00f\
+\x00r\x00a\x00m\x00e\x006\x000\x00.\x00s\x00v\x00g\
 "
 
 qt_resource_struct = b"\
 \x00\x00\x00\x00\x00\x02\x00\x00\x00\x03\x00\x00\x00\x01\
 \x00\x00\x00\x00\x00\x00\x00\x00\
-\x00\x00\x00\x16\x00\x02\x00\x00\x00\x01\x00\x00\x00N\
+\x00\x00\x00\x16\x00\x02\x00\x00\x00\x01\x00\x00\x00\xc7\
 \x00\x00\x00\x00\x00\x00\x00\x00\
 \x00\x00\x00\x00\x00\x02\x00\x00\x00\x01\x00\x00\x00J\
 \x00\x00\x00\x00\x00\x00\x00\x00\
@@ -3983,15 +10085,257 @@ qt_resource_struct = b"\
 \x00\x00\x01|\xe0\x91\x9c\xfd\
 \x00\x00\x02\x8e\x00\x00\x00\x00\x00\x01\x00\x00\x12\x06\
 \x00\x00\x01v\xa9\xf9J7\
-\x00\x00\x00\x00\x00\x02\x00\x00\x00\x03\x00\x00\x00K\
+\x00\x00\x00\x00\x00\x02\x00\x00\x00\x02\x00\x00\x00K\
 \x00\x00\x00\x00\x00\x00\x00\x00\
-\x00\x00\x100\x00\x00\x00\x00\x00\x01\x00\x00\xbc\x99\
-\x00\x00\x01}\x1b\xa2'[\
-\x00\x00\x10X\x00\x00\x00\x00\x00\x01\x00\x00\xbd\x93\
-\x00\x00\x01}\x1f\x03\xfa\x0f\
-\x00\x00\x10~\x00\x01\x00\x00\x00\x01\x00\x00\xbe\xec\
-\x00\x00\x01}\x1f\x03\xbeo\
-\x00\x00\x00\x16\x00\x02\x00\x00\x00\x01\x00\x00\x00O\
+\x00\x00\x10H\x00\x02\x00\x00\x00=\x00\x00\x00\x8a\
+\x00\x00\x00\x00\x00\x00\x00\x00\
+\x00\x00\x100\x00\x02\x00\x00\x00=\x00\x00\x00M\
+\x00\x00\x00\x00\x00\x00\x00\x00\
+\x00\x00\x16\xf4\x00\x00\x00\x00\x00\x01\x00\x02(\x13\
+\x00\x00\x01}-\xb1[\xa8\
+\x00\x00\x13\x04\x00\x00\x00\x00\x00\x01\x00\x01\xbc\x90\
+\x00\x00\x01}-\xb1[[\
+\x00\x00\x14p\x00\x00\x00\x00\x00\x01\x00\x01\xe3\xb7\
+\x00\x00\x01}-\xb1[\x15\
+\x00\x00\x12\x5c\x00\x00\x00\x00\x00\x01\x00\x01\xaa\xbe\
+\x00\x00\x01}-\xb1[~\
+\x00\x00\x13\xc8\x00\x00\x00\x00\x00\x01\x00\x01\xd1v\
+\x00\x00\x01}-\xb1[6\
+\x00\x00\x11\xec\x00\x00\x00\x00\x00\x01\x00\x01\x9e\x8f\
+\x00\x00\x01}-\xb1ZO\
+\x00\x00\x11D\x00\x00\x00\x00\x00\x01\x00\x01\x8ch\
+\x00\x00\x01}-\xb1Zr\
+\x00\x00\x15\xc0\x00\x00\x00\x00\x00\x01\x00\x02\x07-\
+\x00\x00\x01}-\xb1Z\xd5\
+\x00\x00\x10\x9c\x00\x00\x00\x00\x00\x01\x00\x01z\x09\
+\x00\x00\x01}-\xb1Z\x91\
+\x00\x00\x15\x18\x00\x00\x00\x00\x00\x01\x00\x01\xf5f\
+\x00\x00\x01}-\xb1Z\xf4\
+\x00\x00\x16h\x00\x00\x00\x00\x00\x01\x00\x02\x19\x1a\
+\x00\x00\x01}-\xb1Z\xb2\
+\x00\x00\x11(\x00\x00\x00\x00\x00\x01\x00\x01\x89.\
+\x00\x00\x01}-\xb1W\x8c\
+\x00\x00\x12\x94\x00\x00\x00\x00\x00\x01\x00\x01\xb0\xac\
+\x00\x00\x01}-\xb1WR\
+\x00\x00\x10\x80\x00\x00\x00\x00\x00\x01\x00\x01v\xd2\
+\x00\x00\x01}-\xb1W\xa9\
+\x00\x00\x11\xd0\x00\x00\x00\x00\x00\x01\x00\x01\x9b\xad\
+\x00\x00\x01}-\xb1Wp\
+\x00\x00\x16\x84\x00\x00\x00\x00\x00\x01\x00\x02\x1cK\
+\x00\x00\x01}-\xb1V\x80\
+\x00\x00\x15\xdc\x00\x00\x00\x00\x00\x01\x00\x02\x0a\x07\
+\x00\x00\x01}-\xb1V\xa0\
+\x00\x00\x13\xe4\x00\x00\x00\x00\x00\x01\x00\x01\xd4P\
+\x00\x00\x01}-\xb1W\x0e\
+\x00\x00\x154\x00\x00\x00\x00\x00\x01\x00\x01\xf8@\
+\x00\x00\x01}-\xb1V\xbe\
+\x00\x00\x13<\x00\x00\x00\x00\x00\x01\x00\x01\xc2D\
+\x00\x00\x01}-\xb1W0\
+\x00\x00\x12\xb0\x00\x00\x00\x00\x00\x01\x00\x01\xb3\xe2\
+\x00\x00\x01}-\xb1V$\
+\x00\x00\x14\x8c\x00\x00\x00\x00\x00\x01\x00\x01\xe6\x91\
+\x00\x00\x01}-\xb1V\xe4\
+\x00\x00\x14\x1c\x00\x00\x00\x00\x00\x01\x00\x01\xda]\
+\x00\x00\x01}-\xb1U\xca\
+\x00\x00\x12\x08\x00\x00\x00\x00\x00\x01\x00\x01\xa1\xbc\
+\x00\x00\x01}-\xb1VV\
+\x00\x00\x13X\x00\x00\x00\x00\x00\x01\x00\x01\xc5z\
+\x00\x00\x01}-\xb1V\x01\
+\x00\x00\x11\x98\x00\x00\x00\x00\x00\x01\x00\x01\x95p\
+\x00\x00\x01}-\xb1T\xf7\
+\x00\x00\x10\xf0\x00\x00\x00\x00\x00\x01\x00\x01\x83/\
+\x00\x00\x01}-\xb1U\x17\
+\x00\x00\x15l\x00\x00\x00\x00\x00\x01\x00\x01\xfeg\
+\x00\x00\x01}-\xb1U\x8d\
+\x00\x00\x16\xbc\x00\x00\x00\x00\x00\x01\x00\x02\x22<\
+\x00\x00\x01}-\xb1UO\
+\x00\x00\x14\xc4\x00\x00\x00\x00\x00\x01\x00\x01\xec\x80\
+\x00\x00\x01}-\xb1U\xa9\
+\x00\x00\x14\xa8\x00\x00\x00\x00\x00\x01\x00\x01\xe9\xa9\
+\x00\x00\x01}-\xb1Z\x0c\
+\x00\x00\x16\x14\x00\x00\x00\x00\x00\x01\x00\x02\x0f\xf8\
+\x00\x00\x01}-\xb1Ul\
+\x00\x00\x15\xf8\x00\x00\x00\x00\x00\x01\x00\x02\x0c\xe7\
+\x00\x00\x01}-\xb1Y\xce\
+\x00\x00\x14\x00\x00\x00\x00\x00\x00\x01\x00\x01\xd70\
+\x00\x00\x01}-\xb1Z.\
+\x00\x00\x15P\x00\x00\x00\x00\x00\x01\x00\x01\xfbX\
+\x00\x00\x01}-\xb1Y\xed\
+\x00\x00\x13t\x00\x00\x00\x00\x00\x01\x00\x01\xc8\x8d\
+\x00\x00\x01}-\xb1X\xf4\
+\x00\x00\x12\xcc\x00\x00\x00\x00\x00\x01\x00\x01\xb6\xb9\
+\x00\x00\x01}-\xb1Y \
+\x00\x00\x10\xb8\x00\x00\x00\x00\x00\x01\x00\x01}6\
+\x00\x00\x01}-\xb1Y\x85\
+\x00\x00\x12$\x00\x00\x00\x00\x00\x01\x00\x01\xa4\xcb\
+\x00\x00\x01}-\xb1Y<\
+\x00\x00\x16\xa0\x00\x00\x00\x00\x00\x01\x00\x02\x1f\x5c\
+\x00\x00\x01}-\xb1Y\xac\
+\x00\x00\x160\x00\x00\x00\x00\x00\x01\x00\x02\x13\x07\
+\x00\x00\x01}-\xb1X\xb6\
+\x00\x00\x11`\x00\x00\x00\x00\x00\x01\x00\x01\x8f?\
+\x00\x00\x01}-\xb1Yh\
+\x00\x00\x10\xd4\x00\x00\x00\x00\x00\x01\x00\x01\x80N\
+\x00\x00\x01}-\xb1Xx\
+\x00\x00\x15\x88\x00\x00\x00\x00\x00\x01\x00\x02\x01t\
+\x00\x00\x01}-\xb1X\xce\
+\x00\x00\x16\xd8\x00\x00\x00\x00\x00\x01\x00\x02%\x14\
+\x00\x00\x01}-\xb1X\x99\
+\x00\x00\x14\xfc\x00\x00\x00\x00\x00\x01\x00\x01\xf2\x85\
+\x00\x00\x01}-\xb1W\xc8\
+\x00\x00\x14T\x00\x00\x00\x00\x00\x01\x00\x01\xe0\x9e\
+\x00\x00\x01}-\xb1W\xe4\
+\x00\x00\x12@\x00\x00\x00\x00\x00\x01\x00\x01\xa7\xa5\
+\x00\x00\x01}-\xb1X;\
+\x00\x00\x13\xac\x00\x00\x00\x00\x00\x01\x00\x01\xce]\
+\x00\x00\x01}-\xb1X\x01\
+\x00\x00\x11|\x00\x00\x00\x00\x00\x01\x00\x01\x92W\
+\x00\x00\x01}-\xb1X[\
+\x00\x00\x12\xe8\x00\x00\x00\x00\x00\x01\x00\x01\xb9\xaf\
+\x00\x00\x01}-\xb1X\x1c\
+\x00\x00\x148\x00\x00\x00\x00\x00\x01\x00\x01\xddp\
+\x00\x00\x01}-\xb1T\xc1\
+\x00\x00\x15\xa4\x00\x00\x00\x00\x00\x01\x00\x02\x04U\
+\x00\x00\x01}-\xb1T\x8d\
+\x00\x00\x13\x90\x00\x00\x00\x00\x00\x01\x00\x01\xcb\x85\
+\x00\x00\x01}-\xb1T\xd9\
+\x00\x00\x14\xe0\x00\x00\x00\x00\x00\x01\x00\x01\xefW\
+\x00\x00\x01}-\xb1T\xa6\
+\x00\x00\x13 \x00\x00\x00\x00\x00\x01\x00\x01\xbfj\
+\x00\x00\x01}-\xb1S\xb9\
+\x00\x00\x12x\x00\x00\x00\x00\x00\x01\x00\x01\xad\x98\
+\x00\x00\x01}-\xb1S\xf4\
+\x00\x00\x10d\x00\x00\x00\x00\x00\x01\x00\x01s\xc3\
+\x00\x00\x01}-\xb1TS\
+\x00\x00\x11\xb4\x00\x00\x00\x00\x00\x01\x00\x01\x98\x9e\
+\x00\x00\x01}-\xb1T\x16\
+\x00\x00\x16L\x00\x00\x00\x00\x00\x01\x00\x02\x16\x06\
+\x00\x00\x01}-\xb1Tr\
+\x00\x00\x11\x0c\x00\x00\x00\x00\x00\x01\x00\x01\x86]\
+\x00\x00\x01}-\xb1T3\
+\x00\x00\x16\xf4\x00\x00\x00\x00\x00\x01\x00\x01p\xe9\
+\x00\x00\x01}-\xcc\xb7O\
+\x00\x00\x13\x04\x00\x00\x00\x00\x00\x01\x00\x01\x05f\
+\x00\x00\x01}-\xcc\xb7\x0c\
+\x00\x00\x14p\x00\x00\x00\x00\x00\x01\x00\x01,\x8d\
+\x00\x00\x01}-\xcc\xb6\xcc\
+\x00\x00\x12\x5c\x00\x00\x00\x00\x00\x01\x00\x00\xf3\x94\
+\x00\x00\x01}-\xcc\xb7*\
+\x00\x00\x13\xc8\x00\x00\x00\x00\x00\x01\x00\x01\x1aL\
+\x00\x00\x01}-\xcc\xb6\xf1\
+\x00\x00\x11\xec\x00\x00\x00\x00\x00\x01\x00\x00\xe7e\
+\x00\x00\x01}-\xcc\xb5\xfe\
+\x00\x00\x11D\x00\x00\x00\x00\x00\x01\x00\x00\xd5>\
+\x00\x00\x01}-\xcc\xb6\x1a\
+\x00\x00\x15\xc0\x00\x00\x00\x00\x00\x01\x00\x01P\x03\
+\x00\x00\x01}-\xcc\xb6\x85\
+\x00\x00\x10\x9c\x00\x00\x00\x00\x00\x01\x00\x00\xc2\xdf\
+\x00\x00\x01}-\xcc\xb6=\
+\x00\x00\x15\x18\x00\x00\x00\x00\x00\x01\x00\x01><\
+\x00\x00\x01}-\xcc\xb6\xac\
+\x00\x00\x16h\x00\x00\x00\x00\x00\x01\x00\x01a\xf0\
+\x00\x00\x01}-\xcc\xb6b\
+\x00\x00\x11(\x00\x00\x00\x00\x00\x01\x00\x00\xd2\x04\
+\x00\x00\x01}-\xcc\xb3\x02\
+\x00\x00\x12\x94\x00\x00\x00\x00\x00\x01\x00\x00\xf9\x82\
+\x00\x00\x01}-\xcc\xb2\xc0\
+\x00\x00\x10\x80\x00\x00\x00\x00\x00\x01\x00\x00\xbf\xa8\
+\x00\x00\x01}-\xcc\xb3\x1f\
+\x00\x00\x11\xd0\x00\x00\x00\x00\x00\x01\x00\x00\xe4\x83\
+\x00\x00\x01}-\xcc\xb2\xe3\
+\x00\x00\x16\x84\x00\x00\x00\x00\x00\x01\x00\x01e!\
+\x00\x00\x01}-\xcc\xb14\
+\x00\x00\x15\xdc\x00\x00\x00\x00\x00\x01\x00\x01R\xdd\
+\x00\x00\x01}-\xcc\xb1L\
+\x00\x00\x13\xe4\x00\x00\x00\x00\x00\x01\x00\x01\x1d&\
+\x00\x00\x01}-\xcc\xb1\xa5\
+\x00\x00\x154\x00\x00\x00\x00\x00\x01\x00\x01A\x16\
+\x00\x00\x01}-\xcc\xb1g\
+\x00\x00\x13<\x00\x00\x00\x00\x00\x01\x00\x01\x0b\x1a\
+\x00\x00\x01}-\xcc\xb2\x93\
+\x00\x00\x12\xb0\x00\x00\x00\x00\x00\x01\x00\x00\xfc\xb8\
+\x00\x00\x01}-\xcc\xb0\xf4\
+\x00\x00\x14\x8c\x00\x00\x00\x00\x00\x01\x00\x01/g\
+\x00\x00\x01}-\xcc\xb1\x89\
+\x00\x00\x14\x1c\x00\x00\x00\x00\x00\x01\x00\x01#3\
+\x00\x00\x01}-\xcc\xb0\xb3\
+\x00\x00\x12\x08\x00\x00\x00\x00\x00\x01\x00\x00\xea\x92\
+\x00\x00\x01}-\xcc\xb1\x0f\
+\x00\x00\x13X\x00\x00\x00\x00\x00\x01\x00\x01\x0eP\
+\x00\x00\x01}-\xcc\xb0\xd5\
+\x00\x00\x11\x98\x00\x00\x00\x00\x00\x01\x00\x00\xdeF\
+\x00\x00\x01}-\xcc\xaf\xd1\
+\x00\x00\x10\xf0\x00\x00\x00\x00\x00\x01\x00\x00\xcc\x05\
+\x00\x00\x01}-\xcc\xaf\xf4\
+\x00\x00\x15l\x00\x00\x00\x00\x00\x01\x00\x01G=\
+\x00\x00\x01}-\xcc\xb0`\
+\x00\x00\x16\xbc\x00\x00\x00\x00\x00\x01\x00\x01k\x12\
+\x00\x00\x01}-\xcc\xb0\x1f\
+\x00\x00\x14\xc4\x00\x00\x00\x00\x00\x01\x00\x015V\
+\x00\x00\x01}-\xcc\xb0\x91\
+\x00\x00\x14\xa8\x00\x00\x00\x00\x00\x01\x00\x012\x7f\
+\x00\x00\x01}-\xcc\xb5\xb8\
+\x00\x00\x16\x14\x00\x00\x00\x00\x00\x01\x00\x01X\xce\
+\x00\x00\x01}-\xcc\xb0E\
+\x00\x00\x15\xf8\x00\x00\x00\x00\x00\x01\x00\x01U\xbd\
+\x00\x00\x01}-\xcc\xb5v\
+\x00\x00\x14\x00\x00\x00\x00\x00\x00\x01\x00\x01 \x06\
+\x00\x00\x01}-\xcc\xb5\xd9\
+\x00\x00\x15P\x00\x00\x00\x00\x00\x01\x00\x01D.\
+\x00\x00\x01}-\xcc\xb5\x98\
+\x00\x00\x13t\x00\x00\x00\x00\x00\x01\x00\x01\x11c\
+\x00\x00\x01}-\xcc\xb4\x9e\
+\x00\x00\x12\xcc\x00\x00\x00\x00\x00\x01\x00\x00\xff\x8f\
+\x00\x00\x01}-\xcc\xb4\xc5\
+\x00\x00\x10\xb8\x00\x00\x00\x00\x00\x01\x00\x00\xc6\x0c\
+\x00\x00\x01}-\xcc\xb5/\
+\x00\x00\x12$\x00\x00\x00\x00\x00\x01\x00\x00\xed\xa1\
+\x00\x00\x01}-\xcc\xb4\xec\
+\x00\x00\x16\xa0\x00\x00\x00\x00\x00\x01\x00\x01h2\
+\x00\x00\x01}-\xcc\xb5R\
+\x00\x00\x160\x00\x00\x00\x00\x00\x01\x00\x01[\xdd\
+\x00\x00\x01}-\xcc\xb4Z\
+\x00\x00\x11`\x00\x00\x00\x00\x00\x01\x00\x00\xd8\x15\
+\x00\x00\x01}-\xcc\xb5\x0d\
+\x00\x00\x10\xd4\x00\x00\x00\x00\x00\x01\x00\x00\xc9$\
+\x00\x00\x01}-\xcc\xb4\x14\
+\x00\x00\x15\x88\x00\x00\x00\x00\x00\x01\x00\x01JJ\
+\x00\x00\x01}-\xcc\xb4y\
+\x00\x00\x16\xd8\x00\x00\x00\x00\x00\x01\x00\x01m\xea\
+\x00\x00\x01}-\xcc\xb4=\
+\x00\x00\x14\xfc\x00\x00\x00\x00\x00\x01\x00\x01;[\
+\x00\x00\x01}-\xcc\xb3>\
+\x00\x00\x14T\x00\x00\x00\x00\x00\x01\x00\x01)t\
+\x00\x00\x01}-\xcc\xb3j\
+\x00\x00\x12@\x00\x00\x00\x00\x00\x01\x00\x00\xf0{\
+\x00\x00\x01}-\xcc\xb3\xd1\
+\x00\x00\x13\xac\x00\x00\x00\x00\x00\x01\x00\x01\x173\
+\x00\x00\x01}-\xcc\xb3\x8c\
+\x00\x00\x11|\x00\x00\x00\x00\x00\x01\x00\x00\xdb-\
+\x00\x00\x01}-\xcc\xb3\xf4\
+\x00\x00\x12\xe8\x00\x00\x00\x00\x00\x01\x00\x01\x02\x85\
+\x00\x00\x01}-\xcc\xb3\xac\
+\x00\x00\x148\x00\x00\x00\x00\x00\x01\x00\x01&F\
+\x00\x00\x01}-\xcc\xaf\x8d\
+\x00\x00\x15\xa4\x00\x00\x00\x00\x00\x01\x00\x01M+\
+\x00\x00\x01}-\xcc\xaf8\
+\x00\x00\x13\x90\x00\x00\x00\x00\x00\x01\x00\x01\x14[\
+\x00\x00\x01}-\xcc\xaf\xab\
+\x00\x00\x14\xe0\x00\x00\x00\x00\x00\x01\x00\x018-\
+\x00\x00\x01}-\xcc\xafc\
+\x00\x00\x13 \x00\x00\x00\x00\x00\x01\x00\x01\x08@\
+\x00\x00\x01}-\xcc\xaeO\
+\x00\x00\x12x\x00\x00\x00\x00\x00\x01\x00\x00\xf6n\
+\x00\x00\x01}-\xcc\xae\x7f\
+\x00\x00\x10d\x00\x00\x00\x00\x00\x01\x00\x00\xbc\x99\
+\x00\x00\x01}-\xcc\xae\xed\
+\x00\x00\x11\xb4\x00\x00\x00\x00\x00\x01\x00\x00\xe1t\
+\x00\x00\x01}-\xcc\xae\xa5\
+\x00\x00\x16L\x00\x00\x00\x00\x00\x01\x00\x01^\xdc\
+\x00\x00\x01}-\xcc\xaf\x11\
+\x00\x00\x11\x0c\x00\x00\x00\x00\x00\x01\x00\x00\xcf3\
+\x00\x00\x01}-\xcc\xae\xcb\
+\x00\x00\x00\x16\x00\x02\x00\x00\x00\x01\x00\x00\x00\xc8\
 \x00\x00\x00\x00\x00\x00\x00\x00\
 \x00\x00\x10\x1a\x00\x00\x00\x00\x00\x01\x00\x00\xb6\xbe\
 \x00\x00\x01{\x12T\xbc\xee\

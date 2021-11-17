@@ -1450,10 +1450,11 @@ class Ui_MainWindow(object):
 
         self.gridLayout_10.addWidget(self.dateEdit_expenses_to, 1, 1, 1, 1)
 
-        self.refresh_expenses = QWidget(self.widget_expenses)
+        self.refresh_expenses = AnimatedButton(self.widget_expenses)
         self.refresh_expenses.setObjectName(u"refresh_expenses")
-        self.refresh_expenses.setMinimumSize(QSize(48, 48))
-        self.refresh_expenses.setMaximumSize(QSize(48, 48))
+        self.refresh_expenses.setMinimumSize(QSize(54, 54))
+        self.refresh_expenses.setMaximumSize(QSize(54, 54))
+        self.refresh_expenses.setCursor(QCursor(Qt.PointingHandCursor))
 
         self.gridLayout_10.addWidget(self.refresh_expenses, 0, 2, 2, 1)
 
@@ -1813,6 +1814,9 @@ class Ui_MainWindow(object):
         self.dateEdit_expenses_from.setDisplayFormat(QCoreApplication.translate("MainWindow", u"MMMM-yyyy", None))
         self.label_from_income_2.setText(QCoreApplication.translate("MainWindow", u"From:", None))
         self.dateEdit_expenses_to.setDisplayFormat(QCoreApplication.translate("MainWindow", u"MMMM-yyyy", None))
+#if QT_CONFIG(tooltip)
+        self.refresh_expenses.setToolTip(QCoreApplication.translate("MainWindow", u"Refresh graph", None))
+#endif // QT_CONFIG(tooltip)
         self.label_3.setText(QCoreApplication.translate("MainWindow", u"To:", None))
         self.this_year_expenses.setText(QCoreApplication.translate("MainWindow", u"This year ", None))
         self.last_12_months_expenses.setText(QCoreApplication.translate("MainWindow", u"Last 12 months", None))
@@ -1827,6 +1831,9 @@ class Ui_MainWindow(object):
         self.dateEdit_income_from.setDisplayFormat(QCoreApplication.translate("MainWindow", u"MMMM-yyyy", None))
         self.label_2.setText(QCoreApplication.translate("MainWindow", u"To:", None))
         self.dateEdit_income_to.setDisplayFormat(QCoreApplication.translate("MainWindow", u"MMMM-yyyy", None))
+#if QT_CONFIG(tooltip)
+        self.refresh_income.setToolTip(QCoreApplication.translate("MainWindow", u"Refresh graph", None))
+#endif // QT_CONFIG(tooltip)
         self.this_year_income.setText(QCoreApplication.translate("MainWindow", u"This year ", None))
         self.last_12_months_income.setText(QCoreApplication.translate("MainWindow", u"Last 12 months", None))
         self.previous_year_income.setText(QCoreApplication.translate("MainWindow", u"Previous year", None))

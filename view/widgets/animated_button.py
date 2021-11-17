@@ -1,7 +1,15 @@
+from enum import Enum
+
 from PySide2.QtCore import QTimer
 from PySide2.QtGui import QMouseEvent
 from PySide2.QtSvg import QSvgWidget
 from PySide2.QtWidgets import QWidget, QApplication, QVBoxLayout
+
+
+class DIRECTIONS(Enum):
+
+    PLAY = 1
+    REWIND = -1
 
 
 class AnimatedButton(QWidget):
@@ -20,6 +28,9 @@ class AnimatedButton(QWidget):
 
         ''' Store frame counter '''
         self.frame_counter = 0
+
+        ''' Store animation direction '''
+        self.direction = None
 
         ''' Widget to display '''
         self.svg = QSvgWidget()
@@ -72,6 +83,18 @@ class AnimatedButton(QWidget):
         :return: None
         """
 
+        if self.direction == DIRECTIONS.PLAY:
+            self.roll_frame()
+        else:
+            self.rewind_frame()
+
+    def roll_frame(self):
+        """
+        Roll displayed frame
+
+        :return: None
+        """
+
         ''' Load frame '''
         self.svg.load(":/animated/animated/" + self.animation_name + "/frame" + f"{self.frame_counter:02}" + ".svg")
         QApplication.processEvents()
@@ -79,15 +102,29 @@ class AnimatedButton(QWidget):
         ''' Update frame count '''
         self.frame_counter += 1
         if self.frame_counter > 60:
-            ''' Stop animation '''
-            self.stop()
+            ''' Rewind animation from end '''
+            self.frame_counter = 60
+            self.direction = DIRECTIONS.REWIND
+            QApplication.processEvents()
 
-    # def rewind_animation(self):
-    #     for index in range(60, -1, -1):
-    #         time.sleep(0.016)
-    #         # self.button.load(r"C:\Users\Pierre\Downloads\frames_vector_refresh\60fps\frame" + f"{index:02}" + ".svg")
-    #         self.button.load(":/animated/animated/refresh_to_bars/frame" + f"{index:02}" + ".svg")
-    #         QApplication.processEvents()
+    def rewind_frame(self):
+        """
+        Update backwards displayed frame
+
+        :return: None
+        """
+
+        ''' Load frame '''
+        self.svg.load(":/animated/animated/" + self.animation_name + "/frame" + f"{self.frame_counter:02}" + ".svg")
+        QApplication.processEvents()
+
+        ''' Update frame count '''
+        self.frame_counter -= 1
+        if self.frame_counter < 0:
+            ''' Play animation from start '''
+            self.frame_counter = 0
+            self.direction = DIRECTIONS.PLAY
+            QApplication.processEvents()
 
     def start(self):
         """
@@ -96,6 +133,7 @@ class AnimatedButton(QWidget):
         :return: None
         """
 
+        self.direction = DIRECTIONS.PLAY
         self.timer.start(16)
 
     def stop(self):

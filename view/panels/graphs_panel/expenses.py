@@ -105,6 +105,9 @@ class Expenses(QObject):
         self.ui_setup.expenses_choice.view().window().setWindowFlags(Qt.Popup | Qt.FramelessWindowHint)
         self.ui_setup.expenses_choice.view().window().setAttribute(Qt.WA_TranslucentBackground)
 
+        """ Set widget to display animated icon """
+        self.ui_setup.refresh_expenses.set_animation_type("bars_purple")
+
     def configure_parameters(self):
         """
         Configure parameters to look for
