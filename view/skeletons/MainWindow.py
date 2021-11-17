@@ -1156,14 +1156,14 @@ class Ui_MainWindow(object):
 "\n"
 "QFrame#frame_expenses, QFrame#frame_income\n"
 "{\n"
-"	background-color: rgba(66, 96, 135, 80);\n"
+"	background-color: rgba(66, 96, 135, 120);\n"
 "	border-bottom-left-radius: 28px;\n"
 "	border-bottom-right-radius: 28px;\n"
 "	border-top-right-radius: 4px;\n"
 "	border-top-left-radius: 4px;\n"
-"	border-top: 1px inset rgba(66, 96, 135, 100);\n"
-"	border-left: 1px inset rgba(66, 96, 135, 100);\n"
-"	border-right: 1px outset rgba(66, 96, 135, 100);\n"
+"	border-top: 1px inset rgba(66, 96, 135, 140);\n"
+"	border-left: 1px inset rgba(66, 96, 135, 140);\n"
+"	border-right: 1px outset rgba(66, 96, 135, 140);\n"
 "	border-bottom: none;\n"
 "}")
         MainWindow.setToolButtonStyle(Qt.ToolButtonIconOnly)
