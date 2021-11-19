@@ -26,9 +26,13 @@ class DonutChart(QWidget):
 
         """ Store total amount """
         self.total_amount = 0
+        self.previous_month_total_amount = 0
 
         """ Store trend """
         self.trend = "UP"
+
+        """ Store percentage """
+        self.percentage = 0
 
         """ Set fixed size """
         self.setFixedSize(210, 210)
@@ -188,20 +192,45 @@ class DonutChart(QWidget):
         painter.setFont(font)
 
         """ Set pen color """
-        pen.setColor(QColor("#C4C9CF"))
+        pen.setColor(QColor(196, 201, 207, 180))
         painter.setPen(pen)
 
         """ Get font metrics """
-        text = QCoreApplication.translate("donut_chart", "Current balance")
+        previous_month_total_amount_str = convert_amount_to_str(self.previous_month_total_amount)
+        previous_value = previous_month_total_amount_str + " €"
         fontMetrics = QFontMetrics(font)
-        pixelsWidth = fontMetrics.width(text)
+        pixelsWidth = fontMetrics.width(previous_value)
         pixelsHeight = fontMetrics.height()
 
         """ Set text """
         rect_description = QRect(self.rect().x(), self.rect().y(), pixelsWidth, pixelsHeight)
         rect_description.moveCenter(self.rect().center())
         rect_description.moveTop(rect_description.y() + rect_description.height() / 2 + 7)
-        painter.drawText(rect_description, Qt.AlignHCenter | Qt.AlignVCenter, text)
+        painter.drawText(rect_description, Qt.AlignHCenter | Qt.AlignVCenter, previous_value)
+
+        """ Set pen color """
+        value = str(self.percentage) + "%"
+        if self.trend == "UP":
+            value = "+" + value
+            pen.setColor(QColor(109, 210, 48, 180))
+        elif self.trend == "DOWN":
+            value = "-" + value
+            pen.setColor(QColor(226, 74, 141, 180))
+        else:
+            value = "~" + value
+            pen.setColor(QColor(255, 255, 255, 180))
+        painter.setPen(pen)
+
+        """ Get font metrics """
+        fontMetrics = QFontMetrics(font)
+        pixelsWidth = fontMetrics.width(value)
+        pixelsHeight = fontMetrics.height()
+
+        """ Set text """
+        rect_percentage = QRect(self.rect().x(), self.rect().y(), pixelsWidth, pixelsHeight)
+        rect_percentage.moveCenter(self.rect().center())
+        rect_percentage.moveTop(rect_percentage.y() + rect_percentage.height() / 2 + 35)
+        painter.drawText(rect_percentage, Qt.AlignHCenter | Qt.AlignVCenter, value)
 
         """ Configure font for total amount """
         font.setFamily(u"Roboto Medium")
@@ -222,13 +251,13 @@ class DonutChart(QWidget):
         """ Set value """
         rect_value = QRect(self.rect().x(), self.rect().y(), pixelsWidth, pixelsHeight)
         rect_value.moveCenter(self.rect().center())
-        rect_value.moveBottom(rect_value.y() + rect_value.height() / 2)
+        rect_value.moveBottom(rect_value.y() + rect_value.height() / 2.0)
         painter.drawText(rect_value, Qt.AlignHCenter | Qt.AlignVCenter, value)
 
         """ Set trend """
         rect_trend = QRect(self.rect().x(), self.rect().y(), 24, 24)
         rect_trend.moveCenter(self.rect().center())
-        rect_trend.moveTop(rect_description.y() + rect_description.height() + 6)
+        rect_trend.moveTop(rect_description.y() - rect_description.height() - 50)
 
         if self.trend == "UP":
             svgRender = QSvgRenderer(":/images/images/trending_up_white_24dp.svg")
@@ -241,22 +270,26 @@ class DonutChart(QWidget):
 
         painter.end()
 
-    def set_total_amount(self, total_amount: float):
+    def set_total_amounts(self, total_amount: float, previous_month_total_amount: float):
         """
         Update total amount
 
         :param total_amount: (float) total amount
+        :param previous_month_total_amount: (float) previous month total amount
         :return: None
         """
 
+        """ Update values """
         self.total_amount = total_amount
+        self.previous_month_total_amount = previous_month_total_amount
 
-    def set_trend(self, trend: str):
-        """
-        Update trend
+        """ Set trend """
+        if self.previous_month_total_amount > self.total_amount:
+            self.trend = "DOWN"
+        elif self.previous_month_total_amount == self.total_amount:
+            self.trend = "FLAT"
+        else:
+            self.trend = "UP"
 
-        :param trend: (str) "FLAT"/"UP"/"DOWN"
-        :return: None
-        """
-
-        self.trend = trend
+        """ Compute diff """
+        self.percentage = round(abs(previous_month_total_amount - total_amount) / previous_month_total_amount * 100)

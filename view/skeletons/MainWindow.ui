@@ -1276,7 +1276,7 @@ QFrame#frame_expenses, QFrame#frame_income
     <item row="1" column="0">
      <widget class="SlidingStackedWidget" name="stackedWidget">
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="dashboard">
        <layout class="QGridLayout" name="gridLayout_2">

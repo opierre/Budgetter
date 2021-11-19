@@ -49,7 +49,7 @@ class Accounts(QObject):
         self.balance_chart.add_slice(39)
         self.balance_chart.add_slice(21)
         self.balance_chart.add_slice(40)
-        self.balance_chart.set_total_amount(15307.8)
+        self.balance_chart.set_total_amounts(15307.8, 12157.62)
 
         """ Configure layout """
         self.configure_layout()
