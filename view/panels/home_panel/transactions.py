@@ -258,13 +258,21 @@ class Transactions(QObject):
         self.edit_date.setVisible(False)
 
         """ Configure ComboBox widget """
+        self.edit_account.setView(QListView())
+        self.edit_account.setStyleSheet("QListView {"
+                                        "font-size: 11pt;"
+                                        "font-family: \"Roboto\";"
+                                        "}"
+                                        "QComboBox QAbstractItemView::item\n"
+                                        "{\n"
+                                        "	min-height: 25px;\n"
+                                        "}\n")
+        self.edit_account.view().window().setWindowFlags(Qt.Popup | Qt.FramelessWindowHint)
+        self.edit_account.view().window().setAttribute(Qt.WA_TranslucentBackground)
         self.edit_account.setFont(QFont("Roboto", 11))
-        self.edit_account.view().setSpacing(2)
         self.edit_account.setSizeAdjustPolicy(QComboBox.AdjustToContents)
         self.edit_account.addItems(["Livret A", "Compte Chèque", "Livret Jeune"])
         self.edit_account.setCursor(Qt.PointingHandCursor)
-        self.edit_account.view().window().setWindowFlags(Qt.Popup | Qt.FramelessWindowHint)
-        self.edit_account.view().window().setAttribute(Qt.WA_TranslucentBackground)
         self.edit_account.setVisible(False)
 
         """ Configure custom widget """

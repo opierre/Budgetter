@@ -238,9 +238,9 @@ QComboBox::drop-down
 
 QComboBox::down-arrow
 {
-	image: url(:/images/images/arrow_drop_down-white-24dp.svg);
-	width: 24px;
-	height: 24px;
+	image: url(:/images/images/expand_more-white-18dp.svg);
+	width: 18px;
+	height: 18px;
 	padding-right: 0px;
 	padding-top: 0px;
 }
@@ -248,9 +248,9 @@ QComboBox::down-arrow
 
 QComboBox::down-arrow:on
 {
-	image: url(:/images/images/arrow_drop_up-white-24dp.svg);
-	width: 24px;
-	height: 24px;
+	image: url(:/images/images/expand_less-white-18dp.svg);
+	width: 18px;
+	height: 18px;
 	padding-right: 0px;
 	padding-top: 0px;
 }
