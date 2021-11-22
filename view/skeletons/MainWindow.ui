@@ -64,8 +64,8 @@ QLineEdit
 	border-radius: 2px;
 	padding-top: 2px;
 	padding-bottom: 2px;
-	padding-left: 2px;
-	padding-right: 2px;
+	padding-left: 5px;
+	padding-right: 3px;
 	background: rgba(28, 41, 59, 128);
 	color: white;
 	selection-background-color: #0190EA;
@@ -90,8 +90,8 @@ QLineEdit::hover
 	border-radius: 2px;
 	padding-top: 2px;
 	padding-bottom: 2px;
-	padding-left: 2px;
-	padding-right: 2px;
+	padding-left: 5px;
+	padding-right: 3px;
 	background: rgba(28, 41, 59, 128);
 	color: white;
 	selection-background-color: #0190EA;
@@ -103,8 +103,8 @@ QLineEdit::focus
 	border-radius: 2px;
 	padding-top: 2px;
 	padding-bottom: 2px;
-	padding-left: 2px;
-	padding-right: 2px;
+	padding-left: 5px;
+	padding-right: 3px;
 	background: rgba(28, 41, 59, 128);
 	color: white;
 	selection-background-color: #0190EA;
@@ -129,8 +129,8 @@ QLineEdit::disabled
 	border-radius: 0px;
 	padding-top: 1px;
 	padding-bottom: 1px;
-	padding-left: 2px;
-	padding-right: 2px;
+	padding-left: 5px;
+	padding-right: 3px;
 	background: transparent;
 	color: white;
 	selection-background-color: grey;
@@ -200,7 +200,7 @@ QComboBox
 	border-radius: 2px;
 	padding-top: 2px;
 	padding-bottom: 2px;
-	padding-left: 2px;
+	padding-left: 5px;
 	padding-right: 2px;
 	background: rgba(28, 41, 59, 128);
 	color: white;
@@ -212,7 +212,7 @@ QComboBox::hover
 	border-radius: 2px;
 	padding-top: 2px;
 	padding-bottom: 2px;
-	padding-left: 2px;
+	padding-left: 5px;
 	padding-right: 2px;
 	background: rgba(28, 41, 59, 128);
 	color: white;
@@ -224,7 +224,7 @@ QComboBox::focus
 	border-radius: 2px;
 	padding-top: 2px;
 	padding-bottom: 2px;
-	padding-left: 2px;
+	padding-left: 5px;
 	padding-right: 2px;
 	background: rgba(28, 41, 59, 128);
 	color: white;
@@ -266,8 +266,8 @@ QComboBox QAbstractItemView
 	selection-background-color: #0190EA;
 	padding-top: 5px;
 	padding-bottom: 5px;
-	padding-left: 0px;
-	padding-right: 0px;
+	padding-left: 2px;
+	padding-right: 2px;
 	outline: none;
 	margin-top: 5px;
 }
