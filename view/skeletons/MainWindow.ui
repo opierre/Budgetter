@@ -725,9 +725,10 @@ QDoubleSpinBox:focus {
 QDoubleSpinBox::up-button {
     subcontrol-origin: border;
     subcontrol-position: top right;
-    width: 16px;
-	height: 16px;
-    border-image: url(:/images/images/expand_less-white-18dp.svg);
+    width: 14px;
+	height: 14px;
+	padding-right: 0px;
+    border-image: url(:/images/images/add_white_24dp.svg);
 }
 
 QDoubleSpinBox::up-button:hover 
@@ -744,9 +745,10 @@ QDoubleSpinBox::down-button
 {
     subcontrol-origin: border;
     subcontrol-position: bottom right;
-    width: 16px;
-	height: 16px;
-    border-image: url(:/images/images/expand_more-white-18dp.svg);
+    width: 14px;
+	height: 14px;
+	padding-right: 0px;
+    border-image: url(:/images/images/remove_white_24dp.svg);
 }
 
 QDoubleSpinBox::down-button:hover 

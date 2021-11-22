@@ -69,6 +69,8 @@
   <qresource prefix="images">
     <file>images/refresh_white_24dp.svg</file>
     <file>images/delete_forever_white_18dp.svg</file>
+    <file>images/remove_white_24dp.svg</file>
+    <file>images/add_white_24dp.svg</file>
     <file>images/edit_white_18dp.svg</file>
     <file>images/hdr_weak_black_18dp_transfer.svg</file>
     <file>images/hdr_weak_black_18dp_income.svg</file>
