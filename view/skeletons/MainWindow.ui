@@ -725,8 +725,8 @@ QDoubleSpinBox:focus {
 QDoubleSpinBox::up-button {
     subcontrol-origin: border;
     subcontrol-position: top right;
-    width: 14px;
-	height: 14px;
+    width: 18px;
+	height: 18px;
 	padding-right: 0px;
     border-image: url(:/images/images/add_white_24dp.svg);
 }
@@ -745,8 +745,8 @@ QDoubleSpinBox::down-button
 {
     subcontrol-origin: border;
     subcontrol-position: bottom right;
-    width: 14px;
-	height: 14px;
+    width: 18px;
+	height: 18px;
 	padding-right: 0px;
     border-image: url(:/images/images/remove_white_24dp.svg);
 }
@@ -803,8 +803,8 @@ QDateEdit:focus
 QDateEdit::drop-down 
 {
     image: url(:/images/images/today-white-24dp.svg);
-    width: 15px;
-    height: 15px;
+    width: 18px;
+    height: 18px;
 	padding-right: 2px;
     subcontrol-position: right center;
     subcontrol-origin: padding;
