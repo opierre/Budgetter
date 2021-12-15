@@ -1358,7 +1358,7 @@ class Ui_MainWindow(object):
         self.graphs.setObjectName(u"graphs")
         self.gridLayout_3 = QGridLayout(self.graphs)
         self.gridLayout_3.setObjectName(u"gridLayout_3")
-        self.gridLayout_3.setVerticalSpacing(10)
+        self.gridLayout_3.setVerticalSpacing(15)
         self.gridLayout_3.setContentsMargins(15, 15, 15, 15)
         self.expenses = Container(self.graphs)
         self.expenses.setObjectName(u"expenses")

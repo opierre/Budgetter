@@ -1537,7 +1537,7 @@ QFrame#frame_expenses, QFrame#frame_income
          <number>15</number>
         </property>
         <property name="verticalSpacing">
-         <number>10</number>
+         <number>15</number>
         </property>
         <item row="1" column="0">
          <widget class="Container" name="expenses">
