@@ -1369,6 +1369,7 @@ class Ui_MainWindow(object):
         self.dockWidgetContents_23.setObjectName(u"dockWidgetContents_23")
         self.gridLayout_43 = QGridLayout(self.dockWidgetContents_23)
         self.gridLayout_43.setObjectName(u"gridLayout_43")
+        self.gridLayout_43.setContentsMargins(-1, 12, 12, 12)
         self.widget_expenses_graph = QWidget(self.dockWidgetContents_23)
         self.widget_expenses_graph.setObjectName(u"widget_expenses_graph")
 
@@ -1573,7 +1574,7 @@ class Ui_MainWindow(object):
         self.dockWidgetContents_231.setObjectName(u"dockWidgetContents_231")
         self.gridLayout_431 = QGridLayout(self.dockWidgetContents_231)
         self.gridLayout_431.setObjectName(u"gridLayout_431")
-        self.gridLayout_431.setContentsMargins(-1, -1, -1, 6)
+        self.gridLayout_431.setContentsMargins(-1, 12, 12, 12)
         self.widget_income_graph = QWidget(self.dockWidgetContents_231)
         self.widget_income_graph.setObjectName(u"widget_income_graph")
 

@@ -1,7 +1,7 @@
 from PySide2.QtCharts import QtCharts
 from PySide2.QtCore import QObject, QCoreApplication, Qt, QDate
-from PySide2.QtGui import QPainter
-from PySide2.QtWidgets import QListView, QWidget, QVBoxLayout, QApplication
+from PySide2.QtGui import QPainter, QColor
+from PySide2.QtWidgets import QListView, QWidget, QVBoxLayout, QApplication, QGraphicsDropShadowEffect
 
 from view.widgets.bar_widgets.category_chart_widget import CategoryChart
 
@@ -16,6 +16,9 @@ class Expenses(QObject):
 
         """ Store gui """
         self.ui_setup = gui
+
+        """ Store drop shadow effect """
+        self.shadow_effect = QGraphicsDropShadowEffect(self)
 
         """ Store chart view """
         self.chart = CategoryChart("Expenses")
@@ -122,6 +125,12 @@ class Expenses(QObject):
 
         """ Set widget to display animated icon """
         self.ui_setup.refresh_expenses.set_animation_type("bars_purple")
+
+        """ Configure effect """
+        self.shadow_effect.setBlurRadius(3)
+        self.shadow_effect.setOffset(5)
+        self.shadow_effect.setColor(QColor(28, 41, 59, 128))
+        self.ui_setup.widget_expenses.setGraphicsEffect(self.shadow_effect)
 
     def configure_parameters(self):
         """

@@ -1,7 +1,7 @@
 from PySide2.QtCharts import QtCharts
 from PySide2.QtCore import QObject, QCoreApplication, QDate, Qt
-from PySide2.QtGui import QPainter
-from PySide2.QtWidgets import QListView, QWidget, QVBoxLayout, QApplication
+from PySide2.QtGui import QPainter, QColor
+from PySide2.QtWidgets import QListView, QWidget, QVBoxLayout, QApplication, QGraphicsDropShadowEffect
 
 from view.widgets.bar_widgets.category_chart_widget import CategoryChart
 
@@ -16,6 +16,9 @@ class Income(QObject):
 
         """ Store gui """
         self.ui_setup = gui
+
+        """ Store drop shadow effect """
+        self.shadow_effect = QGraphicsDropShadowEffect(self)
 
         """ Store chart view """
         self.chart = CategoryChart("Income")
@@ -90,6 +93,12 @@ class Income(QObject):
 
         """ Set widget to display animated icon """
         self.ui_setup.refresh_income.set_animation_type("bars_blue")
+
+        """ Configure effect """
+        self.shadow_effect.setBlurRadius(3)
+        self.shadow_effect.setOffset(5)
+        self.shadow_effect.setColor(QColor(28, 41, 59, 128))
+        self.ui_setup.widget_income.setGraphicsEffect(self.shadow_effect)
 
     def configure_title_bar(self):
         """

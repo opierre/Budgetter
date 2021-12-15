@@ -1558,6 +1558,15 @@ QFrame#frame_expenses, QFrame#frame_income
           </property>
           <widget class="QWidget" name="dockWidgetContents_23">
            <layout class="QGridLayout" name="gridLayout_43">
+            <property name="topMargin">
+             <number>12</number>
+            </property>
+            <property name="rightMargin">
+             <number>12</number>
+            </property>
+            <property name="bottomMargin">
+             <number>12</number>
+            </property>
             <item row="0" column="1">
              <widget class="QWidget" name="widget_expenses_graph" native="true"/>
             </item>
@@ -2072,8 +2081,14 @@ QFrame#frame_expenses, QFrame#frame_income
           </property>
           <widget class="QWidget" name="dockWidgetContents_231">
            <layout class="QGridLayout" name="gridLayout_431">
+            <property name="topMargin">
+             <number>12</number>
+            </property>
+            <property name="rightMargin">
+             <number>12</number>
+            </property>
             <property name="bottomMargin">
-             <number>6</number>
+             <number>12</number>
             </property>
             <item row="0" column="1" rowspan="4">
              <widget class="QWidget" name="widget_income_graph" native="true"/>
