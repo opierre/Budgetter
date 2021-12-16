@@ -68,6 +68,9 @@ class Expenses(QObject):
         """ Connect click on refresh button """
         self.ui_setup.refresh_expenses.clicked.connect(self.refresh)
 
+        """ Connect show labels checked to display labels """
+        self.ui_setup.check_labels_expenses.clicked.connect(self.show_labels)
+
     def configure_title_bar(self):
         """
         Configure TitleBar with icon
@@ -248,3 +251,13 @@ class Expenses(QObject):
 
         """ Set values on chat """
         self.chart.set_values(values)
+
+    def show_labels(self, checked: bool):
+        """
+        Display labels on bars
+
+        :param checked: True/False
+        :return: None
+        """
+
+        self.chart.show_labels(checked)
