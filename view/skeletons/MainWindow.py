@@ -25,7 +25,7 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(1216, 931)
+        MainWindow.resize(1216, 969)
         MainWindow.setStyleSheet(u"#MainWindow \n"
 "{\n"
 "	background: #212F41;\n"
@@ -1167,6 +1167,37 @@ class Ui_MainWindow(object):
 "	border-left: 1px inset rgba(66, 96, 135, 140);\n"
 "	border-right: 1px outset rgba(66, 96, 135, 140);\n"
 "	border-bottom: none;\n"
+"}\n"
+"\n"
+"QCheckBox:checked\n"
+"{\n"
+"	color: rgba(255, 255, 255, 200);\n"
+"}\n"
+"\n"
+"QCheckBox:checked:hover\n"
+"{\n"
+"	color: rgba(255, 255, 255, 150);\n"
+"}\n"
+"\n"
+"QCheckBox::indicator:checked\n"
+"{\n"
+"	image: url(:/images/images/check_box_white_24dp.svg);\n"
+"}\n"
+"\n"
+"QCheckBox:unchecked\n"
+"{\n"
+"	color: rgba(66, 96, 135, 250);\n"
+"}\n"
+"\n"
+"QCheckBox:unchecked:hover\n"
+"{\n"
+"	color: rgba(66, 96, 135, 200);\n"
+"}\n"
+"\n"
+"QCheckBox::indicator:unchecked\n"
+"{\n"
+"	image: url(:/images/images/check_box_outline_blank_white_24dp.s"
+                        "vg);\n"
 "}")
         MainWindow.setToolButtonStyle(Qt.ToolButtonIconOnly)
         MainWindow.setAnimated(True)
@@ -1386,7 +1417,7 @@ class Ui_MainWindow(object):
         self.verticalLayout_3 = QVBoxLayout(self.widget_expenses)
         self.verticalLayout_3.setSpacing(15)
         self.verticalLayout_3.setObjectName(u"verticalLayout_3")
-        self.verticalLayout_3.setContentsMargins(0, 0, 0, 18)
+        self.verticalLayout_3.setContentsMargins(0, 0, 0, 0)
         self.frame_expenses = QFrame(self.widget_expenses)
         self.frame_expenses.setObjectName(u"frame_expenses")
         self.frame_expenses.setFrameShape(QFrame.StyledPanel)
@@ -1490,15 +1521,11 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_3.addLayout(self.gridLayout_10)
 
-        self.verticalSpacer_2 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
-
-        self.verticalLayout_3.addItem(self.verticalSpacer_2)
-
         self.gridLayout_7 = QGridLayout()
         self.gridLayout_7.setObjectName(u"gridLayout_7")
         self.gridLayout_7.setHorizontalSpacing(6)
         self.gridLayout_7.setVerticalSpacing(15)
-        self.gridLayout_7.setContentsMargins(9, 20, 9, -1)
+        self.gridLayout_7.setContentsMargins(9, 18, 9, -1)
         self.this_year_expenses = QPushButton(self.widget_expenses)
         self.this_year_expenses.setObjectName(u"this_year_expenses")
         self.this_year_expenses.setMinimumSize(QSize(110, 28))
@@ -1558,6 +1585,40 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_3.addLayout(self.gridLayout_7)
 
+        self.verticalLayout_4 = QVBoxLayout()
+        self.verticalLayout_4.setObjectName(u"verticalLayout_4")
+        self.verticalLayout_4.setContentsMargins(19, 18, 19, 15)
+        self.check_labels_expenses = QCheckBox(self.widget_expenses)
+        self.check_labels_expenses.setObjectName(u"check_labels_expenses")
+        font3 = QFont()
+        font3.setFamily(u"Roboto")
+        font3.setPointSize(10)
+        self.check_labels_expenses.setFont(font3)
+        self.check_labels_expenses.setChecked(True)
+
+        self.verticalLayout_4.addWidget(self.check_labels_expenses)
+
+        self.check_average_expenses = QCheckBox(self.widget_expenses)
+        self.check_average_expenses.setObjectName(u"check_average_expenses")
+        self.check_average_expenses.setFont(font3)
+        self.check_average_expenses.setChecked(False)
+
+        self.verticalLayout_4.addWidget(self.check_average_expenses)
+
+        self.check_total_expenses = QCheckBox(self.widget_expenses)
+        self.check_total_expenses.setObjectName(u"check_total_expenses")
+        self.check_total_expenses.setFont(font3)
+        self.check_total_expenses.setChecked(True)
+
+        self.verticalLayout_4.addWidget(self.check_total_expenses)
+
+
+        self.verticalLayout_3.addLayout(self.verticalLayout_4)
+
+        self.verticalSpacer_2 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.verticalLayout_3.addItem(self.verticalSpacer_2)
+
 
         self.gridLayout_43.addWidget(self.widget_expenses, 0, 2, 1, 1)
 
@@ -1588,7 +1649,7 @@ class Ui_MainWindow(object):
         self.verticalLayout_2 = QVBoxLayout(self.widget_income)
         self.verticalLayout_2.setSpacing(15)
         self.verticalLayout_2.setObjectName(u"verticalLayout_2")
-        self.verticalLayout_2.setContentsMargins(0, 0, 0, 18)
+        self.verticalLayout_2.setContentsMargins(0, 0, 0, 0)
         self.frame_income = QFrame(self.widget_income)
         self.frame_income.setObjectName(u"frame_income")
         self.frame_income.setFrameShape(QFrame.StyledPanel)
@@ -1693,15 +1754,11 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_2.addLayout(self.gridLayout_8)
 
-        self.verticalSpacer = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
-
-        self.verticalLayout_2.addItem(self.verticalSpacer)
-
         self.gridLayout_6 = QGridLayout()
         self.gridLayout_6.setObjectName(u"gridLayout_6")
         self.gridLayout_6.setHorizontalSpacing(6)
         self.gridLayout_6.setVerticalSpacing(15)
-        self.gridLayout_6.setContentsMargins(9, 20, 9, -1)
+        self.gridLayout_6.setContentsMargins(9, 18, 9, -1)
         self.this_year_income = QPushButton(self.widget_income)
         self.this_year_income.setObjectName(u"this_year_income")
         self.this_year_income.setMinimumSize(QSize(110, 28))
@@ -1752,6 +1809,36 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_2.addLayout(self.gridLayout_6)
 
+        self.verticalLayout = QVBoxLayout()
+        self.verticalLayout.setObjectName(u"verticalLayout")
+        self.verticalLayout.setContentsMargins(19, 18, 19, 15)
+        self.check_labels_income = QCheckBox(self.widget_income)
+        self.check_labels_income.setObjectName(u"check_labels_income")
+        self.check_labels_income.setFont(font3)
+        self.check_labels_income.setChecked(True)
+
+        self.verticalLayout.addWidget(self.check_labels_income)
+
+        self.check_average_income = QCheckBox(self.widget_income)
+        self.check_average_income.setObjectName(u"check_average_income")
+        self.check_average_income.setFont(font3)
+
+        self.verticalLayout.addWidget(self.check_average_income)
+
+        self.check_total_income = QCheckBox(self.widget_income)
+        self.check_total_income.setObjectName(u"check_total_income")
+        self.check_total_income.setFont(font3)
+        self.check_total_income.setChecked(True)
+
+        self.verticalLayout.addWidget(self.check_total_income)
+
+
+        self.verticalLayout_2.addLayout(self.verticalLayout)
+
+        self.verticalSpacer = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.verticalLayout_2.addItem(self.verticalSpacer)
+
 
         self.gridLayout_431.addWidget(self.widget_income, 0, 2, 4, 1)
 
@@ -1781,7 +1868,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.stackedWidget.setCurrentIndex(0)
+        self.stackedWidget.setCurrentIndex(1)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -1835,6 +1922,9 @@ class Ui_MainWindow(object):
         self.this_year_expenses.setText(QCoreApplication.translate("MainWindow", u"This year ", None))
         self.last_12_months_expenses.setText(QCoreApplication.translate("MainWindow", u"Last 12 months", None))
         self.previous_year_expenses.setText(QCoreApplication.translate("MainWindow", u"Previous year", None))
+        self.check_labels_expenses.setText(QCoreApplication.translate("MainWindow", u"Show labels", None))
+        self.check_average_expenses.setText(QCoreApplication.translate("MainWindow", u"Show average", None))
+        self.check_total_expenses.setText(QCoreApplication.translate("MainWindow", u"Show total amount", None))
         self.income.setWindowTitle(QCoreApplication.translate("MainWindow", u"Income", None))
         self.toolButton_icon_category.setText(QCoreApplication.translate("MainWindow", u"...", None))
         self.income_choice.setItemText(0, QCoreApplication.translate("MainWindow", u"All", None))
@@ -1851,6 +1941,9 @@ class Ui_MainWindow(object):
         self.this_year_income.setText(QCoreApplication.translate("MainWindow", u"This year ", None))
         self.last_12_months_income.setText(QCoreApplication.translate("MainWindow", u"Last 12 months", None))
         self.previous_year_income.setText(QCoreApplication.translate("MainWindow", u"Previous year", None))
+        self.check_labels_income.setText(QCoreApplication.translate("MainWindow", u"Show labels", None))
+        self.check_average_income.setText(QCoreApplication.translate("MainWindow", u"Show average", None))
+        self.check_total_income.setText(QCoreApplication.translate("MainWindow", u"Show total amount", None))
         self.toolBar.setWindowTitle(QCoreApplication.translate("MainWindow", u"toolBar", None))
     # retranslateUi
 

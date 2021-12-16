@@ -47,6 +47,14 @@ class CategoryChart(QtCharts.QChart):
         :return: None
         """
 
+        """ Configure labels """
+        self.set.setLabelFont(QFont("Roboto", 10, QFont.Normal))
+        self.set.setLabelColor(QColor("#9298a8"))
+        self.series.setLabelsFormat("@value €")
+        self.series.setLabelsPrecision(6)
+        self.series.setLabelsPosition(QtCharts.QAbstractBarSeries.LabelsOutsideEnd)
+        self.series.setLabelsVisible(True)
+
         """ Configure X axis """
         self.axis_x.setVisible(True)
         self.axis_x.setGridLineVisible(False)
@@ -177,3 +185,13 @@ class CategoryChart(QtCharts.QChart):
             to_date = local_max
 
         self.axis_x.setRange(from_date.toString("MMM-yy"), to_date.toString("MMM-yy"))
+
+    def show_labels(self, value: bool):
+        """
+        Display labels on bars
+
+        :param value: True/False
+        :return: None
+        """
+
+        self.series.setLabelsVisible(value)
