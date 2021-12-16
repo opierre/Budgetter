@@ -184,7 +184,11 @@ class CategoryChart(QtCharts.QChart):
         if to_date > local_max:
             to_date = local_max
 
+        """ Update x range """
         self.axis_x.setRange(from_date.toString("MMM-yy"), to_date.toString("MMM-yy"))
+
+        """ Update y max """
+        self.axis_y.setRange(0, self.axis_y.max() * 12/10)
 
     def show_labels(self, value: bool):
         """
