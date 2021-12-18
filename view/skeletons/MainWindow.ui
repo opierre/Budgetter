@@ -1627,7 +1627,7 @@ QCheckBox::indicator:unchecked:hover
               </property>
               <layout class="QVBoxLayout" name="verticalLayout_3">
                <property name="spacing">
-                <number>15</number>
+                <number>12</number>
                </property>
                <property name="leftMargin">
                 <number>0</number>
@@ -2214,7 +2214,7 @@ QCheckBox::indicator:unchecked:hover
               </property>
               <layout class="QVBoxLayout" name="verticalLayout_2">
                <property name="spacing">
-                <number>15</number>
+                <number>12</number>
                </property>
                <property name="leftMargin">
                 <number>0</number>

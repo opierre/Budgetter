@@ -28,7 +28,11 @@ class CategoryChart(QtCharts.QChart):
 
         """ Store series """
         self.series = QtCharts.QBarSeries(self)
+        self.average_series = QtCharts.QSplineSeries(self)
         self.set = None
+
+        """ Store average show state """
+        self._show_average = False
 
         """ Store limits """
         self.local_max_x = None
@@ -93,6 +97,17 @@ class CategoryChart(QtCharts.QChart):
         """ Remove margins """
         self.layout().setContentsMargins(0, 0, 0, 0)
 
+        """ Configure average series """
+        if self.chart_type == 'Income':
+            pen = QPen(QColor("#1a68fa"))
+        else:
+            pen = QPen(QColor("#8118F9"))
+        pen.setWidthF(1.0)
+        pen.setCapStyle(Qt.RoundCap)
+        pen.setStyle(Qt.DashLine)
+        self.average_series.setPen(pen)
+        self.average_series.setOpacity(0.8)
+
     def configure_barset(self):
         """
         Configure bar set after eache series cleared
@@ -123,6 +138,17 @@ class CategoryChart(QtCharts.QChart):
         pen.setBrush(gradient)
         self.set.setPen(pen)
 
+    def show_average(self, value: bool):
+        """
+        Show/hide average line
+
+        :param value: True/False
+        :return: None
+        """
+
+        self._show_average = value
+        self.average_series.setVisible(value)
+
     def set_values(self, values: dict):
         """
         Set values to display
@@ -133,6 +159,7 @@ class CategoryChart(QtCharts.QChart):
 
         """ Clear previous values """
         self.series.clear()
+        self.average_series.clear()
         self.removeAxis(self.axis_x)
         self.removeAxis(self.axis_y)
 
@@ -158,6 +185,11 @@ class CategoryChart(QtCharts.QChart):
             x_values.append(x_value)
             self.set.append(value)
 
+        """ Compute average """
+        average_value = self.set.sum() / self.set.count()
+        for index in range(0, self.set.count()):
+            self.average_series.append(index, average_value)
+
         """ Update local max and min """
         self.local_max_x = x_values[-1]
         self.local_min_x = x_values[0]
@@ -167,7 +199,9 @@ class CategoryChart(QtCharts.QChart):
         self.series.append(self.set)
 
         """ Add series to graph """
+        self.addSeries(self.average_series)
         self.addSeries(self.series)
+        self.average_series.setVisible(self._show_average)
 
         """ Set axes """
         self.addAxis(self.axis_x, Qt.AlignBottom)
@@ -175,7 +209,9 @@ class CategoryChart(QtCharts.QChart):
 
         """ Attach axes to series """
         self.series.attachAxis(self.axis_x)
+        self.average_series.attachAxis(self.axis_x)
         self.series.attachAxis(self.axis_y)
+        self.average_series.attachAxis(self.axis_y)
 
         """ Configure y axis """
         self.axis_y.setRange(0, y_max_value * 12/10)

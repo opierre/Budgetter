@@ -71,6 +71,9 @@ class Expenses(QObject):
         """ Connect show labels checked to display labels """
         self.ui_setup.check_labels_expenses.clicked.connect(self.show_labels)
 
+        """ Connect show average to display line on graph """
+        self.ui_setup.check_average_expenses.toggled.connect(self.chart.show_average)
+
     def configure_title_bar(self):
         """
         Configure TitleBar with icon

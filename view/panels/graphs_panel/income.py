@@ -71,6 +71,9 @@ class Income(QObject):
         """ Connect show labels checked to display labels """
         self.ui_setup.check_labels_income.clicked.connect(self.show_labels)
 
+        """ Connect show average to display line on graph """
+        self.ui_setup.check_average_income.toggled.connect(self.chart.show_average)
+
     def configure_panel(self):
         """
         Configure panel look and field
