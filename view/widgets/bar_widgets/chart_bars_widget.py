@@ -1,6 +1,6 @@
 from PySide2.QtCharts import QtCharts
 from PySide2.QtCore import Qt, QRectF
-from PySide2.QtGui import QPainter, QColor, QPen, QFont
+from PySide2.QtGui import QPainter, QColor, QPen, QFont, QFontMetrics
 from PySide2.QtWidgets import QWidget, QGridLayout
 
 from utils.tools import convert_amount_to_str
@@ -20,6 +20,9 @@ class ChartBars(QWidget):
         self.chart_view = QtCharts.QChartView(self.chart)
         self._layout = QGridLayout(self)
         self._layout.addWidget(self.chart_view)
+
+        """ Store total amount show state """
+        self._show_total = True
 
         """ Configure widgets """
         self.configure_widgets()
@@ -82,6 +85,17 @@ class ChartBars(QWidget):
 
         self.chart.show_average(value)
 
+    def show_total(self, value: bool):
+        """
+        Show total amount on top left corner
+
+        :param value: True/False
+        :return: None
+        """
+
+        self._show_total = value
+        self.update()
+
     def paintEvent(self, event):
         """
         Override paintEvent()
@@ -97,7 +111,8 @@ class ChartBars(QWidget):
         painter.setPen(Qt.NoPen)
 
         """ Draw amount total amount """
-        self.draw_total_amount(painter)
+        if self._show_total is True:
+            self.draw_total_amount(painter)
 
         """ Draw chart """
         self.draw_values()
@@ -110,19 +125,37 @@ class ChartBars(QWidget):
         :return: (QRectF) rectangle where amount has been drawn
         """
 
-        """ Set rectangle """
-        rectangle_amount = QRectF(self.rect().x(), self.rect().y(),
-                                  self.rect().width() / 4.5, 28)
-
         """ Configure pen and painter """
-        pen = QPen(QColor("white"), 1, c=Qt.RoundCap)
+        pen = QPen(QColor("#9298a8"), 1, c=Qt.RoundCap)
         painter.setPen(pen)
         painter.setBrush(Qt.NoBrush)
-        painter.setFont(QFont("Roboto Black", 18, QFont.Normal))
+        painter.setFont(QFont("Roboto", 11, QFont.Normal))
 
         """ Set text """
-        text = "Total: " + convert_amount_to_str(self.chart.total()) + " €"
-        painter.drawText(rectangle_amount, int(Qt.AlignLeft | Qt.AlignVCenter), text)
+        text_total = "Total: "
+
+        """ Set rectangle according to font metrics """
+        font_metrics = QFontMetrics(painter.font())
+        text_total_width = font_metrics.width(text_total)
+        text_heigth = font_metrics.height()
+        rectangle_total = QRectF(self.rect().x() + 9, self.rect().y(),
+                                 text_total_width, text_heigth)
+
+        painter.drawText(rectangle_total, int(Qt.AlignLeft | Qt.AlignVCenter), text_total)
+
+        """ Set bold font """
+        painter.setFont(QFont("Roboto", 11, QFont.Bold))
+
+        """ Set text """
+        text_amount = convert_amount_to_str(self.chart.total()) + " €"
+
+        """ Set rectangle according to font metrics """
+        font_metrics = QFontMetrics(painter.font())
+        text_amount_width = font_metrics.width(text_amount)
+        text_heigth = font_metrics.height()
+        rectangle_amount = QRectF(rectangle_total.x() + rectangle_total.width() + 9, rectangle_total.y(),
+                                  text_amount_width, text_heigth)
+        painter.drawText(rectangle_amount, int(Qt.AlignLeft | Qt.AlignVCenter), text_amount)
 
         return rectangle_amount
 

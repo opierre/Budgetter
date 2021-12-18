@@ -74,6 +74,9 @@ class Income(QObject):
         """ Connect show average to display line on graph """
         self.ui_setup.check_average_income.toggled.connect(self.chart_widget.show_average)
 
+        """ Connect show total to display total amount on graph view """
+        self.ui_setup.check_total_income.toggled.connect(self.chart_widget.show_total)
+
     def configure_panel(self):
         """
         Configure panel look and field
