@@ -4,6 +4,7 @@ from PySide2.QtGui import QPainter, QColor
 from PySide2.QtWidgets import QListView, QWidget, QVBoxLayout, QApplication, QGraphicsDropShadowEffect
 
 from view.widgets.bar_widgets.category_chart_widget import CategoryChart
+from view.widgets.bar_widgets.chart_bars_widget import ChartBars
 
 
 class Income(QObject):
@@ -17,12 +18,11 @@ class Income(QObject):
         """ Store gui """
         self.ui_setup = gui
 
+        """ Store chart bars widget """
+        self.chart_widget = ChartBars("Income", self.ui_setup.income)
+
         """ Store drop shadow effect """
         self.shadow_effect = QGraphicsDropShadowEffect(self)
-
-        """ Store chart view """
-        self.chart = CategoryChart("Income")
-        self.chart_view = QtCharts.QChartView(self.chart)
 
         """ Store range options """
         self.this_year_option = {"to": QDate.currentDate(),
@@ -72,7 +72,7 @@ class Income(QObject):
         self.ui_setup.check_labels_income.clicked.connect(self.show_labels)
 
         """ Connect show average to display line on graph """
-        self.ui_setup.check_average_income.toggled.connect(self.chart.show_average)
+        self.ui_setup.check_average_income.toggled.connect(self.chart_widget.show_average)
 
     def configure_panel(self):
         """
@@ -80,9 +80,6 @@ class Income(QObject):
 
         :return: None
         """
-
-        """ Configure chart view """
-        self.chart_view.setRenderHint(QPainter.Antialiasing)
 
         """ Configure combobox for category """
         self.ui_setup.income_choice.setView(QListView())
@@ -130,7 +127,7 @@ class Income(QObject):
         widget = QWidget()
         layout = QVBoxLayout(widget)
         layout.setSpacing(0)
-        layout.addWidget(self.chart_view)
+        layout.addWidget(self.chart_widget)
         layout.setContentsMargins(0, 0, 0, 0)
 
         self.ui_setup.widget_income_graph.setLayout(QVBoxLayout())
@@ -249,7 +246,7 @@ class Income(QObject):
                 final_values.update({key: value})
 
         """ Set date range """
-        self.chart.set_values(final_values)
+        self.chart_widget.set_values(final_values)
 
     def set_values(self, values: dict):
         """
@@ -283,7 +280,7 @@ class Income(QObject):
                   "11-2021": 18042.45}
 
         """ Set values on chat """
-        self.chart.set_values(values)
+        self.chart_widget.set_values(values)
 
     def show_labels(self, checked: bool):
         """
@@ -293,4 +290,4 @@ class Income(QObject):
         :return: None
         """
 
-        self.chart.show_labels(checked)
+        self.chart_widget.show_labels(checked)

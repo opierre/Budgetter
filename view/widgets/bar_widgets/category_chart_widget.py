@@ -149,6 +149,15 @@ class CategoryChart(QtCharts.QChart):
         self._show_average = value
         self.average_series.setVisible(value)
 
+    def total(self) -> float:
+        """
+        Return total for current period
+
+        :return: total amount
+        """
+
+        return self.set.sum()
+
     def set_values(self, values: dict):
         """
         Set values to display

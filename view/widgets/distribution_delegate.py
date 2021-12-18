@@ -114,7 +114,7 @@ class DistributionDelegate(QItemDelegate):
         """ Set category on top """
         rectCategory = QRect(rectIcon.x()+rectIcon.width()+option.rect.width()*1/50, rectIcon.y()+option.rect.height()*1/30,
                              pixelsWidth, pixelsHeight)
-        painter.drawText(rectCategory, Qt.AlignLeft | Qt.AlignVCenter, category)
+        painter.drawText(rectCategory, int(Qt.AlignLeft | Qt.AlignVCenter), category)
 
         """ Set font on painter for number of transactions """
         self.font.setFamily(u"Roboto")
@@ -132,7 +132,7 @@ class DistributionDelegate(QItemDelegate):
         """ Set number of transactions beside category """
         rectTransaction = QRect(rectCategory.x(), rectCategory.y()+rectCategory.height()+option.rect.height()*1/10,
                                 pixelsWidth, pixelsHeight)
-        painter.drawText(rectTransaction, Qt.AlignLeft | Qt.AlignVCenter, nbTransactions)
+        painter.drawText(rectTransaction, int(Qt.AlignLeft | Qt.AlignVCenter), nbTransactions)
 
         """ Set font on painter for amount """
         self.font.setFamily(u"Roboto")
@@ -151,7 +151,7 @@ class DistributionDelegate(QItemDelegate):
         rectAmount = QRect(rectBackground.width()+rectBackground.x()-pixelsWidth-option.rect.width()*1/50,
                            rectCategory.y(),
                            pixelsWidth, pixelsHeight)
-        painter.drawText(rectAmount, Qt.AlignRight | Qt.AlignVCenter, amount)
+        painter.drawText(rectAmount, int(Qt.AlignRight | Qt.AlignVCenter), amount)
 
         """ Set font on painter for percentage """
         self.font.setFamily(u"Roboto")
@@ -169,6 +169,6 @@ class DistributionDelegate(QItemDelegate):
         """ Set percentage beside amount """
         rectPerc = QRect(rectBackground.width()+rectBackground.x()-pixelsWidth-option.rect.width()*1/50, rectTransaction.y(),
                          pixelsWidth, pixelsHeight)
-        painter.drawText(rectPerc, Qt.AlignRight | Qt.AlignVCenter, percentage)
+        painter.drawText(rectPerc, int(Qt.AlignRight | Qt.AlignVCenter), percentage)
 
         painter.restore()

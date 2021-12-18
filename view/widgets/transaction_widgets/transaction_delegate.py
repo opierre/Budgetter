@@ -602,7 +602,7 @@ class TransactionDelegate(QStyledItemDelegate):
                                self.rect_category.y() + option.rect.height() * 1 / 30,
                                pixelsWidth, pixelsHeight)
         if self.editable != index:
-            painter.drawText(self.rect_name, Qt.AlignLeft | Qt.AlignVCenter, name)
+            painter.drawText(self.rect_name, int(Qt.AlignLeft | Qt.AlignVCenter), name)
 
     def draw_category(self, painter: QPainter, option, index: QModelIndex, category):
         """
@@ -632,7 +632,7 @@ class TransactionDelegate(QStyledItemDelegate):
         self.rect_category_name = QRect(self.rect_name.x(), self.rect_name.y() + self.rect_name.height() +
                                         option.rect.height() * 1 / 10, pixelsWidth, pixelsHeight)
         if self.editable != index:
-            painter.drawText(self.rect_category_name, Qt.AlignLeft | Qt.AlignVCenter, category)
+            painter.drawText(self.rect_category_name, int(Qt.AlignLeft | Qt.AlignVCenter), category)
 
     def draw_amount(self, painter: QPainter, rect_background, index: QModelIndex, amount):
         """
@@ -662,7 +662,7 @@ class TransactionDelegate(QStyledItemDelegate):
         self.rect_amount = QRect(rect_background.width() * 1 / 4, self.rect_name.y(),
                                  pixelsWidth, pixelsHeight)
         if self.editable != index:
-            painter.drawText(self.rect_amount, Qt.AlignLeft | Qt.AlignVCenter, amount)
+            painter.drawText(self.rect_amount, int(Qt.AlignLeft | Qt.AlignVCenter), amount)
 
     def draw_label(self, painter: QPainter, rect_background, label, x):
         """
@@ -691,7 +691,7 @@ class TransactionDelegate(QStyledItemDelegate):
         """ Set percentage beside amount """
         rectAmountLabel = QRect(rect_background.width() * x, self.rect_category_name.y(),
                                 pixelsWidth, pixelsHeight)
-        painter.drawText(rectAmountLabel, Qt.AlignLeft | Qt.AlignVCenter, label)
+        painter.drawText(rectAmountLabel, int(Qt.AlignLeft | Qt.AlignVCenter), label)
 
     def draw_date(self, painter: QPainter, rect_background, index: QModelIndex, date):
         """
@@ -721,7 +721,7 @@ class TransactionDelegate(QStyledItemDelegate):
         self.rect_date = QRect(rect_background.width() * 1.8 / 4, self.rect_name.y(),
                                pixelsWidth, pixelsHeight)
         if self.editable != index:
-            painter.drawText(self.rect_date, Qt.AlignLeft | Qt.AlignVCenter, date)
+            painter.drawText(self.rect_date, int(Qt.AlignLeft | Qt.AlignVCenter), date)
 
     def draw_account(self, painter: QPainter, rect_background, index: QModelIndex, account):
         """
@@ -752,5 +752,5 @@ class TransactionDelegate(QStyledItemDelegate):
                                   pixelsWidth, pixelsHeight)
 
         if self.editable != index:
-            painter.drawText(self.rect_account, Qt.AlignLeft | Qt.AlignVCenter, account)
+            painter.drawText(self.rect_account, int(Qt.AlignLeft | Qt.AlignVCenter), account)
 

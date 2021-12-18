@@ -102,7 +102,7 @@ class AccountDelegate(QItemDelegate):
         """ Set category on top """
         rectCategory = QRect(rectIcon.x()+rectIcon.width()+option.rect.width()*1/30, rectIcon.y()+option.rect.height()*1/30,
                              pixelsWidth, pixelsHeight)
-        painter.drawText(rectCategory, Qt.AlignLeft | Qt.AlignVCenter, account_name)
+        painter.drawText(rectCategory, int(Qt.AlignLeft | Qt.AlignVCenter), account_name)
 
         """ Set font on painter for account label """
         self.font.setFamily(u"Roboto")
@@ -120,7 +120,7 @@ class AccountDelegate(QItemDelegate):
         """ Set number of transactions beside category """
         rectTransaction = QRect(rectCategory.x(), rectCategory.y()+rectCategory.height()+option.rect.height()*1/10,
                                 pixelsWidth, pixelsHeight)
-        painter.drawText(rectTransaction, Qt.AlignLeft | Qt.AlignVCenter, QCoreApplication.translate("account_delegate",
+        painter.drawText(rectTransaction, int(Qt.AlignLeft | Qt.AlignVCenter), QCoreApplication.translate("account_delegate",
                                                                                                      'Account'))
 
         """ Set font on painter for amount """
@@ -139,7 +139,7 @@ class AccountDelegate(QItemDelegate):
         """ Set amount on right corner """
         rect_amount = QRect(rectBackground.width()+rectBackground.x()-pixelsWidth-option.rect.width()*1/50,
                             rectCategory.y(), pixelsWidth, pixelsHeight)
-        painter.drawText(rect_amount, Qt.AlignRight | Qt.AlignVCenter, amount)
+        painter.drawText(rect_amount, int(Qt.AlignRight | Qt.AlignVCenter), amount)
 
         """ Set rect for trend drawing """
         rect_svg = QRectF(rect_amount.x() - 24, rect_amount.y(), 18, 18)
@@ -169,7 +169,7 @@ class AccountDelegate(QItemDelegate):
         """ Set percentage beside amount """
         rectPerc = QRect(rectBackground.width()+rectBackground.x()-pixelsWidth-option.rect.width()*1/50, rectTransaction.y(),
                          pixelsWidth, pixelsHeight)
-        painter.drawText(rectPerc, Qt.AlignRight | Qt.AlignVCenter, QCoreApplication.translate("account_delegate",
+        painter.drawText(rectPerc, int(Qt.AlignRight | Qt.AlignVCenter), QCoreApplication.translate("account_delegate",
                                                                                                'Balance'))
 
         painter.restore()

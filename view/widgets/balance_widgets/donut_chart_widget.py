@@ -206,7 +206,7 @@ class DonutChart(QWidget):
         rect_description = QRect(self.rect().x(), self.rect().y(), pixelsWidth, pixelsHeight)
         rect_description.moveCenter(self.rect().center())
         rect_description.moveTop(rect_description.y() + rect_description.height() / 2 + 7)
-        painter.drawText(rect_description, Qt.AlignHCenter | Qt.AlignVCenter, previous_value)
+        painter.drawText(rect_description, int(Qt.AlignHCenter | Qt.AlignVCenter), previous_value)
 
         """ Set pen color """
         value = str(self.percentage) + "%"
@@ -230,7 +230,7 @@ class DonutChart(QWidget):
         rect_percentage = QRect(self.rect().x(), self.rect().y(), pixelsWidth, pixelsHeight)
         rect_percentage.moveCenter(self.rect().center())
         rect_percentage.moveTop(rect_percentage.y() + rect_percentage.height() / 2 + 35)
-        painter.drawText(rect_percentage, Qt.AlignHCenter | Qt.AlignVCenter, value)
+        painter.drawText(rect_percentage, int(Qt.AlignHCenter | Qt.AlignVCenter), value)
 
         """ Configure font for total amount """
         font.setFamily(u"Roboto Medium")
@@ -252,7 +252,7 @@ class DonutChart(QWidget):
         rect_value = QRect(self.rect().x(), self.rect().y(), pixelsWidth, pixelsHeight)
         rect_value.moveCenter(self.rect().center())
         rect_value.moveBottom(rect_value.y() + rect_value.height() / 2.0)
-        painter.drawText(rect_value, Qt.AlignHCenter | Qt.AlignVCenter, value)
+        painter.drawText(rect_value, int(Qt.AlignHCenter | Qt.AlignVCenter), value)
 
         """ Set trend """
         rect_trend = QRect(self.rect().x(), self.rect().y(), 24, 24)
