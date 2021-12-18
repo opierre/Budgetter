@@ -25,7 +25,7 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(1216, 969)
+        MainWindow.resize(1216, 979)
         MainWindow.setStyleSheet(u"#MainWindow \n"
 "{\n"
 "	background: #212F41;\n"
@@ -1184,6 +1184,11 @@ class Ui_MainWindow(object):
 "	image: url(:/images/images/check_box_white_24dp.svg);\n"
 "}\n"
 "\n"
+"QCheckBox::indicator:checked:hover\n"
+"{\n"
+"	image: url(:/images/images/check_box_white_24dp_hover.svg);\n"
+"}\n"
+"\n"
 "QCheckBox:unchecked\n"
 "{\n"
 "	color: rgba(66, 96, 135, 250);\n"
@@ -1191,14 +1196,20 @@ class Ui_MainWindow(object):
 "\n"
 "QCheckBox:unchecked:hover\n"
 "{\n"
-"	color: rgba(66, 96, 135, 200);\n"
+"	color: rgba(66, 96, 135, 200);"
+                        "\n"
 "}\n"
 "\n"
 "QCheckBox::indicator:unchecked\n"
 "{\n"
-"	image: url(:/images/images/check_box_outline_blank_white_24dp.s"
-                        "vg);\n"
-"}")
+"	image: url(:/images/images/check_box_outline_blank_white_24dp.svg);\n"
+"}\n"
+"\n"
+"QCheckBox::indicator:unchecked:hover\n"
+"{\n"
+"	image: url(:/images/images/check_box_outline_blank_white_24dp_hover.svg);\n"
+"}\n"
+"")
         MainWindow.setToolButtonStyle(Qt.ToolButtonIconOnly)
         MainWindow.setAnimated(True)
         self.actionDashboard = QAction(MainWindow)

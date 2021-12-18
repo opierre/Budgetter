@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1216</width>
-    <height>969</height>
+    <height>979</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -1147,6 +1147,11 @@ QCheckBox::indicator:checked
 	image: url(:/images/images/check_box_white_24dp.svg);
 }
 
+QCheckBox::indicator:checked:hover
+{
+	image: url(:/images/images/check_box_white_24dp_hover.svg);
+}
+
 QCheckBox:unchecked
 {
 	color: rgba(66, 96, 135, 250);
@@ -1160,7 +1165,13 @@ QCheckBox:unchecked:hover
 QCheckBox::indicator:unchecked
 {
 	image: url(:/images/images/check_box_outline_blank_white_24dp.svg);
-}</string>
+}
+
+QCheckBox::indicator:unchecked:hover
+{
+	image: url(:/images/images/check_box_outline_blank_white_24dp_hover.svg);
+}
+</string>
   </property>
   <property name="toolButtonStyle">
    <enum>Qt::ToolButtonIconOnly</enum>
