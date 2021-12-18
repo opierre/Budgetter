@@ -28,7 +28,7 @@ class CategoryChart(QtCharts.QChart):
 
         """ Store series """
         self.series = QtCharts.QBarSeries(self)
-        self.set = QtCharts.QBarSet("Category")
+        self.set = None
 
         """ Store limits """
         self.local_max_x = None
@@ -48,8 +48,6 @@ class CategoryChart(QtCharts.QChart):
         """
 
         """ Configure labels """
-        self.set.setLabelFont(QFont("Roboto", 10, QFont.Normal))
-        self.set.setLabelColor(QColor("#9298a8"))
         self.series.setLabelsFormat("@value €")
         self.series.setLabelsPrecision(6)
         self.series.setLabelsPosition(QtCharts.QAbstractBarSeries.LabelsOutsideEnd)
@@ -82,6 +80,34 @@ class CategoryChart(QtCharts.QChart):
             gradient.setColorAt(0.0, QColor("#D821FE"))
             gradient.setColorAt(1.0, QColor("#8118F9"))
         gradient.setCoordinateMode(QGradient.ObjectMode)
+        self.series.setBarWidth(0.5)
+
+        """ Set animation """
+        self.setAnimationOptions(QtCharts.QChart.SeriesAnimations)
+
+        """ Remove margins """
+        self.layout().setContentsMargins(0, 0, 0, 0)
+
+    def configure_barset(self):
+        """
+        Configure bar set after eache series cleared
+
+        :return: None
+        """
+
+        self.set = QtCharts.QBarSet("Category")
+        self.set.setLabelFont(QFont("Roboto", 10, QFont.Normal))
+        self.set.setLabelColor(QColor("#9298a8"))
+
+        """ Configure gradient to fulfill bars """
+        gradient = QLinearGradient(QPointF(0, 0), QPointF(0, 1))
+        if self.chart_type == 'Income':
+            gradient.setColorAt(0.0, QColor("#23D0FE"))
+            gradient.setColorAt(1.0, QColor("#1A68FA"))
+        else:
+            gradient.setColorAt(0.0, QColor("#D821FE"))
+            gradient.setColorAt(1.0, QColor("#8118F9"))
+        gradient.setCoordinateMode(QGradient.ObjectMode)
         self.set.setBrush(gradient)
 
         """ Create pen to draw borders """
@@ -91,13 +117,6 @@ class CategoryChart(QtCharts.QChart):
         pen.setJoinStyle(Qt.RoundJoin)
         pen.setBrush(gradient)
         self.set.setPen(pen)
-        self.series.setBarWidth(0.5)
-
-        """ Set animation """
-        self.setAnimationOptions(QtCharts.QChart.SeriesAnimations)
-
-        """ Remove margins """
-        self.layout().setContentsMargins(0, 0, 0, 0)
 
     def set_values(self, values: dict):
         """
@@ -109,6 +128,11 @@ class CategoryChart(QtCharts.QChart):
 
         """ Clear previous values """
         self.series.clear()
+        self.removeAxis(self.axis_x)
+        self.removeAxis(self.axis_y)
+
+        """ Configure barset """
+        self.configure_barset()
 
         """ Configure pen """
         pen = QPen(QColor("#6dd230"))
@@ -141,8 +165,8 @@ class CategoryChart(QtCharts.QChart):
         self.addSeries(self.series)
 
         """ Set axes """
-        self.setAxisX(self.axis_x)
-        self.setAxisY(self.axis_y)
+        self.addAxis(self.axis_x, Qt.AlignBottom)
+        self.addAxis(self.axis_y, Qt.AlignLeft)
 
         """ Attach axes to series """
         self.series.attachAxis(self.axis_x)
@@ -164,31 +188,6 @@ class CategoryChart(QtCharts.QChart):
         """ Connect click on series finale to display scatter """
         # self.series_finale.clicked[QPointF].connect(self.show_point)
         # self.area_series.clicked[QPointF].connect(self.show_point)
-
-    def set_range(self, from_date: QDate, to_date: QDate):
-        """
-        Update range
-
-        :param from_date: date from
-        :param to_date: date to
-        :return: None
-        """
-
-        """ Check limits """
-        local_min = QDate.fromString(self.local_min_x, "MMM-yy")
-        local_min.setDate(local_min.year() + 100, local_min.month(), local_min.day())
-        local_max = QDate.fromString(self.local_max_x, "MMM-yy")
-        local_max.setDate(local_max.year() + 100, local_max.month(), local_max.day())
-        if from_date < local_min:
-            from_date = local_min
-        if to_date > local_max:
-            to_date = local_max
-
-        """ Update x range """
-        self.axis_x.setRange(from_date.toString("MMM-yy"), to_date.toString("MMM-yy"))
-
-        """ Update y max """
-        self.axis_y.setRange(0, self.axis_y.max() * 12/10)
 
     def show_labels(self, value: bool):
         """

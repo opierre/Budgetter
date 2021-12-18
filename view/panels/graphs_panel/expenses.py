@@ -217,8 +217,37 @@ class Expenses(QObject):
         self.ui_setup.refresh_expenses.start(1)
         QApplication.processEvents()
 
+        values = {"01-2020": 4235.23,
+                  "02-2020": 4565.23,
+                  "03-2020": 5454.34,
+                  "04-2020": 5674.76,
+                  "05-2020": 7345.87,
+                  "06-2020": 8340.89,
+                  "07-2020": 8957.54,
+                  "08-2020": 11100.34,
+                  "09-2020": 11550.12,
+                  "10-2020": 11567.87,
+                  "11-2020": 11978.78,
+                  "12-2020": 12010.98,
+                  "01-2021": 12056,
+                  "02-2021": 13450.12,
+                  "03-2021": 15469.35,
+                  "04-2021": 14356.00,
+                  "05-2021": 25098.63,
+                  "06-2021": 26098.57,
+                  "07-2021": 22054.00,
+                  "09-2021": 22000.45,
+                  "10-2021": 20012.45,
+                  "11-2021": 18042.45}
+
+        final_values = {}
+        for key, value in values.items():
+            date = QDate.fromString(key, "MM-yyyy")
+            if self.ui_setup.dateEdit_expenses_from.date() <= date <= self.ui_setup.dateEdit_expenses_to.date():
+                final_values.update({key: value})
+
         """ Set date range """
-        self.chart.set_range(self.ui_setup.dateEdit_expenses_from.date(), self.ui_setup.dateEdit_expenses_to.date())
+        self.chart.set_values(final_values)
 
     def set_values(self, values: dict):
         """
