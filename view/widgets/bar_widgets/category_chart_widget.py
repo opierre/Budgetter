@@ -1,5 +1,5 @@
 from PySide2.QtCharts import QtCharts
-from PySide2.QtCore import Qt, QDateTime, QPointF, QDate
+from PySide2.QtCore import Qt, QDateTime, QPointF, QDate, QLocale
 from PySide2.QtGui import QPen, QColor, QBrush, QLinearGradient, QGradient, QFont
 
 
@@ -46,6 +46,11 @@ class CategoryChart(QtCharts.QChart):
 
         :return: None
         """
+
+        """ Configure locale for number display """
+        locale = QLocale(QLocale.French)
+        self.setLocalizeNumbers(True)
+        self.setLocale(locale)
 
         """ Configure labels """
         self.series.setLabelsFormat("@value €")
