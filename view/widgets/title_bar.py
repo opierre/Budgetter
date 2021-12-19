@@ -1,6 +1,7 @@
 from PySide2.QtCore import QSize, Signal
 from PySide2.QtGui import QIcon, Qt, QFont
-from PySide2.QtWidgets import QWidget, QHBoxLayout, QLabel, QPushButton, QSpacerItem, QSizePolicy, QAction, QApplication
+from PySide2.QtWidgets import QWidget, QHBoxLayout, QLabel, QPushButton, QSpacerItem, QSizePolicy, QAction, \
+    QApplication, QComboBox
 
 from view.widgets.line_edit_with_icon import LineEditWithIcon
 
@@ -40,6 +41,10 @@ class TitleBar(QWidget):
         """ Add button on top right corner """
         self._search = LineEditWithIcon(QIcon(":/images/images/search-white-24dp.svg"), self)
         self._search.setObjectName(u"titleBarSearch")
+
+        """ Add custom field search """
+        self._search_type = QComboBox(self)
+        self._search_type.setObjectName(u"titleBarSearchField")
 
         """ Set Widget to occupy all region """
         self._widget = QWidget()
@@ -88,9 +93,12 @@ class TitleBar(QWidget):
 
         """ Configure Search bar on top right corner """
         self._search.setFont(QFont("Roboto", 11, QFont.Normal))
-        self._search.setPlaceholderText(QApplication.translate("title_bar", "Search"))
+        self._search.setPlaceholderText(QApplication.translate("title_bar", "Search..."))
         self._search.setClearButtonEnabled(True)
         self._search.findChild(QAction, "_q_qlineeditclearaction").setIcon(QIcon(":/images/images/clear-white-18dp.svg"))
+
+        """ Configure Search field on top right corner """
+        self._search_type.setFont(QFont("Roboto", 11, QFont.Normal))
 
     def configure_layout(self):
         """
@@ -102,9 +110,21 @@ class TitleBar(QWidget):
         """ Configure empty widget """
         self.empty_layout.addSpacerItem(self.spacer)
 
+        """ Configure search widget """
+        search_widget = QWidget(self)
+        search_widget.setMinimumSize(QSize(0, 0))
+        search_widget.setMaximumSize(QSize(16777215, 16777215))
+        h_layout = QHBoxLayout(search_widget)
+        h_layout.setSpacing(0)
+        h_layout.setContentsMargins(0, 0, 0, 0)
+        h_layout.addStretch()
+        h_layout.addWidget(self._search)
+        h_layout.addWidget(self._search_type)
+        h_layout.addStretch()
+
         """ Configure widget with add button and search bar """
         self._layout.addSpacerItem(self._left_spacer)
-        self._layout.addWidget(self._search)
+        self._layout.addWidget(search_widget)
         self._layout.addWidget(self._add)
 
         """ Set spacing between search and add """
@@ -169,3 +189,4 @@ class TitleBar(QWidget):
         """
 
         self._search.hide()
+        self._search_type.hide()
