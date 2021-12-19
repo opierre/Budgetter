@@ -24,6 +24,9 @@ class ChartBars(QWidget):
         """ Store total amount show state """
         self._show_total = True
 
+        """ Store average show state """
+        self._show_average = False
+
         """ Configure widgets """
         self.configure_widgets()
 
@@ -84,6 +87,8 @@ class ChartBars(QWidget):
         """
 
         self.chart.show_average(value)
+        self._show_average = value
+        self.update()
 
     def show_total(self, value: bool):
         """
@@ -110,6 +115,10 @@ class ChartBars(QWidget):
         """ Configure painter """
         painter.setPen(Qt.NoPen)
 
+        """ Draw average """
+        if self._show_average is True:
+            self.draw_average(painter)
+
         """ Draw amount total amount """
         if self._show_total is True:
             self.draw_total_amount(painter)
@@ -122,7 +131,7 @@ class ChartBars(QWidget):
         Draw total amount for period
 
         :param painter: (QPainter) painter
-        :return: (QRectF) rectangle where amount has been drawn
+        :return: None
         """
 
         """ Configure pen and painter """
@@ -132,14 +141,15 @@ class ChartBars(QWidget):
         painter.setFont(QFont("Roboto", 11, QFont.Normal))
 
         """ Set text """
+        text_average = "Average: "
         text_total = "Total: "
 
         """ Set rectangle according to font metrics """
         font_metrics = QFontMetrics(painter.font())
-        text_total_width = font_metrics.width(text_total)
         text_heigth = font_metrics.height()
+        text_width = font_metrics.width(text_average)
         rectangle_total = QRectF(self.rect().x() + 9, self.rect().y(),
-                                 text_total_width, text_heigth)
+                                 text_width, text_heigth)
 
         painter.drawText(rectangle_total, int(Qt.AlignLeft | Qt.AlignVCenter), text_total)
 
@@ -157,7 +167,51 @@ class ChartBars(QWidget):
                                   text_amount_width, text_heigth)
         painter.drawText(rectangle_amount, int(Qt.AlignLeft | Qt.AlignVCenter), text_amount)
 
-        return rectangle_amount
+    def draw_average(self, painter: QPainter):
+        """
+        Draw average amount for period
+
+        :param painter: (QPainter) painter
+        :return: None
+        """
+
+        """ Configure pen and painter """
+        pen = QPen(QColor("#9298a8"), 1, c=Qt.RoundCap)
+        painter.setPen(pen)
+        painter.setBrush(Qt.NoBrush)
+        painter.setFont(QFont("Roboto", 11, QFont.Normal))
+
+        """ Set text """
+        text_average = "Average: "
+
+        """ Set rectangle according to font metrics """
+        font_metrics = QFontMetrics(painter.font())
+        text_average_width = font_metrics.width(text_average)
+        text_heigth = font_metrics.height()
+
+        if self._show_total is True:
+            y_coord = self.rect().y() + 9 + text_heigth
+        else:
+            y_coord = self.rect().y()
+
+        rectangle_average = QRectF(self.rect().x() + 9, y_coord,
+                                   text_average_width, text_heigth)
+
+        painter.drawText(rectangle_average, int(Qt.AlignLeft | Qt.AlignVCenter), text_average)
+
+        """ Set bold font """
+        painter.setFont(QFont("Roboto", 11, QFont.Bold))
+
+        """ Set text """
+        text_amount = convert_amount_to_str(self.chart.average()) + " €"
+
+        """ Set rectangle according to font metrics """
+        font_metrics = QFontMetrics(painter.font())
+        text_amount_width = font_metrics.width(text_amount)
+        text_heigth = font_metrics.height()
+        rectangle_amount = QRectF(rectangle_average.x() + rectangle_average.width() + 9, rectangle_average.y(),
+                                  text_amount_width, text_heigth)
+        painter.drawText(rectangle_amount, int(Qt.AlignLeft | Qt.AlignVCenter), text_amount)
 
     def draw_values(self):
         """
