@@ -1135,6 +1135,7 @@ QFrame#frame_expenses, QFrame#frame_income
 QCheckBox:checked
 {
 	color: rgba(255, 255, 255, 200);
+	outline: none;
 }
 
 QCheckBox:checked:hover
@@ -1155,6 +1156,7 @@ QCheckBox::indicator:checked:hover
 QCheckBox:unchecked
 {
 	color: rgba(66, 96, 135, 250);
+	outline: none;
 }
 
 QCheckBox:unchecked:hover

@@ -4,6 +4,7 @@ from PySide2.QtGui import QPainter, QColor
 from PySide2.QtWidgets import QListView, QWidget, QVBoxLayout, QApplication, QGraphicsDropShadowEffect
 
 from view.widgets.bar_widgets.category_chart_widget import CategoryChart
+from view.widgets.bar_widgets.chart_bars_widget import ChartBars
 
 
 class Expenses(QObject):
@@ -17,12 +18,11 @@ class Expenses(QObject):
         """ Store gui """
         self.ui_setup = gui
 
+        """ Store chart bars widget """
+        self.chart_widget = ChartBars("Expenses", self.ui_setup.expenses)
+
         """ Store drop shadow effect """
         self.shadow_effect = QGraphicsDropShadowEffect(self)
-
-        """ Store chart view """
-        self.chart = CategoryChart("Expenses")
-        self.chart_view = QtCharts.QChartView(self.chart)
 
         """ Store range options """
         self.this_year_option = {"to": QDate.currentDate(),
@@ -72,7 +72,10 @@ class Expenses(QObject):
         self.ui_setup.check_labels_expenses.clicked.connect(self.show_labels)
 
         """ Connect show average to display line on graph """
-        self.ui_setup.check_average_expenses.toggled.connect(self.chart.show_average)
+        self.ui_setup.check_average_expenses.toggled.connect(self.chart_widget.show_average)
+
+        """ Connect show total to display total amount on graph view """
+        self.ui_setup.check_total_expenses.toggled.connect(self.chart_widget.show_total)
 
     def configure_title_bar(self):
         """
@@ -98,7 +101,7 @@ class Expenses(QObject):
         widget = QWidget()
         layout = QVBoxLayout(widget)
         layout.setSpacing(0)
-        layout.addWidget(self.chart_view)
+        layout.addWidget(self.chart_widget)
         layout.setContentsMargins(0, 0, 0, 0)
 
         self.ui_setup.widget_expenses_graph.setLayout(QVBoxLayout())
@@ -111,9 +114,6 @@ class Expenses(QObject):
 
         :return: None
         """
-
-        """ Configure chart view """
-        self.chart_view.setRenderHint(QPainter.Antialiasing)
 
         """ Configure combobox for category """
         self.ui_setup.expenses_choice.setView(QListView())
@@ -250,7 +250,7 @@ class Expenses(QObject):
                 final_values.update({key: value})
 
         """ Set date range """
-        self.chart.set_values(final_values)
+        self.chart_widget.set_values(final_values)
 
     def set_values(self, values: dict):
         """
@@ -282,7 +282,7 @@ class Expenses(QObject):
                   "08-2021": 22000.45}
 
         """ Set values on chat """
-        self.chart.set_values(values)
+        self.chart_widget.set_values(values)
 
     def show_labels(self, checked: bool):
         """
@@ -292,4 +292,4 @@ class Expenses(QObject):
         :return: None
         """
 
-        self.chart.show_labels(checked)
+        self.chart_widget.show_labels(checked)
