@@ -175,6 +175,10 @@ class CategoryChart(QtCharts.QChart):
         :return: None
         """
 
+        """ Store previous state to avoid flash """
+        previous_state = self.series.isLabelsVisible()
+        self.series.setLabelsVisible(False)
+
         """ Clear previous values """
         self.series.clear()
         self.average_series.clear()
@@ -233,6 +237,9 @@ class CategoryChart(QtCharts.QChart):
 
         """ Configure y axis """
         self.axis_y.setRange(0, y_max_value * 12/10)
+
+        """ Restore previous state """
+        self.series.setLabelsVisible(previous_state)
 
         """ Display middle point """
         # self.show_point(self.get_middle_value())

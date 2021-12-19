@@ -45,7 +45,6 @@ class ChartBars(QWidget):
         self.chart_view.setVisible(True)
 
         """ Configure chart """
-        # self.chart.set_values(self.values)
         self.chart.layout().setContentsMargins(0, 0, 0, 0)
 
     def connect_slots_and_signals(self):
