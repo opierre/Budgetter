@@ -1,4 +1,4 @@
-from PySide2.QtCore import QAbstractListModel, Qt
+from PySide2.QtCore import QAbstractListModel, Qt, QModelIndex
 
 
 class AccountsModel(QAbstractListModel):
@@ -12,9 +12,10 @@ class AccountsModel(QAbstractListModel):
         """ Store accounts """
         self.accounts = categories or []
 
-    def data(self, index, role):
+    def data(self, index: QModelIndex, role: Qt.ItemDataRole = None):
         """
         Override data() from QAbstractListModel
+
         :param index: index
         :param role: role
         :return: according to role (text, ...)
@@ -26,9 +27,10 @@ class AccountsModel(QAbstractListModel):
             """ Return current account list """
             return account
 
-    def rowCount(self, index):
+    def rowCount(self, index: QModelIndex = QModelIndex()):
         """
         Override rowCount() from QAbstractListModel
+
         :param index: index
         :return: length of datas
         """

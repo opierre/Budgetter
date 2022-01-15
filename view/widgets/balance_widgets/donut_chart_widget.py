@@ -124,11 +124,8 @@ class DonutChart(QWidget):
         :return: None
         """
 
-        first_start_angle = 0
-        first_span_angle = 0
         previous_end_angle = 0
         current_index = 0
-        last_index = len(self._slices)
 
         """ Configure rectangle """
         rect_origins = QRectF(self.rect().center().x(), self.rect().center().y(),
@@ -143,10 +140,6 @@ class DonutChart(QWidget):
             if previous_end_angle == 0:
                 start_angle = (180 - span_angle) / 2
                 previous_end_angle = start_angle + span_angle
-
-                """ Store first value for re-draw """
-                first_start_angle = start_angle
-                first_span_angle = span_angle
             else:
                 start_angle = previous_end_angle
                 previous_end_angle = start_angle + span_angle
@@ -158,7 +151,6 @@ class DonutChart(QWidget):
             gradient.setColorAt(current_slice / 100, QColor("transparent"))
             gradient.setColorAt(0, QColor(self.colors[current_index]))
             pen.setBrush(QBrush(gradient))
-            # pen.setColor(QColor(self.colors[current_index]))
             painter.setPen(pen)
 
             """ Draw arc """

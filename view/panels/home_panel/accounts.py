@@ -63,6 +63,7 @@ class Accounts(QObject):
     def configure_title_bar(self):
         """
         Configure TitleBar with icon
+
         :return: None
         """
 
@@ -76,6 +77,7 @@ class Accounts(QObject):
     def configure_layout(self):
         """
         Configure layout inside of Container
+
         :return: None
         """
 
