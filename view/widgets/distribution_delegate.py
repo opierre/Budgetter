@@ -18,6 +18,7 @@ class DistributionDelegate(QItemDelegate):
     def sizeHint(self, optionQStyleOptionViewItem, index):
         """
         Override sizeHint
+
         :param optionQStyleOptionViewItem: optionQStyleOptionViewItem
         :param index: index
         :return: QSize(10, 70)
@@ -28,6 +29,7 @@ class DistributionDelegate(QItemDelegate):
     def paint(self, painter, option, index):
         """
         Override paint
+
         :param painter: painter
         :param option: option
         :param index: index
@@ -73,7 +75,7 @@ class DistributionDelegate(QItemDelegate):
         rectPercentage = QRect(rectBackground.x()+rectBackground.width(), option.rect.y()+10,
                                -(rectBackground.width()-(option.rect.width()*1/3))*(value[3]/100),
                                option.rect.height()-20)
-        painter.drawRoundedRect(rectPercentage, 1.0, 1.0)
+        painter.drawRoundedRect(rectPercentage, 0.0, 0.0)
 
         """ Draw left icon background """
         painter.setPen(QPen(QColor("#1A537D")))
