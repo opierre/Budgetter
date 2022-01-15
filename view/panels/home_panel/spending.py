@@ -27,6 +27,7 @@ class Spending(QObject):
     def configure_title_bar(self):
         """
         Configure TitleBar with icon
+
         :return: None
         """
 
@@ -40,6 +41,7 @@ class Spending(QObject):
     def configure_layout(self):
         """
         Configure layout inside of Container
+
         :return: None
         """
 
@@ -47,6 +49,6 @@ class Spending(QObject):
         layout = QHBoxLayout(widget)
         layout.setSpacing(0)
         layout.addWidget(self.chart_widget)
-        layout.setContentsMargins(20, 20, 20, 20)
+        layout.setContentsMargins(2, 2, 2, 2)
 
         self.ui_setup.spending.setWidget(widget)

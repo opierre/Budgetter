@@ -146,6 +146,7 @@ class ChartDashboard(QWidget):
 
         """ Get painter """
         painter = QPainter(self)
+        painter.setRenderHint(QPainter.Antialiasing)
 
         """ Configure painter """
         painter.setPen(Qt.NoPen)
@@ -158,7 +159,7 @@ class ChartDashboard(QWidget):
         painter.setBrush(brush)
 
         """ Draw background """
-        painter.drawRoundedRect(self.rect(), 5, 5)
+        painter.drawRoundedRect(self.rect(), 4, 4)
 
         """ Draw upper line """
         self.draw_separator(painter)
@@ -267,6 +268,7 @@ class ChartDashboard(QWidget):
     def draw_period(self, painter, rectangle_amount):
         """
         Draw period for selected month
+
         :param painter: painter
         :param rectangle_amount: upper rectangle
         :return: rectangle where period has been drawn
@@ -300,6 +302,7 @@ class ChartDashboard(QWidget):
     def draw_values(self, painter, rectangle_period):
         """
         Draw points for each value
+
         :param painter: painter
         :param rectangle_period: rectangle with period
         :return: None
