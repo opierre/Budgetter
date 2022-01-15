@@ -469,53 +469,25 @@ class Transactions(QObject):
         self.edit_transaction(index, output[0], output[1], output[2], output[3], output[4], output[5], output[6],
                               output[7], output[8], output[9])
 
-    def search_transaction(self, content):
+    def search_transaction(self, content: str, search_field: str):
         """
         Search transaction as filter
 
         :param content: content to look for in transactions
+        :param search_field: search field
         :return: None
         """
 
-        name = "name="
-        date = "date="
-        amount = "amount="
-
         ''' Look for name/date/amount '''
-        if name in content:
-            start_index = content.find(name) + len(name)
-            try:
-                end_index = content.index(" ", start_index)
-                name_value = content[start_index:end_index]
-            except ValueError:
-                name_value = content[start_index:]
-                pass
-
+        if "name" in search_field.lower():
             """ Filter model """
-            self.transactions_filter_model.update_search_filter(name, name_value)
-        elif date in content:
-            start_index = content.find(date) + len(date)
-            try:
-                end_index = content.index(" ", start_index)
-                date_value = content[start_index:end_index]
-            except ValueError:
-                date_value = content[start_index:]
-                pass
-
+            self.transactions_filter_model.update_search_filter("name", content)
+        elif "date" in search_field.lower():
             """ Filter model """
-            self.transactions_filter_model.update_search_filter(date, date_value)
-        elif amount in content:
-            start_index = content.find(amount) + len(amount)
-            try:
-                end_index = content.index(" ", start_index)
-                amount_value = content[start_index:end_index]
-            except ValueError:
-                amount_value = content[start_index:]
-                pass
-
+            self.transactions_filter_model.update_search_filter("date", content)
+        elif "amount" in search_field.lower():
             """ Filter model """
-            self.transactions_filter_model.update_search_filter(amount, amount_value)
-
+            self.transactions_filter_model.update_search_filter("amount", content)
         else:
             """ Reset filter model """
             self.transactions_filter_model.update_search_filter(None, None)

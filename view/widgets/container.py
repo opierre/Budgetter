@@ -10,8 +10,8 @@ class Container(QDockWidget):
     Container
     """
 
-    """ Signal emitted when search bar in title bar is edited - Content typed: str """
-    titleBarSearched = Signal(str)
+    """ Signal emitted when search bar in title bar is edited - Content typed: str/Search field name: str """
+    titleBarSearched = Signal(str, str)
 
     """ Signal emitted when button in title bar has been clicked - Checked state: bool """
     titleBarClicked = Signal(bool)

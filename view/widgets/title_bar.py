@@ -10,8 +10,8 @@ class TitleBar(QWidget):
     Title Bar
     """
 
-    """ Signal emitted when search bar editing finished - Content typed: str """
-    searched = Signal(str)
+    """ Signal emitted when search bar in title bar is edited - Content typed: str/Search field name: str """
+    searched = Signal(str, str)
 
     """ Signal emitted when right corner button clicked - Checked state: bool """
     clicked = Signal(bool)
@@ -43,7 +43,7 @@ class TitleBar(QWidget):
         self.ui.add.clicked[bool].connect(self.clicked.emit)
 
         """ Connect text changed on _search line edit to emit signal """
-        self.ui.title_bar_search.textChanged[str].connect(self.searched.emit)
+        self.ui.title_bar_search.textChanged[str].connect(self.emit_search)
 
     def configure_widgets(self):
         """
@@ -116,3 +116,17 @@ class TitleBar(QWidget):
 
         self.ui.search_field.hide()
         self.ui.title_bar_search.hide()
+
+    def emit_search(self, content: str):
+        """
+        Emit search signal with content typed and search field name
+
+        :param content: content to emit
+        :return: None
+        """
+
+        ''' Retrieve search field '''
+        search_field = self.ui.search_field.currentText()
+
+        ''' Emit signal '''
+        self.searched.emit(content, search_field)

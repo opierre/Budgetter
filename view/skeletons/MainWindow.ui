@@ -725,40 +725,40 @@ QDoubleSpinBox:focus {
 QDoubleSpinBox::up-button {
     subcontrol-origin: border;
     subcontrol-position: top right;
-    width: 18px;
-	height: 18px;
+    width: 16px;
+	height: 16px;
 	padding-right: 0px;
-    border-image: url(:/images/images/add_white_24dp.svg);
+    image: url(:/images/images/arrow_drop_up_white_18dp.svg);
 }
 
 QDoubleSpinBox::up-button:hover 
 {
-    border-image: url(:/images/images/expand_less-hovered-18dp.svg);
+    image: url(:/images/images/arrow_drop_up_white_18dp_hover.svg);
 }
 
 QDoubleSpinBox::up-button:pressed 
 {
-    border-image: url(:/images/images/expand_less-hovered-18dp.svg);
+    image: url(:/images/images/arrow_drop_up_white_18dp_hover.svg);
 }
 
 QDoubleSpinBox::down-button 
 {
     subcontrol-origin: border;
     subcontrol-position: bottom right;
-    width: 18px;
-	height: 18px;
-	padding-right: 0px;
-    border-image: url(:/images/images/remove_white_24dp.svg);
+    width: 16px;
+	height: 16px;
+	padding-top: 0px;
+    image: url(:/images/images/arrow_drop_down_white_18dp.svg);
 }
 
 QDoubleSpinBox::down-button:hover 
 {
-    border-image: url(:/images/images/expand_more-hovered-18dp.svg);
+    image: url(:/images/images/arrow_drop_down_white_18dp_hover.svg);
 }
 
 QDoubleSpinBox::down-button:pressed
 {
-    border-image: url(:/images/images/expand_more-hovered-18dp.svg);
+    image: url(:/images/images/arrow_drop_down_white_18dp_hover.svg);
 }
 
 QDateEdit
