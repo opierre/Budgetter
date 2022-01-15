@@ -1,6 +1,6 @@
-from PySide2.QtCore import Signal
+from PySide2.QtCore import Signal, Qt
 from PySide2.QtGui import QIcon
-from PySide2.QtWidgets import QWidget, QAction
+from PySide2.QtWidgets import QWidget, QAction, QListView
 
 from view.skeletons.Options import Ui_Options
 
@@ -55,6 +55,19 @@ class TitleBar(QWidget):
         """ Configure Search bar on top right corner """
         self.ui.title_bar_search.setClearButtonEnabled(True)
         self.ui.title_bar_search.findChild(QAction, "_q_qlineeditclearaction").setIcon(QIcon(":/images/images/clear-white-18dp.svg"))
+
+        """ Configure ComboBox widget """
+        self.ui.search_field.setView(QListView())
+        self.ui.search_field.setStyleSheet("QListView {"
+                                           "font-size: 11pt;"
+                                           "font-family: \"Roboto\";"
+                                           "}"
+                                           "QComboBox QAbstractItemView::item\n"
+                                           "{\n"
+                                           "	min-height: 25px;\n"
+                                           "}\n")
+        self.ui.search_field.view().window().setWindowFlags(Qt.Popup | Qt.FramelessWindowHint)
+        self.ui.search_field.view().window().setAttribute(Qt.WA_TranslucentBackground)
 
     def configure_layout(self):
         """
