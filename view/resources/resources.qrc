@@ -67,6 +67,8 @@
     <file>i18n/fr_FR.qm</file>
   </qresource>
   <qresource prefix="images">
+    <file>images/expand_less-white-18dp_opacity.svg</file>
+    <file>images/expand_more-white-18dp_opacity.svg</file>
     <file>images/check_box_outline_blank_white_24dp_hover.svg</file>
     <file>images/check_box_white_24dp_hover.svg</file>
     <file>images/check_box_outline_blank_white_24dp.svg</file>

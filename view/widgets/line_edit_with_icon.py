@@ -1,4 +1,4 @@
-from PySide2.QtGui import QPainter
+from PySide2.QtGui import QPainter, QIcon
 from PySide2.QtWidgets import QLineEdit
 
 
@@ -7,7 +7,7 @@ class LineEditWithIcon(QLineEdit):
     Line edit with icon
     """
 
-    def __init__(self, icon, parent):
+    def __init__(self, icon: QIcon = QIcon(), parent=None):
         super(LineEditWithIcon, self).__init__(parent)
         
         """ Store icon """
@@ -19,6 +19,7 @@ class LineEditWithIcon(QLineEdit):
     def setIcon(self, icon):
         """
         Set icon on left
+
         :param icon: icon
         :return: None
         """
@@ -34,6 +35,7 @@ class LineEditWithIcon(QLineEdit):
     def paintEvent(self, event):
         """
         Override paintEvent
+
         :param event: event
         :return: None
         """
