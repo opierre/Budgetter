@@ -107,7 +107,7 @@ class AnimatedButton(QWidget):
 
         ''' Update frame count '''
         self.frame_counter += 1
-        if self.frame_counter > 30:
+        if self.frame_counter > 15:
             if self.repeat != 1000:
                 ''' Update repeat till 0 '''
                 self.repeat -= 1
@@ -117,7 +117,7 @@ class AnimatedButton(QWidget):
                     return
 
             ''' Rewind animation from end '''
-            self.frame_counter = 30
+            self.frame_counter = 15
             self.direction = DIRECTIONS.REWIND
             QApplication.processEvents()
 

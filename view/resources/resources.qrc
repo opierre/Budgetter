@@ -16,21 +16,6 @@
     <file>animated/bars_purple/frame13.svg</file>
     <file>animated/bars_purple/frame14.svg</file>
     <file>animated/bars_purple/frame15.svg</file>
-    <file>animated/bars_purple/frame16.svg</file>
-    <file>animated/bars_purple/frame17.svg</file>
-    <file>animated/bars_purple/frame18.svg</file>
-    <file>animated/bars_purple/frame19.svg</file>
-    <file>animated/bars_purple/frame20.svg</file>
-    <file>animated/bars_purple/frame21.svg</file>
-    <file>animated/bars_purple/frame22.svg</file>
-    <file>animated/bars_purple/frame23.svg</file>
-    <file>animated/bars_purple/frame24.svg</file>
-    <file>animated/bars_purple/frame25.svg</file>
-    <file>animated/bars_purple/frame26.svg</file>
-    <file>animated/bars_purple/frame27.svg</file>
-    <file>animated/bars_purple/frame28.svg</file>
-    <file>animated/bars_purple/frame29.svg</file>
-    <file>animated/bars_purple/frame30.svg</file>
     <file>animated/bars_blue/frame00.svg</file>
     <file>animated/bars_blue/frame01.svg</file>
     <file>animated/bars_blue/frame02.svg</file>
@@ -47,21 +32,6 @@
     <file>animated/bars_blue/frame13.svg</file>
     <file>animated/bars_blue/frame14.svg</file>
     <file>animated/bars_blue/frame15.svg</file>
-    <file>animated/bars_blue/frame16.svg</file>
-    <file>animated/bars_blue/frame17.svg</file>
-    <file>animated/bars_blue/frame18.svg</file>
-    <file>animated/bars_blue/frame19.svg</file>
-    <file>animated/bars_blue/frame20.svg</file>
-    <file>animated/bars_blue/frame21.svg</file>
-    <file>animated/bars_blue/frame22.svg</file>
-    <file>animated/bars_blue/frame23.svg</file>
-    <file>animated/bars_blue/frame24.svg</file>
-    <file>animated/bars_blue/frame25.svg</file>
-    <file>animated/bars_blue/frame26.svg</file>
-    <file>animated/bars_blue/frame27.svg</file>
-    <file>animated/bars_blue/frame28.svg</file>
-    <file>animated/bars_blue/frame29.svg</file>
-    <file>animated/bars_blue/frame30.svg</file>
   </qresource>
   <qresource prefix="i18n">
     <file>i18n/fr_FR.qm</file>
