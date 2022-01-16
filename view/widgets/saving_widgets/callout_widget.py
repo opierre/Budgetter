@@ -50,8 +50,8 @@ class Callout(QGraphicsItem):
         """ Compute font metrics to adjust rect size """
         metrics_top = QFontMetrics(self.font_top)
         metrics_bottom = QFontMetrics(self.font_bottom)
-        self.text_rect_up = QRectF(metrics_top.boundingRect(QRect(0, 0, 150, 150), Qt.AlignLeft, self.month))
-        self.text_rect_down = QRectF(metrics_bottom.boundingRect(QRect(0, 0, 150, 150), Qt.AlignCenter, self.amount))
+        self.text_rect_up = QRectF(metrics_top.boundingRect(QRect(0, 0, 150, 150), int(Qt.AlignLeft), self.month))
+        self.text_rect_down = QRectF(metrics_bottom.boundingRect(QRect(0, 0, 150, 150), int(Qt.AlignRight), self.amount))
 
         """ Center bottom rect according to top rect """
         self.text_rect_down.moveCenter(QPointF(self.text_rect_up.center().x(), self.text_rect_up.height() +
@@ -118,7 +118,7 @@ class Callout(QGraphicsItem):
 
         return rect
 
-    def paint(self, painter: QPainter, option: QStyleOptionGraphicsItem, widget):
+    def paint(self, painter: QPainter, option: QStyleOptionGraphicsItem, widget=None):
         """
         Override paint() from QGraphicsItem
 
@@ -129,16 +129,28 @@ class Callout(QGraphicsItem):
         """
 
         """ Configure background rect path """
+        painter.setRenderHint(QPainter.Antialiasing)
         path = QPainterPath()
         complete_rect = self.complete_rect
-        path.addRoundedRect(complete_rect, 2, 2)
+        shadow_rect = QRect(self.complete_rect.x() + 3, self.complete_rect.y() + 3,
+                            self.complete_rect.width(), self.complete_rect.height())
+
+
+        """ Configure background shadow style """
+        painter.setPen(Qt.NoPen)
+        painter.setBrush(QColor(28, 41, 59))
+        painter.setOpacity(0.5)
+
+        """ Draw background shadow """
+        painter.drawRoundedRect(shadow_rect, 2, 2)
 
         """ Configure background style """
         painter.setPen(Qt.NoPen)
-        painter.setBrush(QColor(25, 157, 229, 230))
+        painter.setBrush(QColor(25, 157, 229, 240))
+        painter.setOpacity(1.0)
 
         """ Draw background """
-        painter.drawPath(path)
+        painter.drawRoundedRect(complete_rect, 2, 2)
 
         """ Draw text """
         painter.setFont(self.font_top)
