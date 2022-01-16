@@ -1601,6 +1601,9 @@ QCheckBox::indicator:unchecked:hover
           </property>
           <widget class="QWidget" name="dockWidgetContents_23">
            <layout class="QGridLayout" name="gridLayout_43">
+            <property name="leftMargin">
+             <number>12</number>
+            </property>
             <property name="topMargin">
              <number>12</number>
             </property>
@@ -2188,6 +2191,9 @@ QCheckBox::indicator:unchecked:hover
           </property>
           <widget class="QWidget" name="dockWidgetContents_231">
            <layout class="QGridLayout" name="gridLayout_431">
+            <property name="leftMargin">
+             <number>12</number>
+            </property>
             <property name="topMargin">
              <number>12</number>
             </property>

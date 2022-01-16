@@ -41,9 +41,6 @@ class CategoryChart(QtCharts.QChart):
         """ Configure chart """
         self.configure_chart()
 
-        """ Connect all slots and signals """
-        self.connect_slots_and_signals()
-
     def configure_chart(self):
         """
         Configure all chart aspects
@@ -240,20 +237,6 @@ class CategoryChart(QtCharts.QChart):
 
         """ Restore previous state """
         self.series.setLabelsVisible(previous_state)
-
-        """ Display middle point """
-        # self.show_point(self.get_middle_value())
-
-    def connect_slots_and_signals(self):
-        """
-        Connect all slots and signals from within chart
-
-        :return: None
-        """
-
-        """ Connect click on series finale to display scatter """
-        # self.series_finale.clicked[QPointF].connect(self.show_point)
-        # self.area_series.clicked[QPointF].connect(self.show_point)
 
     def show_labels(self, value: bool):
         """

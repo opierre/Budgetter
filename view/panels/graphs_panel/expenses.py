@@ -1,9 +1,7 @@
-from PySide2.QtCharts import QtCharts
 from PySide2.QtCore import QObject, QCoreApplication, Qt, QDate
-from PySide2.QtGui import QPainter, QColor
+from PySide2.QtGui import QColor
 from PySide2.QtWidgets import QListView, QWidget, QVBoxLayout, QApplication, QGraphicsDropShadowEffect
 
-from view.widgets.bar_widgets.category_chart_widget import CategoryChart
 from view.widgets.bar_widgets.chart_bars_widget import ChartBars
 
 
