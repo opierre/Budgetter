@@ -68,6 +68,7 @@ class Controller:
     def connect_slots_and_signals(self):
         """
         Connect all slots and signals
+
         :return: None
         """
 

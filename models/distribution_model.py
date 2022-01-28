@@ -1,4 +1,4 @@
-from PySide2.QtCore import QAbstractListModel, Qt
+from PySide2.QtCore import QAbstractListModel, Qt, QModelIndex
 
 
 class DistributionModel(QAbstractListModel):
@@ -12,9 +12,10 @@ class DistributionModel(QAbstractListModel):
         """ Store categories """
         self.categories = categories or []
 
-    def data(self, index, role):
+    def data(self, index: QModelIndex, role: Qt.ItemDataRole = None):
         """
         Override data() from QAbstractListModel
+
         :param index: index
         :param role: role
         :return: according to role (text, ...)
@@ -26,9 +27,10 @@ class DistributionModel(QAbstractListModel):
             """ Return current category list """
             return category
 
-    def rowCount(self, index):
+    def rowCount(self, index: QModelIndex = QModelIndex()):
         """
         Override rowCount() from QAbstractListModel
+
         :param index: index
         :return: length of datas
         """

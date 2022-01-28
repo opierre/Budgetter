@@ -20,6 +20,7 @@ class Thread(QThread):
     def set_function(self, function, args):
         """
         Setter for function and arguments
+
         :param function: function
         :param args: arguments
         :return: None
@@ -46,6 +47,7 @@ class RestClient:
     def POST(url, data):
         """
         Post method
+
         :param url: url
         :param data: data to push - JSON format
         :return: JSON return
@@ -65,6 +67,7 @@ class RestClient:
     def GET(url):
         """
         Get method
+
         :param url: url
         :return: JSON return
         """
@@ -83,6 +86,7 @@ class RestClient:
     def DELETE(url):
         """
         Delete method
+
         :param url: url
         :return: JSON return
         """

@@ -3,6 +3,7 @@
 def convert_amount_to_str(amount):
     """
     Convert amount to local separator
+
     :param amount: amount to convert
     :return: string value
     """
