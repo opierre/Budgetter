@@ -54,7 +54,8 @@ class TitleBar(QWidget):
 
         """ Configure Search bar on top right corner """
         self.ui.title_bar_search.setClearButtonEnabled(True)
-        self.ui.title_bar_search.findChild(QAction, "_q_qlineeditclearaction").setIcon(QIcon(":/images/images/clear-white-18dp.svg"))
+        self.ui.title_bar_search.findChild(QAction, "_q_qlineeditclearaction").setIcon(
+            QIcon(":/images/images/clear-white-18dp.svg"))
 
         """ Configure ComboBox widget """
         self.ui.search_field.setView(QListView())

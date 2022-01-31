@@ -1,8 +1,8 @@
 import datetime
 
 from PySide2 import QtCore
-from PySide2.QtCore import QSize, Qt, QRect, QRectF, QPointF, Signal, QModelIndex, QEvent
-from PySide2.QtGui import QPen, QColor, QPainter, QFont, QFontMetrics, QIcon, QKeySequence
+from PySide2.QtCore import QSize, Qt, QRect, QRectF, Signal, QModelIndex, QEvent
+from PySide2.QtGui import QPen, QColor, QPainter, QFont, QFontMetrics, QIcon
 from PySide2.QtSvg import QSvgRenderer
 from PySide2.QtWidgets import QStyledItemDelegate, QPushButton, QStyleOptionButton, QStyle, \
     QApplication
@@ -286,13 +286,17 @@ class TransactionDelegate(QStyledItemDelegate):
         self.draw_separator(painter, option, index)
 
         """ Draw item background """
-        rect_background = QRect(option.rect.x() + option.rect.width() * 1 / 60, option.rect.y() + option.rect.height() * 1 / 5,
-                                option.rect.width() - option.rect.width() * 2 / 60, option.rect.height() - option.rect.height() * 2 / 5)
+        rect_background = QRect(option.rect.x() + option.rect.width() * 1 / 60,
+                                option.rect.y() + option.rect.height() * 1 / 5,
+                                option.rect.width() - option.rect.width() * 2 / 60,
+                                option.rect.height() - option.rect.height() * 2 / 5)
         self.draw_item_background(painter, option, index, rect_background)
 
         """ Draw left icon background """
-        self.rect_category = QRect(rect_background.x() + option.rect.width() * 1 / 35, rect_background.y() - option.rect.height() * 1 / 30,
-                                   rect_background.height() + option.rect.height() * 2 / 30, rect_background.height() + option.rect.height() * 2 / 30)
+        self.rect_category = QRect(rect_background.x() + option.rect.width() * 1 / 35,
+                                   rect_background.y() - option.rect.height() * 1 / 30,
+                                   rect_background.height() + option.rect.height() * 2 / 30,
+                                   rect_background.height() + option.rect.height() * 2 / 30)
         self.draw_left_icon(painter, index, category)
 
         """ Draw name """
@@ -341,7 +345,8 @@ class TransactionDelegate(QStyledItemDelegate):
 
         """ Set income/expense on left corner """
         rect_ellipse = QRectF(rect_background.x() + option.rect.width() * 1 / 140,
-                              self.rect_category.y() + (self.rect_category.width() - pixelsHeight - 8) / 2.0 + (pixelsHeight + 8) / 3.5,
+                              self.rect_category.y() + (self.rect_category.width() - pixelsHeight - 8) / 2.0 +
+                              (pixelsHeight + 8) / 3.5,
                               (pixelsHeight + 8) / 2.5, (pixelsHeight + 8) / 2.5)
 
         self.rect_exp_or_inc = rect_ellipse

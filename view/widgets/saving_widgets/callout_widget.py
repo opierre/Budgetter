@@ -50,8 +50,10 @@ class Callout(QGraphicsItem):
         """ Compute font metrics to adjust rect size """
         metrics_top = QFontMetrics(self.font_top)
         metrics_bottom = QFontMetrics(self.font_bottom)
-        self.text_rect_up = QRectF(metrics_top.boundingRect(QRect(0, 0, 150, 150), int(Qt.AlignLeft), self.month))
-        self.text_rect_down = QRectF(metrics_bottom.boundingRect(QRect(0, 0, 150, 150), int(Qt.AlignRight), self.amount))
+        self.text_rect_up = QRectF(metrics_top.boundingRect(QRect(0, 0, 150, 150),
+                                                            int(Qt.AlignLeft), self.month))
+        self.text_rect_down = QRectF(metrics_bottom.boundingRect(QRect(0, 0, 150, 150),
+                                                                 int(Qt.AlignRight), self.amount))
 
         """ Center bottom rect according to top rect """
         self.text_rect_down.moveCenter(QPointF(self.text_rect_up.center().x(), self.text_rect_up.height() +
@@ -130,11 +132,9 @@ class Callout(QGraphicsItem):
 
         """ Configure background rect path """
         painter.setRenderHint(QPainter.Antialiasing)
-        path = QPainterPath()
         complete_rect = self.complete_rect
         shadow_rect = QRect(self.complete_rect.x() + 3, self.complete_rect.y() + 3,
                             self.complete_rect.width(), self.complete_rect.height())
-
 
         """ Configure background shadow style """
         painter.setPen(Qt.NoPen)

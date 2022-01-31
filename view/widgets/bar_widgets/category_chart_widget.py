@@ -1,5 +1,5 @@
 from PySide2.QtCharts import QtCharts
-from PySide2.QtCore import Qt, QDateTime, QPointF, QDate, QLocale
+from PySide2.QtCore import Qt, QDateTime, QPointF, QLocale
 from PySide2.QtGui import QPen, QColor, QBrush, QLinearGradient, QGradient, QFont
 
 

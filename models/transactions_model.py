@@ -191,7 +191,7 @@ class TransactionsModel(QAbstractListModel):
 
         return True
 
-    def rowCount(self, index):
+    def rowCount(self, index: QModelIndex = QModelIndex()):
         """
         Override rowCount() from QAbstractListModel
 

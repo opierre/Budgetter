@@ -1,5 +1,4 @@
 from PySide2.QtCore import QObject, QCoreApplication
-from PySide2.QtGui import QIcon
 from PySide2.QtWidgets import QActionGroup
 
 
@@ -27,6 +26,7 @@ class Menu(QObject):
     def connect_slots_and_signals(self):
         """
         Connect all slots and signals
+
         :return: None
         """
 
@@ -38,6 +38,7 @@ class Menu(QObject):
     def configure_action_group(self):
         """
         Configure toolbar action group
+
         :return: None
         """
 
@@ -52,6 +53,7 @@ class Menu(QObject):
     def change_page(self, pageNumber):
         """
         Change page by clicking on button in drawer
+
         :param pageNumber: page number to go to
         :return: None
         """

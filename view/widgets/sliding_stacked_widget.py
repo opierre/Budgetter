@@ -10,7 +10,7 @@
 # - Change of default direction from Horizontal to Vertical
 # - Add signal when animation finished
 
-from PySide2 import QtCore, QtGui, QtWidgets
+from PySide2 import QtCore, QtWidgets
 from PySide2.QtCore import Signal
 
 
@@ -46,13 +46,11 @@ class SlidingStackedWidget(QtWidgets.QStackedWidget):
     def setWrap(self, wrap):
         self.m_wrap = wrap
 
-    @QtCore.Slot()
     def slideInPrev(self):
         now = self.currentIndex()
         if self.m_wrap or now > 0:
             self.slideInIdx(now - 1)
 
-    @QtCore.Slot()
     def slideInNext(self):
         now = self.currentIndex()
         if self.m_wrap or now < (self.count() - 1):
@@ -114,7 +112,7 @@ class SlidingStackedWidget(QtWidgets.QStackedWidget):
                 duration=self.m_speed,
                 easingCurve=self.m_animationtype,
                 startValue=start,
-                endValue=end,
+                endValue=end
             )
             anim_group.addAnimation(animation)
 
@@ -123,7 +121,6 @@ class SlidingStackedWidget(QtWidgets.QStackedWidget):
         self.m_active = True
         anim_group.start(QtCore.QAbstractAnimation.DeleteWhenStopped)
 
-    @QtCore.Slot()
     def animationDoneSlot(self):
         self.setCurrentIndex(self.m_next)
         self.widget(self.m_now).hide()

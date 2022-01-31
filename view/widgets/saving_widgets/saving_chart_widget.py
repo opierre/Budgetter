@@ -149,6 +149,7 @@ class SavingChart(QtCharts.QChart):
 
         """ Random max distance """
         distance = 2147483647
+        closest = QPointF(0, 0)
 
         """ Find closest point in series finale """
         for current_point in self.series_finale.points():

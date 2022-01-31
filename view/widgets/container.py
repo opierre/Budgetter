@@ -34,6 +34,7 @@ class Container(QDockWidget):
     def connect_slots_and_signals(self):
         """
         Connect all slots and signals
+
         :return: None
         """
 
@@ -46,6 +47,7 @@ class Container(QDockWidget):
     def configure_widgets(self):
         """
         Configure widgets inside container
+
         :return: None
         """
 
@@ -55,6 +57,7 @@ class Container(QDockWidget):
     def set_icon(self, icon: QIcon):
         """
         Replace QIcon with icon
+
         :param icon: QIcon to set
         :return: None
         """
@@ -64,6 +67,7 @@ class Container(QDockWidget):
     def disable_title_bar_button(self):
         """
         Hide button on top right corner in title bar if useless
+
         :return: None
         """
 
@@ -72,6 +76,7 @@ class Container(QDockWidget):
     def disable_search_bar(self):
         """
         Hide search bar on top right corner in title bar if useless
+
         :return: None
         """
 
@@ -80,6 +85,7 @@ class Container(QDockWidget):
     def set_title(self, title):
         """
         Set title on Container title bar
+
         :param title: title to set
         :return: None
         """

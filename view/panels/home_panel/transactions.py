@@ -188,38 +188,6 @@ class Transactions(QObject):
         self.account2.clicked.connect(self.add_filter)
         self.account3.clicked.connect(self.add_filter)
 
-    def open_context_menu(self, index, position, rectName):
-        """
-        Open context menu on More click
-
-        :param index: index in model
-        :param position: position to open context menu
-        :return: None
-        """
-
-        """ Add actions to QMenu """
-        menu = QMenu(self.main_window)
-        editAction = menu.addAction("Edit  ")
-        editAction.setIcon(QIcon(":/images/images/edit-white-18dp.svg"))
-        deleteAction = menu.addAction("Delete  ")
-        deleteAction.setIcon(QIcon(":/images/images/delete-white-18dp.svg"))
-
-        """ Set translucent background """
-        menu.setWindowFlags(menu.windowFlags() | Qt.FramelessWindowHint)
-        menu.setAttribute(Qt.WA_TranslucentBackground)
-
-        """ Show menu with hand pointing cursor """
-        menu.setCursor(Qt.PointingHandCursor)
-        action = menu.exec_(self.transactions_listview.mapToGlobal(position))
-
-        """ Deal with click """
-        if action == editAction:
-            self.transaction_delegate.set_editable(index)
-
-        if action == deleteAction:
-            """ Remove transaction from model """
-            self.transactions_filter_model.delete_transaction(index)
-
     def display_comment(self, rectangle, index):
         """
         Display comment for current index

@@ -174,7 +174,7 @@ class ChartDashboard(QWidget):
         rectangle_period = self.draw_period(painter, rectangle_amount)
 
         """ Draw values """
-        self.draw_values(painter, rectangle_period)
+        self.draw_values(rectangle_period)
 
     def draw_separator(self, painter: QPainter):
         """
@@ -299,11 +299,10 @@ class ChartDashboard(QWidget):
 
         return rectangle_period
 
-    def draw_values(self, painter, rectangle_period):
+    def draw_values(self, rectangle_period):
         """
         Draw points for each value
 
-        :param painter: painter
         :param rectangle_period: rectangle with period
         :return: None
         """

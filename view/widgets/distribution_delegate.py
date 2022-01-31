@@ -62,7 +62,8 @@ class DistributionDelegate(QItemDelegate):
         painter.setPen(QPen(QColor("#26374C")))
         painter.setBrush(QColor("transparent"))
         rectBackground = QRect(option.rect.x()+option.rect.width()*1/30, option.rect.y()+option.rect.height()*1/5,
-                               option.rect.width()-+option.rect.width()*2/30, option.rect.height()-option.rect.height()*2/5)
+                               option.rect.width()-+option.rect.width()*2/30,
+                               option.rect.height()-option.rect.height()*2/5)
         painter.drawRect(rectBackground)
 
         """ Draw percentage background """
@@ -81,7 +82,8 @@ class DistributionDelegate(QItemDelegate):
         painter.setPen(QPen(QColor("#1A537D")))
         painter.setBrush(QColor("#1A537D"))
         rectIcon = QRect(rectBackground.x()+option.rect.width()*1/60, rectBackground.y()-option.rect.height()*1/30,
-                         rectBackground.height()+option.rect.height()*1/30, rectBackground.height()+option.rect.height()*1/30)
+                         rectBackground.height()+option.rect.height()*1/30,
+                         rectBackground.height()+option.rect.height()*1/30)
         painter.drawRoundedRect(rectIcon, 1.0, 1.0)
 
         """ Draw icon and render svg """
@@ -114,7 +116,8 @@ class DistributionDelegate(QItemDelegate):
         pixelsHeight = fontMetrics.height()
 
         """ Set category on top """
-        rectCategory = QRect(rectIcon.x()+rectIcon.width()+option.rect.width()*1/50, rectIcon.y()+option.rect.height()*1/30,
+        rectCategory = QRect(rectIcon.x()+rectIcon.width()+option.rect.width()*1/50,
+                             rectIcon.y()+option.rect.height()*1/30,
                              pixelsWidth, pixelsHeight)
         painter.drawText(rectCategory, int(Qt.AlignLeft | Qt.AlignVCenter), category)
 
@@ -169,7 +172,8 @@ class DistributionDelegate(QItemDelegate):
         pixelsHeight = fontMetrics.height()
 
         """ Set percentage beside amount """
-        rectPerc = QRect(rectBackground.width()+rectBackground.x()-pixelsWidth-option.rect.width()*1/50, rectTransaction.y(),
+        rectPerc = QRect(rectBackground.width()+rectBackground.x()-pixelsWidth-option.rect.width()*1/50,
+                         rectTransaction.y(),
                          pixelsWidth, pixelsHeight)
         painter.drawText(rectPerc, int(Qt.AlignRight | Qt.AlignVCenter), percentage)
 

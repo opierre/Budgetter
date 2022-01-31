@@ -1,9 +1,6 @@
-import math
-from math import cos, pi, sin, sqrt
-
-from PySide2.QtCore import Qt, QSize, QRect, QPointF, QRectF, QCoreApplication
-from PySide2.QtGui import QPainter, QPen, QColor, QFont, QFontMetrics, QPaintEvent, QBrush, QLinearGradient, QGradient, \
-    QConicalGradient, QMouseEvent
+from PySide2.QtCore import Qt, QRect, QRectF
+from PySide2.QtGui import QPainter, QPen, QColor, QFont, QFontMetrics, QPaintEvent, QBrush, QConicalGradient, \
+    QMouseEvent
 from PySide2.QtSvg import QSvgRenderer
 from PySide2.QtWidgets import QWidget
 
