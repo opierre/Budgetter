@@ -1,6 +1,6 @@
 from PySide2.QtCore import QObject, Qt, QDate, QRect, QSize, QItemSelectionModel, QCoreApplication
 from PySide2.QtGui import QIcon, QFont, QFontMetrics
-from PySide2.QtWidgets import QVBoxLayout, QStatusBar, QWidget, QPushButton, QListView, QMenu, QFrame, QLineEdit, \
+from PySide2.QtWidgets import QVBoxLayout, QStatusBar, QWidget, QPushButton, QListView, QFrame, QLineEdit, \
     QDoubleSpinBox, QDateEdit, QComboBox, QLabel, QAbstractItemView
 
 from models.transactions_model import TransactionsModel, TransactionsFilterModel
@@ -332,7 +332,8 @@ class Transactions(QObject):
         else:
             self.edit_category_name.setText(selectedCategory)
         self.edit_category.setGeometry(rectCategory.x(), rectCategory.y(), rectCategory.width(), rectCategory.height())
-        self.edit_category_name.setGeometry(rectCategoryName.x(), rectCategoryName.y(), rectCategoryName.width(), rectCategoryName.height())
+        self.edit_category_name.setGeometry(rectCategoryName.x(), rectCategoryName.y(), rectCategoryName.width(),
+                                            rectCategoryName.height())
         self.edit_category.setVisible(True)
         self.edit_category_name.setVisible(True)
 

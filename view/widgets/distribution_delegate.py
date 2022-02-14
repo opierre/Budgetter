@@ -99,6 +99,8 @@ class DistributionDelegate(QItemDelegate):
             svgRender = QSvgRenderer(":/images/images/directions_car-white-18dp.svg")
         elif category == "Groceries":
             svgRender = QSvgRenderer(":/images/images/local_grocery_store-white-18dp.svg")
+        else:
+            svgRender = QSvgRenderer(":/images/images/restaurant-white-18dp.svg")
         svgRender.setAspectRatioMode(Qt.KeepAspectRatio)
         svgRender.render(painter, rectSvg)
 
