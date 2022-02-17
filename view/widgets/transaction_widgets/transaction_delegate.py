@@ -528,12 +528,12 @@ class TransactionDelegate(QStyledItemDelegate):
         elif self.editable == index and option.state & QStyle.State_Selected:
             """ Item selected and editable """
             painter.setBrush(QColor("#1C293B"))
-            painter.setOpacity(0.35)
+            painter.setOpacity(0.17)
 
             """ Draw shadow """
             painter.drawRoundedRect(rect_background.x(), rect_background.y() - option.rect.height() * 1 / 6,
-                                    rect_background.width() + 3,
-                                    rect_background.height() + option.rect.height() * 2 / 6 + 3,
+                                    rect_background.width() + 2,
+                                    rect_background.height() + option.rect.height() * 2 / 6 + 2,
                                     7, 7)
 
             """ Draw background """
