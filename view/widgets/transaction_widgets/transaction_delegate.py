@@ -1,8 +1,8 @@
 import datetime
 
 from PySide2 import QtCore
-from PySide2.QtCore import QSize, Qt, QRect, QRectF, Signal, QModelIndex, QEvent
-from PySide2.QtGui import QPen, QColor, QPainter, QFont, QFontMetrics, QIcon
+from PySide2.QtCore import QSize, Qt, QRect, QRectF, Signal, QModelIndex, QEvent, QPoint
+from PySide2.QtGui import QPen, QColor, QPainter, QFont, QFontMetrics, QIcon, QPixmap
 from PySide2.QtSvg import QSvgRenderer
 from PySide2.QtWidgets import QStyledItemDelegate, QPushButton, QStyleOptionButton, QStyle, \
     QApplication
@@ -382,13 +382,23 @@ class TransactionDelegate(QStyledItemDelegate):
             """ Draw hover effect """
             painter.drawEllipse(self.rect_edit)
 
-            optionMore.initFrom(self.edit)
-            optionMore.rect = self.rect_edit
-            optionMore.icon = self.edit.icon()
-            optionMore.iconSize = QtCore.QSize(18, 18)
-            optionMore.state = optionMore.state or QStyle.State_MouseOver
+            #painter.save()
+            self.edit.resize(self.rect_edit.size())
+            #painter.translate(self.rect_edit.topLeft())
+            pix = QPixmap(self.rect_edit.size())
+            pix.fill(Qt.transparent)
+            btnPainter = QPainter(pix)
+            self.edit.render(btnPainter, QPoint(0, 0))
+            btnPainter.setCompositionMode(QPainter.CompositionMode_SourceAtop)
+            overlayColor = QColor(28, 41, 59, 128)
+            btnPainter.fillRect(QRect(QPoint(0, 0), pix.size()), overlayColor)
+            btnPainter.end()
 
-            self.edit.style().drawControl(QStyle.CE_PushButton, optionMore, painter, self.edit)
+            painter.save()
+            painter.translate(self.rect_edit.topLeft())
+            painter.drawPixmap(0, 0, pix)
+
+            painter.restore()
 
         """ Buttons delete """
         self.rect_delete = QRect(rect_background.width() + rect_background.x() - 15,
