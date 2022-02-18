@@ -82,7 +82,7 @@ class Container(QDockWidget):
 
         self.titleBar.disable_search()
 
-    def set_title(self, title):
+    def set_title(self, title: str):
         """
         Set title on Container title bar
 
@@ -91,3 +91,13 @@ class Container(QDockWidget):
         """
 
         self.titleBar.set_title(title)
+
+    def set_button_tooltip(self, tooltip: str):
+        """
+        Set tooltip on right button in title bar
+
+        :param tooltip: tooltip
+        :return: None
+        """
+
+        self.titleBar.set_button_tooltip(tooltip)

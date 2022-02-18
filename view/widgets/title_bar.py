@@ -108,6 +108,16 @@ class TitleBar(QWidget):
 
         self.ui.add.hide()
 
+    def set_button_tooltip(self, tooltip: str):
+        """
+        Set button tooltip
+
+        :param tooltip: tooltip
+        :return: None
+        """
+
+        self.ui.add.setToolTip(tooltip)
+
     def disable_search(self):
         """
         Hide search bar on top right corner if useless

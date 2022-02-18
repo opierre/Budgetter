@@ -69,9 +69,9 @@ class Accounts(QObject):
 
         """ Set title """
         self.ui_setup.accounts.set_title(QCoreApplication.translate("accounts", "Balance"))
+        self.ui_setup.accounts.set_button_tooltip(QCoreApplication.translate("accounts", "Add new account"))
 
         """ Hide all widgets in title bar """
-        self.ui_setup.accounts.disable_title_bar_button()
         self.ui_setup.accounts.disable_search_bar()
 
     def configure_layout(self):

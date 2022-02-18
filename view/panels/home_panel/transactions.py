@@ -637,6 +637,7 @@ class Transactions(QObject):
 
         """ Set title """
         self.ui_setup.transactions.set_title(QCoreApplication.translate("transactions", "Transactions"))
+        self.ui_setup.transactions.set_button_tooltip(QCoreApplication.translate("transactions", "Add transaction"))
 
     def update_current_filtering(self):
         """
