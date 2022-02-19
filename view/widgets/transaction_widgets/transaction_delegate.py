@@ -90,9 +90,9 @@ class TransactionDelegate(QStyledItemDelegate):
 
         """ Set icon """
         self.edit.setIconSize(QSize(18, 18))
-        self.edit.setIcon(QIcon(":/images/images/edit_white_18dp.svg"))
+        self.edit.setIcon(QIcon(":/images/images/edit-white-18dp.svg"))
         self.delete.setIconSize(QSize(18, 18))
-        self.delete.setIcon(QIcon(":/images/images/delete_forever_white_18dp.svg"))
+        self.delete.setIcon(QIcon(":/images/images/delete-white-18dp.svg"))
         self.comment.setIcon(QIcon(":/images/images/notes_white_24dp.svg"))
 
         """ Set background color """
