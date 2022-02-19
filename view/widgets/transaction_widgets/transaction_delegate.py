@@ -372,9 +372,16 @@ class TransactionDelegate(QStyledItemDelegate):
         self.rect_edit = QRect(rect_background.width() + rect_background.x() - 15,
                                option.rect.y(), 25, 25)
 
-        optionMore = QStyleOptionButton()
-
         if self.editable != index and option.state & QStyle.State_Selected:
+            """ Draw background of edit as pastille """
+            painter.setBrush(QColor(28, 41, 59, 128))
+            painter.setPen(QColor(28, 41, 59, 128))
+
+            """ Draw hover effect """
+            shadow_rect = QRect(self.rect_edit.x() + 3, self.rect_edit.y() + 3,
+                                self.rect_edit.width(), self.rect_edit.height())
+            painter.drawEllipse(shadow_rect)
+
             """ Draw background of edit as pastille """
             painter.setBrush(QColor(1, 144, 234, 150))
             painter.setPen(QColor(1, 144, 234, 150))
@@ -382,22 +389,10 @@ class TransactionDelegate(QStyledItemDelegate):
             """ Draw hover effect """
             painter.drawEllipse(self.rect_edit)
 
-            #painter.save()
-            self.edit.resize(self.rect_edit.size())
-            #painter.translate(self.rect_edit.topLeft())
-            pix = QPixmap(self.rect_edit.size())
-            pix.fill(Qt.transparent)
-            btnPainter = QPainter(pix)
-            self.edit.render(btnPainter, QPoint(0, 0))
-            btnPainter.setCompositionMode(QPainter.CompositionMode_SourceAtop)
-            overlayColor = QColor(28, 41, 59, 128)
-            btnPainter.fillRect(QRect(QPoint(0, 0), pix.size()), overlayColor)
-            btnPainter.end()
-
             painter.save()
+            self.edit.resize(self.rect_edit.size())
             painter.translate(self.rect_edit.topLeft())
-            painter.drawPixmap(0, 0, pix)
-
+            self.edit.render(painter, QPoint(0, 0))
             painter.restore()
 
         """ Buttons delete """
@@ -406,20 +401,26 @@ class TransactionDelegate(QStyledItemDelegate):
 
         if self.editable != index and option.state & QStyle.State_Selected:
             """ Draw background of edit as pastille """
+            painter.setBrush(QColor(28, 41, 59, 128))
+            painter.setPen(QColor(28, 41, 59, 128))
+
+            """ Draw hover effect """
+            shadow_rect = QRect(self.rect_delete.x() + 3, self.rect_delete.y() + 3,
+                                self.rect_delete.width(), self.rect_delete.height())
+            painter.drawEllipse(shadow_rect)
+
+            """ Draw background of edit as pastille """
             painter.setBrush(QColor(226, 74, 141, 150))
             painter.setPen(QColor(226, 74, 141, 150))
 
             """ Draw hover effect """
             painter.drawEllipse(self.rect_delete)
 
-            optionMore = QStyleOptionButton()
-            optionMore.initFrom(self.delete)
-            optionMore.rect = self.rect_delete
-            optionMore.icon = self.delete.icon()
-            optionMore.iconSize = QtCore.QSize(18, 18)
-            optionMore.state = optionMore.state or QStyle.State_MouseOver
-
-            self.delete.style().drawControl(QStyle.CE_PushButton, optionMore, painter, self.delete)
+            painter.save()
+            self.delete.resize(self.rect_delete.size())
+            painter.translate(self.rect_delete.topLeft())
+            self.delete.render(painter, QPoint(0, 0))
+            painter.restore()
 
         painter.restore()
 
