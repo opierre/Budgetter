@@ -548,7 +548,7 @@ class TransactionDelegate(QStyledItemDelegate):
                                     7, 7)
 
             """ Draw background """
-            painter.setBrush(QColor("#0154C8"))
+            painter.setBrush(QColor(1, 84, 200, 200))
             painter.setOpacity(1)
             painter.drawRoundedRect(rect_background.x(), option.rect.y(),
                                     rect_background.width(), rect_background.height() + option.rect.height() * 2 / 6,
