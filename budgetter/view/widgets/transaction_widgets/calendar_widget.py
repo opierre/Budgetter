@@ -49,13 +49,13 @@ class CalendarWidget(QCalendarWidget):
             painter.setBrush(QColor("#0190EA"))
 
             # Configure rect for ellipse
-            rectSelection = QRect(QPoint(), rect.height()*QSize(1, 1))
-            rectSelection.moveCenter(rect.center())
-            painter.drawEllipse(rectSelection)
+            rect_selection = QRect(QPoint(), rect.height()*QSize(1, 1))
+            rect_selection.moveCenter(rect.center())
+            painter.drawEllipse(rect_selection)
 
             # Draw day number
             painter.setPen(QPen(QColor("white")))
-            painter.drawText(rectSelection, Qt.AlignCenter, str(date.day()))
+            painter.drawText(rect_selection, Qt.AlignCenter, str(date.day()))
 
             painter.restore()
         else:

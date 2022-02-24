@@ -67,12 +67,12 @@ class CircleCheckbox(QPushButton):
             painter.setPen(pen)
 
         # Draw circle
-        rectEllipse = QRectF(self.rect().x(), self.rect().y(),
+        rect_ellipse = QRectF(self.rect().x(), self.rect().y(),
                              min(self.rect().width(), self.rect().height()) * 2.6 / 3,
                              min(self.rect().width(), self.rect().height()) * 2.6 / 3)
 
-        rectEllipse.moveCenter(self.rect().center())
-        painter.drawEllipse(rectEllipse)
+        rect_ellipse.moveCenter(self.rect().center())
+        painter.drawEllipse(rect_ellipse)
 
         # Set color according to type
         painter.setPen(Qt.NoPen)
@@ -90,12 +90,12 @@ class CircleCheckbox(QPushButton):
             painter.setBrush(QColor(250, 202, 0, 128))
 
         # Draw circle
-        rectEllipse = QRectF(self.rect().x(), self.rect().y(),
+        rect_ellipse = QRectF(self.rect().x(), self.rect().y(),
                              min(self.rect().width(), self.rect().height()) * 1.8 / 3,
                              min(self.rect().width(), self.rect().height()) * 1.8 / 3)
 
-        rectEllipse.moveCenter(self.rect().center())
-        painter.drawEllipse(rectEllipse)
+        rect_ellipse.moveCenter(self.rect().center())
+        painter.drawEllipse(rect_ellipse)
 
 
 class ExpensesIncomeTransfer(QWidget):

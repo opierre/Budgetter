@@ -88,7 +88,7 @@ class Transactions(QObject):
         self.transactions_filter_model = TransactionsFilterModel()
 
         # Model to handle data in transactions list
-        d = [
+        data = [
             {
                 "name": "Flunch",
                 "category": "Restaurants",
@@ -130,7 +130,7 @@ class Transactions(QObject):
                 "comment": "Virement vers Livret A"
             }
         ]
-        self.transactions_model = TransactionsModel(d)
+        self.transactions_model = TransactionsModel(data)
 
         # Configure edit widgets
         self.configure_edit_widgets()
@@ -281,7 +281,7 @@ class Transactions(QObject):
     def update_category_name(self, name: str):
         """
         Update category name
-        
+
         :param name: name
         :return: None
         """
@@ -294,23 +294,23 @@ class Transactions(QObject):
         pixels_width = font_metrics.width(self.edit_category_name.text())
         self.edit_category_name.setFixedWidth(pixels_width)
 
-    def edit_transaction(self, index, rectName: QRect, rectAmount: QRect, rectDate: QRect, rectAccount: QRect,
-                         rectExpOrInc: QRect, rectCategory: QRect,
-                         rectCategoryName: QRect, rect_mean: QRect, rectEdit: QRect, rectDelete: QRect):
+    def edit_transaction(self, index, rect_name: QRect, rect_amount: QRect, rect_date: QRect, rect_account: QRect,
+                         rect_exp_or_inc: QRect, rect_category: QRect, rect_category_name: QRect,
+                         rect_mean: QRect, rect_edit: QRect, rect_delete: QRect):
         """
         Edit transaction on Edit click
 
         :param index: item's index
-        :param rectName: rect where to put LineEdit
-        :param rectAmount: rect where to put DoubleSpinBox
-        :param rectDate: rect where to put DateEdit
-        :param rectAccount: rect where to put Combobox
-        :param rectExpOrInc: rect where to put ExpOrInc
-        :param rectCategory: rect where to put Category
-        :param rectCategoryName: rect where to put Category Name
+        :param rect_name: rect where to put LineEdit
+        :param rect_amount: rect where to put DoubleSpinBox
+        :param rect_date: rect where to put DateEdit
+        :param rect_account: rect where to put Combobox
+        :param rect_exp_or_inc: rect where to put ExpOrInc
+        :param rect_category: rect where to put Category
+        :param rect_category_name: rect where to put Category Name
         :param rect_mean: rect where to put Means button
-        :param rectEdit: rect where to put Apply button
-        :param rectDelete: rect where to put Cancel button
+        :param rect_edit: rect where to put Apply button
+        :param rect_delete: rect where to put Cancel button
         :return: None
         """
 
@@ -322,7 +322,7 @@ class Transactions(QObject):
         font_metrics = QFontMetrics(self.edit_name.font())
         pixels_width = font_metrics.width(self.edit_name.text())
         pixels_height = font_metrics.height()
-        self.edit_name.setGeometry(rectName.x(), rectName.y() - 3, pixels_width + 10, pixels_height + 6)
+        self.edit_name.setGeometry(rect_name.x(), rect_name.y() - 3, pixels_width + 10, pixels_height + 6)
         self.edit_name.setVisible(True)
 
         # Configure ComboBox/Label widget
@@ -331,9 +331,9 @@ class Transactions(QObject):
             self.edit_category.setCurrentIndex(-1)
         else:
             self.edit_category_name.setText(selected_category)
-        self.edit_category.setGeometry(rectCategory.x(), rectCategory.y(), rectCategory.width(), rectCategory.height())
-        self.edit_category_name.setGeometry(rectCategoryName.x(), rectCategoryName.y(), rectCategoryName.width(),
-                                            rectCategoryName.height())
+        self.edit_category.setGeometry(rect_category.x(), rect_category.y(), rect_category.width(), rect_category.height())
+        self.edit_category_name.setGeometry(rect_category_name.x(), rect_category_name.y(), rect_category_name.width(),
+                                            rect_category_name.height())
         self.edit_category.setVisible(True)
         self.edit_category_name.setVisible(True)
 
@@ -343,7 +343,7 @@ class Transactions(QObject):
         font_metrics = QFontMetrics(self.edit_amount.font())
         pixels_width = font_metrics.width(str(self.edit_amount.value()))
         pixels_height = font_metrics.height()
-        self.edit_amount.setGeometry(rectAmount.x(), rectAmount.y() - 3, pixels_width + 38, pixels_height + 6)
+        self.edit_amount.setGeometry(rect_amount.x(), rect_amount.y() - 3, pixels_width + 38, pixels_height + 6)
         self.edit_amount.setVisible(True)
 
         # Configure DateEdit widget
@@ -352,19 +352,19 @@ class Transactions(QObject):
         font_metrics = QFontMetrics(self.edit_date.font())
         pixels_width = font_metrics.width(self.edit_date.date().toString('dd/MM/yyyy'))
         pixels_height = font_metrics.height()
-        self.edit_date.setGeometry(rectDate.x(), rectDate.y() - 3, pixels_width + 30, pixels_height + 6)
+        self.edit_date.setGeometry(rect_date.x(), rect_date.y() - 3, pixels_width + 30, pixels_height + 6)
         self.edit_date.setVisible(True)
 
         # Configure ComboBox widget
         selected_account = self.transactions_filter_model.data(index, Qt.DisplayRole)["account"]
         self.edit_account.setCurrentText(selected_account)
-        self.edit_account.move(rectAccount.x(), rectAccount.y() - 3)
+        self.edit_account.move(rect_account.x(), rect_account.y() - 3)
         self.edit_account.setVisible(True)
 
         # Configure Custom widget
         selected_exp_or_inc = self.transactions_filter_model.data(index, Qt.DisplayRole)["type"]
-        self.edit_exp_or_inc.move(rectExpOrInc.x() - 4, self.edit_category.y())
-        self.edit_exp_or_inc.setFixedWidth(rectExpOrInc.width() + 9)
+        self.edit_exp_or_inc.move(rect_exp_or_inc.x() - 4, self.edit_category.y())
+        self.edit_exp_or_inc.setFixedWidth(rect_exp_or_inc.width() + 9)
         self.edit_exp_or_inc.setFixedHeight(self.edit_category.height())
         self.edit_exp_or_inc.set_active_type(selected_exp_or_inc)
         self.edit_exp_or_inc.setVisible(True)
@@ -378,8 +378,8 @@ class Transactions(QObject):
         self.edit_mean.setVisible(True)
 
         # Configure Apply/Cancel buttons
-        self.apply.setGeometry(rectEdit)
-        self.cancel.setGeometry(rectDelete)
+        self.apply.setGeometry(rect_edit)
+        self.cancel.setGeometry(rect_delete)
         self.apply.setVisible(True)
         self.cancel.setVisible(True)
 
@@ -394,16 +394,16 @@ class Transactions(QObject):
 
         if isinstance(sender, QLineEdit):
             value = sender.text()
-            pixelsWidth = font_metrics.width(value)
-            sender.setFixedWidth(pixelsWidth + 12)
+            pixels_width = font_metrics.width(value)
+            sender.setFixedWidth(pixels_width + 12)
         elif isinstance(sender, QDoubleSpinBox):
             value = str(sender.value())
-            pixelsWidth = font_metrics.width(value)
-            sender.setFixedWidth(pixelsWidth + 38)
+            pixels_width = font_metrics.width(value)
+            sender.setFixedWidth(pixels_width + 38)
         elif isinstance(sender, QDateEdit):
             value = str(sender.date().toString('dd/MM/yyyy'))
-            pixelsWidth = font_metrics.width(value)
-            sender.setFixedWidth(pixelsWidth + 30)
+            pixels_width = font_metrics.width(value)
+            sender.setFixedWidth(pixels_width + 30)
 
     def delete_transaction(self, index):
         """

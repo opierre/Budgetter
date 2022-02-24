@@ -66,8 +66,8 @@ class MeanCheckbox(QPushButton):
         # Replace fill color in SVG
         svg_string = ''
         if svg_string_file.open(QFile.ReadOnly | QFile.Text):
-            textStream = QTextStream(svg_string_file)
-            svg_string = textStream.readAll()
+            text_stream = QTextStream(svg_string_file)
+            svg_string = text_stream.readAll()
             svg_string_file.close()
 
         if opt.state & QStyle.State_On:

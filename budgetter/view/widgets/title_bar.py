@@ -60,13 +60,13 @@ class TitleBar(QWidget):
         # Configure ComboBox widget
         self.gui.search_field.setView(QListView())
         self.gui.search_field.setStyleSheet("QListView {"
-                                           "font-size: 11pt;"
-                                           "font-family: \"Roboto\";"
-                                           "}"
-                                           "QComboBox QAbstractItemView::item\n"
-                                           "{\n"
-                                           "	min-height: 25px;\n"
-                                           "}\n")
+                                            "font-size: 11pt;"
+                                            "font-family: \"Roboto\";"
+                                            "}"
+                                            "QComboBox QAbstractItemView::item\n"
+                                            "{\n"
+                                            "	min-height: 25px;\n"
+                                            "}\n")
         self.gui.search_field.view().window().setWindowFlags(Qt.Popup | Qt.FramelessWindowHint)
         self.gui.search_field.view().window().setAttribute(Qt.WA_TranslucentBackground)
 

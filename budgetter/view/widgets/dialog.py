@@ -1,4 +1,6 @@
-from PySide2.QtWidgets import QWidget
+from PySide2.QtWidgets import QWidget, QGraphicsDropShadowEffect, QGraphicsOpacityEffect, QParallelAnimationGroup
+from PySide2.QtCore import QParallelAnimationGroup, QPropertyAnimation, QRect
+from PySide2.QtGui import QColor
 
 
 class Dialog(QWidget):
@@ -16,7 +18,7 @@ class Dialog(QWidget):
         self._dialog.setupUi(self)
 
         # Store effects: drop shadow + opacity effect
-        self.drop_shadow = QGraphicsDropShadow()
+        self.drop_shadow = QGraphicsDropShadowEffect()
         self.opacity = QGraphicsOpacityEffect(opacity=0)
 
         # Store animation group for parallel effects

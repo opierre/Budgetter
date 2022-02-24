@@ -7,6 +7,9 @@ from PySide2.QtWidgets import QWidget, QApplication, QVBoxLayout
 
 
 class DIRECTIONS(Enum):
+    """
+    Directions Enum
+    """
 
     PLAY = 1
     REWIND = -1

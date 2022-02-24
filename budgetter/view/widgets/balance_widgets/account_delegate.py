@@ -11,7 +11,7 @@ class AccountDelegate(QItemDelegate):
     Account Delegate
     """
 
-    def __init__(self, parent=None, *args):
+    def __init__(self, *args, parent=None):
         QItemDelegate.__init__(self, parent, *args)
 
         # Store font for values
@@ -60,8 +60,8 @@ class AccountDelegate(QItemDelegate):
         painter.setPen(QPen(QColor("#26374C")))
         painter.setBrush(QColor("transparent"))
         rect_background = QRect(option.rect.x()+option.rect.width()*1/30, option.rect.y()+option.rect.height()*1/5,
-                               option.rect.width()-+option.rect.width()*2/30,
-                               option.rect.height()-option.rect.height()*2/5)
+                                option.rect.width()-+option.rect.width()*2/30,
+                                option.rect.height()-option.rect.height()*2/5)
         painter.drawRect(rect_background)
 
         # Draw left icon background
@@ -69,16 +69,15 @@ class AccountDelegate(QItemDelegate):
         painter.setBrush(color)
         painter.setOpacity(0.8)
         rect_icon = QRect(rect_background.x()+option.rect.width()*1/60, rect_background.y()-option.rect.height()*1/30,
-                         rect_background.height()+option.rect.height()*1/5,
-                         rect_background.height()+option.rect.height()*1/30)
+                          rect_background.height()+option.rect.height()*1/5,
+                          rect_background.height()+option.rect.height()*1/30)
         painter.drawRoundedRect(rect_icon, 1.0, 1.0)
 
         # Draw icon and render svg
         painter.setOpacity(1)
         painter.setPen(QPen(Qt.transparent))
         painter.setBrush(QColor("transparent"))
-        rect_svg = QRect(rect_icon.x(), rect_icon.y()+5,
-                        rect_icon.width(), rect_icon.height()-10)
+        rect_svg = QRect(rect_icon.x(), rect_icon.y()+5, rect_icon.width(), rect_icon.height()-10)
         painter.drawRect(rect_svg)
 
         if bank.lower() == "Caisse d'Epargne".lower():
@@ -105,8 +104,7 @@ class AccountDelegate(QItemDelegate):
 
         # Set category on top
         rect_category = QRect(rect_icon.x()+rect_icon.width()+option.rect.width()*1/30,
-                             rect_icon.y()+option.rect.height()*1/30,
-                             pixels_width, pixels_height)
+                              rect_icon.y()+option.rect.height()*1/30, pixels_width, pixels_height)
         painter.drawText(rect_category, int(Qt.AlignLeft | Qt.AlignVCenter), account_name)
 
         # Set font on painter for account label
@@ -124,7 +122,7 @@ class AccountDelegate(QItemDelegate):
 
         # Set number of transactions beside category
         rect_transaction = QRect(rect_category.x(), rect_category.y()+rect_category.height()+option.rect.height()*1/10,
-                                pixels_width, pixels_height)
+                                 pixels_width, pixels_height)
         painter.drawText(rect_transaction, int(Qt.AlignLeft | Qt.AlignVCenter),
                          QCoreApplication.translate("account_delegate", 'Account'))
 
@@ -173,8 +171,7 @@ class AccountDelegate(QItemDelegate):
 
         # Set percentage beside amount
         rect_perc = QRect(rect_background.width()+rect_background.x()-pixels_width-option.rect.width()*1/50,
-                         rect_transaction.y(),
-                         pixels_width, pixels_height)
+                          rect_transaction.y(), pixels_width, pixels_height)
         painter.drawText(rect_perc, int(Qt.AlignRight | Qt.AlignVCenter),
                          QCoreApplication.translate("account_delegate", 'Balance'))
 
