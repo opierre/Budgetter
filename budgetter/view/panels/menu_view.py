@@ -8,19 +8,19 @@ class Menu(QObject):
     """
 
     def __init__(self, parent, gui):
-        super(Menu, self).__init__()
+        super().__init__()
 
-        """ Store windows and gui """
-        self.uiSetup = gui
-        self.mainWindow = parent
+        # Store windows and gui
+        self.ui_setup = gui
+        self.main_window = parent
 
-        """ Create QActionGroup to enable only one panel """
+        # Create QActionGroup to enable only one panel
         self.action_group = QActionGroup(self)
 
-        """ Configure action group """
+        # Configure action group
         self.configure_action_group()
 
-        """ Connect slots and signals """
+        # Connect slots and signals
         self.connect_slots_and_signals()
 
     def connect_slots_and_signals(self):
@@ -30,10 +30,10 @@ class Menu(QObject):
         :return: None
         """
 
-        """ Connect click on buttons in drawer """
-        self.uiSetup.actionDashboard.triggered.connect(lambda: self.change_page(0))
-        self.uiSetup.actionGraph.triggered.connect(lambda: self.change_page(1))
-        self.uiSetup.actionInsights.triggered.connect(lambda: self.change_page(2))
+        # Connect click on buttons in drawer
+        self.ui_setup.actionDashboard.triggered.connect(lambda: self.change_page(0))
+        self.ui_setup.actionGraph.triggered.connect(lambda: self.change_page(1))
+        self.ui_setup.actionInsights.triggered.connect(lambda: self.change_page(2))
 
     def configure_action_group(self):
         """
@@ -42,32 +42,32 @@ class Menu(QObject):
         :return: None
         """
 
-        """ Add action to group """
-        self.action_group.addAction(self.uiSetup.actionDashboard)
-        self.action_group.addAction(self.uiSetup.actionGraph)
-        self.action_group.addAction(self.uiSetup.actionInsights)
+        # Add action to group
+        self.action_group.addAction(self.ui_setup.actionDashboard)
+        self.action_group.addAction(self.ui_setup.actionGraph)
+        self.action_group.addAction(self.ui_setup.actionInsights)
 
-        """ Set group exclusive """
+        # Set group exclusive
         self.action_group.setExclusive(True)
 
-    def change_page(self, pageNumber):
+    def change_page(self, page_number: int):
         """
         Change page by clicking on button in drawer
 
-        :param pageNumber: page number to go to
+        :param page_number: page number to go to
         :return: None
         """
 
-        self.uiSetup.stackedWidget.slideInIdx(pageNumber)
+        self.ui_setup.stackedWidget.slideInIdx(page_number)
 
-        if pageNumber == 0:
-            """ Update Header """
-            self.uiSetup.menuLabel.setText(QCoreApplication.translate("menu", "Dashboard"))
+        if page_number == 0:
+            # Update Header
+            self.ui_setup.menuLabel.setText(QCoreApplication.translate("menu", "Dashboard"))
 
-        elif pageNumber == 1:
-            """ Update Header """
-            self.uiSetup.menuLabel.setText(QCoreApplication.translate("menu", "Graph"))
+        elif page_number == 1:
+            # Update Header
+            self.ui_setup.menuLabel.setText(QCoreApplication.translate("menu", "Graph"))
 
-        elif pageNumber == 2:
-            """ Update Header """
-            self.uiSetup.menuLabel.setText(QCoreApplication.translate("menu", "Insights"))
+        elif page_number == 2:
+            # Update Header
+            self.ui_setup.menuLabel.setText(QCoreApplication.translate("menu", "Insights"))

@@ -11,18 +11,18 @@ class Income(QObject):
     """
 
     def __init__(self, gui):
-        super(Income, self).__init__()
+        super().__init__()
 
-        """ Store gui """
+        # Store gui
         self.ui_setup = gui
 
-        """ Store chart bars widget """
+        # Store chart bars widget
         self.chart_widget = ChartBars("Income", self.ui_setup.income)
 
-        """ Store drop shadow effect """
+        # Store drop shadow effect
         self.shadow_effect = QGraphicsDropShadowEffect(self)
 
-        """ Store range options """
+        # Store range options
         self.this_year_option = {"to": QDate.currentDate(),
                                  "from": QDate.currentDate().addMonths(-QDate.currentDate().month()+1)}
         self.last_12_months_income = {"to": QDate.currentDate(),
@@ -30,21 +30,21 @@ class Income(QObject):
         self.previous_year_income = {"to": QDate.currentDate().addMonths(-QDate.currentDate().month()),
                                      "from": QDate.currentDate().addMonths(-QDate.currentDate().month()-11)}
 
-        """ Configure title bar """
+        # Configure title bar
         self.configure_title_bar()
 
-        """ Configure panel """
+        # Configure panel
         self.configure_panel()
 
-        """ Configure parameters """
+        # Configure parameters
         self.configure_parameters()
 
-        """ Configure layout """
+        # Configure layout
         self.configure_layout()
 
         self.set_values({})
 
-        """ Connect income """
+        # Connect income
         self.connect_slots_and_signals()
 
     def connect_slots_and_signals(self):
@@ -54,25 +54,25 @@ class Income(QObject):
         :return: None
         """
 
-        """ Connect date range option checked to actualize date and refresh """
+        # Connect date range option checked to actualize date and refresh
         self.ui_setup.this_year_income.clicked.connect(self.change_date_option)
         self.ui_setup.last_12_months_income.clicked.connect(self.change_date_option)
         self.ui_setup.previous_year_income.clicked.connect(self.change_date_option)
 
-        """ Connect manual change to deselect range options """
+        # Connect manual change to deselect range options
         self.ui_setup.dateEdit_income_from.dateChanged.connect(self.update_range_option)
         self.ui_setup.dateEdit_income_to.dateChanged.connect(self.update_range_option)
 
-        """ Connect click on refresh button """
+        # Connect click on refresh button
         self.ui_setup.refresh_income.clicked.connect(self.refresh)
 
-        """ Connect show labels checked to display labels """
+        # Connect show labels checked to display labels
         self.ui_setup.check_labels_income.clicked.connect(self.show_labels)
 
-        """ Connect show average to display line on graph """
+        # Connect show average to display line on graph
         self.ui_setup.check_average_income.toggled.connect(self.chart_widget.show_average)
 
-        """ Connect show total to display total amount on graph view """
+        # Connect show total to display total amount on graph view
         self.ui_setup.check_total_income.toggled.connect(self.chart_widget.show_total)
 
     def configure_panel(self):
@@ -82,7 +82,7 @@ class Income(QObject):
         :return: None
         """
 
-        """ Configure combobox for category """
+        # Configure combobox for category
         self.ui_setup.income_choice.setView(QListView())
         self.ui_setup.income_choice.setStyleSheet("QListView {"
                                                   "font-size: 11pt;"
@@ -95,10 +95,10 @@ class Income(QObject):
         self.ui_setup.income_choice.view().window().setWindowFlags(Qt.Popup | Qt.FramelessWindowHint)
         self.ui_setup.income_choice.view().window().setAttribute(Qt.WA_TranslucentBackground)
 
-        """ Set widget to display animated icon """
+        # Set widget to display animated icon
         self.ui_setup.refresh_income.set_animation_type("bars_blue")
 
-        """ Configure effect """
+        # Configure effect
         self.shadow_effect.setBlurRadius(3)
         self.shadow_effect.setOffset(5)
         self.shadow_effect.setColor(QColor(28, 41, 59, 128))
@@ -111,10 +111,10 @@ class Income(QObject):
         :return: None
         """
 
-        """ Set title """
+        # Set title
         self.ui_setup.income.set_title(QCoreApplication.translate("graphs", "Income"))
 
-        """ Hide all widgets in title bar """
+        # Hide all widgets in title bar
         self.ui_setup.income.disable_title_bar_button()
         self.ui_setup.income.disable_search_bar()
 
@@ -142,7 +142,7 @@ class Income(QObject):
         :return: None
         """
 
-        """ Set current date """
+        # Set current date
         self.ui_setup.dateEdit_income_to.setDate(QDate.currentDate())
         self.ui_setup.dateEdit_income_from.setDate(QDate.currentDate().addDays(-365))
 
@@ -153,10 +153,10 @@ class Income(QObject):
         :return: None
         """
 
-        """ Get sender """
+        # Get sender
         sender = self.sender()
 
-        """ Disconnect signals to avoid conflicts """
+        # Disconnect signals to avoid conflicts
         self.ui_setup.dateEdit_income_from.dateChanged.disconnect(self.update_range_option)
         self.ui_setup.dateEdit_income_to.dateChanged.disconnect(self.update_range_option)
 
@@ -170,10 +170,10 @@ class Income(QObject):
             self.ui_setup.dateEdit_income_to.setDate(self.previous_year_income["to"])
             self.ui_setup.dateEdit_income_from.setDate(self.previous_year_income["from"])
 
-        """ Refresh bars """
+        # Refresh bars
         self.refresh()
 
-        """ Re-connect signals to avoid conflicts """
+        # Re-connect signals to avoid conflicts
         self.ui_setup.dateEdit_income_from.dateChanged.connect(self.update_range_option)
         self.ui_setup.dateEdit_income_to.dateChanged.connect(self.update_range_option)
 
@@ -184,11 +184,11 @@ class Income(QObject):
         :return: None
         """
 
-        """ Retrieve dates """
+        # Retrieve dates
         from_date = self.ui_setup.dateEdit_income_from.date()
         to_date = self.ui_setup.dateEdit_income_to.date()
 
-        """ Compare dates to each range option """
+        # Compare dates to each range option
         if from_date == self.this_year_option["from"] and to_date == self.this_year_option["to"]:
             self.ui_setup.this_year_income.setChecked(True)
         elif from_date == self.last_12_months_income["from"] and to_date == self.last_12_months_income["to"]:
@@ -213,7 +213,7 @@ class Income(QObject):
         :return: None
         """
 
-        """ Start animation """
+        # Start animation
         self.ui_setup.refresh_income.start(1)
         QApplication.processEvents()
 
@@ -246,7 +246,7 @@ class Income(QObject):
             if self.ui_setup.dateEdit_income_from.date() <= date <= self.ui_setup.dateEdit_income_to.date():
                 final_values.update({key: value})
 
-        """ Set date range """
+        # Set date range
         self.chart_widget.set_values(final_values)
 
     def set_values(self, values: dict):
@@ -280,7 +280,7 @@ class Income(QObject):
                   "10-2021": 20012.45,
                   "11-2021": 18042.45}
 
-        """ Set values on chat """
+        # Set values on chat
         self.chart_widget.set_values(values)
 
     def show_labels(self, checked: bool):

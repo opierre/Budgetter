@@ -17,34 +17,34 @@ class AnimatedButton(QWidget):
     Button with animated icon
     """
 
-    ''' Signal emitted on click '''
+    # Signal emitted on click
     clicked = Signal()
 
     def __init__(self, parent=None):
-        super(AnimatedButton, self).__init__(parent)
+        super().__init__(parent)
 
-        ''' Store animation name '''
+        # Store animation name
         self.animation_name = ''
 
-        ''' Store timer '''
+        # Store timer
         self.timer = QTimer()
 
-        ''' Store frame counter '''
+        # Store frame counter
         self.frame_counter = 0
 
-        ''' Store number of repetitions '''
+        # Store number of repetitions
         self.repeat = 1000
 
-        ''' Store animation direction '''
+        # Store animation direction
         self.direction = None
 
-        ''' Widget to display '''
+        # Widget to display
         self.svg = QSvgWidget()
 
-        ''' Configure widget '''
+        # Configure widget
         self.configure()
 
-        ''' Connect slots and signals '''
+        # Connect slots and signals
         self.connect_slots_and_signals()
 
     def set_animation_type(self, animation_name: str):
@@ -57,7 +57,7 @@ class AnimatedButton(QWidget):
 
         self.animation_name = animation_name
 
-        ''' Set default frame '''
+        # Set default frame
         self.svg.load(":/animated/animated/" + self.animation_name + "/frame00.svg")
 
     def configure(self):
@@ -67,7 +67,7 @@ class AnimatedButton(QWidget):
         :return: None
         """
 
-        ''' Add svg widget to layout '''
+        # Add svg widget to layout
         self.setLayout(QVBoxLayout())
         self.layout().setContentsMargins(6, 6, 6, 6)
         self.layout().addWidget(self.svg)
@@ -79,7 +79,7 @@ class AnimatedButton(QWidget):
         :return: None
         """
 
-        ''' Connect timer finished to update frame '''
+        # Connect timer finished to update frame
         self.timer.timeout.connect(self.update_frame)
 
     def update_frame(self):
@@ -101,22 +101,22 @@ class AnimatedButton(QWidget):
         :return: None
         """
 
-        ''' Load frame '''
+        # Load frame
         self.svg.load(":/animated/animated/" + self.animation_name + "/frame" + f"{self.frame_counter:02}" + ".svg")
         QApplication.processEvents()
 
-        ''' Update frame count '''
+        # Update frame count
         self.frame_counter += 1
         if self.frame_counter > 15:
             if self.repeat != 1000:
-                ''' Update repeat till 0 '''
+                # Update repeat till 0
                 self.repeat -= 1
 
                 if self.repeat <= 0:
                     self.stop()
                     return
 
-            ''' Rewind animation from end '''
+            # Rewind animation from end
             self.frame_counter = 15
             self.direction = DIRECTIONS.REWIND
             QApplication.processEvents()
@@ -128,14 +128,14 @@ class AnimatedButton(QWidget):
         :return: None
         """
 
-        ''' Load frame '''
+        # Load frame
         self.svg.load(":/animated/animated/" + self.animation_name + "/frame" + f"{self.frame_counter:02}" + ".svg")
         QApplication.processEvents()
 
-        ''' Update frame count '''
+        # Update frame count
         self.frame_counter -= 1
         if self.frame_counter < 0:
-            ''' Play animation from start '''
+            # Play animation from start
             self.frame_counter = 0
             self.direction = DIRECTIONS.PLAY
             QApplication.processEvents()
@@ -173,4 +173,4 @@ class AnimatedButton(QWidget):
         """
 
         self.clicked.emit()
-        super(AnimatedButton, self).mousePressEvent(event)
+        super().mousePressEvent(event)

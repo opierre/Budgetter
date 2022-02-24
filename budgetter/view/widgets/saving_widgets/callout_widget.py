@@ -15,22 +15,22 @@ class Callout(QGraphicsItem):
     def __init__(self, parent: QtCharts.QChart):
         super().__init__()
 
-        """ Store parent chart """
+        # Store parent chart
         self.chart: QtCharts.QChart = parent
 
-        """ Store text to display """
+        # Store text to display
         self.month: str = ''
         self.amount: str = ''
 
-        """ Store anchor to pin Callout """
+        # Store anchor to pin Callout
         self.anchor: QPointF = QPointF()
 
-        """ Store rectangles """
+        # Store rectangles
         self.text_rect_up: QRectF = QRectF()
         self.text_rect_down: QRectF = QRectF()
         self.complete_rect: QRectF = QRectF()
 
-        """ Store font """
+        # Store font
         self.font_top = QFont("Roboto", 11, QFont.Normal)
         self.font_bottom = QFont("Roboto Medium", 11, QFont.Normal)
 
@@ -43,11 +43,11 @@ class Callout(QGraphicsItem):
         :return: None
         """
 
-        """ Update text variable """
+        # Update text variable
         self.month = month
         self.amount = amount
 
-        """ Compute font metrics to adjust rect size """
+        # Compute font metrics to adjust rect size
         metrics_top = QFontMetrics(self.font_top)
         metrics_bottom = QFontMetrics(self.font_bottom)
         self.text_rect_up = QRectF(metrics_top.boundingRect(QRect(0, 0, 150, 150),
@@ -55,11 +55,11 @@ class Callout(QGraphicsItem):
         self.text_rect_down = QRectF(metrics_bottom.boundingRect(QRect(0, 0, 150, 150),
                                                                  int(Qt.AlignRight), self.amount))
 
-        """ Center bottom rect according to top rect """
+        # Center bottom rect according to top rect
         self.text_rect_down.moveCenter(QPointF(self.text_rect_up.center().x(), self.text_rect_up.height() +
                                                self.text_rect_down.height()/2 + 5))
 
-        """ Change geometry """
+        # Change geometry
         self.prepareGeometryChange()
 
         if self.text_rect_up.width() >= self.text_rect_down.width():
@@ -87,13 +87,13 @@ class Callout(QGraphicsItem):
         self.prepareGeometryChange()
 
         if alignment == Qt.AlignLeft:
-            """ Check that callout is not outside chart """
+            # Check that callout is not outside chart
             x_temp = self.chart.mapToPosition(self.anchor) + QPointF(15, -60)
             self.setPos(x_temp)
         else:
             x_temp = self.chart.mapToPosition(self.anchor) + QPointF(-self.complete_rect.width() + 5, -60)
 
-            """ Change from top to bottom anchor in case of high point """
+            # Change from top to bottom anchor in case of high point
             if x_temp.y() < 10:
                 x_temp = self.chart.mapToPosition(self.anchor) + QPointF(-self.complete_rect.width() + 5, 18)
 
@@ -106,10 +106,10 @@ class Callout(QGraphicsItem):
         :return: (QRectF) bounding rect
         """
 
-        """ Retrieve position from chart """
+        # Retrieve position from chart
         from_parent = self.mapFromParent(self.chart.mapToPosition(self.anchor))
 
-        """ Define anchor from parent """
+        # Define anchor from parent
         anchor = QPointF(from_parent)
 
         rect = QRectF()
@@ -130,29 +130,29 @@ class Callout(QGraphicsItem):
         :return: None
         """
 
-        """ Configure background rect path """
+        # Configure background rect path
         painter.setRenderHint(QPainter.Antialiasing)
         complete_rect = self.complete_rect
         shadow_rect = QRect(self.complete_rect.x() + 3, self.complete_rect.y() + 3,
                             self.complete_rect.width(), self.complete_rect.height())
 
-        """ Configure background shadow style """
+        # Configure background shadow style
         painter.setPen(Qt.NoPen)
         painter.setBrush(QColor(28, 41, 59))
         painter.setOpacity(0.5)
 
-        """ Draw background shadow """
+        # Draw background shadow
         painter.drawRoundedRect(shadow_rect, 2, 2)
 
-        """ Configure background style """
+        # Configure background style
         painter.setPen(Qt.NoPen)
         painter.setBrush(QColor(25, 157, 229, 240))
         painter.setOpacity(1.0)
 
-        """ Draw background """
+        # Draw background
         painter.drawRoundedRect(complete_rect, 2, 2)
 
-        """ Draw text """
+        # Draw text
         painter.setFont(self.font_top)
         painter.setPen(QColor("#26374C"))
         painter.drawText(self.text_rect_up, self.month)
@@ -170,16 +170,16 @@ class CalloutChartView(QGraphicsView):
     def __init__(self, parent=None):
         super().__init__(parent)
 
-        """ Store chart """
+        # Store chart
         self.chart = SavingChart()
 
-        """ Store callout """
+        # Store callout
         self.tooltip = Callout(self.chart)
 
-        """ Configure widget """
+        # Configure widget
         self.configure_widgets()
 
-        """ Connect all slots and signals """
+        # Connect all slots and signals
         self.connect_slots_and_signals()
 
     def connect_slots_and_signals(self):
@@ -189,7 +189,7 @@ class CalloutChartView(QGraphicsView):
         :return: None
         """
 
-        """ Connect click on series to display callout """
+        # Connect click on series to display callout
         self.chart.pointClicked.connect(self.display_callout)
 
     def configure_widgets(self):
@@ -199,16 +199,16 @@ class CalloutChartView(QGraphicsView):
         :return: None
         """
 
-        """ Configure chart view appearance """
+        # Configure chart view appearance
         self.setStyleSheet("background-color: transparent; border: none;")
         self.setRenderHint(QPainter.Antialiasing)
 
-        """ Configure chart view scene """
+        # Configure chart view scene
         self.setScene(QGraphicsScene())
         self.scene().addItem(self.chart)
         self.scene().addItem(self.tooltip)
 
-        """ Configure chart """
+        # Configure chart
         self.chart.layout().setContentsMargins(0, 0, 0, 0)
         self.chart.setBackgroundRoundness(0)
         self.chart.setMargins(QMargins(0, 0, 0, 0))
@@ -221,7 +221,7 @@ class CalloutChartView(QGraphicsView):
         :return: None
         """
 
-        """ Set values on chat """
+        # Set values on chat
         self.chart.set_values(values)
 
     def resizeEvent(self, event: QResizeEvent):
@@ -246,15 +246,15 @@ class CalloutChartView(QGraphicsView):
         :return: None
         """
 
-        """ Set text """
+        # Set text
         x_value = QLocale().toString(QDateTime.fromMSecsSinceEpoch(point.x()), "MMMM yyyy").capitalize()
         y_value = convert_amount_to_str(point.y())
         self.tooltip.set_text(f"{x_value}", f"{y_value} €")
 
-        """ Anchor callout """
+        # Anchor callout
         self.tooltip.anchor = point
 
-        """ Update display settings """
+        # Update display settings
         self.tooltip.setZValue(11)
         self.tooltip.update_geometry(alignment)
         self.tooltip.show()

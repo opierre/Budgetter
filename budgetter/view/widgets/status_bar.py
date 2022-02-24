@@ -8,10 +8,10 @@ class StatusBar(QWidget):
     Custom Status Bar
     """
 
-    """ Signal emitted when click on Previous """
+    # Signal emitted when click on Previous
     previousClicked = Signal()
 
-    """ Signal emitted when click on Next """
+    # Signal emitted when click on Next
     nextClicked = Signal()
 
     def __init__(self, parent=None):
@@ -19,7 +19,7 @@ class StatusBar(QWidget):
 
         self.parent = parent
 
-        """ Add buttons on bottom right corner """
+        # Add buttons on bottom right corner
         self._settings = QPushButton()
         self._settings.setObjectName(u"statusBarSettings")
         self._previous = QPushButton()
@@ -27,16 +27,16 @@ class StatusBar(QWidget):
         self._next = QPushButton()
         self._next.setObjectName(u"statusBarNext")
 
-        """ Layout for status bar """
+        # Layout for status bar
         self.layout = QHBoxLayout(self)
 
-        """ Configure widgets """
+        # Configure widgets
         self.configure_widgets()
 
-        """ Configure layout """
+        # Configure layout
         self.configure_layout()
 
-        """ Connect all slots and signals """
+        # Connect all slots and signals
         self.connect_slots_and_signals()
 
     def connect_slots_and_signals(self):
@@ -46,7 +46,7 @@ class StatusBar(QWidget):
         :return: None
         """
 
-        """ Connect click on previous/next buttons to emit signal """
+        # Connect click on previous/next buttons to emit signal
         self._previous.clicked.connect(self.previousClicked.emit)
         self._next.clicked.connect(self.nextClicked.emit)
 
@@ -57,18 +57,18 @@ class StatusBar(QWidget):
         :return: None
         """
 
-        """ Configure Add button on bottom right corner """
+        # Configure Add button on bottom right corner
         self._settings.setIcon(QIcon(":/images/images/more_horiz-white-24dp.svg"))
         self._settings.setIconSize(QSize(22, 22))
         self._settings.setCursor(Qt.PointingHandCursor)
 
-        """ Configure Previous button on bottom right corner """
+        # Configure Previous button on bottom right corner
         self._previous.setIcon(QIcon(":/images/images/navigate_before_black_24dp.svg"))
         self._previous.setIconSize(QSize(22, 22))
         self._previous.setCursor(Qt.PointingHandCursor)
         self._previous.setVisible(False)
 
-        """ Configure Add button on bottom right corner """
+        # Configure Add button on bottom right corner
         self._next.setIcon(QIcon(":/images/images/navigate_next_black_24dp.svg"))
         self._next.setIconSize(QSize(22, 22))
         self._next.setCursor(Qt.PointingHandCursor)
@@ -81,10 +81,10 @@ class StatusBar(QWidget):
         :return: None
         """
 
-        """ Set margins """
+        # Set margins
         self.layout.setContentsMargins(0, 12, 14, 12)
 
-        """ Add widgets to layout """
+        # Add widgets to layout
         self.layout.addWidget(self._settings)
         self.layout.addWidget(self._previous)
         self.layout.addWidget(self._next)

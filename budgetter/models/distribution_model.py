@@ -9,7 +9,7 @@ class DistributionModel(QAbstractListModel):
     def __init__(self, categories=None):
         super().__init__()
 
-        """ Store categories """
+        # Store categories
         self.categories = categories or []
 
     def data(self, index: QModelIndex, role: Qt.ItemDataRole = None):
@@ -24,7 +24,7 @@ class DistributionModel(QAbstractListModel):
         if index.isValid() and role == Qt.DisplayRole:
             category = self.categories[index.row()]
 
-            """ Return current category list """
+            # Return current category list
             return category
 
     def rowCount(self, index: QModelIndex = QModelIndex()):

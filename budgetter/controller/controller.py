@@ -12,32 +12,32 @@ class Controller:
 
     def __init__(self):
 
-        """ Create MainWindow """
+        # Create MainWindow
         self.main_window = CustomWindow()
-        self.ui = Ui_MainWindow()
-        self.ui.setupUi(self.main_window)
+        self.gui = Ui_MainWindow()
+        self.gui.setupUi(self.main_window)
 
-        # """ Store effects """
+        # # Store effects
         # self.effectAccounts = QGraphicsDropShadowEffect()
         # self.effectDistribution = QGraphicsDropShadowEffect()
         # self.effectTransactions = QGraphicsDropShadowEffect()
 
-        """ Configure main effect and apply """
+        # Configure main effect and apply
         # self.configureGraphicalEffects()
 
-        """ Left Drawer """
-        self.menu_drawer = Menu(self.main_window, self.ui)
+        # Left Drawer
+        self.menu_drawer = Menu(self.main_window, self.gui)
 
-        """ Home Panel """
-        self.home_panel = Home(self.main_window, self.ui)
+        # Home Panel
+        self.home_panel = Home(self.main_window, self.gui)
 
-        """ Graphs Panel """
-        self.graphs_panel = Graphs(self.main_window, self.ui)
+        # Graphs Panel
+        self.graphs_panel = Graphs(self.main_window, self.gui)
 
-        """ Connect all signals/slots """
+        # Connect all signals/slots
         self.connect_slots_and_signals()
 
-        """ Show FullScreen """
+        # Show FullScreen
         self.main_window.showMaximized()
 
     # def configureGraphicalEffects(self):
@@ -46,7 +46,7 @@ class Controller:
     #     :return: None
     #     """
     #
-    #     """ Configure effect """
+    #     # Configure effect
     #     self.effectAccounts.setBlurRadius(10)
     #     self.effectAccounts.setColor(QColor(37, 55, 70, 120))
     #     self.effectAccounts.setXOffset(5)
@@ -60,7 +60,7 @@ class Controller:
     #     self.effectTransactions.setXOffset(5)
     #     self.effectTransactions.setYOffset(8)
     #
-    #     """ Apply effect to all groupbox """
+    #     # Apply effect to all groupbox
     #     self.ui.accounts.setGraphicsEffect(self.effectAccounts)
     #     self.ui.transactions.setGraphicsEffect(self.effectDistribution)
     #     self.ui.distribution.setGraphicsEffect(self.effectTransactions)
@@ -72,5 +72,5 @@ class Controller:
         :return: None
         """
 
-        """ Connect Custom Windows resize to display callout """
+        # Connect Custom Windows resize to display callout
         self.main_window.resizeEventSignal.connect(self.home_panel.display_saving_tooltip)

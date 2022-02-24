@@ -9,23 +9,23 @@ class Dialog(QWidget):
     def __init__(self, dialog_title: str, central_widget: QWidget, parent=None):
         super().__init__(parent)
 
-        """ Store dialog UI """
+        # Store dialog UI
         self._dialog = Ui_Dialog()
 
-        """ Setup UI on current widget """
+        # Setup UI on current widget
         self._dialog.setupUi(self)
 
-        """ Store effects: drop shadow + opacity effect """
+        # Store effects: drop shadow + opacity effect
         self.drop_shadow = QGraphicsDropShadow()
         self.opacity = QGraphicsOpacityEffect(opacity=0)
 
-        """ Store animation group for parallel effects """
+        # Store animation group for parallel effects
         self.parallel_animation_group = QParallelAnimationGroup(self)
 
-        """ Configure widgets """
+        # Configure widgets
         self.configure_widgets(dialog_title, central_widget)
 
-        """ Show dialog """
+        # Show dialog
         self.show()
 
     def configure_widgets(self, dialog_title: str, central_widget: QWidget):
@@ -37,10 +37,10 @@ class Dialog(QWidget):
         :return: None
         """
 
-        """ Configure title """
+        # Configure title
         self._dialog.title.setText(dialog_title)
 
-        """ Configure animations - Geometry and opacity """
+        # Configure animations - Geometry and opacity
         geometry_animation = QPropertyAnimation(self, b'geometry')
         geometry_animation.setDuration(200)
         self.parallel_animation_group.addAnimation(geometry_animation)
@@ -51,10 +51,10 @@ class Dialog(QWidget):
         opacity_animation.setDuration(200)
         self.parallel_animation_group.addAnimation(opacity_animation)
 
-        """ Set initial opacity effect """
+        # Set initial opacity effect
         self.setGraphicsEffect(self.opacity)
 
-        """ Set central widget """
+        # Set central widget
         self._dialog.central_widget.layout().setContentsMargins(0, 0, 0, 0)
         self._dialog.central_widget.layout().addWidget(central_widget)
 
@@ -65,16 +65,16 @@ class Dialog(QWidget):
         :return: None
         """
 
-        """ Raise dialog widget on top of all window """
+        # Raise dialog widget on top of all window
         self._raise()
 
-        """ Resize dialog to minimum space """
+        # Resize dialog to minimum space
         self.adjustSize()
 
-        """ Set dialog on center of main window """
+        # Set dialog on center of main window
         self.geometry().moveCenter(self.parent().rect().center())
 
-        """ Update geometry animation coordinates for y """
+        # Update geometry animation coordinates for y
         geometry = self.geometry()
         start_animation_rect = QRect(geometry.x(),
                                      geometry.y() - geometry.height() / 3.0,
@@ -83,10 +83,10 @@ class Dialog(QWidget):
         self.parallel_animation_group.animationAt(0).setStartValue(start_animation_rect)
         self.parallel_animation_group.animationAt(0).setEndValue(geometry)
 
-        """ Show dialog """
+        # Show dialog
         super().show()
 
-        """ Start parallel animation """
+        # Start parallel animation
         self.parallel_animation_group.finished.connect(self.show_drop_shadow)
         self.parallel_animation_group.start()
 
@@ -97,22 +97,21 @@ class Dialog(QWidget):
         :return: None
         """
 
-        """ Configure drop shadow effect """
+        # Configure drop shadow effect
         self.drop_shadow.setBlurRadius(64)
         self.drop_shadow.setOffset(0, 13)
 
-        """ Configure animation on color for drop shadow to get smooth """
+        # Configure animation on color for drop shadow to get smooth
         drop_shadow_animation = QPropertyAnimation(self.drop_shadow, b'color')
         drop_shadow_animation.setKeyValue(0, QColor(0, 0, 0, 0, 0))
         drop_shadow_animation.setKeyValue(1, QColor(19, 32, 43, 200))
         drop_shadow_animation.setDuration(100)
 
-        """ Set drop shadow effect on dialog """
+        # Set drop shadow effect on dialog
         self.setGraphicsEffect(self.drop_shadow)
 
-        """ Add new animation to parallel group after clearing """
+        # Add new animation to parallel group after clearing
         self.parallel_animation_group.clear()
         self.parallel_animation_group.addAnimation(drop_shadow_animation)
         self.parallel_animation_group.finished.disconnect(self.show_drop_shadow)
         self.parallel_animation_group.start()
-

@@ -14,7 +14,7 @@ class AccountDelegate(QItemDelegate):
     def __init__(self, parent=None, *args):
         QItemDelegate.__init__(self, parent, *args)
 
-        """ Store font for values """
+        # Store font for values
         self.font = QFont()
 
     def sizeHint(self, optionQStyleOptionViewItem: QStyleOptionViewItem, index: QModelIndex):
@@ -40,7 +40,7 @@ class AccountDelegate(QItemDelegate):
 
         painter.save()
 
-        """ Get values """
+        # Get values
         value = index.data(Qt.DisplayRole)
         bank = value[0]
         account_name = value[1]
@@ -48,7 +48,7 @@ class AccountDelegate(QItemDelegate):
         trend = value[3]
         color = QColor(value[4])
 
-        """ Draw bottom border """
+        # Draw bottom border
         painter.setPen(QPen(QColor("#344457")))
         painter.setBrush(Qt.NoBrush)
         painter.drawLine(option.rect.x()+option.rect.width()*1/30, option.rect.y()+option.rect.height()-1,
@@ -56,100 +56,100 @@ class AccountDelegate(QItemDelegate):
 
         painter.setRenderHint(QPainter.Antialiasing)
 
-        """ Draw item background """
+        # Draw item background
         painter.setPen(QPen(QColor("#26374C")))
         painter.setBrush(QColor("transparent"))
-        rectBackground = QRect(option.rect.x()+option.rect.width()*1/30, option.rect.y()+option.rect.height()*1/5,
+        rect_background = QRect(option.rect.x()+option.rect.width()*1/30, option.rect.y()+option.rect.height()*1/5,
                                option.rect.width()-+option.rect.width()*2/30,
                                option.rect.height()-option.rect.height()*2/5)
-        painter.drawRect(rectBackground)
+        painter.drawRect(rect_background)
 
-        """ Draw left icon background """
+        # Draw left icon background
         painter.setPen(QPen(color))
         painter.setBrush(color)
         painter.setOpacity(0.8)
-        rectIcon = QRect(rectBackground.x()+option.rect.width()*1/60, rectBackground.y()-option.rect.height()*1/30,
-                         rectBackground.height()+option.rect.height()*1/5,
-                         rectBackground.height()+option.rect.height()*1/30)
-        painter.drawRoundedRect(rectIcon, 1.0, 1.0)
+        rect_icon = QRect(rect_background.x()+option.rect.width()*1/60, rect_background.y()-option.rect.height()*1/30,
+                         rect_background.height()+option.rect.height()*1/5,
+                         rect_background.height()+option.rect.height()*1/30)
+        painter.drawRoundedRect(rect_icon, 1.0, 1.0)
 
-        """ Draw icon and render svg """
+        # Draw icon and render svg
         painter.setOpacity(1)
         painter.setPen(QPen(Qt.transparent))
         painter.setBrush(QColor("transparent"))
-        rectSvg = QRect(rectIcon.x(), rectIcon.y()+5,
-                        rectIcon.width(), rectIcon.height()-10)
-        painter.drawRect(rectSvg)
+        rect_svg = QRect(rect_icon.x(), rect_icon.y()+5,
+                        rect_icon.width(), rect_icon.height()-10)
+        painter.drawRect(rect_svg)
 
         if bank.lower() == "Caisse d'Epargne".lower():
-            svgRender = QSvgRenderer(":/images/images/Caisse_depargne_Logo_bank.svg")
+            svg_render = QSvgRenderer(":/images/images/Caisse_depargne_Logo_bank.svg")
         elif bank.lower() == "Crédit Agricole".lower():
-            svgRender = QSvgRenderer(":/images/images/Crédit_Agricole _bank.svg")
+            svg_render = QSvgRenderer(":/images/images/Crédit_Agricole _bank.svg")
         else:
-            svgRender = QSvgRenderer(":/images/images/Caisse_depargne_Logo_bank.svg")
-        svgRender.setAspectRatioMode(Qt.KeepAspectRatio)
-        svgRender.render(painter, rectSvg)
+            svg_render = QSvgRenderer(":/images/images/Caisse_depargne_Logo_bank.svg")
+        svg_render.setAspectRatioMode(Qt.KeepAspectRatio)
+        svg_render.render(painter, rect_svg)
 
-        """ Set font on painter for account name """
+        # Set font on painter for account name
         self.font.setFamily(u"Roboto")
         self.font.setPointSize(11)
         painter.setFont(self.font)
 
-        """ Set category painter color """
+        # Set category painter color
         painter.setPen(QPen(Qt.white))
 
-        """ Get font metrics """
-        fontMetrics = QFontMetrics(self.font)
-        pixelsWidth = fontMetrics.width(account_name)
-        pixelsHeight = fontMetrics.height()
+        # Get font metrics
+        font_metrics = QFontMetrics(self.font)
+        pixels_width = font_metrics.width(account_name)
+        pixels_height = font_metrics.height()
 
-        """ Set category on top """
-        rectCategory = QRect(rectIcon.x()+rectIcon.width()+option.rect.width()*1/30,
-                             rectIcon.y()+option.rect.height()*1/30,
-                             pixelsWidth, pixelsHeight)
-        painter.drawText(rectCategory, int(Qt.AlignLeft | Qt.AlignVCenter), account_name)
+        # Set category on top
+        rect_category = QRect(rect_icon.x()+rect_icon.width()+option.rect.width()*1/30,
+                             rect_icon.y()+option.rect.height()*1/30,
+                             pixels_width, pixels_height)
+        painter.drawText(rect_category, int(Qt.AlignLeft | Qt.AlignVCenter), account_name)
 
-        """ Set font on painter for account label """
+        # Set font on painter for account label
         self.font.setFamily(u"Roboto")
         self.font.setPointSize(10)
         painter.setFont(self.font)
 
-        """ Set number of transactions pen color """
+        # Set number of transactions pen color
         painter.setPen(QPen(QColor("#75879B")))
 
-        """ Get font metrics """
-        fontMetrics = QFontMetrics(self.font)
-        pixelsWidth = fontMetrics.width('Account')
-        pixelsHeight = fontMetrics.height()
+        # Get font metrics
+        font_metrics = QFontMetrics(self.font)
+        pixels_width = font_metrics.width('Account')
+        pixels_height = font_metrics.height()
 
-        """ Set number of transactions beside category """
-        rectTransaction = QRect(rectCategory.x(), rectCategory.y()+rectCategory.height()+option.rect.height()*1/10,
-                                pixelsWidth, pixelsHeight)
-        painter.drawText(rectTransaction, int(Qt.AlignLeft | Qt.AlignVCenter),
+        # Set number of transactions beside category
+        rect_transaction = QRect(rect_category.x(), rect_category.y()+rect_category.height()+option.rect.height()*1/10,
+                                pixels_width, pixels_height)
+        painter.drawText(rect_transaction, int(Qt.AlignLeft | Qt.AlignVCenter),
                          QCoreApplication.translate("account_delegate", 'Account'))
 
-        """ Set font on painter for amount """
+        # Set font on painter for amount
         self.font.setFamily(u"Roboto")
         self.font.setPointSize(11)
         painter.setFont(self.font)
 
-        """ Set amount pen color """
+        # Set amount pen color
         painter.setPen(QPen(QColor("white")))
 
-        """ Get font metrics """
-        fontMetrics = QFontMetrics(self.font)
-        pixelsWidth = fontMetrics.width(amount)
-        pixelsHeight = fontMetrics.height()
+        # Get font metrics
+        font_metrics = QFontMetrics(self.font)
+        pixels_width = font_metrics.width(amount)
+        pixels_height = font_metrics.height()
 
-        """ Set amount on right corner """
-        rect_amount = QRect(rectBackground.width()+rectBackground.x()-pixelsWidth-option.rect.width()*1/50,
-                            rectCategory.y(), pixelsWidth, pixelsHeight)
+        # Set amount on right corner
+        rect_amount = QRect(rect_background.width()+rect_background.x()-pixels_width-option.rect.width()*1/50,
+                            rect_category.y(), pixels_width, pixels_height)
         painter.drawText(rect_amount, int(Qt.AlignRight | Qt.AlignVCenter), amount)
 
-        """ Set rect for trend drawing """
+        # Set rect for trend drawing
         rect_svg = QRectF(rect_amount.x() - 24, rect_amount.y(), 18, 18)
 
-        """ Draw trend """
+        # Draw trend
         if trend == "UP":
             svg_renderer = QSvgRenderer(":/images/images/north_white_18dp.svg")
         elif trend == "DOWN":
@@ -158,24 +158,24 @@ class AccountDelegate(QItemDelegate):
             svg_renderer = QSvgRenderer(":/images/images/south_white_18dp.svg")
         svg_renderer.render(painter, rect_svg)
 
-        """ Set font on painter for balance label """
+        # Set font on painter for balance label
         self.font.setFamily(u"Roboto")
         self.font.setPointSize(10)
         painter.setFont(self.font)
 
-        """ Set percentage pen color """
+        # Set percentage pen color
         painter.setPen(QPen(QColor("#75879B")))
 
-        """ Get font metrics """
-        fontMetrics = QFontMetrics(self.font)
-        pixelsWidth = fontMetrics.width('Balance')
-        pixelsHeight = fontMetrics.height()
+        # Get font metrics
+        font_metrics = QFontMetrics(self.font)
+        pixels_width = font_metrics.width('Balance')
+        pixels_height = font_metrics.height()
 
-        """ Set percentage beside amount """
-        rectPerc = QRect(rectBackground.width()+rectBackground.x()-pixelsWidth-option.rect.width()*1/50,
-                         rectTransaction.y(),
-                         pixelsWidth, pixelsHeight)
-        painter.drawText(rectPerc, int(Qt.AlignRight | Qt.AlignVCenter),
+        # Set percentage beside amount
+        rect_perc = QRect(rect_background.width()+rect_background.x()-pixels_width-option.rect.width()*1/50,
+                         rect_transaction.y(),
+                         pixels_width, pixels_height)
+        painter.drawText(rect_perc, int(Qt.AlignRight | Qt.AlignVCenter),
                          QCoreApplication.translate("account_delegate", 'Balance'))
 
         painter.restore()

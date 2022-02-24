@@ -11,34 +11,34 @@ class CategoryChart(QtCharts.QChart):
     def __init__(self, chart_type: str, parent=None):
         super().__init__(parent)
 
-        """ Hide legend """
+        # Hide legend
         self.legend().hide()
 
-        """ Store chart type """
+        # Store chart type
         self.chart_type = chart_type
 
-        """ Store current clicked point """
+        # Store current clicked point
         self.current_point = None
 
-        """ Set x axis """
+        # Set x axis
         self.axis_x = QtCharts.QBarCategoryAxis()
 
-        """ Set y axis """
+        # Set y axis
         self.axis_y = QtCharts.QValueAxis()
 
-        """ Store series """
+        # Store series
         self.series = QtCharts.QBarSeries(self)
         self.average_series = QtCharts.QSplineSeries(self)
         self.set = None
 
-        """ Store average show state """
+        # Store average show state
         self._show_average = False
 
-        """ Store limits """
+        # Store limits
         self.local_max_x = None
         self.local_min_x = None
 
-        """ Configure chart """
+        # Configure chart
         self.configure_chart()
 
     def configure_chart(self):
@@ -48,18 +48,18 @@ class CategoryChart(QtCharts.QChart):
         :return: None
         """
 
-        """ Configure locale for number display """
+        # Configure locale for number display
         locale = QLocale(QLocale.French)
         self.setLocalizeNumbers(True)
         self.setLocale(locale)
 
-        """ Configure labels """
+        # Configure labels
         self.series.setLabelsFormat("@value €")
         self.series.setLabelsPrecision(6)
         self.series.setLabelsPosition(QtCharts.QAbstractBarSeries.LabelsOutsideEnd)
         self.series.setLabelsVisible(True)
 
-        """ Configure X axis """
+        # Configure X axis
         self.axis_x.setVisible(True)
         self.axis_x.setGridLineVisible(False)
         self.axis_x.setLabelsColor(QColor("#9298a8"))
@@ -68,15 +68,15 @@ class CategoryChart(QtCharts.QChart):
         pen.setWidthF(2.0)
         self.axis_x.setLinePen(pen)
 
-        """ Configure Y axis """
+        # Configure Y axis
         self.axis_y.setMin(0)
         self.axis_y.setVisible(False)
         self.axis_y.setLabelsColor(QColor("white"))
 
-        """ Customize stylesheet """
+        # Customize stylesheet
         self.setBackgroundBrush(QBrush(QColor("transparent")))
 
-        """ Configure gradient to fulfill bars """
+        # Configure gradient to fulfill bars
         gradient = QLinearGradient(QPointF(0, 0), QPointF(0, 1))
 
         if self.chart_type == 'Income':
@@ -88,13 +88,13 @@ class CategoryChart(QtCharts.QChart):
         gradient.setCoordinateMode(QGradient.ObjectMode)
         self.series.setBarWidth(0.5)
 
-        """ Set animation """
+        # Set animation
         self.setAnimationOptions(QtCharts.QChart.SeriesAnimations)
 
-        """ Remove margins """
+        # Remove margins
         self.layout().setContentsMargins(0, 0, 0, 0)
 
-        """ Configure average series """
+        # Configure average series
         if self.chart_type == 'Income':
             pen = QPen(QColor("#1a68fa"))
         else:
@@ -116,7 +116,7 @@ class CategoryChart(QtCharts.QChart):
         self.set.setLabelFont(QFont("Roboto", 10, QFont.Normal))
         self.set.setLabelColor(QColor("#9298a8"))
 
-        """ Configure gradient to fulfill bars """
+        # Configure gradient to fulfill bars
         gradient = QLinearGradient(QPointF(0, 0), QPointF(0, 1))
         if self.chart_type == 'Income':
             gradient.setColorAt(0.0, QColor("#23D0FE"))
@@ -127,7 +127,7 @@ class CategoryChart(QtCharts.QChart):
         gradient.setCoordinateMode(QGradient.ObjectMode)
         self.set.setBrush(gradient)
 
-        """ Create pen to draw borders """
+        # Create pen to draw borders
         pen = QPen()
         pen.setWidthF(5.0)
         pen.setCapStyle(Qt.RoundCap)
@@ -172,70 +172,70 @@ class CategoryChart(QtCharts.QChart):
         :return: None
         """
 
-        """ Store previous state to avoid flash """
+        # Store previous state to avoid flash
         previous_state = self.series.isLabelsVisible()
         self.series.setLabelsVisible(False)
 
-        """ Clear previous values """
+        # Clear previous values
         self.series.clear()
         self.average_series.clear()
         self.removeAxis(self.axis_x)
         self.removeAxis(self.axis_y)
 
-        """ Configure barset """
+        # Configure barset
         self.configure_barset()
 
-        """ Configure pen """
+        # Configure pen
         pen = QPen(QColor("#6dd230"))
         pen.setWidthF(3.0)
         pen.setCapStyle(Qt.RoundCap)
 
-        """ Fulfill series """
+        # Fulfill series
         y_max_value = 0
         x_values = []
         for key, value in values.items():
-            """ Update Y-Axis range """
+            # Update Y-Axis range
             if value > y_max_value:
                 y_max_value = value
 
-            """ Update X-Axis range """
+            # Update X-Axis range
             x_value = QDateTime.toString(QDateTime.fromString(key, "MM-yyyy"), "MMM-yy")
 
             x_values.append(x_value)
             self.set.append(value)
 
-        """ Compute average """
+        # Compute average
         average_value = self.set.sum() / self.set.count()
         for index in range(0, self.set.count()):
             self.average_series.append(index, average_value)
 
-        """ Update local max and min """
+        # Update local max and min
         self.local_max_x = x_values[-1]
         self.local_min_x = x_values[0]
 
-        """ Set brush and pen for series """
+        # Set brush and pen for series
         self.axis_x.setCategories(x_values)
         self.series.append(self.set)
 
-        """ Add series to graph """
+        # Add series to graph
         self.addSeries(self.average_series)
         self.addSeries(self.series)
         self.average_series.setVisible(self._show_average)
 
-        """ Set axes """
+        # Set axes
         self.addAxis(self.axis_x, Qt.AlignBottom)
         self.addAxis(self.axis_y, Qt.AlignLeft)
 
-        """ Attach axes to series """
+        # Attach axes to series
         self.series.attachAxis(self.axis_x)
         self.average_series.attachAxis(self.axis_x)
         self.series.attachAxis(self.axis_y)
         self.average_series.attachAxis(self.axis_y)
 
-        """ Configure y axis """
+        # Configure y axis
         self.axis_y.setRange(0, y_max_value * 12/10)
 
-        """ Restore previous state """
+        # Restore previous state
         self.series.setLabelsVisible(previous_state)
 
     def show_labels(self, value: bool):

@@ -9,7 +9,7 @@ class AccountsModel(QAbstractListModel):
     def __init__(self, categories=None):
         super().__init__()
 
-        """ Store accounts """
+        # Store accounts
         self.accounts = categories or []
 
     def data(self, index: QModelIndex, role: Qt.ItemDataRole = None):
@@ -24,7 +24,7 @@ class AccountsModel(QAbstractListModel):
         if index.isValid() and role == Qt.DisplayRole:
             account = self.accounts[index.row()]
 
-            """ Return current account list """
+            # Return current account list
             return account
 
     def rowCount(self, index: QModelIndex = QModelIndex()):

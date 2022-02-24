@@ -6,19 +6,19 @@ from PySide2.QtCore import QAbstractListModel, Qt, QSortFilterProxyModel, QModel
 
 class TransactionsFilterModel(QSortFilterProxyModel):
     """
-    Filter model for transactions 
+    Filter model for transactions
     """
-    
-    def __init__(self):
-        super(TransactionsFilterModel, self).__init__()
 
-        """ Default Filter for Income/Expenses """
+    def __init__(self):
+        super().__init__()
+
+        # Default Filter for Income/Expenses
         self.type = "All"
 
-        """ Default Filter for Accounts """
+        # Default Filter for Accounts
         self.account = "All"
 
-        """ Filters for search bar """
+        # Filters for search bar
         self.search = None
         self.search_value = None
 
@@ -66,8 +66,8 @@ class TransactionsFilterModel(QSortFilterProxyModel):
         """
 
         self.beginRemoveRows(QModelIndex(), index.row(), index.row())
-        indexFromSource = self.mapToSource(index)
-        self.sourceModel().delete_transaction(indexFromSource)
+        index_from_source = self.mapToSource(index)
+        self.sourceModel().delete_transaction(index_from_source)
         self.endRemoveRows()
 
     def add_transaction(self):
@@ -89,8 +89,8 @@ class TransactionsFilterModel(QSortFilterProxyModel):
         :return: None
         """
 
-        indexFromSource = self.mapToSource(index)
-        self.sourceModel().setData(indexFromSource, value, Qt.DisplayRole)
+        index_from_source = self.mapToSource(index)
+        self.sourceModel().setData(index_from_source, value, Qt.DisplayRole)
 
     def filterAcceptsRow(self, source_row, source_parent):
         """
@@ -150,7 +150,7 @@ class TransactionsModel(QAbstractListModel):
     def __init__(self, transactions=None):
         super().__init__()
 
-        """ Store transactions """
+        # Store transactions
         self.transactions = transactions or dict()
 
     def data(self, index: QModelIndex, role=Qt.ItemDataRole.DisplayRole):
@@ -165,7 +165,7 @@ class TransactionsModel(QAbstractListModel):
         if index.isValid() and role == Qt.DisplayRole:
             transaction = self.transactions[index.row()]
 
-            """ Return current transaction list """
+            # Return current transaction list
             return transaction
 
     def setData(self, index: QModelIndex, value: typing.Any, role=Qt.ItemDataRole.EditRole) -> True:

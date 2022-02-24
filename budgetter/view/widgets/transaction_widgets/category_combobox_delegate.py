@@ -8,9 +8,6 @@ class CategoryComboBox(QStyledItemDelegate):
     Category combobox with icons
     """
 
-    def __init__(self, parent=None):
-        super(CategoryComboBox, self).__init__(parent)
-
     def paint(self, painter: QPainter, option, index: QModelIndex):
         """
         Override paint()
@@ -21,12 +18,12 @@ class CategoryComboBox(QStyledItemDelegate):
         :return: None
         """
 
-        """ Init options """
+        # Init options """
         opt = option
         self.initStyleOption(opt, index)
 
-        """ Set icon in center """
+        # Set icon in center """
         opt.decorationSize.setWidth(opt.rect.width()-1)
 
-        """ Draw item """
+        # Draw item """
         opt.widget.style().drawControl(QStyle.CE_ItemViewItem, opt, painter, opt.widget)

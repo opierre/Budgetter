@@ -10,25 +10,25 @@ class Container(QDockWidget):
     Container
     """
 
-    """ Signal emitted when search bar in title bar is edited - Content typed: str/Search field name: str """
+    # Signal emitted when search bar in title bar is edited - Content typed: str/Search field name: str
     titleBarSearched = Signal(str, str)
 
-    """ Signal emitted when button in title bar has been clicked - Checked state: bool """
+    # Signal emitted when button in title bar has been clicked - Checked state: bool
     titleBarClicked = Signal(bool)
 
     def __init__(self, parent=None):
         super().__init__(parent)
 
-        """ Container title """
+        # Container title
         self._title = ''
 
-        """ Title bar with title and add button """
-        self.titleBar = TitleBar(self)
+        # Title bar with title and add button
+        self.title_bar = TitleBar(self)
 
-        """ Configure widgets """
+        # Configure widgets
         self.configure_widgets()
 
-        """ Connect all slots and signals """
+        # Connect all slots and signals
         self.connect_slots_and_signals()
 
     def connect_slots_and_signals(self):
@@ -38,11 +38,11 @@ class Container(QDockWidget):
         :return: None
         """
 
-        """ Emit signal when button in title bar has been clicked """
-        self.titleBar.clicked.connect(self.titleBarClicked.emit)
+        # Emit signal when button in title bar has been clicked
+        self.title_bar.clicked.connect(self.titleBarClicked.emit)
 
-        """ Emit signal when text typed in search bar """
-        self.titleBar.searched.connect(self.titleBarSearched.emit)
+        # Emit signal when text typed in search bar
+        self.title_bar.searched.connect(self.titleBarSearched.emit)
 
     def configure_widgets(self):
         """
@@ -51,8 +51,8 @@ class Container(QDockWidget):
         :return: None
         """
 
-        """ Add button to title """
-        self.setTitleBarWidget(self.titleBar)
+        # Add button to title
+        self.setTitleBarWidget(self.title_bar)
 
     def set_icon(self, icon: QIcon):
         """
@@ -62,7 +62,7 @@ class Container(QDockWidget):
         :return: None
         """
 
-        self.titleBar.set_icon(icon)
+        self.title_bar.set_icon(icon)
 
     def disable_title_bar_button(self):
         """
@@ -71,7 +71,7 @@ class Container(QDockWidget):
         :return: None
         """
 
-        self.titleBar.disable_button()
+        self.title_bar.disable_button()
 
     def disable_search_bar(self):
         """
@@ -80,7 +80,7 @@ class Container(QDockWidget):
         :return: None
         """
 
-        self.titleBar.disable_search()
+        self.title_bar.disable_search()
 
     def set_title(self, title: str):
         """
@@ -90,7 +90,7 @@ class Container(QDockWidget):
         :return: None
         """
 
-        self.titleBar.set_title(title)
+        self.title_bar.set_title(title)
 
     def set_button_tooltip(self, tooltip: str):
         """
@@ -100,4 +100,4 @@ class Container(QDockWidget):
         :return: None
         """
 
-        self.titleBar.set_button_tooltip(tooltip)
+        self.title_bar.set_button_tooltip(tooltip)

@@ -13,28 +13,28 @@ class DonutChart(QWidget):
     """
     
     def __init__(self, parent=None):
-        super(DonutChart, self).__init__(parent)
+        super().__init__(parent)
 
-        """ Store slices """
+        # Store slices
         self._slices = []
 
-        """ Store colors """
+        # Store colors
         self.colors = [QColor("#1CA9E9"), QColor("#0154C8"), QColor("#26C1C9"), QColor("#6658CB")]
 
-        """ Store total amount """
+        # Store total amount
         self.total_amount = 0
         self.previous_month_total_amount = 0
 
-        """ Store trend """
+        # Store trend
         self.trend = "UP"
 
-        """ Store percentage """
+        # Store percentage
         self.percentage = 0
 
-        """ Set fixed size """
+        # Set fixed size
         self.setFixedSize(210, 210)
 
-        """ Set margins """
+        # Set margins
         self.setContentsMargins(0, 0, 0, 0)
 
     def add_slice(self, percentage: int):
@@ -69,22 +69,22 @@ class DonutChart(QWidget):
 
         painter.begin(self)
 
-        """ Improve rendering """
+        # Improve rendering
         painter.setRenderHint(QPainter.Antialiasing)
 
-        """ Draw slices background """
+        # Draw slices background
         self.draw_background(painter)
 
-        """ Configure pen """
+        # Configure pen
         pen = QPen()
         pen.setWidthF(22.5)
         pen.setCapStyle(Qt.RoundCap)
         painter.setOpacity(1)
 
-        """ Draw slices """
+        # Draw slices
         self.draw_slices(pen, painter)
 
-        """ Draw middle text """
+        # Draw middle text
         self.draw_total_amount(pen, painter)
 
     def draw_background(self, painter: QPainter):
@@ -95,7 +95,7 @@ class DonutChart(QWidget):
         :return: None
         """
 
-        """ Configure pen """
+        # Configure pen
         pen = QPen()
         pen.setWidthF(1.0)
         pen.setCapStyle(Qt.RoundCap)
@@ -104,12 +104,12 @@ class DonutChart(QWidget):
         painter.setBrush(QBrush(QColor("#1C293B")))
         painter.setOpacity(1)
 
-        """ Configure rectangle """
+        # Configure rectangle
         rect_origins = QRectF(self.rect().center().x(), self.rect().center().y(),
                               self.rect().width() / 1.5, self.rect().height() / 1.5)
         rect_origins.moveCenter(self.rect().center())
 
-        """ Draw arc """
+        # Draw arc
         painter.drawEllipse(rect_origins)
 
     def draw_slices(self, pen: QPen, painter: QPainter):
@@ -124,16 +124,16 @@ class DonutChart(QWidget):
         previous_end_angle = 0
         current_index = 0
 
-        """ Configure rectangle """
+        # Configure rectangle
         rect_origins = QRectF(self.rect().center().x(), self.rect().center().y(),
                               self.rect().width() / 1.2, self.rect().height() / 1.2)
         rect_origins.moveCenter(self.rect().center())
 
         for current_slice in self._slices:
-            """ Set span angles """
+            # Set span angles
             span_angle = current_slice * 360 / 100
 
-            """ Set start angle """
+            # Set start angle
             if previous_end_angle == 0:
                 start_angle = (180 - span_angle) / 2
                 previous_end_angle = start_angle + span_angle
@@ -141,7 +141,7 @@ class DonutChart(QWidget):
                 start_angle = previous_end_angle
                 previous_end_angle = start_angle + span_angle
 
-            """ Set gradient on arcs """
+            # Set gradient on arcs
             gradient = QConicalGradient()
             gradient.setCenter(rect_origins.center())
             gradient.setAngle(start_angle)
@@ -150,19 +150,19 @@ class DonutChart(QWidget):
             pen.setBrush(QBrush(gradient))
             painter.setPen(pen)
 
-            """ Draw arc """
+            # Draw arc
             painter.drawArc(rect_origins, start_angle * 16, span_angle * 16)
             painter.setOpacity(1.0)
 
-            """ Re-draw first one in case of last to hide overlapping """
-            """ Set pen color """
+            # Re-draw first one in case of last to hide overlapping
+            # Set pen color
             pen.setColor(self.colors[current_index])
             painter.setPen(pen)
 
-            """ Draw arc """
+            # Draw arc
             painter.drawArc(rect_origins, start_angle * 16, span_angle * 16 * 1 / 100)
 
-            """ Update current index """
+            # Update current index
             current_index += 1
 
     def draw_total_amount(self, pen, painter):
@@ -174,30 +174,30 @@ class DonutChart(QWidget):
         :return: None
         """
 
-        """ Configure font for description """
+        # Configure font for description
         font = QFont()
         font.setFamily(u"Roboto")
         font.setPointSize(10)
         painter.setFont(font)
 
-        """ Set pen color """
+        # Set pen color
         pen.setColor(QColor(196, 201, 207, 180))
         painter.setPen(pen)
 
-        """ Get font metrics """
+        # Get font metrics
         previous_month_total_amount_str = convert_amount_to_str(self.previous_month_total_amount)
         previous_value = previous_month_total_amount_str + " €"
-        fontMetrics = QFontMetrics(font)
-        pixelsWidth = fontMetrics.width(previous_value)
-        pixelsHeight = fontMetrics.height()
+        font_metrics = QFontMetrics(font)
+        pixels_width = font_metrics.width(previous_value)
+        pixels_height = font_metrics.height()
 
-        """ Set text """
-        rect_description = QRect(self.rect().x(), self.rect().y(), pixelsWidth, pixelsHeight)
+        # Set text
+        rect_description = QRect(self.rect().x(), self.rect().y(), pixels_width, pixels_height)
         rect_description.moveCenter(self.rect().center())
         rect_description.moveTop(rect_description.y() + rect_description.height() / 2 + 7)
         painter.drawText(rect_description, int(Qt.AlignHCenter | Qt.AlignVCenter), previous_value)
 
-        """ Set pen color """
+        # Set pen color
         value = str(self.percentage) + "%"
         if self.trend == "UP":
             value = "+" + value
@@ -210,52 +210,52 @@ class DonutChart(QWidget):
             pen.setColor(QColor(255, 255, 255, 180))
         painter.setPen(pen)
 
-        """ Get font metrics """
-        fontMetrics = QFontMetrics(font)
-        pixelsWidth = fontMetrics.width(value)
-        pixelsHeight = fontMetrics.height()
+        # Get font metrics
+        font_metrics = QFontMetrics(font)
+        pixels_width = font_metrics.width(value)
+        pixels_height = font_metrics.height()
 
-        """ Set text """
-        rect_percentage = QRect(self.rect().x(), self.rect().y(), pixelsWidth, pixelsHeight)
+        # Set text
+        rect_percentage = QRect(self.rect().x(), self.rect().y(), pixels_width, pixels_height)
         rect_percentage.moveCenter(self.rect().center())
         rect_percentage.moveTop(rect_percentage.y() + rect_percentage.height() / 2 + 35)
         painter.drawText(rect_percentage, int(Qt.AlignHCenter | Qt.AlignVCenter), value)
 
-        """ Configure font for total amount """
+        # Configure font for total amount
         font.setFamily(u"Roboto Medium")
         font.setPointSize(14)
         painter.setFont(font)
 
-        """ Set pen color """
+        # Set pen color
         pen.setColor(QColor("white"))
         painter.setPen(pen)
 
-        """ Get font metrics """
+        # Get font metrics
         total_amount_str = convert_amount_to_str(self.total_amount)
         value = total_amount_str + " €"
-        fontMetrics = QFontMetrics(font)
-        pixelsWidth = fontMetrics.width(value)
-        pixelsHeight = fontMetrics.height()
+        font_metrics = QFontMetrics(font)
+        pixels_width = font_metrics.width(value)
+        pixels_height = font_metrics.height()
 
-        """ Set value """
-        rect_value = QRect(self.rect().x(), self.rect().y(), pixelsWidth, pixelsHeight)
+        # Set value
+        rect_value = QRect(self.rect().x(), self.rect().y(), pixels_width, pixels_height)
         rect_value.moveCenter(self.rect().center())
         rect_value.moveBottom(rect_value.y() + rect_value.height() / 2.0)
         painter.drawText(rect_value, int(Qt.AlignHCenter | Qt.AlignVCenter), value)
 
-        """ Set trend """
+        # Set trend
         rect_trend = QRect(self.rect().x(), self.rect().y(), 24, 24)
         rect_trend.moveCenter(self.rect().center())
         rect_trend.moveTop(rect_description.y() - rect_description.height() - 50)
 
         if self.trend == "UP":
-            svgRender = QSvgRenderer(":/images/images/trending_up_white_24dp.svg")
+            svg_render = QSvgRenderer(":/images/images/trending_up_white_24dp.svg")
         elif self.trend == "DOWN":
-            svgRender = QSvgRenderer(":/images/images/trending_down_white_24dp.svg")
+            svg_render = QSvgRenderer(":/images/images/trending_down_white_24dp.svg")
         else:
-            svgRender = QSvgRenderer(":/images/images/trending_flat_white_24dp.svg")
-        svgRender.setAspectRatioMode(Qt.KeepAspectRatio)
-        svgRender.render(painter, rect_trend)
+            svg_render = QSvgRenderer(":/images/images/trending_flat_white_24dp.svg")
+        svg_render.setAspectRatioMode(Qt.KeepAspectRatio)
+        svg_render.render(painter, rect_trend)
 
         painter.end()
 
@@ -268,11 +268,11 @@ class DonutChart(QWidget):
         :return: None
         """
 
-        """ Update values """
+        # Update values
         self.total_amount = total_amount
         self.previous_month_total_amount = previous_month_total_amount
 
-        """ Set trend """
+        # Set trend
         if self.previous_month_total_amount > self.total_amount:
             self.trend = "DOWN"
         elif self.previous_month_total_amount == self.total_amount:
@@ -280,5 +280,5 @@ class DonutChart(QWidget):
         else:
             self.trend = "UP"
 
-        """ Compute diff """
+        # Compute diff
         self.percentage = round(abs(previous_month_total_amount - total_amount) / previous_month_total_amount * 100)

@@ -10,18 +10,18 @@ class Spending(QObject):
     """
 
     def __init__(self, gui):
-        super(Spending, self).__init__()
+        super().__init__()
 
-        """ Store gui """
+        # Store gui
         self.ui_setup = gui
 
-        """ Chart widget """
+        # Chart widget
         self.chart_widget = ChartDashboard(self.ui_setup.spending)
 
-        """ Configure layout """
+        # Configure layout
         self.configure_layout()
 
-        """ Configure title bar """
+        # Configure title bar
         self.configure_title_bar()
 
     def configure_title_bar(self):
@@ -31,10 +31,10 @@ class Spending(QObject):
         :return: None
         """
 
-        """ Set title """
+        # Set title
         self.ui_setup.spending.set_title(QCoreApplication.translate("spending", "Spending"))
 
-        """ Hide all widgets in title bar """
+        # Hide all widgets in title bar
         self.ui_setup.spending.disable_title_bar_button()
         self.ui_setup.spending.disable_search_bar()
 

@@ -12,20 +12,20 @@ class SavingDashboard(QWidget):
     """
 
     def __init__(self, parent=None):
-        super(SavingDashboard, self).__init__(parent)
+        super().__init__(parent)
 
-        """ Store values for months """
+        # Store values for months
         self.values = dict()
         self.current_year_values = dict()
         self.previous_year_values = dict()
 
-        """ Store chart view """
+        # Store chart view """
         self.chart_view = CalloutChartView()
 
-        """ Store layout for dashboard widget """
+        # Store layout for dashboard widget """
         self._layout = QGridLayout(self)
 
-        """ Configure widgets """
+        # Configure widgets """
         self.configure_widgets()
 
     def configure_widgets(self):
@@ -35,7 +35,7 @@ class SavingDashboard(QWidget):
         :return: None
         """
 
-        """ Configure layout """
+        # Configure layout """
         self._layout.setContentsMargins(0, 0, 0, 0)
         self._layout.addWidget(self.chart_view)
 
@@ -47,14 +47,14 @@ class SavingDashboard(QWidget):
         :return: None
         """
 
-        ''' Clear previous data '''
+        # Clear previous data
         self.current_year_values.clear()
         self.previous_year_values.clear()
 
-        ''' Order data by date '''
+        # Order data by date
         self.values = sorted(values.items(), key=lambda x: datetime.strptime(x[0], '%m-%Y'), reverse=False)
 
-        ''' Retrieve current year for parsing '''
+        # Retrieve current year for parsing
         current_year = str(QDate.currentDate().year())
 
         for item in self.values:
@@ -63,7 +63,7 @@ class SavingDashboard(QWidget):
             else:
                 self.previous_year_values[item[0]] = item[1]
 
-        ''' Set 12 last months '''
+        # Set 12 last months
         self.set_last_months()
 
     def set_current_year_values(self, boolean: bool):
@@ -90,7 +90,7 @@ class SavingDashboard(QWidget):
         index = 0
 
         if len(self.current_year_values) < 12:
-            ''' Reconstruct values '''
+            # Reconstruct values
             for item in reversed(self.values):
                 if index >= 12:
                     break
@@ -100,8 +100,8 @@ class SavingDashboard(QWidget):
         else:
             values = self.current_year_values
 
-        ''' Order values '''
+        # Order values
         ordered_values = sorted(values.items(), key=lambda x: datetime.strptime(x[0], '%m-%Y'), reverse=False)
 
-        ''' Display last 12 months values '''
+        # Display last 12 months values
         self.chart_view.set_values(dict(ordered_values))

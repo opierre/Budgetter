@@ -8,15 +8,15 @@ class LineEditWithIcon(QLineEdit):
     """
 
     def __init__(self, icon: QIcon = QIcon(), parent=None):
-        super(LineEditWithIcon, self).__init__(parent)
-        
-        """ Store icon """
+        super().__init__(parent)
+
+        # Store icon
         self.icon = icon
 
-        """ Update icon """
-        self.setIcon(icon)
+        # Update icon
+        self.set_icon(icon)
 
-    def setIcon(self, icon):
+    def set_icon(self, icon):
         """
         Set icon on left
 
@@ -24,7 +24,7 @@ class LineEditWithIcon(QLineEdit):
         :return: None
         """
 
-        """ Update variable """
+        # Update variable
         self.icon = icon
 
         if not self.icon:
@@ -40,9 +40,9 @@ class LineEditWithIcon(QLineEdit):
         :return: None
         """
 
-        super(LineEditWithIcon, self).paintEvent(event)
+        super().paintEvent(event)
 
-        """ Draw icon on left """
+        # Draw icon on left
         if self.icon:
             painter = QPainter(self)
             pixmap = self.icon.pixmap(24, 24)

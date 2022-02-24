@@ -11,18 +11,18 @@ class Expenses(QObject):
     """
 
     def __init__(self, gui):
-        super(Expenses, self).__init__()
+        super().__init__()
 
-        """ Store gui """
+        # Store gui
         self.ui_setup = gui
 
-        """ Store chart bars widget """
+        # Store chart bars widget
         self.chart_widget = ChartBars("Expenses", self.ui_setup.expenses)
 
-        """ Store drop shadow effect """
+        # Store drop shadow effect
         self.shadow_effect = QGraphicsDropShadowEffect(self)
 
-        """ Store range options """
+        # Store range options
         self.this_year_option = {"to": QDate.currentDate(),
                                  "from": QDate.currentDate().addMonths(-QDate.currentDate().month()+1)}
         self.last_12_months = {"to": QDate.currentDate(),
@@ -30,21 +30,21 @@ class Expenses(QObject):
         self.previous_year = {"to": QDate.currentDate().addMonths(-QDate.currentDate().month()),
                               "from": QDate.currentDate().addMonths(-QDate.currentDate().month()-11)}
 
-        """ Configure title bar """
+        # Configure title bar
         self.configure_title_bar()
 
-        """ Configure panel """
+        # Configure panel
         self.configure_panel()
 
-        """ Configure parameters """
+        # Configure parameters
         self.configure_parameters()
 
-        """ Configure layout """
+        # Configure layout
         self.configure_layout()
 
         self.set_values({})
 
-        """ Connect income """
+        # Connect income
         self.connect_slots_and_signals()
 
     def connect_slots_and_signals(self):
@@ -54,25 +54,25 @@ class Expenses(QObject):
         :return: None
         """
 
-        """ Connect date range option checked to actualize date and refresh """
+        # Connect date range option checked to actualize date and refresh
         self.ui_setup.this_year_expenses.clicked.connect(self.change_date_option)
         self.ui_setup.last_12_months_expenses.clicked.connect(self.change_date_option)
         self.ui_setup.previous_year_expenses.clicked.connect(self.change_date_option)
 
-        """ Connect manual change to deselect range options """
+        # Connect manual change to deselect range options
         self.ui_setup.dateEdit_expenses_from.dateChanged.connect(self.update_range_option)
         self.ui_setup.dateEdit_expenses_to.dateChanged.connect(self.update_range_option)
 
-        """ Connect click on refresh button """
+        # Connect click on refresh button
         self.ui_setup.refresh_expenses.clicked.connect(self.refresh)
 
-        """ Connect show labels checked to display labels """
+        # Connect show labels checked to display labels
         self.ui_setup.check_labels_expenses.clicked.connect(self.show_labels)
 
-        """ Connect show average to display line on graph """
+        # Connect show average to display line on graph
         self.ui_setup.check_average_expenses.toggled.connect(self.chart_widget.show_average)
 
-        """ Connect show total to display total amount on graph view """
+        # Connect show total to display total amount on graph view
         self.ui_setup.check_total_expenses.toggled.connect(self.chart_widget.show_total)
 
     def configure_title_bar(self):
@@ -82,10 +82,10 @@ class Expenses(QObject):
         :return: None
         """
 
-        """ Set title """
+        # Set title
         self.ui_setup.expenses.set_title(QCoreApplication.translate("graphs", "Expenses"))
 
-        """ Hide all widgets in title bar """
+        # Hide all widgets in title bar
         self.ui_setup.expenses.disable_title_bar_button()
         self.ui_setup.expenses.disable_search_bar()
 
@@ -113,7 +113,7 @@ class Expenses(QObject):
         :return: None
         """
 
-        """ Configure combobox for category """
+        # Configure combobox for category
         self.ui_setup.expenses_choice.setView(QListView())
         self.ui_setup.expenses_choice.setStyleSheet("QListView {"
                                                     "font-size: 11pt;"
@@ -127,10 +127,10 @@ class Expenses(QObject):
         self.ui_setup.expenses_choice.view().window().setWindowFlags(Qt.Popup | Qt.FramelessWindowHint)
         self.ui_setup.expenses_choice.view().window().setAttribute(Qt.WA_TranslucentBackground)
 
-        """ Set widget to display animated icon """
+        # Set widget to display animated icon
         self.ui_setup.refresh_expenses.set_animation_type("bars_purple")
 
-        """ Configure effect """
+        # Configure effect
         self.shadow_effect.setBlurRadius(3)
         self.shadow_effect.setOffset(5)
         self.shadow_effect.setColor(QColor(28, 41, 59, 128))
@@ -143,7 +143,7 @@ class Expenses(QObject):
         :return: None
         """
 
-        """ Set current date """
+        # Set current date
         self.ui_setup.dateEdit_expenses_to.setDate(QDate.currentDate())
         self.ui_setup.dateEdit_expenses_from.setDate(QDate.currentDate().addDays(-365))
 
@@ -154,10 +154,10 @@ class Expenses(QObject):
         :return: None
         """
 
-        """ Get sender """
+        # Get sender
         sender = self.sender()
 
-        """ Disconnect signals to avoid conflicts """
+        # Disconnect signals to avoid conflicts
         self.ui_setup.dateEdit_expenses_from.dateChanged.disconnect(self.update_range_option)
         self.ui_setup.dateEdit_expenses_to.dateChanged.disconnect(self.update_range_option)
 
@@ -171,10 +171,10 @@ class Expenses(QObject):
             self.ui_setup.dateEdit_expenses_to.setDate(self.previous_year["to"])
             self.ui_setup.dateEdit_expenses_from.setDate(self.previous_year["from"])
 
-        """ Refresh bars """
+        # Refresh bars
         self.refresh()
 
-        """ Re-connect signals to avoid conflicts """
+        # Re-connect signals to avoid conflicts
         self.ui_setup.dateEdit_expenses_from.dateChanged.connect(self.update_range_option)
         self.ui_setup.dateEdit_expenses_to.dateChanged.connect(self.update_range_option)
 
@@ -185,11 +185,11 @@ class Expenses(QObject):
         :return: None
         """
 
-        """ Retrieve dates """
+        # Retrieve dates
         from_date = self.ui_setup.dateEdit_expenses_from.date()
         to_date = self.ui_setup.dateEdit_expenses_to.date()
 
-        """ Compare dates to each range option """
+        # Compare dates to each range option
         if from_date == self.this_year_option["from"] and to_date == self.this_year_option["to"]:
             self.ui_setup.this_year_expenses.setChecked(True)
         elif from_date == self.last_12_months["from"] and to_date == self.last_12_months["to"]:
@@ -214,7 +214,7 @@ class Expenses(QObject):
         :return: None
         """
 
-        """ Start animation """
+        # Start animation
         self.ui_setup.refresh_expenses.start(1)
         QApplication.processEvents()
 
@@ -247,7 +247,7 @@ class Expenses(QObject):
             if self.ui_setup.dateEdit_expenses_from.date() <= date <= self.ui_setup.dateEdit_expenses_to.date():
                 final_values.update({key: value})
 
-        """ Set date range """
+        # Set date range
         self.chart_widget.set_values(final_values)
 
     def set_values(self, values: dict):
@@ -279,7 +279,7 @@ class Expenses(QObject):
                   "07-2021": 22054.00,
                   "08-2021": 22000.45}
 
-        """ Set values on chat """
+        # Set values on chat
         self.chart_widget.set_values(values)
 
     def show_labels(self, checked: bool):

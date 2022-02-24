@@ -7,11 +7,8 @@ class CustomWindow(QMainWindow):
     Custom window with signals
     """
 
-    """ Resize event signal - Window's height (int) / Window's width (int) """
+    # Resize event signal - Window's height (int) / Window's width (int)
     resizeEventSignal = Signal(int, int)
-
-    def __init__(self):
-        super().__init__()
 
     def resizeEvent(self, event):
         """
@@ -21,4 +18,4 @@ class CustomWindow(QMainWindow):
         """
 
         self.resizeEventSignal.emit(self.height(), self.width())
-        super(CustomWindow, self).resizeEvent(event)
+        super().resizeEvent(event)

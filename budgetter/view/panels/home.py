@@ -13,28 +13,28 @@ class Home(QObject):
     """
 
     def __init__(self, parent, gui):
-        super(Home, self).__init__()
+        super().__init__()
 
-        """ Store windows and gui """
-        self.uiSetup = gui
-        self.mainWindow = parent
+        # Store windows and gui
+        self.ui_setup = gui
+        self.main_window = parent
 
-        """ Accounts groupBox """
+        # Accounts groupBox
         self._accounts = Accounts(gui)
 
-        """ Spending groupBox """
+        # Spending groupBox
         self._spending = Spending(gui)
 
-        """ Distribution groupBox """
+        # Distribution groupBox
         self._distribution = Distribution(gui)
 
-        """ Transactions groupBox """
+        # Transactions groupBox
         self._transactions = Transactions(gui, parent)
 
-        """ Savings groupbox """
+        # Savings groupbox
         self._savings = Savings(gui)
 
-        """ Connect slots and signals """
+        # Connect slots and signals
         self.connect_home_slots_and_signals()
 
     def connect_home_slots_and_signals(self):

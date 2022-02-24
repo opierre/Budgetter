@@ -12,25 +12,25 @@ class SpendingChart(QtCharts.QChart):
     def __init__(self, parent=None):
         super().__init__(parent)
 
-        """ Hide legend """
+        # Hide legend
         self.legend().hide()
 
-        """ Set axis and hide them """
+        # Set axis and hide them
         self.axis_x = QtCharts.QValueAxis()
         self.axis_y = QtCharts.QValueAxis()
         self.axis_x.setVisible(False)
         self.axis_y.setVisible(False)
 
-        """ Configure axis range and add them to chart """
+        # Configure axis range and add them to chart
         self.addAxis(self.axis_x, QtCore.Qt.AlignBottom)
         self.addAxis(self.axis_y, QtCore.Qt.AlignLeft)
         self.axis_x.setRange(0, 5)
         self.axis_x.setTickCount(1)
 
-        """ Customize stylesheet """
+        # Customize stylesheet
         self.setBackgroundBrush(QBrush(QColor("transparent")))
 
-        """ Set animation on series """
+        # Set animation on series
         self.setAnimationOptions(QtCharts.QChart.SeriesAnimations)
 
     def set_values(self, values: list):
@@ -47,17 +47,17 @@ class SpendingChart(QtCharts.QChart):
         range_max = max(values)
         self.axis_y.setRange(0, range_max*11/10)
 
-        """ Configure pen """
+        # Configure pen
         pen = QPen(QColor("white"))
         pen.setWidthF(6.0)
         pen.setCapStyle(Qt.RoundCap)
 
-        """ Fulfill series """
+        # Fulfill series
         series = QtCharts.QSplineSeries()
         for index, value in enumerate(values):
             series.append(index, value)
 
-        """ Draw values """
+        # Draw values
         series.setPen(pen)
         self.addSeries(series)
         series.attachAxis(self.axis_x)

@@ -12,52 +12,52 @@ class Distribution(QObject):
     """
 
     def __init__(self, gui):
-        super(Distribution, self).__init__()
+        super().__init__()
 
-        """ Store gui """
+        # Store gui
         self.ui_setup = gui
 
-        """ Store custom/classic status bar """
+        # Store custom/classic status bar
         self.custom_status_bar = StatusBar()
         self.status_bar = QStatusBar()
 
-        """ Current Month button """
+        # Current Month button
         self.current_month = QPushButton(QCoreApplication.translate("distribution", "September"))
 
-        """ Previous Month button """
+        # Previous Month button
         self.previous_month = QPushButton(QCoreApplication.translate("distribution", "August"))
 
-        """ Store item delegate """
+        # Store item delegate
         self.distribution_delegate = DistributionDelegate()
 
-        """ ListView to display all categories """
+        # ListView to display all categories
         self.categories_listview = QListView()
 
-        """ Model to handle data in distribution list """
+        # Model to handle data in distribution list
         self.categories_model = DistributionModel([["Restaurants",
                                                     3,
                                                     22095.53,
                                                     100],
                                                    ["Transport",
-                                                   120,
-                                                   209.12,
-                                                   42],
+                                                    120,
+                                                    209.12,
+                                                    42],
                                                    ["Groceries",
-                                                   1,
-                                                   20.43,
-                                                   5]
+                                                    1,
+                                                    20.43,
+                                                    5]
                                                    ])
 
         self.categories_listview.setModel(self.categories_model)
         self.categories_listview.setItemDelegate(self.distribution_delegate)
 
-        """ Configure status bar """
+        # Configure status bar
         self.configure_status_bar()
 
-        """ Configure layout """
+        # Configure layout
         self.configure_layout()
 
-        """ Configure TitleBar """
+        # Configure TitleBar
         self.configure_title_bar()
 
     def configure_layout(self):
@@ -82,30 +82,30 @@ class Distribution(QObject):
         :return: None
         """
 
-        """ Set month content """
+        # Set month content
         self.set_current_and_previous_month()
 
-        """ Set states for activation """
+        # Set states for activation
         self.current_month.setProperty("activated", "true")
         self.current_month.update()
         self.previous_month.setProperty("activated", "false")
         self.previous_month.update()
 
-        """ Set cursor for left buttons """
+        # Set cursor for left buttons
         self.current_month.setCursor(Qt.PointingHandCursor)
         self.previous_month.setCursor(Qt.PointingHandCursor)
 
-        """ Add custom status bar to classic one """
+        # Add custom status bar to classic one
         self.status_bar.addPermanentWidget(self.custom_status_bar)
 
-        """ Add buttons on left corner """
+        # Add buttons on left corner
         self.status_bar.addWidget(self.current_month)
         self.status_bar.addWidget(self.previous_month)
 
-        """ Disable size grip """
+        # Disable size grip
         self.status_bar.setSizeGripEnabled(False)
 
-        """ Hide settings """
+        # Hide settings
         self.custom_status_bar.hide_settings()
 
     def configure_title_bar(self):
@@ -115,10 +115,10 @@ class Distribution(QObject):
         :return: None
         """
 
-        """ Set title """
+        # Set title
         self.ui_setup.monthlyExpenses.set_title(QCoreApplication.translate("savings", "Expenses Distribution"))
 
-        """ Hide all widgets in title bar """
+        # Hide all widgets in title bar
         self.ui_setup.monthlyExpenses.disable_title_bar_button()
         self.ui_setup.monthlyExpenses.disable_search_bar()
 

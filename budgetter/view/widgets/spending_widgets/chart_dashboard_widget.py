@@ -13,12 +13,12 @@ class ChartDashboard(QWidget):
     """
 
     def __init__(self, parent=None):
-        super(ChartDashboard, self).__init__(parent)
+        super().__init__(parent)
 
-        """ Store current month """
+        # Store current month
         self.current_month = 5
 
-        """ Store buttons """
+        # Store buttons
         self.months = [QPushButton(self),
                        QPushButton(self),
                        QPushButton(self),
@@ -26,25 +26,25 @@ class ChartDashboard(QWidget):
                        QPushButton(self),
                        QPushButton(self)]
 
-        """ Store values for months """
+        # Store values for months
         self.values = [2589, 1809, 1026, 1547, 1258, 987]
 
-        """ Set buttons group exclusive """
+        # Set buttons group exclusive
         self.button_group = QButtonGroup()
 
-        """ Get all months """
+        # Get all months
         self.get_months()
 
-        """ Store chart """
+        # Store chart
         self.chart = SpendingChart()
         self.chart_view = QtCharts.QChartView(self.chart)
         self._layout = QGridLayout(self)
         self._layout.addWidget(self.chart_view)
 
-        """ Configure widgets """
+        # Configure widgets
         self.configure_widgets()
 
-        """ Connect slots and signals """
+        # Connect slots and signals
         self.connect_slots_and_signals()
 
     def configure_widgets(self):
@@ -54,15 +54,15 @@ class ChartDashboard(QWidget):
         :return: None
         """
 
-        """ Set buttons group exclusive """
+        # Set buttons group exclusive
         self.button_group.setExclusive(True)
         self.months[-1].setChecked(True)
 
-        """ Configure chart view """
+        # Configure chart view
         self.chart_view.setRenderHint(QPainter.Antialiasing)
         self.chart_view.setVisible(True)
 
-        """ Configure chart """
+        # Configure chart
         self.chart.set_values(self.values)
         self.chart.layout().setContentsMargins(0, 0, 0, 0)
 
@@ -73,7 +73,7 @@ class ChartDashboard(QWidget):
         :return: None
         """
 
-        """ Connect click on button to update current month """
+        # Connect click on button to update current month
         self.button_group.buttonClicked.connect(self.update)
 
     def get_months(self):
@@ -106,7 +106,7 @@ class ChartDashboard(QWidget):
                      "  border-bottom-right-radius: 0px;"\
                      "}"
 
-        """ Get current month """
+        # Get current month
         current_month = QLocale().toString(QDate.currentDate(), 'MMM')
         self.months[5].setText(current_month.upper())
         self.months[5].setStyleSheet(stylesheet)
@@ -114,7 +114,7 @@ class ChartDashboard(QWidget):
         self.months[5].setCheckable(True)
         self.button_group.addButton(self.months[5])
 
-        """ Get 5 previous month and update stylesheet """
+        # Get 5 previous month and update stylesheet
         for index in range(1, 6):
             previous_month = QLocale().toString(QDate.currentDate().addMonths(-index), 'MMM')
             self.months[5 - index].setText(previous_month.upper())
@@ -144,36 +144,36 @@ class ChartDashboard(QWidget):
         :return: None
         """
 
-        """ Get painter """
+        # Get painter
         painter = QPainter(self)
         painter.setRenderHint(QPainter.Antialiasing)
 
-        """ Configure painter """
+        # Configure painter
         painter.setPen(Qt.NoPen)
 
-        """ Set gradient """
+        # Set gradient
         gradient = QLinearGradient(self.rect().x(), self.rect().y(), self.rect().width(), self.rect().height())
         gradient.setColorAt(1, QColor("#199DE5"))
         gradient.setColorAt(0, QColor("#0154C8"))
         brush = QBrush(gradient)
         painter.setBrush(brush)
 
-        """ Draw background """
+        # Draw background
         painter.drawRoundedRect(self.rect(), 4, 4)
 
-        """ Draw upper line """
+        # Draw upper line
         self.draw_separator(painter)
 
-        """ Draw month buttons """
+        # Draw month buttons
         self.draw_months(painter)
 
-        """ Draw amount for selected month """
+        # Draw amount for selected month
         rectangle_amount = self.draw_amount(painter)
 
-        """ Draw period underneath amount """
+        # Draw period underneath amount
         rectangle_period = self.draw_period(painter, rectangle_amount)
 
-        """ Draw values """
+        # Draw values
         self.draw_values(rectangle_period)
 
     def draw_separator(self, painter: QPainter):
@@ -184,14 +184,14 @@ class ChartDashboard(QWidget):
         :return: None
         """
 
-        """ Configure pen """
+        # Configure pen
         pen = QPen()
         pen.setColor(QColor(255, 255, 255))
         pen.setWidthF(1.5)
         painter.setPen(pen)
         painter.setOpacity(0.06)
 
-        """ Draw line """
+        # Draw line
         painter.drawLine(self.rect().x(), self.rect().y() + self.rect().height() * 1/6,
                          self.rect().width(), self.rect().y() + self.rect().height() * 1/6)
 
@@ -208,18 +208,18 @@ class ChartDashboard(QWidget):
 
         if len(self.months) == 6:
             for index in range(0, 6):
-                """ Align rectangle for button """
+                # Align rectangle for button
                 button_rectangle = QRect(self.rect().x() + 0 + (self.rect().width() - 0) * index / 6.0,
                                          self.rect().y(),
                                          self.rect().width() / 6.0,
                                          self.rect().height() * 1 / 6)
 
-                """ Define buttons positions """
+                # Define buttons positions
                 self.months[index].resize(button_rectangle.size())
                 self.months[index].move(button_rectangle.x(), button_rectangle.y())
 
                 if self.months[index].isChecked() is True:
-                    """ Set white gradient """
+                    # Set white gradient
                     rectangle_background = QRect(button_rectangle.x(),
                                                  button_rectangle.y() + button_rectangle.height(),
                                                  button_rectangle.width(),
@@ -233,10 +233,10 @@ class ChartDashboard(QWidget):
                     brush = QBrush(gradient)
                     painter.setBrush(brush)
 
-                    """ Draw gradient """
+                    # Draw gradient
                     painter.drawRect(rectangle_background)
 
-                    """ Update current month """
+                    # Update current month
                     self.current_month = index
 
     def draw_amount(self, painter: QPainter):
@@ -247,19 +247,19 @@ class ChartDashboard(QWidget):
         :return: (QRectF) rectangle where amount has been drawn
         """
 
-        """ Set rectangle """
+        # Set rectangle
         rectangle_amount = QRectF(self.rect().x() + self.rect().width() * 1 / 24,
                                   self.rect().y() + self.rect().height() * 1 / 4,
                                   self.rect().width() / 4.5,
                                   28)
 
-        """ Configure pen and painter """
+        # Configure pen and painter
         pen = QPen(QColor("white"), 1, c=Qt.RoundCap)
         painter.setPen(pen)
         painter.setBrush(Qt.NoBrush)
         painter.setFont(QFont("Roboto Black", 18, QFont.Normal))
 
-        """ Set text """
+        # Set text
         text = convert_amount_to_str(self.values[self.current_month]) + " €"
         painter.drawText(rectangle_amount, Qt.AlignCenter, text)
 
@@ -274,20 +274,20 @@ class ChartDashboard(QWidget):
         :return: rectangle where period has been drawn
         """
 
-        """ Set rectangle """
+        # Set rectangle
         rectangle_period = QRectF(rectangle_amount.x(),
                                   rectangle_amount.y() + rectangle_amount.height(),
                                   rectangle_amount.width(),
                                   rectangle_amount.height())
 
-        """ Configure pen and painter """
+        # Configure pen and painter
         pen = QPen(QColor("#c4c9cf"), 1, c=Qt.RoundCap)
         painter.setPen(pen)
         painter.setBrush(Qt.NoBrush)
         painter.setOpacity(0.8)
         painter.setFont(QFont("Roboto Medium", 8, QFont.Normal))
 
-        """ Set text """
+        # Set text
         month_number = (QDate.currentDate().month() - (5 - self.current_month)) % 12
         if month_number == 0:
             month_number = 12
@@ -307,7 +307,7 @@ class ChartDashboard(QWidget):
         :return: None
         """
 
-        """ Draw chart view """
+        # Draw chart view
         self.chart_view.setGeometry(self.rect().x(), rectangle_period.y(),
                                     self.rect().width(),
                                     self.rect().height() - rectangle_period.y())

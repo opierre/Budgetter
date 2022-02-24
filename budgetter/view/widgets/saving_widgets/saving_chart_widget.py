@@ -10,42 +10,42 @@ class SavingChart(QtCharts.QChart):
     Saving chart
     """
 
-    """ Signal emmitted when click on chart - Point clicked / Alignment of Callout """
+    # Signal emmitted when click on chart - Point clicked / Alignment of Callout """
     pointClicked = Signal(QPointF, Qt.Alignment)
 
     def __init__(self, parent=None):
         super().__init__(parent)
 
-        """ Hide legend """
+        # Hide legend
         self.legend().hide()
 
-        """ Store current clicked point """
+        # Store current clicked point
         self.current_point = None
 
-        """ Set x axis """
+        # Set x axis
         self.axis_x = QtCharts.QDateTimeAxis()
         self.axis_x.setFormat("MMMM-yyyy")
         self.axis_x.setVisible(False)
 
-        """ Set y axis """
+        # Set y axis
         self.axis_y = QtCharts.QValueAxis()
         self.axis_y.setMin(0)
         self.axis_y.setVisible(False)
 
-        """ Store series """
+        # Store series
         self.area_series = QtCharts.QAreaSeries(self)
         self.series_lower = QtCharts.QLineSeries()
         self.series_upper = QtCharts.QLineSeries()
         self.series_finale = QtCharts.QLineSeries()
         self.series_scatter = QtCharts.QScatterSeries()
 
-        """ Customize stylesheet """
+        # Customize stylesheet
         self.setBackgroundBrush(QBrush(QColor("transparent")))
 
-        """ Set animation """
+        # Set animation
         self.setAnimationOptions(QtCharts.QChart.SeriesAnimations)
 
-        """ Connect all slots and signals """
+        # Connect all slots and signals
         self.connect_slots_and_signals()
 
     def set_values(self, values: dict):
@@ -56,63 +56,63 @@ class SavingChart(QtCharts.QChart):
         :return: None
         """
 
-        """ Clear previous values """
+        # Clear previous values
         self.series_lower.clear()
         self.series_upper.clear()
         self.series_scatter.clear()
         self.series_finale.clear()
 
-        """ Configure pen """
+        # Configure pen """
         pen = QPen(QColor("#6dd230"))
         pen.setWidthF(3.0)
         pen.setCapStyle(Qt.RoundCap)
 
-        """ Fulfill series """
+        # Fulfill series """
         y_max_value = 0
         for key, value in values.items():
-            """ Update Y-Axis range """
+            # Update Y-Axis range """
             if value > y_max_value:
                 y_max_value = value
 
-            """ Update X-Axis range """
+            # Update X-Axis range """
             x_value = float(QDateTime.fromString(key, "MM-yyyy").toMSecsSinceEpoch())
 
             self.series_upper.append(x_value, value)
             self.series_finale.append(x_value, value)
             self.series_lower.append(x_value, 0)
 
-        """ Create Area series """
+        # Create Area series """
         self.area_series.setLowerSeries(self.series_lower)
         self.area_series.setUpperSeries(self.series_upper)
 
-        """ Creat gradient to fulfill area zone """
+        # Creat gradient to fulfill area zone """
         gradient = QLinearGradient(QPointF(0, 0), QPointF(0, 1))
         gradient.setColorAt(0.0, QColor("#35536D"))
         gradient.setColorAt(1.0, QColor("transparent"))
         gradient.setCoordinateMode(QGradient.ObjectMode)
 
-        """ Set brush and pen for series """
+        # Set brush and pen for series """
         self.area_series.setBrush(gradient)
         self.series_finale.setPen(pen)
 
-        """ Configure scatter series pen and brush """
+        # Configure scatter series pen and brush """
         self.series_scatter.setPen(pen)
         self.series_scatter.setBrush(QColor("#26374C"))
 
-        """ Remove border from area zone """
+        # Remove border from area zone """
         self.area_series.setPen(pen)
         self.area_series.setBorderColor(QColor('transparent'))
 
-        """ Add series to graph """
+        # Add series to graph """
         self.addSeries(self.area_series)
         self.addSeries(self.series_finale)
         self.addSeries(self.series_scatter)
 
-        """ Set axes """
+        # Set axes """
         self.addAxis(self.axis_x, Qt.AlignBottom)
         self.addAxis(self.axis_y, Qt.AlignLeft)
 
-        """ Attach axes to series """
+        # Attach axes to series """
         self.series_finale.attachAxis(self.axis_x)
         self.series_finale.attachAxis(self.axis_y)
         self.area_series.attachAxis(self.axis_x)
@@ -120,12 +120,12 @@ class SavingChart(QtCharts.QChart):
         self.series_scatter.attachAxis(self.axis_x)
         self.series_scatter.attachAxis(self.axis_y)
 
-        """ Configure y axis """
+        # Configure y axis """
         self.axis_y.setRange(0, y_max_value * 12/10)
         self.axis_x.setRange(QDateTime.fromMSecsSinceEpoch(self.series_finale.points()[0].x()),
                              QDateTime.fromMSecsSinceEpoch(self.series_finale.points()[-1].x()))
 
-        """ Display middle point """
+        # Display middle point """
         self.show_point(self.get_middle_value())
 
     def connect_slots_and_signals(self):
@@ -135,7 +135,7 @@ class SavingChart(QtCharts.QChart):
         :return: None
         """
 
-        """ Connect click on series finale to display scatter """
+        # Connect click on series finale to display scatter """
         self.series_finale.clicked[QPointF].connect(self.show_point)
         self.area_series.clicked[QPointF].connect(self.show_point)
 
@@ -147,11 +147,11 @@ class SavingChart(QtCharts.QChart):
         :return: None
         """
 
-        """ Random max distance """
+        # Random max distance """
         distance = 2147483647
         closest = QPointF(0, 0)
 
-        """ Find closest point in series finale """
+        # Find closest point in series finale """
         for current_point in self.series_finale.points():
             current_distance = math.sqrt((current_point.x() - clicked_point.x()) *
                                          (current_point.x() - clicked_point.x())
@@ -162,18 +162,18 @@ class SavingChart(QtCharts.QChart):
                 distance = current_distance
                 closest = current_point
 
-        """ Remove previous point and append closest to click """
+        # Remove previous point and append closest to click """
         self.series_scatter.clear()
         self.series_scatter.append(closest)
 
-        """ Update current point clicked """
+        # Update current point clicked """
         self.current_point = closest
 
-        """ Retrieve position in list """
+        # Retrieve position in list """
         points = self.series_finale.points()
         index = points.index(closest)
 
-        """ Emit signal to display callout """
+        # Emit signal to display callout """
         if index >= len(points) / 2:
             self.pointClicked.emit(closest, Qt.AlignRight)
         else:
@@ -196,14 +196,14 @@ class SavingChart(QtCharts.QChart):
         :return: None
         """
 
-        """ Retrieve position in list """
+        # Retrieve position in list """
         points = self.series_finale.points()
         index = points.index(self.current_point)
 
         if index < len(points) - 1:
             index += 1
 
-        """ Show next point and callout """
+        # Show next point and callout """
         self.show_point(points[index])
 
     def show_previous(self):
@@ -213,12 +213,12 @@ class SavingChart(QtCharts.QChart):
         :return: None
         """
 
-        """ Retrieve position in list """
+        # Retrieve position in list """
         points = self.series_finale.points()
         index = points.index(self.current_point)
 
         if index > 0:
             index -= 1
 
-        """ Show previous point and callout """
+        # Show previous point and callout """
         self.show_point(points[index])

@@ -18,76 +18,76 @@ class Transactions(QObject):
     """
 
     def __init__(self, gui, parent):
-        super(Transactions, self).__init__()
+        super().__init__()
 
-        """ Store gui and main window """
+        # Store gui and main window
         self.ui_setup = gui
         self.main_window = parent
 
-        """ Store custom/classic status bar """
+        # Store custom/classic status bar
         self.custom_status_bar = StatusBar()
         self.status_bar = QStatusBar()
 
-        """ All button - Type """
+        # All button - Type
         self.all = QPushButton(QCoreApplication.translate("transactions", "All"))
 
-        """ Expenses button - Type """
+        # Expenses button - Type
         self.expenses = QPushButton(QCoreApplication.translate("transactions", "Expenses"))
 
-        """ Incomes button - Type """
+        # Incomes button - Type
         self.income = QPushButton(QCoreApplication.translate("transactions", "Income"))
 
-        """ Transfers button - Type """
+        # Transfers button - Type
         self.transfer = QPushButton(QCoreApplication.translate("transactions", "Transfer"))
 
-        """ All button - Account """
-        self.allAccount = QPushButton(QCoreApplication.translate("transactions", "All"))
+        # All button - Account
+        self.all_account = QPushButton(QCoreApplication.translate("transactions", "All"))
 
-        """ Account 1 button - Account """
+        # Account 1 button - Account
         self.account1 = QPushButton("Livret A")
 
-        """ Account 2 button - Account """
+        # Account 2 button - Account
         self.account2 = QPushButton("Compte Chèque")
 
-        """ Account 3 button - Account """
+        # Account 3 button - Account
         self.account3 = QPushButton("Livret Jeune")
 
-        """ Store item delegate """
+        # Store item delegate
         self.transaction_delegate = TransactionDelegate()
 
-        """ ListView to display all transactions """
+        # ListView to display all transactions
         self.transactions_listview = QListView()
 
-        """ Store LineEdit for name edition on transaction """
+        # Store LineEdit for name edition on transaction
         self.edit_name = QLineEdit(self.transactions_listview)
 
-        """ Store Combobox for category selection on transaction """
+        # Store Combobox for category selection on transaction
         self.edit_category = QComboBox(self.transactions_listview)
         self.edit_category_name = QLabel(self.transactions_listview)
 
-        """ Store DoubleSpinBox for amount edition on transaction """
+        # Store DoubleSpinBox for amount edition on transaction
         self.edit_amount = QDoubleSpinBox(self.transactions_listview)
 
-        """ Store DateEdit for date edition on transaction """
+        # Store DateEdit for date edition on transaction
         self.edit_date = QDateEdit(self.transactions_listview)
 
-        """ Store Combobox for account selection on transaction """
+        # Store Combobox for account selection on transaction
         self.edit_account = QComboBox(self.transactions_listview)
 
-        """ Store Combobox for type expense selection on transaction """
+        # Store Combobox for type expense selection on transaction
         self.edit_exp_or_inc = ExpensesIncomeTransfer(self.transactions_listview)
 
-        """ Store mean widget """
+        # Store mean widget
         self.edit_mean = Mean(self.transactions_listview)
 
-        """ Store Apply/Cancel QPushButtons when in edit mode """
+        # Store Apply/Cancel QPushButtons when in edit mode
         self.apply = QPushButton(parent=self.transactions_listview)
         self.cancel = QPushButton(parent=self.transactions_listview)
 
-        """ Model for filtering """
+        # Model for filtering
         self.transactions_filter_model = TransactionsFilterModel()
 
-        """ Model to handle data in transactions list """
+        # Model to handle data in transactions list
         d = [
             {
                 "name": "Flunch",
@@ -132,22 +132,22 @@ class Transactions(QObject):
         ]
         self.transactions_model = TransactionsModel(d)
 
-        """ Configure edit widgets """
+        # Configure edit widgets
         self.configure_edit_widgets()
 
-        """ Configure status bar """
+        # Configure status bar
         self.configure_status_bar()
 
-        """ Configure layout """
+        # Configure layout
         self.configure_layout()
 
-        """ Configure List view """
+        # Configure List view
         self.configure_list_view()
 
-        """ Configure TitleBar """
+        # Configure TitleBar
         self.configure_title_bar()
 
-        """ Connect all widgets """
+        # Connect all widgets
         self.connect_slots_and_signals()
 
     def connect_slots_and_signals(self):
@@ -157,33 +157,33 @@ class Transactions(QObject):
         :return: None
         """
 
-        """ Connect signal from Edit button in list view to edit menu """
+        # Connect signal from Edit button in list view to edit menu
         self.transaction_delegate.transactionEditPressed.connect(self.edit_transaction)
 
-        """ Connect signal from Delete button in list view to delete item """
+        # Connect signal from Delete button in list view to delete item
         self.transaction_delegate.transactionDeletePressed.connect(self.delete_transaction)
 
-        """ Connect signal from Apply button in list view to modify item """
+        # Connect signal from Apply button in list view to modify item
         self.transaction_delegate.transactionModified.connect(self.modify_transaction)
 
-        """ Connect signal from Cancel button in list view to abort modifications in item """
+        # Connect signal from Cancel button in list view to abort modifications in item
         self.transaction_delegate.transactionModifCanceled.connect(self.hide_edit_widgets)
 
-        """ Connect signal from comment hovered button in list view to open menu with comment content """
+        # Connect signal from comment hovered button in list view to open menu with comment content
         self.transaction_delegate.commentHovered.connect(self.display_comment)
 
-        """ Connect signal from click/edit on +/search button """
+        # Connect signal from click/edit on +/search button
         self.ui_setup.transactions.titleBarClicked.connect(self.add_transaction)
         self.ui_setup.transactions.titleBarSearched.connect(self.search_transaction)
 
-        """ Update filtering when click on button in status bar """
+        # Update filtering when click on button in status bar
         self.expenses.clicked.connect(self.update_current_filtering)
         self.income.clicked.connect(self.update_current_filtering)
         self.all.clicked.connect(self.update_current_filtering)
         self.transfer.clicked.connect(self.update_current_filtering)
 
-        """ Update filtering when click on button in status bar """
-        self.allAccount.clicked.connect(self.add_filter)
+        # Update filtering when click on button in status bar
+        self.all_account.clicked.connect(self.add_filter)
         self.account1.clicked.connect(self.add_filter)
         self.account2.clicked.connect(self.add_filter)
         self.account3.clicked.connect(self.add_filter)
@@ -206,26 +206,26 @@ class Transactions(QObject):
         :return: None
         """
 
-        """ Configure Name widget """
+        # Configure Name widget
         self.edit_name.setFont(QFont("Roboto", 11))
         self.edit_name.textChanged.connect(self.resize_edit_widget)
         self.edit_name.setVisible(False)
 
-        """ Configure Amount widget """
+        # Configure Amount widget
         self.edit_amount.setMinimum(0.0)
         self.edit_amount.setMaximum(100000.0)
         self.edit_amount.setFont(QFont("Roboto", 11))
         self.edit_amount.valueChanged.connect(self.resize_edit_widget)
         self.edit_amount.setVisible(False)
 
-        """ Configure DateEdit widget """
+        # Configure DateEdit widget
         self.edit_date.setFont(QFont("Roboto", 11))
         self.edit_date.setCalendarPopup(True)
         self.edit_date.setCalendarWidget(CalendarWidget())
         self.edit_date.dateChanged.connect(self.resize_edit_widget)
         self.edit_date.setVisible(False)
 
-        """ Configure ComboBox widget """
+        # Configure ComboBox widget
         self.edit_account.setView(QListView())
         self.edit_account.setStyleSheet("QListView {"
                                         "font-size: 11pt;"
@@ -243,11 +243,11 @@ class Transactions(QObject):
         self.edit_account.setCursor(Qt.PointingHandCursor)
         self.edit_account.setVisible(False)
 
-        """ Configure custom widget """
+        # Configure custom widget
         self.edit_exp_or_inc.setVisible(False)
         self.edit_mean.setVisible(False)
 
-        """ Configure combobox/label for category """
+        # Configure combobox/label for category
         self.edit_category.setItemDelegate(CategoryComboBox())
         self.edit_category.addItem(QIcon(":/images/images/local_grocery_store-white-18dp.svg"), "Groceries")
         self.edit_category.addItem(QIcon(":/images/images/directions_car-white-18dp_outlined.svg"), "Transport")
@@ -264,7 +264,7 @@ class Transactions(QObject):
         self.edit_category.setVisible(False)
         self.edit_category_name.setVisible(False)
 
-        """ Configure Apply/Cancel buttons """
+        # Configure Apply/Cancel buttons
         self.apply.setIcon(QIcon(":/images/images/check-white-18dp.svg"))
         self.cancel.setIcon(QIcon(":/images/images/close-white-18dp.svg"))
         self.apply.setIconSize(QSize(18, 18))
@@ -286,10 +286,10 @@ class Transactions(QObject):
         :return: None
         """
 
-        """ Set text """
+        # Set text
         self.edit_category_name.setText(name)
 
-        """ Update width according to text """
+        # Update width according to text
         font_metrics = QFontMetrics(self.edit_category_name.font())
         pixels_width = font_metrics.width(self.edit_category_name.text())
         self.edit_category_name.setFixedWidth(pixels_width)
@@ -314,62 +314,62 @@ class Transactions(QObject):
         :return: None
         """
 
-        """ Disable selection """
+        # Disable selection
         self.transactions_listview.setSelectionMode(QAbstractItemView.NoSelection)
 
-        """ Configure Name widget """
+        # Configure Name widget
         self.edit_name.setText(self.transactions_filter_model.data(index, Qt.DisplayRole)["name"])
-        fontMetrics = QFontMetrics(self.edit_name.font())
-        pixelsWidth = fontMetrics.width(self.edit_name.text())
-        pixelsHeight = fontMetrics.height()
-        self.edit_name.setGeometry(rectName.x(), rectName.y() - 3, pixelsWidth + 10, pixelsHeight + 6)
+        font_metrics = QFontMetrics(self.edit_name.font())
+        pixels_width = font_metrics.width(self.edit_name.text())
+        pixels_height = font_metrics.height()
+        self.edit_name.setGeometry(rectName.x(), rectName.y() - 3, pixels_width + 10, pixels_height + 6)
         self.edit_name.setVisible(True)
 
-        """ Configure ComboBox/Label widget """
-        selectedCategory = self.transactions_filter_model.data(index, Qt.DisplayRole)["category"]
-        if selectedCategory == '':
+        # Configure ComboBox/Label widget
+        selected_category = self.transactions_filter_model.data(index, Qt.DisplayRole)["category"]
+        if selected_category == '':
             self.edit_category.setCurrentIndex(-1)
         else:
-            self.edit_category_name.setText(selectedCategory)
+            self.edit_category_name.setText(selected_category)
         self.edit_category.setGeometry(rectCategory.x(), rectCategory.y(), rectCategory.width(), rectCategory.height())
         self.edit_category_name.setGeometry(rectCategoryName.x(), rectCategoryName.y(), rectCategoryName.width(),
                                             rectCategoryName.height())
         self.edit_category.setVisible(True)
         self.edit_category_name.setVisible(True)
 
-        """ Configure Amount widget """
+        # Configure Amount widget
         amount = self.transactions_filter_model.data(index, Qt.DisplayRole)["amount"]
         self.edit_amount.setValue(amount)
-        fontMetrics = QFontMetrics(self.edit_amount.font())
-        pixelsWidth = fontMetrics.width(str(self.edit_amount.value()))
-        pixelsHeight = fontMetrics.height()
-        self.edit_amount.setGeometry(rectAmount.x(), rectAmount.y() - 3, pixelsWidth + 38, pixelsHeight + 6)
+        font_metrics = QFontMetrics(self.edit_amount.font())
+        pixels_width = font_metrics.width(str(self.edit_amount.value()))
+        pixels_height = font_metrics.height()
+        self.edit_amount.setGeometry(rectAmount.x(), rectAmount.y() - 3, pixels_width + 38, pixels_height + 6)
         self.edit_amount.setVisible(True)
 
-        """ Configure DateEdit widget """
-        dateStr = self.transactions_filter_model.data(index, Qt.DisplayRole)["date"]
-        self.edit_date.setDate(QDate.fromString(dateStr, 'dd/MM/yyyy'))
-        fontMetrics = QFontMetrics(self.edit_date.font())
-        pixelsWidth = fontMetrics.width(self.edit_date.date().toString('dd/MM/yyyy'))
-        pixelsHeight = fontMetrics.height()
-        self.edit_date.setGeometry(rectDate.x(), rectDate.y() - 3, pixelsWidth + 30, pixelsHeight + 6)
+        # Configure DateEdit widget
+        date_str = self.transactions_filter_model.data(index, Qt.DisplayRole)["date"]
+        self.edit_date.setDate(QDate.fromString(date_str, 'dd/MM/yyyy'))
+        font_metrics = QFontMetrics(self.edit_date.font())
+        pixels_width = font_metrics.width(self.edit_date.date().toString('dd/MM/yyyy'))
+        pixels_height = font_metrics.height()
+        self.edit_date.setGeometry(rectDate.x(), rectDate.y() - 3, pixels_width + 30, pixels_height + 6)
         self.edit_date.setVisible(True)
 
-        """ Configure ComboBox widget """
-        selectedAccount = self.transactions_filter_model.data(index, Qt.DisplayRole)["account"]
-        self.edit_account.setCurrentText(selectedAccount)
+        # Configure ComboBox widget
+        selected_account = self.transactions_filter_model.data(index, Qt.DisplayRole)["account"]
+        self.edit_account.setCurrentText(selected_account)
         self.edit_account.move(rectAccount.x(), rectAccount.y() - 3)
         self.edit_account.setVisible(True)
 
-        """ Configure Custom widget """
-        selectedExpOrInc = self.transactions_filter_model.data(index, Qt.DisplayRole)["type"]
+        # Configure Custom widget
+        selected_exp_or_inc = self.transactions_filter_model.data(index, Qt.DisplayRole)["type"]
         self.edit_exp_or_inc.move(rectExpOrInc.x() - 4, self.edit_category.y())
         self.edit_exp_or_inc.setFixedWidth(rectExpOrInc.width() + 9)
         self.edit_exp_or_inc.setFixedHeight(self.edit_category.height())
-        self.edit_exp_or_inc.set_active_type(selectedExpOrInc)
+        self.edit_exp_or_inc.set_active_type(selected_exp_or_inc)
         self.edit_exp_or_inc.setVisible(True)
 
-        """ Configure Mean widget """
+        # Configure Mean widget
         mean = self.transactions_filter_model.data(index, Qt.DisplayRole)["means"]
         self.edit_mean.move(rect_mean.x() - rect_mean.width() - 10, rect_mean.y() - 5)
         self.edit_mean.setFixedWidth(rect_mean.width() * 3 + 20)
@@ -377,7 +377,7 @@ class Transactions(QObject):
         self.edit_mean.set_active_type(mean)
         self.edit_mean.setVisible(True)
 
-        """ Configure Apply/Cancel buttons """
+        # Configure Apply/Cancel buttons
         self.apply.setGeometry(rectEdit)
         self.cancel.setGeometry(rectDelete)
         self.apply.setVisible(True)
@@ -390,19 +390,19 @@ class Transactions(QObject):
         """
 
         sender = self.sender()
-        fontMetrics = QFontMetrics(sender.font())
+        font_metrics = QFontMetrics(sender.font())
 
         if isinstance(sender, QLineEdit):
             value = sender.text()
-            pixelsWidth = fontMetrics.width(value)
+            pixelsWidth = font_metrics.width(value)
             sender.setFixedWidth(pixelsWidth + 12)
         elif isinstance(sender, QDoubleSpinBox):
             value = str(sender.value())
-            pixelsWidth = fontMetrics.width(value)
+            pixelsWidth = font_metrics.width(value)
             sender.setFixedWidth(pixelsWidth + 38)
         elif isinstance(sender, QDateEdit):
             value = str(sender.date().toString('dd/MM/yyyy'))
-            pixelsWidth = fontMetrics.width(value)
+            pixelsWidth = font_metrics.width(value)
             sender.setFixedWidth(pixelsWidth + 30)
 
     def delete_transaction(self, index):
@@ -412,7 +412,7 @@ class Transactions(QObject):
         :return: None
         """
 
-        """ Remove transaction from model """
+        # Remove transaction from model
         self.transactions_filter_model.delete_transaction(index)
 
     def add_transaction(self):
@@ -421,19 +421,19 @@ class Transactions(QObject):
         :return: None
         """
 
-        """ Add transaction to model """
+        # Add transaction to model
         self.transactions_filter_model.add_transaction()
 
-        """ Set editable mode """
+        # Set editable mode
         index = self.transactions_filter_model.index(0, 0)
         self.transaction_delegate.set_editable(index)
 
-        """ Select line """
+        # Select line
         selection_model = self.transactions_listview.selectionModel()
         selection_model.select(index, QItemSelectionModel.ClearAndSelect)
         self.transactions_listview.setSelectionMode(QAbstractItemView.NoSelection)
 
-        """ Retrieve all rects """
+        # Retrieve all rects
         output = self.transaction_delegate.get_first_row_rects()
         self.edit_transaction(index, output[0], output[1], output[2], output[3], output[4], output[5], output[6],
                               output[7], output[8], output[9])
@@ -447,18 +447,18 @@ class Transactions(QObject):
         :return: None
         """
 
-        ''' Look for name/date/amount '''
+        # Look for name/date/amount
         if "name" in search_field.lower():
-            """ Filter model """
+            # Filter model
             self.transactions_filter_model.update_search_filter("name", content)
         elif "date" in search_field.lower():
-            """ Filter model """
+            # Filter model
             self.transactions_filter_model.update_search_filter("date", content)
         elif "amount" in search_field.lower():
-            """ Filter model """
+            # Filter model
             self.transactions_filter_model.update_search_filter("amount", content)
         else:
-            """ Reset filter model """
+            # Reset filter model
             self.transactions_filter_model.update_search_filter(None, None)
 
     def modify_transaction(self, index):
@@ -474,13 +474,13 @@ class Transactions(QObject):
                  "account": self.edit_account.currentText(), "type": self.edit_exp_or_inc.active_type(),
                  "means": self.edit_mean.active_type(), "comment": ""}
 
-        """ Remove transaction from model """
+        # Remove transaction from model """
         self.transactions_filter_model.modify_transaction(self.transaction_delegate.editable, value)
 
         # TODO: to remove
         # rest_client = RestClient().POST("http://127.0.0.1:8000/dashboard/transaction/", value)
 
-        """ Hide editable widgets """
+        # Hide editable widgets """
         self.hide_edit_widgets()
 
     def hide_edit_widgets(self):
@@ -490,7 +490,7 @@ class Transactions(QObject):
         :return: None
         """
 
-        """ Hide all widgets """
+        # Hide all widgets """
         self.edit_name.setVisible(False)
         self.edit_amount.setVisible(False)
         self.edit_date.setVisible(False)
@@ -502,14 +502,14 @@ class Transactions(QObject):
         self.apply.setVisible(False)
         self.cancel.setVisible(False)
 
-        """ Re-enable selection """
+        # Re-enable selection """
         self.transactions_listview.setSelectionMode(QAbstractItemView.SingleSelection)
 
-        """ Clear selection """
+        # Clear selection """
         selection_model = self.transactions_listview.selectionModel()
         selection_model.select(self.transaction_delegate.editable, QItemSelectionModel.Clear)
 
-        """ Disable editable state """
+        # Disable editable state """
         self.transaction_delegate.set_editable(False)
 
     def configure_layout(self):
@@ -534,23 +534,23 @@ class Transactions(QObject):
         :return: None
         """
 
-        """ Set proxy model """
+        # Set proxy model """
         self.transactions_filter_model.setSourceModel(self.transactions_model)
 
-        """ Date re-filtered if model changed """
+        # Date re-filtered if model changed """
         self.transactions_filter_model.setDynamicSortFilter(True)
         self.transactions_filter_model.sort(0, Qt.DescendingOrder)
 
-        """ Set model """
+        # Set model """
         self.transactions_listview.setModel(self.transactions_filter_model)
 
-        """ Set mouse tracking """
+        # Set mouse tracking """
         self.transactions_listview.setMouseTracking(True)
 
-        """ Set item delegate"""
+        # Set item delegate"""
         self.transactions_listview.setItemDelegate(self.transaction_delegate)
 
-        """ Hide widgets for edition """
+        # Hide widgets for edition """
         self.edit_name.setVisible(False)
         self.edit_amount.setVisible(False)
         self.edit_date.setVisible(False)
@@ -562,7 +562,7 @@ class Transactions(QObject):
         :return: None
         """
 
-        """ Set states for activation """
+        # Set states for activation """
         self.all.setProperty("activated", "true")
         self.all.update()
         self.expenses.setProperty("activated", "false")
@@ -572,9 +572,9 @@ class Transactions(QObject):
         self.transfer.setProperty("activated", "false")
         self.transfer.update()
 
-        """ Set states for activation """
-        self.allAccount.setProperty("activated", "true")
-        self.allAccount.update()
+        # Set states for activation """
+        self.all_account.setProperty("activated", "true")
+        self.all_account.update()
         self.account1.setProperty("activated", "false")
         self.account1.update()
         self.account2.setProperty("activated", "false")
@@ -582,7 +582,7 @@ class Transactions(QObject):
         self.account3.setProperty("activated", "false")
         self.account3.update()
 
-        """ Set cursor for left buttons """
+        # Set cursor for left buttons """
         self.all.setCursor(Qt.PointingHandCursor)
         self.expenses.setCursor(Qt.PointingHandCursor)
         self.expenses.setIconSize(QSize(18, 18))
@@ -594,38 +594,38 @@ class Transactions(QObject):
         self.transfer.setIconSize(QSize(18, 18))
         self.transfer.setIcon(QIcon(":/images/images/hdr_weak_black_18dp_transfer.svg"))
 
-        """ Set cursor for left buttons """
-        self.allAccount.setCursor(Qt.PointingHandCursor)
+        # Set cursor for left buttons """
+        self.all_account.setCursor(Qt.PointingHandCursor)
         self.account1.setCursor(Qt.PointingHandCursor)
         self.account2.setCursor(Qt.PointingHandCursor)
         self.account3.setCursor(Qt.PointingHandCursor)
 
-        """ Add custom status bar to classic one """
+        # Add custom status bar to classic one """
         self.status_bar.addPermanentWidget(self.custom_status_bar)
 
-        """ Add buttons on left corner """
+        # Add buttons on left corner """
         self.status_bar.addWidget(self.all)
         self.status_bar.addWidget(self.expenses)
         self.status_bar.addWidget(self.income)
         self.status_bar.addWidget(self.transfer)
 
-        """ Add separator """
+        # Add separator """
         vline = QFrame()
         vline.setFrameShape(vline.VLine)
         vline.setFixedHeight(self.all.sizeHint().height() * 1.2)
         vline.setStyleSheet("color: #344457;")
         self.status_bar.addWidget(vline)
 
-        """ Add buttons on left corner """
-        self.status_bar.addWidget(self.allAccount)
+        # Add buttons on left corner """
+        self.status_bar.addWidget(self.all_account)
         self.status_bar.addWidget(self.account1)
         self.status_bar.addWidget(self.account2)
         self.status_bar.addWidget(self.account3)
 
-        """ Disable size grip """
+        # Disable size grip """
         self.status_bar.setSizeGripEnabled(False)
 
-        """ Hide settings """
+        # Hide settings """
         self.custom_status_bar.hide_settings()
 
     def configure_title_bar(self):
@@ -635,7 +635,7 @@ class Transactions(QObject):
         :return: None
         """
 
-        """ Set title """
+        # Set title
         self.ui_setup.transactions.set_title(QCoreApplication.translate("transactions", "Transactions"))
         self.ui_setup.transactions.set_button_tooltip(QCoreApplication.translate("transactions", "Add transaction"))
 
@@ -646,27 +646,27 @@ class Transactions(QObject):
         :return: None
         """
 
-        """ Retrieve sender """
-        pyObject = self.sender()
+        # Retrieve sender
+        py_object = self.sender()
 
-        """ Retrieve current text """
-        newFilter = pyObject.text()
+        # Retrieve current text
+        new_filter = py_object.text()
 
-        """ Update filter """
-        self.transactions_filter_model.update_filter(newFilter)
+        # Update filter
+        self.transactions_filter_model.update_filter(new_filter)
 
-        """ Update activated state """
-        if newFilter in {'All', 'Tout'}:
+        # Update activated state
+        if new_filter in {'All', 'Tout'}:
             self.all.setProperty("activated", "true")
             self.expenses.setProperty("activated", "false")
             self.income.setProperty("activated", "false")
             self.transfer.setProperty("activated", "false")
-        elif newFilter in {'Expenses', 'Dépenses'}:
+        elif new_filter in {'Expenses', 'Dépenses'}:
             self.all.setProperty("activated", "false")
             self.expenses.setProperty("activated", "true")
             self.income.setProperty("activated", "false")
             self.transfer.setProperty("activated", "false")
-        elif newFilter in {'Income', 'Revenus'}:
+        elif new_filter in {'Income', 'Revenus'}:
             self.all.setProperty("activated", "false")
             self.expenses.setProperty("activated", "false")
             self.income.setProperty("activated", "true")
@@ -677,7 +677,7 @@ class Transactions(QObject):
             self.income.setProperty("activated", "false")
             self.transfer.setProperty("activated", "true")
 
-        """ Update style """
+        # Update style
         self.all.style().unpolish(self.all)
         self.all.style().polish(self.all)
         self.expenses.style().unpolish(self.expenses)
@@ -694,40 +694,40 @@ class Transactions(QObject):
         :return: None
         """
 
-        """ Retrieve sender """
-        pyObject = self.sender()
+        # Retrieve sender
+        py_object = self.sender()
 
-        """ Retrieve current text """
-        newFilter = pyObject.text()
+        # Retrieve current text
+        new_filter = py_object.text()
 
-        """ Add filter """
-        self.transactions_filter_model.add_filter(newFilter)
+        # Add filter
+        self.transactions_filter_model.add_filter(new_filter)
 
-        """ Update activated state """
-        if newFilter == 'All':
-            self.allAccount.setProperty("activated", "true")
+        # Update activated state
+        if new_filter == 'All':
+            self.all_account.setProperty("activated", "true")
             self.account1.setProperty("activated", "false")
             self.account2.setProperty("activated", "false")
             self.account3.setProperty("activated", "false")
-        elif newFilter == self.account1.text():
-            self.allAccount.setProperty("activated", "false")
+        elif new_filter == self.account1.text():
+            self.all_account.setProperty("activated", "false")
             self.account1.setProperty("activated", "true")
             self.account2.setProperty("activated", "false")
             self.account3.setProperty("activated", "false")
-        elif newFilter == self.account2.text():
-            self.allAccount.setProperty("activated", "false")
+        elif new_filter == self.account2.text():
+            self.all_account.setProperty("activated", "false")
             self.account1.setProperty("activated", "false")
             self.account2.setProperty("activated", "true")
             self.account3.setProperty("activated", "false")
-        elif newFilter == self.account3.text():
-            self.allAccount.setProperty("activated", "false")
+        elif new_filter == self.account3.text():
+            self.all_account.setProperty("activated", "false")
             self.account1.setProperty("activated", "false")
             self.account2.setProperty("activated", "false")
             self.account3.setProperty("activated", "true")
 
-        """ Update style """
-        self.allAccount.style().unpolish(self.allAccount)
-        self.allAccount.style().polish(self.allAccount)
+        # Update style
+        self.all_account.style().unpolish(self.all_account)
+        self.all_account.style().polish(self.all_account)
         self.account1.style().unpolish(self.account1)
         self.account1.style().polish(self.account1)
         self.account2.style().unpolish(self.account2)

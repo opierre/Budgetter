@@ -1,5 +1,4 @@
 import requests
-import json
 
 from PySide2.QtCore import QThread
 
@@ -10,9 +9,9 @@ class Thread(QThread):
     """
 
     def __init__(self, parent=None):
-        super(Thread, self).__init__(parent)
+        super().__init__(parent)
 
-        """ Store function, arguments and result """
+        # Store function, arguments and result
         self.function = None
         self.arguments = None
         self.result = None
@@ -53,10 +52,10 @@ class RestClient:
         :return: JSON return
         """
 
-        """ Call post method """
+        # Call post method
         response = requests.post(url, json=data)
 
-        """ Handle error case """
+        # Handle error case
         if response.status_code != 201:
             raise Exception('[ERROR] GET {response.url} return code: {response.status_code}'
                             '\ndata: {response.json}'.format(response=response))
@@ -72,10 +71,10 @@ class RestClient:
         :return: JSON return
         """
 
-        """ Call get method """
+        # Call get method
         response = requests.get(url)
 
-        """ Handle error case """
+        # Handle error case
         if response.status_code != 200:
             raise Exception('[ERROR] POST {response.url} return code: {response.status_code}'
                             '\ndata: {response.json}'.format(response=response))
@@ -91,10 +90,10 @@ class RestClient:
         :return: JSON return
         """
 
-        """ Call delete method """
+        # Call delete method
         response = requests.delete(url)
 
-        """ Handle error case """
+        # Handle error case
         if response.status_code != 200:
             raise Exception('[ERROR] DELETE {response.url} return code: {response.status_code}'
                             '\ndata: {response.json}'.format(response=response))

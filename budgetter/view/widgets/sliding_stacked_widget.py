@@ -19,7 +19,7 @@ class SlidingStackedWidget(QtWidgets.QStackedWidget):
     Sligin Stacked Widget
     """
 
-    """ Signal emitted when animation finished """
+    # Signal emitted when animation finished
     animationFinished = Signal()
 
     def __init__(self, parent=None):

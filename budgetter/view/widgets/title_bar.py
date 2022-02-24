@@ -10,26 +10,26 @@ class TitleBar(QWidget):
     Title Bar
     """
 
-    """ Signal emitted when search bar in title bar is edited - Content typed: str/Search field name: str """
+    # Signal emitted when search bar in title bar is edited - Content typed: str/Search field name: str
     searched = Signal(str, str)
 
-    """ Signal emitted when right corner button clicked - Checked state: bool """
+    # Signal emitted when right corner button clicked - Checked state: bool
     clicked = Signal(bool)
 
     def __init__(self, parent=None):
         super().__init__(parent)
 
-        """ Add options title bar """
-        self.ui = Ui_Options()
-        self.ui.setupUi(self)
+        # Add options title bar
+        self.gui = Ui_Options()
+        self.gui.setupUi(self)
 
-        """ Configure widgets """
+        # Configure widgets
         self.configure_widgets()
 
-        """ Configure layout """
+        # Configure layout
         self.configure_layout()
 
-        """ Connect signals and slots """
+        # Connect signals and slots
         self.connect_widgets()
 
     def connect_widgets(self):
@@ -39,11 +39,11 @@ class TitleBar(QWidget):
         :return: None
         """
 
-        """ Connect click on _add button to emit signal """
-        self.ui.add.clicked[bool].connect(self.clicked.emit)
+        # Connect click on _add button to emit signal
+        self.gui.add.clicked[bool].connect(self.clicked.emit)
 
-        """ Connect text changed on _search line edit to emit signal """
-        self.ui.title_bar_search.textChanged[str].connect(self.emit_search)
+        # Connect text changed on _search line edit to emit signal
+        self.gui.title_bar_search.textChanged[str].connect(self.emit_search)
 
     def configure_widgets(self):
         """
@@ -52,14 +52,14 @@ class TitleBar(QWidget):
         :return: None
         """
 
-        """ Configure Search bar on top right corner """
-        self.ui.title_bar_search.setClearButtonEnabled(True)
-        self.ui.title_bar_search.findChild(QAction, "_q_qlineeditclearaction").setIcon(
+        # Configure Search bar on top right corner
+        self.gui.title_bar_search.setClearButtonEnabled(True)
+        self.gui.title_bar_search.findChild(QAction, "_q_qlineeditclearaction").setIcon(
             QIcon(":/images/images/clear-white-18dp.svg"))
 
-        """ Configure ComboBox widget """
-        self.ui.search_field.setView(QListView())
-        self.ui.search_field.setStyleSheet("QListView {"
+        # Configure ComboBox widget
+        self.gui.search_field.setView(QListView())
+        self.gui.search_field.setStyleSheet("QListView {"
                                            "font-size: 11pt;"
                                            "font-family: \"Roboto\";"
                                            "}"
@@ -67,8 +67,8 @@ class TitleBar(QWidget):
                                            "{\n"
                                            "	min-height: 25px;\n"
                                            "}\n")
-        self.ui.search_field.view().window().setWindowFlags(Qt.Popup | Qt.FramelessWindowHint)
-        self.ui.search_field.view().window().setAttribute(Qt.WA_TranslucentBackground)
+        self.gui.search_field.view().window().setWindowFlags(Qt.Popup | Qt.FramelessWindowHint)
+        self.gui.search_field.view().window().setAttribute(Qt.WA_TranslucentBackground)
 
     def configure_layout(self):
         """
@@ -77,8 +77,8 @@ class TitleBar(QWidget):
         :return: None
         """
 
-        """ Set search icon """
-        self.ui.title_bar_search.setIcon(QIcon(":/images/images/search-white-24dp.svg"))
+        # Set search icon
+        self.gui.title_bar_search.set_icon(QIcon(":/images/images/search-white-24dp.svg"))
 
     def set_title(self, title):
         """
@@ -88,7 +88,7 @@ class TitleBar(QWidget):
         :return: None
         """
 
-        self.ui.title_bar_title.setText(title)
+        self.gui.title_bar_title.setText(title)
 
     def get_title(self):
         """
@@ -106,7 +106,7 @@ class TitleBar(QWidget):
         :return: None
         """
 
-        self.ui.add.hide()
+        self.gui.add.hide()
 
     def set_button_tooltip(self, tooltip: str):
         """
@@ -116,7 +116,7 @@ class TitleBar(QWidget):
         :return: None
         """
 
-        self.ui.add.setToolTip(tooltip)
+        self.gui.add.setToolTip(tooltip)
 
     def disable_search(self):
         """
@@ -125,8 +125,8 @@ class TitleBar(QWidget):
         :return: None
         """
 
-        self.ui.search_field.hide()
-        self.ui.title_bar_search.hide()
+        self.gui.search_field.hide()
+        self.gui.title_bar_search.hide()
 
     def emit_search(self, content: str):
         """
@@ -136,8 +136,8 @@ class TitleBar(QWidget):
         :return: None
         """
 
-        ''' Retrieve search field '''
-        search_field = self.ui.search_field.currentText()
+        # Retrieve search field
+        search_field = self.gui.search_field.currentText()
 
-        ''' Emit signal '''
+        # Emit signal
         self.searched.emit(content, search_field)

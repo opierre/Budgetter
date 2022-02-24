@@ -12,18 +12,18 @@ class Accounts(QObject):
     """
 
     def __init__(self, gui):
-        super(Accounts, self).__init__()
+        super().__init__()
 
-        """ Store gui """
+        # Store gui
         self.ui_setup = gui
 
-        """ Store item delegate """
+        # Store item delegate
         self.account_delegate = AccountDelegate()
 
-        """ ListView to display all accounts """
+        # ListView to display all accounts
         self.accounts_list = QListView()
 
-        """ Model to handle data in accounts list """
+        # Model to handle data in accounts list
         self.accounts_model = AccountsModel([["Caisse d'Epargne",
                                               "Compte Chèque",
                                               1056.53,
@@ -44,20 +44,20 @@ class Accounts(QObject):
         self.accounts_list.setModel(self.accounts_model)
         self.accounts_list.setItemDelegate(self.account_delegate)
 
-        """ DonutChart to display balance distribution """
+        # DonutChart to display balance distribution
         self.balance_chart = DonutChart()
         self.balance_chart.add_slice(39)
         self.balance_chart.add_slice(21)
         self.balance_chart.add_slice(40)
         self.balance_chart.set_total_amounts(15307.8, 12157.62)
 
-        """ Configure layout """
+        # Configure layout
         self.configure_layout()
 
-        """ Configure title bar """
+        # Configure title bar
         self.configure_title_bar()
 
-        """ Connect Account groupBox """
+        # Connect Account groupBox
         # self.connectAccounts()
 
     def configure_title_bar(self):
@@ -67,11 +67,11 @@ class Accounts(QObject):
         :return: None
         """
 
-        """ Set title """
+        # Set title
         self.ui_setup.accounts.set_title(QCoreApplication.translate("accounts", "Balance"))
         self.ui_setup.accounts.set_button_tooltip(QCoreApplication.translate("accounts", "Add new account"))
 
-        """ Hide all widgets in title bar """
+        # Hide all widgets in title bar
         self.ui_setup.accounts.disable_search_bar()
 
     def configure_layout(self):

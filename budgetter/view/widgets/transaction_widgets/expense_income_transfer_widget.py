@@ -12,18 +12,18 @@ class CircleCheckbox(QPushButton):
     """
 
     def __init__(self, parent=None, _type=None):
-        super(CircleCheckbox, self).__init__(parent)
+        super().__init__(parent)
 
-        """ Store type """
+        # Store type
         self._type = _type
 
-        """ Set checkable """
+        # Set checkable
         self.setCheckable(True)
 
-        """ Set margins """
+        # Set margins
         self.setContentsMargins(0, 0, 0, 0)
 
-        """ Set cursors """
+        # Set cursors
         self.setCursor(Qt.PointingHandCursor)
 
     def set_type(self, _type: str):
@@ -44,16 +44,16 @@ class CircleCheckbox(QPushButton):
         :return: None
         """
 
-        """ Define new painter """
+        # Define new painter
         painter = QPainter(self)
 
         painter.setRenderHint(QPainter.Antialiasing)
 
-        """ Define opt to retrieve states """
+        # Define opt to retrieve states
         opt = QStyleOptionButton()
         self.initStyleOption(opt)
 
-        """ Set selected circle color """
+        # Set selected circle color
         painter.setBrush(Qt.NoBrush)
         if opt.state & QStyle.State_On:
             pen = QPen()
@@ -66,7 +66,7 @@ class CircleCheckbox(QPushButton):
             pen.setColor(QColor("transparent"))
             painter.setPen(pen)
 
-        """ Draw circle """
+        # Draw circle
         rectEllipse = QRectF(self.rect().x(), self.rect().y(),
                              min(self.rect().width(), self.rect().height()) * 2.6 / 3,
                              min(self.rect().width(), self.rect().height()) * 2.6 / 3)
@@ -74,22 +74,22 @@ class CircleCheckbox(QPushButton):
         rectEllipse.moveCenter(self.rect().center())
         painter.drawEllipse(rectEllipse)
 
-        """ Set color according to type """
+        # Set color according to type
         painter.setPen(Qt.NoPen)
         if self._type in {'Income', 'Revenus'} and opt.state & QStyle.State_On:
             painter.setBrush(QColor(109, 210, 48, 255))
-        elif self._type in {'Income', 'Revenus'} and not(opt.state & QStyle.State_Selected):
+        elif self._type in {'Income', 'Revenus'} and not opt.state & QStyle.State_Selected:
             painter.setBrush(QColor(109, 210, 48, 128))
         elif self._type in {'Expenses', 'Dépenses'} and opt.state & QStyle.State_On:
             painter.setBrush(QColor(254, 77, 151, 255))
-        elif self._type in {'Expenses', 'Dépenses'} and not(opt.state & QStyle.State_Selected):
+        elif self._type in {'Expenses', 'Dépenses'} and not opt.state & QStyle.State_Selected:
             painter.setBrush(QColor(254, 77, 151, 128))
         elif self._type in {'Transfer', 'Transferts'} and opt.state & QStyle.State_On:
             painter.setBrush(QColor(250, 202, 0, 255))
-        elif self._type in {'Transfer', 'Transferts'} and not(opt.state & QStyle.State_Selected):
+        elif self._type in {'Transfer', 'Transferts'} and not opt.state & QStyle.State_Selected:
             painter.setBrush(QColor(250, 202, 0, 128))
 
-        """ Draw circle """
+        # Draw circle
         rectEllipse = QRectF(self.rect().x(), self.rect().y(),
                              min(self.rect().width(), self.rect().height()) * 1.8 / 3,
                              min(self.rect().width(), self.rect().height()) * 1.8 / 3)
@@ -104,30 +104,30 @@ class ExpensesIncomeTransfer(QWidget):
     """
 
     def __init__(self, parent=None):
-        super(ExpensesIncomeTransfer, self).__init__(parent)
+        super().__init__(parent)
 
-        """ Store active type """
+        # Store active type
         self._active_type = None
 
-        """ Store layout """
+        # Store layout
         self.layout = QVBoxLayout(self)
 
-        """ Store first button """
+        # Store first button
         self.top_button = CircleCheckbox(self)
 
-        """ Store second button """
+        # Store second button
         self.middle_button = CircleCheckbox(self)
 
-        """ Store third button """
+        # Store third button
         self.bottom_button = CircleCheckbox(self)
 
-        """ Configure widgets """
+        # Configure widgets
         self.configure_widgets()
 
-        """ Configure layout """
+        # Configure layout
         self.configure_layout()
 
-        """ Connect all slots and signals """
+        # Connect all slots and signals
         self.connect_slots_and_signals()
 
     def active_type(self):
@@ -146,7 +146,7 @@ class ExpensesIncomeTransfer(QWidget):
         :return: None
         """
 
-        """ Connect all typeCliked from buttons """
+        # Connect all typeCliked from buttons
         self.top_button.clicked.connect(self.handle_click)
         self.middle_button.clicked.connect(self.handle_click)
         self.bottom_button.clicked.connect(self.handle_click)
@@ -180,7 +180,7 @@ class ExpensesIncomeTransfer(QWidget):
         :return: None
         """
 
-        """ Set type """
+        # Set type
         self.top_button.set_type("Income")
         self.middle_button.set_type("Expenses")
         self.bottom_button.set_type("Transfer")
@@ -193,7 +193,7 @@ class ExpensesIncomeTransfer(QWidget):
         :return: None
         """
 
-        """ Check only middle button """
+        # Check only middle button
         self.top_button.setChecked(False)
         self.middle_button.setChecked(True)
         self.bottom_button.setChecked(False)
@@ -220,13 +220,13 @@ class ExpensesIncomeTransfer(QWidget):
         :return: None
         """
 
-        """ Set contents margin """
+        # Set contents margin
         self.layout.setContentsMargins(0, 1, 0, 0)
 
-        """ Set Spacing """
+        # Set Spacing
         self.layout.setSpacing(0)
 
-        """ Add widgets to layout """
+        # Add widgets to layout
         self.layout.addWidget(self.top_button)
         self.layout.addWidget(self.middle_button)
         self.layout.addWidget(self.bottom_button)
@@ -241,11 +241,11 @@ class ExpensesIncomeTransfer(QWidget):
 
         painter = QPainter(self)
 
-        """ Configure pen and brush """
+        # Configure pen and brush
         painter.setPen(Qt.NoPen)
         painter.setBrush(QColor(28, 41, 59, 128))
 
-        """ Paint background """
+        # Paint background
         painter.drawRoundedRect(self.rect(), 2, 2)
 
 
