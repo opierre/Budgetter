@@ -90,7 +90,7 @@ class AccountDelegate(QItemDelegate):
         svg_render.render(painter, rect_svg)
 
         # Set font on painter for account name
-        self.font.setFamily(u"Roboto")
+        self.font.setFamily("Roboto")
         self.font.setPointSize(11)
         painter.setFont(self.font)
 
@@ -108,7 +108,7 @@ class AccountDelegate(QItemDelegate):
         painter.drawText(rect_category, int(Qt.AlignLeft | Qt.AlignVCenter), account_name)
 
         # Set font on painter for account label
-        self.font.setFamily(u"Roboto")
+        self.font.setFamily("Roboto")
         self.font.setPointSize(10)
         painter.setFont(self.font)
 
@@ -127,7 +127,7 @@ class AccountDelegate(QItemDelegate):
                          QCoreApplication.translate("account_delegate", 'Account'))
 
         # Set font on painter for amount
-        self.font.setFamily(u"Roboto")
+        self.font.setFamily("Roboto")
         self.font.setPointSize(11)
         painter.setFont(self.font)
 
@@ -157,7 +157,7 @@ class AccountDelegate(QItemDelegate):
         svg_renderer.render(painter, rect_svg)
 
         # Set font on painter for balance label
-        self.font.setFamily(u"Roboto")
+        self.font.setFamily("Roboto")
         self.font.setPointSize(10)
         painter.setFont(self.font)
 

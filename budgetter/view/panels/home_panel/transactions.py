@@ -275,8 +275,8 @@ class Transactions(QObject):
         self.cancel.setVisible(False)
         self.apply.clicked.connect(self.modify_transaction)
         self.cancel.clicked.connect(self.hide_edit_widgets)
-        self.apply.setObjectName(u"apply")
-        self.cancel.setObjectName(u"cancel")
+        self.apply.setObjectName("apply")
+        self.cancel.setObjectName("cancel")
 
     def update_category_name(self, name: str):
         """

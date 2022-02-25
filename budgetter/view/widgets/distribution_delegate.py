@@ -47,7 +47,7 @@ class DistributionDelegate(QItemDelegate):
         else:
             nb_transactions += " transaction"
         amount = value[2]
-        amount = "{:,.2f}".format(amount).replace(",", " ") + " €"
+        amount = f"{amount:,.2f}".replace(",", " ") + " €"
         percentage = str(value[3]) + "%"
 
         # Draw bottom border
@@ -105,7 +105,7 @@ class DistributionDelegate(QItemDelegate):
         svg_render.render(painter, rect_svg)
 
         # Set font on painter for category
-        self.font.setFamily(u"Roboto")
+        self.font.setFamily("Roboto")
         self.font.setPointSize(11)
         painter.setFont(self.font)
 
@@ -124,7 +124,7 @@ class DistributionDelegate(QItemDelegate):
         painter.drawText(rect_category, int(Qt.AlignLeft | Qt.AlignVCenter), category)
 
         # Set font on painter for number of transactions
-        self.font.setFamily(u"Roboto")
+        self.font.setFamily("Roboto")
         self.font.setPointSize(10)
         painter.setFont(self.font)
 
@@ -142,7 +142,7 @@ class DistributionDelegate(QItemDelegate):
         painter.drawText(rect_transaction, int(Qt.AlignLeft | Qt.AlignVCenter), nb_transactions)
 
         # Set font on painter for amount
-        self.font.setFamily(u"Roboto")
+        self.font.setFamily("Roboto")
         self.font.setPointSize(11)
         painter.setFont(self.font)
 
@@ -161,7 +161,7 @@ class DistributionDelegate(QItemDelegate):
         painter.drawText(rect_amount, int(Qt.AlignRight | Qt.AlignVCenter), amount)
 
         # Set font on painter for percentage
-        self.font.setFamily(u"Roboto")
+        self.font.setFamily("Roboto")
         self.font.setPointSize(10)
         painter.setFont(self.font)
 

@@ -330,7 +330,7 @@ class TransactionDelegate(QStyledItemDelegate):
         self.draw_comment(painter, rect_background, index, comment)
 
         # Set font on painter for income/expense
-        self.font.setFamily(u"Roboto")
+        self.font.setFamily("Roboto")
         self.font.setPointSize(11)
         painter.setFont(self.font)
 
@@ -600,7 +600,7 @@ class TransactionDelegate(QStyledItemDelegate):
         """
 
         # Set font on painter for name
-        self.font.setFamily(u"Roboto")
+        self.font.setFamily("Roboto")
         self.font.setPointSize(11)
         painter.setFont(self.font)
 
@@ -632,7 +632,7 @@ class TransactionDelegate(QStyledItemDelegate):
         """
 
         # Set font on painter for category
-        self.font.setFamily(u"Roboto")
+        self.font.setFamily("Roboto")
         self.font.setPointSize(10)
         painter.setFont(self.font)
 
@@ -662,7 +662,7 @@ class TransactionDelegate(QStyledItemDelegate):
         """
 
         # Set font on painter for amount
-        self.font.setFamily(u"Roboto")
+        self.font.setFamily("Roboto")
         self.font.setPointSize(11)
         painter.setFont(self.font)
 
@@ -692,7 +692,7 @@ class TransactionDelegate(QStyledItemDelegate):
         """
 
         # Set font on painter for percentage
-        self.font.setFamily(u"Roboto")
+        self.font.setFamily("Roboto")
         self.font.setPointSize(10)
         painter.setFont(self.font)
 
@@ -721,7 +721,7 @@ class TransactionDelegate(QStyledItemDelegate):
         """
 
         # Set font on painter for date
-        self.font.setFamily(u"Roboto")
+        self.font.setFamily("Roboto")
         self.font.setPointSize(11)
         painter.setFont(self.font)
 
@@ -751,7 +751,7 @@ class TransactionDelegate(QStyledItemDelegate):
         """
 
         # Set font on painter for date
-        self.font.setFamily(u"Roboto")
+        self.font.setFamily("Roboto")
         self.font.setPointSize(11)
         painter.setFont(self.font)
 

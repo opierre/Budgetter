@@ -21,11 +21,11 @@ class StatusBar(QWidget):
 
         # Add buttons on bottom right corner
         self._settings = QPushButton()
-        self._settings.setObjectName(u"statusBarSettings")
+        self._settings.setObjectName("statusBarSettings")
         self._previous = QPushButton()
-        self._previous.setObjectName(u"statusBarPrevious")
+        self._previous.setObjectName("statusBarPrevious")
         self._next = QPushButton()
-        self._next.setObjectName(u"statusBarNext")
+        self._next.setObjectName("statusBarNext")
 
         # Layout for status bar
         self.layout = QHBoxLayout(self)

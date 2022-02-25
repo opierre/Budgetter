@@ -176,7 +176,7 @@ class DonutChart(QWidget):
 
         # Configure font for description
         font = QFont()
-        font.setFamily(u"Roboto")
+        font.setFamily("Roboto")
         font.setPointSize(10)
         painter.setFont(font)
 
@@ -222,7 +222,7 @@ class DonutChart(QWidget):
         painter.drawText(rect_percentage, int(Qt.AlignHCenter | Qt.AlignVCenter), value)
 
         # Configure font for total amount
-        font.setFamily(u"Roboto Medium")
+        font.setFamily("Roboto Medium")
         font.setPointSize(14)
         painter.setFont(font)
 

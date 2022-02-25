@@ -8,7 +8,7 @@ def convert_amount_to_str(amount):
     :return: string value
     """
 
-    result = "{:,.2f}".format(amount)
+    result = f"{amount:,.2f}"
     result = result.replace(",", "X")
     result = result.replace(".", ",")
     result = result.replace("X", " ")
