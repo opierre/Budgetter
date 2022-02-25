@@ -1,3 +1,5 @@
+[![Pylint](https://github.com/opierre/Budgetter/actions/workflows/pylint.yml/badge.svg)](https://github.com/opierre/Budgetter/actions/workflows/pylint.yml)
+
 Budgetter
 =========
 
