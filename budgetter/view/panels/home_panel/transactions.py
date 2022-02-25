@@ -331,7 +331,8 @@ class Transactions(QObject):
             self.edit_category.setCurrentIndex(-1)
         else:
             self.edit_category_name.setText(selected_category)
-        self.edit_category.setGeometry(rect_category.x(), rect_category.y(), rect_category.width(), rect_category.height())
+        self.edit_category.setGeometry(rect_category.x(), rect_category.y(), rect_category.width(),
+                                       rect_category.height())
         self.edit_category_name.setGeometry(rect_category_name.x(), rect_category_name.y(), rect_category_name.width(),
                                             rect_category_name.height())
         self.edit_category.setVisible(True)

@@ -1,4 +1,4 @@
-from PySide2.QtWidgets import QWidget, QGraphicsDropShadowEffect, QGraphicsOpacityEffect, QParallelAnimationGroup
+from PySide2.QtWidgets import QWidget, QGraphicsDropShadowEffect, QGraphicsOpacityEffect
 from PySide2.QtCore import QParallelAnimationGroup, QPropertyAnimation, QRect
 from PySide2.QtGui import QColor
 

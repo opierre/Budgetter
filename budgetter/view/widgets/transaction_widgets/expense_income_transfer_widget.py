@@ -68,8 +68,8 @@ class CircleCheckbox(QPushButton):
 
         # Draw circle
         rect_ellipse = QRectF(self.rect().x(), self.rect().y(),
-                             min(self.rect().width(), self.rect().height()) * 2.6 / 3,
-                             min(self.rect().width(), self.rect().height()) * 2.6 / 3)
+                              min(self.rect().width(), self.rect().height()) * 2.6 / 3,
+                              min(self.rect().width(), self.rect().height()) * 2.6 / 3)
 
         rect_ellipse.moveCenter(self.rect().center())
         painter.drawEllipse(rect_ellipse)
@@ -91,8 +91,8 @@ class CircleCheckbox(QPushButton):
 
         # Draw circle
         rect_ellipse = QRectF(self.rect().x(), self.rect().y(),
-                             min(self.rect().width(), self.rect().height()) * 1.8 / 3,
-                             min(self.rect().width(), self.rect().height()) * 1.8 / 3)
+                              min(self.rect().width(), self.rect().height()) * 1.8 / 3,
+                              min(self.rect().width(), self.rect().height()) * 1.8 / 3)
 
         rect_ellipse.moveCenter(self.rect().center())
         painter.drawEllipse(rect_ellipse)
