@@ -1,4 +1,4 @@
-![badge](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/opierre/da061024a6dc8c3dcaf32f4e79abf032/raw/pylint.json)
+[![badge](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/opierre/da061024a6dc8c3dcaf32f4e79abf032/raw/pylint.json)](https://github.com/opierre/Budgetter/actions)
 
 Budgetter
 =========
