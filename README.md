@@ -1,4 +1,4 @@
-[![Pylint](https://github.com/opierre/Budgetter/actions/workflows/pylint.yml/badge.svg)](https://github.com/opierre/Budgetter/actions/workflows/pylint.yml)
+![badge](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/opierre/da061024a6dc8c3dcaf32f4e79abf032/raw/pylint.json)
 
 Budgetter
 =========
