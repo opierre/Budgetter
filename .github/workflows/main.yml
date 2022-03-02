@@ -41,5 +41,6 @@ jobs:
         filename: pylint.json
         label: Pylint Rating
         message: ${{ env.PYLINT_SCORE }}
-        color: success
+        color: green
         namedLogo: Python
+        logoColor: yellow
