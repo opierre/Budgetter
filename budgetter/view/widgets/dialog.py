@@ -1,3 +1,23 @@
+# Copyright (c) 2021 Pierre OLIVIER
+#
+# Permission is hereby granted, free of charge, to any person obtaining a copy
+# of this software and associated documentation files (the "Software"), to deal
+# in the Software without restriction, including without limitation the rights
+# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+# copies of the Software, and to permit persons to whom the Software is
+# furnished to do so, subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be included in
+# all copies or substantial portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+# THE SOFTWARE.
+
 from PySide2.QtWidgets import QWidget, QGraphicsDropShadowEffect, QGraphicsOpacityEffect
 from PySide2.QtCore import QParallelAnimationGroup, QPropertyAnimation, QRect
 from PySide2.QtGui import QColor
@@ -60,6 +80,9 @@ class Dialog(QWidget):
         self._dialog.central_widget.layout().setContentsMargins(0, 0, 0, 0)
         self._dialog.central_widget.layout().addWidget(central_widget)
 
+        # Install event filter on parent in order to replace dialog on center after resize/move
+        self.parent().installEventFilter(self)
+
     def show(self):
         """
         Override show method
@@ -117,3 +140,72 @@ class Dialog(QWidget):
         self.parallel_animation_group.addAnimation(drop_shadow_animation)
         self.parallel_animation_group.finished.disconnect(self.show_drop_shadow)
         self.parallel_animation_group.start()
+
+    def close(self) -> bool:
+        """
+        Override close()
+
+        :return: boolean
+        """
+
+        # Hide overlay
+        self.overlay.hide()
+
+        return super().close()
+
+    def eventFilter(self, watched: QObject, event: QEvent) -> bool:
+        """
+        Override eventFilter()
+
+        :param watched: watched
+        :param event: event
+        :return: True/False to accept/reject event
+        """
+
+        if watched == self.parent() and event.type() == QEvent.Resize:
+            # Stop animations
+            self.animation_group.stop()
+
+            # Call reset to update animations and opacity
+            self.reset()
+
+        return super().eventFilter(watched, event)
+
+    def reset(self):
+        """
+        Define reset behavior: stop animations and reset opacity and geometry
+
+        :return: None
+        """
+
+        # Stop timer and animations
+        self.parallel_animation_group.stop()
+
+        # Reset opacity to full and drop shadow visible
+        self.opacity = QGraphicsOpacityEffect(opacity=1)
+        self.setGraphicsEffect(self.opacity)
+        self.drop_shadow = QGraphicsDropShadowEffect()
+        self.drop_shadow.setColor(QColor(19, 32, 43, 200))
+        self.drop_shadow.setBlurRadius(64)
+        self.drop_shadow.setOffset(0, 13)
+        self.setGraphicsEffect(self.drop_shadow)
+
+        # Update geometry
+        dialog_geometry = self.geometry()
+        dialog_geometry.moveCenter(self.parent().rect().center())
+        self.setGeometry(dialog_geometry)
+
+    def adjust_size(self):
+        """
+        Adjust size on expand
+
+        :return: None
+        """
+
+        # Resize to minimum space
+        self.adjustSize()
+
+        # Move dialog on center
+        dialog_geometry = self.geometry()
+        dialog_geometry.moveCenter(self.parent().rect().center())
+        self.setGeometry(dialog_geometry)
