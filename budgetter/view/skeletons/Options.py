@@ -15,16 +15,16 @@ from PySide2.QtGui import (QBrush, QColor, QConicalGradient, QCursor, QFont,
     QPixmap, QRadialGradient)
 from PySide2.QtWidgets import *
 
-from view.widgets.line_edit_with_icon import LineEditWithIcon
+from budgetter.view.widgets.line_edit_with_icon import LineEditWithIcon
 
 import resources_rc
 
 class Ui_Options(object):
     def setupUi(self, Options):
         if not Options.objectName():
-            Options.setObjectName(u"Options")
+            Options.setObjectName("Options")
         Options.resize(533, 42)
-        Options.setStyleSheet(u"QWidget#content \n"
+        Options.setStyleSheet("QWidget#content \n"
 "{\n"
 "	background-color: #26374C;\n"
 "	border: 1px solid #344457;\n"
@@ -232,18 +232,18 @@ class Ui_Options(object):
 "	color: white;\n"
 "}")
         self.gridLayout = QGridLayout(Options)
-        self.gridLayout.setObjectName(u"gridLayout")
+        self.gridLayout.setObjectName("gridLayout")
         self.gridLayout.setContentsMargins(0, 0, 0, 0)
         self.content = QWidget(Options)
-        self.content.setObjectName(u"content")
+        self.content.setObjectName("content")
         self.horizontalLayout = QHBoxLayout(self.content)
         self.horizontalLayout.setSpacing(20)
-        self.horizontalLayout.setObjectName(u"horizontalLayout")
+        self.horizontalLayout.setObjectName("horizontalLayout")
         self.horizontalLayout.setContentsMargins(16, 3, 16, 3)
         self.title_bar_title = QLabel(self.content)
-        self.title_bar_title.setObjectName(u"title_bar_title")
+        self.title_bar_title.setObjectName("title_bar_title")
         font = QFont()
-        font.setFamily(u"Roboto")
+        font.setFamily("Roboto")
         font.setPointSize(13)
         self.title_bar_title.setFont(font)
 
@@ -255,13 +255,13 @@ class Ui_Options(object):
 
         self.horizontalLayout_2 = QHBoxLayout()
         self.horizontalLayout_2.setSpacing(0)
-        self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
+        self.horizontalLayout_2.setObjectName("horizontalLayout_2")
         self.title_bar_search = LineEditWithIcon(self.content)
-        self.title_bar_search.setObjectName(u"title_bar_search")
+        self.title_bar_search.setObjectName("title_bar_search")
         self.title_bar_search.setMinimumSize(QSize(0, 28))
         self.title_bar_search.setMaximumSize(QSize(200, 28))
         font1 = QFont()
-        font1.setFamily(u"Roboto")
+        font1.setFamily("Roboto")
         font1.setPointSize(11)
         self.title_bar_search.setFont(font1)
 
@@ -271,7 +271,7 @@ class Ui_Options(object):
         self.search_field.addItem("")
         self.search_field.addItem("")
         self.search_field.addItem("")
-        self.search_field.setObjectName(u"search_field")
+        self.search_field.setObjectName("search_field")
         self.search_field.setMinimumSize(QSize(0, 28))
         self.search_field.setMaximumSize(QSize(100, 28))
         self.search_field.setFont(font1)
@@ -282,12 +282,12 @@ class Ui_Options(object):
         self.horizontalLayout.addLayout(self.horizontalLayout_2)
 
         self.add = QToolButton(self.content)
-        self.add.setObjectName(u"add")
+        self.add.setObjectName("add")
         self.add.setMinimumSize(QSize(28, 28))
         self.add.setMaximumSize(QSize(28, 28))
         self.add.setCursor(QCursor(Qt.PointingHandCursor))
         icon = QIcon()
-        icon.addFile(u":/images/images/add_circle_outline-white-24dp.svg", QSize(), QIcon.Normal, QIcon.Off)
+        icon.addFile(":/images/images/add_circle_outline-white-24dp.svg", QSize(), QIcon.Normal, QIcon.Off)
         self.add.setIcon(icon)
         self.add.setIconSize(QSize(24, 24))
 
@@ -303,12 +303,12 @@ class Ui_Options(object):
     # setupUi
 
     def retranslateUi(self, Options):
-        Options.setWindowTitle(QCoreApplication.translate("Options", u"Form", None))
-        self.title_bar_title.setText(QCoreApplication.translate("Options", u"Title", None))
-        self.title_bar_search.setPlaceholderText(QCoreApplication.translate("Options", u"Search...", None))
-        self.search_field.setItemText(0, QCoreApplication.translate("Options", u"Name", None))
-        self.search_field.setItemText(1, QCoreApplication.translate("Options", u"Amount", None))
-        self.search_field.setItemText(2, QCoreApplication.translate("Options", u"Date", None))
+        Options.setWindowTitle(QCoreApplication.translate("Options", "Form", None))
+        self.title_bar_title.setText(QCoreApplication.translate("Options", "Title", None))
+        self.title_bar_search.setPlaceholderText(QCoreApplication.translate("Options", "Search...", None))
+        self.search_field.setItemText(0, QCoreApplication.translate("Options", "Name", None))
+        self.search_field.setItemText(1, QCoreApplication.translate("Options", "Amount", None))
+        self.search_field.setItemText(2, QCoreApplication.translate("Options", "Date", None))
 
         self.add.setText("")
     # retranslateUi

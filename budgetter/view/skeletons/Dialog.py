@@ -19,9 +19,9 @@ from PySide2.QtWidgets import *
 class Ui_Dialog(object):
     def setupUi(self, Dialog):
         if not Dialog.objectName():
-            Dialog.setObjectName(u"Dialog")
+            Dialog.setObjectName("Dialog")
         Dialog.resize(628, 533)
-        Dialog.setStyleSheet(u"QWidget#dialog \n"
+        Dialog.setStyleSheet("QWidget#dialog \n"
 "{\n"
 "	background-color: #1C293B;\n"
 "	border: none;\n"
@@ -29,25 +29,25 @@ class Ui_Dialog(object):
 "	outline: none;\n"
 "}")
         self.gridLayout = QGridLayout(Dialog)
-        self.gridLayout.setObjectName(u"gridLayout")
+        self.gridLayout.setObjectName("gridLayout")
         self.dialog = QWidget(Dialog)
-        self.dialog.setObjectName(u"dialog")
+        self.dialog.setObjectName("dialog")
         self.verticalLayout = QVBoxLayout(self.dialog)
         self.verticalLayout.setSpacing(20)
-        self.verticalLayout.setObjectName(u"verticalLayout")
+        self.verticalLayout.setObjectName("verticalLayout")
         self.verticalLayout.setContentsMargins(25, 25, 25, 25)
         self.title = QLabel(self.dialog)
-        self.title.setObjectName(u"title")
+        self.title.setObjectName("title")
         font = QFont()
-        font.setFamily(u"Roboto Medium")
+        font.setFamily("Roboto Medium")
         font.setPointSize(16)
         self.title.setFont(font)
-        self.title.setStyleSheet(u"color: rgba(255, 255, 255, 230);")
+        self.title.setStyleSheet("color: rgba(255, 255, 255, 230);")
 
         self.verticalLayout.addWidget(self.title)
 
         self.central_widget = QWidget(self.dialog)
-        self.central_widget.setObjectName(u"central_widget")
+        self.central_widget.setObjectName("central_widget")
         sizePolicy = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Expanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -66,7 +66,7 @@ class Ui_Dialog(object):
     # setupUi
 
     def retranslateUi(self, Dialog):
-        Dialog.setWindowTitle(QCoreApplication.translate("Dialog", u"Form", None))
-        self.title.setText(QCoreApplication.translate("Dialog", u"Header", None))
+        Dialog.setWindowTitle(QCoreApplication.translate("Dialog", "Form", None))
+        self.title.setText(QCoreApplication.translate("Dialog", "Header", None))
     # retranslateUi
 
