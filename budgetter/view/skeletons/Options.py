@@ -8,14 +8,16 @@
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
 
-from PySide2.QtCore import (QCoreApplication, QMetaObject,
-                            QSize, Qt)
-from PySide2.QtGui import (QCursor, QFont,
-                           QIcon)
+from PySide2.QtCore import (QCoreApplication, QDate, QDateTime, QMetaObject,
+    QObject, QPoint, QRect, QSize, QTime, QUrl, Qt)
+from PySide2.QtGui import (QBrush, QColor, QConicalGradient, QCursor, QFont,
+    QFontDatabase, QIcon, QKeySequence, QLinearGradient, QPalette, QPainter,
+    QPixmap, QRadialGradient)
 from PySide2.QtWidgets import *
 
-from budgetter.view.widgets.line_edit_with_icon import LineEditWithIcon
+from view.widgets.line_edit_with_icon import LineEditWithIcon
 
+import resources_rc
 
 class Ui_Options(object):
     def setupUi(self, Options):
