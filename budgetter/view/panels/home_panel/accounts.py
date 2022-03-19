@@ -4,6 +4,7 @@ from PySide2.QtWidgets import QListView, QWidget, QHBoxLayout
 from budgetter.models.accounts_model import AccountsModel
 from budgetter.view.widgets.balance_widgets.account_delegate import AccountDelegate
 from budgetter.view.widgets.balance_widgets.donut_chart_widget import DonutChart
+from budgetter.view.widgets.dialog import Dialog
 
 
 class Accounts(QObject):
@@ -11,11 +12,12 @@ class Accounts(QObject):
     Accounts
     """
 
-    def __init__(self, gui):
+    def __init__(self, gui, main_window):
         super().__init__()
 
-        # Store gui
+        # Store gui and main window
         self.ui_setup = gui
+        self.main_window = main_window
 
         # Store item delegate
         self.account_delegate = AccountDelegate()
@@ -58,7 +60,17 @@ class Accounts(QObject):
         self.configure_title_bar()
 
         # Connect Account groupBox
-        # self.connectAccounts()
+        self.connect_slots_and_signals()
+
+    def connect_slots_and_signals(self):
+        """
+        Connect all slots and signals from this panel
+
+        :return: None
+        """
+
+        # Connect click on add in title bar to open dialog
+        self.ui_setup.accounts.titleBarClicked.connect(self.add_account)
 
     def configure_title_bar(self):
         """
@@ -90,3 +102,13 @@ class Accounts(QObject):
         layout.setContentsMargins(20, 10, 10, 10)
 
         self.ui_setup.accounts.setWidget(widget)
+
+    def add_account(self):
+        """
+        Open dialog to add new account
+
+        :return: None
+        """
+
+        dialog = Dialog(QCoreApplication.translate("Accounts", 'Add Account'), QWidget(),
+                        self.main_window)

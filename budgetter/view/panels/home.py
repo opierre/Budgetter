@@ -20,7 +20,7 @@ class Home(QObject):
         self.main_window = parent
 
         # Accounts groupBox
-        self._accounts = Accounts(gui)
+        self._accounts = Accounts(gui, parent)
 
         # Spending groupBox
         self._spending = Spending(gui)

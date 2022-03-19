@@ -19,8 +19,10 @@
 # THE SOFTWARE.
 
 from PySide2.QtWidgets import QWidget, QGraphicsDropShadowEffect, QGraphicsOpacityEffect
-from PySide2.QtCore import QParallelAnimationGroup, QPropertyAnimation, QRect
+from PySide2.QtCore import QParallelAnimationGroup, QPropertyAnimation, QRect, QObject, QEvent
 from PySide2.QtGui import QColor
+
+from budgetter.view.skeletons.Dialog import Ui_Dialog
 
 
 class Dialog(QWidget):
@@ -91,7 +93,7 @@ class Dialog(QWidget):
         """
 
         # Raise dialog widget on top of all window
-        self._raise()
+        self.raise_()
 
         # Resize dialog to minimum space
         self.adjustSize()
@@ -128,8 +130,8 @@ class Dialog(QWidget):
 
         # Configure animation on color for drop shadow to get smooth
         drop_shadow_animation = QPropertyAnimation(self.drop_shadow, b'color')
-        drop_shadow_animation.setKeyValue(0, QColor(0, 0, 0, 0, 0))
-        drop_shadow_animation.setKeyValue(1, QColor(19, 32, 43, 200))
+        drop_shadow_animation.setKeyValueAt(0, QColor(0, 0, 0, 0))
+        drop_shadow_animation.setKeyValueAt(1, QColor(19, 32, 43, 200))
         drop_shadow_animation.setDuration(100)
 
         # Set drop shadow effect on dialog

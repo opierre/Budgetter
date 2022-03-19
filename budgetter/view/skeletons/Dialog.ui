@@ -20,6 +20,28 @@
 	border: none;
 	border-radius: 2px;
 	outline: none;
+}
+
+QPushButton
+{
+	background-color: transparent;
+	color: #8ec6f4;
+	outline: none;
+	padding-left: 8px;
+	padding-right: 8px;
+	padding-top: 8px;
+	padding-bottom: 8px;
+	border-radius: 4px;
+}
+
+QPushButton:hover
+{
+	background-color: rgba(140, 195, 240, 30);
+}
+
+QToolButton
+{
+	background-color: transparent;
 }</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
@@ -36,26 +58,62 @@
        <number>25</number>
       </property>
       <property name="rightMargin">
-       <number>25</number>
+       <number>10</number>
       </property>
       <property name="bottomMargin">
-       <number>25</number>
+       <number>10</number>
       </property>
       <item>
-       <widget class="QLabel" name="title">
-        <property name="font">
-         <font>
-          <family>Roboto Medium</family>
-          <pointsize>16</pointsize>
-         </font>
+       <layout class="QHBoxLayout" name="horizontalLayout_2">
+        <property name="rightMargin">
+         <number>15</number>
         </property>
-        <property name="styleSheet">
-         <string notr="true">color: rgba(255, 255, 255, 230);</string>
-        </property>
-        <property name="text">
-         <string>Header</string>
-        </property>
-       </widget>
+        <item>
+         <widget class="QLabel" name="title">
+          <property name="font">
+           <font>
+            <family>Roboto Medium</family>
+            <pointsize>16</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">color: rgba(255, 255, 255, 230);</string>
+          </property>
+          <property name="text">
+           <string>Header</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QToolButton" name="close">
+          <property name="minimumSize">
+           <size>
+            <width>28</width>
+            <height>28</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>28</width>
+            <height>28</height>
+           </size>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="icon">
+           <iconset resource="../resources/resources.qrc">
+            <normaloff>:/images/images/close_white_24dp.svg</normaloff>:/images/images/close_white_24dp.svg</iconset>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>24</width>
+            <height>24</height>
+           </size>
+          </property>
+         </widget>
+        </item>
+       </layout>
       </item>
       <item>
        <widget class="QWidget" name="central_widget" native="true">
@@ -65,13 +123,49 @@
           <verstretch>0</verstretch>
          </sizepolicy>
         </property>
+        <layout class="QGridLayout" name="gridLayout_2"/>
        </widget>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout">
+        <item>
+         <spacer name="horizontalSpacer">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item>
+         <widget class="QPushButton" name="confirm">
+          <property name="font">
+           <font>
+            <family>Roboto Medium</family>
+            <pointsize>11</pointsize>
+           </font>
+          </property>
+          <property name="cursor">
+           <cursorShape>PointingHandCursor</cursorShape>
+          </property>
+          <property name="text">
+           <string>CONFIRM</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
       </item>
      </layout>
     </widget>
    </item>
   </layout>
  </widget>
- <resources/>
+ <resources>
+  <include location="../resources/resources.qrc"/>
+ </resources>
  <connections/>
 </ui>

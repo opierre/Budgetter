@@ -21,10 +21,26 @@ class Ui_Account(object):
         if not Account.objectName():
             Account.setObjectName("Account")
         Account.resize(565, 504)
+        Account.setStyleSheet("QWidget#account\n"
+"{\n"
+"	background-color: #1C293B;\n"
+"	border: none;\n"
+"	border-radius: 2px;\n"
+"	outline: none;\n"
+"}")
         self.gridLayout = QGridLayout(Account)
         self.gridLayout.setObjectName("gridLayout")
         self.account = QWidget(Account)
         self.account.setObjectName("account")
+        self.comboBox = QComboBox(self.account)
+        self.comboBox.setObjectName("comboBox")
+        self.comboBox.setGeometry(QRect(280, 160, 69, 22))
+        self.lineEdit = QLineEdit(self.account)
+        self.lineEdit.setObjectName("lineEdit")
+        self.lineEdit.setGeometry(QRect(170, 290, 113, 20))
+        self.doubleSpinBox = QDoubleSpinBox(self.account)
+        self.doubleSpinBox.setObjectName("doubleSpinBox")
+        self.doubleSpinBox.setGeometry(QRect(220, 360, 62, 22))
 
         self.gridLayout.addWidget(self.account, 0, 0, 1, 1)
 
