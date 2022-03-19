@@ -66,13 +66,13 @@ class Dialog(QWidget):
 
         # Configure animations - Geometry and opacity
         geometry_animation = QPropertyAnimation(self, b'geometry')
-        geometry_animation.setDuration(1000)
+        geometry_animation.setDuration(500)
         self.parallel_animation_group.addAnimation(geometry_animation)
 
         opacity_animation = QPropertyAnimation(self, b'opacity')
         opacity_animation.setStartValue(0)
         opacity_animation.setEndValue(1)
-        opacity_animation.setDuration(1000)
+        opacity_animation.setDuration(500)
         self.parallel_animation_group.addAnimation(opacity_animation)
 
         # Set initial opacity effect
@@ -99,16 +99,20 @@ class Dialog(QWidget):
         self.adjustSize()
 
         # Set dialog on center of main window
-        self.geometry().moveCenter(self.parent().rect().center())
+        # self.geometry().moveCenter(self.parent().rect().center())
 
         # Update geometry animation coordinates for y
         geometry = self.geometry()
-        start_animation_rect = QRect(geometry.x(),
-                                     geometry.y() - geometry.height() / 3.0,
+        start_animation_rect = QRect(self.parent().rect().x(),
+                                     self.parent().rect().y(),
                                      geometry.width(),
                                      geometry.height())
+        end_animation_rect = QRect(self.parent().rect().center().x() - geometry.width() / 2,
+                                   self.parent().rect().center().y() - geometry.height() / 2,
+                                   geometry.width(),
+                                   geometry.height())
         self.parallel_animation_group.animationAt(0).setStartValue(start_animation_rect)
-        self.parallel_animation_group.animationAt(0).setEndValue(geometry)
+        self.parallel_animation_group.animationAt(0).setEndValue(end_animation_rect)
 
         # Show dialog
         super().show()
