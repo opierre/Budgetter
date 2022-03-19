@@ -23,6 +23,7 @@ from PySide2.QtCore import QParallelAnimationGroup, QPropertyAnimation, QRect, Q
 from PySide2.QtGui import QColor
 
 from budgetter.view.skeletons.Dialog import Ui_Dialog
+from budgetter.view.widgets.overlay import Overlay
 
 
 class Dialog(QWidget):
@@ -38,6 +39,9 @@ class Dialog(QWidget):
 
         # Setup UI on current widget
         self._dialog.setupUi(self)
+
+        # Store overlay
+        self.overlay = Overlay(parent)
 
         # Store effects: drop shadow + opacity effect
         self.drop_shadow = QGraphicsDropShadowEffect()
@@ -105,6 +109,9 @@ class Dialog(QWidget):
         :return: None
         """
 
+        # Show overlay
+        self.overlay.show()
+
         # Raise dialog widget on top of all window
         self.raise_()
 
@@ -168,7 +175,7 @@ class Dialog(QWidget):
         """
 
         # Hide overlay
-        # self.overlay.hide()
+        self.overlay.hide()
 
         return super().close()
 
