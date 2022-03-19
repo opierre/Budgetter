@@ -49,8 +49,21 @@ class Dialog(QWidget):
         # Configure widgets
         self.configure_widgets(dialog_title, central_widget)
 
+        # Connect all slots and signals
+        self.connect_all_slots_and_signals()
+
         # Show dialog
         self.show()
+
+    def connect_all_slots_and_signals(self):
+        """
+        Connect all slots and signals for dialog
+
+        :return: None
+        """
+
+        # Connect click on close to close dialog
+        self._dialog.close.clicked.connect(self.close)
 
     def configure_widgets(self, dialog_title: str, central_widget: QWidget):
         """
@@ -155,7 +168,7 @@ class Dialog(QWidget):
         """
 
         # Hide overlay
-        self.overlay.hide()
+        # self.overlay.hide()
 
         return super().close()
 
@@ -170,7 +183,7 @@ class Dialog(QWidget):
 
         if watched == self.parent() and event.type() == QEvent.Resize:
             # Stop animations
-            self.animation_group.stop()
+            self.parallel_animation_group.stop()
 
             # Call reset to update animations and opacity
             self.reset()
