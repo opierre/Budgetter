@@ -66,13 +66,13 @@ class Dialog(QWidget):
 
         # Configure animations - Geometry and opacity
         geometry_animation = QPropertyAnimation(self, b'geometry')
-        geometry_animation.setDuration(200)
+        geometry_animation.setDuration(1000)
         self.parallel_animation_group.addAnimation(geometry_animation)
 
         opacity_animation = QPropertyAnimation(self, b'opacity')
         opacity_animation.setStartValue(0)
         opacity_animation.setEndValue(1)
-        opacity_animation.setDuration(200)
+        opacity_animation.setDuration(1000)
         self.parallel_animation_group.addAnimation(opacity_animation)
 
         # Set initial opacity effect

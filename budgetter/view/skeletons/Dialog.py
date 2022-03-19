@@ -26,7 +26,7 @@ class Ui_Dialog(object):
 "{\n"
 "	background-color: #1C293B;\n"
 "	border: none;\n"
-"	border-radius: 2px;\n"
+"	border-radius: 4px;\n"
 "	outline: none;\n"
 "}\n"
 "\n"
@@ -50,6 +50,7 @@ class Ui_Dialog(object):
 "QToolButton\n"
 "{\n"
 "	background-color: transparent;\n"
+"	outline: none;\n"
 "}")
         self.gridLayout = QGridLayout(Dialog)
         self.gridLayout.setObjectName("gridLayout")
