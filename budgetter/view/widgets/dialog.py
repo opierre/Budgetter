@@ -119,20 +119,20 @@ class Dialog(QWidget):
         self.adjustSize()
 
         # Set dialog on center of main window
-        # self.geometry().moveCenter(self.parent().rect().center())
+        end_rect = self.geometry()
+        end_rect.moveCenter(self.parent().rect().center())
 
         # Update geometry animation coordinates for y
-        geometry = self.geometry()
-        start_animation_rect = QRect(self.parent().rect().x(),
-                                     self.parent().rect().y(),
-                                     geometry.width(),
-                                     geometry.height())
-        end_animation_rect = QRect(self.parent().rect().center().x() - geometry.width() / 2,
-                                   self.parent().rect().center().y() - geometry.height() / 2,
-                                   geometry.width(),
-                                   geometry.height())
+        start_animation_rect = QRect(end_rect.x(),
+                                     end_rect.y() - end_rect.height() * 3.0,
+                                     end_rect.width(),
+                                     end_rect.height())
+        #end_animation_rect = QRect(self.parent().rect().center().x() - geometry.width() / 2,
+        #                           self.parent().rect().center().y() - geometry.height() / 2,
+        #                           geometry.width(),
+        #                           geometry.height())
         self.parallel_animation_group.animationAt(0).setStartValue(start_animation_rect)
-        self.parallel_animation_group.animationAt(0).setEndValue(end_animation_rect)
+        self.parallel_animation_group.animationAt(0).setEndValue(end_rect)
 
         # Show dialog
         super().show()
