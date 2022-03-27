@@ -15,6 +15,8 @@ from PySide2.QtGui import (QBrush, QColor, QConicalGradient, QCursor, QFont,
     QPixmap, QRadialGradient)
 from PySide2.QtWidgets import *
 
+from budgetter.view.widgets.flat_button import FlatButton
+
 import resources_rc
 
 class Ui_Dialog(object):
@@ -105,7 +107,7 @@ class Ui_Dialog(object):
 
         self.horizontalLayout.addItem(self.horizontalSpacer)
 
-        self.confirm = QPushButton(self.dialog)
+        self.confirm = FlatButton(self.dialog)
         self.confirm.setObjectName("confirm")
         font1 = QFont()
         font1.setFamily("Roboto Medium")
