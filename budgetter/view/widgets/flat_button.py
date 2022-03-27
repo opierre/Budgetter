@@ -145,7 +145,8 @@ class Wave(QParallelAnimationGroup):
         self._brush.setColor(Qt.black)
         self._brush.setStyle(Qt.SolidPattern)
 
-        # self.finished.connect(self.destroy)
+        # Connect animation finished to destroy
+        self.finished.connect(self.destroy)
 
     def set_overlay(self, overlay: WaveOverlay) -> None:
         """
@@ -295,7 +296,7 @@ class Wave(QParallelAnimationGroup):
         :return: None
         """
 
-        self.overlay.removeRipple(self)
+        self.overlay.remove_wave(self)
 
     def animate(self, _property: bytes, easing: QEasingCurve = QEasingCurve.OutQuad,
                 duration: int = 800) -> QPropertyAnimation:
@@ -456,7 +457,7 @@ class FlatButton(QPushButton):
 
         # Set clipping path overlay on button
         path = QPainterPath()
-        path.addRoundedRect(self.rect(), 15, 15)
+        path.addRoundedRect(self.rect(), 4, 4)
         self.wave_overlay.set_clip_path(path)
         self.wave_overlay.set_clipping(True)
 
@@ -479,9 +480,9 @@ class FlatButton(QPushButton):
         """
 
         # Set radius
-        radius: qreal = 15
+        radius: qreal = 4
 
-        #Update path
+        # Update path
         path = QPainterPath()
         path.addRoundedRect(self.rect(), radius, radius)
         self.wave_overlay.set_clip_path(path)
@@ -501,8 +502,8 @@ class FlatButton(QPushButton):
         # Define and configure wave
         wave = Wave(pos)
         wave.set_radius_values(0, radius_end_value)
-        wave.set_opacity_values(0.35, 0)
-        wave.set_color(Qt.black)
+        wave.set_opacity_values(0.35, 1)
+        wave.set_color(QColor(142, 198, 244, 100))
         wave.set_opacity_animation_duration(1300)
         wave.set_radius_animation_duration(600)
         self.wave_overlay.add_wave(wave)
