@@ -5,6 +5,7 @@ from budgetter.models.accounts_model import AccountsModel
 from budgetter.view.widgets.balance_widgets.account_delegate import AccountDelegate
 from budgetter.view.widgets.balance_widgets.donut_chart_widget import DonutChart
 from budgetter.view.widgets.dialog import Dialog
+from budgetter.view.widgets.dialog_widgets.add_account import AddAccountDialog
 
 
 class Accounts(QObject):
@@ -110,5 +111,9 @@ class Accounts(QObject):
         :return: None
         """
 
-        dialog = Dialog(QCoreApplication.translate("Accounts", 'Add Account'), QWidget(),
+        # Set dialog content
+        dialog_content = AddAccountDialog()
+
+        # Open dialog
+        dialog = Dialog(QCoreApplication.translate("Accounts", 'Add Account'), dialog_content,
                         self.main_window)

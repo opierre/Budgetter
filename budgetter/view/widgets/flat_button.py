@@ -504,7 +504,7 @@ class FlatButton(QPushButton):
         wave.set_radius_values(0, radius_end_value)
         wave.set_opacity_values(0.35, 1)
         wave.set_color(QColor(142, 198, 244, 100))
-        wave.set_opacity_animation_duration(1300)
+        wave.set_opacity_animation_duration(1200)
         wave.set_radius_animation_duration(600)
         self.wave_overlay.add_wave(wave)
 

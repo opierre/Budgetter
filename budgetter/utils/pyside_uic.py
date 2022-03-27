@@ -14,7 +14,7 @@ if __name__ == '__main__':
     absolute_path = os.path.join(os.path.dirname(__file__), '..', 'view', 'skeletons')
 
     # Build list with all UI files to convert
-    ui_files = ["MainWindow", "Options", "Dialog", "Account"]
+    ui_files = ["MainWindow", "Options", "Dialog", "Account", "AddAccount"]
 
     for ui_file in ui_files:
         # UI file
