@@ -15,9 +15,9 @@ class SavingDashboard(QWidget):
         super().__init__(parent)
 
         # Store values for months
-        self.values = dict()
-        self.current_year_values = dict()
-        self.previous_year_values = dict()
+        self.values = {}
+        self.current_year_values = {}
+        self.previous_year_values = {}
 
         # Store chart view """
         self.chart_view = CalloutChartView()
@@ -86,7 +86,7 @@ class SavingDashboard(QWidget):
         :return: None
         """
 
-        values = dict()
+        values = {}
         index = 0
 
         if len(self.current_year_values) < 12:

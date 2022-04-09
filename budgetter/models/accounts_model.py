@@ -26,6 +26,8 @@ class AccountsModel(QAbstractListModel):
 
             # Return current account list
             return account
+        else:
+            return None
 
     def rowCount(self, index: QModelIndex = QModelIndex()):
         """

@@ -43,7 +43,7 @@ class RestClient:
     """
 
     @staticmethod
-    def POST(url, data):
+    def post(url, data):
         """
         Post method
 
@@ -63,7 +63,7 @@ class RestClient:
         return response.json()
 
     @staticmethod
-    def GET(url):
+    def get(url):
         """
         Get method
 
@@ -82,7 +82,7 @@ class RestClient:
         return response.json()
 
     @staticmethod
-    def DELETE(url):
+    def delete(url):
         """
         Delete method
 

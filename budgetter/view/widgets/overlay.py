@@ -67,11 +67,13 @@ class Overlay(QWidget):
         if event.type() == QEvent.MouseButtonRelease:
             if self.rect().contains(event.pos()):
                 self.overlayClickedSignal.emit()
-                return True
+                result = True
             else:
-                return False
+                result = False
         else:
-            return False
+            result = False
+
+        return result
 
     def show(self):
         """

@@ -34,11 +34,10 @@
 # OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 # #####################################################################################################################
 
-from typing import List
 import sys
 from PySide2.QtWidgets import QPushButton, QWidget, QApplication, QHBoxLayout, QLineEdit
-from PySide2.QtGui import QPainter, QColor, QBrush, QPen, QPainterPath, QPaintEvent, QMouseEvent, QFont, QResizeEvent
-from PySide2.QtCore import Qt, QEvent, QObject, QParallelAnimationGroup, QPropertyAnimation, QRect, QPoint, \
+from PySide2.QtGui import QPainter, QColor, QBrush, QPen, QPaintEvent, QFont
+from PySide2.QtCore import Qt, QEvent, QPropertyAnimation, \
     QEasingCurve, Property, QStateMachine, QPointF, QState, QEventTransition, QCoreApplication, QLineF
 
 
@@ -369,7 +368,7 @@ class MaterialLineEdit(QLineEdit):
         """
 
         self.line_edit_private.text_color = color
-        self.setStyleSheet(str("QLineEdit { color: %s }").arg(color.name()))
+        self.setStyleSheet(f"QLineEdit {{ color: {color.name()} }}")
         self.line_edit_private.state_machine.setup_properties()
 
     def text_color(self) -> QColor:

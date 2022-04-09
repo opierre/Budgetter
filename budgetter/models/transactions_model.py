@@ -94,7 +94,7 @@ class TransactionsFilterModel(QSortFilterProxyModel):
 
     def filterAcceptsRow(self, source_row, source_parent):
         """
-        Override filterAcceptsRow
+        Override filterAcceptsRow()
 
         :param source_row: source_row
         :param source_parent: source_parent
@@ -108,21 +108,25 @@ class TransactionsFilterModel(QSortFilterProxyModel):
         if self.type == 'All' and self.account == 'All':
             if self.search is not None:
                 if "name" in self.search:
-                    return self.search_value.lower() in transaction["name"].lower()
+                    result = self.search_value.lower() in transaction["name"].lower()
                 elif "date" in self.search:
-                    return self.search_value in transaction["date"]
+                    result = self.search_value in transaction["date"]
                 elif "amount" in self.search:
-                    return str(self.search_value) in str(transaction["amount"])
+                    result = str(self.search_value) in str(transaction["amount"])
                 else:
-                    return True
+                    result = True
             else:
-                return True
+                result = True
         elif self.type == 'All' and self.account != 'All':
-            return transaction["account"] == self.account
+            result = transaction["account"] == self.account
         elif self.type != 'All' and self.account == 'All':
-            return transaction["type"] == self.type
+            result = transaction["type"] == self.type
         elif self.type != 'All' and self.account != 'All':
-            return (transaction["type"] == self.type) and (transaction["account"] == self.account)
+            result = (transaction["type"] == self.type) and (transaction["account"] == self.account)
+        else:
+            result = False
+
+        return result
 
     def lessThan(self, source_left, source_right):
         """
@@ -151,7 +155,7 @@ class TransactionsModel(QAbstractListModel):
         super().__init__()
 
         # Store transactions
-        self.transactions = transactions or dict()
+        self.transactions = transactions or {}
 
     def data(self, index: QModelIndex, role=Qt.ItemDataRole.DisplayRole):
         """
@@ -167,6 +171,8 @@ class TransactionsModel(QAbstractListModel):
 
             # Return current transaction list
             return transaction
+        else:
+            return None
 
     def setData(self, index: QModelIndex, value: typing.Any, role=Qt.ItemDataRole.EditRole) -> True:
         """

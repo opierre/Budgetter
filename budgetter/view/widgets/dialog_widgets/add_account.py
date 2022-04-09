@@ -14,4 +14,3 @@ class AddAccountDialog(QWidget):
         # Store dialog content
         self.content = Ui_AddAccount()
         self.content.setupUi(self)
-

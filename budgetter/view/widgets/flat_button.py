@@ -37,7 +37,7 @@
 from typing import List
 import sys
 from PySide2.QtWidgets import QPushButton, QWidget, QApplication, QHBoxLayout
-from PySide2.QtGui import QPainter, QColor, QBrush, QPen, QPainterPath, QPaintEvent, QMouseEvent, QFont, QResizeEvent
+from PySide2.QtGui import QPainter, QColor, QBrush, QPainterPath, QPaintEvent, QMouseEvent, QResizeEvent
 from PySide2.QtCore import Qt, QEvent, QObject, QParallelAnimationGroup, QPropertyAnimation, QRect, QPoint, \
     QEasingCurve, Property
 
@@ -438,7 +438,7 @@ class WaveOverlay(OverlayWidget):
         """
 
         radius: float = wave.radius()
-        center: QPointF = wave.center()
+        center: wave.center()
         painter.setOpacity(wave.opacity())
         painter.setBrush(wave.brush())
         painter.drawEllipse(center, radius, radius)
@@ -480,7 +480,7 @@ class FlatButton(QPushButton):
         """
 
         # Set radius
-        radius: qreal = 4
+        radius = 4.0
 
         # Update path
         path = QPainterPath()
