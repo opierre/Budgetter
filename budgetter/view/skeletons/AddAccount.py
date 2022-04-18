@@ -60,13 +60,19 @@ class Ui_AddAccount(object):
 "	background-color: transparent;\n"
 "	border: none;\n"
 "	border-radius: 0px;\n"
-"	border-bottom: 1px solid rgba(255, 255, 255, 180);\n"
+"	/*border-bottom: 1px solid rgba(255, 255, 255, 180);*/\n"
 "	outline: none;\n"
 "}\n"
 "\n"
 "QLineEdit:hover\n"
 "{\n"
-"	border-bottom: 2px solid rgba(255, 255, 255, 230);\n"
+"	/*border-bottom: 2px solid rgba(255, 255, 255, 230);*/\n"
+"}\n"
+"\n"
+"\n"
+"QLineEdit:focus\n"
+"{\n"
+"	/*border-bottom: 2px solid rgba(255, 255, 255, 230);*/\n"
 "}")
         self.gridLayout = QGridLayout(AddAccount)
         self.gridLayout.setObjectName("gridLayout")

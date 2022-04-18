@@ -1,4 +1,5 @@
 from PySide2.QtWidgets import QWidget
+from PySide2.QtGui import QColor
 
 from budgetter.view.skeletons.AddAccount import Ui_AddAccount
 
@@ -14,3 +15,19 @@ class AddAccountDialog(QWidget):
         # Store dialog content
         self.content = Ui_AddAccount()
         self.content.setupUi(self)
+
+        # Configure widgets
+        self.configure()
+
+    def configure(self):
+        """
+        Configure all widgets
+
+        :return: None
+        """
+
+        # Configure line edit attributes
+        self.content.account_name.set_label('Account Name')
+        self.content.account_name.set_input_line_color(QColor(224, 224, 224, 150))
+        self.content.account_name.set_ink_color(QColor("#199DE5"))
+        self.content.account_name.set_(QColor("#199DE5"))

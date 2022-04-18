@@ -165,6 +165,11 @@ class MaterialLineEditStateMachine(QStateMachine):
             self.color_animation.setDuration(210)
             self.addDefaultAnimation(self.color_animation)
 
+            # Apply new scale animation
+            self.color_animation = QPropertyAnimation(self.label, b"_scale", self)
+            self.color_animation.setDuration(210)
+            self.addDefaultAnimation(self.color_animation)
+
         # Setup properties
         self.setup_properties()
 

@@ -50,13 +50,19 @@ QLineEdit
 	background-color: transparent;
 	border: none;
 	border-radius: 0px;
-	border-bottom: 1px solid rgba(255, 255, 255, 180);
+	/*border-bottom: 1px solid rgba(255, 255, 255, 180);*/
 	outline: none;
 }
 
 QLineEdit:hover
 {
-	border-bottom: 2px solid rgba(255, 255, 255, 230);
+	/*border-bottom: 2px solid rgba(255, 255, 255, 230);*/
+}
+
+
+QLineEdit:focus
+{
+	/*border-bottom: 2px solid rgba(255, 255, 255, 230);*/
 }</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
