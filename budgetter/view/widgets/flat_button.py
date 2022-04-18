@@ -438,7 +438,7 @@ class WaveOverlay(OverlayWidget):
         """
 
         radius: float = wave.radius()
-        center: wave.center()
+        center = wave.center()
         painter.setOpacity(wave.opacity())
         painter.setBrush(wave.brush())
         painter.drawEllipse(center, radius, radius)
