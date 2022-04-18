@@ -106,7 +106,7 @@ QLineEdit:hover
       <item>
        <layout class="QVBoxLayout" name="verticalLayout_2">
         <item>
-         <widget class="QLineEdit" name="account_name">
+         <widget class="MaterialLineEdit" name="account_name">
           <property name="font">
            <font>
             <family>Roboto</family>
@@ -122,6 +122,13 @@ QLineEdit:hover
    </item>
   </layout>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>MaterialLineEdit</class>
+   <extends>QLineEdit</extends>
+   <header>view.widgets.material_line_edit.h</header>
+  </customwidget>
+ </customwidgets>
  <resources>
   <include location="../resources/resources.qrc"/>
  </resources>
