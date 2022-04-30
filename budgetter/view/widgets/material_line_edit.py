@@ -211,7 +211,9 @@ class MaterialLineEditStateMachine(QStateMachine):
             # Define properties values for label
             self.focused_state.assignProperty(self.label, "_offset", QPointF(0, 0 - margin_top))
             self.focused_state.assignProperty(self.label, "_color", self.line_edit.ink_color())
+            self.focused_state.assignProperty(self.label, "_scale", self.label.scale() / 1.1)
             self.normal_state.assignProperty(self.label, "_color", self.line_edit.label_color())
+            self.normal_state.assignProperty(self.label, "_scale", self.label.scale())
 
             if 0 != self.label.offset().y() and not self.line_edit.text():
                 self.label.set_offset(QPointF(0, 0 - margin_top))
@@ -527,7 +529,7 @@ class MaterialLineEdit(QLineEdit):
                 painter.setPen(Qt.NoPen)
                 painter.setBrush(brush)
                 width: int = int((1 - progress) * (width_start / 2))
-                painter.drawRect(width + 2.5, self.height() - 2, width_start - width * 2, 2)
+                painter.drawRect(int(width + 2.5), self.height() - 2, width_start - width * 2, 2)
 
     # Properties to animate or modify
     _textColor = Property(QColor, fset=set_text_color, fget=text_color)
@@ -545,7 +547,7 @@ class MaterialLineEditLabel(QWidget):
 
         # Store attributes
         self.line_edit = parent
-        self.scale = 1.0
+        self.__scale = 1.0
         self.x_position = 0.0
         self.y_position = 26
         self.color = QColor(parent.label_color())
@@ -563,7 +565,7 @@ class MaterialLineEditLabel(QWidget):
         :return: None
         """
 
-        self.scale = scale
+        self.__scale = scale
         self.update()
 
     def scale(self) -> float:
@@ -572,7 +574,7 @@ class MaterialLineEditLabel(QWidget):
 
         :return: current scale
         """
-        return self.scale
+        return self.__scale
 
     def set_offset(self, offset: QPointF) -> None:
         """
@@ -625,7 +627,7 @@ class MaterialLineEditLabel(QWidget):
         # Configure painter
         painter = QPainter(self)
         painter.setRenderHint(QPainter.Antialiasing)
-        painter.scale(self.scale, self.scale)
+        painter.scale(self.__scale, self.__scale)
         painter.setPen(self.color)
         painter.setOpacity(1)
 

@@ -30,4 +30,4 @@ class AddAccountDialog(QWidget):
         self.content.account_name.set_label('Account Name')
         self.content.account_name.set_input_line_color(QColor(224, 224, 224, 150))
         self.content.account_name.set_ink_color(QColor("#199DE5"))
-        self.content.account_name.set_(QColor("#199DE5"))
+        self.content.account_name.set_label_color(QColor(224, 224, 224, 150))
