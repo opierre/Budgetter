@@ -73,9 +73,10 @@ class MaterialLineEditStateMachine(QStateMachine):
         # Store label to display on top of line edit
         self.label = 0
 
-        # Store animation: offset and color
+        # Store animation: offset and color and scale
         self.offset_animation = QPropertyAnimation(self)
         self.color_animation = QPropertyAnimation(self)
+        self.scale_animation = QPropertyAnimation(self)
 
         # Store progress for animation update
         self.__progress = 0.0
@@ -151,6 +152,11 @@ class MaterialLineEditStateMachine(QStateMachine):
             self.removeDefaultAnimation(self.color_animation)
             del self.color_animation
 
+        # Delete previous scale animation
+        if self.scale_animation:
+            self.removeDefaultAnimation(self.scale_animation)
+            del self.scale_animation
+
         self.label = label_to_set
 
         if self.label:
@@ -166,9 +172,9 @@ class MaterialLineEditStateMachine(QStateMachine):
             self.addDefaultAnimation(self.color_animation)
 
             # Apply new scale animation
-            self.color_animation = QPropertyAnimation(self.label, b"_scale", self)
-            self.color_animation.setDuration(210)
-            self.addDefaultAnimation(self.color_animation)
+            self.scale_animation = QPropertyAnimation(self.label, b"_scale", self)
+            self.scale_animation.setDuration(180)
+            self.addDefaultAnimation(self.scale_animation)
 
         # Setup properties
         self.setup_properties()
@@ -204,16 +210,17 @@ class MaterialLineEditStateMachine(QStateMachine):
 
             # Move label on top if text in line edit is not empty
             if self.line_edit.text() == '':
-                self.normal_state.assignProperty(self.label, "_offset", QPointF(0, 26))
+                self.normal_state.assignProperty(self.label, "_offset", QPointF(0, 23))
+                self.normal_state.assignProperty(self.label, "_scale", 1.0)
             else:
                 self.normal_state.assignProperty(self.label, "_offset", QPointF(0, 0 - margin_top))
+                self.normal_state.assignProperty(self.label, "_scale", 0.82)
 
             # Define properties values for label
             self.focused_state.assignProperty(self.label, "_offset", QPointF(0, 0 - margin_top))
             self.focused_state.assignProperty(self.label, "_color", self.line_edit.ink_color())
-            self.focused_state.assignProperty(self.label, "_scale", self.label.scale() / 1.1)
             self.normal_state.assignProperty(self.label, "_color", self.line_edit.label_color())
-            self.normal_state.assignProperty(self.label, "_scale", self.label.scale())
+            self.focused_state.assignProperty(self.label, "_scale", 0.82)
 
             if 0 != self.label.offset().y() and not self.line_edit.text():
                 self.label.set_offset(QPointF(0, 0 - margin_top))
@@ -222,7 +229,7 @@ class MaterialLineEditStateMachine(QStateMachine):
                     and self.label.offset().y() <= 0
                     and self.line_edit.text() == ''
             ):
-                self.label.set_offset(QPointF(0, 26))
+                self.label.set_offset(QPointF(0, 23))
 
         self.line_edit.update()
 
@@ -309,7 +316,7 @@ class MaterialLineEdit(QLineEdit):
 
         # Set margin on top
         if value:
-            self.setContentsMargins(0, 23, 0, 0)
+            self.setContentsMargins(0, 20, 0, 0)
         else:
             self.setContentsMargins(0, 0, 0, 0)
 
@@ -549,12 +556,12 @@ class MaterialLineEditLabel(QWidget):
         self.line_edit = parent
         self.__scale = 1.0
         self.x_position = 0.0
-        self.y_position = 26
+        self.y_position = 23
         self.color = QColor(parent.label_color())
 
         # Configure and apply default font
-        font = QFont("Roboto", int(parent.label_font_size()), QFont.Medium)
-        font.setLetterSpacing(QFont.PercentageSpacing, 102)
+        font = QFont("Roboto", int(parent.fontInfo().pointSizeF()), QFont.Medium)
+        # font.setLetterSpacing(QFont.PercentageSpacing, 102)
         self.setFont(font)
 
     def set_scale(self, scale: float) -> None:
