@@ -23,7 +23,7 @@ class Ui_AddAccount(object):
     def setupUi(self, AddAccount):
         if not AddAccount.objectName():
             AddAccount.setObjectName("AddAccount")
-        AddAccount.resize(335, 197)
+        AddAccount.resize(418, 278)
         AddAccount.setStyleSheet("QWidget#account \n"
 "{\n"
 "	background-color: #1C293B;\n"
@@ -60,6 +60,7 @@ class Ui_AddAccount(object):
 "	background-color: transparent;\n"
 "	border: none;\n"
 "	border-radius: 0px;\n"
+"	padding-left: 0px;\n"
 "	/*border-bottom: 1px solid rgba(255, 255, 255, 180);*/\n"
 "	outline: none;\n"
 "}\n"
@@ -104,6 +105,25 @@ class Ui_AddAccount(object):
         self.account_name.setFont(font1)
 
         self.verticalLayout_2.addWidget(self.account_name)
+
+        self.horizontalLayout = QHBoxLayout()
+        self.horizontalLayout.setSpacing(20)
+        self.horizontalLayout.setObjectName("horizontalLayout")
+        self.account_amount = MaterialLineEdit(self.account)
+        self.account_amount.setObjectName("account_amount")
+        self.account_amount.setFont(font1)
+
+        self.horizontalLayout.addWidget(self.account_amount)
+
+        self.account_amount_date = QDateEdit(self.account)
+        self.account_amount_date.setObjectName("account_amount_date")
+        self.account_amount_date.setFont(font1)
+        self.account_amount_date.setCalendarPopup(True)
+
+        self.horizontalLayout.addWidget(self.account_amount_date)
+
+
+        self.verticalLayout_2.addLayout(self.horizontalLayout)
 
 
         self.verticalLayout.addLayout(self.verticalLayout_2)

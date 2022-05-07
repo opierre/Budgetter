@@ -35,8 +35,8 @@
 # #####################################################################################################################
 
 import sys
-from PySide2.QtWidgets import QPushButton, QWidget, QApplication, QHBoxLayout, QLineEdit
-from PySide2.QtGui import QPainter, QColor, QBrush, QPen, QPaintEvent, QFont
+from PySide2.QtWidgets import QPushButton, QWidget, QApplication, QHBoxLayout, QLineEdit, QLabel
+from PySide2.QtGui import QPainter, QColor, QBrush, QPen, QPaintEvent, QFont, QKeyEvent, QKeySequence
 from PySide2.QtCore import Qt, QEvent, QPropertyAnimation, \
     QEasingCurve, Property, QStateMachine, QPointF, QState, QEventTransition, QCoreApplication, QLineF
 
@@ -292,8 +292,25 @@ class MaterialLineEdit(QLineEdit):
     def __init__(self, parent: QWidget = None, create: bool = True):
         super().__init__(parent)
 
+        # Store trailing symbol
+        self.trailing_symbol = None
+
         if create is True:
             self.line_edit_private = MaterialLineEditPrivate(self)
+
+    def set_trailing_symbol(self, symbol: str):
+        """
+        Set trailing symbol on left
+
+        :param symbol: symbol to set
+        :return: None
+        """
+
+        self.trailing_symbol = QLabel(symbol, parent=self)
+        self.trailing_symbol.setFont(QFont("Roboto", 11, QFont.Normal))
+        self.trailing_symbol.setStyleSheet("color: " + self.text_color().name() + "; padding: 0px;")
+        self.trailing_symbol.setWordWrap(True)
+        self.trailing_symbol.setVisible(False)
 
     def set_show_label(self, value: bool) -> None:
         """
@@ -494,12 +511,25 @@ class MaterialLineEdit(QLineEdit):
         :return: None
         """
 
+        if self.trailing_symbol is not None and self.text() != '':
+            self.setContentsMargins(self.trailing_symbol.rect().width(), self.contentsMargins().top(),
+                                    self.contentsMargins().right(), self.contentsMargins().bottom())
+        else:
+            self.setContentsMargins(0, self.contentsMargins().top(),
+                                    self.contentsMargins().right(), self.contentsMargins().bottom())
+
         super().paintEvent(event)
+
+        if self.text() != '':
+            self.trailing_symbol.move(self.rect().left(), self.rect().center().y() + 1)
+            self.trailing_symbol.setVisible(True)
+        else:
+            self.trailing_symbol.setVisible(False)
 
         try:
             # Get progress
             progress: float = self.line_edit_private.state_machine.progress()
-        except:
+        except Exception as ex:
             return
 
         painter = QPainter(self)
@@ -527,7 +557,7 @@ class MaterialLineEdit(QLineEdit):
             painter.setOpacity(1)
             painter.drawLine(QLineF(2.5, y_start, width_start, y_start))
 
-            # COnfigure brush
+            # Configure brush
             brush = QBrush()
             brush.setStyle(Qt.SolidPattern)
             brush.setColor(self.ink_color())
@@ -655,6 +685,7 @@ if __name__ == '__main__':
     button.setStyleSheet("background: transparent;")
     test = QPushButton('alors')
     button.set_label('Coucou')
+    button.set_trailing_symbol('€')
     layout = QHBoxLayout()
     widget.setLayout(layout)
     layout.addWidget(button)

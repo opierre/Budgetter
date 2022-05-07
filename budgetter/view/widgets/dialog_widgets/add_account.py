@@ -1,5 +1,5 @@
 from PySide2.QtWidgets import QWidget
-from PySide2.QtGui import QColor
+from PySide2.QtGui import QColor, QDoubleValidator
 
 from budgetter.view.skeletons.AddAccount import Ui_AddAccount
 
@@ -31,3 +31,11 @@ class AddAccountDialog(QWidget):
         self.content.account_name.set_input_line_color(QColor(224, 224, 224, 150))
         self.content.account_name.set_ink_color(QColor("#199DE5"))
         self.content.account_name.set_label_color(QColor(224, 224, 224, 150))
+
+        # Configure line edit attributes
+        self.content.account_amount.set_label('Initial Amount')
+        self.content.account_amount.set_input_line_color(QColor(224, 224, 224, 150))
+        self.content.account_amount.set_ink_color(QColor("#199DE5"))
+        self.content.account_amount.set_label_color(QColor(224, 224, 224, 150))
+        self.content.account_amount.setValidator(QDoubleValidator(0, 100000, 2))
+        self.content.account_amount.set_trailing_symbol("€")
