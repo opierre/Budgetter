@@ -306,7 +306,7 @@ class MaterialLineEdit(QLineEdit):
         :return: None
         """
 
-        self.trailing_symbol = QLabel(symbol, parent=self)
+        self.trailing_symbol = QLabel(symbol + " ", parent=self)
         self.trailing_symbol.setFont(QFont("Roboto", 11, QFont.Normal))
         self.trailing_symbol.setStyleSheet("color: " + self.text_color().name() + "; padding: 0px;")
         self.trailing_symbol.setWordWrap(True)
@@ -520,11 +520,12 @@ class MaterialLineEdit(QLineEdit):
 
         super().paintEvent(event)
 
-        if self.text() != '':
+        if self.text() != '' and self.trailing_symbol is not None:
             self.trailing_symbol.move(self.rect().left(), self.rect().center().y() + 1)
             self.trailing_symbol.setVisible(True)
         else:
-            self.trailing_symbol.setVisible(False)
+            if self.trailing_symbol is not None:
+                self.trailing_symbol.setVisible(False)
 
         try:
             # Get progress
