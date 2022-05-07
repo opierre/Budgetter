@@ -222,14 +222,16 @@ class MaterialLineEditStateMachine(QStateMachine):
             self.normal_state.assignProperty(self.label, "_color", self.line_edit.label_color())
             self.focused_state.assignProperty(self.label, "_scale", 0.82)
 
-            if 0 != self.label.offset().y() and not self.line_edit.text():
-                self.label.set_offset(QPointF(0, 0 - margin_top))
-            elif (
-                    not self.line_edit.hasFocus()
-                    and self.label.offset().y() <= 0
-                    and self.line_edit.text() == ''
-            ):
-                self.label.set_offset(QPointF(0, 23))
+            # if 0 != self.label.offset().y() and not self.line_edit.text():
+            #     self.label.set_offset(QPointF(0, 0 - margin_top))
+            #     self.label.set_scale(0.82)
+            # elif (
+            #         not self.line_edit.hasFocus()
+            #         and self.label.offset().y() <= 0
+            #         and self.line_edit.text() == ''
+            # ):
+            #     self.label.set_offset(QPointF(0, 23))
+            #     self.label.set_scale(1.0)
 
         self.line_edit.update()
 
@@ -297,6 +299,28 @@ class MaterialLineEdit(QLineEdit):
 
         if create is True:
             self.line_edit_private = MaterialLineEditPrivate(self)
+
+        # Connect all slots and signals
+        self.connect_slots_and_signals()
+
+    def connect_slots_and_signals(self):
+        """
+        Connect all slots and signals
+
+        :return: None
+        """
+
+        # Connect text changed to edit function
+        self.textChanged.connect(self.on_text_changed)
+
+    def on_text_changed(self, text: str):
+        """
+        Function to edit text on update
+
+        :param text: text to set
+        :return: None
+        """
+
 
     def set_trailing_symbol(self, symbol: str):
         """
@@ -689,8 +713,8 @@ if __name__ == '__main__':
     button.set_trailing_symbol('€')
     layout = QHBoxLayout()
     widget.setLayout(layout)
-    layout.addWidget(button)
     layout.addWidget(test)
+    layout.addWidget(button)
     layout.setContentsMargins(20, 20, 20, 20)
     button.setFixedWidth(300)
     # button.setFixedHeight(100)

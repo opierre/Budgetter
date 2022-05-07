@@ -26,14 +26,14 @@ class AddAccountDialog(QWidget):
         :return: None
         """
 
-        # Configure line edit attributes
+        # Configure account name attributes
         self.content.account_name.set_label('Account Name')
         self.content.account_name.set_input_line_color(QColor(224, 224, 224, 150))
         self.content.account_name.set_text_color(QColor(255, 255, 255, 255))
         self.content.account_name.set_ink_color(QColor("#199DE5"))
         self.content.account_name.set_label_color(QColor(224, 224, 224, 150))
 
-        # Configure line edit attributes
+        # Configure amount attributes
         self.content.account_amount.set_label('Initial Amount')
         self.content.account_amount.set_input_line_color(QColor(224, 224, 224, 150))
         self.content.account_amount.set_text_color(QColor(255, 255, 255, 255))
