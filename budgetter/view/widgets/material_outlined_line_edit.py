@@ -206,11 +206,11 @@ class MaterialLineEditStateMachine(QStateMachine):
         """
 
         if self.label:
-            margin_top: int = self.line_edit.textMargins().top()
+            margin_top: int = self.line_edit.textMargins().top() + 7
 
             # Move label on top if text in line edit is not empty
             if self.line_edit.text() == '':
-                self.normal_state.assignProperty(self.label, "_offset", QPointF(0, 15))
+                self.normal_state.assignProperty(self.label, "_offset", QPointF(0, 13))
                 self.normal_state.assignProperty(self.label, "_scale", 1.0)
             else:
                 self.normal_state.assignProperty(self.label, "_offset", QPointF(0, 0 - margin_top))
@@ -272,8 +272,8 @@ class MaterialLineEditPrivate:
                                      "  background: transparent;"
                                      "  border: 1px solid rgba(224, 224, 224, 150);"
                                      "  border-radius: 5px;"
-                                     "  padding-top: 8px;"
-                                     "  padding-bottom: 8px;"
+                                     "  padding-top: 12px;"
+                                     "  padding-bottom: 10px;"
                                      "  padding-left: 9px;"
                                      "}"
                                      "QLineEdit:hover {"
@@ -504,7 +504,7 @@ class MaterialLineEditLabel(QWidget):
         self.line_edit = parent
         self.__scale = 1.0
         self.x_position = 0.0
-        self.y_position = 15
+        self.y_position = 13
         self.color = QColor(parent.label_color())
         self.background_color = QColor("transparent")
 
