@@ -300,28 +300,6 @@ class MaterialLineEdit(QLineEdit):
         if create is True:
             self.line_edit_private = MaterialLineEditPrivate(self)
 
-        # Connect all slots and signals
-        self.connect_slots_and_signals()
-
-    def connect_slots_and_signals(self):
-        """
-        Connect all slots and signals
-
-        :return: None
-        """
-
-        # Connect text changed to edit function
-        self.textChanged.connect(self.on_text_changed)
-
-    def on_text_changed(self, text: str):
-        """
-        Function to edit text on update
-
-        :param text: text to set
-        :return: None
-        """
-
-
     def set_trailing_symbol(self, symbol: str):
         """
         Set trailing symbol on left
