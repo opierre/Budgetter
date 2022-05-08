@@ -128,7 +128,7 @@ QLineEdit:focus
            <number>20</number>
           </property>
           <item>
-           <widget class="MaterialLineEdit" name="account_amount">
+           <widget class="MaterialOutlinedLineEdit" name="account_amount">
             <property name="font">
              <font>
               <family>Roboto</family>
@@ -160,11 +160,6 @@ QLineEdit:focus
   </layout>
  </widget>
  <customwidgets>
-  <customwidget>
-   <class>MaterialLineEdit</class>
-   <extends>QLineEdit</extends>
-   <header>view.widgets.material_line_edit.h</header>
-  </customwidget>
   <customwidget>
    <class>MaterialOutlinedLineEdit</class>
    <extends>QLineEdit</extends>

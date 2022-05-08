@@ -34,9 +34,8 @@ class AddAccountDialog(QWidget):
 
         # Configure amount attributes
         self.content.account_amount.set_label('Initial Amount')
-        self.content.account_amount.set_input_line_color(QColor(224, 224, 224, 150))
+        self.content.account_amount.set_label_background_color(QColor("#1C293B"))
         self.content.account_amount.set_text_color(QColor(255, 255, 255, 255))
-        self.content.account_amount.set_ink_color(QColor("#199DE5"))
         self.content.account_amount.set_label_color(QColor(224, 224, 224, 150))
         self.content.account_amount.setValidator(QDoubleValidator(0, 100000, 2))
         self.content.account_amount.set_trailing_symbol("€")

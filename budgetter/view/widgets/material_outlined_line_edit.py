@@ -41,6 +41,25 @@ from PySide2.QtCore import Qt, QEvent, QPropertyAnimation, \
     QEasingCurve, Property, QStateMachine, QPointF, QState, QEventTransition, QCoreApplication, QLineF
 
 
+STYLESHEET = "QLineEdit {{" \
+             "  background: transparent;" \
+             "  border: 1px solid rgba(224, 224, 224, 150);" \
+             "  border-radius: 5px;" \
+             "  padding-top: 12px;" \
+             "  padding-bottom: 10px;" \
+             "  padding-left: {padding}px;" \
+             "}}" \
+             "QLineEdit:hover {{" \
+             "  background: transparent;" \
+             "  border: 1px solid rgba(255, 255, 255, 255);" \
+             "}}" \
+             "QLineEdit:focus {{" \
+             "  background: transparent;" \
+             "  border: 2px solid #199DE5;" \
+             "  padding-left: {padding_minus}px;" \
+             "}}"
+
+
 class MaterialOutlinedLineEdit(QLineEdit):
     """
     Declaration to avoid conflicts
@@ -268,23 +287,7 @@ class MaterialLineEditPrivate:
         self.line_edit.setTextMargins(0, 2, 0, 4)
 
         # Set stylesheet
-        self.line_edit.setStyleSheet("QLineEdit {"
-                                     "  background: transparent;"
-                                     "  border: 1px solid rgba(224, 224, 224, 150);"
-                                     "  border-radius: 5px;"
-                                     "  padding-top: 12px;"
-                                     "  padding-bottom: 10px;"
-                                     "  padding-left: 9px;"
-                                     "}"
-                                     "QLineEdit:hover {"
-                                     "  background: transparent;"
-                                     "  border: 1px solid rgba(255, 255, 255, 255);"
-                                     "}"
-                                     "QLineEdit:focus {"
-                                     "  background: transparent;"
-                                     "  border: 2px solid #199DE5;"
-                                     "}"
-                                     )
+        self.line_edit.setStyleSheet(STYLESHEET.format(padding='9', padding_minus='8'))
 
         # Set font on line edit
         self.line_edit.setFont(QFont("Roboto", 11, QFont.Normal))
@@ -473,16 +476,14 @@ class MaterialOutlinedLineEdit(QLineEdit):
         """
 
         if self.trailing_symbol is not None and self.text() != '':
-            self.setContentsMargins(self.trailing_symbol.rect().width(), self.contentsMargins().top(),
-                                    self.contentsMargins().right(), self.contentsMargins().bottom())
+            self.setStyleSheet(STYLESHEET.format(padding='24', padding_minus='23'))
         else:
-            self.setContentsMargins(0, self.contentsMargins().top(),
-                                    self.contentsMargins().right(), self.contentsMargins().bottom())
+            self.setStyleSheet(STYLESHEET.format(padding='9', padding_minus='8'))
 
         super().paintEvent(event)
 
         if self.text() != '' and self.trailing_symbol is not None:
-            self.trailing_symbol.move(self.rect().left(), self.rect().center().y() + 1)
+            self.trailing_symbol.move(self.rect().left() + 15, self.rect().center().y())
             self.trailing_symbol.setVisible(True)
         else:
             if self.trailing_symbol is not None:
@@ -622,7 +623,7 @@ if __name__ == '__main__':
     button.set_label('Coucou')
     button.set_label_color(QColor(224, 224, 224, 255))
     button.set_label_background_color(QColor(255, 255, 255, 255))
-    # button.set_trailing_symbol('€')
+    button.set_trailing_symbol('€')
     layout = QHBoxLayout()
     widget.setLayout(layout)
     layout.addWidget(test)

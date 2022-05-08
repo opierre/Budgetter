@@ -15,7 +15,6 @@ from PySide2.QtGui import (QBrush, QColor, QConicalGradient, QCursor, QFont,
     QPixmap, QRadialGradient)
 from PySide2.QtWidgets import *
 
-from budgetter.view.widgets.material_line_edit import MaterialLineEdit
 from budgetter.view.widgets.material_outlined_line_edit import MaterialOutlinedLineEdit
 
 import resources_rc
@@ -110,7 +109,7 @@ class Ui_AddAccount(object):
         self.horizontalLayout = QHBoxLayout()
         self.horizontalLayout.setSpacing(20)
         self.horizontalLayout.setObjectName("horizontalLayout")
-        self.account_amount = MaterialLineEdit(self.account)
+        self.account_amount = MaterialOutlinedLineEdit(self.account)
         self.account_amount.setObjectName("account_amount")
         self.account_amount.setFont(font1)
 
