@@ -16,6 +16,7 @@ from PySide2.QtGui import (QBrush, QColor, QConicalGradient, QCursor, QFont,
 from PySide2.QtWidgets import *
 
 from budgetter.view.widgets.material_line_edit import MaterialLineEdit
+from budgetter.view.widgets.material_outlined_line_edit import MaterialOutlinedLineEdit
 
 import resources_rc
 
@@ -97,7 +98,7 @@ class Ui_AddAccount(object):
 
         self.verticalLayout_2 = QVBoxLayout()
         self.verticalLayout_2.setObjectName("verticalLayout_2")
-        self.account_name = MaterialLineEdit(self.account)
+        self.account_name = MaterialOutlinedLineEdit(self.account)
         self.account_name.setObjectName("account_name")
         font1 = QFont()
         font1.setFamily("Roboto")
