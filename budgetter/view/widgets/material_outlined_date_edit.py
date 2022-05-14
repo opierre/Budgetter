@@ -35,6 +35,7 @@
 # #####################################################################################################################
 
 import sys
+from datetime import datetime
 from PySide2.QtWidgets import QPushButton, QWidget, QApplication, QHBoxLayout, QLineEdit, QLabel
 from PySide2.QtGui import QPainter, QColor, QBrush, QPen, QPaintEvent, QFont, QKeyEvent, QKeySequence, QFontMetrics, \
     QRegExpValidator, QFocusEvent, QMouseEvent
@@ -315,9 +316,14 @@ class MaterialOutlinedDateEdit(QLineEdit):
         if create is True:
             self.line_edit_private = MaterialLineEditPrivate(self)
 
+        # Set regexp for date
         reg_exp_date = QRegExp("(0[1-9]|[12][0-9]|3[01])/(0[1-9]|[1][0-2])/(19[0-9][0-9]|20[0-9][0-9])")
         validator = QRegExpValidator(reg_exp_date)
         self.setValidator(validator)
+
+        # Set current date by default
+        current_date = datetime.today().strftime("%d/%m/%Y")
+        self.setText(current_date)
 
     def focusInEvent(self, arg__1: QFocusEvent):
         """
