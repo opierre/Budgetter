@@ -25,7 +25,7 @@
 QPushButton
 {
 	background-color: transparent;
-	color: #8ec6f4;
+	color: rgba(25, 157, 229, 210);
 	outline: none;
 	padding-left: 8px;
 	padding-right: 8px;

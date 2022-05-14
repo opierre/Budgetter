@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>418</width>
+    <width>377</width>
     <height>278</height>
    </rect>
   </property>
@@ -129,6 +129,18 @@ QLineEdit:focus
           </property>
           <item>
            <widget class="MaterialOutlinedLineEdit" name="account_amount">
+            <property name="minimumSize">
+             <size>
+              <width>170</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>170</width>
+              <height>16777215</height>
+             </size>
+            </property>
             <property name="font">
              <font>
               <family>Roboto</family>
@@ -138,15 +150,27 @@ QLineEdit:focus
            </widget>
           </item>
           <item>
-           <widget class="QDateEdit" name="account_amount_date">
+           <widget class="MaterialOutlinedDateEdit" name="account_amount_date">
+            <property name="minimumSize">
+             <size>
+              <width>150</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>150</width>
+              <height>16777215</height>
+             </size>
+            </property>
             <property name="font">
              <font>
               <family>Roboto</family>
               <pointsize>11</pointsize>
              </font>
             </property>
-            <property name="calendarPopup">
-             <bool>true</bool>
+            <property name="inputMask">
+             <string/>
             </property>
            </widget>
           </item>
@@ -164,6 +188,11 @@ QLineEdit:focus
    <class>MaterialOutlinedLineEdit</class>
    <extends>QLineEdit</extends>
    <header>view.widgets.material_outlined_line_edit.h</header>
+  </customwidget>
+  <customwidget>
+   <class>MaterialOutlinedDateEdit</class>
+   <extends>QLineEdit</extends>
+   <header>view.widgets.material_outlined_date_edit.h</header>
   </customwidget>
  </customwidgets>
  <resources>

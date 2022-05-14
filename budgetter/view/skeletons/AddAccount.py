@@ -16,6 +16,7 @@ from PySide2.QtGui import (QBrush, QColor, QConicalGradient, QCursor, QFont,
 from PySide2.QtWidgets import *
 
 from budgetter.view.widgets.material_outlined_line_edit import MaterialOutlinedLineEdit
+from budgetter.view.widgets.material_outlined_date_edit import MaterialOutlinedDateEdit
 
 import resources_rc
 
@@ -23,7 +24,7 @@ class Ui_AddAccount(object):
     def setupUi(self, AddAccount):
         if not AddAccount.objectName():
             AddAccount.setObjectName("AddAccount")
-        AddAccount.resize(418, 278)
+        AddAccount.resize(377, 278)
         AddAccount.setStyleSheet("QWidget#account \n"
 "{\n"
 "	background-color: #1C293B;\n"
@@ -111,14 +112,17 @@ class Ui_AddAccount(object):
         self.horizontalLayout.setObjectName("horizontalLayout")
         self.account_amount = MaterialOutlinedLineEdit(self.account)
         self.account_amount.setObjectName("account_amount")
+        self.account_amount.setMinimumSize(QSize(170, 0))
+        self.account_amount.setMaximumSize(QSize(170, 16777215))
         self.account_amount.setFont(font1)
 
         self.horizontalLayout.addWidget(self.account_amount)
 
-        self.account_amount_date = QDateEdit(self.account)
+        self.account_amount_date = MaterialOutlinedDateEdit(self.account)
         self.account_amount_date.setObjectName("account_amount_date")
+        self.account_amount_date.setMinimumSize(QSize(150, 0))
+        self.account_amount_date.setMaximumSize(QSize(150, 16777215))
         self.account_amount_date.setFont(font1)
-        self.account_amount_date.setCalendarPopup(True)
 
         self.horizontalLayout.addWidget(self.account_amount_date)
 
@@ -140,5 +144,6 @@ class Ui_AddAccount(object):
     def retranslateUi(self, AddAccount):
         AddAccount.setWindowTitle(QCoreApplication.translate("AddAccount", "Form", None))
         self.label.setText(QCoreApplication.translate("AddAccount", "Please enter account information.", None))
+        self.account_amount_date.setInputMask("")
     # retranslateUi
 

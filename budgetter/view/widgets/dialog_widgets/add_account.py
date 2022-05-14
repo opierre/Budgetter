@@ -41,4 +41,7 @@ class AddAccountDialog(QWidget):
         self.content.account_amount.set_trailing_symbol("€")
 
         # Configure date edit
-        self.content.account_amount_date.setFixedHeight(self.content.account_amount.sizeHint().height())
+        self.content.account_amount_date.set_label('Date')
+        self.content.account_amount_date.set_label_background_color(QColor("#1C293B"))
+        self.content.account_amount_date.set_text_color(QColor(255, 255, 255, 255))
+        self.content.account_amount_date.set_label_color(QColor(224, 224, 224, 150))

@@ -35,7 +35,7 @@ class Ui_Dialog(object):
 "QPushButton\n"
 "{\n"
 "	background-color: transparent;\n"
-"	color: #8ec6f4;\n"
+"	color: rgba(25, 157, 229, 210);\n"
 "	outline: none;\n"
 "	padding-left: 8px;\n"
 "	padding-right: 8px;\n"
