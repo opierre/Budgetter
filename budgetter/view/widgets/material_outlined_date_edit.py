@@ -321,10 +321,6 @@ class MaterialOutlinedDateEdit(QLineEdit):
         validator = QRegExpValidator(reg_exp_date)
         self.setValidator(validator)
 
-        # Set current date by default
-        current_date = datetime.today().strftime("%d/%m/%Y")
-        self.setText(current_date)
-
     def focusInEvent(self, arg__1: QFocusEvent):
         """
         Override focus in event to avoid random cursor position
@@ -334,6 +330,11 @@ class MaterialOutlinedDateEdit(QLineEdit):
         """
 
         super().focusInEvent(arg__1)
+
+        if self.text() == '':
+            # Set current date by default
+            current_date = datetime.today().strftime("%d/%m/%Y")
+            self.setText(current_date)
 
         # Select all on focus
         QTimer.singleShot(0, self.selectAll)
