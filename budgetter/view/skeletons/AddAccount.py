@@ -17,6 +17,7 @@ from PySide2.QtWidgets import *
 
 from budgetter.view.widgets.material_outlined_line_edit import MaterialOutlinedLineEdit
 from budgetter.view.widgets.material_outlined_date_edit import MaterialOutlinedDateEdit
+from budgetter.view.widgets.material_outlined_autocomplete import MaterialAutoComplete
 
 import resources_rc
 
@@ -75,6 +76,17 @@ class Ui_AddAccount(object):
 "QLineEdit:focus\n"
 "{\n"
 "	/*border-bottom: 2px solid rgba(255, 255, 255, 230);*/\n"
+"}\n"
+"\n"
+"QComboBox\n"
+"{\n"
+"	background-color: transparent;\n"
+"	border: non"
+                        "e;\n"
+"	border-radius: 0px;\n"
+"	padding-left: 0px;\n"
+"	/*border-bottom: 1px solid rgba(255, 255, 255, 180);*/\n"
+"	outline: none;\n"
 "}")
         self.gridLayout = QGridLayout(AddAccount)
         self.gridLayout.setObjectName("gridLayout")
@@ -98,6 +110,7 @@ class Ui_AddAccount(object):
 
         self.verticalLayout_2 = QVBoxLayout()
         self.verticalLayout_2.setObjectName("verticalLayout_2")
+        self.verticalLayout_2.setContentsMargins(-1, -1, -1, 0)
         self.account_name = MaterialOutlinedLineEdit(self.account)
         self.account_name.setObjectName("account_name")
         font1 = QFont()
@@ -128,6 +141,13 @@ class Ui_AddAccount(object):
 
 
         self.verticalLayout_2.addLayout(self.horizontalLayout)
+
+        self.bank_auto_complete = MaterialAutoComplete(self.account)
+        self.bank_auto_complete.setObjectName("bank_auto_complete")
+        self.bank_auto_complete.setFont(font1)
+        self.bank_auto_complete.setEditable(True)
+
+        self.verticalLayout_2.addWidget(self.bank_auto_complete)
 
 
         self.verticalLayout.addLayout(self.verticalLayout_2)

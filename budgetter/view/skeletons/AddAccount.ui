@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>377</width>
-    <height>278</height>
+    <height>282</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -64,6 +64,16 @@ QLineEdit:hover
 QLineEdit:focus
 {
 	/*border-bottom: 2px solid rgba(255, 255, 255, 230);*/
+}
+
+QComboBox
+{
+	background-color: transparent;
+	border: none;
+	border-radius: 0px;
+	padding-left: 0px;
+	/*border-bottom: 1px solid rgba(255, 255, 255, 180);*/
+	outline: none;
 }</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
@@ -112,6 +122,9 @@ QLineEdit:focus
       </item>
       <item>
        <layout class="QVBoxLayout" name="verticalLayout_2">
+        <property name="bottomMargin">
+         <number>0</number>
+        </property>
         <item>
          <widget class="MaterialOutlinedLineEdit" name="account_name">
           <property name="font">
@@ -176,6 +189,19 @@ QLineEdit:focus
           </item>
          </layout>
         </item>
+        <item>
+         <widget class="MaterialAutoComplete" name="bank_auto_complete">
+          <property name="font">
+           <font>
+            <family>Roboto</family>
+            <pointsize>11</pointsize>
+           </font>
+          </property>
+          <property name="editable">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
        </layout>
       </item>
      </layout>
@@ -193,6 +219,11 @@ QLineEdit:focus
    <class>MaterialOutlinedDateEdit</class>
    <extends>QLineEdit</extends>
    <header>view.widgets.material_outlined_date_edit.h</header>
+  </customwidget>
+  <customwidget>
+   <class>MaterialAutoComplete</class>
+   <extends>QComboBox</extends>
+   <header>view.widgets.material_outlined_autocomplete.h</header>
   </customwidget>
  </customwidgets>
  <resources>
