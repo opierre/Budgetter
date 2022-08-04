@@ -190,15 +190,12 @@ QComboBox
          </layout>
         </item>
         <item>
-         <widget class="MaterialAutoComplete" name="bank_auto_complete">
+         <widget class="MaterialAutocomplete" name="account_bank">
           <property name="font">
            <font>
             <family>Roboto</family>
             <pointsize>11</pointsize>
            </font>
-          </property>
-          <property name="editable">
-           <bool>true</bool>
           </property>
          </widget>
         </item>
@@ -221,9 +218,9 @@ QComboBox
    <header>view.widgets.material_outlined_date_edit.h</header>
   </customwidget>
   <customwidget>
-   <class>MaterialAutoComplete</class>
-   <extends>QComboBox</extends>
-   <header>view.widgets.material_outlined_autocomplete.h</header>
+   <class>MaterialAutocomplete</class>
+   <extends>QLineEdit</extends>
+   <header>view.widgets.material_autocomplete.h</header>
   </customwidget>
  </customwidgets>
  <resources>

@@ -46,8 +46,9 @@ class AddAccountDialog(QWidget):
         self.content.account_amount_date.set_text_color(QColor(255, 255, 255, 255))
         self.content.account_amount_date.set_label_color(QColor(224, 224, 224, 150))
 
-        # Configure combobof for bank choice
+        # Configure combobox for bank choice
         self.content.bank_auto_complete.set_label('Bank')
+        # self.content.bank_auto_complete.addItems(['Crédit Agricole', "Caisse d'Epargne"])
         self.content.bank_auto_complete.set_label_background_color(QColor("#1C293B"))
         self.content.bank_auto_complete.set_text_color(QColor(255, 255, 255, 255))
         self.content.bank_auto_complete.set_label_color(QColor(224, 224, 224, 150))

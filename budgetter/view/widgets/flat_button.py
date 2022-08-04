@@ -449,7 +449,7 @@ class FlatButton(QPushButton):
     Flat Button with animation
     """
 
-    def __init__(self, text: str, parent=None):
+    def __init__(self, text: str = '', parent=None):
         super().__init__(text, parent)
 
         # Store and configure wave overlay

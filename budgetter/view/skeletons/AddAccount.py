@@ -17,7 +17,7 @@ from PySide2.QtWidgets import *
 
 from budgetter.view.widgets.material_outlined_line_edit import MaterialOutlinedLineEdit
 from budgetter.view.widgets.material_outlined_date_edit import MaterialOutlinedDateEdit
-from budgetter.view.widgets.material_outlined_autocomplete import MaterialAutoComplete
+from budgetter.view.widgets.material_autocomplete import MaterialAutoComplete
 
 import resources_rc
 
@@ -25,7 +25,7 @@ class Ui_AddAccount(object):
     def setupUi(self, AddAccount):
         if not AddAccount.objectName():
             AddAccount.setObjectName("AddAccount")
-        AddAccount.resize(377, 278)
+        AddAccount.resize(377, 282)
         AddAccount.setStyleSheet("QWidget#account \n"
 "{\n"
 "	background-color: #1C293B;\n"
@@ -144,8 +144,13 @@ class Ui_AddAccount(object):
 
         self.bank_auto_complete = MaterialAutoComplete(self.account)
         self.bank_auto_complete.setObjectName("bank_auto_complete")
+        sizePolicy = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.bank_auto_complete.sizePolicy().hasHeightForWidth())
+        self.bank_auto_complete.setSizePolicy(sizePolicy)
         self.bank_auto_complete.setFont(font1)
-        self.bank_auto_complete.setEditable(True)
+        self.bank_auto_complete.setEditable(False)
 
         self.verticalLayout_2.addWidget(self.bank_auto_complete)
 

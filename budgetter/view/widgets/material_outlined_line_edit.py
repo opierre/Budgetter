@@ -266,9 +266,6 @@ class MaterialLineEditPrivate:
         self.label: MaterialLineEditLabel = None
         self.state_machine: MaterialLineEditStateMachine = None
 
-        # Configure properties
-        self.configure()
-
     def configure(self):
         """
         Configure properties
@@ -310,6 +307,7 @@ class MaterialOutlinedLineEdit(QLineEdit):
 
         if create is True:
             self.line_edit_private = MaterialLineEditPrivate(self)
+            self.line_edit_private.configure()
 
     def set_label_background_color(self, color: QColor):
         """
@@ -462,6 +460,7 @@ class MaterialOutlinedLineEdit(QLineEdit):
 
         # Handle Resize and Move event to update geometry
         if event.type() in [QEvent.Resize, QEvent.Move]:
+            # pass
             if self.line_edit_private.label:
                 self.line_edit_private.label.setGeometry(self.rect())
 
