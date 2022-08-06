@@ -460,7 +460,6 @@ class MaterialOutlinedLineEdit(QLineEdit):
 
         # Handle Resize and Move event to update geometry
         if event.type() in [QEvent.Resize, QEvent.Move]:
-            # pass
             if self.line_edit_private.label:
                 self.line_edit_private.label.setGeometry(self.rect())
 

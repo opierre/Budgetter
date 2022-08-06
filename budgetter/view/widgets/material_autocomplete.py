@@ -41,7 +41,8 @@ from PySide2.QtGui import QPainter, QColor, QBrush, QPen, QPaintEvent, QFont, QK
 from PySide2.QtCore import Qt, QEvent, QPropertyAnimation, Signal, QObject, \
     QEasingCurve, Property, QStateMachine, QPointF, QPoint, QState, QSignalTransition, QCoreApplication, QLineF
 
-from budgetter.view.widgets.material_outlined_line_edit import MaterialOutlinedLineEdit, MaterialLineEditPrivate
+from budgetter.view.widgets.material_outlined_line_edit import MaterialOutlinedLineEdit, MaterialLineEditPrivate, \
+    MaterialLineEditLabel
 from budgetter.view.widgets.flat_button import FlatButton
 
 STYLESHEET = "QLineEdit {{" \
@@ -63,7 +64,7 @@ STYLESHEET = "QLineEdit {{" \
              "}}"
 
 
-class MaterialAutoCompleteStateMachine(QStateMachine):
+class MaterialAutocompleteStateMachine(QStateMachine):
     """
     Material line edit state machine to handle animations
     """
@@ -140,23 +141,23 @@ class MaterialAutoCompleteStateMachine(QStateMachine):
         self.closing_state.addTransition(transition)
 
 
-class MaterialAutoComplete:
+class MaterialAutocomplete:
     """
     Declaration to avoid conflicts
     """
     ...
 
 
-class MaterialAutoCompletePrivate(MaterialLineEditPrivate):
+class MaterialAutocompletePrivate(MaterialLineEditPrivate):
     """
     Private widget with attributes and init method to be configured
     """
 
-    def __init__(self, autocomplete: MaterialAutoComplete):
-        self.autocomplete: MaterialAutoComplete = autocomplete
+    def __init__(self, autocomplete: MaterialAutocomplete):
+        self.autocomplete: MaterialAutocomplete = autocomplete
         self.menu: QWidget = QWidget()
         self.frame: QWidget = QWidget()
-        self.state_machine: MaterialAutoCompleteStateMachine = None
+        self.state_machine: MaterialAutocompleteStateMachine = None
         self.menu_layout: QVBoxLayout = QVBoxLayout()
         self.data = []
         self.max_width = 0
@@ -170,7 +171,7 @@ class MaterialAutoCompletePrivate(MaterialLineEditPrivate):
         """
 
         # Set state machine
-        self.state_machine = MaterialAutoCompleteStateMachine(self.menu)
+        self.state_machine = MaterialAutocompleteStateMachine(self.menu)
 
         # Set parents widget for menu & frame
         self.menu.setParent(self.autocomplete.parentWidget())
@@ -193,7 +194,7 @@ class MaterialAutoCompletePrivate(MaterialLineEditPrivate):
         # Configure menu (layout, style, margins)
         self.menu.setLayout(self.menu_layout)
         self.menu.setVisible(False)
-        self.menu.setStyleSheet('background:blue;')
+        self.menu.setStyleSheet('background:transparent;')
         self.menu_layout.setContentsMargins(0, 0, 0, 0)
         self.menu_layout.setSpacing(0)
 
@@ -205,7 +206,7 @@ class MaterialAutoCompletePrivate(MaterialLineEditPrivate):
         QCoreApplication.processEvents()
 
 
-class MaterialAutoComplete(MaterialOutlinedLineEdit):
+class MaterialAutocomplete(MaterialOutlinedLineEdit):
     """
     Material outlined autocomplete
     """
@@ -214,11 +215,11 @@ class MaterialAutoComplete(MaterialOutlinedLineEdit):
     selectedItem = Signal(str)
 
     def __init__(self, parent: QWidget = None):
-        super().__init__(parent=parent, create=False)
+        super().__init__(parent=parent, create=True)
 
         # if create is True:
-        self.autocomplete_private = MaterialAutoCompletePrivate(self)
-        self.autocomplete_private.configure()
+        self.line_edit_private = MaterialAutocompletePrivate(self)
+        self.line_edit_private.configure()
 
     def set_data(self, data: [str]) -> None:
         """
@@ -227,7 +228,7 @@ class MaterialAutoComplete(MaterialOutlinedLineEdit):
         :param data: data to set
         :return: None
         """
-        self.autocomplete_private.data = data
+        self.line_edit_private.data = data
         self.update()
 
     def update_results(self, text: str) -> None:
@@ -243,11 +244,11 @@ class MaterialAutoComplete(MaterialOutlinedLineEdit):
 
         if trimmed:
             lookup = trimmed.lower()
-            for result in self.autocomplete_private.data:
+            for result in self.line_edit_private.data:
                 if lookup in result:
                     results.append(result)
 
-        diff: int = len(results) - self.autocomplete_private.menu_layout.count()
+        diff: int = len(results) - self.line_edit_private.menu_layout.count()
 
         font = QFont("Roboto", 12, QFont.Normal)
 
@@ -260,35 +261,35 @@ class MaterialAutoComplete(MaterialOutlinedLineEdit):
                 # item.setHaloVisible(False)
                 item.setFixedHeight(50)
                 # item.setOverlayStyle(Material.TintedOverlay)
-                self.autocomplete_private.menu_layout.addWidget(item)
+                self.line_edit_private.menu_layout.addWidget(item)
                 item.installEventFilter(self)
 
         elif diff < 0:
             for c in range(-diff):
-                widget_in_menu: QWidget = self.autocomplete_private.menu_layout.itemAt(0).widget()
+                widget_in_menu: QWidget = self.line_edit_private.menu_layout.itemAt(0).widget()
                 if widget_in_menu:
-                    self.autocomplete_private.menu_layout.removeWidget(widget)
+                    self.line_edit_private.menu_layout.removeWidget(widget)
                     del widget_in_menu
 
         fm = QFontMetrics(font)
-        self.autocomplete_private.max_width = 0
+        self.line_edit_private.max_width = 0
 
         for index, text in enumerate(results):
-            item = self.autocomplete_private.menu_layout.itemAt(index).widget()
+            item = self.line_edit_private.menu_layout.itemAt(index).widget()
             if isinstance(item, FlatButton):
                 rect: QRect = fm.boundingRect(text)
-                self.autocomplete_private.max_width = max(self.autocomplete_private.max_width, rect.width())
+                self.line_edit_private.max_width = max(self.line_edit_private.max_width, rect.width())
                 item.setText(text)
 
         if not len(results):
-            self.autocomplete_private.state_machine.close.emit()
+            self.line_edit_private.state_machine.close.emit()
         else:
-            self.autocomplete_private.state_machine.open.emit()
+            self.line_edit_private.state_machine.open.emit()
 
-        self.autocomplete_private.menu.setFixedHeight(len(results) * 50)
-        self.autocomplete_private.menu.setFixedWidth(max(self.autocomplete_private.max_width + 24, self.width()))
-        self.autocomplete_private.menu.update()
-        self.autocomplete_private.menu.setVisible(True)
+        self.line_edit_private.menu.setFixedHeight(len(results) * 50)
+        self.line_edit_private.menu.setFixedWidth(max(self.line_edit_private.max_width + 24, self.width()))
+        self.line_edit_private.menu.update()
+        self.line_edit_private.menu.setVisible(True)
 
     def event(self, event: QEvent) -> bool:
         """
@@ -300,14 +301,14 @@ class MaterialAutoComplete(MaterialOutlinedLineEdit):
 
         # Handle Resize and Move event to update geometry
         if event.type() in [QEvent.Resize, QEvent.Move]:
-            self.autocomplete_private.menu.move(self.pos() + QPoint(0, self.height() + 6))
+            self.line_edit_private.menu.move(self.pos() + QPoint(0, self.height() + 6))
         elif event.type() == QEvent.ParentChange:
             # Get parent
             parent = self.parent()
 
             if parent:
-                self.autocomplete_private.menu.setParent(parent)
-                self.autocomplete_private.frame.setParent(parent)
+                self.line_edit_private.menu.setParent(parent)
+                self.line_edit_private.frame.setParent(parent)
 
         return super().event(event)
 
@@ -320,27 +321,27 @@ class MaterialAutoComplete(MaterialOutlinedLineEdit):
         :return: True to accept event, False otherwise
         """
 
-        if self.autocomplete_private.frame == watched:
+        if self.line_edit_private.frame == watched:
             if event.type() == QEvent.Paint:
                 # Paint frame
-                painter = QPainter(self.autocomplete_private.frame)
-                painter.fillRect(self.autocomplete_private.frame.rect(), Qt.white)
+                painter = QPainter(self.line_edit_private.frame)
+                painter.fillRect(self.line_edit_private.frame.rect(), Qt.white)
 
-        elif self.autocomplete_private.menu == watched:
+        elif self.line_edit_private.menu == watched:
             if event.type() in [QEvent.Resize, QEvent.Move]:
                 # Resize frame
-                self.autocomplete_private.frame.setGeometry(self.autocomplete_private.menu.geometry())
+                self.line_edit_private.frame.setGeometry(self.line_edit_private.menu.geometry())
             elif event.type() == QEvent.Show:
                 # Show frame and menu
-                self.autocomplete_private.frame.show()
-                self.autocomplete_private.menu.raise_()
+                self.line_edit_private.frame.show()
+                self.line_edit_private.menu.raise_()
             elif event.type() == QEvent.Hide:
                 # Hide frame
-                self.autocomplete_private.frame.hide()
+                self.line_edit_private.frame.hide()
         else:
             if event.type() == QEvent.MouseButtonPress:
                 # Fade emit
-                self.autocomplete_private.state_machine.fade.emit()
+                self.line_edit_private.state_machine.fade.emit()
 
                 if type(watched) == FlatButton:
                     text: QString = watched.text()
@@ -353,18 +354,20 @@ class MaterialAutoComplete(MaterialOutlinedLineEdit):
 if __name__ == '__main__':
     app = QApplication([])
     widget = QWidget()
-    button = MaterialAutoComplete()
+    button = MaterialAutocomplete()
     # button.setStyleSheet("background: transparent;")
     test = QPushButton('alors')
     # button.set_label('Coucou')
+    # button.set_label_color(QColor(224, 224, 224, 255))
+    # button.set_label_background_color(QColor(255, 255, 255, 255))
+    button.setFixedHeight(67)
     button.set_data(["donc", "voila", "alors"])
     layout = QHBoxLayout()
     widget.setLayout(layout)
     layout.addWidget(test)
     layout.addWidget(button)
     layout.setContentsMargins(20, 20, 20, 20)
-    button.setFixedWidth(300)
+    button.setFixedWidth(400)
     # button.setFixedHeight(100)
     widget.show()
-    button.setFixedHeight(50)
     sys.exit(app.exec_())

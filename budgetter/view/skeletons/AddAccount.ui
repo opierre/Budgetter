@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>377</width>
-    <height>282</height>
+    <height>274</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -127,6 +127,18 @@ QComboBox
         </property>
         <item>
          <widget class="MaterialOutlinedLineEdit" name="account_name">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>67</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>67</height>
+           </size>
+          </property>
           <property name="font">
            <font>
             <family>Roboto</family>
@@ -145,13 +157,13 @@ QComboBox
             <property name="minimumSize">
              <size>
               <width>170</width>
-              <height>0</height>
+              <height>67</height>
              </size>
             </property>
             <property name="maximumSize">
              <size>
               <width>170</width>
-              <height>16777215</height>
+              <height>67</height>
              </size>
             </property>
             <property name="font">
@@ -167,13 +179,13 @@ QComboBox
             <property name="minimumSize">
              <size>
               <width>150</width>
-              <height>0</height>
+              <height>67</height>
              </size>
             </property>
             <property name="maximumSize">
              <size>
               <width>150</width>
-              <height>16777215</height>
+              <height>67</height>
              </size>
             </property>
             <property name="font">
@@ -191,6 +203,18 @@ QComboBox
         </item>
         <item>
          <widget class="MaterialAutocomplete" name="account_bank">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>67</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>67</height>
+           </size>
+          </property>
           <property name="font">
            <font>
             <family>Roboto</family>

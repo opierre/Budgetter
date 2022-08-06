@@ -17,7 +17,7 @@ from PySide2.QtWidgets import *
 
 from budgetter.view.widgets.material_outlined_line_edit import MaterialOutlinedLineEdit
 from budgetter.view.widgets.material_outlined_date_edit import MaterialOutlinedDateEdit
-from budgetter.view.widgets.material_autocomplete import MaterialAutoComplete
+from budgetter.view.widgets.material_autocomplete import MaterialAutocomplete
 
 import resources_rc
 
@@ -25,7 +25,7 @@ class Ui_AddAccount(object):
     def setupUi(self, AddAccount):
         if not AddAccount.objectName():
             AddAccount.setObjectName("AddAccount")
-        AddAccount.resize(377, 282)
+        AddAccount.resize(377, 274)
         AddAccount.setStyleSheet("QWidget#account \n"
 "{\n"
 "	background-color: #1C293B;\n"
@@ -113,6 +113,8 @@ class Ui_AddAccount(object):
         self.verticalLayout_2.setContentsMargins(-1, -1, -1, 0)
         self.account_name = MaterialOutlinedLineEdit(self.account)
         self.account_name.setObjectName("account_name")
+        self.account_name.setMinimumSize(QSize(0, 67))
+        self.account_name.setMaximumSize(QSize(16777215, 67))
         font1 = QFont()
         font1.setFamily("Roboto")
         font1.setPointSize(11)
@@ -125,16 +127,16 @@ class Ui_AddAccount(object):
         self.horizontalLayout.setObjectName("horizontalLayout")
         self.account_amount = MaterialOutlinedLineEdit(self.account)
         self.account_amount.setObjectName("account_amount")
-        self.account_amount.setMinimumSize(QSize(170, 0))
-        self.account_amount.setMaximumSize(QSize(170, 16777215))
+        self.account_amount.setMinimumSize(QSize(170, 67))
+        self.account_amount.setMaximumSize(QSize(170, 67))
         self.account_amount.setFont(font1)
 
         self.horizontalLayout.addWidget(self.account_amount)
 
         self.account_amount_date = MaterialOutlinedDateEdit(self.account)
         self.account_amount_date.setObjectName("account_amount_date")
-        self.account_amount_date.setMinimumSize(QSize(150, 0))
-        self.account_amount_date.setMaximumSize(QSize(150, 16777215))
+        self.account_amount_date.setMinimumSize(QSize(150, 67))
+        self.account_amount_date.setMaximumSize(QSize(150, 67))
         self.account_amount_date.setFont(font1)
 
         self.horizontalLayout.addWidget(self.account_amount_date)
@@ -142,17 +144,13 @@ class Ui_AddAccount(object):
 
         self.verticalLayout_2.addLayout(self.horizontalLayout)
 
-        self.bank_auto_complete = MaterialAutoComplete(self.account)
-        self.bank_auto_complete.setObjectName("bank_auto_complete")
-        sizePolicy = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Fixed)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.bank_auto_complete.sizePolicy().hasHeightForWidth())
-        self.bank_auto_complete.setSizePolicy(sizePolicy)
-        self.bank_auto_complete.setFont(font1)
-        self.bank_auto_complete.setEditable(False)
+        self.account_bank = MaterialAutocomplete(self.account)
+        self.account_bank.setObjectName("account_bank")
+        self.account_bank.setMinimumSize(QSize(0, 67))
+        self.account_bank.setMaximumSize(QSize(16777215, 67))
+        self.account_bank.setFont(font1)
 
-        self.verticalLayout_2.addWidget(self.bank_auto_complete)
+        self.verticalLayout_2.addWidget(self.account_bank)
 
 
         self.verticalLayout.addLayout(self.verticalLayout_2)
