@@ -18,9 +18,9 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 # THE SOFTWARE.
 
-from PySide2.QtCore import QParallelAnimationGroup, QPropertyAnimation, QRect, QObject, QEvent, Signal
-from PySide2.QtGui import QColor
-from PySide2.QtWidgets import QWidget, QGraphicsDropShadowEffect, QGraphicsOpacityEffect
+from PySide2.QtCore import QParallelAnimationGroup, QPropertyAnimation, QRect, QObject, QEvent, Signal, Qt
+from PySide2.QtGui import QColor, QKeySequence
+from PySide2.QtWidgets import QWidget, QGraphicsDropShadowEffect, QGraphicsOpacityEffect, QShortcut
 
 from budgetter.view.skeletons.Dialog import Ui_Dialog
 from budgetter.view.widgets.overlay import Overlay
@@ -42,6 +42,10 @@ class Dialog(QWidget):
 
         # Setup UI on current widget
         self._dialog.setupUi(self)
+
+        # Store shortcuts
+        self.escape_shortcut = QShortcut(QKeySequence(Qt.Key_Escape), self)
+        self.confirm_shortcut = QShortcut(QKeySequence(Qt.CTRL | Qt.Key_Return), self)
 
         # Store overlay
         self.overlay = Overlay(parent)
@@ -74,6 +78,10 @@ class Dialog(QWidget):
 
         # Connect click on confirm to emit signal
         self._dialog.confirm.clicked.connect(self.confirm.emit)
+
+        # Connect escape to cose current dialog/enter to confirm dialog
+        self.escape_shortcut.activated.connect(self.close)
+        self.confirm_shortcut.activated.connect(self.confirm.emit)
 
     def configure_widgets(self, dialog_title: str, central_widget: QWidget):
         """
