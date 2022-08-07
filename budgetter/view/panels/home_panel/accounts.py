@@ -124,6 +124,9 @@ class Accounts(QObject):
         # Connect signal coming from click on Confirm button
         dialog.confirm.connect(dialog_content.check_inputs)
 
+        # Set focus on first widget when opening
+        dialog_content.content.account_name.setFocus()
+
     def add_account_debug(self, name: str, amount: str, amount_date: str, bank: str):
         """
         Add account in database
