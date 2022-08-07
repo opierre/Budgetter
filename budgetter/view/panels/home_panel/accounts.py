@@ -117,3 +117,23 @@ class Accounts(QObject):
         # Open dialog
         dialog = Dialog(QCoreApplication.translate("Accounts", 'Add Account'), dialog_content,
                         self.main_window)
+
+        # Connect signal from popup to add new account
+        dialog_content.addAccount.connect(self.add_account_debug)
+
+        # Connect signal coming from click on Confirm button
+        dialog.confirm.connect(dialog_content.check_inputs)
+
+    def add_account_debug(self, name: str, amount: str, amount_date: str, bank: str):
+        """
+        Add account in database
+
+        :param name: account name
+        :param amount: account amount
+        :param amount_date: account amount in date
+        :param bank: account bank
+        :return: None
+        """
+
+        # TODO: call REST API
+        print(name, amount, amount_date, bank)

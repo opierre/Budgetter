@@ -1,7 +1,8 @@
-from PySide2.QtCore import QStringListModel
+from PySide2.QtCore import QStringListModel, QTimer, Signal
 from PySide2.QtGui import QColor, QDoubleValidator, Qt
 from PySide2.QtWidgets import QWidget, QCompleter
 
+from budgetter.utils.tools import update_style
 from budgetter.view.skeletons.AddAccount import Ui_AddAccount
 
 
@@ -9,6 +10,9 @@ class AddAccountDialog(QWidget):
     """
     Add account dialog content
     """
+
+    # Signal emitted to add new account with name, amount, amount date, bank
+    addAccount = Signal(str, str, str, str)
 
     def __init__(self, parent=None):
         super().__init__(parent)
@@ -59,3 +63,48 @@ class AddAccountDialog(QWidget):
         self.bank_completer.setCaseSensitivity(Qt.CaseInsensitive)
         self.bank_completer.setCompletionMode(QCompleter.InlineCompletion)
         self.content.account_bank.setCompleter(self.bank_completer)
+
+    def check_inputs(self):
+        """
+        Check every inputs on opened dialog
+
+        :return: None
+        """
+
+        # Retrieve values
+        account_name = self.content.account_name.text()
+        account_amount = self.content.account_amount.text()
+        account_amount_date = self.content.account_amount_date.text()
+        account_bank = self.content.account_bank.text()
+
+        if account_name != '' and \
+                account_amount != '' and \
+                account_amount_date != '' and \
+                account_bank != '':
+            # Emit signal to close popup and add new account
+            self.addAccount.emit(account_name, account_amount, account_amount_date, account_bank)
+            return
+
+        if account_name == '':
+            self.warn_widget(self.content.account_name)
+        if account_amount == '':
+            self.warn_widget(self.content.account_amount)
+        if account_amount_date == '':
+            self.warn_widget(self.content.account_amount_date)
+        if account_bank == '':
+            self.warn_widget(self.content.account_bank)
+
+    @staticmethod
+    def warn_widget(widget: QWidget):
+        """
+        Make widget red highlighted
+
+        :param widget: widget to highlight
+        :return: None
+        """
+
+        back_style_sheet = widget.styleSheet()
+        QTimer.singleShot(0, lambda: update_style(widget, "  border: 2px solid #e84134;"
+                                                          "  border-radius: 5px;"
+                                                          "  padding-left: 9px"))
+        QTimer.singleShot(2000, lambda: update_style(widget, back_style_sheet))

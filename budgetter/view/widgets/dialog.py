@@ -18,9 +18,9 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 # THE SOFTWARE.
 
-from PySide2.QtWidgets import QWidget, QGraphicsDropShadowEffect, QGraphicsOpacityEffect
-from PySide2.QtCore import QParallelAnimationGroup, QPropertyAnimation, QRect, QObject, QEvent
+from PySide2.QtCore import QParallelAnimationGroup, QPropertyAnimation, QRect, QObject, QEvent, Signal
 from PySide2.QtGui import QColor
+from PySide2.QtWidgets import QWidget, QGraphicsDropShadowEffect, QGraphicsOpacityEffect
 
 from budgetter.view.skeletons.Dialog import Ui_Dialog
 from budgetter.view.widgets.overlay import Overlay
@@ -30,6 +30,9 @@ class Dialog(QWidget):
     """
     Dialog with animation
     """
+
+    # Signal emitted when click on Confirm button
+    confirm = Signal()
 
     def __init__(self, dialog_title: str, central_widget: QWidget, parent=None):
         super().__init__(parent)
@@ -68,6 +71,9 @@ class Dialog(QWidget):
 
         # Connect click on close to close dialog
         self._dialog.close.clicked.connect(self.close)
+
+        # Connect click on confirm to emit signal
+        self._dialog.confirm.clicked.connect(self.confirm.emit)
 
     def configure_widgets(self, dialog_title: str, central_widget: QWidget):
         """
@@ -127,7 +133,7 @@ class Dialog(QWidget):
                                      end_rect.y() - end_rect.height() * 3.0,
                                      end_rect.width(),
                                      end_rect.height())
-        #end_animation_rect = QRect(self.parent().rect().center().x() - geometry.width() / 2,
+        # end_animation_rect = QRect(self.parent().rect().center().x() - geometry.width() / 2,
         #                           self.parent().rect().center().y() - geometry.height() / 2,
         #                           geometry.width(),
         #                           geometry.height())

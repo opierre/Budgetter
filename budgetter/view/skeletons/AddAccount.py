@@ -24,7 +24,7 @@ class Ui_AddAccount(object):
     def setupUi(self, AddAccount):
         if not AddAccount.objectName():
             AddAccount.setObjectName("AddAccount")
-        AddAccount.resize(377, 322)
+        AddAccount.resize(377, 286)
         AddAccount.setStyleSheet("QWidget#account \n"
 "{\n"
 "	background-color: #1C293B;\n"
@@ -92,7 +92,7 @@ class Ui_AddAccount(object):
         self.account = QWidget(AddAccount)
         self.account.setObjectName("account")
         self.verticalLayout = QVBoxLayout(self.account)
-        self.verticalLayout.setSpacing(20)
+        self.verticalLayout.setSpacing(10)
         self.verticalLayout.setObjectName("verticalLayout")
         self.verticalLayout.setContentsMargins(0, 0, 15, 0)
         self.label = QLabel(self.account)
@@ -108,6 +108,7 @@ class Ui_AddAccount(object):
         self.verticalLayout.addWidget(self.label)
 
         self.verticalLayout_2 = QVBoxLayout()
+        self.verticalLayout_2.setSpacing(4)
         self.verticalLayout_2.setObjectName("verticalLayout_2")
         self.verticalLayout_2.setContentsMargins(-1, -1, -1, 0)
         self.account_name = MaterialOutlinedLineEdit(self.account)

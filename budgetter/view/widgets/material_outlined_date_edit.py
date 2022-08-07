@@ -36,12 +36,12 @@
 
 import sys
 from datetime import datetime
-from PySide2.QtWidgets import QPushButton, QWidget, QApplication, QHBoxLayout, QLineEdit, QLabel
-from PySide2.QtGui import QPainter, QColor, QBrush, QPen, QPaintEvent, QFont, QKeyEvent, QKeySequence, QFontMetrics, \
-    QRegExpValidator, QFocusEvent, QMouseEvent
-from PySide2.QtCore import Qt, QEvent, QPropertyAnimation, QRegExp, \
-    QEasingCurve, Property, QStateMachine, QPointF, QState, QEventTransition, QCoreApplication, QLineF, QTimer
 
+from PySide2.QtCore import Qt, QEvent, QPropertyAnimation, QRegExp, \
+    QEasingCurve, Property, QStateMachine, QPointF, QState, QEventTransition, QCoreApplication, QTimer
+from PySide2.QtGui import QPainter, QColor, QPaintEvent, QFont, QKeyEvent, QFontMetrics, \
+    QRegExpValidator, QFocusEvent, QMouseEvent
+from PySide2.QtWidgets import QPushButton, QWidget, QApplication, QHBoxLayout, QLineEdit, QLabel
 
 STYLESHEET = "QLineEdit {{" \
              "  background: transparent;" \
@@ -451,7 +451,7 @@ class MaterialOutlinedDateEdit(QLineEdit):
 
     def has_label(self) -> bool:
         """
-        Check if line edit alreayd has label
+        Check if line edit already has a label
 
         :return: True/False
         """
@@ -572,8 +572,6 @@ class MaterialOutlinedDateEdit(QLineEdit):
 
         if self.trailing_symbol is not None and self.text() != '':
             self.setStyleSheet(STYLESHEET.format(padding='24', padding_minus='23'))
-        else:
-            self.setStyleSheet(STYLESHEET.format(padding='9', padding_minus='8'))
 
         super().paintEvent(event)
 

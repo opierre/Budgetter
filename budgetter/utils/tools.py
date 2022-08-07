@@ -1,3 +1,4 @@
+from PySide2.QtWidgets import QWidget
 
 
 def convert_amount_to_str(amount):
@@ -14,3 +15,17 @@ def convert_amount_to_str(amount):
     result = result.replace("X", " ")
 
     return result
+
+
+def update_style(widget: QWidget, style_sheet: str):
+    """
+    Update style dynamically
+
+    :param widget: widget
+    :param style_sheet: style sheet to apply
+    :return: None
+    """
+
+    widget.setStyleSheet(style_sheet)
+    widget.style().unpolish(widget)
+    widget.style().polish(widget)

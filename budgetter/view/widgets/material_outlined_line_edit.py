@@ -35,11 +35,11 @@
 # #####################################################################################################################
 
 import sys
-from PySide2.QtWidgets import QPushButton, QWidget, QApplication, QHBoxLayout, QLineEdit, QLabel
-from PySide2.QtGui import QPainter, QColor, QBrush, QPen, QPaintEvent, QFont, QKeyEvent, QKeySequence, QFontMetrics
-from PySide2.QtCore import Qt, QEvent, QPropertyAnimation, \
-    QEasingCurve, Property, QStateMachine, QPointF, QState, QEventTransition, QCoreApplication, QLineF
 
+from PySide2.QtCore import Qt, QEvent, QPropertyAnimation, \
+    QEasingCurve, Property, QStateMachine, QPointF, QState, QEventTransition, QCoreApplication
+from PySide2.QtGui import QPainter, QColor, QPaintEvent, QFont, QFontMetrics
+from PySide2.QtWidgets import QPushButton, QWidget, QApplication, QHBoxLayout, QLineEdit, QLabel
 
 STYLESHEET = "QLineEdit {{" \
              "  background: transparent;" \
@@ -360,7 +360,7 @@ class MaterialOutlinedLineEdit(QLineEdit):
 
     def has_label(self) -> bool:
         """
-        Check if line edit alreayd has label
+        Check if line edit already has a label
 
         :return: True/False
         """
@@ -465,6 +465,13 @@ class MaterialOutlinedLineEdit(QLineEdit):
 
         return super().event(event)
 
+    def warn(self):
+        """
+        Update stylesheet for warning
+
+        :return: None
+        """
+
     def paintEvent(self, event: QPaintEvent) -> None:
         """
         Override paintEvent()
@@ -475,8 +482,6 @@ class MaterialOutlinedLineEdit(QLineEdit):
 
         if self.trailing_symbol is not None and self.text() != '':
             self.setStyleSheet(STYLESHEET.format(padding='24', padding_minus='23'))
-        else:
-            self.setStyleSheet(STYLESHEET.format(padding='9', padding_minus='8'))
 
         super().paintEvent(event)
 
