@@ -1,5 +1,6 @@
-from PySide2.QtWidgets import QWidget
-from PySide2.QtGui import QColor, QDoubleValidator
+from PySide2.QtCore import QStringListModel
+from PySide2.QtGui import QColor, QDoubleValidator, Qt
+from PySide2.QtWidgets import QWidget, QCompleter
 
 from budgetter.view.skeletons.AddAccount import Ui_AddAccount
 
@@ -15,6 +16,9 @@ class AddAccountDialog(QWidget):
         # Store dialog content
         self.content = Ui_AddAccount()
         self.content.setupUi(self)
+
+        # Store completer for bank choices
+        self.bank_completer = QCompleter(self.content.account_bank)
 
         # Configure widgets
         self.configure()
@@ -48,7 +52,10 @@ class AddAccountDialog(QWidget):
 
         # Configure combobox for bank choice
         self.content.account_bank.set_label('Bank')
-        self.content.account_bank.set_data(['Crédit Agricole', 'Caisse d\'Epargne'])
         self.content.account_bank.set_label_background_color(QColor("#1C293B"))
         self.content.account_bank.set_text_color(QColor(255, 255, 255, 255))
         self.content.account_bank.set_label_color(QColor(224, 224, 224, 150))
+        self.bank_completer.setModel(QStringListModel(['Crédit Agricole', 'Caisse d\'Epargne']))
+        self.bank_completer.setCaseSensitivity(Qt.CaseInsensitive)
+        self.bank_completer.setCompletionMode(QCompleter.InlineCompletion)
+        self.content.account_bank.setCompleter(self.bank_completer)
