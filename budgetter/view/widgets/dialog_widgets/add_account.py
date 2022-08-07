@@ -6,7 +6,7 @@ from budgetter.view.skeletons.AddAccount import Ui_AddAccount
 
 class AddAccountDialog(QWidget):
     """
-    Add account dialgo content
+    Add account dialog content
     """
 
     def __init__(self, parent=None):
@@ -47,8 +47,8 @@ class AddAccountDialog(QWidget):
         self.content.account_amount_date.set_label_color(QColor(224, 224, 224, 150))
 
         # Configure combobox for bank choice
-        # self.content.account_bank.set_label('Bank')
-        self.content.account_bank.set_data(['Crédit Agricole', "Caisse d'Epargne"])
-        # self.content.bank_auto_complete.set_label_background_color(QColor("#1C293B"))
-        # self.content.bank_auto_complete.set_text_color(QColor(255, 255, 255, 255))
-        # self.content.bank_auto_complete.set_label_color(QColor(224, 224, 224, 150))
+        self.content.account_bank.set_label('Bank')
+        self.content.account_bank.set_data(['Crédit Agricole', 'Caisse d\'Epargne'])
+        self.content.account_bank.set_label_background_color(QColor("#1C293B"))
+        self.content.account_bank.set_text_color(QColor(255, 255, 255, 255))
+        self.content.account_bank.set_label_color(QColor(224, 224, 224, 150))

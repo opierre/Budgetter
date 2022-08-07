@@ -123,7 +123,7 @@ QComboBox
       <item>
        <layout class="QVBoxLayout" name="verticalLayout_2">
         <property name="bottomMargin">
-         <number>0</number>
+         <number>50</number>
         </property>
         <item>
          <widget class="MaterialOutlinedLineEdit" name="account_name">

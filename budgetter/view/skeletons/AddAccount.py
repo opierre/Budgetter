@@ -110,7 +110,7 @@ class Ui_AddAccount(object):
 
         self.verticalLayout_2 = QVBoxLayout()
         self.verticalLayout_2.setObjectName("verticalLayout_2")
-        self.verticalLayout_2.setContentsMargins(-1, -1, -1, 0)
+        self.verticalLayout_2.setContentsMargins(-1, -1, -1, 50)
         self.account_name = MaterialOutlinedLineEdit(self.account)
         self.account_name.setObjectName("account_name")
         self.account_name.setMinimumSize(QSize(0, 67))

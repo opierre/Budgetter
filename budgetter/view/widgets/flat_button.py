@@ -141,7 +141,7 @@ class Wave(QParallelAnimationGroup):
         self.set_opacity_values(0.5, 0)
         self.set_radius_values(0, 300)
 
-        # COnfigure brush style
+        # Configure brush style
         self._brush.setColor(Qt.black)
         self._brush.setStyle(Qt.SolidPattern)
 
@@ -452,6 +452,9 @@ class FlatButton(QPushButton):
     def __init__(self, text: str = '', parent=None):
         super().__init__(text, parent)
 
+        # Store corner radius
+        self.corner_radius = 4.0
+
         # Store and configure wave overlay
         self.wave_overlay = WaveOverlay(self)
 
@@ -472,6 +475,14 @@ class FlatButton(QPushButton):
         super().resizeEvent(event)
         self.update_clip_path()
 
+    def set_corner_radius(self, radius: float):
+        """
+        Update corner radius
+
+        :param radius: radius to set
+        :return: None
+        """
+
     def update_clip_path(self) -> None:
         """
         Update clipping path to fit with button
@@ -480,7 +491,7 @@ class FlatButton(QPushButton):
         """
 
         # Set radius
-        radius = 4.0
+        radius = self.corner_radius
 
         # Update path
         path = QPainterPath()
@@ -516,14 +527,14 @@ if __name__ == '__main__':
     app = QApplication([])
     widget = QWidget()
     button = FlatButton("I'm flat")
-    button.setStyleSheet("	background-color: rgba(128, 128, 128, 128);\
-	color: #8ec6f4; \
-	outline: none; \
-	padding-left: 8px; \
-	padding-right: 8px; \
-	padding-top: 8px; \
-	padding-bottom: 8px; \
-	border-radius: 14px;")
+    button.setStyleSheet("	background-color: rgba(128, 128, 128, 128); "
+                         "color: #8ec6f4; "
+                         "outline: none; "
+                         "padding-left: 8px; "
+                         "padding-right: 8px; "
+                         "padding-top: 8px; "
+                         "padding-bottom: 8px;"
+                         "border-radius: 14px;")
     layout = QHBoxLayout()
     widget.setLayout(layout)
     layout.addWidget(button)

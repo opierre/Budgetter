@@ -35,33 +35,16 @@
 # #####################################################################################################################
 
 import sys
-from PySide2.QtWidgets import QPushButton, QWidget, QApplication, QHBoxLayout, QVBoxLayout, QComboBox, QLabel, \
-    QGraphicsOpacityEffect, QGraphicsDropShadowEffect
-from PySide2.QtGui import QPainter, QColor, QBrush, QPen, QPaintEvent, QFont, QKeyEvent, QKeySequence, QFontMetrics
-from PySide2.QtCore import Qt, QEvent, QPropertyAnimation, Signal, QObject, \
-    QEasingCurve, Property, QStateMachine, QPointF, QPoint, QState, QSignalTransition, QCoreApplication, QLineF
 
+from PySide2.QtCore import Qt, QEvent, QPropertyAnimation, Signal, QObject, \
+    QPoint, QState, QSignalTransition, QCoreApplication, QRect
+from PySide2.QtGui import QPainter, QColor, QFont, QFontMetrics
+from PySide2.QtWidgets import QPushButton, QWidget, QApplication, QHBoxLayout, QVBoxLayout, QGraphicsOpacityEffect, \
+    QGraphicsDropShadowEffect
+
+from budgetter.view.widgets.flat_button import FlatButton
 from budgetter.view.widgets.material_outlined_line_edit import MaterialOutlinedLineEdit, MaterialLineEditStateMachine, \
     MaterialLineEditPrivate
-from budgetter.view.widgets.flat_button import FlatButton
-
-STYLESHEET = "QLineEdit {{" \
-             "  background: transparent;" \
-             "  border: 1px solid rgba(224, 224, 224, 150);" \
-             "  border-radius: 5px;" \
-             "  padding-top: 12px;" \
-             "  padding-bottom: 10px;" \
-             "  padding-left: {padding}px;" \
-             "}}" \
-             "QLineEdit:hover {{" \
-             "  background: transparent;" \
-             "  border: 1px solid rgba(255, 255, 255, 255);" \
-             "}}" \
-             "QLineEdit:focus {{" \
-             "  background: transparent;" \
-             "  border: 2px solid #199DE5;" \
-             "  padding-left: {padding_minus}px;" \
-             "}}"
 
 
 class MaterialAutocompleteStateMachine(MaterialLineEditStateMachine):
@@ -245,10 +228,11 @@ class MaterialAutocomplete(MaterialOutlinedLineEdit):
         results = []
         trimmed = text.strip()
 
+        # Check if typed content exists in data
         if trimmed:
             lookup = trimmed.lower()
             for result in self.line_edit_private.data:
-                if lookup in result:
+                if lookup in result.lower():
                     results.append(result)
 
         diff: int = len(results) - self.line_edit_private.menu_layout.count()
@@ -256,11 +240,11 @@ class MaterialAutocomplete(MaterialOutlinedLineEdit):
         font = QFont("Roboto", 12, QFont.Normal)
 
         if diff > 0:
-            for c in range(diff):
+            # Add item if not already present
+            for _ in range(diff):
                 item = FlatButton()
                 item.setFont(font)
-                # item.setTextAlignment(Qt.AlignLeft)
-                # item.setCornerRadius(0)
+                item.set_corner_radius(0)
                 # item.setHaloVisible(False)
                 item.setFixedHeight(50)
                 # item.setOverlayStyle(Material.TintedOverlay)
@@ -268,15 +252,17 @@ class MaterialAutocomplete(MaterialOutlinedLineEdit):
                 item.installEventFilter(self)
 
         elif diff < 0:
-            for c in range(-diff):
+            # Remove item if it does not match typed content
+            for _ in range(-diff):
                 widget_in_menu: QWidget = self.line_edit_private.menu_layout.itemAt(0).widget()
                 if widget_in_menu:
-                    self.line_edit_private.menu_layout.removeWidget(widget)
+                    self.line_edit_private.menu_layout.removeWidget(widget_in_menu)
                     del widget_in_menu
 
         fm = QFontMetrics(font)
         self.line_edit_private.max_width = 0
 
+        # Set text to added button
         for index, text in enumerate(results):
             item = self.line_edit_private.menu_layout.itemAt(index).widget()
             if isinstance(item, FlatButton):
@@ -289,6 +275,7 @@ class MaterialAutocomplete(MaterialOutlinedLineEdit):
         else:
             self.line_edit_private.state_machine.open.emit()
 
+        # Configure menu
         self.line_edit_private.menu.setFixedHeight(len(results) * 50)
         self.line_edit_private.menu.setFixedWidth(max(self.line_edit_private.max_width + 24, self.width()))
         self.line_edit_private.menu.update()
@@ -347,7 +334,7 @@ class MaterialAutocomplete(MaterialOutlinedLineEdit):
                 self.line_edit_private.state_machine.fade.emit()
 
                 if type(watched) == FlatButton:
-                    text: QString = watched.text()
+                    text: str = watched.text()
                     self.setText(text)
                     self.selectedItem.emit(text)
 
@@ -357,7 +344,7 @@ class MaterialAutocomplete(MaterialOutlinedLineEdit):
 if __name__ == '__main__':
     app = QApplication([])
     widget = QWidget()
-    button = MaterialAutocomplete()
+    button = MaterialAutocomplete(widget)
     # button.setStyleSheet("background: transparent;")
     test = QPushButton('alors')
     button.set_label('Coucou')

@@ -112,7 +112,7 @@ class Accounts(QObject):
         """
 
         # Set dialog content
-        dialog_content = AddAccountDialog()
+        dialog_content = AddAccountDialog(self.main_window)
 
         # Open dialog
         dialog = Dialog(QCoreApplication.translate("Accounts", 'Add Account'), dialog_content,
