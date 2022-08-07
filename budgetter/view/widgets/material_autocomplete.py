@@ -41,8 +41,8 @@ from PySide2.QtGui import QPainter, QColor, QBrush, QPen, QPaintEvent, QFont, QK
 from PySide2.QtCore import Qt, QEvent, QPropertyAnimation, Signal, QObject, \
     QEasingCurve, Property, QStateMachine, QPointF, QPoint, QState, QSignalTransition, QCoreApplication, QLineF
 
-from budgetter.view.widgets.material_outlined_line_edit import MaterialOutlinedLineEdit, MaterialLineEditPrivate, \
-    MaterialLineEditLabel
+from budgetter.view.widgets.material_outlined_line_edit import MaterialOutlinedLineEdit, MaterialLineEditStateMachine, \
+    MaterialLineEditPrivate
 from budgetter.view.widgets.flat_button import FlatButton
 
 STYLESHEET = "QLineEdit {{" \
@@ -64,7 +64,7 @@ STYLESHEET = "QLineEdit {{" \
              "}}"
 
 
-class MaterialAutocompleteStateMachine(QStateMachine):
+class MaterialAutocompleteStateMachine(MaterialLineEditStateMachine):
     """
     Material line edit state machine to handle animations
     """
@@ -73,20 +73,23 @@ class MaterialAutocompleteStateMachine(QStateMachine):
     close = Signal()
     fade = Signal()
 
-    def __init__(self, menu: QWidget):
-        super().__init__(menu)
+    def __init__(self, menu: QWidget, parent: MaterialOutlinedLineEdit):
+        super().__init__(parent)
 
         self.menu = QWidget(menu)
+        self.parent = parent
 
         # Store states for animation
         self.closed_state = QState()
         self.open_state = QState()
         self.closing_state = QState()
 
+        super().configure(self.parent)
+
         # Configure animation and states
         self.configure(menu)
 
-    def configure(self, parent: QWidget):
+    def configure_auto(self, parent: QWidget):
         """
         Configure animations and states
 
@@ -171,7 +174,7 @@ class MaterialAutocompletePrivate(MaterialLineEditPrivate):
         """
 
         # Set state machine
-        self.state_machine = MaterialAutocompleteStateMachine(self.menu)
+        self.state_machine = MaterialAutocompleteStateMachine(self.menu, self.autocomplete)
 
         # Set parents widget for menu & frame
         self.menu.setParent(self.autocomplete.parentWidget())
@@ -357,9 +360,9 @@ if __name__ == '__main__':
     button = MaterialAutocomplete()
     # button.setStyleSheet("background: transparent;")
     test = QPushButton('alors')
-    # button.set_label('Coucou')
-    # button.set_label_color(QColor(224, 224, 224, 255))
-    # button.set_label_background_color(QColor(255, 255, 255, 255))
+    button.set_label('Coucou')
+    button.set_label_color(QColor(224, 224, 224, 255))
+    button.set_label_background_color(QColor(255, 255, 255, 255))
     button.setFixedHeight(67)
     button.set_data(["donc", "voila", "alors"])
     layout = QHBoxLayout()
