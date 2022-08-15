@@ -1,14 +1,9 @@
-from PySide2.QtCore import QObject, Qt, QDate, QRect, QSize, QItemSelectionModel, QCoreApplication
-from PySide2.QtGui import QIcon, QFont, QFontMetrics
-from PySide2.QtWidgets import QVBoxLayout, QStatusBar, QWidget, QPushButton, QListView, QFrame, QLineEdit, \
-    QDoubleSpinBox, QDateEdit, QComboBox, QLabel, QAbstractItemView
+from PySide2.QtCore import QObject, Qt, QSize, QItemSelectionModel, QCoreApplication
+from PySide2.QtGui import QIcon
+from PySide2.QtWidgets import QVBoxLayout, QStatusBar, QWidget, QPushButton, QListView, QFrame, QAbstractItemView
 
 from budgetter.models.transactions_model import TransactionsModel, TransactionsFilterModel
-from budgetter.view.widgets.transaction_widgets.calendar_widget import CalendarWidget
-from budgetter.view.widgets.transaction_widgets.category_combobox_delegate import CategoryComboBox
-from budgetter.view.widgets.transaction_widgets.expense_income_transfer_widget import ExpensesIncomeTransfer
 from budgetter.view.widgets.status_bar import StatusBar
-from budgetter.view.widgets.transaction_widgets.means_widget import Mean
 from budgetter.view.widgets.transaction_widgets.transaction_delegate import TransactionDelegate
 
 
@@ -57,28 +52,6 @@ class Transactions(QObject):
 
         # ListView to display all transactions
         self.transactions_listview = QListView()
-
-        # Store LineEdit for name edition on transaction
-        self.edit_name = QLineEdit(self.transactions_listview)
-
-        # Store Combobox for category selection on transaction
-        self.edit_category = QComboBox(self.transactions_listview)
-        self.edit_category_name = QLabel(self.transactions_listview)
-
-        # Store DoubleSpinBox for amount edition on transaction
-        self.edit_amount = QDoubleSpinBox(self.transactions_listview)
-
-        # Store DateEdit for date edition on transaction
-        self.edit_date = QDateEdit(self.transactions_listview)
-
-        # Store Combobox for account selection on transaction
-        self.edit_account = QComboBox(self.transactions_listview)
-
-        # Store Combobox for type expense selection on transaction
-        self.edit_exp_or_inc = ExpensesIncomeTransfer(self.transactions_listview)
-
-        # Store mean widget
-        self.edit_mean = Mean(self.transactions_listview)
 
         # Store Apply/Cancel QPushButtons when in edit mode
         self.apply = QPushButton(parent=self.transactions_listview)
@@ -132,9 +105,6 @@ class Transactions(QObject):
         ]
         self.transactions_model = TransactionsModel(data)
 
-        # Configure edit widgets
-        self.configure_edit_widgets()
-
         # Configure status bar
         self.configure_status_bar()
 
@@ -157,17 +127,11 @@ class Transactions(QObject):
         :return: None
         """
 
-        # Connect signal from Edit button in list view to edit menu
-        self.transaction_delegate.transactionEditPressed.connect(self.edit_transaction)
-
         # Connect signal from Delete button in list view to delete item
         self.transaction_delegate.transactionDeletePressed.connect(self.delete_transaction)
 
         # Connect signal from Apply button in list view to modify item
         self.transaction_delegate.transactionModified.connect(self.modify_transaction)
-
-        # Connect signal from Cancel button in list view to abort modifications in item
-        self.transaction_delegate.transactionModifCanceled.connect(self.hide_edit_widgets)
 
         # Connect signal from comment hovered button in list view to open menu with comment content
         self.transaction_delegate.commentHovered.connect(self.display_comment)
@@ -199,213 +163,6 @@ class Transactions(QObject):
 
         pass
 
-    def configure_edit_widgets(self):
-        """
-        Configure all edit widgets in transaction item
-
-        :return: None
-        """
-
-        # Configure Name widget
-        self.edit_name.setFont(QFont("Roboto", 11))
-        self.edit_name.textChanged.connect(self.resize_edit_widget)
-        self.edit_name.setVisible(False)
-
-        # Configure Amount widget
-        self.edit_amount.setMinimum(0.0)
-        self.edit_amount.setMaximum(100000.0)
-        self.edit_amount.setFont(QFont("Roboto", 11))
-        self.edit_amount.valueChanged.connect(self.resize_edit_widget)
-        self.edit_amount.setVisible(False)
-
-        # Configure DateEdit widget
-        self.edit_date.setFont(QFont("Roboto", 11))
-        self.edit_date.setCalendarPopup(True)
-        self.edit_date.setCalendarWidget(CalendarWidget())
-        self.edit_date.dateChanged.connect(self.resize_edit_widget)
-        self.edit_date.setVisible(False)
-
-        # Configure ComboBox widget
-        self.edit_account.setView(QListView())
-        self.edit_account.setStyleSheet("QListView {"
-                                        "font-size: 11pt;"
-                                        "font-family: \"Roboto\";"
-                                        "}"
-                                        "QComboBox QAbstractItemView::item\n"
-                                        "{\n"
-                                        "	min-height: 25px;\n"
-                                        "}\n")
-        self.edit_account.view().window().setWindowFlags(Qt.Popup | Qt.FramelessWindowHint)
-        self.edit_account.view().window().setAttribute(Qt.WA_TranslucentBackground)
-        self.edit_account.setFont(QFont("Roboto", 11))
-        self.edit_account.setSizeAdjustPolicy(QComboBox.AdjustToContents)
-        self.edit_account.addItems(["Livret A", "Compte Chèque", "Livret Jeune"])
-        self.edit_account.setCursor(Qt.PointingHandCursor)
-        self.edit_account.setVisible(False)
-
-        # Configure custom widget
-        self.edit_exp_or_inc.setVisible(False)
-        self.edit_mean.setVisible(False)
-
-        # Configure combobox/label for category
-        self.edit_category.setItemDelegate(CategoryComboBox())
-        self.edit_category.addItem(QIcon(":/images/images/local_grocery_store-white-18dp.svg"), "Groceries")
-        self.edit_category.addItem(QIcon(":/images/images/directions_car-white-18dp_outlined.svg"), "Transport")
-        self.edit_category.addItem(QIcon(":/images/images/restaurant-white-18dp_outlined.svg"), "Restaurants")
-        self.edit_category.view().setSpacing(2)
-        self.edit_category.setSizeAdjustPolicy(QComboBox.AdjustToContents)
-        self.edit_category.setCursor(Qt.PointingHandCursor)
-        self.edit_category.view().window().setWindowFlags(Qt.Popup | Qt.FramelessWindowHint)
-        self.edit_category.view().window().setAttribute(Qt.WA_TranslucentBackground)
-        self.edit_category.setIconSize(QSize(24, 24))
-        self.edit_category_name.setFont(QFont("Roboto", 10, QFont.Normal))
-        self.edit_category_name.setStyleSheet("color: #75879B;")
-        self.edit_category.currentTextChanged.connect(self.update_category_name)
-        self.edit_category.setVisible(False)
-        self.edit_category_name.setVisible(False)
-
-        # Configure Apply/Cancel buttons
-        self.apply.setIcon(QIcon(":/images/images/check-white-18dp.svg"))
-        self.cancel.setIcon(QIcon(":/images/images/close-white-18dp.svg"))
-        self.apply.setIconSize(QSize(18, 18))
-        self.cancel.setIconSize(QSize(18, 18))
-        self.apply.setCursor(Qt.PointingHandCursor)
-        self.cancel.setCursor(Qt.PointingHandCursor)
-        self.apply.setVisible(False)
-        self.cancel.setVisible(False)
-        self.apply.clicked.connect(self.modify_transaction)
-        self.cancel.clicked.connect(self.hide_edit_widgets)
-        self.apply.setObjectName("apply")
-        self.cancel.setObjectName("cancel")
-
-    def update_category_name(self, name: str):
-        """
-        Update category name
-
-        :param name: name
-        :return: None
-        """
-
-        # Set text
-        self.edit_category_name.setText(name)
-
-        # Update width according to text
-        font_metrics = QFontMetrics(self.edit_category_name.font())
-        pixels_width = font_metrics.width(self.edit_category_name.text())
-        self.edit_category_name.setFixedWidth(pixels_width)
-
-    def edit_transaction(self, index, rect_name: QRect, rect_amount: QRect, rect_date: QRect, rect_account: QRect,
-                         rect_exp_or_inc: QRect, rect_category: QRect, rect_category_name: QRect,
-                         rect_mean: QRect, rect_edit: QRect, rect_delete: QRect):
-        """
-        Edit transaction on Edit click
-
-        :param index: item's index
-        :param rect_name: rect where to put LineEdit
-        :param rect_amount: rect where to put DoubleSpinBox
-        :param rect_date: rect where to put DateEdit
-        :param rect_account: rect where to put Combobox
-        :param rect_exp_or_inc: rect where to put ExpOrInc
-        :param rect_category: rect where to put Category
-        :param rect_category_name: rect where to put Category Name
-        :param rect_mean: rect where to put Means button
-        :param rect_edit: rect where to put Apply button
-        :param rect_delete: rect where to put Cancel button
-        :return: None
-        """
-
-        # Disable selection
-        self.transactions_listview.setSelectionMode(QAbstractItemView.NoSelection)
-
-        # Configure Name widget
-        self.edit_name.setText(self.transactions_filter_model.data(index, Qt.DisplayRole)["name"])
-        font_metrics = QFontMetrics(self.edit_name.font())
-        pixels_width = font_metrics.width(self.edit_name.text())
-        pixels_height = font_metrics.height()
-        self.edit_name.setGeometry(rect_name.x(), rect_name.y() - 3, pixels_width + 10, pixels_height + 6)
-        self.edit_name.setVisible(True)
-
-        # Configure ComboBox/Label widget
-        selected_category = self.transactions_filter_model.data(index, Qt.DisplayRole)["category"]
-        if selected_category == '':
-            self.edit_category.setCurrentIndex(-1)
-        else:
-            self.edit_category_name.setText(selected_category)
-        self.edit_category.setGeometry(rect_category.x(), rect_category.y(), rect_category.width(),
-                                       rect_category.height())
-        self.edit_category_name.setGeometry(rect_category_name.x(), rect_category_name.y(), rect_category_name.width(),
-                                            rect_category_name.height())
-        self.edit_category.setVisible(True)
-        self.edit_category_name.setVisible(True)
-
-        # Configure Amount widget
-        amount = self.transactions_filter_model.data(index, Qt.DisplayRole)["amount"]
-        self.edit_amount.setValue(amount)
-        font_metrics = QFontMetrics(self.edit_amount.font())
-        pixels_width = font_metrics.width(str(self.edit_amount.value()))
-        pixels_height = font_metrics.height()
-        self.edit_amount.setGeometry(rect_amount.x(), rect_amount.y() - 3, pixels_width + 38, pixels_height + 6)
-        self.edit_amount.setVisible(True)
-
-        # Configure DateEdit widget
-        date_str = self.transactions_filter_model.data(index, Qt.DisplayRole)["date"]
-        self.edit_date.setDate(QDate.fromString(date_str, 'dd/MM/yyyy'))
-        font_metrics = QFontMetrics(self.edit_date.font())
-        pixels_width = font_metrics.width(self.edit_date.date().toString('dd/MM/yyyy'))
-        pixels_height = font_metrics.height()
-        self.edit_date.setGeometry(rect_date.x(), rect_date.y() - 3, pixels_width + 30, pixels_height + 6)
-        self.edit_date.setVisible(True)
-
-        # Configure ComboBox widget
-        selected_account = self.transactions_filter_model.data(index, Qt.DisplayRole)["account"]
-        self.edit_account.setCurrentText(selected_account)
-        self.edit_account.move(rect_account.x(), rect_account.y() - 3)
-        self.edit_account.setVisible(True)
-
-        # Configure Custom widget
-        selected_exp_or_inc = self.transactions_filter_model.data(index, Qt.DisplayRole)["type"]
-        self.edit_exp_or_inc.move(rect_exp_or_inc.x() - 4, self.edit_category.y())
-        self.edit_exp_or_inc.setFixedWidth(rect_exp_or_inc.width() + 9)
-        self.edit_exp_or_inc.setFixedHeight(self.edit_category.height())
-        self.edit_exp_or_inc.set_active_type(selected_exp_or_inc)
-        self.edit_exp_or_inc.setVisible(True)
-
-        # Configure Mean widget
-        mean = self.transactions_filter_model.data(index, Qt.DisplayRole)["means"]
-        self.edit_mean.move(rect_mean.x() - rect_mean.width() - 10, rect_mean.y() - 5)
-        self.edit_mean.setFixedWidth(rect_mean.width() * 3 + 20)
-        self.edit_mean.setFixedHeight(rect_mean.height() + 10)
-        self.edit_mean.set_active_type(mean)
-        self.edit_mean.setVisible(True)
-
-        # Configure Apply/Cancel buttons
-        self.apply.setGeometry(rect_edit)
-        self.cancel.setGeometry(rect_delete)
-        self.apply.setVisible(True)
-        self.cancel.setVisible(True)
-
-    def resize_edit_widget(self):
-        """
-        Resize sender object (width especially) according to typed content
-        :return: None
-        """
-
-        sender = self.sender()
-        font_metrics = QFontMetrics(sender.font())
-
-        if isinstance(sender, QLineEdit):
-            value = sender.text()
-            pixels_width = font_metrics.width(value)
-            sender.setFixedWidth(pixels_width + 12)
-        elif isinstance(sender, QDoubleSpinBox):
-            value = str(sender.value())
-            pixels_width = font_metrics.width(value)
-            sender.setFixedWidth(pixels_width + 38)
-        elif isinstance(sender, QDateEdit):
-            value = str(sender.date().toString('dd/MM/yyyy'))
-            pixels_width = font_metrics.width(value)
-            sender.setFixedWidth(pixels_width + 30)
-
     def delete_transaction(self, index):
         """
         Delete transaction on Delete click
@@ -433,11 +190,6 @@ class Transactions(QObject):
         selection_model = self.transactions_listview.selectionModel()
         selection_model.select(index, QItemSelectionModel.ClearAndSelect)
         self.transactions_listview.setSelectionMode(QAbstractItemView.NoSelection)
-
-        # Retrieve all rects
-        output = self.transaction_delegate.get_first_row_rects()
-        self.edit_transaction(index, output[0], output[1], output[2], output[3], output[4], output[5], output[6],
-                              output[7], output[8], output[9])
 
     def search_transaction(self, content: str, search_field: str):
         """
@@ -470,48 +222,16 @@ class Transactions(QObject):
         :return: None
         """
 
-        value = {"name": self.edit_name.text(), "category": self.edit_category_name.text(),
-                 "amount": self.edit_amount.value(), "date": self.edit_date.date().toString("dd/MM/yyyy"),
-                 "account": self.edit_account.currentText(), "type": self.edit_exp_or_inc.active_type(),
-                 "means": self.edit_mean.active_type(), "comment": ""}
+        # value = {"name": self.edit_name.text(), "category": self.edit_category_name.text(),
+        #          "amount": self.edit_amount.value(), "date": self.edit_date.date().toString("dd/MM/yyyy"),
+        #          "account": self.edit_account.currentText(), "type": self.edit_exp_or_inc.active_type(),
+        #          "means": self.edit_mean.active_type(), "comment": ""}
 
         # Remove transaction from model """
-        self.transactions_filter_model.modify_transaction(self.transaction_delegate.editable, value)
+        # self.transactions_filter_model.modify_transaction(self.transaction_delegate.editable, value)
 
         # TODO: to remove
         # rest_client = RestClient().POST("http://127.0.0.1:8000/dashboard/transaction/", value)
-
-        # Hide editable widgets """
-        self.hide_edit_widgets()
-
-    def hide_edit_widgets(self):
-        """
-        Hide all editable widgets in transaction item
-
-        :return: None
-        """
-
-        # Hide all widgets """
-        self.edit_name.setVisible(False)
-        self.edit_amount.setVisible(False)
-        self.edit_date.setVisible(False)
-        self.edit_account.setVisible(False)
-        self.edit_exp_or_inc.setVisible(False)
-        self.edit_mean.setVisible(False)
-        self.edit_category.setVisible(False)
-        self.edit_category_name.setVisible(False)
-        self.apply.setVisible(False)
-        self.cancel.setVisible(False)
-
-        # Re-enable selection """
-        self.transactions_listview.setSelectionMode(QAbstractItemView.SingleSelection)
-
-        # Clear selection """
-        selection_model = self.transactions_listview.selectionModel()
-        selection_model.select(self.transaction_delegate.editable, QItemSelectionModel.Clear)
-
-        # Disable editable state """
-        self.transaction_delegate.set_editable(False)
 
     def configure_layout(self):
         """
@@ -550,11 +270,6 @@ class Transactions(QObject):
 
         # Set item delegate"""
         self.transactions_listview.setItemDelegate(self.transaction_delegate)
-
-        # Hide widgets for edition """
-        self.edit_name.setVisible(False)
-        self.edit_amount.setVisible(False)
-        self.edit_date.setVisible(False)
 
     def configure_status_bar(self):
         """

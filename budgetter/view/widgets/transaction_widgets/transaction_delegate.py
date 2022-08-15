@@ -53,31 +53,6 @@ class TransactionDelegate(QStyledItemDelegate):
         self.comment = QPushButton()
         self.comment.setCursor(Qt.PointingHandCursor)
 
-        # Store buttons rectangle
-        self.rect_edit = None
-        self.rect_delete = None
-        self.rect_category = None
-        self.rect_category_name = None
-        self.rect_name = None
-        self.rect_amount = None
-        self.rect_date = None
-        self.rect_account = None
-        self.rect_exp_or_inc = None
-        self.rect_mean = None
-        self.rect_comment = None
-
-        # Store buttons rectangle for first row on add
-        self.rect_category_first_row = None
-        self.rect_category_name_first_row = None
-        self.rect_name_first_row = None
-        self.rect_amount_first_row = None
-        self.rect_date_first_row = None
-        self.rect_account_first_row = None
-        self.rect_exp_or_inc_first_row = None
-        self.rect_means_first_row = None
-        self.rect_edit_first_row = None
-        self.rect_delete_first_row = None
-
         # Configure Widgets
         self.configure_widgets()
 
@@ -110,24 +85,6 @@ class TransactionDelegate(QStyledItemDelegate):
 
         self.editable = index
         self.selected = index
-
-    def get_first_row_rects(self):
-        """
-        Retrieve first row rectangles
-
-        :return: first row rectangles
-        """
-
-        return [self.rect_name_first_row,
-                self.rect_amount_first_row,
-                self.rect_date_first_row,
-                self.rect_account_first_row,
-                self.rect_exp_or_inc_first_row,
-                self.rect_category_first_row,
-                self.rect_category_name_first_row,
-                self.rect_means_first_row,
-                self.rect_edit_first_row,
-                self.rect_delete_first_row]
 
     def createEditor(self, parent, option, index: QModelIndex):
         """
@@ -309,19 +266,19 @@ class TransactionDelegate(QStyledItemDelegate):
         self.draw_amount(painter, rect_background, index, amount)
 
         # Draw amount label
-        self.draw_label(painter, rect_background, QApplication.translate("transaction_delegate", "Amount"), 1/4)
+        self.draw_label(painter, rect_background, QApplication.translate("transaction_delegate", "Amount"), 1 / 4)
 
         # Draw date
         self.draw_date(painter, rect_background, index, date)
 
         # Draw date label
-        self.draw_label(painter, rect_background, QApplication.translate("transaction_delegate", "Date"), 1.8/4)
+        self.draw_label(painter, rect_background, QApplication.translate("transaction_delegate", "Date"), 1.8 / 4)
 
         # Draw account
         self.draw_account(painter, rect_background, index, account)
 
         # Draw account label
-        self.draw_label(painter, rect_background, QApplication.translate("transaction_delegate", "Account"), 2.6/4)
+        self.draw_label(painter, rect_background, QApplication.translate("transaction_delegate", "Account"), 2.6 / 4)
 
         # Draw mean icon
         self.draw_means(painter, rect_background, means, index)
@@ -456,8 +413,9 @@ class TransactionDelegate(QStyledItemDelegate):
             # Draw bottom border
             painter.setPen(QPen(QColor("#344457")))
             painter.setBrush(Qt.NoBrush)
-            painter.drawLine(option.rect.x()+option.rect.width()*1/60, option.rect.y()+option.rect.height()-1,
-                             option.rect.width()-option.rect.width()*1/60, option.rect.y()+option.rect.height()-1)
+            painter.drawLine(option.rect.x() + option.rect.width() * 1 / 60, option.rect.y() + option.rect.height() - 1,
+                             option.rect.width() - option.rect.width() * 1 / 60,
+                             option.rect.y() + option.rect.height() - 1)
 
     def draw_means(self, painter: QPainter, rect_background, means, index):
         """
