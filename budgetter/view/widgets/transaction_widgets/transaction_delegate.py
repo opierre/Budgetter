@@ -75,17 +75,6 @@ class TransactionDelegate(QStyledItemDelegate):
         self.delete.setStyleSheet("background-color: transparent;\n")
         self.comment.setStyleSheet("background-color: transparent;\n")
 
-    def set_editable(self, index):
-        """
-        Change value of editable index
-
-        :param index: index of editable item
-        :return: None
-        """
-
-        self.editable = index
-        self.selected = index
-
     def createEditor(self, parent, option, index: QModelIndex):
         """
         Override createEditor

@@ -1,7 +1,7 @@
 import typing
 from datetime import datetime
 
-from PySide2.QtCore import QAbstractListModel, Qt, QSortFilterProxyModel, QModelIndex, QDate
+from PySide2.QtCore import QAbstractListModel, Qt, QSortFilterProxyModel, QModelIndex
 
 
 class TransactionsFilterModel(QSortFilterProxyModel):
@@ -226,12 +226,12 @@ class TransactionsModel(QAbstractListModel):
         :return: None
         """
 
-        self.beginInsertRows(QModelIndex(), 0, 0)
-        previous_type = self.data(self.index(0, 0, QModelIndex()), Qt.DisplayRole)["type"]
-        current_date = QDate.currentDate().toString("dd/MM/yyyy")
-        self.transactions.insert(0, {"name": "Enter name", "category": "", "amount": 0, "date": current_date,
-                                     "account": "", "type": previous_type, "means": "Virement", "comment": ""})
-        self.endInsertRows()
+        # self.beginInsertRows(QModelIndex(), 0, 0)
+        # previous_type = self.data(self.index(0, 0, QModelIndex()), Qt.DisplayRole)["type"]
+        # current_date = QDate.currentDate().toString("dd/MM/yyyy")
+        # self.transactions.insert(0, {"name": "Enter name", "category": "", "amount": 0, "date": current_date,
+        #                              "account": "", "type": previous_type, "means": "Virement", "comment": ""})
+        # self.endInsertRows()
 
     def flags(self, index):
         """

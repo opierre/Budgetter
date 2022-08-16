@@ -14,33 +14,33 @@ jobs:
 
     strategy:
       matrix:
-        python-version: ["3.8", "3.9", "3.10"]
+        python-version: [ "3.8", "3.9", "3.10" ]
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Set up Python ${{ matrix.python-version }}
-      uses: actions/setup-python@v2
-      with:
-        python-version: ${{ matrix.python-version }}
-        cache: 'pip'
-    - name: Install dependencies
-      run: |
-        python -m pip install --upgrade pip
-        pip install pylint
-        pip install -r requirements.txt
-    - name: Analysing the code with pylint
-      run: |
-        pylint ./budgetter --rcfile=pylintrc
-        pylint ./budgetter --rcfile=pylintrc --output=pylint_analysis.txt
-        echo "PYLINT_SCORE=`tail -n 2 pylint_analysis.txt | awk '/^Your/ {print $7}'`" >> $GITHUB_ENV
-    - name: Creating dynamic badge
-      uses: Schneegans/dynamic-badges-action@v1.1.0
-      with:
-        auth: ${{ secrets.GIST_SECRET }}
-        gistID: da061024a6dc8c3dcaf32f4e79abf032
-        filename: pylint.json
-        label: Pylint Rating
-        message: ${{ env.PYLINT_SCORE }}
-        color: "#2ebd4f"
-        namedLogo: Python
-        logoColor: yellow
+      - uses: actions/checkout@v3
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v3
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: 'pip'
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pylint
+          pip install -r requirements.txt
+      - name: Analysing the code with pylint
+        run: |
+          pylint ./budgetter --rcfile=pylintrc
+          pylint ./budgetter --rcfile=pylintrc --output=pylint_analysis.txt
+          echo "PYLINT_SCORE=`tail -n 2 pylint_analysis.txt | awk '/^Your/ {print $7}'`" >> $GITHUB_ENV
+      - name: Creating dynamic badge
+        uses: Schneegans/dynamic-badges-action@v1.4.0
+        with:
+          auth: ${{ secrets.GIST_SECRET }}
+          gistID: da061024a6dc8c3dcaf32f4e79abf032
+          filename: pylint.json
+          label: Pylint Rating
+          message: ${{ env.PYLINT_SCORE }}
+          color: "#2ebd4f"
+          namedLogo: Python
+          logoColor: "#1f425f"

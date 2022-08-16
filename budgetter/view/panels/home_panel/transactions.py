@@ -1,6 +1,6 @@
-from PySide2.QtCore import QObject, Qt, QSize, QItemSelectionModel, QCoreApplication
+from PySide2.QtCore import QObject, Qt, QSize, QCoreApplication
 from PySide2.QtGui import QIcon
-from PySide2.QtWidgets import QVBoxLayout, QStatusBar, QWidget, QPushButton, QListView, QFrame, QAbstractItemView
+from PySide2.QtWidgets import QVBoxLayout, QStatusBar, QWidget, QPushButton, QListView, QFrame
 
 from budgetter.models.transactions_model import TransactionsModel, TransactionsFilterModel
 from budgetter.view.widgets.status_bar import StatusBar
@@ -52,10 +52,6 @@ class Transactions(QObject):
 
         # ListView to display all transactions
         self.transactions_listview = QListView()
-
-        # Store Apply/Cancel QPushButtons when in edit mode
-        self.apply = QPushButton(parent=self.transactions_listview)
-        self.cancel = QPushButton(parent=self.transactions_listview)
 
         # Model for filtering
         self.transactions_filter_model = TransactionsFilterModel()
@@ -180,16 +176,7 @@ class Transactions(QObject):
         """
 
         # Add transaction to model
-        self.transactions_filter_model.add_transaction()
-
-        # Set editable mode
-        index = self.transactions_filter_model.index(0, 0)
-        self.transaction_delegate.set_editable(index)
-
-        # Select line
-        selection_model = self.transactions_listview.selectionModel()
-        selection_model.select(index, QItemSelectionModel.ClearAndSelect)
-        self.transactions_listview.setSelectionMode(QAbstractItemView.NoSelection)
+        # self.transactions_filter_model.add_transaction()
 
     def search_transaction(self, content: str, search_field: str):
         """
