@@ -1,6 +1,6 @@
 import requests
 
-from PySide2.QtCore import QThread
+from PySide6.QtCore import QThread
 
 
 class Thread(QThread):

@@ -35,9 +35,9 @@
 # #####################################################################################################################
 
 import sys
-from PySide2.QtWidgets import QPushButton, QWidget, QApplication, QHBoxLayout, QLineEdit, QLabel
-from PySide2.QtGui import QPainter, QColor, QBrush, QPen, QPaintEvent, QFont, QKeyEvent, QKeySequence
-from PySide2.QtCore import Qt, QEvent, QPropertyAnimation, \
+from PySide6.QtWidgets import QPushButton, QWidget, QApplication, QHBoxLayout, QLineEdit, QLabel
+from PySide6.QtGui import QPainter, QColor, QBrush, QPen, QPaintEvent, QFont, QKeyEvent, QKeySequence
+from PySide6.QtCore import Qt, QEvent, QPropertyAnimation, \
     QEasingCurve, Property, QStateMachine, QPointF, QState, QEventTransition, QCoreApplication, QLineF
 
 

@@ -1,6 +1,6 @@
-from PySide2.QtCore import QStringListModel, QTimer, Signal
-from PySide2.QtGui import QColor, QDoubleValidator, Qt
-from PySide2.QtWidgets import QWidget, QCompleter
+from PySide6.QtCore import QStringListModel, QTimer, Signal
+from PySide6.QtGui import QColor, QDoubleValidator, Qt
+from PySide6.QtWidgets import QWidget, QCompleter
 
 from budgetter.utils.tools import update_style
 from budgetter.view.skeletons.AddAccount import Ui_AddAccount

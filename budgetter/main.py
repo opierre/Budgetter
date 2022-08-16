@@ -1,7 +1,7 @@
 import sys
 
-from PySide2.QtCore import QTranslator, QLocale
-from PySide2.QtWidgets import QApplication
+from PySide6.QtCore import QTranslator, QLocale
+from PySide6.QtWidgets import QApplication
 
 from budgetter.controller.controller import Controller
 
@@ -18,4 +18,4 @@ if __name__ == "__main__":
     QLocale.setDefault(locale_qt)
 
     widget = Controller()
-    sys.exit(app.exec_())
+    sys.exit(app.exec())

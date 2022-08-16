@@ -1,4 +1,4 @@
-from PySide2.QtWidgets import QWidget
+from PySide6.QtWidgets import QWidget
 
 
 def convert_amount_to_str(amount):

@@ -1,6 +1,6 @@
-from PySide2.QtCore import QObject, QCoreApplication, QDate, Qt
-from PySide2.QtGui import QColor
-from PySide2.QtWidgets import QListView, QWidget, QVBoxLayout, QApplication, QGraphicsDropShadowEffect
+from PySide6.QtCore import QObject, QCoreApplication, QDate, Qt
+from PySide6.QtGui import QColor
+from PySide6.QtWidgets import QListView, QWidget, QVBoxLayout, QApplication, QGraphicsDropShadowEffect
 
 from budgetter.view.widgets.bar_widgets.chart_bars_widget import ChartBars
 
@@ -24,11 +24,11 @@ class Income(QObject):
 
         # Store range options
         self.this_year_option = {"to": QDate.currentDate(),
-                                 "from": QDate.currentDate().addMonths(-QDate.currentDate().month()+1)}
+                                 "from": QDate.currentDate().addMonths(-QDate.currentDate().month() + 1)}
         self.last_12_months_income = {"to": QDate.currentDate(),
                                       "from": QDate.currentDate().addDays(-365)}
         self.previous_year_income = {"to": QDate.currentDate().addMonths(-QDate.currentDate().month()),
-                                     "from": QDate.currentDate().addMonths(-QDate.currentDate().month()-11)}
+                                     "from": QDate.currentDate().addMonths(-QDate.currentDate().month() - 11)}
 
         # Configure title bar
         self.configure_title_bar()

@@ -34,12 +34,13 @@
 # OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 # #####################################################################################################################
 
-from typing import List
 import sys
-from PySide2.QtWidgets import QPushButton, QWidget, QApplication, QHBoxLayout
-from PySide2.QtGui import QPainter, QColor, QBrush, QPainterPath, QPaintEvent, QMouseEvent, QResizeEvent
-from PySide2.QtCore import Qt, QEvent, QObject, QParallelAnimationGroup, QPropertyAnimation, QRect, QPoint, \
+from typing import List
+
+from PySide6.QtCore import Qt, QEvent, QObject, QParallelAnimationGroup, QPropertyAnimation, QRect, QPoint, \
     QEasingCurve, Property
+from PySide6.QtGui import QPainter, QColor, QBrush, QPainterPath, QPaintEvent, QMouseEvent, QResizeEvent
+from PySide6.QtWidgets import QPushButton, QWidget, QApplication, QHBoxLayout
 
 
 class WaveOverlay:
@@ -406,11 +407,11 @@ class WaveOverlay(OverlayWidget):
         self.clip_path = path
         self.update()
 
-    def paintEvent(self, event: QPaintEvent) -> None:
+    def paintEvent(self, _event: QPaintEvent) -> None:
         """
         Override paintEvent()
 
-        :param event: paint event
+        :param _event: paint event
         :return: None
         """
 

@@ -1,7 +1,7 @@
-from PySide2.QtCharts import QtCharts
-from PySide2.QtCore import QPointF, QRectF, QRect, Qt, QSizeF, QMargins, QDateTime, QLocale
-from PySide2.QtGui import QFontMetrics, QFont, QPainter, QColor, QResizeEvent
-from PySide2.QtWidgets import QGraphicsView, QGraphicsItem, QGraphicsScene, QStyleOptionGraphicsItem
+from PySide6.QtCharts import QChart
+from PySide6.QtCore import QPointF, QRectF, QRect, Qt, QSizeF, QMargins, QDateTime, QLocale
+from PySide6.QtGui import QFontMetrics, QFont, QPainter, QColor, QResizeEvent
+from PySide6.QtWidgets import QGraphicsView, QGraphicsItem, QGraphicsScene, QStyleOptionGraphicsItem
 
 from budgetter.utils.tools import convert_amount_to_str
 from budgetter.view.widgets.saving_widgets.saving_chart_widget import SavingChart
@@ -12,11 +12,11 @@ class Callout(QGraphicsItem):
     Callout displayed as tooltip
     """
 
-    def __init__(self, parent: QtCharts.QChart):
+    def __init__(self, parent: QChart):
         super().__init__()
 
         # Store parent chart
-        self.chart: QtCharts.QChart = parent
+        self.chart: QChart = parent
 
         # Store text to display
         self.month: str = ''
@@ -57,7 +57,7 @@ class Callout(QGraphicsItem):
 
         # Center bottom rect according to top rect
         self.text_rect_down.moveCenter(QPointF(self.text_rect_up.center().x(), self.text_rect_up.height() +
-                                               self.text_rect_down.height()/2 + 5))
+                                               self.text_rect_down.height() / 2 + 5))
 
         # Change geometry
         self.prepareGeometryChange()

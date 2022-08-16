@@ -1,6 +1,6 @@
-from PySide2.QtCore import QEvent, Signal
-from PySide2.QtGui import QColor, QPainter
-from PySide2.QtWidgets import QWidget
+from PySide6.QtCore import QEvent, Signal
+from PySide6.QtGui import QColor, QPainter
+from PySide6.QtWidgets import QWidget
 
 
 class Overlay(QWidget):

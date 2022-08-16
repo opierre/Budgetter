@@ -3,22 +3,28 @@
 ################################################################################
 ## Form generated from reading UI file 'MainWindow.ui'
 ##
-## Created by: Qt User Interface Compiler version 5.15.0
+## Created by: Qt User Interface Compiler version 6.3.1
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
 
-from PySide2.QtCore import (QCoreApplication, QDate, QDateTime, QMetaObject,
-    QObject, QPoint, QRect, QSize, QTime, QUrl, Qt)
-from PySide2.QtGui import (QBrush, QColor, QConicalGradient, QCursor, QFont,
-    QFontDatabase, QIcon, QKeySequence, QLinearGradient, QPalette, QPainter,
-    QPixmap, QRadialGradient)
-from PySide2.QtWidgets import *
+from PySide6.QtCore import (QCoreApplication, QDate, QDateTime, QLocale,
+    QMetaObject, QObject, QPoint, QRect,
+    QSize, QTime, QUrl, Qt)
+from PySide6.QtGui import (QAction, QBrush, QColor, QConicalGradient,
+    QCursor, QFont, QFontDatabase, QGradient,
+    QIcon, QImage, QKeySequence, QLinearGradient,
+    QPainter, QPalette, QPixmap, QRadialGradient,
+    QTransform)
+from PySide6.QtWidgets import (QAbstractSpinBox, QApplication, QCheckBox, QComboBox,
+    QDateEdit, QDateTimeEdit, QDockWidget, QFrame,
+    QGridLayout, QHBoxLayout, QLabel, QMainWindow,
+    QPushButton, QSizePolicy, QSpacerItem, QToolBar,
+    QToolButton, QVBoxLayout, QWidget)
 
+from budgetter.view.widgets.animated_button import AnimatedButton
 from budgetter.view.widgets.container import Container
 from budgetter.view.widgets.sliding_stacked_widget import SlidingStackedWidget
-from budgetter.view.widgets.animated_button import AnimatedButton
-
 import resources_rc
 
 class Ui_MainWindow(object):
@@ -1256,7 +1262,7 @@ class Ui_MainWindow(object):
         self.menuLabel = QLabel(self.menuBar)
         self.menuLabel.setObjectName("menuLabel")
         font = QFont()
-        font.setFamily("Roboto")
+        font.setFamilies([u"Roboto"])
         font.setPointSize(14)
         self.menuLabel.setFont(font)
 
@@ -1306,7 +1312,7 @@ class Ui_MainWindow(object):
         self.transactions.setMinimumSize(QSize(40, 46))
         self.transactions.setMaximumSize(QSize(524287, 524287))
         font1 = QFont()
-        font1.setFamily("Roboto")
+        font1.setFamilies([u"Roboto"])
         font1.setPointSize(13)
         self.transactions.setFont(font1)
         self.transactions.setFeatures(QDockWidget.NoDockWidgetFeatures)
@@ -1467,7 +1473,7 @@ class Ui_MainWindow(object):
         self.expenses_choice.setMinimumSize(QSize(200, 0))
         self.expenses_choice.setMaximumSize(QSize(200, 16777215))
         font2 = QFont()
-        font2.setFamily("Roboto")
+        font2.setFamilies([u"Roboto"])
         font2.setPointSize(11)
         self.expenses_choice.setFont(font2)
 
@@ -1604,7 +1610,7 @@ class Ui_MainWindow(object):
         self.check_labels_expenses = QCheckBox(self.widget_expenses)
         self.check_labels_expenses.setObjectName("check_labels_expenses")
         font3 = QFont()
-        font3.setFamily("Roboto")
+        font3.setFamilies([u"Roboto"])
         font3.setPointSize(10)
         self.check_labels_expenses.setFont(font3)
         self.check_labels_expenses.setChecked(True)

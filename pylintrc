@@ -9,7 +9,7 @@ extension-pkg-allow-list=
 # be loaded. Extensions are loading into the active Python interpreter and may
 # run arbitrary code. (This is an alternative name to extension-pkg-allow-list
 # for backward compatibility.)
-extension-pkg-whitelist=PySide2
+extension-pkg-whitelist=PySide6
 
 # Return non-zero exit code if any of these messages/categories are detected,
 # even if score is above --fail-under value. Syntax same as enable. Messages
@@ -20,7 +20,7 @@ fail-on=
 fail-under=8.5
 
 # Files or directories to be skipped. They should be base names, not paths.
-ignore=CVS,resources,skeletons,sliding_stacked_widget.py
+ignore=CVS,resources,skeletons,sliding_stacked_widget.py,pyside_uic.py
 
 # Add files or directories matching the regex patterns to the ignore-list. The
 # regex matches against paths and can be in Posix or Windows format.

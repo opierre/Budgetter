@@ -1,7 +1,7 @@
-from PySide2.QtCore import Qt, QFile, QTextStream
-from PySide2.QtGui import QPainter, QColor
-from PySide2.QtSvg import QSvgRenderer
-from PySide2.QtWidgets import QWidget, QHBoxLayout, QPushButton, \
+from PySide6.QtCore import Qt, QFile, QTextStream
+from PySide6.QtGui import QPainter, QColor
+from PySide6.QtSvg import QSvgRenderer
+from PySide6.QtWidgets import QWidget, QHBoxLayout, QPushButton, \
     QStyleOptionButton, QStyle
 
 

@@ -1,9 +1,9 @@
 from enum import Enum
 
-from PySide2.QtCore import QTimer, Signal
-from PySide2.QtGui import QMouseEvent
-from PySide2.QtSvg import QSvgWidget
-from PySide2.QtWidgets import QWidget, QApplication, QVBoxLayout
+from PySide6.QtCore import QTimer, Signal
+from PySide6.QtGui import QMouseEvent
+from PySide6.QtSvgWidgets import QSvgWidget
+from PySide6.QtWidgets import QWidget, QApplication, QVBoxLayout
 
 
 class DIRECTIONS(Enum):

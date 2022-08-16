@@ -1,5 +1,5 @@
-from PySide2.QtCore import QObject, QCoreApplication
-from PySide2.QtWidgets import QActionGroup
+from PySide6.QtCore import QObject, QCoreApplication
+from PySide6.QtGui import QActionGroup
 
 
 class Menu(QObject):

@@ -3,20 +3,23 @@
 ################################################################################
 ## Form generated from reading UI file 'Dialog.ui'
 ##
-## Created by: Qt User Interface Compiler version 5.15.0
+## Created by: Qt User Interface Compiler version 6.3.1
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
 
-from PySide2.QtCore import (QCoreApplication, QDate, QDateTime, QMetaObject,
-    QObject, QPoint, QRect, QSize, QTime, QUrl, Qt)
-from PySide2.QtGui import (QBrush, QColor, QConicalGradient, QCursor, QFont,
-    QFontDatabase, QIcon, QKeySequence, QLinearGradient, QPalette, QPainter,
-    QPixmap, QRadialGradient)
-from PySide2.QtWidgets import *
+from PySide6.QtCore import (QCoreApplication, QDate, QDateTime, QLocale,
+    QMetaObject, QObject, QPoint, QRect,
+    QSize, QTime, QUrl, Qt)
+from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
+    QFont, QFontDatabase, QGradient, QIcon,
+    QImage, QKeySequence, QLinearGradient, QPainter,
+    QPalette, QPixmap, QRadialGradient, QTransform)
+from PySide6.QtWidgets import (QApplication, QGridLayout, QHBoxLayout, QLabel,
+    QSizePolicy, QSpacerItem, QToolButton, QVBoxLayout,
+    QWidget)
 
 from budgetter.view.widgets.flat_button import FlatButton
-
 import resources_rc
 
 class Ui_Dialog(object):
@@ -68,7 +71,7 @@ class Ui_Dialog(object):
         self.title = QLabel(self.dialog)
         self.title.setObjectName("title")
         font = QFont()
-        font.setFamily("Roboto Medium")
+        font.setFamilies([u"Roboto Medium"])
         font.setPointSize(16)
         self.title.setFont(font)
         self.title.setStyleSheet("color: rgba(255, 255, 255, 230);")
@@ -110,7 +113,7 @@ class Ui_Dialog(object):
         self.confirm = FlatButton(self.dialog)
         self.confirm.setObjectName("confirm")
         font1 = QFont()
-        font1.setFamily("Roboto Medium")
+        font1.setFamilies([u"Roboto Medium"])
         font1.setPointSize(11)
         self.confirm.setFont(font1)
         self.confirm.setCursor(QCursor(Qt.PointingHandCursor))

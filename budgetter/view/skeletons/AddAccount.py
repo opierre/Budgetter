@@ -3,21 +3,23 @@
 ################################################################################
 ## Form generated from reading UI file 'AddAccount.ui'
 ##
-## Created by: Qt User Interface Compiler version 5.15.0
+## Created by: Qt User Interface Compiler version 6.3.1
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
 
-from PySide2.QtCore import (QCoreApplication, QDate, QDateTime, QMetaObject,
-    QObject, QPoint, QRect, QSize, QTime, QUrl, Qt)
-from PySide2.QtGui import (QBrush, QColor, QConicalGradient, QCursor, QFont,
-    QFontDatabase, QIcon, QKeySequence, QLinearGradient, QPalette, QPainter,
-    QPixmap, QRadialGradient)
-from PySide2.QtWidgets import *
+from PySide6.QtCore import (QCoreApplication, QDate, QDateTime, QLocale,
+    QMetaObject, QObject, QPoint, QRect,
+    QSize, QTime, QUrl, Qt)
+from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
+    QFont, QFontDatabase, QGradient, QIcon,
+    QImage, QKeySequence, QLinearGradient, QPainter,
+    QPalette, QPixmap, QRadialGradient, QTransform)
+from PySide6.QtWidgets import (QApplication, QGridLayout, QHBoxLayout, QLabel,
+    QSizePolicy, QVBoxLayout, QWidget)
 
-from budgetter.view.widgets.material_outlined_line_edit import MaterialOutlinedLineEdit
 from budgetter.view.widgets.material_outlined_date_edit import MaterialOutlinedDateEdit
-
+from budgetter.view.widgets.material_outlined_line_edit import MaterialOutlinedLineEdit
 import resources_rc
 
 class Ui_AddAccount(object):
@@ -99,7 +101,7 @@ class Ui_AddAccount(object):
         self.label.setObjectName("label")
         self.label.setMinimumSize(QSize(270, 0))
         font = QFont()
-        font.setFamily("Roboto")
+        font.setFamilies([u"Roboto"])
         font.setPointSize(12)
         self.label.setFont(font)
         self.label.setStyleSheet("color: rgba(255, 255, 255, 180);")
@@ -116,7 +118,7 @@ class Ui_AddAccount(object):
         self.account_name.setMinimumSize(QSize(0, 67))
         self.account_name.setMaximumSize(QSize(16777215, 67))
         font1 = QFont()
-        font1.setFamily("Roboto")
+        font1.setFamilies([u"Roboto"])
         font1.setPointSize(11)
         self.account_name.setFont(font1)
 

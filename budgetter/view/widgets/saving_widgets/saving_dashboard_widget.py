@@ -1,7 +1,7 @@
 from datetime import datetime
 
-from PySide2.QtCore import QDate
-from PySide2.QtWidgets import QWidget, QGridLayout
+from PySide6.QtCore import QDate
+from PySide6.QtWidgets import QWidget, QGridLayout
 
 from budgetter.view.widgets.saving_widgets.callout_widget import CalloutChartView
 

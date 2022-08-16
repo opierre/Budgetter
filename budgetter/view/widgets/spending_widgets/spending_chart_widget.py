@@ -1,10 +1,10 @@
-from PySide2 import QtCore
-from PySide2.QtCharts import QtCharts
-from PySide2.QtCore import Qt
-from PySide2.QtGui import QPen, QColor, QBrush
+from PySide6 import QtCore
+from PySide6.QtCharts import QChart, QValueAxis, QSplineSeries
+from PySide6.QtCore import Qt
+from PySide6.QtGui import QPen, QColor, QBrush
 
 
-class SpendingChart(QtCharts.QChart):
+class SpendingChart(QChart):
     """
     Spending chart
     """
@@ -16,8 +16,8 @@ class SpendingChart(QtCharts.QChart):
         self.legend().hide()
 
         # Set axis and hide them
-        self.axis_x = QtCharts.QValueAxis()
-        self.axis_y = QtCharts.QValueAxis()
+        self.axis_x = QValueAxis()
+        self.axis_y = QValueAxis()
         self.axis_x.setVisible(False)
         self.axis_y.setVisible(False)
 
@@ -31,7 +31,7 @@ class SpendingChart(QtCharts.QChart):
         self.setBackgroundBrush(QBrush(QColor("transparent")))
 
         # Set animation on series
-        self.setAnimationOptions(QtCharts.QChart.SeriesAnimations)
+        self.setAnimationOptions(QChart.SeriesAnimations)
 
     def set_values(self, values: list):
         """
@@ -45,7 +45,7 @@ class SpendingChart(QtCharts.QChart):
             return
 
         range_max = max(values)
-        self.axis_y.setRange(0, range_max*11/10)
+        self.axis_y.setRange(0, range_max * 11 / 10)
 
         # Configure pen
         pen = QPen(QColor("white"))
@@ -53,7 +53,7 @@ class SpendingChart(QtCharts.QChart):
         pen.setCapStyle(Qt.RoundCap)
 
         # Fulfill series
-        series = QtCharts.QSplineSeries()
+        series = QSplineSeries()
         for index, value in enumerate(values):
             series.append(index, value)
 

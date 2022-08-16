@@ -1,6 +1,6 @@
-from PySide2.QtCore import QSize, Signal
-from PySide2.QtGui import QIcon, Qt
-from PySide2.QtWidgets import QWidget, QHBoxLayout, QPushButton
+from PySide6.QtCore import QSize, Signal
+from PySide6.QtGui import QIcon, Qt
+from PySide6.QtWidgets import QWidget, QHBoxLayout, QPushButton
 
 
 class StatusBar(QWidget):

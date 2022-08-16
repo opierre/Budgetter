@@ -18,9 +18,9 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 # THE SOFTWARE.
 
-from PySide2.QtCore import QParallelAnimationGroup, QPropertyAnimation, QRect, QObject, QEvent, Signal, Qt
-from PySide2.QtGui import QColor, QKeySequence
-from PySide2.QtWidgets import QWidget, QGraphicsDropShadowEffect, QGraphicsOpacityEffect, QShortcut
+from PySide6.QtCore import QParallelAnimationGroup, QPropertyAnimation, QRect, QObject, QEvent, Signal, Qt
+from PySide6.QtGui import QColor, QKeySequence, QShortcut
+from PySide6.QtWidgets import QWidget, QGraphicsDropShadowEffect, QGraphicsOpacityEffect
 
 from budgetter.view.skeletons.Dialog import Ui_Dialog
 from budgetter.view.widgets.overlay import Overlay

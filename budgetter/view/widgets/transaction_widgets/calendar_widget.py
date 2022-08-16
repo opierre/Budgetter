@@ -1,6 +1,6 @@
-from PySide2.QtCore import Qt, QRect, QPoint, QSize
-from PySide2.QtGui import QColor, QPen, QPainter
-from PySide2.QtWidgets import QCalendarWidget
+from PySide6.QtCore import Qt, QRect, QPoint, QSize
+from PySide6.QtGui import QColor, QPen, QPainter
+from PySide6.QtWidgets import QCalendarWidget
 
 
 class CalendarWidget(QCalendarWidget):
@@ -49,7 +49,7 @@ class CalendarWidget(QCalendarWidget):
             painter.setBrush(QColor("#0190EA"))
 
             # Configure rect for ellipse
-            rect_selection = QRect(QPoint(), rect.height()*QSize(1, 1))
+            rect_selection = QRect(QPoint(), rect.height() * QSize(1, 1))
             rect_selection.moveCenter(rect.center())
             painter.drawEllipse(rect_selection)
 

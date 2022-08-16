@@ -1,7 +1,7 @@
-from PySide2.QtCore import Qt, QDate, QRect, QRectF, QLocale
-from PySide2.QtGui import QPainter, QColor, QLinearGradient, QBrush, QPen, QFont
-from PySide2.QtWidgets import QWidget, QPushButton, QButtonGroup, QGridLayout
-from PySide2.QtCharts import QtCharts
+from PySide6.QtCharts import QChartView
+from PySide6.QtCore import Qt, QDate, QRect, QRectF, QLocale
+from PySide6.QtGui import QPainter, QColor, QLinearGradient, QBrush, QPen, QFont
+from PySide6.QtWidgets import QWidget, QPushButton, QButtonGroup, QGridLayout
 
 from budgetter.utils.tools import convert_amount_to_str
 from budgetter.view.widgets.spending_widgets.spending_chart_widget import SpendingChart
@@ -37,7 +37,7 @@ class ChartDashboard(QWidget):
 
         # Store chart
         self.chart = SpendingChart()
-        self.chart_view = QtCharts.QChartView(self.chart)
+        self.chart_view = QChartView(self.chart)
         self._layout = QGridLayout(self)
         self._layout.addWidget(self.chart_view)
 
@@ -83,27 +83,27 @@ class ChartDashboard(QWidget):
         :return: None
         """
 
-        stylesheet = "QPushButton"\
-                     "{"\
-                     "  background-color: transparent; "\
-                     "  color: rgba(255, 255, 255, 100);"\
-                     "  font-family: \"Roboto Medium\";"\
-                     "  font-size: 12pts;"\
-                     "  border-top-left-radius: 2px;"\
-                     "  border-top-right-radius: 2px;"\
-                     "  border-bottom-left-radius: 0px;"\
-                     "  border-bottom-right-radius: 0px;"\
-                     "}"\
+        stylesheet = "QPushButton" \
+                     "{" \
+                     "  background-color: transparent; " \
+                     "  color: rgba(255, 255, 255, 100);" \
+                     "  font-family: \"Roboto Medium\";" \
+                     "  font-size: 12pts;" \
+                     "  border-top-left-radius: 2px;" \
+                     "  border-top-right-radius: 2px;" \
+                     "  border-bottom-left-radius: 0px;" \
+                     "  border-bottom-right-radius: 0px;" \
+                     "}" \
                      "QPushButton::checked" \
                      "{" \
                      "  background-color: rgba(255, 255, 255, 30); " \
                      "  color: rgba(255, 255, 255, 200);" \
                      "  font-family: \"Roboto Black\";" \
                      "  font-size: 12pts;" \
-                     "  border-top-left-radius: 2px;"\
-                     "  border-top-right-radius: 2px;"\
-                     "  border-bottom-left-radius: 0px;"\
-                     "  border-bottom-right-radius: 0px;"\
+                     "  border-top-left-radius: 2px;" \
+                     "  border-top-right-radius: 2px;" \
+                     "  border-bottom-left-radius: 0px;" \
+                     "  border-bottom-right-radius: 0px;" \
                      "}"
 
         # Get current month
@@ -192,8 +192,8 @@ class ChartDashboard(QWidget):
         painter.setOpacity(0.06)
 
         # Draw line
-        painter.drawLine(self.rect().x(), self.rect().y() + self.rect().height() * 1/6,
-                         self.rect().width(), self.rect().y() + self.rect().height() * 1/6)
+        painter.drawLine(self.rect().x(), self.rect().y() + self.rect().height() * 1 / 6,
+                         self.rect().width(), self.rect().y() + self.rect().height() * 1 / 6)
 
     def draw_months(self, painter: QPainter):
         """

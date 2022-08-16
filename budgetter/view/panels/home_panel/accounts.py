@@ -1,5 +1,5 @@
-from PySide2.QtCore import QObject, QCoreApplication
-from PySide2.QtWidgets import QListView, QWidget, QHBoxLayout
+from PySide6.QtCore import QObject, QCoreApplication
+from PySide6.QtWidgets import QListView, QWidget, QHBoxLayout
 
 from budgetter.models.accounts_model import AccountsModel
 from budgetter.view.widgets.balance_widgets.account_delegate import AccountDelegate

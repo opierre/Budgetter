@@ -1,5 +1,5 @@
-from PySide2.QtGui import QPainter, QIcon
-from PySide2.QtWidgets import QLineEdit
+from PySide6.QtGui import QPainter, QIcon
+from PySide6.QtWidgets import QLineEdit
 
 
 class LineEditWithIcon(QLineEdit):

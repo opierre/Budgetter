@@ -1,6 +1,6 @@
+import fileinput
 import os
 import subprocess
-import fileinput
 
 if __name__ == '__main__':
     # Store strings to convert
@@ -24,7 +24,7 @@ if __name__ == '__main__':
         file_converted = os.path.join(absolute_path, ui_file + ".py")
 
         # Build cmd line
-        cmd_line = ["uic.exe", file_to_convert, "-g", "python", "-o", file_converted]
+        cmd_line = ["pyside6-uic.exe", file_to_convert, "-g", "python", "-o", file_converted]
 
         # Execute cmd line
         subprocess.run(cmd_line)

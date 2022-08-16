@@ -1,4 +1,4 @@
-from PySide2.QtCore import QAbstractListModel, Qt, QModelIndex
+from PySide6.QtCore import QAbstractListModel, Qt, QModelIndex
 
 
 class AccountsModel(QAbstractListModel):
@@ -25,15 +25,17 @@ class AccountsModel(QAbstractListModel):
             account = self.accounts[index.row()]
 
             # Return current account list
-            return account
+            result = account
         else:
-            return None
+            result = None
 
-    def rowCount(self, index: QModelIndex = QModelIndex()):
+        return result
+
+    def rowCount(self, _index: QModelIndex = QModelIndex()):
         """
         Override rowCount() from QAbstractListModel
 
-        :param index: index
+        :param _index: index
         :return: length of datas
         """
 

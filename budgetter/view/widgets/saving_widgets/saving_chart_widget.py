@@ -1,11 +1,11 @@
 import math
 
-from PySide2.QtCharts import QtCharts
-from PySide2.QtCore import Qt, QDateTime, QPointF, Signal
-from PySide2.QtGui import QPen, QColor, QBrush, QLinearGradient, QGradient
+from PySide6.QtCharts import QChart, QDateTimeAxis, QValueAxis, QAreaSeries, QLineSeries, QScatterSeries
+from PySide6.QtCore import Qt, QDateTime, QPointF, Signal
+from PySide6.QtGui import QPen, QColor, QBrush, QLinearGradient, QGradient
 
 
-class SavingChart(QtCharts.QChart):
+class SavingChart(QChart):
     """
     Saving chart
     """
@@ -23,27 +23,27 @@ class SavingChart(QtCharts.QChart):
         self.current_point = None
 
         # Set x axis
-        self.axis_x = QtCharts.QDateTimeAxis()
+        self.axis_x = QDateTimeAxis()
         self.axis_x.setFormat("MMMM-yyyy")
         self.axis_x.setVisible(False)
 
         # Set y axis
-        self.axis_y = QtCharts.QValueAxis()
+        self.axis_y = QValueAxis()
         self.axis_y.setMin(0)
         self.axis_y.setVisible(False)
 
         # Store series
-        self.area_series = QtCharts.QAreaSeries(self)
-        self.series_lower = QtCharts.QLineSeries()
-        self.series_upper = QtCharts.QLineSeries()
-        self.series_finale = QtCharts.QLineSeries()
-        self.series_scatter = QtCharts.QScatterSeries()
+        self.area_series = QAreaSeries(self)
+        self.series_lower = QLineSeries()
+        self.series_upper = QLineSeries()
+        self.series_finale = QLineSeries()
+        self.series_scatter = QScatterSeries()
 
         # Customize stylesheet
         self.setBackgroundBrush(QBrush(QColor("transparent")))
 
         # Set animation
-        self.setAnimationOptions(QtCharts.QChart.SeriesAnimations)
+        self.setAnimationOptions(QChart.SeriesAnimations)
 
         # Connect all slots and signals
         self.connect_slots_and_signals()
@@ -121,7 +121,7 @@ class SavingChart(QtCharts.QChart):
         self.series_scatter.attachAxis(self.axis_y)
 
         # Configure y axis """
-        self.axis_y.setRange(0, y_max_value * 12/10)
+        self.axis_y.setRange(0, y_max_value * 12 / 10)
         self.axis_x.setRange(QDateTime.fromMSecsSinceEpoch(self.series_finale.points()[0].x()),
                              QDateTime.fromMSecsSinceEpoch(self.series_finale.points()[-1].x()))
 

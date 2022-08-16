@@ -1,6 +1,6 @@
-from PySide2.QtCore import QModelIndex
-from PySide2.QtGui import QPainter
-from PySide2.QtWidgets import QStyledItemDelegate, QStyle
+from PySide6.QtCore import QModelIndex
+from PySide6.QtGui import QPainter
+from PySide6.QtWidgets import QStyledItemDelegate, QStyle
 
 
 class CategoryComboBox(QStyledItemDelegate):
@@ -23,7 +23,7 @@ class CategoryComboBox(QStyledItemDelegate):
         self.initStyleOption(opt, index)
 
         # Set icon in center """
-        opt.decorationSize.setWidth(opt.rect.width()-1)
+        opt.decorationSize.setWidth(opt.rect.width() - 1)
 
         # Draw item """
         opt.widget.style().drawControl(QStyle.CE_ItemViewItem, opt, painter, opt.widget)

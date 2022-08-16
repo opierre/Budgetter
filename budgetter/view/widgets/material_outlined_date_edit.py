@@ -37,11 +37,12 @@
 import sys
 from datetime import datetime
 
-from PySide2.QtCore import Qt, QEvent, QPropertyAnimation, QRegExp, \
-    QEasingCurve, Property, QStateMachine, QPointF, QState, QEventTransition, QCoreApplication, QTimer
-from PySide2.QtGui import QPainter, QColor, QPaintEvent, QFont, QKeyEvent, QFontMetrics, \
-    QRegExpValidator, QFocusEvent, QMouseEvent
-from PySide2.QtWidgets import QPushButton, QWidget, QApplication, QHBoxLayout, QLineEdit, QLabel
+from PySide6.QtCore import Qt, QEvent, QPropertyAnimation, QEasingCurve, Property, QPointF, QCoreApplication, QTimer, \
+    QRegularExpression
+from PySide6.QtGui import QPainter, QColor, QPaintEvent, QFont, QKeyEvent, QFontMetrics, \
+    QRegularExpressionValidator, QFocusEvent, QMouseEvent
+from PySide6.QtStateMachine import QStateMachine, QState, QEventTransition
+from PySide6.QtWidgets import QPushButton, QWidget, QApplication, QHBoxLayout, QLineEdit, QLabel
 
 STYLESHEET = "QLineEdit {{" \
              "  background: transparent;" \
@@ -317,8 +318,8 @@ class MaterialOutlinedDateEdit(QLineEdit):
             self.line_edit_private = MaterialLineEditPrivate(self)
 
         # Set regexp for date
-        reg_exp_date = QRegExp("(0[1-9]|[12][0-9]|3[01])/(0[1-9]|[1][0-2])/(19[0-9][0-9]|20[0-9][0-9])")
-        validator = QRegExpValidator(reg_exp_date)
+        reg_exp_date = QRegularExpression("(0[1-9]|[12][0-9]|3[01])/(0[1-9]|[1][0-2])/(19[0-9][0-9]|20[0-9][0-9])")
+        validator = QRegularExpressionValidator(reg_exp_date)
         self.setValidator(validator)
 
     def focusInEvent(self, arg__1: QFocusEvent):

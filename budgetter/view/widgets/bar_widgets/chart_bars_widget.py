@@ -1,7 +1,7 @@
-from PySide2.QtCharts import QtCharts
-from PySide2.QtCore import Qt, QRectF
-from PySide2.QtGui import QPainter, QColor, QPen, QFont, QFontMetrics, QBrush
-from PySide2.QtWidgets import QWidget, QGridLayout
+from PySide6.QtCharts import QChartView
+from PySide6.QtCore import Qt, QRectF
+from PySide6.QtGui import QPainter, QColor, QPen, QFont, QFontMetrics, QBrush
+from PySide6.QtWidgets import QWidget, QGridLayout
 
 from budgetter.utils.tools import convert_amount_to_str
 from budgetter.view.widgets.bar_widgets.category_chart_widget import CategoryChart
@@ -17,7 +17,7 @@ class ChartBars(QWidget):
 
         # Store chart
         self.chart = CategoryChart(chart_type)
-        self.chart_view = QtCharts.QChartView(self.chart)
+        self.chart_view = QChartView(self.chart)
         self._layout = QGridLayout(self)
         self._layout.addWidget(self.chart_view)
 
@@ -151,7 +151,7 @@ class ChartBars(QWidget):
         # Set rectangle according to font metrics """
         font_metrics = QFontMetrics(painter.font())
         text_heigth = font_metrics.height()
-        text_width = font_metrics.width(text_average)
+        text_width = font_metrics.horizontalAdvance(text_average)
         rectangle_total = QRectF(self.rect().x() + 9, self.rect().y() + 9,
                                  text_width, text_heigth)
 
@@ -165,7 +165,7 @@ class ChartBars(QWidget):
 
         # Set rectangle according to font metrics """
         font_metrics = QFontMetrics(painter.font())
-        text_amount_width = font_metrics.width(text_amount)
+        text_amount_width = font_metrics.horizontalAdvance(text_amount)
         text_heigth = font_metrics.height()
         rectangle_amount = QRectF(rectangle_total.x() + rectangle_total.width() + 9, rectangle_total.y(),
                                   text_amount_width, text_heigth)
@@ -190,7 +190,7 @@ class ChartBars(QWidget):
 
         # Set rectangle according to font metrics """
         font_metrics = QFontMetrics(painter.font())
-        text_average_width = font_metrics.width(text_average)
+        text_average_width = font_metrics.horizontalAdvance(text_average)
         text_heigth = font_metrics.height()
 
         if self._show_total is True:
@@ -211,7 +211,7 @@ class ChartBars(QWidget):
 
         # Set rectangle according to font metrics """
         font_metrics = QFontMetrics(painter.font())
-        text_amount_width = font_metrics.width(text_amount)
+        text_amount_width = font_metrics.horizontalAdvance(text_amount)
         text_heigth = font_metrics.height()
         rectangle_amount = QRectF(rectangle_average.x() + rectangle_average.width() + 9, rectangle_average.y(),
                                   text_amount_width, text_heigth)
@@ -238,10 +238,10 @@ class ChartBars(QWidget):
         # Set rectangle according to font metrics """
         font_metrics_name = QFontMetrics(QFont("Roboto", 11, QFont.Normal))
         font_metrics_amount = QFontMetrics(QFont("Roboto", 11, QFont.Bold))
-        text_total_width = font_metrics_name.width(text_total)
-        text_average_width = font_metrics_name.width(text_average)
-        text_total_amount = font_metrics_amount.width(text_total_amount)
-        text_average_amount = font_metrics_amount.width(text_average_amount)
+        text_total_width = font_metrics_name.horizontalAdvance(text_total)
+        text_average_width = font_metrics_name.horizontalAdvance(text_average)
+        text_total_amount = font_metrics_amount.horizontalAdvance(text_total_amount)
+        text_average_amount = font_metrics_amount.horizontalAdvance(text_average_amount)
         text_heigth = font_metrics_amount.height()
 
         # Get max width """

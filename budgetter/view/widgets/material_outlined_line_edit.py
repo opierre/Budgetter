@@ -36,10 +36,11 @@
 
 import sys
 
-from PySide2.QtCore import Qt, QEvent, QPropertyAnimation, \
-    QEasingCurve, Property, QStateMachine, QPointF, QState, QEventTransition, QCoreApplication
-from PySide2.QtGui import QPainter, QColor, QPaintEvent, QFont, QFontMetrics
-from PySide2.QtWidgets import QPushButton, QWidget, QApplication, QHBoxLayout, QLineEdit, QLabel
+from PySide6.QtCore import Qt, QEvent, QPropertyAnimation, \
+    QEasingCurve, Property, QPointF, QCoreApplication
+from PySide6.QtGui import QPainter, QColor, QPaintEvent, QFont, QFontMetrics
+from PySide6.QtStateMachine import QStateMachine, QState, QEventTransition
+from PySide6.QtWidgets import QPushButton, QWidget, QApplication, QHBoxLayout, QLineEdit, QLabel
 
 STYLESHEET = "QLineEdit {{" \
              "  background: transparent;" \

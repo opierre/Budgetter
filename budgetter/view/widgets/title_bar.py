@@ -1,6 +1,6 @@
-from PySide2.QtCore import Signal, Qt
-from PySide2.QtGui import QIcon
-from PySide2.QtWidgets import QWidget, QAction, QListView
+from PySide6.QtCore import Signal, Qt
+from PySide6.QtGui import QIcon, QAction
+from PySide6.QtWidgets import QWidget, QListView
 
 from budgetter.view.skeletons.Options import Ui_Options
 

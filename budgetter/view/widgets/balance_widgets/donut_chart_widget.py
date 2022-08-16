@@ -1,8 +1,8 @@
-from PySide2.QtCore import Qt, QRect, QRectF
-from PySide2.QtGui import QPainter, QPen, QColor, QFont, QFontMetrics, QPaintEvent, QBrush, QConicalGradient, \
+from PySide6.QtCore import Qt, QRect, QRectF
+from PySide6.QtGui import QPainter, QPen, QColor, QFont, QFontMetrics, QPaintEvent, QBrush, QConicalGradient, \
     QMouseEvent
-from PySide2.QtSvg import QSvgRenderer
-from PySide2.QtWidgets import QWidget
+from PySide6.QtSvg import QSvgRenderer
+from PySide6.QtWidgets import QWidget
 
 from budgetter.utils.tools import convert_amount_to_str
 
@@ -188,7 +188,7 @@ class DonutChart(QWidget):
         previous_month_total_amount_str = convert_amount_to_str(self.previous_month_total_amount)
         previous_value = previous_month_total_amount_str + " €"
         font_metrics = QFontMetrics(font)
-        pixels_width = font_metrics.width(previous_value)
+        pixels_width = font_metrics.horizontalAdvance(previous_value)
         pixels_height = font_metrics.height()
 
         # Set text
@@ -212,7 +212,7 @@ class DonutChart(QWidget):
 
         # Get font metrics
         font_metrics = QFontMetrics(font)
-        pixels_width = font_metrics.width(value)
+        pixels_width = font_metrics.horizontalAdvance(value)
         pixels_height = font_metrics.height()
 
         # Set text
@@ -234,7 +234,7 @@ class DonutChart(QWidget):
         total_amount_str = convert_amount_to_str(self.total_amount)
         value = total_amount_str + " €"
         font_metrics = QFontMetrics(font)
-        pixels_width = font_metrics.width(value)
+        pixels_width = font_metrics.horizontalAdvance(value)
         pixels_height = font_metrics.height()
 
         # Set value

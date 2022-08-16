@@ -10,8 +10,8 @@
 # - Change of default direction from Horizontal to Vertical
 # - Add signal when animation finished
 
-from PySide2 import QtCore, QtWidgets
-from PySide2.QtCore import Signal
+from PySide6 import QtCore, QtWidgets
+from PySide6.QtCore import Signal
 
 
 class SlidingStackedWidget(QtWidgets.QStackedWidget):
@@ -104,7 +104,7 @@ class SlidingStackedWidget(QtWidgets.QStackedWidget):
         )
 
         for index, start, end in zip(
-            (_now, _next), (pnow, pnext - offset), (pnow + offset, pnext)
+                (_now, _next), (pnow, pnext - offset), (pnow + offset, pnext)
         ):
             animation = QtCore.QPropertyAnimation(
                 self.widget(index),

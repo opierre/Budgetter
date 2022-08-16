@@ -1,10 +1,10 @@
 import datetime
 
-from PySide2 import QtCore
-from PySide2.QtCore import QSize, Qt, QRect, QRectF, Signal, QModelIndex, QEvent, QPoint
-from PySide2.QtGui import QPen, QColor, QPainter, QFont, QFontMetrics, QIcon
-from PySide2.QtSvg import QSvgRenderer
-from PySide2.QtWidgets import QStyledItemDelegate, QPushButton, QStyleOptionButton, QStyle, \
+from PySide6 import QtCore
+from PySide6.QtCore import QSize, Qt, QRect, QRectF, Signal, QModelIndex, QEvent, QPoint
+from PySide6.QtGui import QPen, QColor, QPainter, QFont, QFontMetrics, QIcon
+from PySide6.QtSvg import QSvgRenderer
+from PySide6.QtWidgets import QStyledItemDelegate, QPushButton, QStyleOptionButton, QStyle, \
     QApplication
 
 
@@ -557,7 +557,7 @@ class TransactionDelegate(QStyledItemDelegate):
 
         # Get font metrics
         font_metrics = QFontMetrics(self.font)
-        pixels_width = font_metrics.width(name)
+        pixels_width = font_metrics.horizontalAdvance(name)
         pixels_height = font_metrics.height()
 
         # Set name on top
@@ -588,7 +588,7 @@ class TransactionDelegate(QStyledItemDelegate):
 
         # Get font metrics
         font_metrics = QFontMetrics(self.font)
-        pixels_width = font_metrics.width(category)
+        pixels_width = font_metrics.horizontalAdvance(category)
         pixels_height = font_metrics.height()
 
         # Set category beside name
@@ -619,7 +619,7 @@ class TransactionDelegate(QStyledItemDelegate):
         # Get font metrics
         font_metrics = QFontMetrics(self.font)
         pixels_height = font_metrics.height()
-        pixels_width = font_metrics.width(amount)
+        pixels_width = font_metrics.horizontalAdvance(amount)
 
         # Set amount on right corner
         self.rect_amount = QRect(rect_background.width() * 1 / 4, self.rect_name.y(),
@@ -648,7 +648,7 @@ class TransactionDelegate(QStyledItemDelegate):
 
         # Get font metrics
         font_metrics = QFontMetrics(self.font)
-        pixels_width = font_metrics.width(label)
+        pixels_width = font_metrics.horizontalAdvance(label)
         pixels_height = font_metrics.height()
 
         # Set percentage beside amount
@@ -678,7 +678,7 @@ class TransactionDelegate(QStyledItemDelegate):
         # Get font metrics
         font_metrics = QFontMetrics(self.font)
         pixels_height = font_metrics.height()
-        pixels_width = font_metrics.width(date)
+        pixels_width = font_metrics.horizontalAdvance(date)
 
         # Set date on right corner
         self.rect_date = QRect(rect_background.width() * 1.8 / 4, self.rect_name.y(),
@@ -708,7 +708,7 @@ class TransactionDelegate(QStyledItemDelegate):
         # Get font metrics
         font_metrics = QFontMetrics(self.font)
         pixels_height = font_metrics.height()
-        pixels_width = font_metrics.width(account)
+        pixels_width = font_metrics.horizontalAdvance(account)
 
         # Set account on right corner
         self.rect_account = QRect(rect_background.width() * 2.6 / 4, self.rect_name.y(),

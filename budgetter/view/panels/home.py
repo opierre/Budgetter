@@ -1,4 +1,4 @@
-from PySide2.QtCore import QObject
+from PySide6.QtCore import QObject
 
 from budgetter.view.panels.home_panel.accounts import Accounts
 from budgetter.view.panels.home_panel.distribution import Distribution

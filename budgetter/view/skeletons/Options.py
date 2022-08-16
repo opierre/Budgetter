@@ -3,20 +3,23 @@
 ################################################################################
 ## Form generated from reading UI file 'Options.ui'
 ##
-## Created by: Qt User Interface Compiler version 5.15.0
+## Created by: Qt User Interface Compiler version 6.3.1
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
 
-from PySide2.QtCore import (QCoreApplication, QDate, QDateTime, QMetaObject,
-    QObject, QPoint, QRect, QSize, QTime, QUrl, Qt)
-from PySide2.QtGui import (QBrush, QColor, QConicalGradient, QCursor, QFont,
-    QFontDatabase, QIcon, QKeySequence, QLinearGradient, QPalette, QPainter,
-    QPixmap, QRadialGradient)
-from PySide2.QtWidgets import *
+from PySide6.QtCore import (QCoreApplication, QDate, QDateTime, QLocale,
+    QMetaObject, QObject, QPoint, QRect,
+    QSize, QTime, QUrl, Qt)
+from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
+    QFont, QFontDatabase, QGradient, QIcon,
+    QImage, QKeySequence, QLinearGradient, QPainter,
+    QPalette, QPixmap, QRadialGradient, QTransform)
+from PySide6.QtWidgets import (QApplication, QComboBox, QGridLayout, QHBoxLayout,
+    QLabel, QSizePolicy, QSpacerItem, QToolButton,
+    QWidget)
 
 from budgetter.view.widgets.line_edit_with_icon import LineEditWithIcon
-
 import resources_rc
 
 class Ui_Options(object):
@@ -243,7 +246,7 @@ class Ui_Options(object):
         self.title_bar_title = QLabel(self.content)
         self.title_bar_title.setObjectName("title_bar_title")
         font = QFont()
-        font.setFamily("Roboto")
+        font.setFamilies([u"Roboto"])
         font.setPointSize(13)
         self.title_bar_title.setFont(font)
 
@@ -261,7 +264,7 @@ class Ui_Options(object):
         self.title_bar_search.setMinimumSize(QSize(0, 28))
         self.title_bar_search.setMaximumSize(QSize(200, 28))
         font1 = QFont()
-        font1.setFamily("Roboto")
+        font1.setFamilies([u"Roboto"])
         font1.setPointSize(11)
         self.title_bar_search.setFont(font1)
 

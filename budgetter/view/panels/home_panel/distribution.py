@@ -1,5 +1,5 @@
-from PySide2.QtCore import QObject, Qt, QDate, QCoreApplication, QLocale
-from PySide2.QtWidgets import QVBoxLayout, QStatusBar, QWidget, QPushButton, QListView
+from PySide6.QtCore import QObject, Qt, QDate, QCoreApplication, QLocale
+from PySide6.QtWidgets import QVBoxLayout, QStatusBar, QWidget, QPushButton, QListView
 
 from budgetter.models.distribution_model import DistributionModel
 from budgetter.view.widgets.distribution_delegate import DistributionDelegate

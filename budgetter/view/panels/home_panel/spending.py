@@ -1,5 +1,5 @@
-from PySide2.QtCore import QObject, QCoreApplication
-from PySide2.QtWidgets import QWidget, QHBoxLayout
+from PySide6.QtCore import QObject, QCoreApplication
+from PySide6.QtWidgets import QWidget, QHBoxLayout
 
 from budgetter.view.widgets.spending_widgets.chart_dashboard_widget import ChartDashboard
 

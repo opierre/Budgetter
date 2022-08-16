@@ -1,7 +1,7 @@
-from PySide2.QtCore import QSize, Qt, QRect, QRectF, QModelIndex, QCoreApplication
-from PySide2.QtGui import QPen, QColor, QPainter, QFont, QFontMetrics
-from PySide2.QtSvg import QSvgRenderer
-from PySide2.QtWidgets import QItemDelegate, QStyleOptionViewItem
+from PySide6.QtCore import QSize, Qt, QRect, QRectF, QModelIndex, QCoreApplication
+from PySide6.QtGui import QPen, QColor, QPainter, QFont, QFontMetrics
+from PySide6.QtSvg import QSvgRenderer
+from PySide6.QtWidgets import QItemDelegate, QStyleOptionViewItem
 
 from budgetter.utils.tools import convert_amount_to_str
 
@@ -51,33 +51,36 @@ class AccountDelegate(QItemDelegate):
         # Draw bottom border
         painter.setPen(QPen(QColor("#344457")))
         painter.setBrush(Qt.NoBrush)
-        painter.drawLine(option.rect.x()+option.rect.width()*1/30, option.rect.y()+option.rect.height()-1,
-                         option.rect.width()-+option.rect.width()*1/30, option.rect.y()+option.rect.height()-1)
+        painter.drawLine(option.rect.x() + option.rect.width() * 1 / 30, option.rect.y() + option.rect.height() - 1,
+                         option.rect.width() - +option.rect.width() * 1 / 30,
+                         option.rect.y() + option.rect.height() - 1)
 
         painter.setRenderHint(QPainter.Antialiasing)
 
         # Draw item background
         painter.setPen(QPen(QColor("#26374C")))
         painter.setBrush(QColor("transparent"))
-        rect_background = QRect(option.rect.x()+option.rect.width()*1/30, option.rect.y()+option.rect.height()*1/5,
-                                option.rect.width()-+option.rect.width()*2/30,
-                                option.rect.height()-option.rect.height()*2/5)
+        rect_background = QRect(option.rect.x() + option.rect.width() * 1 / 30,
+                                option.rect.y() + option.rect.height() * 1 / 5,
+                                option.rect.width() - +option.rect.width() * 2 / 30,
+                                option.rect.height() - option.rect.height() * 2 / 5)
         painter.drawRect(rect_background)
 
         # Draw left icon background
         painter.setPen(QPen(color))
         painter.setBrush(color)
         painter.setOpacity(0.8)
-        rect_icon = QRect(rect_background.x()+option.rect.width()*1/60, rect_background.y()-option.rect.height()*1/30,
-                          rect_background.height()+option.rect.height()*1/5,
-                          rect_background.height()+option.rect.height()*1/30)
+        rect_icon = QRect(rect_background.x() + option.rect.width() * 1 / 60,
+                          rect_background.y() - option.rect.height() * 1 / 30,
+                          rect_background.height() + option.rect.height() * 1 / 5,
+                          rect_background.height() + option.rect.height() * 1 / 30)
         painter.drawRoundedRect(rect_icon, 1.0, 1.0)
 
         # Draw icon and render svg
         painter.setOpacity(1)
         painter.setPen(QPen(Qt.transparent))
         painter.setBrush(QColor("transparent"))
-        rect_svg = QRect(rect_icon.x(), rect_icon.y()+5, rect_icon.width(), rect_icon.height()-10)
+        rect_svg = QRect(rect_icon.x(), rect_icon.y() + 5, rect_icon.width(), rect_icon.height() - 10)
         painter.drawRect(rect_svg)
 
         if bank.lower() == "Caisse d'Epargne".lower():
@@ -99,12 +102,12 @@ class AccountDelegate(QItemDelegate):
 
         # Get font metrics
         font_metrics = QFontMetrics(self.font)
-        pixels_width = font_metrics.width(account_name)
+        pixels_width = font_metrics.horizontalAdvance(account_name)
         pixels_height = font_metrics.height()
 
         # Set category on top
-        rect_category = QRect(rect_icon.x()+rect_icon.width()+option.rect.width()*1/30,
-                              rect_icon.y()+option.rect.height()*1/30, pixels_width, pixels_height)
+        rect_category = QRect(rect_icon.x() + rect_icon.width() + option.rect.width() * 1 / 30,
+                              rect_icon.y() + option.rect.height() * 1 / 30, pixels_width, pixels_height)
         painter.drawText(rect_category, int(Qt.AlignLeft | Qt.AlignVCenter), account_name)
 
         # Set font on painter for account label
@@ -117,11 +120,12 @@ class AccountDelegate(QItemDelegate):
 
         # Get font metrics
         font_metrics = QFontMetrics(self.font)
-        pixels_width = font_metrics.width('Account')
+        pixels_width = font_metrics.horizontalAdvance('Account')
         pixels_height = font_metrics.height()
 
         # Set number of transactions beside category
-        rect_transaction = QRect(rect_category.x(), rect_category.y()+rect_category.height()+option.rect.height()*1/10,
+        rect_transaction = QRect(rect_category.x(),
+                                 rect_category.y() + rect_category.height() + option.rect.height() * 1 / 10,
                                  pixels_width, pixels_height)
         painter.drawText(rect_transaction, int(Qt.AlignLeft | Qt.AlignVCenter),
                          QCoreApplication.translate("account_delegate", 'Account'))
@@ -136,11 +140,11 @@ class AccountDelegate(QItemDelegate):
 
         # Get font metrics
         font_metrics = QFontMetrics(self.font)
-        pixels_width = font_metrics.width(amount)
+        pixels_width = font_metrics.horizontalAdvance(amount)
         pixels_height = font_metrics.height()
 
         # Set amount on right corner
-        rect_amount = QRect(rect_background.width()+rect_background.x()-pixels_width-option.rect.width()*1/50,
+        rect_amount = QRect(rect_background.width() + rect_background.x() - pixels_width - option.rect.width() * 1 / 50,
                             rect_category.y(), pixels_width, pixels_height)
         painter.drawText(rect_amount, int(Qt.AlignRight | Qt.AlignVCenter), amount)
 
@@ -166,11 +170,11 @@ class AccountDelegate(QItemDelegate):
 
         # Get font metrics
         font_metrics = QFontMetrics(self.font)
-        pixels_width = font_metrics.width('Balance')
+        pixels_width = font_metrics.horizontalAdvance('Balance')
         pixels_height = font_metrics.height()
 
         # Set percentage beside amount
-        rect_perc = QRect(rect_background.width()+rect_background.x()-pixels_width-option.rect.width()*1/50,
+        rect_perc = QRect(rect_background.width() + rect_background.x() - pixels_width - option.rect.width() * 1 / 50,
                           rect_transaction.y(), pixels_width, pixels_height)
         painter.drawText(rect_perc, int(Qt.AlignRight | Qt.AlignVCenter),
                          QCoreApplication.translate("account_delegate", 'Balance'))

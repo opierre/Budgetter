@@ -1,9 +1,10 @@
-from PySide2.QtCharts import QtCharts
-from PySide2.QtCore import Qt, QDateTime, QPointF, QLocale
-from PySide2.QtGui import QPen, QColor, QBrush, QLinearGradient, QGradient, QFont
+from PySide6.QtCharts import QBarCategoryAxis, QValueAxis, QBarSeries, QSplineSeries, QAbstractBarSeries, \
+    QChart, QBarSet
+from PySide6.QtCore import Qt, QDateTime, QPointF, QLocale
+from PySide6.QtGui import QPen, QColor, QBrush, QLinearGradient, QGradient, QFont
 
 
-class CategoryChart(QtCharts.QChart):
+class CategoryChart(QChart):
     """
     Category chart
     """
@@ -21,14 +22,14 @@ class CategoryChart(QtCharts.QChart):
         self.current_point = None
 
         # Set x axis
-        self.axis_x = QtCharts.QBarCategoryAxis()
+        self.axis_x = QBarCategoryAxis()
 
         # Set y axis
-        self.axis_y = QtCharts.QValueAxis()
+        self.axis_y = QValueAxis()
 
         # Store series
-        self.series = QtCharts.QBarSeries(self)
-        self.average_series = QtCharts.QSplineSeries(self)
+        self.series = QBarSeries(self)
+        self.average_series = QSplineSeries(self)
         self.set = None
 
         # Store average show state
@@ -56,7 +57,7 @@ class CategoryChart(QtCharts.QChart):
         # Configure labels
         self.series.setLabelsFormat("@value €")
         self.series.setLabelsPrecision(6)
-        self.series.setLabelsPosition(QtCharts.QAbstractBarSeries.LabelsOutsideEnd)
+        self.series.setLabelsPosition(QAbstractBarSeries.LabelsOutsideEnd)
         self.series.setLabelsVisible(True)
 
         # Configure X axis
@@ -89,7 +90,7 @@ class CategoryChart(QtCharts.QChart):
         self.series.setBarWidth(0.5)
 
         # Set animation
-        self.setAnimationOptions(QtCharts.QChart.SeriesAnimations)
+        self.setAnimationOptions(QChart.SeriesAnimations)
 
         # Remove margins
         self.layout().setContentsMargins(0, 0, 0, 0)
@@ -112,7 +113,7 @@ class CategoryChart(QtCharts.QChart):
         :return: None
         """
 
-        self.set = QtCharts.QBarSet("Category")
+        self.set = QBarSet("Category")
         self.set.setLabelFont(QFont("Roboto", 10, QFont.Normal))
         self.set.setLabelColor(QColor("#9298a8"))
 
@@ -233,7 +234,7 @@ class CategoryChart(QtCharts.QChart):
         self.average_series.attachAxis(self.axis_y)
 
         # Configure y axis
-        self.axis_y.setRange(0, y_max_value * 12/10)
+        self.axis_y.setRange(0, y_max_value * 12 / 10)
 
         # Restore previous state
         self.series.setLabelsVisible(previous_state)

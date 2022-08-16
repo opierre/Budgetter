@@ -1,4 +1,4 @@
-from PySide2.QtCore import QAbstractListModel, Qt, QModelIndex
+from PySide6.QtCore import QAbstractListModel, Qt, QModelIndex
 
 
 class DistributionModel(QAbstractListModel):
@@ -25,13 +25,17 @@ class DistributionModel(QAbstractListModel):
             category = self.categories[index.row()]
 
             # Return current category list
-            return category
+            result = category
+        else:
+            result = None
 
-    def rowCount(self, index: QModelIndex = QModelIndex()):
+        return result
+
+    def rowCount(self, _index: QModelIndex = QModelIndex()):
         """
         Override rowCount() from QAbstractListModel
 
-        :param index: index
+        :param _index: index
         :return: length of datas
         """
 

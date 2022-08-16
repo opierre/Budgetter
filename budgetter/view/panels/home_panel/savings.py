@@ -1,5 +1,5 @@
-from PySide2.QtCore import QObject, Qt, QDate, QCoreApplication
-from PySide2.QtWidgets import QWidget, QVBoxLayout, QStatusBar, \
+from PySide6.QtCore import QObject, Qt, QDate, QCoreApplication
+from PySide6.QtWidgets import QWidget, QVBoxLayout, QStatusBar, \
     QPushButton
 
 from budgetter.view.widgets.saving_widgets.saving_dashboard_widget import SavingDashboard
