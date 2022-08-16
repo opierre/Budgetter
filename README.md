@@ -1,4 +1,4 @@
-[![badge](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/opierre/da061024a6dc8c3dcaf32f4e79abf032/raw/pylint.json)](https://github.com/opierre/Budgetter/actions)
+[![badge](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/opierre/da061024a6dc8c3dcaf32f4e79abf032/raw/pylint.json)](https://github.com/opierre/Budgetter/actions/workflows/pylint.yml)
 
 Budgetter
 =========
@@ -9,25 +9,27 @@ Table of contents
 =================
 
 <!--ts-->
-   * [Next-Features](#next-features)
-   * [Requirements](#requirements)
+
+* [Next-Features](#next-features)
+* [Requirements](#requirements)
+
 <!--te-->
-     
+
 Next-Features
 =============
 
 * **Dashboard Panel**:
-  * *Transactions*:
-    * [ ] Search with filters (name/amount/date) pre-formatted
-  * *Savings*: 
-    * [ ] Less than on month in current year
-  * *Balance*:
-    * [ ] Draw custom light in middle
-    
+    * *Transactions*:
+        * [ ] Search with filters (name/amount/date) pre-formatted
+    * *Savings*:
+        * [ ] Less than on month in current year
+    * *Balance*:
+        * [ ] Draw custom light in middle
+
 
 * **Pop-Up**:
-  * *Settings*: 
-    * [ ] Change language
+    * *Settings*:
+        * [ ] Change language
 
 Requirements
 =============
