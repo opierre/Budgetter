@@ -27,11 +27,10 @@ jobs:
         run: |
           sudo apt install bat
           python -m pip install --upgrade pip
-          pip install pylint
-          pip install -r requirements.txt
+          python -m pip install pylint
+          python -m pip install -r requirements.txt
       - name: Analysing the code with pylint
         run: |
-          echo "TEST=`python -c 'from PySide6 import QtCore;'`"
           python -m pylint --version
           python -m pylint ./budgetter -j 0 --rcfile=pylintrc --output=pylint_analysis.txt --output-format=colorized
           echo "PYLINT_SCORE=`tail -n 2 pylint_analysis.txt | awk '/^Your/ {print $7}'`" >> $GITHUB_ENV
