@@ -31,8 +31,8 @@ jobs:
       - name: Analysing the code with pylint
         run: |
           python -m pylint --version
-          python -m pylint ./budgetter -j 0 --rcfile=pylintrc --output=analysis.txt --output-format=colorized
-          echo "PYLINT_SCORE=`tail -n 2 analysis.txt | awk '/^Your/ {print $7}'`" >> $GITHUB_ENV
+          python -m pylint ./budgetter -j 0 --rcfile=pylintrc --output=pylint_analysis.txt --output-format=colorized
+          echo "PYLINT_SCORE=`tail -n 2 pylint_analysis.txt | awk '/^Your/ {print $7}'`" >> $GITHUB_ENV
       - name: Creating environment
         run: |
           echo "PYLINT_COLOR=`python -c 'import os; score = os.getenv("PYLINT_SCORE"); y = float(score[:score.find("/")]); print("#47c119" if y > 8.5 else "#e84134")'`" >> $GITHUB_ENV
