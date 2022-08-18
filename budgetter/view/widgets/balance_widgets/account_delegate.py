@@ -17,12 +17,12 @@ class AccountDelegate(QItemDelegate):
         # Store font for values
         self.font = QFont()
 
-    def sizeHint(self, optionQStyleOptionViewItem: QStyleOptionViewItem, index: QModelIndex):
+    def sizeHint(self, _option_qstyle_option_view_item: QStyleOptionViewItem, _index: QModelIndex):
         """
         Override sizeHint
 
-        :param optionQStyleOptionViewItem: (QStyleOptionViewItem) optionQStyleOptionViewItem
-        :param index: (QModelIndex) index
+        :param _option_qstyle_option_view_item: (QStyleOptionViewItem) optionQStyleOptionViewItem
+        :param _index: (QModelIndex) index
         :return: QSize(10, 70)
         """
 

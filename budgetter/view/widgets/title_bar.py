@@ -40,10 +40,10 @@ class TitleBar(QWidget):
         """
 
         # Connect click on _add button to emit signal
-        self.gui.add.clicked[bool].connect(self.clicked.emit)
+        self.gui.add.clicked[bool].connect(self.clicked.emit)  # pylint: disable=unsubscriptable-object
 
         # Connect text changed on _search line edit to emit signal
-        self.gui.title_bar_search.textChanged[str].connect(self.emit_search)
+        self.gui.title_bar_search.textChanged[str].connect(self.emit_search)  # pylint: disable=unsubscriptable-object
 
     def configure_widgets(self):
         """

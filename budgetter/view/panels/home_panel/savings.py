@@ -55,10 +55,10 @@ class Savings(QObject):
         :return: None
         """
 
-        # Connect click on buttons to disaply new values
-        self.last_twelve_months.clicked.connect(self.display_values)
-        self.current_year.clicked.connect(self.display_values)
-        self.previous_year.clicked.connect(self.display_values)
+        # Connect click on buttons to display new values
+        self.last_twelve_months.clicked.connect(self.display_values)  # pylint: disable=no-member
+        self.current_year.clicked.connect(self.display_values)  # pylint: disable=no-member
+        self.previous_year.clicked.connect(self.display_values)  # pylint: disable=no-member
 
         # Connect click on previous/next from status bar to move point
         self.custom_status_bar.nextClicked.connect(self.chart_widget.chart_view.chart.show_next)

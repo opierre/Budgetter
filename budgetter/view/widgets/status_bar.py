@@ -47,8 +47,8 @@ class StatusBar(QWidget):
         """
 
         # Connect click on previous/next buttons to emit signal
-        self._previous.clicked.connect(self.previousClicked.emit)
-        self._next.clicked.connect(self.nextClicked.emit)
+        self._previous.clicked.connect(self.previousClicked.emit)  # pylint: disable=no-member
+        self._next.clicked.connect(self.nextClicked.emit)  # pylint: disable=no-member
 
     def configure_widgets(self):
         """

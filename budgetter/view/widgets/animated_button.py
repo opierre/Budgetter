@@ -83,7 +83,7 @@ class AnimatedButton(QWidget):
         """
 
         # Connect timer finished to update frame
-        self.timer.timeout.connect(self.update_frame)
+        self.timer.timeout.connect(self.update_frame)  # pylint: disable=no-member
 
     def update_frame(self):
         """

@@ -137,16 +137,16 @@ class Transactions(QObject):
         self.ui_setup.transactions.titleBarSearched.connect(self.search_transaction)
 
         # Update filtering when click on button in status bar
-        self.expenses.clicked.connect(self.update_current_filtering)
-        self.income.clicked.connect(self.update_current_filtering)
-        self.all.clicked.connect(self.update_current_filtering)
-        self.transfer.clicked.connect(self.update_current_filtering)
+        self.expenses.clicked.connect(self.update_current_filtering)  # pylint: disable=no-member
+        self.income.clicked.connect(self.update_current_filtering)  # pylint: disable=no-member
+        self.all.clicked.connect(self.update_current_filtering)  # pylint: disable=no-member
+        self.transfer.clicked.connect(self.update_current_filtering)  # pylint: disable=no-member
 
         # Update filtering when click on button in status bar
-        self.all_account.clicked.connect(self.add_filter)
-        self.account1.clicked.connect(self.add_filter)
-        self.account2.clicked.connect(self.add_filter)
-        self.account3.clicked.connect(self.add_filter)
+        self.all_account.clicked.connect(self.add_filter)  # pylint: disable=no-member
+        self.account1.clicked.connect(self.add_filter)  # pylint: disable=no-member
+        self.account2.clicked.connect(self.add_filter)  # pylint: disable=no-member
+        self.account3.clicked.connect(self.add_filter)  # pylint: disable=no-member
 
     def display_comment(self, rectangle, index):
         """
@@ -157,7 +157,7 @@ class Transactions(QObject):
         :return: None
         """
 
-        pass
+        return
 
     def delete_transaction(self, index):
         """

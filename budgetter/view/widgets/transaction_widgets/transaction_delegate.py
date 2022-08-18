@@ -13,10 +13,6 @@ class TransactionDelegate(QStyledItemDelegate):
     Transaction Delegate
     """
 
-    # Signal emitted on Edit button click
-    transactionEditPressed = Signal(QModelIndex, QRect, QRect, QRect, QRect, QRectF, QRectF, QRectF, QRectF,
-                                    QRect, QRect)
-
     # Signal emitted on Delete button click
     transactionDeletePressed = Signal(QModelIndex)
 
@@ -44,6 +40,19 @@ class TransactionDelegate(QStyledItemDelegate):
         # Edit/Delete QPushButtons
         self.edit = QPushButton()
         self.delete = QPushButton()
+
+        # Store all rects
+        self.rect_account = None
+        self.rect_amount = None
+        self.rect_category = None
+        self.rect_category_name = None
+        self.rect_comment = None
+        self.rect_date = None
+        self.rect_delete = None
+        self.rect_edit = None
+        self.rect_exp_or_inc = None
+        self.rect_mean = None
+        self.rect_name = None
 
         # Hover on Edit/Delete QPushButtons
         self.edit_hover = False
@@ -85,15 +94,15 @@ class TransactionDelegate(QStyledItemDelegate):
         :return: None
         """
 
-        pass
+        return
 
-    def editorEvent(self, event: QEvent, model, option, index: QModelIndex):
+    def editorEvent(self, event: QEvent, _model, _option, index: QModelIndex):
         """
         Override editorEvent to handle events
 
         :param event: event
-        :param model: model
-        :param option: option
+        :param _model: model
+        :param _option: option
         :param index: (QModelIndex) index
         :return: bool
         """
@@ -192,12 +201,12 @@ class TransactionDelegate(QStyledItemDelegate):
         else:
             return False
 
-    def sizeHint(self, optionQStyleOptionViewItem, index):
+    def sizeHint(self, _option_qstyle_option_view_item, _index):
         """
         Override sizeHint
 
-        :param optionQStyleOptionViewItem: optionQStyleOptionViewItem
-        :param index: index
+        :param _option_qstyle_option_view_item: optionQStyleOptionViewItem
+        :param _index: index
         :return: QSize(10, 70)
         """
 
@@ -369,18 +378,6 @@ class TransactionDelegate(QStyledItemDelegate):
             painter.restore()
 
         painter.restore()
-
-        if index.row() == 0:
-            self.rect_category_first_row = self.rect_category
-            self.rect_category_name_first_row = self.rect_category_name
-            self.rect_name_first_row = self.rect_name
-            self.rect_amount_first_row = self.rect_amount
-            self.rect_date_first_row = self.rect_date
-            self.rect_account_first_row = self.rect_account
-            self.rect_exp_or_inc_first_row = self.rect_exp_or_inc
-            self.rect_edit_first_row = self.rect_edit
-            self.rect_delete_first_row = self.rect_delete
-            self.rect_means_first_row = self.rect_mean
 
     def draw_separator(self, painter: QPainter, option, index: QModelIndex):
         """

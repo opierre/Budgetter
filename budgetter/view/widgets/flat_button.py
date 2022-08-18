@@ -47,7 +47,6 @@ class WaveOverlay:
     """
     Declaration to avoid conflicts
     """
-    ...
 
 
 class OverlayWidget(QWidget):
@@ -147,7 +146,7 @@ class Wave(QParallelAnimationGroup):
         self._brush.setStyle(Qt.SolidPattern)
 
         # Connect animation finished to destroy
-        self.finished.connect(self.destroy)
+        self.finished.connect(self.destroy)  # pylint: disable=no-member
 
     def set_overlay(self, overlay: WaveOverlay) -> None:
         """
@@ -370,8 +369,8 @@ class WaveOverlay(OverlayWidget):
         #     self.waves = QList(self.waves[: (m // 2)])
 
         # On destroyed signal stop animation and remove object
-        self.destroyed.connect(wave.stop)
-        self.destroyed.connect(wave.deleteLater)
+        self.destroyed.connect(wave.stop)  # pylint: disable=no-member
+        self.destroyed.connect(wave.deleteLater)  # pylint: disable=no-member
 
     def remove_wave(self, wave: Wave) -> None:
         """

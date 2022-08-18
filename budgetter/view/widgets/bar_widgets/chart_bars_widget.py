@@ -47,15 +47,6 @@ class ChartBars(QWidget):
         # Configure chart
         self.chart.layout().setContentsMargins(0, 0, 0, 0)
 
-    def connect_slots_and_signals(self):
-        """
-        Connect all slots and signals
-
-        :return: None
-        """
-
-        pass
-
     def set_values(self, values):
         """
         Set value for each month
@@ -100,11 +91,11 @@ class ChartBars(QWidget):
         self._show_total = value
         self.update()
 
-    def paintEvent(self, event):
+    def paintEvent(self, _event):
         """
         Override paintEvent()
 
-        :param event: QEvent
+        :param _event: QEvent
         :return: None
         """
 

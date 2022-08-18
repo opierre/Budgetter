@@ -74,14 +74,14 @@ class Dialog(QWidget):
         """
 
         # Connect click on close to close dialog
-        self._dialog.close.clicked.connect(self.close)
+        self._dialog.close.clicked.connect(self.close)  # pylint: disable=no-member
 
         # Connect click on confirm to emit signal
-        self._dialog.confirm.clicked.connect(self.confirm.emit)
+        self._dialog.confirm.clicked.connect(self.confirm.emit)  # pylint: disable=no-member
 
         # Connect escape to cose current dialog/enter to confirm dialog
-        self.escape_shortcut.activated.connect(self.close)
-        self.confirm_shortcut.activated.connect(self.confirm.emit)
+        self.escape_shortcut.activated.connect(self.close)  # pylint: disable=no-member
+        self.confirm_shortcut.activated.connect(self.confirm.emit)  # pylint: disable=no-member
 
     def configure_widgets(self, dialog_title: str, central_widget: QWidget):
         """
@@ -152,7 +152,7 @@ class Dialog(QWidget):
         super().show()
 
         # Start parallel animation
-        self.parallel_animation_group.finished.connect(self.show_drop_shadow)
+        self.parallel_animation_group.finished.connect(self.show_drop_shadow)  # pylint: disable=no-member
         self.parallel_animation_group.start()
 
     def show_drop_shadow(self):
@@ -178,7 +178,7 @@ class Dialog(QWidget):
         # Add new animation to parallel group after clearing
         self.parallel_animation_group.clear()
         self.parallel_animation_group.addAnimation(drop_shadow_animation)
-        self.parallel_animation_group.finished.disconnect(self.show_drop_shadow)
+        self.parallel_animation_group.finished.disconnect(self.show_drop_shadow)  # pylint: disable=no-member
         self.parallel_animation_group.start()
 
     def close(self) -> bool:

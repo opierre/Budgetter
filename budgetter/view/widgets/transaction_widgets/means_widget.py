@@ -35,11 +35,11 @@ class MeanCheckbox(QPushButton):
 
         self._type = _type
 
-    def paintEvent(self, event):
+    def paintEvent(self, _event):
         """
         Override paintEvent()
 
-        :param event: paint event
+        :param _event: paint event
         :return: None
         """
 
@@ -123,9 +123,9 @@ class Mean(QWidget):
         """
 
         # Connect all typeCliked from buttons
-        self.left_button.clicked.connect(self.handle_click)
-        self.center_button.clicked.connect(self.handle_click)
-        self.right_button.clicked.connect(self.handle_click)
+        self.left_button.clicked.connect(self.handle_click)  # pylint: disable=no-member
+        self.center_button.clicked.connect(self.handle_click)  # pylint: disable=no-member
+        self.right_button.clicked.connect(self.handle_click)  # pylint: disable=no-member
 
     def handle_click(self):
         """
@@ -221,11 +221,11 @@ class Mean(QWidget):
         self.layout.addWidget(self.center_button)
         self.layout.addWidget(self.right_button)
 
-    def paintEvent(self, event):
+    def paintEvent(self, _event):
         """
         Override paintEvent()
 
-        :param event: event
+        :param _event: event
         :return: None
         """
 

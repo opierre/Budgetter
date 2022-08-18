@@ -36,11 +36,11 @@ class CircleCheckbox(QPushButton):
 
         self._type = _type
 
-    def paintEvent(self, event):
+    def paintEvent(self, _event):
         """
         Override paintEvent()
 
-        :param event: paint event
+        :param _event: paint event
         :return: None
         """
 
@@ -147,9 +147,9 @@ class ExpensesIncomeTransfer(QWidget):
         """
 
         # Connect all typeCliked from buttons
-        self.top_button.clicked.connect(self.handle_click)
-        self.middle_button.clicked.connect(self.handle_click)
-        self.bottom_button.clicked.connect(self.handle_click)
+        self.top_button.clicked.connect(self.handle_click)  # pylint: disable=no-member
+        self.middle_button.clicked.connect(self.handle_click)  # pylint: disable=no-member
+        self.bottom_button.clicked.connect(self.handle_click)  # pylint: disable=no-member
 
     def handle_click(self):
         """
@@ -231,11 +231,11 @@ class ExpensesIncomeTransfer(QWidget):
         self.layout.addWidget(self.middle_button)
         self.layout.addWidget(self.bottom_button)
 
-    def paintEvent(self, event):
+    def paintEvent(self, _event):
         """
         Override paintEvent()
 
-        :param event: event
+        :param _event: event
         :return: None
         """
 

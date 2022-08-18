@@ -23,11 +23,11 @@ class Overlay(QWidget):
         # Hide overlay by default
         self.hide()
 
-    def paintEvent(self, event):
+    def paintEvent(self, _event):
         """
         Override paintEvent()
 
-        :param event: paint event
+        :param _event: paint event
         :return: None
         """
 

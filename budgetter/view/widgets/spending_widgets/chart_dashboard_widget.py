@@ -74,7 +74,7 @@ class ChartDashboard(QWidget):
         """
 
         # Connect click on button to update current month
-        self.button_group.buttonClicked.connect(self.update)
+        self.button_group.buttonClicked.connect(self.update)  # pylint: disable=no-member
 
     def get_months(self):
         """
@@ -136,11 +136,11 @@ class ChartDashboard(QWidget):
         for value in enumerate(values):
             self.values.append(value)
 
-    def paintEvent(self, event):
+    def paintEvent(self, _event):
         """
         Override paintEvent()
 
-        :param event: QEvent
+        :param _event: QEvent
         :return: None
         """
 

@@ -55,13 +55,13 @@ class DonutChart(QWidget):
         :return: None
         """
 
-        pass
+        return
 
-    def paintEvent(self, event: QPaintEvent):
+    def paintEvent(self, _event: QPaintEvent):
         """
         Override paintEvent()
 
-        :param event: (QPaintEvent) event
+        :param _event: (QPaintEvent) event
         :return: None
         """
 

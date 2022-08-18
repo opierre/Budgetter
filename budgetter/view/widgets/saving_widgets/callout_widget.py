@@ -120,13 +120,13 @@ class Callout(QGraphicsItem):
 
         return rect
 
-    def paint(self, painter: QPainter, option: QStyleOptionGraphicsItem, widget=None):
+    def paint(self, painter: QPainter, _option: QStyleOptionGraphicsItem, _widget=None):
         """
         Override paint() from QGraphicsItem
 
         :param painter: (QPainter) painter
-        :param option: (QStyleOptionGraphicsItem)
-        :param widget: widget
+        :param _option: (QStyleOptionGraphicsItem)
+        :param _widget: widget
         :return: None
         """
 

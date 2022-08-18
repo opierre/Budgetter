@@ -35,24 +35,24 @@
 # #####################################################################################################################
 
 import sys
-from PySide6.QtWidgets import QPushButton, QWidget, QApplication, QHBoxLayout, QLineEdit, QLabel
-from PySide6.QtGui import QPainter, QColor, QBrush, QPen, QPaintEvent, QFont, QKeyEvent, QKeySequence
+
 from PySide6.QtCore import Qt, QEvent, QPropertyAnimation, \
-    QEasingCurve, Property, QStateMachine, QPointF, QState, QEventTransition, QCoreApplication, QLineF
+    QEasingCurve, Property, QPointF, QCoreApplication, QLineF
+from PySide6.QtGui import QPainter, QColor, QBrush, QPen, QPaintEvent, QFont
+from PySide6.QtStateMachine import QStateMachine, QState, QEventTransition
+from PySide6.QtWidgets import QPushButton, QWidget, QApplication, QHBoxLayout, QLineEdit, QLabel
 
 
 class MaterialLineEdit(QLineEdit):
     """
     Declaration to aNone conflicts
     """
-    ...
 
 
 class MaterialLineEditLabel:
     """
     Declaration to aNone conflicts
     """
-    ...
 
 
 class MaterialLineEditStateMachine(QStateMachine):
@@ -532,7 +532,7 @@ class MaterialLineEdit(QLineEdit):
         try:
             # Get progress
             progress: float = self.line_edit_private.state_machine.progress()
-        except Exception as ex:
+        except Exception:
             return
 
         painter = QPainter(self)
@@ -590,7 +590,7 @@ class MaterialLineEditLabel(QWidget):
         self.__scale = 1.0
         self.x_position = 0.0
         self.y_position = 23
-        self.color = QColor(parent.label_color())
+        self.private_color = QColor(parent.label_color())
 
         # Configure and apply default font
         font = QFont("Roboto", int(parent.fontInfo().pointSizeF()), QFont.Medium)
@@ -642,7 +642,7 @@ class MaterialLineEditLabel(QWidget):
         :param color: color to set
         :return: None
         """
-        self.color = color
+        self.private_color = color
         self.update()
 
     def color(self) -> QColor:
@@ -651,13 +651,13 @@ class MaterialLineEditLabel(QWidget):
 
         :return: current color
         """
-        return self.color
+        return self.private_color
 
-    def paintEvent(self, event: QPaintEvent) -> None:
+    def paintEvent(self, _event: QPaintEvent) -> None:
         """
         Override paintEvent
 
-        :param event: paint event
+        :param _event: paint event
         :return: None
         """
 
@@ -668,7 +668,7 @@ class MaterialLineEditLabel(QWidget):
         painter = QPainter(self)
         painter.setRenderHint(QPainter.Antialiasing)
         painter.scale(self.__scale, self.__scale)
-        painter.setPen(self.color)
+        painter.setPen(self.private_color)
         painter.setOpacity(1)
 
         # Draw label with offset

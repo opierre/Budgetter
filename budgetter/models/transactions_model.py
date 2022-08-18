@@ -195,15 +195,15 @@ class TransactionsModel(QAbstractListModel):
         self.transactions[index.row()]["means"] = value["means"]
         self.transactions[index.row()]["comment"] = value["comment"]
 
-        self.dataChanged.emit(index, index)
+        self.dataChanged.emit(index, index)  # pylint: disable=no-member
 
         return True
 
-    def rowCount(self, index: QModelIndex = QModelIndex()):
+    def rowCount(self, _index: QModelIndex = QModelIndex()):
         """
         Override rowCount() from QAbstractListModel
 
-        :param index: index
+        :param _index: index
         :return: (int) length of datas
         """
 
@@ -235,11 +235,11 @@ class TransactionsModel(QAbstractListModel):
         #                              "account": "", "type": previous_type, "means": "Virement", "comment": ""})
         # self.endInsertRows()
 
-    def flags(self, index):
+    def flags(self, _index):
         """
         Override flags()
 
-        :param index: index
+        :param _index: index
         :return: flags
         """
 

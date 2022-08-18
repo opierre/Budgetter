@@ -136,8 +136,8 @@ class SavingChart(QChart):
         """
 
         # Connect click on series finale to display scatter """
-        self.series_finale.clicked[QPointF].connect(self.show_point)
-        self.area_series.clicked[QPointF].connect(self.show_point)
+        self.series_finale.clicked[QPointF].connect(self.show_point)  # pylint: disable=unsubscriptable-object
+        self.area_series.clicked[QPointF].connect(self.show_point)  # pylint: disable=unsubscriptable-object
 
     def show_point(self, clicked_point):
         """
