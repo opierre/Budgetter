@@ -22,16 +22,15 @@ jobs:
         uses: actions/setup-python@v3
         with:
           python-version: ${{ matrix.python-version }}
+          # cache: "pip"
       - name: Install dependencies
         run: |
           sudo apt install bat
           python -m pip install --upgrade pip
-          python -m pip install pylint
           python -m pip install -r requirements.txt
+          python -m pip install pylint
       - name: Analysing the code with pylint
         run: |
-          python -m pylint --version
-          ls -l
           python -m pylint ./budgetter -j 0 --rcfile=pylintrc --output=pylint_analysis.txt --output-format=colorized
           echo "PYLINT_SCORE=`tail -n 2 pylint_analysis.txt | awk '/^Your/ {print $7}'`" >> $GITHUB_ENV
       - name: Creating environment
