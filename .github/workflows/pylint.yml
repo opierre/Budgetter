@@ -26,13 +26,11 @@ jobs:
       - name: Install dependencies
         run: |
           sudo apt install bat
-          python -m venv .venv
-          source .venv/bin/activate
-          pip install --upgrade pip
+          python -m pip install --upgrade pip
           pip install -r requirements.txt
-          pip install pylint
       - name: Analysing the code with pylint
         run: |
+          pip install --upgrade pylint
           pip freeze
           pylint ./budgetter -j 0 --rcfile=pylintrc --output=pylint_analysis.txt --output-format=colorized
           echo "PYLINT_SCORE=`tail -n 2 pylint_analysis.txt | awk '/^Your/ {print $7}'`" >> $GITHUB_ENV
