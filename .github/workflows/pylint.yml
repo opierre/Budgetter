@@ -26,10 +26,10 @@ jobs:
       - name: Install dependencies
         run: |
           sudo apt install bat
-          python -m pip install --upgrade pip
           python -m venv .venv
           source .venv/bin/activate
-          echo "VIRTUAL ENV:" $VIRTUAL_ENV
+          echo $VIRTUAL_ENV >> $GITHUB_ENV
+          python -m pip install --upgrade pip
           which python
           which pip
           pip install -r requirements.txt
@@ -37,8 +37,11 @@ jobs:
       - name: Analysing the code with pylint
         run: |
           echo $PYTHONPATH
+          echo $VIRTUAL_ENV
           pwd
-          ls -l .venv
+          which python
+          which pip
+          pip freeze
           pylint --version
           pylint ./budgetter -j 0 --rcfile=pylintrc --output=pylint_analysis.txt --output-format=colorized
           echo "PYLINT_SCORE=`tail -n 2 pylint_analysis.txt | awk '/^Your/ {print $7}'`" >> $GITHUB_ENV
