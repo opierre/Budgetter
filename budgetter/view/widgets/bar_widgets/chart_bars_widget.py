@@ -30,9 +30,6 @@ class ChartBars(QWidget):
         # Configure widgets
         self.configure_widgets()
 
-        # Connect slots and signals
-        self.connect_slots_and_signals()
-
     def configure_widgets(self):
         """
         Configure child widgets

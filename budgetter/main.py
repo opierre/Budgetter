@@ -32,7 +32,7 @@ def start_app():
     QLocale.setDefault(locale_qt)
 
     _ = Controller()
-    return app.exec_()
+    return app.exec()
 
 
 if __name__ == "__main__":
