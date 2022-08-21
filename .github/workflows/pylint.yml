@@ -28,8 +28,6 @@ jobs:
           choco install bat
           python -m venv .venv
           .venv/Scripts/activate
-          echo "VIRTUAL_ENV=%VIRTUAL_ENV%" >> %GITHUB_ENV%
-          echo "PYTHONPATH=%VIRTUAL_ENV" >> %GITHUB_ENV%
           python -m pip install --upgrade pip
           pip install -r requirements.txt
           pip install --upgrade pylint
@@ -38,10 +36,10 @@ jobs:
           .venv/Scripts/activate
           pylint --version
           pylint ./budgetter -j 0 --rcfile=pylintrc --output=pylint_analysis.txt --output-format=colorized
-          echo "PYLINT_SCORE=wsl -e tail -n 2 pylint_analysis.txt | wsl -e awk '/^Your/ {print $7}'" >> %GITHUB_ENV%
+          echo "PYLINT_SCORE=wsl -e tail -n 2 pylint_analysis.txt | wsl -e awk '/^Your/ {print $7}'" >> $env:GITHUB_ENV
       - name: Display pylint analysis result
         run: |
-          echo %PYLINT_SCORE%
+          echo $env:PYLINT_SCORE
           bat pylint_analysis.txt
       - name: Creating dynamic badge
         uses: Schneegans/dynamic-badges-action@v1.4.0
