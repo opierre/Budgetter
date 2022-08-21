@@ -12,21 +12,32 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
+    strategy:
+      matrix:
+        python-version: [ "3.8", "3.9", "3.10" ]
+
     steps:
       - uses: actions/checkout@v3
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ matrix.python-version }}
+          # cache: "pip"
       - name: Install dependencies
         run: |
-          sudo apt install python3
           sudo apt install bat
           python3 -m pip install --upgrade pip
-          pip3 install -r requirements.txt
-          pip3 install --upgrade pylint
+          python3 -m pip install -r requirements.txt
+          python3 -m pip install --upgrade pylint
       - name: Analysing the code with pylint
         run: |
+          ls -l ${{ env.pythonLocation }}/lib/python${{ matrix.python-version }}
           echo $PYTHONPATH
-          pylint --version
-          pylint ./budgetter -j 0 --rcfile=pylintrc --output=pylint_analysis.txt --output-format=colorized
+          python3 -m pylint --version
+          python3 -m pylint ./budgetter -j 0 --rcfile=pylintrc --output=pylint_analysis.txt --output-format=colorized
           echo "PYLINT_SCORE=`tail -n 2 pylint_analysis.txt | awk '/^Your/ {print $7}'`" >> $GITHUB_ENV
+        env:
+          PYTHONPATH: "${{ env.pythonLocation }}/lib/python${{ matrix.python-version }}"
       - name: Creating environment
         run: |
           echo "PYLINT_COLOR=`python -c 'import os; score = os.getenv("PYLINT_SCORE"); y = float(score[:score.find("/")]); print("#47c119" if y > 8.5 else "#e84134")'`" >> $GITHUB_ENV
