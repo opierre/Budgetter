@@ -26,21 +26,20 @@ jobs:
       - name: Install dependencies
         run: |
           sudo apt install bat
-          python3 -m pip install --upgrade pip
-          python3 -m pip install -r requirements.txt
-          python3 -m pip install --upgrade pylint
-        env:
-          PYTHONPATH: "${{ env.pythonLocation }}"
+          python -m pip install --upgrade pip
+          python -m venv .venv
+          source .venv/bin/activate
+          echo "VIRTUAL ENV:" $VIRTUAL_ENV
+          python -m pip install -r requirements.txt
+          python -m pip install --upgrade pylint
       - name: Analysing the code with pylint
         run: |
-          ls -l ${{ env.pythonLocation }}
-          pwd
           echo $PYTHONPATH
-          python3 -m pylint --version
-          python3 -m pylint ./budgetter -j 0 --rcfile=pylintrc --output=pylint_analysis.txt --output-format=colorized
+          pwd
+          ls -l .venv
+          python -m pylint --version
+          python -m pylint ./budgetter -j 0 --rcfile=pylintrc --output=pylint_analysis.txt --output-format=colorized
           echo "PYLINT_SCORE=`tail -n 2 pylint_analysis.txt | awk '/^Your/ {print $7}'`" >> $GITHUB_ENV
-        env:
-          PYTHONPATH: "${{ env.pythonLocation }}"
       - name: Creating environment
         run: |
           echo "PYLINT_COLOR=`python -c 'import os; score = os.getenv("PYLINT_SCORE"); y = float(score[:score.find("/")]); print("#47c119" if y > 8.5 else "#e84134")'`" >> $GITHUB_ENV
