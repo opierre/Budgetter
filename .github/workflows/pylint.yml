@@ -44,11 +44,9 @@ jobs:
           where pip
           pip freeze
           pylint --version
-          pylint ./budgetter -j 0 --rcfile=pylintrc --output=pylint_analysis.txt --output-format=colorized
-          echo "PYLINT_SCORE=`tail -n 2 pylint_analysis.txt | awk '/^Your/ {print $7}'`" >> $GITHUB_ENV
+          pylint ./budgetter -j 0 --rcfile=pylintrc --output-format=colorized
       - name: Creating environment
         run: |
-          echo "PYLINT_COLOR=`python -c 'import os; score = os.getenv("PYLINT_SCORE"); y = float(score[:score.find("/")]); print("#47c119" if y > 8.5 else "#e84134")'`" >> $GITHUB_ENV
           batcat pylint_analysis.txt
       - name: Creating dynamic badge
         uses: Schneegans/dynamic-badges-action@v1.4.0
