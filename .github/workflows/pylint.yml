@@ -38,7 +38,7 @@ jobs:
           pylint ./budgetter -j 0 --rcfile=pylintrc --output=pylint_analysis.txt --output-format=colorized
       - name: Display pylint analysis result
         run: |
-          echo "PYLINT_SCORE=`tail -n 2 pylint_analysis.txt | awk '/^Your/ {print $7}'` >> $GITHUB_ENV
+          echo "PYLINT_SCORE=`tail -n 2 pylint_analysis.txt | awk '/^Your/ {print $7}'`" >> $GITHUB_ENV
           echo $PYLINT_SCORE
           bat pylint_analysis.txt
         shell: bash
