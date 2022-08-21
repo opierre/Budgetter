@@ -41,7 +41,7 @@ jobs:
           pip freeze
           pylint --version
           pylint ./budgetter -j 0 --rcfile=pylintrc --output=pylint_analysis.txt --output-format=colorized
-          echo "PYLINT_SCORE=`wsl -e tail -n 2 pylint_analysis.txt | wsl -e awk '/^Your/ {print $7}'`" >> %GITHUB_ENV%
+          echo "PYLINT_SCORE=wsl -e tail -n 2 pylint_analysis.txt | wsl -e awk '/^Your/ {print $7}'" >> %GITHUB_ENV%
       - name: Creating environment
         run: |
           batcat pylint_analysis.txt
