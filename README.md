@@ -1,13 +1,9 @@
 # Budgetter
 
----
 [![badge](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/opierre/da061024a6dc8c3dcaf32f4e79abf032/raw/pylint.json)](https://github.com/opierre/Budgetter/actions/workflows/pylint.yml)
-
 ---
 
-## 🧾 Description
-
-💲 Budgetter is a personal finance management software such as [Money](https://en.wikipedia.org/wiki/Microsoft_Money).
+🧾 Budgetter is a personal finance management software such as [Money](https://en.wikipedia.org/wiki/Microsoft_Money).
 
 ---
 Table of contents
