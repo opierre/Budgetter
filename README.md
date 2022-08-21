@@ -1,38 +1,67 @@
+# Budgetter
+
+---
 [![badge](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/opierre/da061024a6dc8c3dcaf32f4e79abf032/raw/pylint.json)](https://github.com/opierre/Budgetter/actions/workflows/pylint.yml)
 
-Budgetter
-=========
+---
 
-Budgetter is a personal finance management software such as [Money](https://en.wikipedia.org/wiki/Microsoft_Money).
+## 🧾 Description
 
+💲 Budgetter is a personal finance management software such as [Money](https://en.wikipedia.org/wiki/Microsoft_Money).
+
+---
 Table of contents
 =================
 
-<!--ts-->
-
 * [Next-Features](#next-features)
+* [Production](#production)
+    * [Packaging](#packaging)
+    * [Installation](#installing)
+* [How to Contribute](#howtocontribute)
 * [Requirements](#requirements)
 
-<!--te-->
+## <a name="production"></a> 🛠️ Production
 
-Next-Features
-=============
+### <a name="packaging"></a> Packaging
 
-* **Dashboard Panel**:
-    * *Transactions*:
-        * [ ] Search with filters (name/amount/date) pre-formatted
-    * *Savings*:
-        * [ ] Less than on month in current year
-    * *Balance*:
-        * [ ] Draw custom light in middle
+This software is delivered as a Python package and can be installed with following command line:
 
+```bash
+$ python setup.py sdist --formats=zip
+```
 
-* **Pop-Up**:
-    * *Settings*:
-        * [ ] Change language
+### <a name="installing"></a> Installation
 
-Requirements
-=============
+You can install *Budgetter* from current directory after cloning project:
 
-See [requirements.txt](requirements.txt)
+```bash
+$ cd budgetter
+$ python -m pip install .
+```
 
+You can also install *Budgetter* from PyPi:
+
+```bash
+$ python -m pip install budgetter
+```
+
+Or you can also install *Budgetter* manually from [Releases](https://github.com/opierre/Budgetter/releases)
+
+## <a name="howtocontribute"></a> 🧪 How to Contribute
+
+* Clone current repo and create a new branch:
+
+```bash
+$ git checkout https://github.com/opierre/Budgetter -b new_branch_name
+```
+
+* Make changes and test
+* Submit Pull Request with comprehensive description of changes
+
+## <a name="requirements"></a> 📦 Requirements
+
+See [requirements.txt](requirements.txt) and install:
+
+```bash
+$ python -m pip install -r requirements.txt
+```
