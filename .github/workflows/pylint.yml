@@ -43,7 +43,6 @@ jobs:
       - name: Set pylint color
         run: |
           echo "PYLINT_COLOR=`python -c 'import os; score = os.getenv("PYLINT_SCORE", "0.0/10"); y = float(score[:score.find("/")]); print("#47c119" if y >= 8.5 else "#e84134")'`" >> $GITHUB_ENV
-          echo $PYLINT_COLOR
         shell: bash
       - name: Display pylint analysis result
         run: |
