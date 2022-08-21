@@ -1,7 +1,7 @@
 [![badge](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/opierre/da061024a6dc8c3dcaf32f4e79abf032/raw/pylint.json)](https://github.com/opierre/Budgetter/actions/workflows/pylint.yml)
 <br />
 <div align="center">
-  <h1 align="center">Budgetter</h1>
+  <h2 align="center">Budgetter</h2>
   <p align="center">
     🧾 Budgetter is a personal finance management software such as <a href="https://en.wikipedia.org/wiki/Microsoft_Money">Money</a>.
     <br />
