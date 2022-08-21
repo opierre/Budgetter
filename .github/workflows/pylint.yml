@@ -39,6 +39,7 @@ jobs:
           echo $PYTHONPATH
           echo $VIRTUAL_ENV
           pwd
+          source .venv/bin/activate
           which python
           which pip
           pip freeze
