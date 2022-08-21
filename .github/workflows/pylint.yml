@@ -34,6 +34,7 @@ jobs:
       - name: Analysing the code with pylint
         run: |
           ls -l ${{ env.pythonLocation }}
+          pwd
           echo $PYTHONPATH
           python3 -m pylint --version
           python3 -m pylint ./budgetter -j 0 --rcfile=pylintrc --output=pylint_analysis.txt --output-format=colorized
