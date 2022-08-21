@@ -1,4 +1,11 @@
 [![badge](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/opierre/da061024a6dc8c3dcaf32f4e79abf032/raw/pylint.json)](https://github.com/opierre/Budgetter/actions/workflows/pylint.yml)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=opierre_Budgetter&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=opierre_Budgetter)
+[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=opierre_Budgetter&metric=vulnerabilities)](https://sonarcloud.io/summary/new_code?id=opierre_Budgetter)
+[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=opierre_Budgetter&metric=bugs)](https://sonarcloud.io/summary/new_code?id=opierre_Budgetter)
+[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=opierre_Budgetter&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=opierre_Budgetter)
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=opierre_Budgetter&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=opierre_Budgetter)
+[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=opierre_Budgetter&metric=reliability_rating)](https://sonarcloud.io/summary/new_code?id=opierre_Budgetter)
+
 <br />
 <div align="center">
   <h3 align="center">Budgetter</h3>
