@@ -31,13 +31,13 @@ jobs:
           pip install --upgrade pylint
       - name: Analysing the code with pylint
         run: |
-          python -c "import PySide6 ; print(PySide6.__file__)"
+          ls -l ${{ env.pythonLocation }}/lib/python${{ matrix.python-version }}
           echo $PYTHONPATH
           pylint --version
           pylint ./budgetter -j 0 --rcfile=pylintrc --output=pylint_analysis.txt --output-format=colorized
           echo "PYLINT_SCORE=`tail -n 2 pylint_analysis.txt | awk '/^Your/ {print $7}'`" >> $GITHUB_ENV
         env:
-          PYTHONPATH: ${{ env.pythonLocation }}
+          PYTHONPATH: "${{ env.pythonLocation }}/lib/python${{ matrix.python-version }}"
       - name: Creating environment
         run: |
           echo "PYLINT_COLOR=`python -c 'import os; score = os.getenv("PYLINT_SCORE"); y = float(score[:score.find("/")]); print("#47c119" if y > 8.5 else "#e84134")'`" >> $GITHUB_ENV
