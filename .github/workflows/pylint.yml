@@ -10,7 +10,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
 
     strategy:
       matrix:
@@ -25,24 +25,23 @@ jobs:
           # cache: "pip"
       - name: Install dependencies
         run: |
-          sudo apt install bat
           python -m venv .venv
-          source .venv/bin/activate
+          .venv/Scripts/activate
           echo "VIRTUAL_ENV=$VIRTUAL_ENV" >> $GITHUB_ENV
           echo "PYTHONPATH=$VIRTUAL_ENV" >> $GITHUB_ENV
           python -m pip install --upgrade pip
-          which python
-          which pip
+          where python
+          where pip
           pip install -r requirements.txt
           pip install --upgrade pylint
       - name: Analysing the code with pylint
         run: |
           echo $PYTHONPATH
           echo $VIRTUAL_ENV
-          pwd
-          source .venv/bin/activate
-          which python
-          which pip
+          dir
+          .venv/Scripts/activate
+          where python
+          where pip
           pip freeze
           pylint --version
           pylint ./budgetter -j 0 --rcfile=pylintrc --output=pylint_analysis.txt --output-format=colorized
