@@ -250,11 +250,11 @@ class Expenses(QObject):
         # Set date range
         self.chart_widget.set_values(final_values)
 
-    def set_values(self, values: dict):
+    def set_values(self, values_to_set: dict):
         """
         Set values on series
 
-        :param values: values to set as dict
+        :param values_to_set: values to set as dict
         :return: None
         """
 

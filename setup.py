@@ -19,5 +19,9 @@ setup(
     author='OLIVIER Pierre',
     author_email='pierreolivier.pro@gmail.com',
     description='Budgetter finance manager desktop application',
-    long_description=long_description
+    long_description=long_description,
+    install_requires=[
+        'PySide6',
+        'requests'
+    ]
 )
