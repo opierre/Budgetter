@@ -35,7 +35,7 @@ jobs:
           which python
           which pylint
           pylint --version
-          python -m pylint ./budgetter -j 0 --rcfile=pylintrc --output=pylint_analysis.txt --output-format=colorized
+          pylint ./budgetter -j 0 --rcfile=pylintrc --output-format=colorized
           echo "PYLINT_SCORE=`tail -n 2 pylint_analysis.txt | awk '/^Your/ {print $7}'`" >> $GITHUB_ENV
       - name: Creating environment
         run: |
