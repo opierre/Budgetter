@@ -25,26 +25,23 @@ jobs:
           # cache: "pip"
       - name: Install dependencies
         run: |
+          choco install bat
           python -m venv .venv
           .venv/Scripts/activate
-          echo "VIRTUAL_ENV=$VIRTUAL_ENV" >> $GITHUB_ENV
-          echo "PYTHONPATH=$VIRTUAL_ENV" >> $GITHUB_ENV
+          echo "VIRTUAL_ENV=%VIRTUAL_ENV%" >> %GITHUB_ENV%
+          echo "PYTHONPATH=%VIRTUAL_ENV" >> %GITHUB_ENV%
           python -m pip install --upgrade pip
-          where python
-          where pip
           pip install -r requirements.txt
           pip install --upgrade pylint
       - name: Analysing the code with pylint
         run: |
-          echo $PYTHONPATH
-          echo $VIRTUAL_ENV
-          dir
+          echo %PYTHONPATH%
+          echo %VIRTUAL_ENV%
           .venv/Scripts/activate
-          where python
-          where pip
           pip freeze
           pylint --version
-          pylint ./budgetter -j 0 --rcfile=pylintrc --output-format=colorized
+          pylint ./budgetter -j 0 --rcfile=pylintrc --output=pylint_analysis.txt --output-format=colorized
+          echo "PYLINT_SCORE=`wsl -e tail -n 2 pylint_analysis.txt | wsl -e awk '/^Your/ {print $7}'`" >> %GITHUB_ENV%
       - name: Creating environment
         run: |
           batcat pylint_analysis.txt
