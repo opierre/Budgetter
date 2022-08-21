@@ -35,16 +35,14 @@ jobs:
           pip install --upgrade pylint
       - name: Analysing the code with pylint
         run: |
-          echo %PYTHONPATH%
-          echo %VIRTUAL_ENV%
           .venv/Scripts/activate
-          pip freeze
           pylint --version
           pylint ./budgetter -j 0 --rcfile=pylintrc --output=pylint_analysis.txt --output-format=colorized
           echo "PYLINT_SCORE=wsl -e tail -n 2 pylint_analysis.txt | wsl -e awk '/^Your/ {print $7}'" >> %GITHUB_ENV%
-      - name: Creating environment
+      - name: Display pylint analysis result
         run: |
-          batcat pylint_analysis.txt
+          echo %PYLINT_SCORE%
+          bat pylint_analysis.txt
       - name: Creating dynamic badge
         uses: Schneegans/dynamic-badges-action@v1.4.0
         with:
