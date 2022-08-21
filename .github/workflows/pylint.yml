@@ -29,6 +29,7 @@ jobs:
           python -m venv .venv
           source .venv/bin/activate
           echo "VIRTUAL_ENV=$VIRTUAL_ENV" >> $GITHUB_ENV
+          echo "PYTHONPATH=$VIRTUAL_ENV" >> $GITHUB_ENV
           python -m pip install --upgrade pip
           which python
           which pip
