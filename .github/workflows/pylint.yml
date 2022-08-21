@@ -31,6 +31,7 @@ jobs:
           pip install --upgrade pylint
       - name: Analysing the code with pylint
         run: |
+          python -c "import PySide6 ; print(PySide6.__file__)"
           echo $PYTHONPATH
           pylint --version
           pylint ./budgetter -j 0 --rcfile=pylintrc --output=pylint_analysis.txt --output-format=colorized
