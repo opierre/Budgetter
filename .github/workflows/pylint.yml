@@ -36,7 +36,7 @@ jobs:
           .venv/Scripts/activate
           pylint --version
           pylint ./budgetter -j 0 --rcfile=pylintrc --output=pylint_analysis.txt --output-format=colorized
-          setx PYLINT_SCORE=`wsl -e tail -n 2 pylint_analysis.txt | wsl -e awk '/^Your/ {print $7}'` 
+          set PYLINT_SCORE=`wsl -e tail -n 2 pylint_analysis.txt | wsl -e awk '/^Your/ {print $7}'` 
           echo "PYLINT_SCORE=%PYLINT_SCORE%" >> $env:GITHUB_ENV
       - name: Display pylint analysis result
         run: |
