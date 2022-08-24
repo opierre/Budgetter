@@ -23,7 +23,6 @@
 Table of contents
 =================
 
-* [Next-Features](#next-features)
 * [Production](#production)
     * [Packaging](#packaging)
     * [Installation](#installing)
