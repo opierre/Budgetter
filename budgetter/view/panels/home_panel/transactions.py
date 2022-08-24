@@ -3,6 +3,7 @@ from PySide6.QtGui import QIcon
 from PySide6.QtWidgets import QVBoxLayout, QStatusBar, QWidget, QPushButton, QListView, QFrame
 
 from budgetter.models.transactions_model import TransactionsModel, TransactionsFilterModel
+from budgetter.view.widgets.dialog import Dialog
 from budgetter.view.widgets.status_bar import StatusBar
 from budgetter.view.widgets.transaction_widgets.transaction_delegate import TransactionDelegate
 
@@ -162,6 +163,7 @@ class Transactions(QObject):
     def delete_transaction(self, index):
         """
         Delete transaction on Delete click
+
         :param index: index in model
         :return: None
         """
@@ -172,9 +174,25 @@ class Transactions(QObject):
     def add_transaction(self):
         """
         Add transaction on + click
+
         :return: None
         """
 
+        # Set dialog content
+        dialog_content = AddAccountDialog(self.main_window)
+
+        # Open dialog
+        dialog = Dialog(QCoreApplication.translate("Transactions", 'Add Transaction'), dialog_content,
+                        self.main_window)
+
+        # Connect signal from popup to add new account
+        dialog_content.addAccount.connect(self.add_account_debug)
+
+        # Connect signal coming from click on Confirm button
+        dialog.confirm.connect(dialog_content.check_inputs)
+
+        # Set focus on first widget when opening
+        dialog_content.content.account_name.setFocus()
         # Add transaction to model
         # self.transactions_filter_model.add_transaction()
 
