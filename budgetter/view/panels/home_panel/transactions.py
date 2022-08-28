@@ -4,6 +4,7 @@ from PySide6.QtWidgets import QVBoxLayout, QStatusBar, QWidget, QPushButton, QLi
 
 from budgetter.models.transactions_model import TransactionsModel, TransactionsFilterModel
 from budgetter.view.widgets.dialog import Dialog
+from budgetter.view.widgets.dialog_widgets.add_transaction import AddTransactionDialog
 from budgetter.view.widgets.status_bar import StatusBar
 from budgetter.view.widgets.transaction_widgets.transaction_delegate import TransactionDelegate
 
@@ -179,22 +180,40 @@ class Transactions(QObject):
         """
 
         # Set dialog content
-        dialog_content = AddAccountDialog(self.main_window)
+        dialog_content = AddTransactionDialog(self.main_window)
 
         # Open dialog
         dialog = Dialog(QCoreApplication.translate("Transactions", 'Add Transaction'), dialog_content,
                         self.main_window)
 
         # Connect signal from popup to add new account
-        dialog_content.addAccount.connect(self.add_account_debug)
+        dialog_content.addTransaction.connect(self.add_transaction_debug)
 
         # Connect signal coming from click on Confirm button
         dialog.confirm.connect(dialog_content.check_inputs)
 
         # Set focus on first widget when opening
-        dialog_content.content.account_name.setFocus()
+        dialog_content.content.category.setFocus()
         # Add transaction to model
         # self.transactions_filter_model.add_transaction()
+
+    def add_transaction_debug(self, transaction_type: str, category: str, name: str, amount: str, amount_date: str,
+                              mean: str, notes: str):
+        """
+        Add transaction in database
+
+        :param transaction_type: transaction type (income, expenses, transfer)
+        :param category: category
+        :param name: account name
+        :param amount: account amount
+        :param amount_date: account amount in date
+        :param mean: transaction mean
+        :param notes: notes
+        :return: None
+        """
+
+        # TODO: call REST API
+        print(transaction_type, category, name, amount, amount_date, mean, notes)
 
     def search_transaction(self, content: str, search_field: str):
         """
