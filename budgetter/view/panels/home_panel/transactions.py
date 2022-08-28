@@ -1,5 +1,5 @@
 from PySide6.QtCore import QObject, Qt, QSize, QCoreApplication
-from PySide6.QtGui import QIcon
+from PySide6.QtGui import QIcon, QShortcut, QKeySequence
 from PySide6.QtWidgets import QVBoxLayout, QStatusBar, QWidget, QPushButton, QListView, QFrame
 
 from budgetter.models.transactions_model import TransactionsModel, TransactionsFilterModel
@@ -24,6 +24,9 @@ class Transactions(QObject):
         # Store custom/classic status bar
         self.custom_status_bar = StatusBar()
         self.status_bar = QStatusBar()
+
+        # Store shortcut for adding a transaction
+        self.transaction_shortcut = QShortcut(QKeySequence(Qt.CTRL | Qt.Key_T), self)
 
         # All button - Type
         self.all = QPushButton(QCoreApplication.translate("transactions", "All"))
@@ -149,6 +152,9 @@ class Transactions(QObject):
         self.account1.clicked.connect(self.add_filter)  # pylint: disable=no-member
         self.account2.clicked.connect(self.add_filter)  # pylint: disable=no-member
         self.account3.clicked.connect(self.add_filter)  # pylint: disable=no-member
+
+        # Connect shortcut to add new transaction
+        self.transaction_shortcut.activated.connect(self.add_transaction)  # pylint: disable=no-member
 
     def display_comment(self, rectangle, index):
         """

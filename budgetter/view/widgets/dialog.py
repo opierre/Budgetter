@@ -79,7 +79,7 @@ class Dialog(QWidget):
         # Connect click on confirm to emit signal
         self._dialog.confirm.clicked.connect(self.confirm.emit)  # pylint: disable=no-member
 
-        # Connect escape to cose current dialog/enter to confirm dialog
+        # Connect escape to close current dialog/enter to confirm dialog
         self.escape_shortcut.activated.connect(self.close)  # pylint: disable=no-member
         self.confirm_shortcut.activated.connect(self.confirm.emit)  # pylint: disable=no-member
 
