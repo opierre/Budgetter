@@ -16,17 +16,18 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QApplication, QGridLayout, QHBoxLayout, QLabel,
-    QRadioButton, QSizePolicy, QToolButton, QVBoxLayout,
-    QWidget)
+    QRadioButton, QSizePolicy, QSpacerItem, QToolButton,
+    QVBoxLayout, QWidget)
 
 from budgetter.view.widgets.material_outlined_date_edit import MaterialOutlinedDateEdit
 from budgetter.view.widgets.material_outlined_line_edit import MaterialOutlinedLineEdit
+import resources_rc
 
 class Ui_AddTransaction(object):
     def setupUi(self, AddTransaction):
         if not AddTransaction.objectName():
             AddTransaction.setObjectName("AddTransaction")
-        AddTransaction.resize(457, 391)
+        AddTransaction.resize(457, 401)
         AddTransaction.setStyleSheet("QWidget#transaction \n"
 "{\n"
 "	background-color: #1C293B;\n"
@@ -88,13 +89,55 @@ class Ui_AddTransaction(object):
 "	padding-left: 0px;\n"
 "	/*border-bottom: 1px solid rgba(255, 255, 255, 180);*/\n"
 "	outline: none;\n"
+"}\n"
+"\n"
+"QRadioButton\n"
+"{\n"
+"	outline: none;\n"
+"}\n"
+"\n"
+"QRadioButton::indicator \n"
+"{\n"
+"    width: 22px;\n"
+"    height: 22px;\n"
+"}\n"
+"\n"
+"QRadioButton#expenses::indicator::checked \n"
+"{\n"
+"	image: url(:/images/images/radio_button_checked_FILL0_wght400_GRAD0_opsz48_expenses.svg);\n"
+"}\n"
+"\n"
+"QRadioButton#expenses::indicator::unchecked \n"
+"{\n"
+"	image: url(:/images/images/radio_button_unchecked_FILL0_wght400_GRAD0_opsz48_expenses.svg);\n"
+"}\n"
+"\n"
+"QRadioButton#income::indicator::checked \n"
+"{\n"
+"	image: url(:/images/images/radio_button_checked_FILL0_wght400_GRAD0_opsz48_income.svg);\n"
+"}\n"
+"\n"
+"QRadioButton#income::indicator::unchecked \n"
+"{\n"
+"	image: url(:/images/images/radio_button_unchecked_FILL0_wght400_GRAD0_opsz48_income.svg);\n"
+"}\n"
+"\n"
+"QRadioButton#transfer::indicator::checked \n"
+"{\n"
+"	image: url(:/images/images/radio_button_c"
+                        "hecked_FILL0_wght400_GRAD0_opsz48_transfer.svg);\n"
+"}\n"
+"\n"
+"QRadioButton#transfer::indicator::unchecked \n"
+"{\n"
+"	image: url(:/images/images/radio_button_unchecked_FILL0_wght400_GRAD0_opsz48_transfer.svg);\n"
 "}")
         self.gridLayout = QGridLayout(AddTransaction)
         self.gridLayout.setObjectName("gridLayout")
         self.transaction = QWidget(AddTransaction)
         self.transaction.setObjectName("transaction")
         self.verticalLayout = QVBoxLayout(self.transaction)
-        self.verticalLayout.setSpacing(10)
+        self.verticalLayout.setSpacing(20)
         self.verticalLayout.setObjectName("verticalLayout")
         self.verticalLayout.setContentsMargins(0, 0, 15, 0)
         self.label = QLabel(self.transaction)
@@ -114,27 +157,44 @@ class Ui_AddTransaction(object):
         self.verticalLayout_2.setObjectName("verticalLayout_2")
         self.verticalLayout_2.setContentsMargins(-1, -1, -1, 0)
         self.radio_buttons = QHBoxLayout()
+        self.radio_buttons.setSpacing(30)
         self.radio_buttons.setObjectName("radio_buttons")
+        self.radio_buttons.setContentsMargins(-1, 5, -1, 5)
+        self.horizontalSpacer = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.radio_buttons.addItem(self.horizontalSpacer)
+
         self.expenses = QRadioButton(self.transaction)
         self.expenses.setObjectName("expenses")
         font1 = QFont()
         font1.setFamilies([u"Roboto"])
         font1.setPointSize(11)
         self.expenses.setFont(font1)
+        self.expenses.setCursor(QCursor(Qt.PointingHandCursor))
+        self.expenses.setStyleSheet("color: rgba(255, 255, 255, 210);")
+        self.expenses.setChecked(True)
 
         self.radio_buttons.addWidget(self.expenses)
 
         self.income = QRadioButton(self.transaction)
         self.income.setObjectName("income")
         self.income.setFont(font1)
+        self.income.setCursor(QCursor(Qt.PointingHandCursor))
+        self.income.setStyleSheet("color: rgba(255, 255, 255, 210);")
 
         self.radio_buttons.addWidget(self.income)
 
         self.transfer = QRadioButton(self.transaction)
         self.transfer.setObjectName("transfer")
         self.transfer.setFont(font1)
+        self.transfer.setCursor(QCursor(Qt.PointingHandCursor))
+        self.transfer.setStyleSheet("color: rgba(255, 255, 255, 210);")
 
         self.radio_buttons.addWidget(self.transfer)
+
+        self.horizontalSpacer_2 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.radio_buttons.addItem(self.horizontalSpacer_2)
 
 
         self.verticalLayout_2.addLayout(self.radio_buttons)
@@ -198,24 +258,40 @@ class Ui_AddTransaction(object):
         self.verticalLayout_2.addLayout(self.horizontalLayout_4)
 
         self.horizontalLayout_5 = QHBoxLayout()
+        self.horizontalLayout_5.setSpacing(30)
         self.horizontalLayout_5.setObjectName("horizontalLayout_5")
+        self.horizontalSpacer_3 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.horizontalLayout_5.addItem(self.horizontalSpacer_3)
+
         self.card = QRadioButton(self.transaction)
         self.card.setObjectName("card")
         self.card.setFont(font1)
+        self.card.setCursor(QCursor(Qt.PointingHandCursor))
+        self.card.setStyleSheet("color: rgba(255, 255, 255, 210);")
 
         self.horizontalLayout_5.addWidget(self.card)
 
         self.cash = QRadioButton(self.transaction)
         self.cash.setObjectName("cash")
         self.cash.setFont(font1)
+        self.cash.setCursor(QCursor(Qt.PointingHandCursor))
+        self.cash.setStyleSheet("color: rgba(255, 255, 255, 210);")
 
         self.horizontalLayout_5.addWidget(self.cash)
 
         self.money_transfer = QRadioButton(self.transaction)
         self.money_transfer.setObjectName("money_transfer")
         self.money_transfer.setFont(font1)
+        self.money_transfer.setCursor(QCursor(Qt.PointingHandCursor))
+        self.money_transfer.setStyleSheet("color: rgba(255, 255, 255, 210);")
+        self.money_transfer.setIconSize(QSize(22, 22))
 
         self.horizontalLayout_5.addWidget(self.money_transfer)
+
+        self.horizontalSpacer_4 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.horizontalLayout_5.addItem(self.horizontalSpacer_4)
 
 
         self.verticalLayout_2.addLayout(self.horizontalLayout_5)

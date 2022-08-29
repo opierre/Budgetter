@@ -94,7 +94,7 @@ class Ui_AddAccount(object):
         self.account = QWidget(AddAccount)
         self.account.setObjectName("account")
         self.verticalLayout = QVBoxLayout(self.account)
-        self.verticalLayout.setSpacing(10)
+        self.verticalLayout.setSpacing(20)
         self.verticalLayout.setObjectName("verticalLayout")
         self.verticalLayout.setContentsMargins(0, 0, 15, 0)
         self.label = QLabel(self.account)

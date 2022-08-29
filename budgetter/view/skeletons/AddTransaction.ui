@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>457</width>
-    <height>391</height>
+    <height>401</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -74,6 +74,47 @@ QComboBox
 	padding-left: 0px;
 	/*border-bottom: 1px solid rgba(255, 255, 255, 180);*/
 	outline: none;
+}
+
+QRadioButton
+{
+	outline: none;
+}
+
+QRadioButton::indicator 
+{
+    width: 22px;
+    height: 22px;
+}
+
+QRadioButton#expenses::indicator::checked 
+{
+	image: url(:/images/images/radio_button_checked_FILL0_wght400_GRAD0_opsz48_expenses.svg);
+}
+
+QRadioButton#expenses::indicator::unchecked 
+{
+	image: url(:/images/images/radio_button_unchecked_FILL0_wght400_GRAD0_opsz48_expenses.svg);
+}
+
+QRadioButton#income::indicator::checked 
+{
+	image: url(:/images/images/radio_button_checked_FILL0_wght400_GRAD0_opsz48_income.svg);
+}
+
+QRadioButton#income::indicator::unchecked 
+{
+	image: url(:/images/images/radio_button_unchecked_FILL0_wght400_GRAD0_opsz48_income.svg);
+}
+
+QRadioButton#transfer::indicator::checked 
+{
+	image: url(:/images/images/radio_button_checked_FILL0_wght400_GRAD0_opsz48_transfer.svg);
+}
+
+QRadioButton#transfer::indicator::unchecked 
+{
+	image: url(:/images/images/radio_button_unchecked_FILL0_wght400_GRAD0_opsz48_transfer.svg);
 }</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
@@ -81,7 +122,7 @@ QComboBox
     <widget class="QWidget" name="transaction" native="true">
      <layout class="QVBoxLayout" name="verticalLayout">
       <property name="spacing">
-       <number>10</number>
+       <number>20</number>
       </property>
       <property name="leftMargin">
        <number>0</number>
@@ -130,6 +171,28 @@ QComboBox
         </property>
         <item>
          <layout class="QHBoxLayout" name="radio_buttons">
+          <property name="spacing">
+           <number>30</number>
+          </property>
+          <property name="topMargin">
+           <number>5</number>
+          </property>
+          <property name="bottomMargin">
+           <number>5</number>
+          </property>
+          <item>
+           <spacer name="horizontalSpacer">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
           <item>
            <widget class="QRadioButton" name="expenses">
             <property name="font">
@@ -138,8 +201,17 @@ QComboBox
               <pointsize>11</pointsize>
              </font>
             </property>
+            <property name="cursor">
+             <cursorShape>PointingHandCursor</cursorShape>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color: rgba(255, 255, 255, 210);</string>
+            </property>
             <property name="text">
              <string>Expenses</string>
+            </property>
+            <property name="checked">
+             <bool>true</bool>
             </property>
            </widget>
           </item>
@@ -150,6 +222,12 @@ QComboBox
               <family>Roboto</family>
               <pointsize>11</pointsize>
              </font>
+            </property>
+            <property name="cursor">
+             <cursorShape>PointingHandCursor</cursorShape>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color: rgba(255, 255, 255, 210);</string>
             </property>
             <property name="text">
              <string>Income</string>
@@ -164,10 +242,29 @@ QComboBox
               <pointsize>11</pointsize>
              </font>
             </property>
+            <property name="cursor">
+             <cursorShape>PointingHandCursor</cursorShape>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color: rgba(255, 255, 255, 210);</string>
+            </property>
             <property name="text">
              <string>Transfer</string>
             </property>
            </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_2">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
           </item>
          </layout>
         </item>
@@ -307,6 +404,22 @@ QComboBox
         </item>
         <item>
          <layout class="QHBoxLayout" name="horizontalLayout_5">
+          <property name="spacing">
+           <number>30</number>
+          </property>
+          <item>
+           <spacer name="horizontalSpacer_3">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
           <item>
            <widget class="QRadioButton" name="card">
             <property name="font">
@@ -314,6 +427,12 @@ QComboBox
               <family>Roboto</family>
               <pointsize>11</pointsize>
              </font>
+            </property>
+            <property name="cursor">
+             <cursorShape>PointingHandCursor</cursorShape>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color: rgba(255, 255, 255, 210);</string>
             </property>
             <property name="text">
              <string>Credit Card</string>
@@ -328,6 +447,12 @@ QComboBox
               <pointsize>11</pointsize>
              </font>
             </property>
+            <property name="cursor">
+             <cursorShape>PointingHandCursor</cursorShape>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color: rgba(255, 255, 255, 210);</string>
+            </property>
             <property name="text">
              <string>Cash</string>
             </property>
@@ -341,10 +466,35 @@ QComboBox
               <pointsize>11</pointsize>
              </font>
             </property>
+            <property name="cursor">
+             <cursorShape>PointingHandCursor</cursorShape>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color: rgba(255, 255, 255, 210);</string>
+            </property>
             <property name="text">
              <string>Money Transfer</string>
             </property>
+            <property name="iconSize">
+             <size>
+              <width>22</width>
+              <height>22</height>
+             </size>
+            </property>
            </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_4">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
           </item>
          </layout>
         </item>
@@ -389,6 +539,8 @@ QComboBox
    <header>view.widgets.material_outlined_date_edit.h</header>
   </customwidget>
  </customwidgets>
- <resources/>
+ <resources>
+  <include location="../resources/resources.qrc"/>
+ </resources>
  <connections/>
 </ui>

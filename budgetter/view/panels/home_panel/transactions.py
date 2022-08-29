@@ -257,7 +257,7 @@ class Transactions(QObject):
         #          "account": self.edit_account.currentText(), "type": self.edit_exp_or_inc.active_type(),
         #          "means": self.edit_mean.active_type(), "comment": ""}
 
-        # Remove transaction from model """
+        # Remove transaction from model
         # self.transactions_filter_model.modify_transaction(self.transaction_delegate.editable, value)
 
         # TODO: to remove
@@ -285,17 +285,17 @@ class Transactions(QObject):
         :return: None
         """
 
-        # Set proxy model """
+        # Set proxy model
         self.transactions_filter_model.setSourceModel(self.transactions_model)
 
-        # Date re-filtered if model changed """
+        # Date re-filtered if model changed
         self.transactions_filter_model.setDynamicSortFilter(True)
         self.transactions_filter_model.sort(0, Qt.DescendingOrder)
 
-        # Set model """
+        # Set model
         self.transactions_listview.setModel(self.transactions_filter_model)
 
-        # Set mouse tracking """
+        # Set mouse tracking
         self.transactions_listview.setMouseTracking(True)
 
         # Set item delegate"""
@@ -308,7 +308,7 @@ class Transactions(QObject):
         :return: None
         """
 
-        # Set states for activation """
+        # Set states for activation
         self.all.setProperty("activated", "true")
         self.all.update()
         self.expenses.setProperty("activated", "false")
@@ -318,7 +318,7 @@ class Transactions(QObject):
         self.transfer.setProperty("activated", "false")
         self.transfer.update()
 
-        # Set states for activation """
+        # Set states for activation
         self.all_account.setProperty("activated", "true")
         self.all_account.update()
         self.account1.setProperty("activated", "false")
@@ -328,7 +328,7 @@ class Transactions(QObject):
         self.account3.setProperty("activated", "false")
         self.account3.update()
 
-        # Set cursor for left buttons """
+        # Set cursor for left buttons
         self.all.setCursor(Qt.PointingHandCursor)
         self.expenses.setCursor(Qt.PointingHandCursor)
         self.expenses.setIconSize(QSize(18, 18))
@@ -340,38 +340,38 @@ class Transactions(QObject):
         self.transfer.setIconSize(QSize(18, 18))
         self.transfer.setIcon(QIcon(":/images/images/hdr_weak_black_18dp_transfer.svg"))
 
-        # Set cursor for left buttons """
+        # Set cursor for left buttons
         self.all_account.setCursor(Qt.PointingHandCursor)
         self.account1.setCursor(Qt.PointingHandCursor)
         self.account2.setCursor(Qt.PointingHandCursor)
         self.account3.setCursor(Qt.PointingHandCursor)
 
-        # Add custom status bar to classic one """
+        # Add custom status bar to classic one
         self.status_bar.addPermanentWidget(self.custom_status_bar)
 
-        # Add buttons on left corner """
+        # Add buttons on left corner
         self.status_bar.addWidget(self.all)
         self.status_bar.addWidget(self.expenses)
         self.status_bar.addWidget(self.income)
         self.status_bar.addWidget(self.transfer)
 
-        # Add separator """
+        # Add separator
         vline = QFrame()
         vline.setFrameShape(vline.VLine)
         vline.setFixedHeight(self.all.sizeHint().height() * 1.2)
         vline.setStyleSheet("color: #344457;")
         self.status_bar.addWidget(vline)
 
-        # Add buttons on left corner """
+        # Add buttons on left corner
         self.status_bar.addWidget(self.all_account)
         self.status_bar.addWidget(self.account1)
         self.status_bar.addWidget(self.account2)
         self.status_bar.addWidget(self.account3)
 
-        # Disable size grip """
+        # Disable size grip
         self.status_bar.setSizeGripEnabled(False)
 
-        # Hide settings """
+        # Hide settings
         self.custom_status_bar.hide_settings()
 
     def configure_title_bar(self):
