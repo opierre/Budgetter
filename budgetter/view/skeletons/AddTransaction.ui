@@ -376,17 +376,21 @@ QToolButton
             </property>
            </widget>
           </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_4">
           <item>
-           <widget class="MaterialOutlinedLineEdit" name="amount">
+           <widget class="MaterialOutlinedDateEdit" name="date">
             <property name="minimumSize">
              <size>
-              <width>170</width>
+              <width>0</width>
               <height>67</height>
              </size>
             </property>
             <property name="maximumSize">
              <size>
-              <width>170</width>
+              <width>16777215</width>
               <height>67</height>
              </size>
             </property>
@@ -398,15 +402,11 @@ QToolButton
             </property>
            </widget>
           </item>
-         </layout>
-        </item>
-        <item>
-         <layout class="QHBoxLayout" name="horizontalLayout_4">
           <item>
-           <widget class="MaterialOutlinedDateEdit" name="date">
+           <widget class="MaterialOutlinedLineEdit" name="amount">
             <property name="minimumSize">
              <size>
-              <width>0</width>
+              <width>170</width>
               <height>67</height>
              </size>
             </property>
