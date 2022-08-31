@@ -1,4 +1,5 @@
-from PySide6.QtCore import QObject, QCoreApplication
+from PySide6.QtCore import QObject, QCoreApplication, QSize
+from PySide6.QtGui import QIcon
 from PySide6.QtWidgets import QListView, QWidget, QHBoxLayout
 
 from budgetter.models.accounts_model import AccountsModel
@@ -114,8 +115,13 @@ class Accounts(QObject):
         # Set dialog content
         dialog_content = AddAccountDialog(self.main_window)
 
+        # Set icon
+        header_icon = QIcon()
+        header_icon.addFile(":/images/images/account_balance_wallet_FILL1_wght400_GRAD0_opsz48.svg",
+                            QSize(24, 24), QIcon.Disabled, QIcon.On)
+
         # Open dialog
-        dialog = Dialog(QCoreApplication.translate("Accounts", 'Add Account'), dialog_content,
+        dialog = Dialog(QCoreApplication.translate("Accounts", 'Add Account'), header_icon, dialog_content,
                         self.main_window)
 
         # Connect signal from popup to add new account

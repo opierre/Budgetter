@@ -17,9 +17,8 @@
 # LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 # THE SOFTWARE.
-
 from PySide6.QtCore import QParallelAnimationGroup, QPropertyAnimation, QRect, QObject, QEvent, Signal, Qt
-from PySide6.QtGui import QColor, QKeySequence, QShortcut
+from PySide6.QtGui import QColor, QKeySequence, QShortcut, QIcon
 from PySide6.QtWidgets import QWidget, QGraphicsDropShadowEffect, QGraphicsOpacityEffect
 
 from budgetter.view.skeletons.Dialog import Ui_Dialog
@@ -34,7 +33,7 @@ class Dialog(QWidget):
     # Signal emitted when click on Confirm button
     confirm = Signal()
 
-    def __init__(self, dialog_title: str, central_widget: QWidget, parent=None):
+    def __init__(self, dialog_title: str, header_icon: QIcon, central_widget: QWidget, parent=None):
         super().__init__(parent)
 
         # Store dialog UI
@@ -58,7 +57,7 @@ class Dialog(QWidget):
         self.parallel_animation_group = QParallelAnimationGroup(self)
 
         # Configure widgets
-        self.configure_widgets(dialog_title, central_widget)
+        self.configure_widgets(dialog_title, header_icon, central_widget)
 
         # Connect all slots and signals
         self.connect_all_slots_and_signals()
@@ -83,17 +82,21 @@ class Dialog(QWidget):
         self.escape_shortcut.activated.connect(self.close)  # pylint: disable=no-member
         self.confirm_shortcut.activated.connect(self.confirm.emit)  # pylint: disable=no-member
 
-    def configure_widgets(self, dialog_title: str, central_widget: QWidget):
+    def configure_widgets(self, dialog_title: str, header_icon: QIcon, central_widget: QWidget):
         """
         Configure title, central widget and animations
 
         :param dialog_title: dialog main title
+        :param header_icon: dialog header icon
         :param central_widget: central widget
         :return: None
         """
 
         # Configure title
         self._dialog.title.setText(dialog_title)
+
+        # Configure icon
+        self._dialog.header_icon.setIcon(header_icon)
 
         # Configure animations - Geometry and opacity
         geometry_animation = QPropertyAnimation(self, b'geometry')

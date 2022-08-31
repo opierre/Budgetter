@@ -62,12 +62,22 @@ class Ui_Dialog(object):
         self.dialog = QWidget(Dialog)
         self.dialog.setObjectName("dialog")
         self.verticalLayout = QVBoxLayout(self.dialog)
-        self.verticalLayout.setSpacing(20)
+        self.verticalLayout.setSpacing(10)
         self.verticalLayout.setObjectName("verticalLayout")
         self.verticalLayout.setContentsMargins(25, 25, 10, 10)
         self.horizontalLayout_2 = QHBoxLayout()
+        self.horizontalLayout_2.setSpacing(10)
         self.horizontalLayout_2.setObjectName("horizontalLayout_2")
         self.horizontalLayout_2.setContentsMargins(-1, -1, 15, -1)
+        self.header_icon = QToolButton(self.dialog)
+        self.header_icon.setObjectName("header_icon")
+        self.header_icon.setEnabled(False)
+        self.header_icon.setMinimumSize(QSize(28, 28))
+        self.header_icon.setMaximumSize(QSize(28, 28))
+        self.header_icon.setIconSize(QSize(24, 24))
+
+        self.horizontalLayout_2.addWidget(self.header_icon)
+
         self.title = QLabel(self.dialog)
         self.title.setObjectName("title")
         font = QFont()
@@ -101,6 +111,7 @@ class Ui_Dialog(object):
         self.central_widget.setSizePolicy(sizePolicy)
         self.gridLayout_2 = QGridLayout(self.central_widget)
         self.gridLayout_2.setObjectName("gridLayout_2")
+        self.gridLayout_2.setContentsMargins(-1, 0, -1, -1)
 
         self.verticalLayout.addWidget(self.central_widget)
 
@@ -134,6 +145,7 @@ class Ui_Dialog(object):
 
     def retranslateUi(self, Dialog):
         Dialog.setWindowTitle(QCoreApplication.translate("Dialog", "Form", None))
+        self.header_icon.setText("")
         self.title.setText(QCoreApplication.translate("Dialog", "Header", None))
         self.close.setText("")
         self.confirm.setText(QCoreApplication.translate("Dialog", "CONFIRM", None))

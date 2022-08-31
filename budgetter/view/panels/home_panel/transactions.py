@@ -188,8 +188,13 @@ class Transactions(QObject):
         # Set dialog content
         dialog_content = AddTransactionDialog(self.main_window)
 
+        # Set icon
+        header_icon = QIcon()
+        header_icon.addFile(":/images/images/receipt_long_FILL1_wght400_GRAD0_opsz48.svg",
+                            QSize(24, 24), QIcon.Disabled, QIcon.On)
+
         # Open dialog
-        dialog = Dialog(QCoreApplication.translate("Transactions", 'Add Transaction'), dialog_content,
+        dialog = Dialog(QCoreApplication.translate("Transactions", 'Add Transaction'), header_icon, dialog_content,
                         self.main_window)
 
         # Connect signal from popup to add new account

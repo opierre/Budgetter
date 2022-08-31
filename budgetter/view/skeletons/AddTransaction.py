@@ -27,7 +27,7 @@ class Ui_AddTransaction(object):
     def setupUi(self, AddTransaction):
         if not AddTransaction.objectName():
             AddTransaction.setObjectName("AddTransaction")
-        AddTransaction.resize(457, 401)
+        AddTransaction.resize(457, 409)
         AddTransaction.setStyleSheet("QWidget#transaction \n"
 "{\n"
 "	background-color: #1C293B;\n"
@@ -131,6 +131,13 @@ class Ui_AddTransaction(object):
 "QRadioButton#transfer::indicator::unchecked \n"
 "{\n"
 "	image: url(:/images/images/radio_button_unchecked_FILL0_wght400_GRAD0_opsz48_transfer.svg);\n"
+"}\n"
+"\n"
+"QToolButton\n"
+"{\n"
+"	border: none;\n"
+"	border-radius: 3px;\n"
+"	outline: none;\n"
 "}")
         self.gridLayout = QGridLayout(AddTransaction)
         self.gridLayout.setObjectName("gridLayout")
@@ -202,14 +209,25 @@ class Ui_AddTransaction(object):
         self.horizontalLayout = QHBoxLayout()
         self.horizontalLayout.setSpacing(20)
         self.horizontalLayout.setObjectName("horizontalLayout")
+        self.verticalLayout_3 = QVBoxLayout()
+        self.verticalLayout_3.setObjectName("verticalLayout_3")
+        self.verticalLayout_3.setContentsMargins(-1, 17, -1, -1)
         self.category_icon = QToolButton(self.transaction)
         self.category_icon.setObjectName("category_icon")
+        self.category_icon.setEnabled(False)
         self.category_icon.setMinimumSize(QSize(52, 52))
         self.category_icon.setMaximumSize(QSize(52, 52))
         self.category_icon.setFocusPolicy(Qt.NoFocus)
-        self.category_icon.setIconSize(QSize(48, 48))
+        self.category_icon.setStyleSheet("background-color: #21405D;")
+        icon = QIcon()
+        icon.addFile(":/images/images/category_FILL0_wght400_GRAD0_opsz48.svg", QSize(), QIcon.Normal, QIcon.Off)
+        self.category_icon.setIcon(icon)
+        self.category_icon.setIconSize(QSize(40, 40))
 
-        self.horizontalLayout.addWidget(self.category_icon)
+        self.verticalLayout_3.addWidget(self.category_icon)
+
+
+        self.horizontalLayout.addLayout(self.verticalLayout_3)
 
         self.category = MaterialOutlinedLineEdit(self.transaction)
         self.category.setObjectName("category")
@@ -228,15 +246,15 @@ class Ui_AddTransaction(object):
         self.name = MaterialOutlinedLineEdit(self.transaction)
         self.name.setObjectName("name")
         self.name.setMinimumSize(QSize(200, 67))
-        self.name.setMaximumSize(QSize(200, 67))
+        self.name.setMaximumSize(QSize(16777215, 67))
         self.name.setFont(font1)
 
         self.horizontalLayout_2.addWidget(self.name)
 
         self.amount = MaterialOutlinedLineEdit(self.transaction)
         self.amount.setObjectName("amount")
-        self.amount.setMinimumSize(QSize(200, 67))
-        self.amount.setMaximumSize(QSize(200, 67))
+        self.amount.setMinimumSize(QSize(170, 67))
+        self.amount.setMaximumSize(QSize(170, 67))
         self.amount.setFont(font1)
 
         self.horizontalLayout_2.addWidget(self.amount)

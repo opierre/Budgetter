@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>457</width>
-    <height>401</height>
+    <height>409</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -115,6 +115,13 @@ QRadioButton#transfer::indicator::checked
 QRadioButton#transfer::indicator::unchecked 
 {
 	image: url(:/images/images/radio_button_unchecked_FILL0_wght400_GRAD0_opsz48_transfer.svg);
+}
+
+QToolButton
+{
+	border: none;
+	border-radius: 3px;
+	outline: none;
 }</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
@@ -274,32 +281,49 @@ QRadioButton#transfer::indicator::unchecked
            <number>20</number>
           </property>
           <item>
-           <widget class="QToolButton" name="category_icon">
-            <property name="minimumSize">
-             <size>
-              <width>52</width>
-              <height>52</height>
-             </size>
+           <layout class="QVBoxLayout" name="verticalLayout_3">
+            <property name="topMargin">
+             <number>17</number>
             </property>
-            <property name="maximumSize">
-             <size>
-              <width>52</width>
-              <height>52</height>
-             </size>
-            </property>
-            <property name="focusPolicy">
-             <enum>Qt::NoFocus</enum>
-            </property>
-            <property name="text">
-             <string/>
-            </property>
-            <property name="iconSize">
-             <size>
-              <width>48</width>
-              <height>48</height>
-             </size>
-            </property>
-           </widget>
+            <item>
+             <widget class="QToolButton" name="category_icon">
+              <property name="enabled">
+               <bool>false</bool>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>52</width>
+                <height>52</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>52</width>
+                <height>52</height>
+               </size>
+              </property>
+              <property name="focusPolicy">
+               <enum>Qt::NoFocus</enum>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">background-color: #21405D;</string>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+              <property name="icon">
+               <iconset resource="../resources/resources.qrc">
+                <normaloff>:/images/images/category_FILL0_wght400_GRAD0_opsz48.svg</normaloff>:/images/images/category_FILL0_wght400_GRAD0_opsz48.svg</iconset>
+              </property>
+              <property name="iconSize">
+               <size>
+                <width>40</width>
+                <height>40</height>
+               </size>
+              </property>
+             </widget>
+            </item>
+           </layout>
           </item>
           <item>
            <widget class="MaterialOutlinedLineEdit" name="category">
@@ -340,7 +364,7 @@ QRadioButton#transfer::indicator::unchecked
             </property>
             <property name="maximumSize">
              <size>
-              <width>200</width>
+              <width>16777215</width>
               <height>67</height>
              </size>
             </property>
@@ -356,13 +380,13 @@ QRadioButton#transfer::indicator::unchecked
            <widget class="MaterialOutlinedLineEdit" name="amount">
             <property name="minimumSize">
              <size>
-              <width>200</width>
+              <width>170</width>
               <height>67</height>
              </size>
             </property>
             <property name="maximumSize">
              <size>
-              <width>200</width>
+              <width>170</width>
               <height>67</height>
              </size>
             </property>
