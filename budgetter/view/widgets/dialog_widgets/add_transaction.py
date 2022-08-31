@@ -35,7 +35,7 @@ class AddTransactionDialog(QWidget):
         """
 
         # Configure name attributes
-        self.content.name.set_label('Transaction Label')
+        self.content.name.set_label('Label')
         self.content.name.set_label_background_color(QColor("#1C293B"))
         self.content.name.set_text_color(QColor(255, 255, 255, 255))
         self.content.name.set_label_color(QColor(224, 224, 224, 150))

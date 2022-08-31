@@ -27,7 +27,7 @@ class Ui_AddTransaction(object):
     def setupUi(self, AddTransaction):
         if not AddTransaction.objectName():
             AddTransaction.setObjectName("AddTransaction")
-        AddTransaction.resize(457, 409)
+        AddTransaction.resize(371, 431)
         AddTransaction.setStyleSheet("QWidget#transaction \n"
 "{\n"
 "	background-color: #1C293B;\n"
@@ -138,7 +138,45 @@ class Ui_AddTransaction(object):
 "	border: none;\n"
 "	border-radius: 3px;\n"
 "	outline: none;\n"
-"}")
+"}\n"
+"\n"
+"QRadioButton#card::indicator::checked \n"
+"{\n"
+"	image: url(:/images/images/credit_card_FILL1_wght400_GRAD0_opsz48.svg);\n"
+"}\n"
+"\n"
+"QRadioButton#card::indicator::unchecked \n"
+"{\n"
+"	image: url(:/images/images/credit_card_FILL0_wght400_GRAD0_opsz48.svg);\n"
+"}\n"
+"\n"
+"QRadioButton#cash::indicator::checked \n"
+"{\n"
+"	image: url(:/images/images/local_atm_FILL1_wght400_GRAD0_opsz48.svg);\n"
+"}\n"
+"\n"
+"QRadioButton#cash::indicator::unchecked \n"
+"{\n"
+"	image: url(:/images/images/local_atm_FILL0_wght400_GRAD0_opsz48.svg);\n"
+"}\n"
+"\n"
+"QRadioButton#money_transfer::indicator::checked \n"
+"{\n"
+"	image: url(:/images/images/swap_horizontal_circle_FILL1_wght400_GRAD0_opsz48.svg);\n"
+"}\n"
+""
+                        "\n"
+"QRadioButton#money_transfer::indicator::unchecked \n"
+"{\n"
+"	image: url(:/images/images/swap_horizontal_circle_FILL0_wght400_GRAD0_opsz48.svg);\n"
+"}\n"
+"\n"
+"QRadioButton#cash::indicator, QRadioButton#card::indicator, QRadioButton#money_transfer::indicator \n"
+"{\n"
+"    width: 26px;\n"
+"    height: 26px;\n"
+"}\n"
+"")
         self.gridLayout = QGridLayout(AddTransaction)
         self.gridLayout.setObjectName("gridLayout")
         self.transaction = QWidget(AddTransaction)
@@ -163,16 +201,26 @@ class Ui_AddTransaction(object):
         self.verticalLayout_2.setSpacing(4)
         self.verticalLayout_2.setObjectName("verticalLayout_2")
         self.verticalLayout_2.setContentsMargins(-1, -1, -1, 0)
-        self.radio_buttons = QHBoxLayout()
-        self.radio_buttons.setSpacing(30)
-        self.radio_buttons.setObjectName("radio_buttons")
-        self.radio_buttons.setContentsMargins(-1, 5, -1, 5)
+        self.widget = QWidget(self.transaction)
+        self.widget.setObjectName("widget")
+        sizePolicy = QSizePolicy(QSizePolicy.MinimumExpanding, QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.widget.sizePolicy().hasHeightForWidth())
+        self.widget.setSizePolicy(sizePolicy)
+        self.widget.setMinimumSize(QSize(336, 32))
+        self.widget.setMaximumSize(QSize(16777215, 32))
+        self.horizontalLayout_3 = QHBoxLayout(self.widget)
+        self.horizontalLayout_3.setSpacing(30)
+        self.horizontalLayout_3.setObjectName("horizontalLayout_3")
+        self.horizontalLayout_3.setContentsMargins(0, 5, 0, 5)
         self.horizontalSpacer = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
-        self.radio_buttons.addItem(self.horizontalSpacer)
+        self.horizontalLayout_3.addItem(self.horizontalSpacer)
 
-        self.expenses = QRadioButton(self.transaction)
+        self.expenses = QRadioButton(self.widget)
         self.expenses.setObjectName("expenses")
+        self.expenses.setMinimumSize(QSize(92, 0))
         font1 = QFont()
         font1.setFamilies([u"Roboto"])
         font1.setPointSize(11)
@@ -181,30 +229,32 @@ class Ui_AddTransaction(object):
         self.expenses.setStyleSheet("color: rgba(255, 255, 255, 210);")
         self.expenses.setChecked(True)
 
-        self.radio_buttons.addWidget(self.expenses)
+        self.horizontalLayout_3.addWidget(self.expenses)
 
-        self.income = QRadioButton(self.transaction)
+        self.income = QRadioButton(self.widget)
         self.income.setObjectName("income")
+        self.income.setMinimumSize(QSize(92, 0))
         self.income.setFont(font1)
         self.income.setCursor(QCursor(Qt.PointingHandCursor))
         self.income.setStyleSheet("color: rgba(255, 255, 255, 210);")
 
-        self.radio_buttons.addWidget(self.income)
+        self.horizontalLayout_3.addWidget(self.income)
 
-        self.transfer = QRadioButton(self.transaction)
+        self.transfer = QRadioButton(self.widget)
         self.transfer.setObjectName("transfer")
+        self.transfer.setMinimumSize(QSize(92, 0))
         self.transfer.setFont(font1)
         self.transfer.setCursor(QCursor(Qt.PointingHandCursor))
         self.transfer.setStyleSheet("color: rgba(255, 255, 255, 210);")
 
-        self.radio_buttons.addWidget(self.transfer)
+        self.horizontalLayout_3.addWidget(self.transfer)
 
         self.horizontalSpacer_2 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
-        self.radio_buttons.addItem(self.horizontalSpacer_2)
+        self.horizontalLayout_3.addItem(self.horizontalSpacer_2)
 
 
-        self.verticalLayout_2.addLayout(self.radio_buttons)
+        self.verticalLayout_2.addWidget(self.widget)
 
         self.horizontalLayout = QHBoxLayout()
         self.horizontalLayout.setSpacing(20)
@@ -251,18 +301,11 @@ class Ui_AddTransaction(object):
 
         self.horizontalLayout_2.addWidget(self.name)
 
-        self.amount = MaterialOutlinedLineEdit(self.transaction)
-        self.amount.setObjectName("amount")
-        self.amount.setMinimumSize(QSize(170, 67))
-        self.amount.setMaximumSize(QSize(170, 67))
-        self.amount.setFont(font1)
-
-        self.horizontalLayout_2.addWidget(self.amount)
-
 
         self.verticalLayout_2.addLayout(self.horizontalLayout_2)
 
         self.horizontalLayout_4 = QHBoxLayout()
+        self.horizontalLayout_4.setSpacing(20)
         self.horizontalLayout_4.setObjectName("horizontalLayout_4")
         self.date = MaterialOutlinedDateEdit(self.transaction)
         self.date.setObjectName("date")
@@ -272,55 +315,79 @@ class Ui_AddTransaction(object):
 
         self.horizontalLayout_4.addWidget(self.date)
 
+        self.amount = MaterialOutlinedLineEdit(self.transaction)
+        self.amount.setObjectName("amount")
+        self.amount.setMinimumSize(QSize(170, 67))
+        self.amount.setMaximumSize(QSize(16777215, 67))
+        self.amount.setFont(font1)
+
+        self.horizontalLayout_4.addWidget(self.amount)
+
 
         self.verticalLayout_2.addLayout(self.horizontalLayout_4)
 
-        self.horizontalLayout_5 = QHBoxLayout()
-        self.horizontalLayout_5.setSpacing(30)
-        self.horizontalLayout_5.setObjectName("horizontalLayout_5")
-        self.horizontalSpacer_3 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
-
-        self.horizontalLayout_5.addItem(self.horizontalSpacer_3)
-
-        self.card = QRadioButton(self.transaction)
-        self.card.setObjectName("card")
-        self.card.setFont(font1)
-        self.card.setCursor(QCursor(Qt.PointingHandCursor))
-        self.card.setStyleSheet("color: rgba(255, 255, 255, 210);")
-
-        self.horizontalLayout_5.addWidget(self.card)
-
-        self.cash = QRadioButton(self.transaction)
-        self.cash.setObjectName("cash")
-        self.cash.setFont(font1)
-        self.cash.setCursor(QCursor(Qt.PointingHandCursor))
-        self.cash.setStyleSheet("color: rgba(255, 255, 255, 210);")
-
-        self.horizontalLayout_5.addWidget(self.cash)
-
-        self.money_transfer = QRadioButton(self.transaction)
-        self.money_transfer.setObjectName("money_transfer")
-        self.money_transfer.setFont(font1)
-        self.money_transfer.setCursor(QCursor(Qt.PointingHandCursor))
-        self.money_transfer.setStyleSheet("color: rgba(255, 255, 255, 210);")
-        self.money_transfer.setIconSize(QSize(22, 22))
-
-        self.horizontalLayout_5.addWidget(self.money_transfer)
-
-        self.horizontalSpacer_4 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
-
-        self.horizontalLayout_5.addItem(self.horizontalSpacer_4)
-
-
-        self.verticalLayout_2.addLayout(self.horizontalLayout_5)
-
+        self.gridLayout_2 = QGridLayout()
+        self.gridLayout_2.setObjectName("gridLayout_2")
+        self.gridLayout_2.setHorizontalSpacing(30)
+        self.gridLayout_2.setVerticalSpacing(0)
+        self.gridLayout_2.setContentsMargins(-1, 10, -1, 0)
         self.notes = MaterialOutlinedLineEdit(self.transaction)
         self.notes.setObjectName("notes")
         self.notes.setMinimumSize(QSize(0, 67))
         self.notes.setMaximumSize(QSize(16777215, 67))
         self.notes.setFont(font1)
 
-        self.verticalLayout_2.addWidget(self.notes)
+        self.gridLayout_2.addWidget(self.notes, 1, 0, 1, 3)
+
+        self.widget_2 = QWidget(self.transaction)
+        self.widget_2.setObjectName("widget_2")
+        self.widget_2.setMinimumSize(QSize(20, 32))
+        self.horizontalLayout_6 = QHBoxLayout(self.widget_2)
+        self.horizontalLayout_6.setSpacing(30)
+        self.horizontalLayout_6.setObjectName("horizontalLayout_6")
+        self.horizontalLayout_6.setContentsMargins(0, 2, 0, 0)
+        self.horizontalSpacer_3 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.horizontalLayout_6.addItem(self.horizontalSpacer_3)
+
+        self.card = QRadioButton(self.widget_2)
+        self.card.setObjectName("card")
+        self.card.setMinimumSize(QSize(92, 0))
+        self.card.setFont(font1)
+        self.card.setCursor(QCursor(Qt.PointingHandCursor))
+        self.card.setStyleSheet("color: rgba(255, 255, 255, 210);")
+        self.card.setChecked(True)
+
+        self.horizontalLayout_6.addWidget(self.card)
+
+        self.cash = QRadioButton(self.widget_2)
+        self.cash.setObjectName("cash")
+        self.cash.setMinimumSize(QSize(92, 0))
+        self.cash.setFont(font1)
+        self.cash.setCursor(QCursor(Qt.PointingHandCursor))
+        self.cash.setStyleSheet("color: rgba(255, 255, 255, 210);")
+
+        self.horizontalLayout_6.addWidget(self.cash)
+
+        self.money_transfer = QRadioButton(self.widget_2)
+        self.money_transfer.setObjectName("money_transfer")
+        self.money_transfer.setMinimumSize(QSize(92, 0))
+        self.money_transfer.setFont(font1)
+        self.money_transfer.setCursor(QCursor(Qt.PointingHandCursor))
+        self.money_transfer.setStyleSheet("color: rgba(255, 255, 255, 210);")
+        self.money_transfer.setIconSize(QSize(22, 22))
+
+        self.horizontalLayout_6.addWidget(self.money_transfer)
+
+        self.horizontalSpacer_4 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.horizontalLayout_6.addItem(self.horizontalSpacer_4)
+
+
+        self.gridLayout_2.addWidget(self.widget_2, 0, 0, 1, 3)
+
+
+        self.verticalLayout_2.addLayout(self.gridLayout_2)
 
 
         self.verticalLayout.addLayout(self.verticalLayout_2)
@@ -328,6 +395,16 @@ class Ui_AddTransaction(object):
 
         self.gridLayout.addWidget(self.transaction, 0, 0, 1, 1)
 
+        QWidget.setTabOrder(self.expenses, self.income)
+        QWidget.setTabOrder(self.income, self.transfer)
+        QWidget.setTabOrder(self.transfer, self.category)
+        QWidget.setTabOrder(self.category, self.name)
+        QWidget.setTabOrder(self.name, self.date)
+        QWidget.setTabOrder(self.date, self.amount)
+        QWidget.setTabOrder(self.amount, self.card)
+        QWidget.setTabOrder(self.card, self.cash)
+        QWidget.setTabOrder(self.cash, self.money_transfer)
+        QWidget.setTabOrder(self.money_transfer, self.notes)
 
         self.retranslateUi(AddTransaction)
 
@@ -341,8 +418,8 @@ class Ui_AddTransaction(object):
         self.income.setText(QCoreApplication.translate("AddTransaction", "Income", None))
         self.transfer.setText(QCoreApplication.translate("AddTransaction", "Transfer", None))
         self.category_icon.setText("")
-        self.card.setText(QCoreApplication.translate("AddTransaction", "Credit Card", None))
+        self.card.setText(QCoreApplication.translate("AddTransaction", "Card", None))
         self.cash.setText(QCoreApplication.translate("AddTransaction", "Cash", None))
-        self.money_transfer.setText(QCoreApplication.translate("AddTransaction", "Money Transfer", None))
+        self.money_transfer.setText(QCoreApplication.translate("AddTransaction", "Transfer", None))
     # retranslateUi
 

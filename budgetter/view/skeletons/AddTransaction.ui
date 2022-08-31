@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>457</width>
-    <height>409</height>
+    <width>371</width>
+    <height>431</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -122,7 +122,44 @@ QToolButton
 	border: none;
 	border-radius: 3px;
 	outline: none;
-}</string>
+}
+
+QRadioButton#card::indicator::checked 
+{
+	image: url(:/images/images/credit_card_FILL1_wght400_GRAD0_opsz48.svg);
+}
+
+QRadioButton#card::indicator::unchecked 
+{
+	image: url(:/images/images/credit_card_FILL0_wght400_GRAD0_opsz48.svg);
+}
+
+QRadioButton#cash::indicator::checked 
+{
+	image: url(:/images/images/local_atm_FILL1_wght400_GRAD0_opsz48.svg);
+}
+
+QRadioButton#cash::indicator::unchecked 
+{
+	image: url(:/images/images/local_atm_FILL0_wght400_GRAD0_opsz48.svg);
+}
+
+QRadioButton#money_transfer::indicator::checked 
+{
+	image: url(:/images/images/swap_horizontal_circle_FILL1_wght400_GRAD0_opsz48.svg);
+}
+
+QRadioButton#money_transfer::indicator::unchecked 
+{
+	image: url(:/images/images/swap_horizontal_circle_FILL0_wght400_GRAD0_opsz48.svg);
+}
+
+QRadioButton#cash::indicator, QRadioButton#card::indicator, QRadioButton#money_transfer::indicator 
+{
+    width: 26px;
+    height: 26px;
+}
+</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
    <item row="0" column="0">
@@ -177,103 +214,147 @@ QToolButton
          <number>0</number>
         </property>
         <item>
-         <layout class="QHBoxLayout" name="radio_buttons">
-          <property name="spacing">
-           <number>30</number>
+         <widget class="QWidget" name="widget" native="true">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="MinimumExpanding" vsizetype="Preferred">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
           </property>
-          <property name="topMargin">
-           <number>5</number>
+          <property name="minimumSize">
+           <size>
+            <width>336</width>
+            <height>32</height>
+           </size>
           </property>
-          <property name="bottomMargin">
-           <number>5</number>
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>32</height>
+           </size>
           </property>
-          <item>
-           <spacer name="horizontalSpacer">
-            <property name="orientation">
-             <enum>Qt::Horizontal</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>40</width>
-              <height>20</height>
-             </size>
-            </property>
-           </spacer>
-          </item>
-          <item>
-           <widget class="QRadioButton" name="expenses">
-            <property name="font">
-             <font>
-              <family>Roboto</family>
-              <pointsize>11</pointsize>
-             </font>
-            </property>
-            <property name="cursor">
-             <cursorShape>PointingHandCursor</cursorShape>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">color: rgba(255, 255, 255, 210);</string>
-            </property>
-            <property name="text">
-             <string>Expenses</string>
-            </property>
-            <property name="checked">
-             <bool>true</bool>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QRadioButton" name="income">
-            <property name="font">
-             <font>
-              <family>Roboto</family>
-              <pointsize>11</pointsize>
-             </font>
-            </property>
-            <property name="cursor">
-             <cursorShape>PointingHandCursor</cursorShape>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">color: rgba(255, 255, 255, 210);</string>
-            </property>
-            <property name="text">
-             <string>Income</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QRadioButton" name="transfer">
-            <property name="font">
-             <font>
-              <family>Roboto</family>
-              <pointsize>11</pointsize>
-             </font>
-            </property>
-            <property name="cursor">
-             <cursorShape>PointingHandCursor</cursorShape>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">color: rgba(255, 255, 255, 210);</string>
-            </property>
-            <property name="text">
-             <string>Transfer</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <spacer name="horizontalSpacer_2">
-            <property name="orientation">
-             <enum>Qt::Horizontal</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>40</width>
-              <height>20</height>
-             </size>
-            </property>
-           </spacer>
-          </item>
-         </layout>
+          <layout class="QHBoxLayout" name="horizontalLayout_3">
+           <property name="spacing">
+            <number>30</number>
+           </property>
+           <property name="leftMargin">
+            <number>0</number>
+           </property>
+           <property name="topMargin">
+            <number>5</number>
+           </property>
+           <property name="rightMargin">
+            <number>0</number>
+           </property>
+           <property name="bottomMargin">
+            <number>5</number>
+           </property>
+           <item>
+            <spacer name="horizontalSpacer">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item>
+            <widget class="QRadioButton" name="expenses">
+             <property name="minimumSize">
+              <size>
+               <width>92</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <family>Roboto</family>
+               <pointsize>11</pointsize>
+              </font>
+             </property>
+             <property name="cursor">
+              <cursorShape>PointingHandCursor</cursorShape>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">color: rgba(255, 255, 255, 210);</string>
+             </property>
+             <property name="text">
+              <string>Expenses</string>
+             </property>
+             <property name="checked">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QRadioButton" name="income">
+             <property name="minimumSize">
+              <size>
+               <width>92</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <family>Roboto</family>
+               <pointsize>11</pointsize>
+              </font>
+             </property>
+             <property name="cursor">
+              <cursorShape>PointingHandCursor</cursorShape>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">color: rgba(255, 255, 255, 210);</string>
+             </property>
+             <property name="text">
+              <string>Income</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QRadioButton" name="transfer">
+             <property name="minimumSize">
+              <size>
+               <width>92</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <family>Roboto</family>
+               <pointsize>11</pointsize>
+              </font>
+             </property>
+             <property name="cursor">
+              <cursorShape>PointingHandCursor</cursorShape>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">color: rgba(255, 255, 255, 210);</string>
+             </property>
+             <property name="text">
+              <string>Transfer</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <spacer name="horizontalSpacer_2">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+          </layout>
+         </widget>
         </item>
         <item>
          <layout class="QHBoxLayout" name="horizontalLayout">
@@ -380,6 +461,9 @@ QToolButton
         </item>
         <item>
          <layout class="QHBoxLayout" name="horizontalLayout_4">
+          <property name="spacing">
+           <number>20</number>
+          </property>
           <item>
            <widget class="MaterialOutlinedDateEdit" name="date">
             <property name="minimumSize">
@@ -427,122 +511,179 @@ QToolButton
          </layout>
         </item>
         <item>
-         <layout class="QHBoxLayout" name="horizontalLayout_5">
-          <property name="spacing">
+         <layout class="QGridLayout" name="gridLayout_2">
+          <property name="topMargin">
+           <number>10</number>
+          </property>
+          <property name="bottomMargin">
+           <number>0</number>
+          </property>
+          <property name="horizontalSpacing">
            <number>30</number>
           </property>
-          <item>
-           <spacer name="horizontalSpacer_3">
-            <property name="orientation">
-             <enum>Qt::Horizontal</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
+          <property name="verticalSpacing">
+           <number>0</number>
+          </property>
+          <item row="1" column="0" colspan="3">
+           <widget class="MaterialOutlinedLineEdit" name="notes">
+            <property name="minimumSize">
              <size>
-              <width>40</width>
-              <height>20</height>
+              <width>0</width>
+              <height>67</height>
              </size>
             </property>
-           </spacer>
-          </item>
-          <item>
-           <widget class="QRadioButton" name="card">
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>67</height>
+             </size>
+            </property>
             <property name="font">
              <font>
               <family>Roboto</family>
               <pointsize>11</pointsize>
              </font>
             </property>
-            <property name="cursor">
-             <cursorShape>PointingHandCursor</cursorShape>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">color: rgba(255, 255, 255, 210);</string>
-            </property>
-            <property name="text">
-             <string>Credit Card</string>
-            </property>
            </widget>
           </item>
-          <item>
-           <widget class="QRadioButton" name="cash">
-            <property name="font">
-             <font>
-              <family>Roboto</family>
-              <pointsize>11</pointsize>
-             </font>
-            </property>
-            <property name="cursor">
-             <cursorShape>PointingHandCursor</cursorShape>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">color: rgba(255, 255, 255, 210);</string>
-            </property>
-            <property name="text">
-             <string>Cash</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QRadioButton" name="money_transfer">
-            <property name="font">
-             <font>
-              <family>Roboto</family>
-              <pointsize>11</pointsize>
-             </font>
-            </property>
-            <property name="cursor">
-             <cursorShape>PointingHandCursor</cursorShape>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">color: rgba(255, 255, 255, 210);</string>
-            </property>
-            <property name="text">
-             <string>Money Transfer</string>
-            </property>
-            <property name="iconSize">
+          <item row="0" column="0" colspan="3">
+           <widget class="QWidget" name="widget_2" native="true">
+            <property name="minimumSize">
              <size>
-              <width>22</width>
-              <height>22</height>
+              <width>20</width>
+              <height>32</height>
              </size>
             </property>
+            <layout class="QHBoxLayout" name="horizontalLayout_6">
+             <property name="spacing">
+              <number>30</number>
+             </property>
+             <property name="leftMargin">
+              <number>0</number>
+             </property>
+             <property name="topMargin">
+              <number>2</number>
+             </property>
+             <property name="rightMargin">
+              <number>0</number>
+             </property>
+             <property name="bottomMargin">
+              <number>0</number>
+             </property>
+             <item>
+              <spacer name="horizontalSpacer_3">
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>40</width>
+                 <height>20</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+             <item>
+              <widget class="QRadioButton" name="card">
+               <property name="minimumSize">
+                <size>
+                 <width>92</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <property name="font">
+                <font>
+                 <family>Roboto</family>
+                 <pointsize>11</pointsize>
+                </font>
+               </property>
+               <property name="cursor">
+                <cursorShape>PointingHandCursor</cursorShape>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">color: rgba(255, 255, 255, 210);</string>
+               </property>
+               <property name="text">
+                <string>Card</string>
+               </property>
+               <property name="checked">
+                <bool>true</bool>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QRadioButton" name="cash">
+               <property name="minimumSize">
+                <size>
+                 <width>92</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <property name="font">
+                <font>
+                 <family>Roboto</family>
+                 <pointsize>11</pointsize>
+                </font>
+               </property>
+               <property name="cursor">
+                <cursorShape>PointingHandCursor</cursorShape>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">color: rgba(255, 255, 255, 210);</string>
+               </property>
+               <property name="text">
+                <string>Cash</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QRadioButton" name="money_transfer">
+               <property name="minimumSize">
+                <size>
+                 <width>92</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <property name="font">
+                <font>
+                 <family>Roboto</family>
+                 <pointsize>11</pointsize>
+                </font>
+               </property>
+               <property name="cursor">
+                <cursorShape>PointingHandCursor</cursorShape>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">color: rgba(255, 255, 255, 210);</string>
+               </property>
+               <property name="text">
+                <string>Transfer</string>
+               </property>
+               <property name="iconSize">
+                <size>
+                 <width>22</width>
+                 <height>22</height>
+                </size>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <spacer name="horizontalSpacer_4">
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>40</width>
+                 <height>20</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+            </layout>
            </widget>
-          </item>
-          <item>
-           <spacer name="horizontalSpacer_4">
-            <property name="orientation">
-             <enum>Qt::Horizontal</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>40</width>
-              <height>20</height>
-             </size>
-            </property>
-           </spacer>
           </item>
          </layout>
-        </item>
-        <item>
-         <widget class="MaterialOutlinedLineEdit" name="notes">
-          <property name="minimumSize">
-           <size>
-            <width>0</width>
-            <height>67</height>
-           </size>
-          </property>
-          <property name="maximumSize">
-           <size>
-            <width>16777215</width>
-            <height>67</height>
-           </size>
-          </property>
-          <property name="font">
-           <font>
-            <family>Roboto</family>
-            <pointsize>11</pointsize>
-           </font>
-          </property>
-         </widget>
         </item>
        </layout>
       </item>
@@ -563,6 +704,19 @@ QToolButton
    <header>view.widgets.material_outlined_date_edit.h</header>
   </customwidget>
  </customwidgets>
+ <tabstops>
+  <tabstop>expenses</tabstop>
+  <tabstop>income</tabstop>
+  <tabstop>transfer</tabstop>
+  <tabstop>category</tabstop>
+  <tabstop>name</tabstop>
+  <tabstop>date</tabstop>
+  <tabstop>amount</tabstop>
+  <tabstop>card</tabstop>
+  <tabstop>cash</tabstop>
+  <tabstop>money_transfer</tabstop>
+  <tabstop>notes</tabstop>
+ </tabstops>
  <resources>
   <include location="../resources/resources.qrc"/>
  </resources>
