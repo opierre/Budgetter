@@ -1,7 +1,9 @@
-from budgetter.view.skeletons.MainWindow import Ui_MainWindow
+from PySide6.QtCore import QThreadPool
+
 from budgetter.view.panels.graphs import Graphs
-from budgetter.view.panels.menu_view import Menu
 from budgetter.view.panels.home import Home
+from budgetter.view.panels.menu_view import Menu
+from budgetter.view.skeletons.MainWindow import Ui_MainWindow
 from budgetter.view.widgets.custom_window import CustomWindow
 
 
@@ -11,11 +13,13 @@ class Controller:
     """
 
     def __init__(self):
-
         # Create MainWindow
         self.main_window = CustomWindow()
         self.gui = Ui_MainWindow()
         self.gui.setupUi(self.main_window)
+
+        # Store thread pool
+        self.thread_pool = QThreadPool()
 
         # # Store effects
         # self.effectAccounts = QGraphicsDropShadowEffect()

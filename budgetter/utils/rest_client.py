@@ -42,6 +42,9 @@ class RestClient:
     Rest Client API
     """
 
+    # Store session
+    # session = requests.Session()
+
     @staticmethod
     def post(url, data):
         """
@@ -57,8 +60,7 @@ class RestClient:
 
         # Handle error case
         if response.status_code != 201:
-            raise Exception('[ERROR] GET {response.url} return code: {response.status_code}'
-                            '\ndata: {response.json}'.format(response=response))
+            raise BackEndError(response)
 
         return response.json()
 
@@ -76,8 +78,7 @@ class RestClient:
 
         # Handle error case
         if response.status_code != 200:
-            raise Exception('[ERROR] POST {response.url} return code: {response.status_code}'
-                            '\ndata: {response.json}'.format(response=response))
+            raise BackEndError(response)
 
         return response.json()
 
@@ -95,7 +96,19 @@ class RestClient:
 
         # Handle error case
         if response.status_code != 200:
-            raise Exception('[ERROR] DELETE {response.url} return code: {response.status_code}'
-                            '\ndata: {response.json}'.format(response=response))
+            raise BackEndError(response)
 
         return response.json()
+
+
+class BackEndError(Exception):
+    """
+    Exception for handling back end errors from server
+    """
+
+    def __init__(self, response: requests.Response):
+        self.status_code = response.status_code
+        self.error_msg = f"Backend server return status code {self.status_code} for current access: {response.url}"
+
+    def __str__(self):
+        return self.error_msg
