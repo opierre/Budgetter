@@ -1,4 +1,4 @@
-from PySide6.QtCore import QThreadPool
+from PySide6.QtCore import QThreadPool, QTimer
 
 from budgetter.services.dashboard import Dashboard
 from budgetter.view.panels.graphs import Graphs
@@ -89,3 +89,6 @@ class Controller:
         # Connect dashboard threads results to display
         self.home_threads.errorDashboard.connect(self.home_panel.handle_error)
         self.home_threads.accountAdded.connect(self.home_panel.handle_add_account)
+        self.home_threads.banksFound.connect(self.home_panel.handle_get_banks)
+
+        QTimer.singleShot(1000, self.home_threads.get_banks_worker)

@@ -11,27 +11,43 @@ class Dashboard(QObject):
 
     # URLs List
     ACCOUNT_URL = "http://127.0.0.1:8080/api/budget/account/"
+    BANK_URL = "http://127.0.0.1:8080/api/budget/bank/"
 
     # Signals list
     errorDashboard = Signal(tuple)
     accountAdded = Signal(object)
+    banksFound = Signal(object)
 
-    def add_account_worker(self, name: str, amount: str, bank: str, date: str):
+    def get_banks_worker(self):
+        """
+        Retrieve all banks via worker call
+
+        :return: None
+        """
+
+        # Create worker
+        worker = Worker(RestClient.get, url=self.BANK_URL)
+        worker.signals.result.connect(self.banksFound.emit)
+        worker.signals.error.connect(self.errorDashboard.emit)
+
+        # Start worker
+        worker.run()
+
+    def add_account_worker(self, name: str, amount: str, bank_id: int):
         """
         Add account via worker call
 
         :param name: account name
         :param amount: account amount
-        :param bank: account bank
-        :param date: date corresponding to account amount
+        :param bank_id: account bank identifier in database
         :return: None
         """
 
         # Build data
         data = {
             "name": name,
-            "bank": 1,
-            "amount": float(amount)
+            "bank": bank_id,
+            "amount": float(amount.replace(',', '.'))
         }
 
         # Create worker

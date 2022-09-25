@@ -1,4 +1,4 @@
-from PySide6.QtCore import QStringListModel, QTimer, Signal
+from PySide6.QtCore import QTimer, Signal, QStringListModel
 from PySide6.QtGui import QColor, QDoubleValidator, Qt
 from PySide6.QtWidgets import QWidget, QCompleter
 
@@ -11,15 +11,18 @@ class AddAccountDialog(QWidget):
     Add account dialog content
     """
 
-    # Signal emitted to add new account with name, amount, amount date, bank
-    addAccount = Signal(str, str, str, str)
+    # Signal emitted to add new account with name, amount, bank identifier
+    addAccount = Signal(str, str, int)
 
-    def __init__(self, parent=None):
+    def __init__(self, bank_ids: dict, parent=None):
         super().__init__(parent)
 
         # Store dialog content
         self.content = Ui_AddAccount()
         self.content.setupUi(self)
+
+        # Store bank identifiers
+        self.bank_ids = bank_ids
 
         # Store completer for bank choices
         self.bank_completer = QCompleter(self.content.account_bank)
@@ -59,7 +62,7 @@ class AddAccountDialog(QWidget):
         self.content.account_bank.set_label_background_color(QColor("#1C293B"))
         self.content.account_bank.set_text_color(QColor(255, 255, 255, 255))
         self.content.account_bank.set_label_color(QColor(224, 224, 224, 150))
-        self.bank_completer.setModel(QStringListModel(['Crédit Agricole', 'Caisse d\'Epargne']))
+        self.bank_completer.setModel(QStringListModel(self.bank_ids.keys()))
         self.bank_completer.setCaseSensitivity(Qt.CaseInsensitive)
         self.bank_completer.setCompletionMode(QCompleter.InlineCompletion)
         self.content.account_bank.setCompleter(self.bank_completer)
@@ -81,8 +84,14 @@ class AddAccountDialog(QWidget):
                 account_amount != '' and \
                 account_amount_date != '' and \
                 account_bank != '':
+            # Find corresponding bank identifier
+            bank_id = self.bank_ids.get(account_bank, None)
+            if bank_id is None:
+                print('Error in bank id')
+                return
+
             # Emit signal to close popup and add new account
-            self.addAccount.emit(account_name, account_amount, account_amount_date, account_bank)
+            self.addAccount.emit(account_name, account_amount, bank_id)
             return
 
         if account_name == '':

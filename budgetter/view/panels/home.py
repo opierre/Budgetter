@@ -15,7 +15,7 @@ class Home(QObject):
     """
 
     # Signals list
-    addAccountController = Signal(str, str, str, str)
+    addAccountController = Signal(str, str, int)
 
     def __init__(self, parent, gui):
         super().__init__()
@@ -73,10 +73,20 @@ class Home(QObject):
 
     def handle_add_account(self, result):
         """
-        Handle error from API call
+        Handle add account result from API call
 
         :param error: tuple with exception type, value returned and traceback
         :return: None
         """
 
         print(result)
+
+    def handle_get_banks(self, bank_list: list):
+        """
+        Handle banks retrieved from API call
+
+        :param bank_list: list with all banks
+        :return: None
+        """
+
+        self._accounts.set_banks(bank_list)

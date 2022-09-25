@@ -15,7 +15,7 @@ class Accounts(QObject):
     """
 
     # Signals list
-    addAccountCall = Signal(str, str, str, str)
+    addAccountCall = Signal(str, str, int)
 
     def __init__(self, gui, main_window):
         super().__init__()
@@ -29,6 +29,9 @@ class Accounts(QObject):
 
         # ListView to display all accounts
         self.accounts_list = QListView()
+
+        # Store bank identifiers
+        self.bank_identifiers = {}
 
         # Model to handle data in accounts list
         self.accounts_model = AccountsModel([["Caisse d'Epargne",
@@ -108,6 +111,17 @@ class Accounts(QObject):
 
         self.ui_setup.accounts.setWidget(widget)
 
+    def set_banks(self, banks: list):
+        """
+        Store banks for popups
+
+        :param banks: banks to set
+        :return: None
+        """
+
+        for bank in banks:
+            self.bank_identifiers[bank.get('name')] = bank.get('id')
+
     def add_account(self):
         """
         Open dialog to add new account
@@ -116,7 +130,7 @@ class Accounts(QObject):
         """
 
         # Set dialog content
-        dialog_content = AddAccountDialog(self.main_window)
+        dialog_content = AddAccountDialog(self.bank_identifiers, self.main_window)
 
         # Set icon
         header_icon = QIcon()
