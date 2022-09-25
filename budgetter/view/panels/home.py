@@ -1,4 +1,6 @@
-from PySide6.QtCore import QObject
+from typing import Any
+
+from PySide6.QtCore import QObject, Signal
 
 from budgetter.view.panels.home_panel.accounts import Accounts
 from budgetter.view.panels.home_panel.distribution import Distribution
@@ -11,6 +13,9 @@ class Home(QObject):
     """
     Home Panel to handle Accounts/Distribution/Transactions
     """
+
+    # Signals list
+    addAccountController = Signal(str, str, str, str)
 
     def __init__(self, parent, gui):
         super().__init__()
@@ -44,7 +49,8 @@ class Home(QObject):
         :return: None
         """
 
-        print('coucou')
+        # Connect signals from accounts
+        self._accounts.addAccountCall.connect(self.addAccountController.emit)
 
     def display_saving_tooltip(self):
         """
@@ -54,3 +60,23 @@ class Home(QObject):
         """
 
         self._savings.display_tooltip()
+
+    def handle_error(self, error: (Exception, Any, str)):
+        """
+        Handle error from API call
+
+        :param error: tuple with exception type, value returned and traceback
+        :return: None
+        """
+
+        print("error: ++++++++++ ", error)
+
+    def handle_add_account(self, result):
+        """
+        Handle error from API call
+
+        :param error: tuple with exception type, value returned and traceback
+        :return: None
+        """
+
+        print(result)

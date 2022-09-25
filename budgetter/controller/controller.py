@@ -1,5 +1,6 @@
 from PySide6.QtCore import QThreadPool
 
+from budgetter.services.dashboard import Dashboard
 from budgetter.view.panels.graphs import Graphs
 from budgetter.view.panels.home import Home
 from budgetter.view.panels.menu_view import Menu
@@ -37,6 +38,9 @@ class Controller:
 
         # Graphs Panel
         self.graphs_panel = Graphs(self.main_window, self.gui)
+
+        # Home threads
+        self.home_threads = Dashboard()
 
         # Connect all signals/slots
         self.connect_slots_and_signals()
@@ -78,3 +82,10 @@ class Controller:
 
         # Connect Custom Windows resize to display callout
         self.main_window.resizeEventSignal.connect(self.home_panel.display_saving_tooltip)
+
+        # Connect home panel signals to worker execution
+        self.home_panel.addAccountController.connect(self.home_threads.add_account_worker)
+
+        # Connect dashboard threads results to display
+        self.home_threads.errorDashboard.connect(self.home_panel.handle_error)
+        self.home_threads.accountAdded.connect(self.home_panel.handle_add_account)

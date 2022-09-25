@@ -1,4 +1,4 @@
-from PySide6.QtCore import QObject, QCoreApplication, QSize
+from PySide6.QtCore import QObject, QCoreApplication, QSize, Signal
 from PySide6.QtGui import QIcon
 from PySide6.QtWidgets import QListView, QWidget, QHBoxLayout
 
@@ -13,6 +13,9 @@ class Accounts(QObject):
     """
     Accounts
     """
+
+    # Signals list
+    addAccountCall = Signal(str, str, str, str)
 
     def __init__(self, gui, main_window):
         super().__init__()
@@ -125,24 +128,10 @@ class Accounts(QObject):
                         self.main_window)
 
         # Connect signal from popup to add new account
-        dialog_content.addAccount.connect(self.add_account_debug)
+        dialog_content.addAccount.connect(self.addAccountCall.emit)
 
         # Connect signal coming from click on Confirm button
         dialog.confirm.connect(dialog_content.check_inputs)
 
         # Set focus on first widget when opening
         dialog_content.content.account_name.setFocus()
-
-    def add_account_debug(self, name: str, amount: str, amount_date: str, bank: str):
-        """
-        Add account in database
-
-        :param name: account name
-        :param amount: account amount
-        :param amount_date: account amount in date
-        :param bank: account bank
-        :return: None
-        """
-
-        # TODO: call REST API
-        print(name, amount, amount_date, bank)
