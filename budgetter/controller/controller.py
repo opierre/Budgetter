@@ -1,4 +1,4 @@
-from PySide6.QtCore import QThreadPool, QTimer
+from PySide6.QtCore import QTimer
 
 from budgetter.services.dashboard import Dashboard
 from budgetter.view.panels.graphs import Graphs
@@ -18,9 +18,6 @@ class Controller:
         self.main_window = CustomWindow()
         self.gui = Ui_MainWindow()
         self.gui.setupUi(self.main_window)
-
-        # Store thread pool
-        self.thread_pool = QThreadPool()
 
         # # Store effects
         # self.effectAccounts = QGraphicsDropShadowEffect()
