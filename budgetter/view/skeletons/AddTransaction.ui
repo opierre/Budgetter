@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>371</width>
+    <width>427</width>
     <height>431</height>
    </rect>
   </property>
@@ -457,6 +457,22 @@ QRadioButton#cash::indicator, QRadioButton#card::indicator, QRadioButton#money_t
             </property>
            </widget>
           </item>
+          <item>
+           <widget class="MaterialOutlinedLineEdit" name="account">
+            <property name="minimumSize">
+             <size>
+              <width>170</width>
+              <height>67</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>67</height>
+             </size>
+            </property>
+           </widget>
+          </item>
          </layout>
         </item>
         <item>
@@ -710,6 +726,7 @@ QRadioButton#cash::indicator, QRadioButton#card::indicator, QRadioButton#money_t
   <tabstop>transfer</tabstop>
   <tabstop>category</tabstop>
   <tabstop>name</tabstop>
+  <tabstop>account</tabstop>
   <tabstop>date</tabstop>
   <tabstop>amount</tabstop>
   <tabstop>card</tabstop>

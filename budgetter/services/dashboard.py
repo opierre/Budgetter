@@ -17,6 +17,7 @@ class Dashboard(QObject):
     errorDashboard = Signal(tuple)
     accountAdded = Signal(object)
     banksFound = Signal(object)
+    accountsFound = Signal(object)
 
     def get_banks_worker(self):
         """
@@ -28,6 +29,21 @@ class Dashboard(QObject):
         # Create worker
         worker = Worker(RestClient.get, url=self.BANK_URL)
         worker.signals.result.connect(self.banksFound.emit)
+        worker.signals.error.connect(self.errorDashboard.emit)
+
+        # Start worker
+        worker.run()
+
+    def get_accounts_worker(self):
+        """
+        Retrieve all accounts via worker call
+
+        :return: None
+        """
+
+        # Create worker
+        worker = Worker(RestClient.get, url=self.ACCOUNT_URL)
+        worker.signals.result.connect(self.accountsFound.emit)
         worker.signals.error.connect(self.errorDashboard.emit)
 
         # Start worker

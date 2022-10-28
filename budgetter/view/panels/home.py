@@ -90,3 +90,13 @@ class Home(QObject):
         """
 
         self._accounts.set_banks(bank_list)
+
+    def handle_get_accounts(self, accounts_list: list):
+        """
+        Handle accounts retrieved from API call
+
+        :param accounts_list: list with all accounts
+        :return: None
+        """
+
+        self._transactions.set_accounts(accounts_list)

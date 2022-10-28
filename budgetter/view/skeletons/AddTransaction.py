@@ -27,7 +27,7 @@ class Ui_AddTransaction(object):
     def setupUi(self, AddTransaction):
         if not AddTransaction.objectName():
             AddTransaction.setObjectName("AddTransaction")
-        AddTransaction.resize(371, 431)
+        AddTransaction.resize(427, 431)
         AddTransaction.setStyleSheet("QWidget#transaction \n"
 "{\n"
 "	background-color: #1C293B;\n"
@@ -300,6 +300,13 @@ class Ui_AddTransaction(object):
         self.name.setFont(font1)
 
         self.horizontalLayout_2.addWidget(self.name)
+
+        self.account = MaterialOutlinedLineEdit(self.transaction)
+        self.account.setObjectName("account")
+        self.account.setMinimumSize(QSize(170, 67))
+        self.account.setMaximumSize(QSize(16777215, 67))
+
+        self.horizontalLayout_2.addWidget(self.account)
 
 
         self.verticalLayout_2.addLayout(self.horizontalLayout_2)

@@ -11,18 +11,22 @@ class AddTransactionDialog(QWidget):
     Add transaction dialog content
     """
 
-    # Signal emitted to add new transaction with type, category, name, amount, amount date, mean, notes
-    addTransaction = Signal(str, str, str, str, str, str, str)
+    # Signal emitted to add new transaction with type, category, name, amount, amount date, mean, notes, account ID
+    addTransaction = Signal(str, str, str, str, str, str, str, int)
 
-    def __init__(self, parent=None):
+    def __init__(self, account_ids: dict, parent=None):
         super().__init__(parent)
 
         # Store dialog content
         self.content = Ui_AddTransaction()
         self.content.setupUi(self)
 
-        # Store completer for bank choices
+        # Store account identifiers
+        self.account_ids = account_ids
+
+        # Store completer for category/account choices
         self.category_completer = QCompleter(self.content.category)
+        self.account_completer = QCompleter(self.content.account)
 
         # Configure widgets
         self.configure()
@@ -70,6 +74,16 @@ class AddTransactionDialog(QWidget):
         self.category_completer.setCompletionMode(QCompleter.InlineCompletion)
         self.content.category.setCompleter(self.category_completer)
 
+        # Configure combobox for account choice
+        self.content.account.set_label('Account')
+        self.content.account.set_label_background_color(QColor("#1C293B"))
+        self.content.account.set_text_color(QColor(255, 255, 255, 255))
+        self.content.account.set_label_color(QColor(224, 224, 224, 150))
+        self.account_completer.setModel(QStringListModel(self.account_ids.keys()))
+        self.account_completer.setCaseSensitivity(Qt.CaseInsensitive)
+        self.account_completer.setCompletionMode(QCompleter.InlineCompletion)
+        self.content.account.setCompleter(self.account_completer)
+
     def check_inputs(self):
         """
         Check every inputs on opened dialog
@@ -82,13 +96,21 @@ class AddTransactionDialog(QWidget):
         amount = self.content.amount.text()
         amount_date = self.content.date.text()
         category = self.content.category.text()
+        account = self.content.account.text()
 
         if name != '' and \
                 amount != '' and \
                 amount_date != '' and \
-                category != '':
+                category != '' and \
+                account != '':
+            # Find corresponding bank identifier
+            account_id = self.account_ids.get(account, None)
+            if account_id is None:
+                print('Error in account id')
+                return
+
             # Emit signal to close popup and add new transaction
-            self.addTransaction.emit(name, amount, amount_date, category)
+            self.addTransaction.emit(name, amount, amount_date, category, account_id)
             return
 
         if name == '':
@@ -99,6 +121,8 @@ class AddTransactionDialog(QWidget):
             self.warn_widget(self.content.date)
         if category == '':
             self.warn_widget(self.content.category)
+        if account == '':
+            self.warn_widget(self.content.account)
 
     @staticmethod
     def warn_widget(widget: QWidget):
