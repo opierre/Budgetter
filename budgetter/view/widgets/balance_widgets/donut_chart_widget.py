@@ -281,4 +281,7 @@ class DonutChart(QWidget):
             self.trend = "UP"
 
         # Compute diff
-        self.percentage = round(abs(previous_month_total_amount - total_amount) / previous_month_total_amount * 100)
+        if previous_month_total_amount == 0:
+            self.percentage = 0
+        else:
+            self.percentage = round(abs(previous_month_total_amount - total_amount) / previous_month_total_amount * 100)

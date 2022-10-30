@@ -47,10 +47,10 @@ class Accounts(QObject):
 
         # DonutChart to display balance distribution
         self.balance_chart = DonutChart()
-        self.balance_chart.add_slice(39)
-        self.balance_chart.add_slice(21)
-        self.balance_chart.add_slice(40)
-        self.balance_chart.set_total_amounts(15307.8, 12157.62)
+        # self.balance_chart.add_slice(39)
+        # self.balance_chart.add_slice(21)
+        # self.balance_chart.add_slice(40)
+        self.balance_chart.set_total_amounts(0, 0)
 
         # Configure layout
         self.configure_layout()
