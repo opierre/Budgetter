@@ -15,7 +15,7 @@ class Accounts(QObject):
     """
 
     # Signals list
-    addAccountCall = Signal(str, str, int)
+    addAccountCall = Signal(str, str, int, str)
 
     def __init__(self, gui, main_window):
         super().__init__()

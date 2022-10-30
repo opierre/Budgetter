@@ -11,8 +11,8 @@ class AddAccountDialog(QWidget):
     Add account dialog content
     """
 
-    # Signal emitted to add new account with name, amount, bank identifier
-    addAccount = Signal(str, str, int)
+    # Signal emitted to add new account with name, amount, bank identifier, date
+    addAccount = Signal(str, str, int, str)
 
     def __init__(self, bank_ids: dict, parent=None):
         super().__init__(parent)
@@ -91,7 +91,7 @@ class AddAccountDialog(QWidget):
                 return
 
             # Emit signal to close popup and add new account
-            self.addAccount.emit(account_name, account_amount, bank_id)
+            self.addAccount.emit(account_name, account_amount, bank_id, account_amount_date)
             return
 
         if account_name == '':

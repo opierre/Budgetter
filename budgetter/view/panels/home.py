@@ -15,7 +15,7 @@ class Home(QObject):
     """
 
     # Signals list
-    addAccountController = Signal(str, str, int)
+    addAccountController = Signal(str, str, int, str)
 
     def __init__(self, parent, gui):
         super().__init__()
