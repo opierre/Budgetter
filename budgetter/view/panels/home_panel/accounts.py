@@ -47,9 +47,6 @@ class Accounts(QObject):
 
         # DonutChart to display balance distribution
         self.balance_chart = DonutChart()
-        # self.balance_chart.add_slice(39)
-        # self.balance_chart.add_slice(21)
-        # self.balance_chart.add_slice(40)
         self.balance_chart.set_total_amounts(0, 0)
 
         # Configure layout
@@ -165,3 +162,7 @@ class Accounts(QObject):
             self.account_identifiers[account.get('name')] = account.get('id')
             # Update model
             self.accounts_model.add_account(account)
+
+            # Update balance widget
+            self.balance_chart.add_slice(float(account.get('amount')),
+                                         account.get('color'))

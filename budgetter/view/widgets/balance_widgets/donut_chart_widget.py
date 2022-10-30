@@ -18,11 +18,8 @@ class DonutChart(QWidget):
         # Store slices
         self._slices = []
 
-        # Store colors
-        self.colors = [QColor("#1CA9E9"), QColor("#0154C8"), QColor("#26C1C9"), QColor("#6658CB")]
-
         # Store total amount
-        self.total_amount = 0
+        self._total_amount = 0
         self.previous_month_total_amount = 0
 
         # Store trend
@@ -37,21 +34,37 @@ class DonutChart(QWidget):
         # Set margins
         self.setContentsMargins(0, 0, 0, 0)
 
-    def add_slice(self, percentage: int):
+    def total_amount(self) -> float:
         """
-        Add slice with percentage value
+        Return total amount on balance
 
-        :param percentage: (int) percentage value
+        :return: total amount
+        """
+
+        return self._total_amount
+
+    def add_slice(self, amount: float, color: QColor):
+        """
+        Add slice with percentage value computed from amount
+
+        :param amount: amount value to add
+        :param color: color for slice
         :return: None
         """
 
-        self._slices.append(percentage)
+        # Update total
+        self._total_amount += amount
 
-    def mousePressEvent(self, eventQMouseEvent: QMouseEvent):
+        # Compute percentage
+        percentage = int(amount * 100 / self._total_amount)
+        self._slices.append({'value': percentage, 'color': color})
+        self.update()
+
+    def mousePressEvent(self, event_qmouse_event: QMouseEvent):
         """
         Override mousePressEvent()
 
-        :param eventQMouseEvent: QMouseEvent
+        :param event_qmouse_event: QMouseEvent
         :return: None
         """
 
@@ -131,7 +144,7 @@ class DonutChart(QWidget):
 
         for current_slice in self._slices:
             # Set span angles
-            span_angle = current_slice * 360 / 100
+            span_angle = current_slice.get('value') * 360 / 100
 
             # Set start angle
             if previous_end_angle == 0:
@@ -145,8 +158,8 @@ class DonutChart(QWidget):
             gradient = QConicalGradient()
             gradient.setCenter(rect_origins.center())
             gradient.setAngle(start_angle)
-            gradient.setColorAt(current_slice / 100, QColor("transparent"))
-            gradient.setColorAt(0, QColor(self.colors[current_index]))
+            gradient.setColorAt(current_slice.get('value') / 100, QColor("transparent"))
+            gradient.setColorAt(0, QColor(current_slice.get('color')))
             pen.setBrush(QBrush(gradient))
             painter.setPen(pen)
 
@@ -156,7 +169,7 @@ class DonutChart(QWidget):
 
             # Re-draw first one in case of last to hide overlapping
             # Set pen color
-            pen.setColor(self.colors[current_index])
+            pen.setColor(current_slice.get('color'))
             painter.setPen(pen)
 
             # Draw arc
@@ -231,7 +244,7 @@ class DonutChart(QWidget):
         painter.setPen(pen)
 
         # Get font metrics
-        total_amount_str = convert_amount_to_str(self.total_amount)
+        total_amount_str = convert_amount_to_str(self._total_amount)
         value = total_amount_str + " €"
         font_metrics = QFontMetrics(font)
         pixels_width = font_metrics.horizontalAdvance(value)
@@ -269,13 +282,13 @@ class DonutChart(QWidget):
         """
 
         # Update values
-        self.total_amount = total_amount
+        self._total_amount = total_amount
         self.previous_month_total_amount = previous_month_total_amount
 
         # Set trend
-        if self.previous_month_total_amount > self.total_amount:
+        if self.previous_month_total_amount > self._total_amount:
             self.trend = "DOWN"
-        elif self.previous_month_total_amount == self.total_amount:
+        elif self.previous_month_total_amount == self._total_amount:
             self.trend = "FLAT"
         else:
             self.trend = "UP"
