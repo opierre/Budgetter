@@ -12,6 +12,9 @@ class AccountsModel(QAbstractListModel):
         # Store accounts
         self.accounts = categories or []
 
+        # Store bank idents/name
+        self.banks = {}
+
     def data(self, index: QModelIndex, role: Qt.ItemDataRole = None):
         """
         Override data() from QAbstractListModel
@@ -40,3 +43,30 @@ class AccountsModel(QAbstractListModel):
         """
 
         return len(self.accounts)
+
+    def add_bank(self, bank: dict):
+        """
+        Add new bank
+
+        :param bank: bank to store
+        :return: None
+        """
+
+        self.banks.update(bank)
+
+    def add_account(self, account: dict):
+        """
+        Add new account to model
+
+        :param account: account details
+        :return: None
+        """
+
+        self.beginInsertRows(QModelIndex(), 0, 1)
+        data = {
+            'bank': self.banks.get(account.get('bank')),
+            'name': account.get('name'),
+            'amount': account.get('amount')
+        }
+        self.accounts.append(data)
+        self.endInsertRows()

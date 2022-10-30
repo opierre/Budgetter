@@ -33,23 +33,27 @@ class Accounts(QObject):
         # Store bank identifiers
         self.bank_identifiers = {}
 
+        # Store dialog for adding account
+        self.dialog = None
+
         # Model to handle data in accounts list
-        self.accounts_model = AccountsModel([["Caisse d'Epargne",
-                                              "Compte Chèque",
-                                              1056.53,
-                                              "UP",
-                                              "#1CA9E9"],
-                                             ["Crédit Agricole",
-                                              "Livret A",
-                                              12050.1,
-                                              "DOWN",
-                                              "#0154C8"],
-                                             ["Caisse d'Epargne",
-                                              "Compte Courant",
-                                              47.93,
-                                              "STILL",
-                                              "#26C1C9"]
-                                             ])
+        self.accounts_model = AccountsModel()
+        # [["Caisse d'Epargne",
+        #   "Compte Chèque",
+        #   1056.53,
+        #   "UP",
+        #   "#1CA9E9"],
+        #  ["Crédit Agricole",
+        #   "Livret A",
+        #   12050.1,
+        #   "DOWN",
+        #   "#0154C8"],
+        #  ["Caisse d'Epargne",
+        #   "Compte Courant",
+        #   47.93,
+        #   "STILL",
+        #   "#26C1C9"]
+        #  ]
 
         self.accounts_list.setModel(self.accounts_model)
         self.accounts_list.setItemDelegate(self.account_delegate)
@@ -121,6 +125,7 @@ class Accounts(QObject):
 
         for bank in banks:
             self.bank_identifiers[bank.get('name')] = bank.get('id')
+            self.accounts_model.add_bank({bank.get('id'): bank.get('name')})
 
     def add_account(self):
         """
@@ -138,14 +143,25 @@ class Accounts(QObject):
                             QSize(24, 24), QIcon.Disabled, QIcon.On)
 
         # Open dialog
-        dialog = Dialog(QCoreApplication.translate("Accounts", 'Add Account'), header_icon, dialog_content,
-                        self.main_window)
+        self.dialog = Dialog(QCoreApplication.translate("Accounts", 'Add Account'), header_icon, dialog_content,
+                             self.main_window)
 
         # Connect signal from popup to add new account
         dialog_content.addAccount.connect(self.addAccountCall.emit)
 
         # Connect signal coming from click on Confirm button
-        dialog.confirm.connect(dialog_content.check_inputs)
+        self.dialog.confirm.connect(dialog_content.check_inputs)
 
         # Set focus on first widget when opening
         dialog_content.content.account_name.setFocus()
+
+    def add_account_details(self, account: dict):
+        """
+        Add account to current view and model and close opened dialog
+
+        :param account: account details
+        :return: None
+        """
+
+        self.accounts_model.add_account(account)
+        self.dialog.close()

@@ -42,11 +42,11 @@ class AccountDelegate(QItemDelegate):
 
         # Get values
         value = index.data(Qt.DisplayRole)
-        bank = value[0]
-        account_name = value[1]
-        amount = convert_amount_to_str(value[2]) + " €"
-        trend = value[3]
-        color = QColor(value[4])
+        bank = value.get('bank')
+        account_name = value.get('name')
+        amount = convert_amount_to_str(value.get('amount')) + " €"
+        trend = value.get('trend', '')
+        color = QColor('red')
 
         # Draw bottom border
         painter.setPen(QPen(QColor("#344457")))
@@ -157,7 +157,7 @@ class AccountDelegate(QItemDelegate):
         elif trend == "DOWN":
             svg_renderer = QSvgRenderer(":/images/images/south_white_18dp.svg")
         else:
-            svg_renderer = QSvgRenderer(":/images/images/south_white_18dp.svg")
+            svg_renderer = QSvgRenderer(":/images/images/arrow_right_alt_FILL0_wght400_GRAD0_opsz48.svg")
         svg_renderer.render(painter, rect_svg)
 
         # Set font on painter for balance label

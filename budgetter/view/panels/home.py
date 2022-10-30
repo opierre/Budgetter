@@ -71,15 +71,16 @@ class Home(QObject):
 
         print("error: ++++++++++ ", error)
 
-    def handle_add_account(self, result):
+    def handle_add_account(self, account: dict):
         """
         Handle add account result from API call
 
-        :param error: tuple with exception type, value returned and traceback
+        :param account: account details
         :return: None
         """
 
-        print(result)
+        # Add account to model and close popup
+        self._accounts.add_account_details(account)
 
     def handle_get_banks(self, bank_list: list):
         """

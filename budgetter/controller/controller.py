@@ -47,7 +47,7 @@ class Controller:
 
     # def configureGraphicalEffects(self):
     #     """
-    #     Apply all grpahical effects to main widgets
+    #     Apply all graphical effects to main widgets
     #     :return: None
     #     """
     #
