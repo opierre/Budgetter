@@ -41,22 +41,6 @@ class Accounts(QObject):
 
         # Model to handle data in accounts list
         self.accounts_model = AccountsModel()
-        # [["Caisse d'Epargne",
-        #   "Compte Chèque",
-        #   1056.53,
-        #   "UP",
-        #   "#1CA9E9"],
-        #  ["Crédit Agricole",
-        #   "Livret A",
-        #   12050.1,
-        #   "DOWN",
-        #   "#0154C8"],
-        #  ["Caisse d'Epargne",
-        #   "Compte Courant",
-        #   47.93,
-        #   "STILL",
-        #   "#26C1C9"]
-        #  ]
 
         self.accounts_list.setModel(self.accounts_model)
         self.accounts_list.setItemDelegate(self.account_delegate)
@@ -128,14 +112,7 @@ class Accounts(QObject):
 
         for bank in banks:
             self.bank_identifiers[bank.get('name')] = bank.get('id')
-            self.accounts_model.add_bank(
-                {
-                    bank.get('id'):
-                        {
-                            'name': bank.get('name'),
-                            'color': bank.get('color')
-                        }
-                })
+            self.accounts_model.add_bank({bank.get('id'): bank.get('name')})
 
     def add_account(self):
         """
