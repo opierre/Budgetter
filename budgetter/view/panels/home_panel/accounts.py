@@ -128,7 +128,14 @@ class Accounts(QObject):
 
         for bank in banks:
             self.bank_identifiers[bank.get('name')] = bank.get('id')
-            self.accounts_model.add_bank({bank.get('id'): bank.get('name')})
+            self.accounts_model.add_bank(
+                {
+                    bank.get('id'):
+                        {
+                            'name': bank.get('name'),
+                            'color': bank.get('color')
+                        }
+                })
 
     def add_account(self):
         """

@@ -1,3 +1,5 @@
+import os.path
+
 from PySide6.QtCore import QSize, Qt, QRect, QRectF, QModelIndex, QCoreApplication
 from PySide6.QtGui import QPen, QColor, QPainter, QFont, QFontMetrics
 from PySide6.QtSvg import QSvgRenderer
@@ -46,7 +48,7 @@ class AccountDelegate(QItemDelegate):
         account_name = value.get('name')
         amount = convert_amount_to_str(value.get('amount')) + " €"
         trend = value.get('trend', '')
-        color = QColor('red')
+        color = QColor(value.get('color', '#ffffff'))
 
         # Draw bottom border
         painter.setPen(QPen(QColor("#344457")))
@@ -83,12 +85,9 @@ class AccountDelegate(QItemDelegate):
         rect_svg = QRect(rect_icon.x(), rect_icon.y() + 5, rect_icon.width(), rect_icon.height() - 10)
         painter.drawRect(rect_svg)
 
-        if bank.lower() == "Caisse d'Epargne".lower():
-            svg_render = QSvgRenderer(":/images/images/Caisse_depargne_Logo_bank.svg")
-        elif bank.lower() == "Crédit Agricole".lower():
-            svg_render = QSvgRenderer(":/images/images/Crédit_Agricole _bank.svg")
-        else:
-            svg_render = QSvgRenderer(":/images/images/Caisse_depargne_Logo_bank.svg")
+        bank_logo_path = os.path.join(os.path.dirname(__file__), '..', '..', 'resources', 'bank_logo',
+                                      bank.lower().replace(' ', '_') + "_logo.svg")
+        svg_render = QSvgRenderer(bank_logo_path)
         svg_render.setAspectRatioMode(Qt.KeepAspectRatio)
         svg_render.render(painter, rect_svg)
 

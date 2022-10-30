@@ -64,9 +64,10 @@ class AccountsModel(QAbstractListModel):
 
         self.beginInsertRows(QModelIndex(), 0, 1)
         data = {
-            'bank': self.banks.get(account.get('bank')),
+            'bank': self.banks.get(account.get('bank')).get('name'),
             'name': account.get('name'),
-            'amount': account.get('amount')
+            'amount': account.get('amount'),
+            'color': self.banks.get(account.get('bank')).get('color')
         }
         self.accounts.append(data)
         self.endInsertRows()
