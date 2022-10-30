@@ -33,6 +33,9 @@ class Accounts(QObject):
         # Store bank identifiers
         self.bank_identifiers = {}
 
+        # Store accounts identifiers
+        self.account_identifiers = {}
+
         # Store dialog for adding account
         self.dialog = None
 
@@ -165,3 +168,16 @@ class Accounts(QObject):
 
         self.accounts_model.add_account(account)
         self.dialog.close()
+
+    def set_accounts(self, accounts: list):
+        """
+        Store accounts for popups
+
+        :param accounts: accounts to set
+        :return: None
+        """
+
+        for account in accounts:
+            self.account_identifiers[account.get('name')] = account.get('id')
+            # Update model
+            self.accounts_model.add_account(account)

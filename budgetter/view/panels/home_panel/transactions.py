@@ -21,9 +21,6 @@ class Transactions(QObject):
         self.ui_setup = gui
         self.main_window = parent
 
-        # Store bank identifiers
-        self.account_identifiers = {}
-
         # Store custom/classic status bar
         self.custom_status_bar = StatusBar()
         self.status_bar = QStatusBar()
@@ -488,14 +485,3 @@ class Transactions(QObject):
         self.account2.style().polish(self.account2)
         self.account3.style().unpolish(self.account3)
         self.account3.style().polish(self.account3)
-
-    def set_accounts(self, accounts: list):
-        """
-        Store accounts for popups
-
-        :param accounts: accounts to set
-        :return: None
-        """
-
-        for account in accounts:
-            self.account_identifiers[account.get('name')] = account.get('id')

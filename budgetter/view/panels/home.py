@@ -100,4 +100,4 @@ class Home(QObject):
         :return: None
         """
 
-        self._transactions.set_accounts(accounts_list)
+        self._accounts.set_accounts(accounts_list)
