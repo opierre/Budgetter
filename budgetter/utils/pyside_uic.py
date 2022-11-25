@@ -14,14 +14,14 @@ if __name__ == '__main__':
     absolute_path = os.path.join(os.path.dirname(__file__), '..', 'view', 'skeletons')
 
     # Build list with all UI files to convert
-    ui_files = ["MainWindow", "Options", "Dialog", "Account", "AddAccount", "AddTransaction"]
+    ui_files = [file for file in os.listdir(absolute_path) if file.endswith('.ui')]
 
     for ui_file in ui_files:
         # UI file
-        file_to_convert = os.path.join(absolute_path, ui_file + ".ui")
+        file_to_convert = os.path.join(absolute_path, ui_file)
 
         # PY file
-        file_converted = os.path.join(absolute_path, ui_file + ".py")
+        file_converted = os.path.join(absolute_path, ui_file[:-3] + ".py")
 
         # Build cmd line
         cmd_line = ["pyside6-uic.exe", file_to_convert, "-g", "python", "-o", file_converted]

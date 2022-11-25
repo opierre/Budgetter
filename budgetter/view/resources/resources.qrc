@@ -39,6 +39,7 @@
   <qresource prefix="images">
     <file>images/arrow_right_alt_FILL0_wght400_GRAD0_opsz48.svg</file>
     <file>images/arrow_drop_up_white_18dp_hover.svg</file>
+    <file alias="success">images/done_all_FILL0_wght500_GRAD0_opsz48.svg</file>
     <file>images/arrow_drop_down_white_18dp_hover.svg</file>
     <file>images/radio_button_unchecked_FILL0_wght400_GRAD0_opsz48_transfer.svg</file>
     <file>images/account_balance_wallet_FILL1_wght400_GRAD0_opsz48.svg</file>
