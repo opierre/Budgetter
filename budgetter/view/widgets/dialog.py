@@ -18,8 +18,8 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 # THE SOFTWARE.
 from PySide6.QtCore import QParallelAnimationGroup, QPropertyAnimation, QRect, QObject, QEvent, Signal, Qt
-from PySide6.QtGui import QColor, QKeySequence, QShortcut, QIcon
-from PySide6.QtWidgets import QWidget, QGraphicsDropShadowEffect, QGraphicsOpacityEffect
+from PySide6.QtGui import QKeySequence, QShortcut, QIcon
+from PySide6.QtWidgets import QWidget, QGraphicsOpacityEffect
 
 from budgetter.view.skeletons.Dialog import Ui_Dialog
 from budgetter.view.widgets.overlay import Overlay
@@ -43,14 +43,13 @@ class Dialog(QWidget):
         self._dialog.setupUi(self)
 
         # Store shortcuts
-        self.escape_shortcut = QShortcut(QKeySequence(Qt.Key_Escape), self)
-        self.confirm_shortcut = QShortcut(QKeySequence(Qt.CTRL | Qt.Key_Return), self)
+        self.escape_shortcut = QShortcut(QKeySequence(Qt.Key_Escape), self, self.close)
+        self.confirm_shortcut = QShortcut(QKeySequence(Qt.CTRL | Qt.Key_Return), self, self.confirm.emit)
 
         # Store overlay
         self.overlay = Overlay(parent)
 
         # Store effects: drop shadow + opacity effect
-        self.drop_shadow = QGraphicsDropShadowEffect()
         self.opacity = QGraphicsOpacityEffect(opacity=0)
 
         # Store animation group for parallel effects
@@ -78,10 +77,6 @@ class Dialog(QWidget):
         # Connect click on confirm to emit signal
         self._dialog.confirm.clicked.connect(self.confirm.emit)  # pylint: disable=no-member
 
-        # Connect escape to close current dialog/enter to confirm dialog
-        self.escape_shortcut.activated.connect(self.close)  # pylint: disable=no-member
-        self.confirm_shortcut.activated.connect(self.confirm.emit)  # pylint: disable=no-member
-
     def configure_widgets(self, dialog_title: str, header_icon: QIcon, central_widget: QWidget):
         """
         Configure title, central widget and animations
@@ -100,17 +95,14 @@ class Dialog(QWidget):
 
         # Configure animations - Geometry and opacity
         geometry_animation = QPropertyAnimation(self, b'geometry')
-        geometry_animation.setDuration(500)
+        geometry_animation.setDuration(200)
         self.parallel_animation_group.addAnimation(geometry_animation)
 
         opacity_animation = QPropertyAnimation(self, b'opacity')
         opacity_animation.setStartValue(0)
         opacity_animation.setEndValue(1)
-        opacity_animation.setDuration(500)
+        opacity_animation.setDuration(200)
         self.parallel_animation_group.addAnimation(opacity_animation)
-
-        # Set initial opacity effect
-        self.setGraphicsEffect(self.opacity)
 
         # Set central widget
         self._dialog.central_widget.layout().setContentsMargins(0, 0, 0, 0)
@@ -141,13 +133,10 @@ class Dialog(QWidget):
 
         # Update geometry animation coordinates for y
         start_animation_rect = QRect(end_rect.x(),
-                                     end_rect.y() - end_rect.height() * 3.0,
+                                     end_rect.y() - end_rect.height() / 3.0,
                                      end_rect.width(),
                                      end_rect.height())
-        # end_animation_rect = QRect(self.parent().rect().center().x() - geometry.width() / 2,
-        #                           self.parent().rect().center().y() - geometry.height() / 2,
-        #                           geometry.width(),
-        #                           geometry.height())
+
         self.parallel_animation_group.animationAt(0).setStartValue(start_animation_rect)
         self.parallel_animation_group.animationAt(0).setEndValue(end_rect)
 
@@ -155,33 +144,6 @@ class Dialog(QWidget):
         super().show()
 
         # Start parallel animation
-        self.parallel_animation_group.finished.connect(self.show_drop_shadow)  # pylint: disable=no-member
-        self.parallel_animation_group.start()
-
-    def show_drop_shadow(self):
-        """
-        Show drop shadow when animation completed and start new animation to appear
-
-        :return: None
-        """
-
-        # Configure drop shadow effect
-        self.drop_shadow.setBlurRadius(64)
-        self.drop_shadow.setOffset(0, 13)
-
-        # Configure animation on color for drop shadow to get smooth
-        drop_shadow_animation = QPropertyAnimation(self.drop_shadow, b'color')
-        drop_shadow_animation.setKeyValueAt(0, QColor(0, 0, 0, 0))
-        drop_shadow_animation.setKeyValueAt(1, QColor(19, 32, 43, 200))
-        drop_shadow_animation.setDuration(100)
-
-        # Set drop shadow effect on dialog
-        self.setGraphicsEffect(self.drop_shadow)
-
-        # Add new animation to parallel group after clearing
-        self.parallel_animation_group.clear()
-        self.parallel_animation_group.addAnimation(drop_shadow_animation)
-        self.parallel_animation_group.finished.disconnect(self.show_drop_shadow)  # pylint: disable=no-member
         self.parallel_animation_group.start()
 
     def close(self) -> bool:
@@ -227,11 +189,6 @@ class Dialog(QWidget):
         # Reset opacity to full and drop shadow visible
         self.opacity = QGraphicsOpacityEffect(opacity=1)
         self.setGraphicsEffect(self.opacity)
-        self.drop_shadow = QGraphicsDropShadowEffect()
-        self.drop_shadow.setColor(QColor(19, 32, 43, 200))
-        self.drop_shadow.setBlurRadius(64)
-        self.drop_shadow.setOffset(0, 13)
-        self.setGraphicsEffect(self.drop_shadow)
 
         # Update geometry
         dialog_geometry = self.geometry()

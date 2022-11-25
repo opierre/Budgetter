@@ -33,7 +33,7 @@ class Overlay(QWidget):
 
         # Set border and background color
         pen_color = QColor("#303030")
-        fill_color = QColor(48, 48, 48, 80)
+        fill_color = QColor(48, 48, 48, 180)
 
         # Set painter
         painter = QPainter()
