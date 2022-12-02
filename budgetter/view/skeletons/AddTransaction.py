@@ -21,7 +21,7 @@ from PySide6.QtWidgets import (QApplication, QGridLayout, QHBoxLayout, QLabel,
 
 from budgetter.view.widgets.material_outlined_date_edit import MaterialOutlinedDateEdit
 from budgetter.view.widgets.material_outlined_line_edit import MaterialOutlinedLineEdit
-import resources_rc
+from budgetter.view.resources import resources_rc
 
 class Ui_AddTransaction(object):
     def setupUi(self, AddTransaction):

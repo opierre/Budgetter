@@ -20,7 +20,7 @@ from PySide6.QtWidgets import (QApplication, QComboBox, QGridLayout, QHBoxLayout
     QWidget)
 
 from budgetter.view.widgets.line_edit_with_icon import LineEditWithIcon
-import resources_rc
+from budgetter.view.resources import resources_rc
 
 class Ui_Options(object):
     def setupUi(self, Options):

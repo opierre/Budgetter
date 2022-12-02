@@ -25,7 +25,7 @@ from PySide6.QtWidgets import (QAbstractSpinBox, QApplication, QCheckBox, QCombo
 from budgetter.view.widgets.animated_button import AnimatedButton
 from budgetter.view.widgets.container import Container
 from budgetter.view.widgets.sliding_stacked_widget import SlidingStackedWidget
-import resources_rc
+from budgetter.view.resources import resources_rc
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):

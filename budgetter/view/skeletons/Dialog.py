@@ -20,7 +20,7 @@ from PySide6.QtWidgets import (QApplication, QGridLayout, QHBoxLayout, QLabel,
     QWidget)
 
 from budgetter.view.widgets.flat_button import FlatButton
-import resources_rc
+from budgetter.view.resources import resources_rc
 
 class Ui_Dialog(object):
     def setupUi(self, Dialog):

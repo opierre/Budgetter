@@ -6,6 +6,7 @@ if __name__ == '__main__':
     # Store strings to convert
     strings_to_convert = {
         "from view": "from budgetter.view",
+        "import resources_rc": "from budgetter.view.resources import resources_rc",
         "(u\"": "(\"",
         ", u\"": ", \""
     }

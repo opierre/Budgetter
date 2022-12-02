@@ -7,6 +7,7 @@ from budgetter.view.widgets.balance_widgets.account_delegate import AccountDeleg
 from budgetter.view.widgets.balance_widgets.donut_chart_widget import DonutChart
 from budgetter.view.widgets.dialog import Dialog
 from budgetter.view.widgets.dialog_widgets.add_account import AddAccountDialog
+from budgetter.view.widgets.toaster.toaster import Toaster, ToasterType
 
 
 class Accounts(QObject):
@@ -149,6 +150,7 @@ class Accounts(QObject):
 
         self.accounts_model.add_account(account)
         self.dialog.close()
+        toaster = Toaster("Account added", ToasterType.SUCCESS, self.main_window)
 
     def set_accounts(self, accounts: list):
         """

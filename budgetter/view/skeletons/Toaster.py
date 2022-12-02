@@ -17,13 +17,13 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QApplication, QHBoxLayout, QLabel, QSizePolicy,
     QToolButton, QWidget)
-import resources_rc
+from budgetter.view.resources import resources_rc
 
 class Ui_Notification(object):
     def setupUi(self, Notification):
         if not Notification.objectName():
             Notification.setObjectName("Notification")
-        Notification.resize(329, 68)
+        Notification.resize(319, 68)
         Notification.setMinimumSize(QSize(0, 0))
         Notification.setMaximumSize(QSize(16777215, 16777215))
         Notification.setStyleSheet("QWidget#content\n"
@@ -74,14 +74,14 @@ class Ui_Notification(object):
         self.horizontalLayout_2 = QHBoxLayout(self.content)
         self.horizontalLayout_2.setSpacing(5)
         self.horizontalLayout_2.setObjectName("horizontalLayout_2")
-        self.horizontalLayout_2.setContentsMargins(20, 0, 40, 9)
+        self.horizontalLayout_2.setContentsMargins(10, 0, 40, 9)
         self.icon = QToolButton(self.content)
         self.icon.setObjectName("icon")
         self.icon.setEnabled(False)
         self.icon.setMinimumSize(QSize(50, 50))
         self.icon.setMaximumSize(QSize(50, 50))
         icon1 = QIcon()
-        icon1.addFile(":/images/images/done_all_FILL0_wght500_GRAD0_opsz48.svg", QSize(), QIcon.Disabled, QIcon.Off)
+        icon1.addFile(":/images/success", QSize(), QIcon.Disabled, QIcon.Off)
         self.icon.setIcon(icon1)
         self.icon.setIconSize(QSize(32, 32))
 
