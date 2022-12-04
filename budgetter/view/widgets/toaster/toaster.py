@@ -1,6 +1,6 @@
 import enum
 
-from PySide6.QtCore import QSize, QRect, QPropertyAnimation, QEasingCurve
+from PySide6.QtCore import QSize, QRect, QPropertyAnimation, QEasingCurve, QTimer, QAbstractAnimation
 from PySide6.QtGui import QIcon
 from PySide6.QtWidgets import QWidget
 
@@ -97,7 +97,7 @@ class Toaster(QWidget):
         self.toast.icon.setIcon(icon)
 
         # Configure animation
-        self._animation.setDuration(200)
+        self._animation.setDuration(500)
         self._animation.setEasingCurve(QEasingCurve.OutCubic)
 
         # Raise dialog widget on top of all window
@@ -130,4 +130,18 @@ class Toaster(QWidget):
         super().show()
 
         # Start animation
+        self._animation.start()
+
+        # Execute rollback on timer timeout
+        QTimer.singleShot(3300, self.rollback_toast)
+
+    def rollback_toast(self):
+        """
+        Rollback animation to hide toaster
+
+        :return: None
+        """
+
+        # Change direction of animation and start
+        self._animation.setDirection(QAbstractAnimation.Backward)
         self._animation.start()

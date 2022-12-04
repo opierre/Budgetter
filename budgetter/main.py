@@ -1,5 +1,6 @@
 import ctypes
 import os
+import signal
 import sys
 
 from PySide6.QtCore import QTranslator, QLocale
@@ -20,6 +21,7 @@ def start_app():
         app_unique_id = 'budgetter'
         ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID(app_unique_id)
 
+    signal.signal(signal.SIGINT, signal.SIG_DFL)
     app = QApplication(sys.argv)
 
     # Translate app
