@@ -122,8 +122,9 @@ class SavingChart(QChart):
 
         # Configure y axis """
         self.axis_y.setRange(0, y_max_value * 12 / 10)
-        self.axis_x.setRange(QDateTime.fromMSecsSinceEpoch(self.series_finale.points()[0].x()),
-                             QDateTime.fromMSecsSinceEpoch(self.series_finale.points()[-1].x()))
+        x_min = QDateTime.fromMSecsSinceEpoch(int(self.series_finale.points()[0].x()))
+        x_max = QDateTime.fromMSecsSinceEpoch(int(self.series_finale.points()[-1].x()))
+        self.axis_x.setRange(x_min, x_max)
 
         # Display middle point """
         self.show_point(self.get_middle_value())

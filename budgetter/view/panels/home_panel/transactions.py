@@ -362,7 +362,7 @@ class Transactions(QObject):
 
         # Add separator
         vline = QFrame()
-        vline.setFrameShape(vline.VLine)
+        vline.setFrameShape(QFrame.VLine)
         vline.setFixedHeight(self.all.sizeHint().height() * 1.2)
         vline.setStyleSheet("color: #344457;")
         self.status_bar.addWidget(vline)
