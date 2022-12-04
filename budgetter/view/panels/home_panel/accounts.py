@@ -7,6 +7,7 @@ from budgetter.view.widgets.balance_widgets.account_delegate import AccountDeleg
 from budgetter.view.widgets.balance_widgets.donut_chart_widget import DonutChart
 from budgetter.view.widgets.dialog import Dialog
 from budgetter.view.widgets.dialog_widgets.add_account import AddAccountDialog
+from budgetter.view.widgets.dialog_widgets.add_bank import AddBankDialog
 from budgetter.view.widgets.toaster.toaster import Toaster, ToasterType
 
 
@@ -17,6 +18,7 @@ class Accounts(QObject):
 
     # Signals list
     addAccountCall = Signal(str, str, int, str)
+    addBankCall = Signal(str)
 
     def __init__(self, gui, main_window):
         super().__init__()
@@ -37,8 +39,8 @@ class Accounts(QObject):
         # Store accounts identifiers
         self.account_identifiers = {}
 
-        # Store dialog for adding account
-        self.dialog = None
+        # Store dialogs for adding account
+        self.dialogs = []
 
         # Model to handle data in accounts list
         self.accounts_model = AccountsModel()
@@ -128,17 +130,56 @@ class Accounts(QObject):
                             QSize(24, 24), QIcon.Disabled, QIcon.On)
 
         # Open dialog
-        self.dialog = Dialog(QCoreApplication.translate("Accounts", 'Add Account'), header_icon, dialog_content,
-                             self.main_window)
+        self.dialogs.append(Dialog(QCoreApplication.translate("Accounts", 'Add Account'), header_icon, dialog_content,
+                                   self.main_window))
 
         # Connect signal from popup to add new account
-        dialog_content.addAccount.connect(self.addAccountCall.emit)
+        dialog_content.addAccount.connect(self.pre_add_account)
 
         # Connect signal coming from click on Confirm button
-        self.dialog.confirm.connect(dialog_content.check_inputs)
+        self.dialogs[-1].confirm.connect(dialog_content.check_inputs)
 
         # Set focus on first widget when opening
         dialog_content.content.account_name.setFocus()
+
+    def pre_add_account(self, name: str, amount: str, bank_id: int, date: str):
+        """
+        Check bank already exists
+
+        :param name: account name
+        :param amount: amount
+        :param bank_id: bank identifier
+        :param date: date
+        :return: None
+        """
+
+        if bank_id == -1:
+            # Hide previous dialog
+            self.dialogs[-1].hide()
+
+            # Set dialog content
+            dialog_content = AddBankDialog(name, self.main_window)
+
+            # Set icon
+            header_icon = QIcon()
+            header_icon.addFile(":/images/images/account_balance_wallet_FILL1_wght400_GRAD0_opsz48.svg",
+                                QSize(24, 24), QIcon.Disabled, QIcon.On)
+
+            # Open dialog
+            self.dialogs.append(Dialog(QCoreApplication.translate("Accounts", 'Add Bank'), header_icon, dialog_content,
+                                       self.main_window, show_overlay=False))
+
+            # Connect signal from popup to add new bank
+            dialog_content.addBank.connect(self.addBankCall.emit)
+
+            # Connect signal coming from click on Confirm button
+            self.dialogs[-1].confirm.connect(dialog_content.check_inputs)
+
+            # Set focus on first widget when opening
+            dialog_content.content.bank_name.setFocus()
+
+        else:
+            self.addAccountCall.emit(name, amount, bank_id, date)
 
     def add_account_details(self, account: dict):
         """
@@ -150,7 +191,7 @@ class Accounts(QObject):
 
         self.accounts_model.add_account(account)
         self.dialog.close()
-        toaster = Toaster("Account added", ToasterType.SUCCESS, self.main_window)
+        _ = Toaster("Account added", ToasterType.SUCCESS, self.main_window)
 
     def set_accounts(self, accounts: list):
         """

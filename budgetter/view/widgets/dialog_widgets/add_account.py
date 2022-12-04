@@ -87,8 +87,7 @@ class AddAccountDialog(QWidget):
             # Find corresponding bank identifier
             bank_id = self.bank_ids.get(account_bank, None)
             if bank_id is None:
-                print('Error in bank id')
-                return
+                bank_id = -1
 
             # Emit signal to close popup and add new account
             self.addAccount.emit(account_name, account_amount, bank_id, account_amount_date)

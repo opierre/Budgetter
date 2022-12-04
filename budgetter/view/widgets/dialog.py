@@ -33,7 +33,8 @@ class Dialog(QWidget):
     # Signal emitted when click on Confirm button
     confirm = Signal()
 
-    def __init__(self, dialog_title: str, header_icon: QIcon, central_widget: QWidget, parent=None):
+    def __init__(self, dialog_title: str, header_icon: QIcon, central_widget: QWidget, parent=None,
+                 show_overlay: bool = True):
         super().__init__(parent)
 
         # Store dialog UI
@@ -62,7 +63,7 @@ class Dialog(QWidget):
         self.connect_all_slots_and_signals()
 
         # Show dialog
-        self.show()
+        self.show(show_overlay)
 
     def connect_all_slots_and_signals(self):
         """
@@ -111,15 +112,16 @@ class Dialog(QWidget):
         # Install event filter on parent in order to replace dialog on center after resize/move
         self.parent().installEventFilter(self)
 
-    def show(self):
+    def show(self, show_overlay: bool):
         """
         Override show method
 
         :return: None
         """
 
-        # Show overlay
-        self.overlay.show()
+        if show_overlay is True:
+            # Show overlay
+            self.overlay.show()
 
         # Raise dialog widget on top of all window
         self.raise_()
