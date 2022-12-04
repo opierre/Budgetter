@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'AddBank.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.3.1
+## Created by: Qt User Interface Compiler version 6.4.1
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -16,9 +16,11 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QApplication, QGridLayout, QHBoxLayout, QLabel,
-    QSizePolicy, QToolButton, QWidget)
+    QSizePolicy, QSpacerItem, QToolButton, QVBoxLayout,
+    QWidget)
 
 from budgetter.view.widgets.material_outlined_line_edit import MaterialOutlinedLineEdit
+from budgetter.view.resources import resources_rc
 
 class Ui_AddBank(object):
     def setupUi(self, AddBank):
@@ -102,7 +104,7 @@ class Ui_AddBank(object):
         self.bank.setMinimumSize(QSize(0, 165))
         self.gridLayout_2 = QGridLayout(self.bank)
         self.gridLayout_2.setObjectName("gridLayout_2")
-        self.gridLayout_2.setVerticalSpacing(15)
+        self.gridLayout_2.setVerticalSpacing(10)
         self.label = QLabel(self.bank)
         self.label.setObjectName("label")
         font = QFont()
@@ -124,6 +126,7 @@ class Ui_AddBank(object):
         self.horizontalLayout = QHBoxLayout(self.widget)
         self.horizontalLayout.setSpacing(20)
         self.horizontalLayout.setObjectName("horizontalLayout")
+        self.horizontalLayout.setContentsMargins(0, 0, 0, 0)
         self.bank_name = MaterialOutlinedLineEdit(self.widget)
         self.bank_name.setObjectName("bank_name")
         self.bank_name.setMinimumSize(QSize(260, 67))
@@ -135,14 +138,27 @@ class Ui_AddBank(object):
 
         self.horizontalLayout.addWidget(self.bank_name)
 
+        self.verticalLayout = QVBoxLayout()
+        self.verticalLayout.setObjectName("verticalLayout")
+        self.verticalLayout.setContentsMargins(-1, -1, -1, 24)
+        self.verticalSpacer = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.verticalLayout.addItem(self.verticalSpacer)
+
         self.bank_logo = QToolButton(self.widget)
         self.bank_logo.setObjectName("bank_logo")
-        self.bank_logo.setMinimumSize(QSize(67, 67))
-        self.bank_logo.setMaximumSize(QSize(67, 67))
+        self.bank_logo.setMinimumSize(QSize(50, 50))
+        self.bank_logo.setMaximumSize(QSize(50, 50))
         self.bank_logo.setCursor(QCursor(Qt.PointingHandCursor))
-        self.bank_logo.setIconSize(QSize(40, 40))
+        icon = QIcon()
+        icon.addFile(":/images/images/image_FILL0_wght400_GRAD0_opsz48.svg", QSize(), QIcon.Normal, QIcon.Off)
+        self.bank_logo.setIcon(icon)
+        self.bank_logo.setIconSize(QSize(50, 50))
 
-        self.horizontalLayout.addWidget(self.bank_logo)
+        self.verticalLayout.addWidget(self.bank_logo)
+
+
+        self.horizontalLayout.addLayout(self.verticalLayout)
 
 
         self.gridLayout_2.addWidget(self.widget, 1, 0, 1, 1)

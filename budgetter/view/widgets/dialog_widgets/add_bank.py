@@ -74,6 +74,8 @@ class AddBankDialog(QWidget):
         self.bank_icon_path = file_name
 
         # Set icon
+        if file_name == '':
+            file_name = ":/images/images/image_FILL0_wght400_GRAD0_opsz48.svg"
         icon = QIcon()
         icon.addFile(file_name, QSize(40, 40), QIcon.Mode.Normal, QIcon.State.On)
         self.content.bank_logo.setIcon(icon)
