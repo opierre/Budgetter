@@ -153,7 +153,7 @@ class Ui_AddBank(object):
         icon = QIcon()
         icon.addFile(":/images/images/image_FILL0_wght400_GRAD0_opsz48.svg", QSize(), QIcon.Normal, QIcon.Off)
         self.bank_logo.setIcon(icon)
-        self.bank_logo.setIconSize(QSize(50, 50))
+        self.bank_logo.setIconSize(QSize(40, 40))
 
         self.verticalLayout.addWidget(self.bank_logo)
 

@@ -77,7 +77,7 @@ class AddBankDialog(QWidget):
         if file_name == '':
             file_name = ":/images/images/image_FILL0_wght400_GRAD0_opsz48.svg"
         icon = QIcon()
-        icon.addFile(file_name, QSize(40, 40), QIcon.Mode.Normal, QIcon.State.On)
+        icon.addFile(file_name, QSize(), QIcon.Normal, QIcon.On)
         self.content.bank_logo.setIcon(icon)
 
     def check_inputs(self):
