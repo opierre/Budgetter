@@ -26,7 +26,7 @@ class Ui_Options(object):
     def setupUi(self, Options):
         if not Options.objectName():
             Options.setObjectName("Options")
-        Options.resize(533, 42)
+        Options.resize(533, 46)
         Options.setStyleSheet("QWidget#content \n"
 "{\n"
 "	background-color: #26374C;\n"
@@ -43,8 +43,8 @@ class Ui_Options(object):
 "QLineEdit#title_bar_search\n"
 "{\n"
 "	border: 0px solid transparent;\n"
-"	border-top-left-radius: 8px;\n"
-"	border-bottom-left-radius: 8px;\n"
+"	border-top-left-radius: 4px;\n"
+"	border-bottom-left-radius: 4px;\n"
 "	border-top-right-radius: 0px;\n"
 "	border-bottom-right-radius: 0px;\n"
 "	padding-top: 3px;\n"
@@ -59,8 +59,8 @@ class Ui_Options(object):
 "QLineEdit::focus\n"
 "{\n"
 "	border: 1px solid #0190EA;\n"
-"	border-top-left-radius: 8px;\n"
-"	border-bottom-left-radius: 8px;\n"
+"	border-top-left-radius: 4px;\n"
+"	border-bottom-left-radius: 4px;\n"
 "	border-top-right-radius: 0px;\n"
 "	border-bottom-right-radius: 0px;\n"
 "	padding-top: 2px;\n"
@@ -76,8 +76,8 @@ class Ui_Options(object):
 "QLineEdit#title_bar_search::hover\n"
 "{\n"
 "	border: 0px solid transparent;\n"
-"	border-top-left-radius: 8px;\n"
-"	border-bottom-left-radius: 8px;\n"
+"	border-top-left-radius: 4px;\n"
+"	border-bottom-left-radius: 4px;\n"
 "	border-top-right-radius: 0px;\n"
 "	border-bottom-right-radius: 0px;\n"
 "	padding-top: 3px;\n"
@@ -93,8 +93,8 @@ class Ui_Options(object):
 "{\n"
 "	border: 0px solid transparent;\n"
 "	border-left: 1px solid qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgba(44, 64, 90, 255), stop:0.24 rgba(44, 64, 90, 255), stop:0.25 #75879B, stop:0.75 #75879B, stop:0.76 rgba(44, 64, 90, 255), stop:1 rgba(44, 64, 90, 255));\n"
-"	border-top-right-radius: 8px;\n"
-"	border-bottom-right-radius: 8px;\n"
+"	border-top-right-radius: 4px;\n"
+"	border-bottom-right-radius: 4px;\n"
 "	border-top-left-radius: 0px;\n"
 "	border-bottom-left-radius: 0px"
                         ";\n"
@@ -110,8 +110,8 @@ class Ui_Options(object):
 "{\n"
 "	border: 0px solid transparent;\n"
 "	border-left: 1px solid qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgba(44, 64, 90, 255), stop:0.24 rgba(44, 64, 90, 255), stop:0.25 #75879B, stop:0.75 #75879B, stop:0.76 rgba(44, 64, 90, 255), stop:1 rgba(44, 64, 90, 255));\n"
-"	border-top-right-radius: 8px;\n"
-"	border-bottom-right-radius: 8px;\n"
+"	border-top-right-radius: 4px;\n"
+"	border-bottom-right-radius: 4px;\n"
 "	border-top-left-radius: 0px;\n"
 "	border-bottom-left-radius: 0px;\n"
 "	padding-left: 9px;\n"
@@ -127,8 +127,8 @@ class Ui_Options(object):
 "	border: 0px solid #0190EA;\n"
 "	border-left: 1px solid qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgba(44, 64, 90, 255), stop:0.24 rgba(44, 64, 90, 2"
                         "55), stop:0.25 #75879B, stop:0.75 #75879B, stop:0.76 rgba(44, 64, 90, 255), stop:1 rgba(44, 64, 90, 255));\n"
-"	border-top-right-radius: 8px;\n"
-"	border-bottom-right-radius: 8px;\n"
+"	border-top-right-radius: 4px;\n"
+"	border-bottom-right-radius: 4px;\n"
 "	border-top-left-radius: 0px;\n"
 "	border-bottom-left-radius: 0px;\n"
 "	padding-left: 9px;\n"
@@ -261,8 +261,8 @@ class Ui_Options(object):
         self.horizontalLayout_2.setObjectName("horizontalLayout_2")
         self.title_bar_search = LineEditWithIcon(self.content)
         self.title_bar_search.setObjectName("title_bar_search")
-        self.title_bar_search.setMinimumSize(QSize(0, 28))
-        self.title_bar_search.setMaximumSize(QSize(200, 28))
+        self.title_bar_search.setMinimumSize(QSize(0, 32))
+        self.title_bar_search.setMaximumSize(QSize(200, 32))
         font1 = QFont()
         font1.setFamilies([u"Roboto"])
         font1.setPointSize(11)
@@ -275,8 +275,8 @@ class Ui_Options(object):
         self.search_field.addItem("")
         self.search_field.addItem("")
         self.search_field.setObjectName("search_field")
-        self.search_field.setMinimumSize(QSize(0, 28))
-        self.search_field.setMaximumSize(QSize(100, 28))
+        self.search_field.setMinimumSize(QSize(0, 32))
+        self.search_field.setMaximumSize(QSize(100, 32))
         self.search_field.setFont(font1)
 
         self.horizontalLayout_2.addWidget(self.search_field)

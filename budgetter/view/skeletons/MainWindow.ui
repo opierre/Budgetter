@@ -337,6 +337,7 @@ QPushButton#alerts
 	border-left: 1px solid #32465F;
 	padding: 6px 10px;
 	border-radius: 0px;
+	outline: none;
 }
 
 QPushButton#menu:hover, QPushButton#settings:hover, QPushButton#alerts:hover 
@@ -1173,7 +1174,46 @@ QCheckBox::indicator:unchecked:hover
 {
 	image: url(:/images/images/check_box_outline_blank_white_24dp_hover.svg);
 }
-</string>
+
+QScrollBar:vertical 
+{
+    border: none;
+    background-color: rgba(33, 47, 65, 180);
+    width: 10px;
+    margin: 20px 0px 20 0px;
+	border-radius: 5px;
+	outline: none;
+}
+
+QScrollBar::handle:vertical 
+{
+    background: #0190ea;
+	border-radius: 5px;
+    min-height: 20px;
+}
+
+QScrollBar::add-line:vertical
+{
+    border: none;
+    background-color: transparent;
+    height: 0px;
+    subcontrol-position: bottom;
+    subcontrol-origin: margin;
+}
+
+QScrollBar::sub-line:vertical 
+{
+    border: none;
+    background-color: transparent;
+    height: 0px;
+    subcontrol-position: top;
+    subcontrol-origin: margin;
+}
+
+ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical 
+{
+     background: none;
+ }</string>
   </property>
   <property name="toolButtonStyle">
    <enum>Qt::ToolButtonIconOnly</enum>
@@ -1384,8 +1424,8 @@ QCheckBox::indicator:unchecked:hover
           </property>
           <property name="minimumSize">
            <size>
-            <width>40</width>
-            <height>46</height>
+            <width>64</width>
+            <height>105</height>
            </size>
           </property>
           <property name="maximumSize">
