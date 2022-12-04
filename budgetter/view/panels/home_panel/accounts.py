@@ -126,7 +126,7 @@ class Accounts(QObject):
 
         # Set icon
         header_icon = QIcon()
-        header_icon.addFile(":/images/images/account_balance_wallet_FILL1_wght400_GRAD0_opsz48.svg",
+        header_icon.addFile(":/images/images/account_balance_wallet_FILL0_wght400_GRAD0_opsz48.svg",
                             QSize(24, 24), QIcon.Disabled, QIcon.On)
 
         # Open dialog
