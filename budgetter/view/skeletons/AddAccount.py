@@ -16,7 +16,8 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QApplication, QGridLayout, QHBoxLayout, QLabel,
-    QSizePolicy, QVBoxLayout, QWidget)
+    QSizePolicy, QSpacerItem, QToolButton, QVBoxLayout,
+    QWidget)
 
 from budgetter.view.widgets.material_outlined_date_edit import MaterialOutlinedDateEdit
 from budgetter.view.widgets.material_outlined_line_edit import MaterialOutlinedLineEdit
@@ -26,7 +27,7 @@ class Ui_AddAccount(object):
     def setupUi(self, AddAccount):
         if not AddAccount.objectName():
             AddAccount.setObjectName("AddAccount")
-        AddAccount.resize(377, 286)
+        AddAccount.resize(377, 272)
         AddAccount.setStyleSheet("QWidget#account \n"
 "{\n"
 "	background-color: #1C293B;\n"
@@ -58,6 +59,13 @@ class Ui_AddAccount(object):
 "	outline: none;\n"
 "}\n"
 "\n"
+"QToolButton:hover\n"
+"{\n"
+"	background-color: rgba(255, 255, 255, 25);\n"
+"	border-radius: 2px;\n"
+"	outline: none;\n"
+"}\n"
+"\n"
 "QLineEdit\n"
 "{\n"
 "	background-color: transparent;\n"
@@ -76,14 +84,14 @@ class Ui_AddAccount(object):
 "\n"
 "QLineEdit:focus\n"
 "{\n"
-"	/*border-bottom: 2px solid rgba(255, 255, 255, 230);*/\n"
+"	/*bord"
+                        "er-bottom: 2px solid rgba(255, 255, 255, 230);*/\n"
 "}\n"
 "\n"
 "QComboBox\n"
 "{\n"
 "	background-color: transparent;\n"
-"	border: non"
-                        "e;\n"
+"	border: none;\n"
 "	border-radius: 0px;\n"
 "	padding-left: 0px;\n"
 "	/*border-bottom: 1px solid rgba(255, 255, 255, 180);*/\n"
@@ -113,6 +121,9 @@ class Ui_AddAccount(object):
         self.verticalLayout_2.setSpacing(4)
         self.verticalLayout_2.setObjectName("verticalLayout_2")
         self.verticalLayout_2.setContentsMargins(-1, -1, -1, 0)
+        self.horizontalLayout_2 = QHBoxLayout()
+        self.horizontalLayout_2.setSpacing(12)
+        self.horizontalLayout_2.setObjectName("horizontalLayout_2")
         self.account_name = MaterialOutlinedLineEdit(self.account)
         self.account_name.setObjectName("account_name")
         self.account_name.setMinimumSize(QSize(0, 67))
@@ -122,7 +133,36 @@ class Ui_AddAccount(object):
         font1.setPointSize(11)
         self.account_name.setFont(font1)
 
-        self.verticalLayout_2.addWidget(self.account_name)
+        self.horizontalLayout_2.addWidget(self.account_name)
+
+        self.widget = QWidget(self.account)
+        self.widget.setObjectName("widget")
+        self.widget.setMinimumSize(QSize(0, 67))
+        self.widget.setMaximumSize(QSize(16777215, 67))
+        self.verticalLayout_4 = QVBoxLayout(self.widget)
+        self.verticalLayout_4.setObjectName("verticalLayout_4")
+        self.verticalLayout_4.setContentsMargins(0, 0, 0, 2)
+        self.verticalSpacer = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.verticalLayout_4.addItem(self.verticalSpacer)
+
+        self.color_picker = QToolButton(self.widget)
+        self.color_picker.setObjectName("color_picker")
+        self.color_picker.setMinimumSize(QSize(50, 50))
+        self.color_picker.setMaximumSize(QSize(50, 50))
+        self.color_picker.setCursor(QCursor(Qt.PointingHandCursor))
+        icon = QIcon()
+        icon.addFile(":/images/images/palette_FILL0_wght500_GRAD0_opsz48.svg", QSize(), QIcon.Normal, QIcon.Off)
+        self.color_picker.setIcon(icon)
+        self.color_picker.setIconSize(QSize(40, 40))
+
+        self.verticalLayout_4.addWidget(self.color_picker)
+
+
+        self.horizontalLayout_2.addWidget(self.widget)
+
+
+        self.verticalLayout_2.addLayout(self.horizontalLayout_2)
 
         self.horizontalLayout = QHBoxLayout()
         self.horizontalLayout.setSpacing(20)
@@ -169,6 +209,7 @@ class Ui_AddAccount(object):
     def retranslateUi(self, AddAccount):
         AddAccount.setWindowTitle(QCoreApplication.translate("AddAccount", "Form", None))
         self.label.setText(QCoreApplication.translate("AddAccount", "Please enter account information.", None))
+        self.color_picker.setText("")
         self.account_amount_date.setInputMask("")
     # retranslateUi
 
