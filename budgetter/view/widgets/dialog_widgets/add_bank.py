@@ -72,7 +72,7 @@ class AddBankDialog(QWidget):
                                                    os.path.expanduser('~'), "Image Files (*.png *.svg)")
 
         # Store path for download
-        self.bank_icon_path = file_name
+        self.bank_icon_path = os.path.abspath(file_name)
 
         # Set icon
         if file_name == '':
@@ -93,9 +93,9 @@ class AddBankDialog(QWidget):
 
         if bank_name != '':
             # Register icon in current folder
-            file_name = self.bank_icon_path[self.bank_icon_path.rfind(os.sep):self.bank_icon_path.rfind('.')]
+            extension = self.bank_icon_path[self.bank_icon_path.rfind('.'):]
             bank_logo_path = os.path.join(os.path.dirname(__file__), '..', '..', 'resources', 'bank_logo',
-                                          file_name.lower().replace(' ', '_') + "_logo.svg")
+                                          bank_name.lower().replace(' ', '_') + "_logo.svg")
             shutil.copyfile(self.bank_icon_path, bank_logo_path)
 
             # Emit signal to close popup and add new account
