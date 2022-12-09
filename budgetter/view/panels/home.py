@@ -16,6 +16,7 @@ class Home(QObject):
 
     # Signals list
     addAccountController = Signal(str, str, int, str)
+    addBankController = Signal(str)
 
     def __init__(self, parent, gui):
         super().__init__()
@@ -51,6 +52,7 @@ class Home(QObject):
 
         # Connect signals from accounts
         self._accounts.addAccountCall.connect(self.addAccountController.emit)
+        self._accounts.addBankCall.connect(self.addBankController.emit)
 
     def display_saving_tooltip(self):
         """
@@ -81,6 +83,17 @@ class Home(QObject):
 
         # Add account to model and close popup
         self._accounts.add_account_details(account)
+
+    def handle_add_bank(self, bank: dict):
+        """
+        Handle add bank result from API call
+
+        :param bank: bank details
+        :return: None
+        """
+
+        # Set bank ID to ad account popup
+        self._accounts.bank_added(bank)
 
     def handle_get_banks(self, bank_list: list):
         """

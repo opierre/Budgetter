@@ -142,7 +142,7 @@ class Accounts(QObject):
         # Set focus on first widget when opening
         dialog_content.content.account_name.setFocus()
 
-    def pre_add_account(self, name: str, amount: str, bank_id: int, date: str):
+    def pre_add_account(self, name: str, amount: str, bank_id: int, date: str, new_bank_name: str):
         """
         Check bank already exists
 
@@ -150,6 +150,7 @@ class Accounts(QObject):
         :param amount: amount
         :param bank_id: bank identifier
         :param date: date
+        :param new_bank_name: new bank name
         :return: None
         """
 
@@ -158,7 +159,7 @@ class Accounts(QObject):
             self.dialogs[-1].hide()
 
             # Set dialog content
-            dialog_content = AddBankDialog(name, self.main_window)
+            dialog_content = AddBankDialog(new_bank_name, self.main_window)
 
             # Set icon
             header_icon = QIcon()
@@ -181,6 +182,26 @@ class Accounts(QObject):
         else:
             self.addAccountCall.emit(name, amount, bank_id, date)
 
+    def bank_added(self, bank: dict):
+        """
+        Handle bank added
+
+        :param bank: bank details
+        :return: None
+        """
+
+        # Show notification on bank added
+        _ = Toaster("Bank added", ToasterType.SUCCESS, self.main_window)
+
+        # Update models
+        self.bank_identifiers[bank.get('name')] = bank.get('id')
+        self.accounts_model.add_bank({bank.get('id'): bank.get('name')})
+
+        # Close current popup and show previous one again
+        self.dialogs[-1].close()
+        self.dialogs.pop(-1)
+        self.dialogs[-1].show(False)
+
     def add_account_details(self, account: dict):
         """
         Add account to current view and model and close opened dialog
@@ -190,7 +211,8 @@ class Accounts(QObject):
         """
 
         self.accounts_model.add_account(account)
-        self.dialog.close()
+        self.dialogs[-1].close()
+        self.dialogs.pop(-1)
         _ = Toaster("Account added", ToasterType.SUCCESS, self.main_window)
 
     def set_accounts(self, accounts: list):

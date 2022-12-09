@@ -1,4 +1,5 @@
 import os
+import shutil
 
 from PySide6.QtCore import QTimer, Signal, QSize
 from PySide6.QtGui import QColor, QIcon
@@ -77,7 +78,7 @@ class AddBankDialog(QWidget):
         if file_name == '':
             file_name = ":/images/images/image_FILL0_wght400_GRAD0_opsz48.svg"
         icon = QIcon()
-        icon.addFile(file_name, QSize(), QIcon.Normal, QIcon.On)
+        icon.addFile(file_name, QSize(40, 40), QIcon.Normal, QIcon.On)
         self.content.bank_logo.setIcon(icon)
 
     def check_inputs(self):
@@ -91,7 +92,11 @@ class AddBankDialog(QWidget):
         bank_name = self.content.bank_name.text()
 
         if bank_name != '':
-            # TODO: Register icon in current folder
+            # Register icon in current folder
+            file_name = self.bank_icon_path[self.bank_icon_path.rfind(os.sep):self.bank_icon_path.rfind('.')]
+            bank_logo_path = os.path.join(os.path.dirname(__file__), '..', '..', 'resources', 'bank_logo',
+                                          file_name.lower().replace(' ', '_') + "_logo.svg")
+            shutil.copyfile(self.bank_icon_path, bank_logo_path)
 
             # Emit signal to close popup and add new account
             self.addBank.emit(bank_name)
