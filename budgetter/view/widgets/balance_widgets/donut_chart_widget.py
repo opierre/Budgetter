@@ -1,6 +1,5 @@
 from PySide6.QtCore import Qt, QRect, QRectF
-from PySide6.QtGui import QPainter, QPen, QColor, QFont, QFontMetrics, QPaintEvent, QBrush, QConicalGradient, \
-    QMouseEvent
+from PySide6.QtGui import QPainter, QPen, QColor, QFont, QFontMetrics, QPaintEvent, QBrush, QMouseEvent
 from PySide6.QtSvg import QSvgRenderer
 from PySide6.QtWidgets import QWidget
 
@@ -134,49 +133,31 @@ class DonutChart(QWidget):
         """
 
         previous_end_angle = 0
-        current_index = 0
 
         # Configure rectangle
         rect_origins = QRectF(self.rect().center().x(), self.rect().center().y(),
                               self.rect().width() / 1.2, self.rect().height() / 1.2)
         rect_origins.moveCenter(self.rect().center())
 
-        for current_slice in self._slices:
+        for index, current_slice in enumerate(self._slices):
             # Set span angles
             percentage = int(current_slice.get('value') * 100 / self._total_amount)
-            span_angle = percentage * 360 / 100
+            span_angle = percentage * (360 - 12.5 * len(self._slices)) / 100
 
             # Set start angle
-            if previous_end_angle == 0:
-                start_angle = (180 - span_angle) / 2
-                previous_end_angle = start_angle + span_angle
-            else:
-                start_angle = previous_end_angle
-                previous_end_angle = start_angle + span_angle
+            start_angle = previous_end_angle + 12.5
+            previous_end_angle = start_angle + span_angle
 
-            # Set gradient on arcs
-            gradient = QConicalGradient()
-            gradient.setCenter(rect_origins.center())
-            gradient.setAngle(start_angle)
-            gradient.setColorAt(current_slice.get('value') / 100, QColor("transparent"))
-            gradient.setColorAt(0, QColor(current_slice.get('color')))
-            pen.setBrush(QBrush(gradient))
+            if index == len(self._slices) - 1:
+                span_angle += 360 - previous_end_angle
+
+            # Set color on arc
+            pen.setBrush(QBrush(QColor(current_slice.get('color'))))
             painter.setPen(pen)
 
             # Draw arc
             painter.drawArc(rect_origins, start_angle * 16, span_angle * 16)
             painter.setOpacity(1.0)
-
-            # # Re-draw first one in case of last to hide overlapping
-            # # Set pen color
-            # pen.setColor(current_slice.get('color'))
-            # painter.setPen(pen)
-            #
-            # # Draw arc
-            # painter.drawArc(rect_origins, start_angle * 16, span_angle * 16 * 1 / 100)
-
-            # Update current index
-            current_index += 1
 
     def draw_total_amount(self, pen, painter):
         """
