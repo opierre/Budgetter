@@ -14,7 +14,7 @@ jobs:
 
     strategy:
       matrix:
-        python-version: [ "3.8", "3.9", "3.10" ]
+        python-version: [ "3.9", "3.10", "3.11" ]
 
     steps:
       - uses: actions/checkout@v3
@@ -49,7 +49,7 @@ jobs:
           bat pylint_analysis.txt
         shell: bash
       - name: Creating dynamic badge
-        uses: Schneegans/dynamic-badges-action@v1.4.0
+        uses: Schneegans/dynamic-badges-action@v1.6.0
         with:
           auth: ${{ secrets.GIST_SECRET }}
           gistID: da061024a6dc8c3dcaf32f4e79abf032
