@@ -1,5 +1,5 @@
-from PySide6.QtCore import QSize, Qt, QRect, QPointF
-from PySide6.QtGui import QPen, QColor, QPainter, QFont, QFontMetrics, QLinearGradient, QGradient
+from PySide6.QtCore import QSize, Qt, QRect
+from PySide6.QtGui import QPen, QColor, QPainter, QFont, QFontMetrics
 from PySide6.QtSvg import QSvgRenderer
 from PySide6.QtWidgets import QItemDelegate
 
@@ -64,21 +64,20 @@ class DistributionDelegate(QItemDelegate):
         painter.setBrush(QColor("transparent"))
         rect_background = QRect(option.rect.x() + option.rect.width() * 1 / 30,
                                 option.rect.y() + option.rect.height() * 1 / 5,
-                                option.rect.width() - +option.rect.width() * 2 / 30,
+                                option.rect.width() - option.rect.width() * 2 / 30,
                                 option.rect.height() - option.rect.height() * 2 / 5)
         painter.drawRect(rect_background)
 
         # Draw percentage background
-        painter.setPen(QPen(QColor("#21405D")))
-        gradient = QLinearGradient(QPointF(0, 0), QPointF(1, 0))
-        gradient.setColorAt(0.0, QColor("#1A537D"))
-        gradient.setColorAt(1.0, QColor("transparent"))
-        gradient.setCoordinateMode(QGradient.ObjectMode)
-        painter.setBrush(gradient)
-        rect_percentage = QRect(rect_background.x() + rect_background.width(), option.rect.y() + 10,
-                                -(rect_background.width() - (option.rect.width() * 1 / 3)) * (value[3] / 100),
-                                option.rect.height() - 20)
-        painter.drawRoundedRect(rect_percentage, 0.0, 0.0)
+        painter.setPen(QPen(QColor("#21415D")))
+        painter.setBrush(QColor("#21415D"))
+        rect_percentage = QRect(
+            rect_background.x() + rect_background.width() - (
+                    rect_background.width() - (option.rect.width() * 1 / 3)) * (value[3] / 100),
+            option.rect.y() + 10,
+            (rect_background.width() - (option.rect.width() * 1 / 3)) * (value[3] / 100),
+            option.rect.height() - 20)
+        painter.drawRoundedRect(rect_percentage, 5.0, 5.0)
 
         # Draw left icon background
         painter.setPen(QPen(QColor("#1A537D")))
