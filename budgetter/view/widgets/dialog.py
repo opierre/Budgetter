@@ -33,6 +33,9 @@ class Dialog(QWidget):
     # Signal emitted when click on Confirm button
     confirm = Signal()
 
+    # Signal emitted when escape clicked
+    escape = Signal()
+
     def __init__(self, dialog_title: str, header_icon: QIcon, central_widget: QWidget, parent=None,
                  show_overlay: bool = True):
         super().__init__(parent)
@@ -44,7 +47,7 @@ class Dialog(QWidget):
         self._dialog.setupUi(self)
 
         # Store shortcuts
-        self.escape_shortcut = QShortcut(QKeySequence(Qt.Key_Escape), self, self.close)
+        self.escape_shortcut = QShortcut(QKeySequence(Qt.Key_Escape), self, self.escape.emit)
         self.confirm_shortcut = QShortcut(QKeySequence(Qt.CTRL | Qt.Key_Return), self, self.confirm.emit)
 
         # Store overlay
@@ -73,7 +76,7 @@ class Dialog(QWidget):
         """
 
         # Connect click on close to close dialog
-        self._dialog.close.clicked.connect(self.close)  # pylint: disable=no-member
+        self._dialog.close.clicked.connect(self.escape.emit)  # pylint: disable=no-member
 
         # Connect click on confirm to emit signal
         self._dialog.confirm.clicked.connect(self.confirm.emit)  # pylint: disable=no-member

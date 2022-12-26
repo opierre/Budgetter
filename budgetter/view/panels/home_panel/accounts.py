@@ -142,6 +142,7 @@ class Accounts(QObject):
 
         # Connect signal coming from click on Confirm button
         self.dialogs[-1].confirm.connect(dialog_content.check_inputs)
+        self.dialogs[-1].escape.connect(self.escape_dialog)
 
         # Set focus on first widget when opening
         dialog_content.content.account_name.setFocus()
@@ -170,6 +171,7 @@ class Accounts(QObject):
 
         # Connect signal coming from click on Confirm button
         self.dialogs[-1].confirm.connect(dialog_content.check_inputs)
+        self.dialogs[-1].escape.connect(self.escape_dialog)
 
         # Connect signal from popup to add new account
         dialog_content.colorSelected.connect(self.update_color)
@@ -192,6 +194,20 @@ class Accounts(QObject):
         # Update color
         self.dialogs[-1].show(False)
         self.dialogs[-1].central_widget().update_color(color)
+
+    def escape_dialog(self):
+        """
+        Escape current dialog
+
+        :return: None
+        """
+
+        # Close current popup
+        self.dialogs[-1].close()
+        self.dialogs.pop()
+
+        if len(self.dialogs) > 0:
+            self.dialogs[-1].show(False)
 
     def pre_add_account(self, name: str, amount: str, bank_id: int, date: str, new_bank_name: str, color: str):
         """
@@ -227,6 +243,7 @@ class Accounts(QObject):
 
             # Connect signal coming from click on Confirm button
             self.dialogs[-1].confirm.connect(dialog_content.check_inputs)
+            self.dialogs[-1].escape.connect(self.escape_dialog)
 
             # Set focus on first widget when opening
             dialog_content.content.bank_name.setFocus()
