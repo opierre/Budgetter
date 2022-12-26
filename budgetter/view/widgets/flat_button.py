@@ -364,10 +364,6 @@ class WaveOverlay(OverlayWidget):
         # Start animation
         wave.start()
 
-        # m = 30
-        # if len(self.waves) > m:
-        #     self.waves = QList(self.waves[: (m // 2)])
-
         # On destroyed signal stop animation and remove object
         self.destroyed.connect(wave.stop)  # pylint: disable=no-member
         self.destroyed.connect(wave.deleteLater)  # pylint: disable=no-member

@@ -94,7 +94,7 @@ class TransactionDelegate(QStyledItemDelegate):
         :return: None
         """
 
-        return
+        pass
 
     def editorEvent(self, event: QEvent, _model, _option, index: QModelIndex):
         """

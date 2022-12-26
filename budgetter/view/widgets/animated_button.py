@@ -20,6 +20,8 @@ class AnimatedButton(QWidget):
     Button with animated icon
     """
 
+    ANIMATED_PATH = ":/animated/animated/"
+
     # Signal emitted on click
     clicked = Signal()
 
@@ -61,7 +63,7 @@ class AnimatedButton(QWidget):
         self.animation_name = animation_name
 
         # Set default frame
-        self.svg.load(":/animated/animated/" + self.animation_name + "/frame00.svg")
+        self.svg.load(self.ANIMATED_PATH + self.animation_name + "/frame00.svg")
 
     def configure(self):
         """
@@ -105,7 +107,7 @@ class AnimatedButton(QWidget):
         """
 
         # Load frame
-        self.svg.load(":/animated/animated/" + self.animation_name + "/frame" + f"{self.frame_counter:02}" + ".svg")
+        self.svg.load(self.ANIMATED_PATH + self.animation_name + "/frame" + f"{self.frame_counter:02}" + ".svg")
         QApplication.processEvents()
 
         # Update frame count
@@ -132,7 +134,7 @@ class AnimatedButton(QWidget):
         """
 
         # Load frame
-        self.svg.load(":/animated/animated/" + self.animation_name + "/frame" + f"{self.frame_counter:02}" + ".svg")
+        self.svg.load(self.ANIMATED_PATH + self.animation_name + "/frame" + f"{self.frame_counter:02}" + ".svg")
         QApplication.processEvents()
 
         # Update frame count

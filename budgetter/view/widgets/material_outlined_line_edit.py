@@ -262,8 +262,8 @@ class MaterialLineEditPrivate:
         self.show_label: bool = False
         self.show_input_line: bool = True
         self.use_theme_colors: bool = True
-        self.label: MaterialLineEditLabel = None
-        self.state_machine: MaterialLineEditStateMachine = None
+        self.label = None
+        self.state_machine = None
 
     def configure(self):
         """

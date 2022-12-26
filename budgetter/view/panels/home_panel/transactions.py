@@ -165,7 +165,7 @@ class Transactions(QObject):
         :return: None
         """
 
-        return
+        pass
 
     def delete_transaction(self, index):
         """

@@ -93,7 +93,6 @@ class AddBankDialog(QWidget):
 
         if bank_name != '':
             # Register icon in current folder
-            extension = self.bank_icon_path[self.bank_icon_path.rfind('.'):]
             bank_logo_path = os.path.join(os.path.dirname(__file__), '..', '..', 'resources', 'bank_logo',
                                           bank_name.lower().replace(' ', '_') + "_logo.svg")
             shutil.copyfile(self.bank_icon_path, bank_logo_path)

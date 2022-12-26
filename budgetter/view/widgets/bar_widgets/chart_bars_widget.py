@@ -12,6 +12,8 @@ class ChartBars(QWidget):
     Chart with bars per category
     """
 
+    AVERAGE = "Average: "
+
     def __init__(self, chart_type: str, parent=None):
         super().__init__(parent)
 
@@ -133,7 +135,7 @@ class ChartBars(QWidget):
         painter.setFont(QFont("Roboto", 11, QFont.Normal))
 
         # Set text """
-        text_average = "Average: "
+        text_average = self.AVERAGE
         text_total = "Total: "
 
         # Set rectangle according to font metrics """
@@ -174,7 +176,7 @@ class ChartBars(QWidget):
         painter.setFont(QFont("Roboto", 11, QFont.Normal))
 
         # Set text """
-        text_average = "Average: "
+        text_average = self.AVERAGE
 
         # Set rectangle according to font metrics """
         font_metrics = QFontMetrics(painter.font())
@@ -218,7 +220,7 @@ class ChartBars(QWidget):
         painter.setPen(pen)
 
         # Set text """
-        text_average = "Average: "
+        text_average = self.AVERAGE
         text_total = "Total: "
         text_average_amount = convert_amount_to_str(self.chart.average()) + " €"
         text_total_amount = convert_amount_to_str(self.chart.total()) + " €"

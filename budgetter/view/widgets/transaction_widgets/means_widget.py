@@ -70,9 +70,7 @@ class MeanCheckbox(QPushButton):
             svg_string = text_stream.readAll()
             svg_string_file.close()
 
-        if opt.state & QStyle.State_On:
-            pass
-        elif not opt.state & QStyle.State_Selected:
+        if not opt.state & QStyle.State_Selected:
             svg_string = svg_string.replace("fill=\"#0190EA\"", "fill=\"white\" fill-opacity=\"0.65\"")
 
         svg_bytes = bytearray(svg_string, encoding='utf-8')

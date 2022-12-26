@@ -222,17 +222,6 @@ class MaterialLineEditStateMachine(QStateMachine):
             self.normal_state.assignProperty(self.label, "_color", self.line_edit.label_color())
             self.focused_state.assignProperty(self.label, "_scale", 0.82)
 
-            # if 0 != self.label.offset().y() and not self.line_edit.text():
-            #     self.label.set_offset(QPointF(0, 0 - margin_top))
-            #     self.label.set_scale(0.82)
-            # elif (
-            #         not self.line_edit.hasFocus()
-            #         and self.label.offset().y() <= 0
-            #         and self.line_edit.text() == ''
-            # ):
-            #     self.label.set_offset(QPointF(0, 23))
-            #     self.label.set_scale(1.0)
-
         self.line_edit.update()
 
     # Progress property to update
@@ -255,8 +244,8 @@ class MaterialLineEditPrivate:
         self.show_label: bool = False
         self.show_input_line: bool = True
         self.use_theme_colors: bool = True
-        self.label: MaterialLineEditLabel = None
-        self.state_machine: MaterialLineEditStateMachine = None
+        self.label = None
+        self.state_machine = None
 
         # Configure properties
         self.configure()

@@ -267,8 +267,8 @@ class MaterialLineEditPrivate:
         self.show_input_line: bool = True
         self.use_theme_colors: bool = True
         self.placeholder_visible = False
-        self.label: MaterialLineEditLabel = None
-        self.state_machine: MaterialLineEditStateMachine = None
+        self.label = None
+        self.state_machine = None
 
         # Configure properties
         self.configure()
@@ -365,14 +365,7 @@ class MaterialOutlinedDateEdit(QLineEdit):
         # Retrieve current text
         current_text = self.text()
 
-        if len(current_text) == 2:
-            if arg__1.key() != Qt.Key_Backspace:
-                # Add /
-                self.setText(self.text() + '/')
-            else:
-                # Add /
-                self.setText(self.text()[:-1])
-        elif len(current_text) == 5:
+        if len(current_text) in {2, 5}:
             if arg__1.key() != Qt.Key_Backspace:
                 # Add /
                 self.setText(self.text() + '/')

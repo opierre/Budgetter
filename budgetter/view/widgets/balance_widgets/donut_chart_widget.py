@@ -66,7 +66,7 @@ class DonutChart(QWidget):
         :return: None
         """
 
-        return
+        pass
 
     def paintEvent(self, _event: QPaintEvent):
         """
