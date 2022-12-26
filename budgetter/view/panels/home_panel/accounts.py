@@ -279,9 +279,16 @@ class Accounts(QObject):
         :return: None
         """
 
+        # Add account in model
         self.accounts_model.add_account(account)
         self.dialogs[-1].close()
         self.dialogs.pop(-1)
+
+        # Update balance widget
+        self.balance_chart.add_slice(float(account.get('amount')),
+                                     account.get('color'))
+
+        # Open toaster
         _ = Toaster("Account added", ToasterType.SUCCESS, self.main_window)
 
     def set_accounts(self, accounts: list):

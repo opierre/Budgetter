@@ -56,8 +56,7 @@ class DonutChart(QWidget):
         self._total_amount += amount
 
         # Compute percentage
-        percentage = int(amount * 100 / self._total_amount)
-        self._slices.append({'value': percentage, 'color': color})
+        self._slices.append({'value': amount, 'color': color})
         self.update()
 
     def mousePressEvent(self, event_qmouse_event: QMouseEvent):
@@ -90,7 +89,7 @@ class DonutChart(QWidget):
 
         # Configure pen
         pen = QPen()
-        pen.setWidthF(22.5)
+        pen.setWidthF(12.5)
         pen.setCapStyle(Qt.RoundCap)
         painter.setOpacity(1)
 
@@ -144,7 +143,8 @@ class DonutChart(QWidget):
 
         for current_slice in self._slices:
             # Set span angles
-            span_angle = current_slice.get('value') * 360 / 100
+            percentage = int(current_slice.get('value') * 100 / self._total_amount)
+            span_angle = percentage * 360 / 100
 
             # Set start angle
             if previous_end_angle == 0:
@@ -167,13 +167,13 @@ class DonutChart(QWidget):
             painter.drawArc(rect_origins, start_angle * 16, span_angle * 16)
             painter.setOpacity(1.0)
 
-            # Re-draw first one in case of last to hide overlapping
-            # Set pen color
-            pen.setColor(current_slice.get('color'))
-            painter.setPen(pen)
-
-            # Draw arc
-            painter.drawArc(rect_origins, start_angle * 16, span_angle * 16 * 1 / 100)
+            # # Re-draw first one in case of last to hide overlapping
+            # # Set pen color
+            # pen.setColor(current_slice.get('color'))
+            # painter.setPen(pen)
+            #
+            # # Draw arc
+            # painter.drawArc(rect_origins, start_angle * 16, span_angle * 16 * 1 / 100)
 
             # Update current index
             current_index += 1
