@@ -1,5 +1,5 @@
-from PySide6.QtCore import QTimer, Signal, QStringListModel
-from PySide6.QtGui import QColor, QDoubleValidator, Qt
+from PySide6.QtCore import QTimer, Signal, QStringListModel, QSize
+from PySide6.QtGui import QColor, QDoubleValidator, Qt, QIcon
 from PySide6.QtWidgets import QWidget, QCompleter
 
 from budgetter.utils.tools import update_style
@@ -105,7 +105,24 @@ class AddAccountDialog(QWidget):
         :return: None
         """
 
+        # Update color
         self._color = color
+
+        # Transform color to reduce opacity
+        transparent_color = QColor(color)
+
+        # Update icon and stylesheet
+        palette_icon = QIcon()
+        if color != '':
+            self.content.color_picker.setStyleSheet(f"background-color: rgba({transparent_color.red()},"
+                                                    f"{transparent_color.green()}, {transparent_color.blue()}, 128);")
+            palette_icon.addFile(":/images/images/palette_FILL0_wght500_GRAD0_opsz48_white.svg",
+                                 QSize(24, 24), QIcon.Normal, QIcon.On)
+        else:
+            self.content.color_picker.setStyleSheet(f"background-color: transparent;")
+            palette_icon.addFile(":/images/images/palette_FILL0_wght500_GRAD0_opsz48.svg",
+                                 QSize(24, 24), QIcon.Normal, QIcon.On)
+        self.content.color_picker.setIcon(palette_icon)
 
     def check_inputs(self):
         """

@@ -111,10 +111,9 @@ class ColorPickerDialog(QWidget):
         elif self._basic_selected != '':
             # Emit signal to close popup and selected color
             self.colorSelected.emit(self._basic_selected)
-            return
-
-        if "0190EA" not in color_stylesheet and self._basic_selected == '':
-            self.warn_widget(self.content.color_choice)
+        else:
+            # Emit signal to close popup and selected color
+            self.colorSelected.emit("")
 
     @staticmethod
     def warn_widget(widget: QWidget):
