@@ -8,6 +8,7 @@ from budgetter.view.widgets.balance_widgets.donut_chart_widget import DonutChart
 from budgetter.view.widgets.dialog import Dialog
 from budgetter.view.widgets.dialog_widgets.add_account import AddAccountDialog
 from budgetter.view.widgets.dialog_widgets.add_bank import AddBankDialog
+from budgetter.view.widgets.dialog_widgets.color_picker import ColorPickerDialog
 from budgetter.view.widgets.toaster.toaster import Toaster, ToasterType
 
 
@@ -136,11 +137,42 @@ class Accounts(QObject):
         # Connect signal from popup to add new account
         dialog_content.addAccount.connect(self.pre_add_account)
 
+        # Connect signal to open color picker
+        dialog_content.openColorDialog.connect(self.open_color_dialog)
+
         # Connect signal coming from click on Confirm button
         self.dialogs[-1].confirm.connect(dialog_content.check_inputs)
 
         # Set focus on first widget when opening
         dialog_content.content.account_name.setFocus()
+
+    def open_color_dialog(self):
+        """
+        Open color picker dialog
+
+        :return: None
+        """
+
+        # Set dialog content
+        dialog_content = ColorPickerDialog(self.main_window)
+
+        # Set icon
+        header_icon = QIcon()
+        header_icon.addFile(":/images/images/palette_FILL0_wght500_GRAD0_opsz48_white.svg",
+                            QSize(24, 24), QIcon.Disabled, QIcon.On)
+
+        # Hide previous dialog
+        self.dialogs[-1].hide()
+
+        # Open dialog
+        self.dialogs.append(Dialog(QCoreApplication.translate("Accounts", 'Color Picker'), header_icon, dialog_content,
+                                   self.main_window))
+
+        # Connect signal from popup to add new account
+        # dialog_content.colorSelected.connect(self.update_color)
+
+        # Set focus on first widget when opening
+        dialog_content.content.color_edit.setFocus()
 
     def pre_add_account(self, name: str, amount: str, bank_id: int, date: str, new_bank_name: str):
         """

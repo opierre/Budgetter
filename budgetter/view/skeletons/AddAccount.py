@@ -141,7 +141,7 @@ class Ui_AddAccount(object):
         self.widget.setMaximumSize(QSize(16777215, 67))
         self.verticalLayout_4 = QVBoxLayout(self.widget)
         self.verticalLayout_4.setObjectName("verticalLayout_4")
-        self.verticalLayout_4.setContentsMargins(0, 0, 0, 2)
+        self.verticalLayout_4.setContentsMargins(0, 0, 0, 0)
         self.verticalSpacer = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
 
         self.verticalLayout_4.addItem(self.verticalSpacer)
@@ -154,7 +154,7 @@ class Ui_AddAccount(object):
         icon = QIcon()
         icon.addFile(":/images/images/palette_FILL0_wght500_GRAD0_opsz48.svg", QSize(), QIcon.Normal, QIcon.Off)
         self.color_picker.setIcon(icon)
-        self.color_picker.setIconSize(QSize(40, 40))
+        self.color_picker.setIconSize(QSize(28, 28))
 
         self.verticalLayout_4.addWidget(self.color_picker)
 

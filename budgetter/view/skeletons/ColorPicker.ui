@@ -1,0 +1,431 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>ColorPicker</class>
+ <widget class="QWidget" name="ColorPicker">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>308</width>
+    <height>179</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QWidget#picker 
+{
+	background-color: #1C293B;
+	border: none;
+	border-radius: 4px;
+	outline: none;
+}
+
+QPushButton
+{
+	background-color: transparent;
+	color: #8ec6f4;
+	outline: none;
+	padding-left: 8px;
+	padding-right: 8px;
+	padding-top: 8px;
+	padding-bottom: 8px;
+	border-radius: 4px;
+}
+
+QPushButton:hover
+{
+	background-color: rgba(140, 195, 240, 30);
+}
+
+QToolButton
+{
+	background-color: transparent;
+	outline: none;
+}
+
+QToolButton:hover
+{
+	background-color: rgba(255, 255, 255, 25);
+	border-radius: 2px;
+	outline: none;
+}
+
+QLineEdit
+{
+	background-color: transparent;
+	border: none;
+	border-radius: 0px;
+	padding-left: 0px;
+	/*border-bottom: 1px solid rgba(255, 255, 255, 180);*/
+	outline: none;
+}
+
+QLineEdit:hover
+{
+	/*border-bottom: 2px solid rgba(255, 255, 255, 230);*/
+}
+
+
+QLineEdit:focus
+{
+	/*border-bottom: 2px solid rgba(255, 255, 255, 230);*/
+}
+
+QComboBox
+{
+	background-color: transparent;
+	border: none;
+	border-radius: 0px;
+	padding-left: 0px;
+	/*border-bottom: 1px solid rgba(255, 255, 255, 180);*/
+	outline: none;
+}</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="0" column="0">
+    <widget class="QWidget" name="picker" native="true">
+     <layout class="QGridLayout" name="gridLayout_3">
+      <property name="horizontalSpacing">
+       <number>30</number>
+      </property>
+      <item row="0" column="0">
+       <layout class="QGridLayout" name="gridLayout_2">
+        <property name="spacing">
+         <number>12</number>
+        </property>
+        <item row="1" column="1">
+         <widget class="QToolButton" name="color_2">
+          <property name="minimumSize">
+           <size>
+            <width>30</width>
+            <height>30</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>30</width>
+            <height>30</height>
+           </size>
+          </property>
+          <property name="cursor">
+           <cursorShape>PointingHandCursor</cursorShape>
+          </property>
+          <property name="toolTip">
+           <string>#6658ca</string>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QToolButton
+{
+	background-radius: 2px;
+	background-color: #6658ca;
+	border: 2px solid #2b405b;
+	border-radius: 2px;
+}
+
+QToolButton::checked
+{
+	padding: 2px;
+	border: 2px solid #0190EA;
+}</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="checkable">
+           <bool>true</bool>
+          </property>
+          <property name="autoExclusive">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="0" colspan="4">
+         <widget class="QLabel" name="label">
+          <property name="font">
+           <font>
+            <family>Roboto</family>
+            <pointsize>12</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">color: rgba(255, 255, 255, 180);</string>
+          </property>
+          <property name="text">
+           <string>Basic Colors</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="2">
+         <widget class="QToolButton" name="color_3">
+          <property name="minimumSize">
+           <size>
+            <width>30</width>
+            <height>30</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>30</width>
+            <height>30</height>
+           </size>
+          </property>
+          <property name="cursor">
+           <cursorShape>PointingHandCursor</cursorShape>
+          </property>
+          <property name="toolTip">
+           <string>#0054c7</string>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QToolButton
+{
+	background-radius: 2px;
+	background-color: #0054c7;
+	border: 2px solid #2b405b;
+	border-radius: 2px;
+}
+
+QToolButton::checked
+{
+	padding: 2px;
+	border: 2px solid #0190EA;
+}</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="checkable">
+           <bool>true</bool>
+          </property>
+          <property name="autoExclusive">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="0">
+         <widget class="QToolButton" name="color_4">
+          <property name="minimumSize">
+           <size>
+            <width>30</width>
+            <height>30</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>30</width>
+            <height>30</height>
+           </size>
+          </property>
+          <property name="cursor">
+           <cursorShape>PointingHandCursor</cursorShape>
+          </property>
+          <property name="toolTip">
+           <string>#26c1ca</string>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QToolButton
+{
+	background-radius: 2px;
+	background-color: #26c1ca;
+	border: 2px solid #2b405b;
+	border-radius: 2px;
+}
+
+QToolButton::checked
+{
+	padding: 2px;
+	border: 2px solid #0190EA;
+}</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="checkable">
+           <bool>true</bool>
+          </property>
+          <property name="autoExclusive">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="0">
+         <widget class="QToolButton" name="color_1">
+          <property name="minimumSize">
+           <size>
+            <width>30</width>
+            <height>30</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>30</width>
+            <height>30</height>
+           </size>
+          </property>
+          <property name="cursor">
+           <cursorShape>PointingHandCursor</cursorShape>
+          </property>
+          <property name="toolTip">
+           <string>#1ba9e9</string>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QToolButton
+{
+	background-radius: 2px;
+	background-color: #1ba9e9;
+	border: 2px solid #2b405b;
+	border-radius: 2px;
+}
+
+QToolButton::checked
+{
+	padding: 2px;
+	border: 2px solid #0190EA;
+}</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="checkable">
+           <bool>true</bool>
+          </property>
+          <property name="autoExclusive">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="1">
+         <widget class="QToolButton" name="color_5">
+          <property name="minimumSize">
+           <size>
+            <width>30</width>
+            <height>30</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>30</width>
+            <height>30</height>
+           </size>
+          </property>
+          <property name="cursor">
+           <cursorShape>PointingHandCursor</cursorShape>
+          </property>
+          <property name="toolTip">
+           <string>#fccb01</string>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QToolButton
+{
+	background-radius: 2px;
+	background-color: #fccb01;
+	border: 2px solid #2b405b;
+	border-radius: 2px;
+}
+
+QToolButton::checked
+{
+	padding: 2px;
+	border: 2px solid #0190EA;
+}</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="checkable">
+           <bool>true</bool>
+          </property>
+          <property name="autoExclusive">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="0" colspan="4">
+         <spacer name="verticalSpacer">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>40</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+       </layout>
+      </item>
+      <item row="0" column="1">
+       <layout class="QVBoxLayout" name="verticalLayout">
+        <property name="spacing">
+         <number>12</number>
+        </property>
+        <item>
+         <widget class="MaterialOutlinedLineEdit" name="color_edit">
+          <property name="minimumSize">
+           <size>
+            <width>100</width>
+            <height>67</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>67</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <family>Roboto</family>
+            <pointsize>11</pointsize>
+           </font>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout">
+          <item>
+           <widget class="QLabel" name="color_choice">
+            <property name="minimumSize">
+             <size>
+              <width>60</width>
+              <height>60</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>60</width>
+              <height>60</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">background-radius: 2px;
+background-color: #26374d;
+border: 2px solid #2b405b;
+border-radius: 2px;</string>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>MaterialOutlinedLineEdit</class>
+   <extends>QLineEdit</extends>
+   <header>view.widgets.material_outlined_line_edit.h</header>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>

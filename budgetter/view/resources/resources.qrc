@@ -37,6 +37,7 @@
     <file>i18n/fr_FR.qm</file>
   </qresource>
   <qresource prefix="images">
+    <file>images/palette_FILL0_wght500_GRAD0_opsz48_white.svg</file>
     <file>images/account_balance_wallet_FILL0_wght400_GRAD0_opsz48.svg</file>
     <file>images/palette_FILL0_wght500_GRAD0_opsz48.svg</file>
     <file>images/image_FILL0_wght400_GRAD0_opsz48.svg</file>

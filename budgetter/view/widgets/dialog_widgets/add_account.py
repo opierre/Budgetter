@@ -14,6 +14,9 @@ class AddAccountDialog(QWidget):
     # Signal emitted to add new account with name, amount, bank identifier, date, new bank name
     addAccount = Signal(str, str, int, str, str)
 
+    # Signal emitted to open color picker dialog
+    openColorDialog = Signal()
+
     def __init__(self, bank_ids: dict, parent=None):
         super().__init__(parent)
 
@@ -24,11 +27,18 @@ class AddAccountDialog(QWidget):
         # Store bank identifiers
         self.bank_ids = bank_ids
 
+        # Store current color
+        self._color_dialog = None
+        self._color = QColor("white")
+
         # Store completer for bank choices
         self.bank_completer = QCompleter(self.content.account_bank)
 
         # Configure widgets
         self.configure()
+
+        # Connect slots and signals
+        self.connect_slots_and_signals()
 
     def configure(self):
         """
@@ -66,6 +76,37 @@ class AddAccountDialog(QWidget):
         self.bank_completer.setCaseSensitivity(Qt.CaseInsensitive)
         self.bank_completer.setCompletionMode(QCompleter.InlineCompletion)
         self.content.account_bank.setCompleter(self.bank_completer)
+
+    def connect_slots_and_signals(self):
+        """
+        Connect all slots and signals from this panel
+
+        :return: None
+        """
+
+        # Connect click on palette to open color dialog
+        self.content.color_picker.clicked.connect(self.open_color_dialog)
+
+    def open_color_dialog(self):
+        """
+        Open dialog to let user pick a color for current account
+
+        :return: None
+        """
+
+        # Emit signal to open color picker dialog
+        self.openColorDialog.emit()
+
+    def update_color(self, color: QColor):
+        """
+        Update current selected color
+
+        :param color: color to set
+        :return: None
+        """
+
+        self._color = color
+        print(self._color)
 
     def check_inputs(self):
         """
