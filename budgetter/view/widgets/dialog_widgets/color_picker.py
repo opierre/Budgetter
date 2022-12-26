@@ -22,8 +22,7 @@ class ColorPickerDialog(QWidget):
         self.content.setupUi(self)
 
         # Store current color
-        self._color_dialog = None
-        self._color = QColor("white")
+        self._basic_selected = ""
 
         # Configure widgets
         self.configure()
@@ -55,6 +54,22 @@ class ColorPickerDialog(QWidget):
         # Connect new entry in text edit to update displayed color
         self.content.color_edit.textChanged.connect(self.display_color)
 
+        # Update selected color
+        self.content.color_1.clicked.connect(self.update_basic)
+        self.content.color_2.clicked.connect(self.update_basic)
+        self.content.color_3.clicked.connect(self.update_basic)
+        self.content.color_4.clicked.connect(self.update_basic)
+        self.content.color_5.clicked.connect(self.update_basic)
+
+    def update_basic(self):
+        """
+        Update current basic color selected
+
+        :return: None
+        """
+
+        self._basic_selected = self.sender().toolTip()
+
     def display_color(self, color_text: str):
         """
         Update display color
@@ -80,53 +95,38 @@ class ColorPickerDialog(QWidget):
                     "background-radius: 2px;\nbackground-color: #26374d;\n"
                     "border: 2px solid #2b405b;\nborder-radius: 2px;")
 
-        def check_inputs(self):
-            """
-            Check every inputs on opened dialog
+    def check_inputs(self):
+        """
+        Check every inputs on opened dialog
 
-            :return: None
-            """
+        :return: None
+        """
 
-            # Retrieve values
-            account_name = self.content.account_name.text()
-            account_amount = self.content.account_amount.text()
-            account_amount_date = self.content.account_amount_date.text()
-            account_bank = self.content.account_bank.text()
+        # Retrieve values
+        color_stylesheet = self.content.color_choice.styleSheet()
 
-            if account_name != '' and \
-                    account_amount != '' and \
-                    account_amount_date != '' and \
-                    account_bank != '':
-                # Find corresponding bank identifier
-                bank_id = self.bank_ids.get(account_bank, None)
-                if bank_id is None:
-                    bank_id = -1
+        if "0190EA" in color_stylesheet != '':
+            # Emit signal to close popup and selected color
+            self.colorSelected.emit("#" + self.content.color_edit.text())
+        elif self._basic_selected != '':
+            # Emit signal to close popup and selected color
+            self.colorSelected.emit(self._basic_selected)
+            return
 
-                # Emit signal to close popup and add new account
-                self.addAccount.emit(account_name, account_amount, bank_id, account_amount_date,
-                                     account_bank)
-                return
+        if "0190EA" not in color_stylesheet and self._basic_selected == '':
+            self.warn_widget(self.content.color_choice)
 
-            if account_name == '':
-                self.warn_widget(self.content.account_name)
-            if account_amount == '':
-                self.warn_widget(self.content.account_amount)
-            if account_amount_date == '':
-                self.warn_widget(self.content.account_amount_date)
-            if account_bank == '':
-                self.warn_widget(self.content.account_bank)
+    @staticmethod
+    def warn_widget(widget: QWidget):
+        """
+        Make widget red highlighted
 
-        @staticmethod
-        def warn_widget(widget: QWidget):
-            """
-            Make widget red highlighted
+        :param widget: widget to highlight
+        :return: None
+        """
 
-            :param widget: widget to highlight
-            :return: None
-            """
-
-            back_style_sheet = widget.styleSheet()
-            QTimer.singleShot(0, lambda: update_style(widget, "  border: 2px solid #e84134;"
-                                                              "  border-radius: 5px;"
-                                                              "  padding-left: 9px"))
-            QTimer.singleShot(2000, lambda: update_style(widget, back_style_sheet))
+        back_style_sheet = widget.styleSheet()
+        QTimer.singleShot(0, lambda: update_style(widget, "  border: 2px solid #e84134;"
+                                                          "  border-radius: 5px;"
+                                                          "  padding-left: 9px"))
+        QTimer.singleShot(2000, lambda: update_style(widget, back_style_sheet))

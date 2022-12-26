@@ -11,8 +11,8 @@ class AddAccountDialog(QWidget):
     Add account dialog content
     """
 
-    # Signal emitted to add new account with name, amount, bank identifier, date, new bank name
-    addAccount = Signal(str, str, int, str, str)
+    # Signal emitted to add new account with name, amount, bank identifier, date, new bank name, color
+    addAccount = Signal(str, str, int, str, str, str)
 
     # Signal emitted to open color picker dialog
     openColorDialog = Signal()
@@ -97,7 +97,7 @@ class AddAccountDialog(QWidget):
         # Emit signal to open color picker dialog
         self.openColorDialog.emit()
 
-    def update_color(self, color: QColor):
+    def update_color(self, color: str):
         """
         Update current selected color
 
@@ -106,7 +106,6 @@ class AddAccountDialog(QWidget):
         """
 
         self._color = color
-        print(self._color)
 
     def check_inputs(self):
         """
@@ -132,7 +131,7 @@ class AddAccountDialog(QWidget):
 
             # Emit signal to close popup and add new account
             self.addAccount.emit(account_name, account_amount, bank_id, account_amount_date,
-                                 account_bank)
+                                 account_bank, self._color)
             return
 
         if account_name == '':

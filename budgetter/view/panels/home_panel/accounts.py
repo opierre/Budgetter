@@ -18,7 +18,7 @@ class Accounts(QObject):
     """
 
     # Signals list
-    addAccountCall = Signal(str, str, int, str)
+    addAccountCall = Signal(str, str, int, str, str)
     addBankCall = Signal(str)
 
     def __init__(self, gui, main_window):
@@ -168,13 +168,32 @@ class Accounts(QObject):
         self.dialogs.append(Dialog(QCoreApplication.translate("Accounts", 'Color Picker'), header_icon, dialog_content,
                                    self.main_window))
 
+        # Connect signal coming from click on Confirm button
+        self.dialogs[-1].confirm.connect(dialog_content.check_inputs)
+
         # Connect signal from popup to add new account
-        # dialog_content.colorSelected.connect(self.update_color)
+        dialog_content.colorSelected.connect(self.update_color)
 
         # Set focus on first widget when opening
         dialog_content.content.color_edit.setFocus()
 
-    def pre_add_account(self, name: str, amount: str, bank_id: int, date: str, new_bank_name: str):
+    def update_color(self, color: str):
+        """
+        Update selected color
+
+        :param color: color
+        :return: None
+        """
+
+        # Close previous popup
+        self.dialogs[-1].close()
+        self.dialogs.pop()
+
+        # Update color
+        self.dialogs[-1].show(False)
+        self.dialogs[-1].central_widget().update_color(color)
+
+    def pre_add_account(self, name: str, amount: str, bank_id: int, date: str, new_bank_name: str, color: str):
         """
         Check bank already exists
 
@@ -183,6 +202,7 @@ class Accounts(QObject):
         :param bank_id: bank identifier
         :param date: date
         :param new_bank_name: new bank name
+        :param color: color for account
         :return: None
         """
 
@@ -212,7 +232,7 @@ class Accounts(QObject):
             dialog_content.content.bank_name.setFocus()
 
         else:
-            self.addAccountCall.emit(name, amount, bank_id, date)
+            self.addAccountCall.emit(name, amount, bank_id, date, color)
 
     def bank_added(self, bank: dict):
         """

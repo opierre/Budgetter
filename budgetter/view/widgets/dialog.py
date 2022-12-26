@@ -211,3 +211,12 @@ class Dialog(QWidget):
         dialog_geometry = self.geometry()
         dialog_geometry.moveCenter(self.parent().rect().center())
         self.setGeometry(dialog_geometry)
+
+    def central_widget(self) -> QWidget:
+        """
+        Return central widget
+
+        :return: central widget
+        """
+
+        return self._dialog.central_widget.layout().itemAt(0).widget()

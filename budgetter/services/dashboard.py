@@ -50,7 +50,7 @@ class Dashboard(QObject):
         # Start worker
         worker.run()
 
-    def add_account_worker(self, name: str, amount: str, bank_id: int, date: str):
+    def add_account_worker(self, name: str, amount: str, bank_id: int, date: str, color: str):
         """
         Add account via worker call
 
@@ -58,6 +58,7 @@ class Dashboard(QObject):
         :param amount: account amount
         :param bank_id: account bank identifier in database
         :param date: date for update
+        :param color: color for account
         :return: None
         """
 
@@ -66,7 +67,8 @@ class Dashboard(QObject):
             "name": name,
             "bank": bank_id,
             "amount": float(amount.replace(',', '.')),
-            "last_update": date
+            "last_update": date,
+            "color": color
         }
 
         # Create worker
