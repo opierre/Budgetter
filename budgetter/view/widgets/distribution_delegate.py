@@ -84,8 +84,8 @@ class DistributionDelegate(QItemDelegate):
         painter.setBrush(QColor("#1A537D"))
         rect_icon = QRect(rect_background.x() + option.rect.width() * 1 / 60,
                           rect_background.y() - option.rect.height() * 1 / 30,
-                          rect_background.height() + option.rect.height() * 1 / 30,
-                          rect_background.height() + option.rect.height() * 1 / 30)
+                          rect_background.height() + option.rect.height() * 2 / 30,
+                          rect_background.height() + option.rect.height() * 2 / 30)
         painter.drawRoundedRect(rect_icon, 1.0, 1.0)
 
         # Draw icon and render svg
@@ -159,7 +159,7 @@ class DistributionDelegate(QItemDelegate):
 
         # Set amount on right corner
         rect_amount = QRect(rect_background.width() + rect_background.x() - pixels_width - option.rect.width() * 1 / 50,
-                            rect_category.y(),
+                            rect_category.y() + option.rect.height() * 2 / 50,
                             pixels_width, pixels_height)
         painter.drawText(rect_amount, int(Qt.AlignRight | Qt.AlignVCenter), amount)
 

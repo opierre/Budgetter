@@ -170,9 +170,6 @@ class SavingChart(QChart):
         # Update current point clicked
         self.current_point = closest
 
-        # Retrieve position in list
-        points = self.series_finale.points()
-
         # Emit signal to display legend
         self.pointClicked.emit(closest)
 
