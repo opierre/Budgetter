@@ -80,7 +80,17 @@ class TitleBar(QWidget):
         # Set search icon
         self.gui.title_bar_search.set_icon(QIcon(":/images/images/search-white-24dp.svg"))
 
-    def set_title(self, title):
+    def set_info(self, info: str):
+        """
+        Update info label
+
+        :param info: info to set
+        :return: None
+        """
+
+        self.gui.info.setText(info)
+
+    def set_title(self, title: str):
         """
         Set title
 

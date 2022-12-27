@@ -44,9 +44,6 @@ class Controller:
         :return: None
         """
 
-        # Connect Custom Windows resize to display callout
-        self.main_window.resizeEventSignal.connect(self.home_panel.display_saving_tooltip)
-
         # Connect home panel signals to worker execution
         self.home_panel.addAccountController.connect(self.home_threads.add_account_worker)
         self.home_panel.addBankController.connect(self.home_threads.add_bank_worker)

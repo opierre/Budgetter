@@ -77,7 +77,7 @@ class DistributionDelegate(QItemDelegate):
             option.rect.y() + 10,
             (rect_background.width() - (option.rect.width() * 1 / 3)) * (value[3] / 100),
             option.rect.height() - 20)
-        painter.drawRoundedRect(rect_percentage, 5.0, 5.0)
+        painter.drawRoundedRect(rect_percentage, 3.0, 3.0)
 
         # Draw left icon background
         painter.setPen(QPen(QColor("#1A537D")))

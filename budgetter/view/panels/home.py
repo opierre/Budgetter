@@ -54,15 +54,6 @@ class Home(QObject):
         self._accounts.addAccountCall.connect(self.addAccountController.emit)
         self._accounts.addBankCall.connect(self.addBankController.emit)
 
-    def display_saving_tooltip(self):
-        """
-        Display saving tooltip after window resized
-
-        :return: None
-        """
-
-        self._savings.display_tooltip()
-
     def handle_error(self, error: (Exception, Any, str)):
         """
         Handle error from API call

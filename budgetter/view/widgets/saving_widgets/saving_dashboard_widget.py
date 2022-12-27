@@ -1,15 +1,18 @@
 from datetime import datetime
 
-from PySide6.QtCore import QDate
+from PySide6.QtCore import QDate, Signal
 from PySide6.QtWidgets import QWidget, QGridLayout
 
-from budgetter.view.widgets.saving_widgets.callout_widget import CalloutChartView
+from budgetter.view.widgets.saving_widgets.chart_view import ChartView
 
 
 class SavingDashboard(QWidget):
     """
     Saving Dashboard
     """
+
+    # Signals
+    legendSaving = Signal(str, str)
 
     def __init__(self, parent=None):
         super().__init__(parent)
@@ -20,13 +23,26 @@ class SavingDashboard(QWidget):
         self.previous_year_values = {}
 
         # Store chart view """
-        self.chart_view = CalloutChartView()
+        self.chart_view = ChartView()
 
         # Store layout for dashboard widget """
         self._layout = QGridLayout(self)
 
         # Configure widgets """
         self.configure_widgets()
+
+        # Connect signal
+        self.connect_slots_and_signals()
+
+    def connect_slots_and_signals(self):
+        """
+        Connect all slots and signals from chart widget
+
+        :return: None
+        """
+
+        # Connect legend signal to update legend in title bar
+        self.chart_view.legend.connect(self.legendSaving.emit)
 
     def configure_widgets(self):
         """
@@ -65,6 +81,9 @@ class SavingDashboard(QWidget):
 
         # Set 12 last months
         self.set_last_months()
+
+        # Set legend
+        self.chart_view.show_legend(self.chart_view.chart.get_middle_value())
 
     def set_current_year_values(self, boolean: bool):
         """

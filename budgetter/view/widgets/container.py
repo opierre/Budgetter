@@ -82,6 +82,16 @@ class Container(QDockWidget):
 
         self.title_bar.disable_search()
 
+    def set_info(self, info: str):
+        """
+        Set info on Container title bar
+
+        :param info: info to set
+        :return: None
+        """
+
+        self.title_bar.set_info(info)
+
     def set_title(self, title: str):
         """
         Set title on Container title bar

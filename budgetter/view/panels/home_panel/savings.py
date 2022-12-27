@@ -36,6 +36,9 @@ class Savings(QObject):
         # Configure layout
         self.configure_layout()
 
+        # Connect all slots and signals
+        self.connect_slots_and_signals()
+
         # Configure title bar
         self.configure_title_bar()
 
@@ -44,9 +47,6 @@ class Savings(QObject):
 
         # Configure chart
         self.configure_chart()
-
-        # Connect all slots and signals
-        self.connect_slots_and_signals()
 
     def connect_slots_and_signals(self):
         """
@@ -63,6 +63,9 @@ class Savings(QObject):
         # Connect click on previous/next from status bar to move point
         self.custom_status_bar.nextClicked.connect(self.chart_widget.chart_view.chart.show_next)
         self.custom_status_bar.previousClicked.connect(self.chart_widget.chart_view.chart.show_previous)
+
+        # Connect legend signal to display legend
+        self.chart_widget.legendSaving.connect(self.update_legend)
 
     def configure_chart(self):
         """
@@ -217,12 +220,14 @@ class Savings(QObject):
 
         self.ui_setup.savings.setWidget(widget)
 
-    def display_tooltip(self):
+    def update_legend(self, month: str, amount: str):
         """
-        Display tooltip after windows resized
+        Update saving legend
 
+        :param month: month
+        :param amount: amount
         :return: None
         """
 
-        self.chart_widget.chart_view.display_callout(self.chart_widget.chart_view.chart.get_middle_value(),
-                                                     alignment=Qt.AlignLeft)
+        # Update title bar info
+        self.ui_setup.savings.set_info(f"{month} / {amount}")

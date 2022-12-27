@@ -256,6 +256,21 @@ class Ui_Options(object):
 
         self.horizontalLayout.addItem(self.horizontalSpacer)
 
+        self.info = QLabel(self.content)
+        self.info.setObjectName("info")
+        font1 = QFont()
+        font1.setFamilies([u"Roboto"])
+        font1.setPointSize(11)
+        font1.setItalic(False)
+        self.info.setFont(font1)
+        self.info.setStyleSheet("font-family: \"Roboto\";\n"
+"font-size: 11pt;\n"
+"font-style: normal;\n"
+"font-weight: 400px;\n"
+"color: #BCBCBC;")
+
+        self.horizontalLayout.addWidget(self.info)
+
         self.horizontalLayout_2 = QHBoxLayout()
         self.horizontalLayout_2.setSpacing(0)
         self.horizontalLayout_2.setObjectName("horizontalLayout_2")
@@ -263,10 +278,10 @@ class Ui_Options(object):
         self.title_bar_search.setObjectName("title_bar_search")
         self.title_bar_search.setMinimumSize(QSize(0, 32))
         self.title_bar_search.setMaximumSize(QSize(200, 32))
-        font1 = QFont()
-        font1.setFamilies([u"Roboto"])
-        font1.setPointSize(11)
-        self.title_bar_search.setFont(font1)
+        font2 = QFont()
+        font2.setFamilies([u"Roboto"])
+        font2.setPointSize(11)
+        self.title_bar_search.setFont(font2)
 
         self.horizontalLayout_2.addWidget(self.title_bar_search)
 
@@ -277,7 +292,7 @@ class Ui_Options(object):
         self.search_field.setObjectName("search_field")
         self.search_field.setMinimumSize(QSize(0, 32))
         self.search_field.setMaximumSize(QSize(100, 32))
-        self.search_field.setFont(font1)
+        self.search_field.setFont(font2)
 
         self.horizontalLayout_2.addWidget(self.search_field)
 
@@ -308,6 +323,7 @@ class Ui_Options(object):
     def retranslateUi(self, Options):
         Options.setWindowTitle(QCoreApplication.translate("Options", "Form", None))
         self.title_bar_title.setText(QCoreApplication.translate("Options", "Title", None))
+        self.info.setText("")
         self.title_bar_search.setPlaceholderText(QCoreApplication.translate("Options", "Search...", None))
         self.search_field.setItemText(0, QCoreApplication.translate("Options", "Name", None))
         self.search_field.setItemText(1, QCoreApplication.translate("Options", "Amount", None))

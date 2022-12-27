@@ -23,6 +23,7 @@
 {
 	background: #2C405A;
 	border-bottom: 1px solid #47566B;
+	outline: none;
 }
 
 QGroupBox 
@@ -36,6 +37,7 @@ QGroupBox
 	margin-left: 1ex;
 	margin-right: 1ex;
 	padding-top: 30px;
+	outline: none;
 }
 
 QGroupBox#accounts 
@@ -46,6 +48,7 @@ QGroupBox#accounts
 	margin-left: 0ex;
 	margin-right: 0ex;
 	padding-top: 0px;
+	outline: none;
 }
 
 QGroupBox::title
@@ -56,6 +59,7 @@ QGroupBox::title
 	margin-bottom: -55px;
 	subcontrol-origin: margin;
 	subcontrol-position: top left;
+	outline: none;
 }
 
 QLineEdit 
@@ -69,6 +73,7 @@ QLineEdit
 	background: rgba(28, 41, 59, 128);
 	color: white;
 	selection-background-color: #0190EA;
+	outline: none;
 }
 
 QLineEdit#titleBarSearch
@@ -82,6 +87,7 @@ QLineEdit#titleBarSearch
 	background: rgba(44, 64, 90, 255);
 	color: white;
 	selection-background-color: #0190EA;
+	outline: none;
 }
 
 QLineEdit::hover
@@ -95,6 +101,7 @@ QLineEdit::hover
 	background: rgba(28, 41, 59, 128);
 	color: white;
 	selection-background-color: #0190EA;
+	outline: none;
 }
 
 QLineEdit::focus
@@ -108,6 +115,7 @@ QLineEdit::focus
 	background: rgba(28, 41, 59, 128);
 	color: white;
 	selection-background-color: #0190EA;
+	outline: none;
 }
 
 QLineEdit#titleBarSearch::hover
@@ -121,6 +129,7 @@ QLineEdit#titleBarSearch::hover
 	background: rgba(44, 64, 90, 255);
 	color: white;
 	selection-background-color: #0190EA;
+	outline: none;
 }
 
 QLineEdit::disabled
@@ -134,6 +143,7 @@ QLineEdit::disabled
 	background: transparent;
 	color: white;
 	selection-background-color: grey;
+	outline: none;
 }
 
 QPushButton 
@@ -144,6 +154,7 @@ QPushButton
 	padding-left: 7px;
 	padding-right: 7px;
 	color: white;
+	outline: none;
 }
 
 QPushButton#apply
@@ -156,6 +167,7 @@ QPushButton#apply
 	padding-top: 3px;
 	padding-bottom: 3px;
 	color: white;
+	outline: none;
 }
 
 QPushButton#apply:hover
@@ -168,6 +180,7 @@ QPushButton#apply:hover
 	padding-top: 3px;
 	padding-bottom: 3px;
 	color: white;
+	outline: none;
 }
 
 QPushButton#cancel
@@ -180,6 +193,7 @@ QPushButton#cancel
 	padding-top: 3px;
 	padding-bottom: 3px;
 	color: white;
+	outline: none;
 }
 
 QPushButton#cancel:hover
@@ -192,6 +206,7 @@ QPushButton#cancel:hover
 	padding-top: 3px;
 	padding-bottom: 3px;
 	color: white;
+	outline: none;
 }
 
 QComboBox 
@@ -204,6 +219,7 @@ QComboBox
 	padding-right: 2px;
 	background: rgba(28, 41, 59, 128);
 	color: white;
+	outline: none;
 }
 
 QComboBox::hover
@@ -216,6 +232,7 @@ QComboBox::hover
 	padding-right: 2px;
 	background: rgba(28, 41, 59, 128);
 	color: white;
+	outline: none;
 }
 
 QComboBox::focus
@@ -228,12 +245,14 @@ QComboBox::focus
 	padding-right: 2px;
 	background: rgba(28, 41, 59, 128);
 	color: white;
+	outline: none;
 }
 
 QComboBox::drop-down
 {
 	border: 0px;
 	background-color: transparent;
+	outline: none;
 }
 
 QComboBox::down-arrow
@@ -243,6 +262,7 @@ QComboBox::down-arrow
 	height: 18px;
 	padding-right: 0px;
 	padding-top: 0px;
+	outline: none;
 }
 
 
@@ -253,6 +273,7 @@ QComboBox::down-arrow:on
 	height: 18px;
 	padding-right: 0px;
 	padding-top: 0px;
+	outline: none;
 }
 
 QComboBox QAbstractItemView
@@ -270,6 +291,7 @@ QComboBox QAbstractItemView
 	padding-right: 2px;
 	outline: none;
 	margin-top: 5px;
+	outline: none;
 }
 
 QComboBox QAbstractItemView::item
@@ -329,6 +351,7 @@ QPushButton#settings
 	border-right: 1px solid #32465F;
 	padding: 6px 10px;
 	border-radius: 0px;
+	outline: none;
 }
 
 QPushButton#alerts 
@@ -346,6 +369,7 @@ QPushButton#menu:hover, QPushButton#settings:hover, QPushButton#alerts:hover
 	border-left: 1px solid #32465F;
 	padding: 6px 10px;
 	border-radius: 0px;
+	outline: none;
 }
 
 QPushButton[expanded=&quot;true&quot;]:hover 
@@ -356,6 +380,7 @@ QPushButton[expanded=&quot;true&quot;]:hover
 	border-color: transparent;
 	padding: 6px 6px;
 	color: rgba(255, 255, 255, 128);
+	outline: none;
 }
 
 QPushButton#settings:pressed, QPushButton#alerts:pressed 
@@ -364,6 +389,7 @@ QPushButton#settings:pressed, QPushButton#alerts:pressed
 	border-left: 1px solid #32465F;
 	padding: 6px 10px;
 	border-radius: 0px;
+	outline: none;
 }
 
 QPushButton[expanded=&quot;true&quot;]:pressed 
@@ -375,6 +401,7 @@ QPushButton[expanded=&quot;true&quot;]:pressed
 	border-color: transparent;
 	padding: 3px  3px;
 	color: rgba(36, 42, 117, 255);
+	outline: none;
 }
 
 QFrame[frameShape=&quot;5&quot;] 
@@ -410,6 +437,7 @@ QChartView
 QTableView 
 {
 	background-color: #141C26;
+	outline: none;
 }
 
 QPushButton#logoExpense
@@ -418,6 +446,7 @@ QPushButton#logoExpense
 	border-radius: 5px;
 	border-color: transparent;
 	color: white;
+	outline: none;
 }
 
 QLabel#categoryExpense 
@@ -426,6 +455,7 @@ QLabel#categoryExpense
 	font-family: &quot;Roboto&quot;;
 	font-size: 12pt;
 	margin-bottom: 15px;
+	outline: none;
 }
 
 QLabel#amountExpense 
@@ -433,6 +463,7 @@ QLabel#amountExpense
 	color: white;
 	font-family: &quot;Roboto Black&quot;;
 	font-size: 12pt;
+	outline: none;
 
 }
 
@@ -440,6 +471,7 @@ QLabel#monthExpense {
 	color: #a2a3ae;
 	font-family: &quot;Roboto Light&quot;;
 	font-size: 12pt;
+	outline: none;
 }
 
 QGroupBox#page1MonthlyExpenses, QGroupBox#page2MonthlyExpenses 
@@ -450,6 +482,7 @@ QGroupBox#page1MonthlyExpenses, QGroupBox#page2MonthlyExpenses
 	margin-left: 0ex;
 	margin-right: 0ex;
 	padding-top: 0px;
+	outline: none;
 }
 
 QPushButton#rightPageMonthlyExpenses, QPushButton#leftPageMonthlyExpenses
@@ -458,6 +491,7 @@ QPushButton#rightPageMonthlyExpenses, QPushButton#leftPageMonthlyExpenses
 	border-radius: 0px;
 	border-color: transparent;
 	color: white;
+	outline: none;
 }
 
 QPushButton#menuDashboard, QPushButton#menu,
@@ -467,6 +501,7 @@ QPushButton#menuGraph, QPushButton#menuInsights
 	border-radius: 0px;
     border-style: none;
     padding: 8px 6px 8px 6px;
+	outline: none;
 }
 
 QPushButton#menuDashboard:checked, QPushButton#menuGraph:checked,
@@ -476,6 +511,7 @@ QPushButton#menuInsights:checked
 	border-radius: 0px;
     border-left: 3px solid #0093EE;
     padding: 8px 6px 8px 3px;
+	outline: none;
 }
 
 QPushButton#menuDashboard:hover:!checked, QPushButton#menuGraph:hover:!checked,
@@ -485,6 +521,7 @@ QPushButton#menuInsights:hover:!checked
 	border-radius: 0px;
     border-style: none;
     padding: 8px 6px 8px 6px;
+	outline: none;
 }
 
 QPushButton#menu:hover 
@@ -493,11 +530,13 @@ QPushButton#menu:hover
 	border-radius: 0px;
     border-style: none;
     padding: 8px 6px 8px 6px;
+	outline: none;
 }
 
 QDockWidget {
 	color: white;
 	border-radius: 5px;
+	outline: none;
 }
 
 QDockWidget &gt; QWidget 
@@ -509,6 +548,7 @@ QDockWidget &gt; QWidget
 	border-top-right-radius: 0px;
 	border-bottom-left-radius: 4px;
 	border-bottom-right-radius: 4px;
+	outline: none;
 }
 
 QMainWindow::separator 
@@ -536,6 +576,7 @@ QLabel#titleBarTitle
 	font-family: &quot;Roboto&quot;;
 	font-size: 13pt;
 	color: white;
+	outline: none;
 }
 
 QWidget#titleBarEmptyWidget 
@@ -548,6 +589,7 @@ QWidget#titleBarEmptyWidget
 	border-bottom-right-radius: 0px;
 	margin-left: 0px;
 	margin-right: 0px;
+	outline: none;
 }
 
 QWidget#leftAddWidget 
@@ -561,6 +603,8 @@ QWidget#leftAddWidget
 	border-bottom-right-radius: 0px;
 	margin-left: 0px;
 	margin-right: 0px;
+	outline: none;
+	outline: none;
 }
 
 QPushButton#titleBarAdd 
@@ -577,6 +621,7 @@ QPushButton#titleBarAdd
 	padding-bottom: 0px;
 	padding-left: 0px;
 	padding-top: 0px;
+	outline: none;
 }
 
 QStatusBar 
@@ -588,12 +633,14 @@ QStatusBar
 	border-top-right-radius: 0px;
 	border-bottom-left-radius: 0px;
 	border-bottom-right-radius: 0px;
+	outline: none;
 }
 
 QStatusBar::item 
 {
 	border: none;
 	color: white;
+	outline: none;
 }
 
 QPushButton#statusBarSettings, QPushButton#statusBarPrevious, QPushButton#statusBarNext  
@@ -605,6 +652,7 @@ QPushButton#statusBarSettings, QPushButton#statusBarPrevious, QPushButton#status
 	border-bottom-right-radius: 0px;
 	margin-left: 0px;
 	margin-right: 0px;
+	outline: none;
 }
 
 QPushButton[activated=&quot;true&quot;] 
@@ -620,6 +668,7 @@ QPushButton[activated=&quot;true&quot;]
 	padding-top: 4px;
 	border: 1px solid #165C8D;
 	border-radius: 4px;
+	outline: none;
 }
 
 QPushButton[activated=&quot;false&quot;] 
@@ -635,6 +684,7 @@ QPushButton[activated=&quot;false&quot;]
 	padding-top: 4px;
 	border: 1px solid transparent;
 	border-radius: 4px;
+	outline: none;
 }
 
 QListView 
@@ -773,6 +823,7 @@ QDateEdit
 	background: rgba(28, 41, 59, 128);
 	color: white;
 	selection-background-color: #0190EA;
+	outline: none;
 }
 
 QDateEdit:hover
@@ -786,6 +837,7 @@ QDateEdit:hover
 	background: rgba(28, 41, 59, 128);
 	color: white;
 	selection-background-color: #0190EA;
+	outline: none;
 }
 
 QDateEdit:focus
@@ -799,6 +851,7 @@ QDateEdit:focus
 	background: rgba(28, 41, 59, 128);
 	color: white;
 	selection-background-color: #0190EA;
+	outline: none;
 }
 
 QDateEdit::drop-down 
@@ -811,6 +864,7 @@ QDateEdit::drop-down
     subcontrol-origin: padding;
     background-color: transparent;
     border: none;
+	outline: none;
 }
 
 QCalendarWidget QToolButton 
@@ -819,6 +873,7 @@ QCalendarWidget QToolButton
   	icon-size: 18px, 18px;
 	font: 10pt &quot;Roboto Bold&quot;;
   	background-color: #0190EA;
+	outline: none;
 }
 
 QCalendarWidget QToolButton:hover 
@@ -917,6 +972,7 @@ QToolBar
 	background-color: #1C293B;
 	border: none;
 	spacing: 18px;
+	outline: none;
 }
 
 QToolButton
@@ -929,6 +985,7 @@ QToolButton
 	padding-right: 2px; 
 	background: transparent;
 	border: none;
+	outline: none;
 }
 
 QToolButton:hover
@@ -941,6 +998,7 @@ QToolButton:hover
 	padding-right: 2px; 
 	background: #19344D;
 	border: none;
+	outline: none;
 }
 
 QToolButton:checked
@@ -954,6 +1012,7 @@ QToolButton:checked
     background-color: #19344D;
 	border-radius: 0px;
     border-left: 3px solid #0093EE;
+	outline: none;
 }
 
 QComboBox#income_choice, QComboBox#expenses_choice  
@@ -967,6 +1026,7 @@ QComboBox#income_choice, QComboBox#expenses_choice
 	padding-right: 2px;
 	background: #1C293B;
 	color: white;
+	outline: none;
 }
 
 QComboBox#income_choice::hover, QComboBox#expenses_choice::hover
@@ -980,6 +1040,7 @@ QComboBox#income_choice::hover, QComboBox#expenses_choice::hover
 	padding-right: 2px;
 	background: #1C293B;
 	color: white;
+	outline: none;
 }
 
 QComboBox#income_choice::focus, QComboBox#expenses_choice::focus
@@ -993,6 +1054,7 @@ QComboBox#income_choice::focus, QComboBox#expenses_choice::focus
 	padding-right: 2px;
 	background: #1C293B;
 	color: white;
+	outline: none;
 }
 
 QComboBox#income_choice::down-arrow, QComboBox#expenses_choice::down-arrow
@@ -1002,6 +1064,7 @@ QComboBox#income_choice::down-arrow, QComboBox#expenses_choice::down-arrow
 	height:18px;
 	padding-right: 7px;
 	padding-top: 0px;
+	outline: none;
 }
 
 QComboBox#income_choice::down-arrow:on, QComboBox#expenses_choice::down-arrow:on
@@ -1074,6 +1137,7 @@ QToolButton#refresh_income, QPushButton#refresh_expenses
 	padding-bottom: 0px;
 	color: white;
 	outline: none;
+	outline: none;
 }
 
 QToolButton#refresh_income:hover, QPushButton#refresh_expenses:hover
@@ -1087,6 +1151,7 @@ QToolButton#refresh_income:hover, QPushButton#refresh_expenses:hover
 	padding-top: 0px;
 	padding-bottom: 0px;
 	color: white;
+	outline: none;
 }
 
 QToolButton#refresh_income:pressed, QPushButton#refresh_expenses:pressed
@@ -1100,6 +1165,7 @@ QToolButton#refresh_income:pressed, QPushButton#refresh_expenses:pressed
 	padding-top: 0px;
 	padding-bottom: 0px;
 	color: white;
+	outline: none;
 }
 
 QPushButton#this_year_income, QPushButton#last_12_months_income, QPushButton#previous_year_income, QPushButton#this_year_expenses, QPushButton#last_12_months_expenses, QPushButton#previous_year_expenses
@@ -1108,6 +1174,7 @@ QPushButton#this_year_income, QPushButton#last_12_months_income, QPushButton#pre
 	border: 1px solid rgba(66, 96, 135, 250); 
 	border-radius: 12px;
 	color: rgba(66, 96, 135, 250);
+	outline: none;
 	outline: none;
 }
 
@@ -1137,11 +1204,13 @@ QCheckBox:checked
 {
 	color: rgba(255, 255, 255, 200);
 	outline: none;
+	outline: none;
 }
 
 QCheckBox:checked:hover
 {
 	color: rgba(255, 255, 255, 150);
+	outline: none;
 }
 
 QCheckBox::indicator:checked
