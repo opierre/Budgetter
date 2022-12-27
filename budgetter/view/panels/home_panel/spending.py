@@ -49,6 +49,6 @@ class Spending(QObject):
         layout = QHBoxLayout(widget)
         layout.setSpacing(0)
         layout.addWidget(self.chart_widget)
-        layout.setContentsMargins(2, 2, 2, 2)
+        layout.setContentsMargins(0, 0, 0, 0)
 
         self.ui_setup.spending.setWidget(widget)

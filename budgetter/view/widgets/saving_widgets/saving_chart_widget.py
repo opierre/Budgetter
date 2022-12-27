@@ -175,10 +175,7 @@ class SavingChart(QChart):
         index = points.index(closest)
 
         # Emit signal to display legend
-        if index >= len(points) / 2:
-            self.pointClicked.emit(closest)
-        else:
-            self.pointClicked.emit(closest)
+        self.pointClicked.emit(closest)
 
     def get_middle_value(self):
         """
