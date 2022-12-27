@@ -105,3 +105,4 @@ class Home(QObject):
         """
 
         self._accounts.set_accounts(accounts_list)
+        self._transactions.set_accounts(accounts_list)

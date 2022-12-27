@@ -25,6 +25,9 @@ class Transactions(QObject):
         self.custom_status_bar = StatusBar()
         self.status_bar = QStatusBar()
 
+        # Store accounts identifiers
+        self.account_identifiers = {}
+
         # Store shortcut for adding a transaction
         self.transaction_shortcut = QShortcut(QKeySequence(Qt.CTRL | Qt.Key_T), self)
 
@@ -177,6 +180,17 @@ class Transactions(QObject):
 
         # Remove transaction from model
         self.transactions_filter_model.delete_transaction(index)
+
+    def set_accounts(self, accounts: list):
+        """
+        Store accounts for popups
+
+        :param accounts: accounts to set
+        :return: None
+        """
+
+        for account in accounts:
+            self.account_identifiers[account.get('name')] = account.get('id')
 
     def add_transaction(self):
         """
