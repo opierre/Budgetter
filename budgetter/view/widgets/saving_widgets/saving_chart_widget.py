@@ -172,7 +172,6 @@ class SavingChart(QChart):
 
         # Retrieve position in list
         points = self.series_finale.points()
-        index = points.index(closest)
 
         # Emit signal to display legend
         self.pointClicked.emit(closest)
