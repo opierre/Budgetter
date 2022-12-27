@@ -28,6 +28,9 @@ class Transactions(QObject):
         # Store accounts identifiers
         self.account_identifiers = {}
 
+        # Store dialogs for adding account
+        self.dialogs = []
+
         # Store shortcut for adding a transaction
         self.transaction_shortcut = QShortcut(QKeySequence(Qt.CTRL | Qt.Key_T), self)
 
@@ -208,19 +211,35 @@ class Transactions(QObject):
                             QSize(24, 24), QIcon.Disabled, QIcon.On)
 
         # Open dialog
-        dialog = Dialog(QCoreApplication.translate("Transactions", 'Add Transaction'), header_icon, dialog_content,
-                        self.main_window)
+        self.dialogs.append(Dialog(QCoreApplication.translate("Transactions", 'Add Transaction'), header_icon,
+                                   dialog_content, self.main_window))
 
         # Connect signal from popup to add new account
         dialog_content.addTransaction.connect(self.add_transaction_debug)
 
         # Connect signal coming from click on Confirm button
-        dialog.confirm.connect(dialog_content.check_inputs)
+        self.dialogs[-1].confirm.connect(dialog_content.check_inputs)
+        self.dialogs[-1].escape.connect(self.escape_dialog)
 
         # Set focus on first widget when opening
         dialog_content.content.category.setFocus()
+
         # Add transaction to model
         # self.transactions_filter_model.add_transaction()
+
+    def escape_dialog(self):
+        """
+        Escape current dialog
+
+        :return: None
+        """
+
+        # Close current popup
+        self.dialogs[-1].close()
+        self.dialogs.pop()
+
+        if len(self.dialogs) > 0:
+            self.dialogs[-1].show(False)
 
     def add_transaction_debug(self, transaction_type: str, category: str, name: str, amount: str, amount_date: str,
                               mean: str, notes: str):
