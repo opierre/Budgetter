@@ -10,8 +10,8 @@ class SavingChart(QChart):
     Saving chart
     """
 
-    # Signal emmitted when click on chart - Point clicked / Alignment of Callout """
-    pointClicked = Signal(QPointF, Qt.Alignment)
+    # Signal emitted when click on chart - Point clicked
+    pointClicked = Signal(QPointF)
 
     def __init__(self, parent=None):
         super().__init__(parent)
@@ -62,57 +62,57 @@ class SavingChart(QChart):
         self.series_scatter.clear()
         self.series_finale.clear()
 
-        # Configure pen """
+        # Configure pen
         pen = QPen(QColor("#6dd230"))
         pen.setWidthF(3.0)
         pen.setCapStyle(Qt.RoundCap)
 
-        # Fulfill series """
+        # Fulfill series
         y_max_value = 0
         for key, value in values.items():
-            # Update Y-Axis range """
+            # Update Y-Axis range
             if value > y_max_value:
                 y_max_value = value
 
-            # Update X-Axis range """
+            # Update X-Axis range
             x_value = float(QDateTime.fromString(key, "MM-yyyy").toMSecsSinceEpoch())
 
             self.series_upper.append(x_value, value)
             self.series_finale.append(x_value, value)
             self.series_lower.append(x_value, 0)
 
-        # Create Area series """
+        # Create Area series
         self.area_series.setLowerSeries(self.series_lower)
         self.area_series.setUpperSeries(self.series_upper)
 
-        # Creat gradient to fulfill area zone """
+        # Create gradient to fulfill area zone
         gradient = QLinearGradient(QPointF(0, 0), QPointF(0, 1))
         gradient.setColorAt(0.0, QColor("#35536D"))
         gradient.setColorAt(1.0, QColor("transparent"))
         gradient.setCoordinateMode(QGradient.ObjectMode)
 
-        # Set brush and pen for series """
+        # Set brush and pen for series
         self.area_series.setBrush(gradient)
         self.series_finale.setPen(pen)
 
-        # Configure scatter series pen and brush """
+        # Configure scatter series pen and brush
         self.series_scatter.setPen(pen)
         self.series_scatter.setBrush(QColor("#26374C"))
 
-        # Remove border from area zone """
+        # Remove border from area zone
         self.area_series.setPen(pen)
         self.area_series.setBorderColor(QColor('transparent'))
 
-        # Add series to graph """
+        # Add series to graph
         self.addSeries(self.area_series)
         self.addSeries(self.series_finale)
         self.addSeries(self.series_scatter)
 
-        # Set axes """
+        # Set axes
         self.addAxis(self.axis_x, Qt.AlignBottom)
         self.addAxis(self.axis_y, Qt.AlignLeft)
 
-        # Attach axes to series """
+        # Attach axes to series
         self.series_finale.attachAxis(self.axis_x)
         self.series_finale.attachAxis(self.axis_y)
         self.area_series.attachAxis(self.axis_x)
@@ -120,13 +120,13 @@ class SavingChart(QChart):
         self.series_scatter.attachAxis(self.axis_x)
         self.series_scatter.attachAxis(self.axis_y)
 
-        # Configure y axis """
+        # Configure y axis
         self.axis_y.setRange(0, y_max_value * 12 / 10)
         x_min = QDateTime.fromMSecsSinceEpoch(int(self.series_finale.points()[0].x()))
         x_max = QDateTime.fromMSecsSinceEpoch(int(self.series_finale.points()[-1].x()))
         self.axis_x.setRange(x_min, x_max)
 
-        # Display middle point """
+        # Display middle point
         self.show_point(self.get_middle_value())
 
     def connect_slots_and_signals(self):
@@ -136,7 +136,7 @@ class SavingChart(QChart):
         :return: None
         """
 
-        # Connect click on series finale to display scatter """
+        # Connect click on series finale to display scatter
         self.series_finale.clicked[QPointF].connect(self.show_point)  # pylint: disable=unsubscriptable-object
         self.area_series.clicked[QPointF].connect(self.show_point)  # pylint: disable=unsubscriptable-object
 
@@ -148,11 +148,11 @@ class SavingChart(QChart):
         :return: None
         """
 
-        # Random max distance """
+        # Random max distance
         distance = 2147483647
         closest = QPointF(0, 0)
 
-        # Find closest point in series finale """
+        # Find closest point in series finale
         for current_point in self.series_finale.points():
             current_distance = math.sqrt((current_point.x() - clicked_point.x()) *
                                          (current_point.x() - clicked_point.x())
@@ -163,22 +163,22 @@ class SavingChart(QChart):
                 distance = current_distance
                 closest = current_point
 
-        # Remove previous point and append closest to click """
+        # Remove previous point and append closest to click
         self.series_scatter.clear()
         self.series_scatter.append(closest)
 
-        # Update current point clicked """
+        # Update current point clicked
         self.current_point = closest
 
-        # Retrieve position in list """
+        # Retrieve position in list
         points = self.series_finale.points()
         index = points.index(closest)
 
-        # Emit signal to display callout """
+        # Emit signal to display legend
         if index >= len(points) / 2:
-            self.pointClicked.emit(closest, Qt.AlignRight)
+            self.pointClicked.emit(closest)
         else:
-            self.pointClicked.emit(closest, Qt.AlignLeft)
+            self.pointClicked.emit(closest)
 
     def get_middle_value(self):
         """
@@ -197,14 +197,14 @@ class SavingChart(QChart):
         :return: None
         """
 
-        # Retrieve position in list """
+        # Retrieve position in list
         points = self.series_finale.points()
         index = points.index(self.current_point)
 
         if index < len(points) - 1:
             index += 1
 
-        # Show next point and callout """
+        # Show next point and callout
         self.show_point(points[index])
 
     def show_previous(self):
@@ -214,12 +214,12 @@ class SavingChart(QChart):
         :return: None
         """
 
-        # Retrieve position in list """
+        # Retrieve position in list
         points = self.series_finale.points()
         index = points.index(self.current_point)
 
         if index > 0:
             index -= 1
 
-        # Show previous point and callout """
+        # Show previous point and legend
         self.show_point(points[index])
