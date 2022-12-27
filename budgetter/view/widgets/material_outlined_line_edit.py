@@ -512,7 +512,7 @@ class MaterialLineEditLabel(QWidget):
         self.background_color = QColor("transparent")
 
         # Configure and apply default font
-        font = QFont("Roboto", int(parent.fontInfo().pointSizeF()), QFont.Medium)
+        font = QFont("Roboto", int(parent.fontInfo().pointSizeF()), QFont.Normal)
         self.setFont(font)
 
     def set_scale(self, scale: float) -> None:
@@ -603,6 +603,14 @@ class MaterialLineEditLabel(QWidget):
         font_metrics = QFontMetrics(self.font())
         width = font_metrics.horizontalAdvance(self.line_edit.label())
         height = font_metrics.height()
+
+        if self.y_position != 13:
+            # Configure and apply default font
+            font = QFont("Roboto", int(self.parent().fontInfo().pointSizeF()), QFont.Medium)
+        else:
+            # Configure and apply default font
+            font = QFont("Roboto", int(self.parent().fontInfo().pointSizeF()), QFont.Normal)
+        self.setFont(font)
 
         # Draw label with offset
         pos = QPointF(15 + self.x_position, self.height() - 32 + self.y_position)
