@@ -142,4 +142,50 @@
     <file>images/menu-white-36dp.svg</file>
     <file>images/dashboard-white-36dp.svg</file>
   </qresource>
+  <qresource prefix="categories">
+    <file>categories/apartment_FILL0_wght400_GRAD0_opsz48.svg</file>
+    <file>categories/apartment_FILL1_wght400_GRAD0_opsz48.svg</file>
+    <file>categories/restaurant_FILL0_wght400_GRAD0_opsz48.svg</file>
+    <file>categories/restaurant_FILL1_wght400_GRAD0_opsz48.svg</file>
+    <file>categories/outlet_FILL0_wght400_GRAD0_opsz48.svg</file>
+    <file>categories/water_drop_FILL0_wght400_GRAD0_opsz48.svg</file>
+    <file>categories/water_drop_FILL1_wght400_GRAD0_opsz48.svg</file>
+    <file>categories/devices_FILL0_wght400_GRAD0_opsz48.svg</file>
+    <file>categories/subscriptions_FILL0_wght400_GRAD0_opsz48.svg</file>
+    <file>categories/subscriptions_FILL1_wght400_GRAD0_opsz48.svg</file>
+    <file>categories/checkroom_FILL0_wght400_GRAD0_opsz48.svg</file>
+    <file>categories/medical_services_FILL0_wght400_GRAD0_opsz48.svg</file>
+    <file>categories/medical_services_FILL1_wght400_GRAD0_opsz48.svg</file>
+    <file>categories/checkroom_FILL1_wght400_GRAD0_opsz48.svg</file>
+    <file>categories/wifi_FILL0_wght400_GRAD0_opsz48.svg</file>
+    <file>categories/wifi_FILL1_wght400_GRAD0_opsz48.svg</file>
+    <file>categories/child_care_FILL0_wght400_GRAD0_opsz48.svg</file>
+    <file>categories/child_care_FILL1_wght400_GRAD0_opsz48.svg</file>
+    <file>categories/directions_car_FILL0_wght400_GRAD0_opsz48.svg</file>
+    <file>categories/train_FILL0_wght400_GRAD0_opsz48.svg</file>
+    <file>categories/train_FILL1_wght400_GRAD0_opsz48.svg</file>
+    <file>categories/directions_car_FILL1_wght400_GRAD0_opsz48.svg</file>
+    <file>categories/fitness_center_FILL1_wght400_GRAD0_opsz48.svg</file>
+    <file>categories/fitness_center_FILL0_wght400_GRAD0_opsz48.svg</file>
+    <file>categories/local_gas_station_FILL1_wght400_GRAD0_opsz48.svg</file>
+    <file>categories/local_gas_station_FILL0_wght400_GRAD0_opsz48.svg</file>
+    <file>categories/request_quote_FILL0_wght400_GRAD0_opsz48.svg</file>
+    <file>categories/request_quote_FILL1_wght400_GRAD0_opsz48.svg</file>
+    <file>categories/devices_FILL1_wght400_GRAD0_opsz48.svg</file>
+    <file>categories/cut_FILL0_wght400_GRAD0_opsz48.svg</file>
+    <file>categories/school_FILL0_wght400_GRAD0_opsz48.svg</file>
+    <file>categories/school_FILL1_wght400_GRAD0_opsz48.svg</file>
+    <file>categories/cut_FILL1_wght400_GRAD0_opsz48.svg</file>
+    <file>categories/account_balance_FILL1_wght400_GRAD0_opsz48.svg</file>
+    <file>categories/account_balance_FILL0_wght400_GRAD0_opsz48.svg</file>
+    <file>categories/outlet_FILL1_wght400_GRAD0_opsz48.svg</file>
+    <file>categories/waterfall_chart_FILL1_wght400_GRAD0_opsz48.svg</file>
+    <file>categories/waterfall_chart_FILL0_wght400_GRAD0_opsz48.svg</file>
+    <file>categories/local_parking_FILL0_wght400_GRAD0_opsz48.svg</file>
+    <file>categories/local_parking_FILL1_wght400_GRAD0_opsz48.svg</file>
+    <file>categories/shopping_cart_FILL0_wght400_GRAD0_opsz48.svg</file>
+    <file>categories/shopping_cart_FILL1_wght400_GRAD0_opsz48.svg</file>
+    <file>categories/real_estate_agent_FILL0_wght400_GRAD0_opsz48.svg</file>
+    <file>categories/real_estate_agent_FILL1_wght400_GRAD0_opsz48.svg</file>
+  </qresource>
 </RCC>
