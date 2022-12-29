@@ -1,7 +1,8 @@
-from PySide6.QtCore import QStringListModel, QTimer, Signal
-from PySide6.QtGui import QColor, QDoubleValidator, Qt
+from PySide6.QtCore import QStringListModel, QTimer, Signal, QSize
+from PySide6.QtGui import QColor, QDoubleValidator, Qt, QIcon
 from PySide6.QtWidgets import QWidget, QCompleter
 
+from budgetter.utils.defines import Categories
 from budgetter.utils.tools import update_style
 from budgetter.view.skeletons.AddTransaction import Ui_AddTransaction
 
@@ -30,6 +31,19 @@ class AddTransactionDialog(QWidget):
 
         # Configure widgets
         self.configure()
+
+        # Connect signals
+        self.connect_slots_and_signals()
+
+    def connect_slots_and_signals(self):
+        """
+        Connect all slots and signals from this panel
+
+        :return: None
+        """
+
+        # Connect category change to icon
+        self.content.category.textChanged.connect(self.update_category_icon)
 
     def configure(self):
         """
@@ -69,7 +83,7 @@ class AddTransactionDialog(QWidget):
         self.content.category.set_label_background_color(QColor("#1C293B"))
         self.content.category.set_text_color(QColor(255, 255, 255, 255))
         self.content.category.set_label_color(QColor(224, 224, 224, 150))
-        self.category_completer.setModel(QStringListModel(['Restaurant', 'Car']))
+        self.category_completer.setModel(QStringListModel(Categories.get_members()))
         self.category_completer.setCaseSensitivity(Qt.CaseInsensitive)
         self.category_completer.setCompletionMode(QCompleter.InlineCompletion)
         self.content.category.setCompleter(self.category_completer)
@@ -83,6 +97,24 @@ class AddTransactionDialog(QWidget):
         self.account_completer.setCaseSensitivity(Qt.CaseInsensitive)
         self.account_completer.setCompletionMode(QCompleter.InlineCompletion)
         self.content.account.setCompleter(self.account_completer)
+
+    def update_category_icon(self, category: str):
+        """
+        Update category icon according to text
+
+        :param category: category to set
+        :return: None
+        """
+
+        icon = QIcon()
+        if Categories.has_key_in(category):
+            # Update icon
+            icon.addFile(getattr(Categories, category.upper()).value, QSize(30, 30),
+                         QIcon.Disabled, QIcon.On)
+        else:
+            icon.addFile(":/images/images/category_FILL0_wght400_GRAD0_opsz48.svg", QSize(30, 30),
+                         QIcon.Disabled, QIcon.On)
+        self.content.category_icon.setIcon(icon)
 
     def check_inputs(self):
         """

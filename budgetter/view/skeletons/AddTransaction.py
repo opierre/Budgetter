@@ -272,7 +272,7 @@ class Ui_AddTransaction(object):
         icon = QIcon()
         icon.addFile(":/images/images/category_FILL0_wght400_GRAD0_opsz48.svg", QSize(), QIcon.Normal, QIcon.Off)
         self.category_icon.setIcon(icon)
-        self.category_icon.setIconSize(QSize(40, 40))
+        self.category_icon.setIconSize(QSize(30, 30))
 
         self.verticalLayout_3.addWidget(self.category_icon)
 

@@ -1,4 +1,5 @@
 from enum import Enum
+from typing import List
 
 
 class Categories(Enum):
@@ -31,3 +32,22 @@ class Categories(Enum):
     MUSIC = ":/categories/categories/music_note_FILL0_wght400_GRAD0_opsz48.svg"
     VACATIONS = ":/categories/categories/holiday_village_FILL0_wght400_GRAD0_opsz48.svg"
     SALARY = ":/categories/categories/payments_FILL0_wght400_GRAD0_opsz48.svg"
+
+    @classmethod
+    def has_key_in(cls, key: str) -> bool:
+        """
+        Return key presence in categories
+
+        :param key: key to look for
+        :return: True/False
+        """
+        return key.upper() in cls.__members__
+
+    @classmethod
+    def get_members(cls) -> List:
+        """
+        Return categories list
+
+        :return: categories as a list
+        """
+        return [member.capitalize().replace('_', ' ') for member in list(cls.__members__)]
