@@ -51,7 +51,7 @@ Table of contents
 This software is delivered as a Python package and can be installed with following command line:
 
 ```bash
-$ python setup.py sdist --formats=zip
+$ python -m build
 ```
 
 ### <a name="installing"></a> Installation
