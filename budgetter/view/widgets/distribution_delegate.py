@@ -52,12 +52,12 @@ class DistributionDelegate(QItemDelegate):
 
         # Draw bottom border
         painter.setPen(QPen(QColor("#344457")))
-        painter.setBrush(Qt.NoBrush)
+        painter.setBrush(Qt.BrushStyle.NoBrush)
         painter.drawLine(option.rect.x() + option.rect.width() * 1 / 30, option.rect.y() + option.rect.height() - 1,
                          option.rect.width() - +option.rect.width() * 1 / 30,
                          option.rect.y() + option.rect.height() - 1)
 
-        painter.setRenderHint(QPainter.Antialiasing)
+        painter.setRenderHint(QPainter.RenderHint.Antialiasing)
 
         # Draw item background
         painter.setPen(QPen(QColor("#26374C")))
@@ -89,7 +89,7 @@ class DistributionDelegate(QItemDelegate):
         painter.drawRoundedRect(rect_icon, 1.0, 1.0)
 
         # Draw icon and render svg
-        painter.setPen(QPen(Qt.transparent))
+        painter.setPen(QPen(Qt.GlobalColor.transparent))
         painter.setBrush(QColor("transparent"))
         rect_svg = QRect(rect_icon.x() + 10, rect_icon.y() + 10,
                          rect_icon.width() - 20, rect_icon.height() - 20)
@@ -123,7 +123,7 @@ class DistributionDelegate(QItemDelegate):
         rect_category = QRect(rect_icon.x() + rect_icon.width() + option.rect.width() * 1 / 50,
                               rect_icon.y() + option.rect.height() * 1 / 30,
                               pixels_width, pixels_height)
-        painter.drawText(rect_category, int(Qt.AlignLeft | Qt.AlignVCenter), category)
+        painter.drawText(rect_category, int(Qt.AlignmentFlag.AlignLeft | Qt.AlignVCenter), category)
 
         # Set font on painter for number of transactions
         self.font.setFamily("Roboto")
@@ -142,7 +142,7 @@ class DistributionDelegate(QItemDelegate):
         rect_transaction = QRect(rect_category.x(),
                                  rect_category.y() + rect_category.height() + option.rect.height() * 1 / 10,
                                  pixels_width, pixels_height)
-        painter.drawText(rect_transaction, int(Qt.AlignLeft | Qt.AlignVCenter), nb_transactions)
+        painter.drawText(rect_transaction, int(Qt.AlignmentFlag.AlignLeft | Qt.AlignVCenter), nb_transactions)
 
         # Set font on painter for amount
         self.font.setFamily("Roboto")

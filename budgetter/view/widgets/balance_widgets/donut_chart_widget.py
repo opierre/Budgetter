@@ -81,7 +81,7 @@ class DonutChart(QWidget):
         painter.begin(self)
 
         # Improve rendering
-        painter.setRenderHint(QPainter.Antialiasing)
+        painter.setRenderHint(QPainter.RenderHint.Antialiasing)
 
         # Draw slices background
         self.draw_background(painter)
@@ -89,7 +89,7 @@ class DonutChart(QWidget):
         # Configure pen
         pen = QPen()
         pen.setWidthF(12.5)
-        pen.setCapStyle(Qt.RoundCap)
+        pen.setCapStyle(Qt.PenCapStyle.RoundCap)
         painter.setOpacity(1)
 
         # Draw slices
@@ -109,7 +109,7 @@ class DonutChart(QWidget):
         # Configure pen
         pen = QPen()
         pen.setWidthF(1.0)
-        pen.setCapStyle(Qt.RoundCap)
+        pen.setCapStyle(Qt.PenCapStyle.RoundCap)
         pen.setColor(QColor("#1C293B"))
         painter.setPen(pen)
         painter.setBrush(QBrush(QColor("#1C293B")))

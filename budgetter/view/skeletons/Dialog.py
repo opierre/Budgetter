@@ -8,19 +8,15 @@
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
 
-from PySide6.QtCore import (QCoreApplication, QDate, QDateTime, QLocale,
-    QMetaObject, QObject, QPoint, QRect,
-    QSize, QTime, QUrl, Qt)
-from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
-    QFont, QFontDatabase, QGradient, QIcon,
-    QImage, QKeySequence, QLinearGradient, QPainter,
-    QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QGridLayout, QHBoxLayout, QLabel,
-    QSizePolicy, QSpacerItem, QToolButton, QVBoxLayout,
-    QWidget)
+from PySide6.QtCore import (QCoreApplication, QMetaObject, QSize, Qt)
+from PySide6.QtGui import (QCursor,
+                           QFont, QIcon)
+from PySide6.QtWidgets import (QGridLayout, QHBoxLayout, QLabel,
+                               QSizePolicy, QSpacerItem, QToolButton, QVBoxLayout,
+                               QWidget)
 
 from budgetter.view.widgets.flat_button import FlatButton
-from budgetter.view.resources import resources_rc
+
 
 class Ui_Dialog(object):
     def setupUi(self, Dialog):
@@ -28,35 +24,35 @@ class Ui_Dialog(object):
             Dialog.setObjectName("Dialog")
         Dialog.resize(628, 533)
         Dialog.setStyleSheet("QWidget#dialog \n"
-"{\n"
-"	background-color: #1C293B;\n"
-"	border: none;\n"
-"	border-radius: 4px;\n"
-"	outline: none;\n"
-"}\n"
-"\n"
-"QPushButton\n"
-"{\n"
-"	background-color: transparent;\n"
-"	color: rgba(25, 157, 229, 210);\n"
-"	outline: none;\n"
-"	padding-left: 8px;\n"
-"	padding-right: 8px;\n"
-"	padding-top: 8px;\n"
-"	padding-bottom: 8px;\n"
-"	border-radius: 4px;\n"
-"}\n"
-"\n"
-"QPushButton:hover\n"
-"{\n"
-"	background-color: rgba(140, 195, 240, 30);\n"
-"}\n"
-"\n"
-"QToolButton\n"
-"{\n"
-"	background-color: transparent;\n"
-"	outline: none;\n"
-"}")
+                             "{\n"
+                             "	background-color: #1C293B;\n"
+                             "	border: none;\n"
+                             "	border-radius: 4px;\n"
+                             "	outline: none;\n"
+                             "}\n"
+                             "\n"
+                             "QPushButton\n"
+                             "{\n"
+                             "	background-color: transparent;\n"
+                             "	color: rgba(25, 157, 229, 210);\n"
+                             "	outline: none;\n"
+                             "	padding-left: 8px;\n"
+                             "	padding-right: 8px;\n"
+                             "	padding-top: 8px;\n"
+                             "	padding-bottom: 8px;\n"
+                             "	border-radius: 4px;\n"
+                             "}\n"
+                             "\n"
+                             "QPushButton:hover\n"
+                             "{\n"
+                             "	background-color: rgba(140, 195, 240, 30);\n"
+                             "}\n"
+                             "\n"
+                             "QToolButton\n"
+                             "{\n"
+                             "	background-color: transparent;\n"
+                             "	outline: none;\n"
+                             "}")
         self.gridLayout = QGridLayout(Dialog)
         self.gridLayout.setObjectName("gridLayout")
         self.dialog = QWidget(Dialog)
@@ -93,12 +89,11 @@ class Ui_Dialog(object):
         self.close.setMinimumSize(QSize(28, 28))
         self.close.setMaximumSize(QSize(28, 28))
         icon = QIcon()
-        icon.addFile(":/images/images/close_white_24dp.svg", QSize(), QIcon.Normal, QIcon.Off)
+        icon.addFile(":/images/images/close_white_24dp.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         self.close.setIcon(icon)
         self.close.setIconSize(QSize(24, 24))
 
         self.horizontalLayout_2.addWidget(self.close)
-
 
         self.verticalLayout.addLayout(self.horizontalLayout_2)
 
@@ -131,23 +126,20 @@ class Ui_Dialog(object):
 
         self.horizontalLayout.addWidget(self.confirm)
 
-
         self.verticalLayout.addLayout(self.horizontalLayout)
 
-
         self.gridLayout.addWidget(self.dialog, 0, 0, 1, 1)
-
 
         self.retranslateUi(Dialog)
 
         QMetaObject.connectSlotsByName(Dialog)
+
     # setupUi
 
     def retranslateUi(self, Dialog):
-        Dialog.setWindowTitle(QCoreApplication.translate("Dialog", "Form", None))
+        Dialog.setWindowTitle(QCoreApplication.translate(b"Dialog", "Form", None))
         self.header_icon.setText("")
-        self.title.setText(QCoreApplication.translate("Dialog", "Header", None))
+        self.title.setText(QCoreApplication.translate(b"Dialog", "Header", None))
         self.close.setText("")
-        self.confirm.setText(QCoreApplication.translate("Dialog", "CONFIRM", None))
+        self.confirm.setText(QCoreApplication.translate(b"Dialog", "CONFIRM", None))
     # retranslateUi
-

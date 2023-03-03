@@ -38,7 +38,7 @@ class Overlay(QWidget):
         # Set painter
         painter = QPainter()
         painter.begin(self)
-        painter.setRenderHint(QPainter.Antialiasing, True)
+        painter.setRenderHint(QPainter.RenderHint.Antialiasing, True)
 
         # Apply color to painter pen/brush
         painter.setPen(pen_color)
@@ -59,7 +59,7 @@ class Overlay(QWidget):
         :return: None
         """
 
-        if watched == self.parent() and event.type() == QEvent.Resize:
+        if watched == self.parent() and event.type() == QEvent.Type.Resize:
             # Reset new size
             self.setFixedSize(self.parent().size())
 

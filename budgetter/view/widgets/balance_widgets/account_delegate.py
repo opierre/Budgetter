@@ -1,6 +1,7 @@
 import os.path
+from typing import Union
 
-from PySide6.QtCore import QSize, Qt, QRect, QRectF, QModelIndex, QCoreApplication
+from PySide6.QtCore import QSize, Qt, QRect, QRectF, QModelIndex, QCoreApplication, QPersistentModelIndex
 from PySide6.QtGui import QPen, QColor, QPainter, QFont, QFontMetrics
 from PySide6.QtSvg import QSvgRenderer
 from PySide6.QtWidgets import QItemDelegate, QStyleOptionViewItem
@@ -30,7 +31,7 @@ class AccountDelegate(QItemDelegate):
 
         return QSize(10, 70)
 
-    def paint(self, painter: QPainter, option: QStyleOptionViewItem, index: QModelIndex):
+    def paint(self, painter: QPainter, option: QStyleOptionViewItem, index: Union[QModelIndex, QPersistentModelIndex]):
         """
         Override paint
 
@@ -52,12 +53,12 @@ class AccountDelegate(QItemDelegate):
 
         # Draw bottom border
         painter.setPen(QPen(QColor("#344457")))
-        painter.setBrush(Qt.NoBrush)
+        painter.setBrush(Qt.BrushStyle.NoBrush)
         painter.drawLine(option.rect.x() + option.rect.width() * 1 / 30, option.rect.y() + option.rect.height() - 1,
                          option.rect.width() - +option.rect.width() * 1 / 30,
                          option.rect.y() + option.rect.height() - 1)
 
-        painter.setRenderHint(QPainter.Antialiasing)
+        painter.setRenderHint(QPainter.RenderHint.Antialiasing)
 
         # Draw item background
         painter.setPen(QPen(QColor("#26374C")))
@@ -80,7 +81,7 @@ class AccountDelegate(QItemDelegate):
 
         # Draw icon and render svg
         painter.setOpacity(1)
-        painter.setPen(QPen(Qt.transparent))
+        painter.setPen(QPen(Qt.GlobalColor.transparent))
         painter.setBrush(QColor("transparent"))
         rect_svg = QRect(rect_icon.x(), rect_icon.y() + 5, rect_icon.width(), rect_icon.height() - 10)
         painter.drawRect(rect_svg)
@@ -97,7 +98,7 @@ class AccountDelegate(QItemDelegate):
         painter.setFont(self.font)
 
         # Set category painter color
-        painter.setPen(QPen(Qt.white))
+        painter.setPen(QPen(Qt.GlobalColor.white))
 
         # Get font metrics
         font_metrics = QFontMetrics(self.font)
@@ -107,7 +108,7 @@ class AccountDelegate(QItemDelegate):
         # Set category on top
         rect_category = QRect(rect_icon.x() + rect_icon.width() + option.rect.width() * 1 / 30,
                               rect_icon.y() + option.rect.height() * 1 / 30, pixels_width, pixels_height)
-        painter.drawText(rect_category, int(Qt.AlignLeft | Qt.AlignVCenter), account_name)
+        painter.drawText(rect_category, int(Qt.AlignmentFlag.AlignLeft | Qt.AlignVCenter), account_name)
 
         # Set font on painter for account label
         self.font.setFamily("Roboto")
@@ -126,8 +127,8 @@ class AccountDelegate(QItemDelegate):
         rect_transaction = QRect(rect_category.x(),
                                  rect_category.y() + rect_category.height() + option.rect.height() * 1 / 10,
                                  pixels_width, pixels_height)
-        painter.drawText(rect_transaction, int(Qt.AlignLeft | Qt.AlignVCenter),
-                         QCoreApplication.translate("account_delegate", 'Account'))
+        painter.drawText(rect_transaction, int(Qt.AlignmentFlag.AlignLeft | Qt.AlignVCenter),
+                         QCoreApplication.translate(b"account_delegate", 'Account'))
 
         # Set font on painter for amount
         self.font.setFamily("Roboto")
@@ -176,6 +177,6 @@ class AccountDelegate(QItemDelegate):
         rect_perc = QRect(rect_background.width() + rect_background.x() - pixels_width - option.rect.width() * 1 / 50,
                           rect_transaction.y(), pixels_width, pixels_height)
         painter.drawText(rect_perc, int(Qt.AlignRight | Qt.AlignVCenter),
-                         QCoreApplication.translate("account_delegate", 'Balance'))
+                         QCoreApplication.translate(b"account_delegate", b'Balance'))
 
         painter.restore()

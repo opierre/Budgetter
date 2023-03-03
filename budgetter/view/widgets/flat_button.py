@@ -97,7 +97,7 @@ class OverlayWidget(QWidget):
 
         event_type = event.type()
 
-        if event_type in {QEvent.Move, QEvent.Resize}:
+        if event_type in {QEvent.Move, QEvent.Type.Resize}:
             # Resize according to resize
             self.setGeometry(self.overlay_geometry())
 
@@ -412,8 +412,8 @@ class WaveOverlay(OverlayWidget):
 
         # Define painter
         painter = QPainter(self)
-        painter.setRenderHint(QPainter.Antialiasing)
-        painter.setPen(Qt.NoPen)
+        painter.setRenderHint(QPainter.RenderHint.Antialiasing)
+        painter.setPen(Qt.PenStyle.NoPen)
 
         # Use clip path
         if self.use_clip:

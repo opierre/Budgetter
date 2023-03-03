@@ -1,7 +1,7 @@
-import typing
 from datetime import datetime
+from typing import Union, Any
 
-from PySide6.QtCore import QAbstractListModel, Qt, QSortFilterProxyModel, QModelIndex
+from PySide6.QtCore import QAbstractListModel, Qt, QSortFilterProxyModel, QModelIndex, QPersistentModelIndex
 
 
 class TransactionsFilterModel(QSortFilterProxyModel):
@@ -157,7 +157,7 @@ class TransactionsModel(QAbstractListModel):
         # Store transactions
         self.transactions = transactions or {}
 
-    def data(self, index: QModelIndex, role=Qt.ItemDataRole.DisplayRole):
+    def data(self, index: Union[QModelIndex, QPersistentModelIndex], role=Qt.ItemDataRole.DisplayRole):
         """
         Override data() from QAbstractListModel
 
@@ -176,7 +176,7 @@ class TransactionsModel(QAbstractListModel):
 
         return result
 
-    def setData(self, index: QModelIndex, value: typing.Any, _role=Qt.ItemDataRole.EditRole) -> True:
+    def setData(self, index: QModelIndex, value: Any, _role=Qt.ItemDataRole.EditRole) -> True:
         """
         Override setData() from QAbstractListModel
 

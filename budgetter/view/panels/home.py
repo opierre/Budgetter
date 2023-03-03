@@ -1,4 +1,4 @@
-from typing import Any
+from typing import Any, Tuple
 
 from PySide6.QtCore import QObject, Signal
 
@@ -54,7 +54,7 @@ class Home(QObject):
         self._accounts.addAccountCall.connect(self.addAccountController.emit)
         self._accounts.addBankCall.connect(self.addBankController.emit)
 
-    def handle_error(self, error: (Exception, Any, str)):
+    def handle_error(self, error: Tuple[Exception, Any, str]):
         """
         Handle error from API call
 

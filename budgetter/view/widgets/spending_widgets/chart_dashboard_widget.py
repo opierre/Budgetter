@@ -59,7 +59,7 @@ class ChartDashboard(QWidget):
         self.months[-1].setChecked(True)
 
         # Configure chart view
-        self.chart_view.setRenderHint(QPainter.Antialiasing)
+        self.chart_view.setRenderHint(QPainter.RenderHint.Antialiasing)
         self.chart_view.setVisible(True)
 
         # Configure chart
@@ -146,10 +146,10 @@ class ChartDashboard(QWidget):
 
         # Get painter
         painter = QPainter(self)
-        painter.setRenderHint(QPainter.Antialiasing)
+        painter.setRenderHint(QPainter.RenderHint.Antialiasing)
 
         # Configure painter
-        painter.setPen(Qt.NoPen)
+        painter.setPen(Qt.PenStyle.NoPen)
 
         # Set gradient
         gradient = QLinearGradient(self.rect().x(), self.rect().y(), self.rect().width(), self.rect().height())
@@ -203,16 +203,16 @@ class ChartDashboard(QWidget):
         :return: None
         """
 
-        painter.setPen(Qt.NoPen)
+        painter.setPen(Qt.PenStyle.NoPen)
         painter.setOpacity(1)
 
         if len(self.months) == 6:
             for index in range(0, 6):
                 # Align rectangle for button
-                button_rectangle = QRect(self.rect().x() + 0 + (self.rect().width() - 0) * index / 6.0,
-                                         self.rect().y(),
-                                         self.rect().width() / 6.0,
-                                         self.rect().height() * 1 / 6)
+                button_rectangle = QRectF(self.rect().x() + 0 + (self.rect().width() - 0) * index / 6.0,
+                                          float(self.rect().y()),
+                                          self.rect().width() / 6.0,
+                                          self.rect().height() * 1.0 / 6.0)
 
                 # Define buttons positions
                 self.months[index].resize(button_rectangle.size())
@@ -254,10 +254,10 @@ class ChartDashboard(QWidget):
                                   28)
 
         # Configure pen and painter
-        pen = QPen(QColor("white"), 1, c=Qt.RoundCap)
+        pen = QPen(QColor("white"), 1, c=Qt.PenCapStyle.RoundCap)
         painter.setPen(pen)
-        painter.setBrush(Qt.NoBrush)
-        painter.setFont(QFont("Roboto Black", 18, QFont.Normal))
+        painter.setBrush(Qt.BrushStyle.NoBrush)
+        painter.setFont(QFont("Roboto Black", 18, QFont.Weight.Normal))
 
         # Set text
         text = convert_amount_to_str(self.values[self.current_month]) + " €"
@@ -281,11 +281,11 @@ class ChartDashboard(QWidget):
                                   rectangle_amount.height())
 
         # Configure pen and painter
-        pen = QPen(QColor("#c4c9cf"), 1, c=Qt.RoundCap)
+        pen = QPen(QColor("#c4c9cf"), 1, c=Qt.PenCapStyle.RoundCap)
         painter.setPen(pen)
-        painter.setBrush(Qt.NoBrush)
+        painter.setBrush(Qt.BrushStyle.NoBrush)
         painter.setOpacity(0.8)
-        painter.setFont(QFont("Roboto Medium", 8, QFont.Normal))
+        painter.setFont(QFont("Roboto Medium", 8, QFont.Weight.Normal))
 
         # Set text
         month_number = (QDate.currentDate().month() - (5 - self.current_month)) % 12

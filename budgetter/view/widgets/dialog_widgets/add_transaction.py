@@ -110,10 +110,10 @@ class AddTransactionDialog(QWidget):
         if Categories.has_key_in(category):
             # Update icon
             icon.addFile(getattr(Categories, category.upper()).value, QSize(30, 30),
-                         QIcon.Disabled, QIcon.On)
+                         QIcon.Mode.Disabled, QIcon.State.On)
         else:
             icon.addFile(":/images/images/category_FILL0_wght400_GRAD0_opsz48.svg", QSize(30, 30),
-                         QIcon.Disabled, QIcon.On)
+                         QIcon.Mode.Disabled, QIcon.State.On)
         self.content.category_icon.setIcon(icon)
 
     def check_inputs(self):

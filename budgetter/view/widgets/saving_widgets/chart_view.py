@@ -45,7 +45,7 @@ class ChartView(QGraphicsView):
 
         # Configure chart view appearance
         self.setStyleSheet("background-color: transparent; border: none;")
-        self.setRenderHint(QPainter.Antialiasing)
+        self.setRenderHint(QPainter.RenderHint.Antialiasing)
 
         # Configure chart view scene
         self.setScene(QGraphicsScene())

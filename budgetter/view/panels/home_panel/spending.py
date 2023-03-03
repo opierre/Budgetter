@@ -32,7 +32,7 @@ class Spending(QObject):
         """
 
         # Set title
-        self.ui_setup.spending.set_title(QCoreApplication.translate("spending", "Spending"))
+        self.ui_setup.spending.set_title(QCoreApplication.translate(b"spending", "Spending"))
 
         # Hide all widgets in title bar
         self.ui_setup.spending.disable_title_bar_button()

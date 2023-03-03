@@ -93,7 +93,7 @@ class Toaster(QWidget):
 
         # Set icon
         icon = QIcon()
-        icon.addFile(":/images/success", QSize(32, 32), QIcon.Disabled, QIcon.Off)
+        icon.addFile(":/images/success", QSize(32, 32), QIcon.Mode.Disabled, QIcon.State.Off)
         self.toast.icon.setIcon(icon)
 
         # Configure animation

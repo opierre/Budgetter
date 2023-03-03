@@ -84,7 +84,7 @@ class ColorPickerDialog(QWidget):
                 "border: 2px solid #2b405b;\nborder-radius: 2px;")
         else:
             # Check color
-            hex_reg_exp = QRegularExpression("^[0-9A-F]{6}$", QRegularExpression.CaseInsensitiveOption)
+            hex_reg_exp = QRegularExpression("^[0-9A-F]{6}$", QRegularExpression.PatternOption.CaseInsensitiveOption)
             match: QRegularExpressionMatch = hex_reg_exp.match(color_text)
             if match.hasMatch():
                 self.content.color_choice.setStyleSheet(

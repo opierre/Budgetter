@@ -22,7 +22,7 @@ class Savings(QObject):
         self.status_bar = QStatusBar()
 
         # Last 12 months button
-        self.last_twelve_months = QPushButton(QCoreApplication.translate("savings", "Last 12 months"))
+        self.last_twelve_months = QPushButton(QCoreApplication.translate(b"savings", "Last 12 months"))
 
         # Current Year button
         self.current_year = QPushButton("")
@@ -147,7 +147,7 @@ class Savings(QObject):
         """
 
         # Set title
-        self.ui_setup.savings.set_title(QCoreApplication.translate("savings", "Savings"))
+        self.ui_setup.savings.set_title(QCoreApplication.translate(b"savings", "Savings"))
 
         # Hide all widgets in title bar
         self.ui_setup.savings.disable_title_bar_button()

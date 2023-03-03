@@ -112,7 +112,7 @@ class Income(QObject):
         """
 
         # Set title
-        self.ui_setup.income.set_title(QCoreApplication.translate("graphs", "Income"))
+        self.ui_setup.income.set_title(QCoreApplication.translate(b"graphs", "Income"))
 
         # Hide all widgets in title bar
         self.ui_setup.income.disable_title_bar_button()

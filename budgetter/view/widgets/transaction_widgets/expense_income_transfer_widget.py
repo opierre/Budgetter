@@ -47,14 +47,14 @@ class CircleCheckbox(QPushButton):
         # Define new painter
         painter = QPainter(self)
 
-        painter.setRenderHint(QPainter.Antialiasing)
+        painter.setRenderHint(QPainter.RenderHint.Antialiasing)
 
         # Define opt to retrieve states
         opt = QStyleOptionButton()
         self.initStyleOption(opt)
 
         # Set selected circle color
-        painter.setBrush(Qt.NoBrush)
+        painter.setBrush(Qt.BrushStyle.NoBrush)
         if opt.state & QStyle.State_On:
             pen = QPen()
             pen.setWidthF(1.5)
@@ -75,7 +75,7 @@ class CircleCheckbox(QPushButton):
         painter.drawEllipse(rect_ellipse)
 
         # Set color according to type
-        painter.setPen(Qt.NoPen)
+        painter.setPen(Qt.PenStyle.NoPen)
         if self._type in {'Income', 'Revenus'} and opt.state & QStyle.State_On:
             painter.setBrush(QColor(109, 210, 48, 255))
         elif self._type in {'Income', 'Revenus'} and not opt.state & QStyle.State_Selected:
@@ -242,7 +242,7 @@ class ExpensesIncomeTransfer(QWidget):
         painter = QPainter(self)
 
         # Configure pen and brush
-        painter.setPen(Qt.NoPen)
+        painter.setPen(Qt.PenStyle.NoPen)
         painter.setBrush(QColor(28, 41, 59, 128))
 
         # Paint background

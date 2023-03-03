@@ -307,7 +307,7 @@ class TransactionDelegate(QStyledItemDelegate):
         self.rect_exp_or_inc = rect_ellipse
 
         if self.editable != index:
-            painter.setPen(Qt.NoPen)
+            painter.setPen(Qt.PenStyle.NoPen)
             if exp_or_inc == "Income":
                 painter.setBrush(QColor("#6DD230"))
             elif exp_or_inc == "Expenses":
@@ -389,7 +389,7 @@ class TransactionDelegate(QStyledItemDelegate):
         :return: None
         """
 
-        painter.setRenderHint(QPainter.Antialiasing)
+        painter.setRenderHint(QPainter.RenderHint.Antialiasing)
 
         if isinstance(self.editable, QModelIndex):
             if self.editable.row() == index.row() + 1:
@@ -398,7 +398,7 @@ class TransactionDelegate(QStyledItemDelegate):
         if self.editable != index:
             # Draw bottom border
             painter.setPen(QPen(QColor("#344457")))
-            painter.setBrush(Qt.NoBrush)
+            painter.setBrush(Qt.BrushStyle.NoBrush)
             painter.drawLine(option.rect.x() + option.rect.width() * 1 / 60, option.rect.y() + option.rect.height() - 1,
                              option.rect.width() - option.rect.width() * 1 / 60,
                              option.rect.y() + option.rect.height() - 1)
@@ -514,7 +514,7 @@ class TransactionDelegate(QStyledItemDelegate):
 
         if self.editable != index:
             # Draw icon and render svg
-            painter.setPen(QPen(Qt.transparent))
+            painter.setPen(QPen(Qt.GlobalColor.transparent))
             painter.setBrush(QColor("transparent"))
             rect_svg = QRect(self.rect_category.x() + 10, self.rect_category.y() + 10,
                              self.rect_category.width() - 20, self.rect_category.height() - 20)
@@ -550,7 +550,7 @@ class TransactionDelegate(QStyledItemDelegate):
 
         # Set category painter color
         painter.setPen(QPen(Qt.white))
-        painter.setBrush(QColor(Qt.transparent))
+        painter.setBrush(QColor(Qt.GlobalColor.transparent))
 
         # Get font metrics
         font_metrics = QFontMetrics(self.font)
@@ -562,7 +562,7 @@ class TransactionDelegate(QStyledItemDelegate):
                                self.rect_category.y() + option.rect.height() * 1 / 30,
                                pixels_width, pixels_height)
         if self.editable != index:
-            painter.drawText(self.rect_name, int(Qt.AlignLeft | Qt.AlignVCenter), name)
+            painter.drawText(self.rect_name, int(Qt.AlignmentFlag.AlignLeft | Qt.AlignVCenter), name)
 
     def draw_category(self, painter: QPainter, option, index: QModelIndex, category):
         """
@@ -592,7 +592,7 @@ class TransactionDelegate(QStyledItemDelegate):
         self.rect_category_name = QRect(self.rect_name.x(), self.rect_name.y() + self.rect_name.height() +
                                         option.rect.height() * 1 / 10, pixels_width, pixels_height)
         if self.editable != index:
-            painter.drawText(self.rect_category_name, int(Qt.AlignLeft | Qt.AlignVCenter), category)
+            painter.drawText(self.rect_category_name, int(Qt.AlignmentFlag.AlignLeft | Qt.AlignVCenter), category)
 
     def draw_amount(self, painter: QPainter, rect_background, index: QModelIndex, amount):
         """
@@ -622,7 +622,7 @@ class TransactionDelegate(QStyledItemDelegate):
         self.rect_amount = QRect(rect_background.width() * 1 / 4, self.rect_name.y(),
                                  pixels_width, pixels_height)
         if self.editable != index:
-            painter.drawText(self.rect_amount, int(Qt.AlignLeft | Qt.AlignVCenter), amount)
+            painter.drawText(self.rect_amount, int(Qt.AlignmentFlag.AlignLeft | Qt.AlignVCenter), amount)
 
     def draw_label(self, painter: QPainter, rect_background, label, x_position):
         """
@@ -651,7 +651,7 @@ class TransactionDelegate(QStyledItemDelegate):
         # Set percentage beside amount
         rect_amount_label = QRect(rect_background.width() * x_position, self.rect_category_name.y(),
                                   pixels_width, pixels_height)
-        painter.drawText(rect_amount_label, int(Qt.AlignLeft | Qt.AlignVCenter), label)
+        painter.drawText(rect_amount_label, int(Qt.AlignmentFlag.AlignLeft | Qt.AlignVCenter), label)
 
     def draw_date(self, painter: QPainter, rect_background, index: QModelIndex, date):
         """
@@ -681,7 +681,7 @@ class TransactionDelegate(QStyledItemDelegate):
         self.rect_date = QRect(rect_background.width() * 1.8 / 4, self.rect_name.y(),
                                pixels_width, pixels_height)
         if self.editable != index:
-            painter.drawText(self.rect_date, int(Qt.AlignLeft | Qt.AlignVCenter), date)
+            painter.drawText(self.rect_date, int(Qt.AlignmentFlag.AlignLeft | Qt.AlignVCenter), date)
 
     def draw_account(self, painter: QPainter, rect_background, index: QModelIndex, account):
         """
@@ -712,4 +712,4 @@ class TransactionDelegate(QStyledItemDelegate):
                                   pixels_width, pixels_height)
 
         if self.editable != index:
-            painter.drawText(self.rect_account, int(Qt.AlignLeft | Qt.AlignVCenter), account)
+            painter.drawText(self.rect_account, int(Qt.AlignmentFlag.AlignLeft | Qt.AlignVCenter), account)

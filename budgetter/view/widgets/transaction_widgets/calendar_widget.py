@@ -37,13 +37,13 @@ class CalendarWidget(QCalendarWidget):
             painter.save()
 
             # Improve rendering
-            painter.setRenderHint(QPainter.Antialiasing)
+            painter.setRenderHint(QPainter.RenderHint.Antialiasing)
 
             # Fill background selection
             painter.fillRect(rect, QColor("transparent"))
 
             # Set no border
-            painter.setPen(Qt.NoPen)
+            painter.setPen(Qt.PenStyle.NoPen)
 
             # Set circle color
             painter.setBrush(QColor("#0190EA"))

@@ -80,8 +80,8 @@ class Accounts(QObject):
         """
 
         # Set title
-        self.ui_setup.accounts.set_title(QCoreApplication.translate("accounts", "Balance"))
-        self.ui_setup.accounts.set_button_tooltip(QCoreApplication.translate("accounts", "Add new account"))
+        self.ui_setup.accounts.set_title(QCoreApplication.translate(b"accounts", "Balance"))
+        self.ui_setup.accounts.set_button_tooltip(QCoreApplication.translate(b"accounts", "Add new account"))
 
         # Hide all widgets in title bar
         self.ui_setup.accounts.disable_search_bar()
@@ -128,10 +128,10 @@ class Accounts(QObject):
         # Set icon
         header_icon = QIcon()
         header_icon.addFile(":/images/images/account_balance_wallet_FILL0_wght400_GRAD0_opsz48.svg",
-                            QSize(24, 24), QIcon.Disabled, QIcon.On)
+                            QSize(24, 24), QIcon.Mode.Disabled, QIcon.State.On)
 
         # Open dialog
-        self.dialogs.append(Dialog(QCoreApplication.translate("Accounts", 'Add Account'), header_icon, dialog_content,
+        self.dialogs.append(Dialog(QCoreApplication.translate(b"Accounts", 'Add Account'), header_icon, dialog_content,
                                    self.main_window))
 
         # Connect signal from popup to add new account
@@ -160,13 +160,13 @@ class Accounts(QObject):
         # Set icon
         header_icon = QIcon()
         header_icon.addFile(":/images/images/palette_FILL0_wght500_GRAD0_opsz48_white.svg",
-                            QSize(24, 24), QIcon.Disabled, QIcon.On)
+                            QSize(24, 24), QIcon.Mode.Disabled, QIcon.State.On)
 
         # Hide previous dialog
         self.dialogs[-1].hide()
 
         # Open dialog
-        self.dialogs.append(Dialog(QCoreApplication.translate("Accounts", 'Color Picker'), header_icon, dialog_content,
+        self.dialogs.append(Dialog(QCoreApplication.translate(b"Accounts", 'Color Picker'), header_icon, dialog_content,
                                    self.main_window))
 
         # Connect signal coming from click on Confirm button
@@ -232,11 +232,12 @@ class Accounts(QObject):
             # Set icon
             header_icon = QIcon()
             header_icon.addFile(":/images/images/account_balance_wallet_FILL1_wght400_GRAD0_opsz48.svg",
-                                QSize(24, 24), QIcon.Disabled, QIcon.On)
+                                QSize(24, 24), QIcon.Mode.Disabled, QIcon.State.On)
 
             # Open dialog
-            self.dialogs.append(Dialog(QCoreApplication.translate("Accounts", 'Add Bank'), header_icon, dialog_content,
-                                       self.main_window, show_overlay=False))
+            self.dialogs.append(
+                Dialog(QCoreApplication.translate(b"Accounts", b'Add Bank'), header_icon, dialog_content,
+                       self.main_window, show_overlay=False))
 
             # Connect signal from popup to add new bank
             dialog_content.addBank.connect(self.addBankCall.emit)

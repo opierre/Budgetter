@@ -22,10 +22,10 @@ class Distribution(QObject):
         self.status_bar = QStatusBar()
 
         # Current Month button
-        self.current_month = QPushButton(QCoreApplication.translate("distribution", "September"))
+        self.current_month = QPushButton(QCoreApplication.translate(b"distribution", "September"))
 
         # Previous Month button
-        self.previous_month = QPushButton(QCoreApplication.translate("distribution", "August"))
+        self.previous_month = QPushButton(QCoreApplication.translate(b"distribution", "August"))
 
         # Store item delegate
         self.distribution_delegate = DistributionDelegate()
@@ -116,7 +116,7 @@ class Distribution(QObject):
         """
 
         # Set title
-        self.ui_setup.monthlyExpenses.set_title(QCoreApplication.translate("savings", "Expenses Distribution"))
+        self.ui_setup.monthlyExpenses.set_title(QCoreApplication.translate(b"savings", "Expenses Distribution"))
 
         # Hide all widgets in title bar
         self.ui_setup.monthlyExpenses.disable_title_bar_button()

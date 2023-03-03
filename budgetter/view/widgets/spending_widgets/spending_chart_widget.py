@@ -23,7 +23,7 @@ class SpendingChart(QChart):
 
         # Configure axis range and add them to chart
         self.addAxis(self.axis_x, QtCore.Qt.AlignBottom)
-        self.addAxis(self.axis_y, QtCore.Qt.AlignLeft)
+        self.addAxis(self.axis_y, QtCore.Qt.AlignmentFlag.AlignLeft)
         self.axis_x.setRange(0, 5)
         self.axis_x.setTickCount(1)
 
@@ -50,7 +50,7 @@ class SpendingChart(QChart):
         # Configure pen
         pen = QPen(QColor("white"))
         pen.setWidthF(6.0)
-        pen.setCapStyle(Qt.RoundCap)
+        pen.setCapStyle(Qt.PenCapStyle.RoundCap)
 
         # Fulfill series
         series = QSplineSeries()

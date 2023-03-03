@@ -29,7 +29,7 @@ class AddAccountDialog(QWidget):
 
         # Store current color
         self._color_dialog = None
-        self._color = QColor("white")
+        self._color = "white"
 
         # Store completer for bank choices
         self.bank_completer = QCompleter(self.content.account_bank)
@@ -117,11 +117,11 @@ class AddAccountDialog(QWidget):
             self.content.color_picker.setStyleSheet(f"background-color: rgba({transparent_color.red()},"
                                                     f"{transparent_color.green()}, {transparent_color.blue()}, 128);")
             palette_icon.addFile(":/images/images/palette_FILL0_wght500_GRAD0_opsz48_white.svg",
-                                 QSize(24, 24), QIcon.Normal, QIcon.On)
+                                 QSize(24, 24), QIcon.Mode.Normal, QIcon.State.On)
         else:
             self.content.color_picker.setStyleSheet(f"background-color: transparent;")
             palette_icon.addFile(":/images/images/palette_FILL0_wght500_GRAD0_opsz48.svg",
-                                 QSize(24, 24), QIcon.Normal, QIcon.On)
+                                 QSize(24, 24), QIcon.Mode.Normal, QIcon.State.On)
         self.content.color_picker.setIcon(palette_icon)
 
     def check_inputs(self):

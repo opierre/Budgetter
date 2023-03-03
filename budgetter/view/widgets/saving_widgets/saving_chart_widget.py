@@ -65,7 +65,7 @@ class SavingChart(QChart):
         # Configure pen
         pen = QPen(QColor("#6dd230"))
         pen.setWidthF(3.0)
-        pen.setCapStyle(Qt.RoundCap)
+        pen.setCapStyle(Qt.PenCapStyle.RoundCap)
 
         # Fulfill series
         y_max_value = 0
@@ -110,7 +110,7 @@ class SavingChart(QChart):
 
         # Set axes
         self.addAxis(self.axis_x, Qt.AlignBottom)
-        self.addAxis(self.axis_y, Qt.AlignLeft)
+        self.addAxis(self.axis_y, Qt.AlignmentFlag.AlignLeft)
 
         # Attach axes to series
         self.series_finale.attachAxis(self.axis_x)

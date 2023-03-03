@@ -286,7 +286,7 @@ class MaterialLineEditPrivate:
         self.line_edit.setStyleSheet(STYLESHEET.format(padding='9', padding_minus='8'))
 
         # Set font on line edit
-        self.line_edit.setFont(QFont("Roboto", 11, QFont.Normal))
+        self.line_edit.setFont(QFont("Roboto", 11, QFont.Weight.Normal))
 
         # Start state machine for normal/focus state
         self.state_machine.start()
@@ -327,7 +327,7 @@ class MaterialOutlinedLineEdit(QLineEdit):
         """
 
         self.trailing_symbol = QLabel(symbol + " ", parent=self)
-        self.trailing_symbol.setFont(QFont("Roboto", 11, QFont.Normal))
+        self.trailing_symbol.setFont(QFont("Roboto", 11, QFont.Weight.Normal))
         self.trailing_symbol.setStyleSheet("color: " + self.text_color().name() + "; padding: 0px;")
         self.trailing_symbol.setWordWrap(True)
         self.trailing_symbol.setVisible(False)
@@ -458,7 +458,7 @@ class MaterialOutlinedLineEdit(QLineEdit):
         """
 
         # Handle Resize and Move event to update geometry
-        if event.type() in [QEvent.Resize, QEvent.Move]:
+        if event.type() in [QEvent.Type.Resize, QEvent.Move]:
             if self.line_edit_private.label:
                 self.line_edit_private.label.setGeometry(self.rect())
 
@@ -512,7 +512,7 @@ class MaterialLineEditLabel(QWidget):
         self.background_color = QColor("transparent")
 
         # Configure and apply default font
-        font = QFont("Roboto", int(parent.fontInfo().pointSizeF()), QFont.Normal)
+        font = QFont("Roboto", int(parent.fontInfo().pointSizeF()), QFont.Weight.Normal)
         self.setFont(font)
 
     def set_scale(self, scale: float) -> None:
@@ -594,7 +594,7 @@ class MaterialLineEditLabel(QWidget):
 
         # Configure painter
         painter = QPainter(self)
-        painter.setRenderHint(QPainter.Antialiasing)
+        painter.setRenderHint(QPainter.RenderHint.Antialiasing)
         painter.scale(self.__scale, self.__scale)
         painter.setPen(self.private_color)
         painter.setOpacity(1)
@@ -609,7 +609,7 @@ class MaterialLineEditLabel(QWidget):
             font = QFont("Roboto", int(self.parent().fontInfo().pointSizeF()), QFont.Medium)
         else:
             # Configure and apply default font
-            font = QFont("Roboto", int(self.parent().fontInfo().pointSizeF()), QFont.Normal)
+            font = QFont("Roboto", int(self.parent().fontInfo().pointSizeF()), QFont.Weight.Normal)
         self.setFont(font)
 
         # Draw label with offset

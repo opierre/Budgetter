@@ -46,15 +46,15 @@ class MeanCheckbox(QPushButton):
         # Define new painter
         painter = QPainter(self)
 
-        painter.setRenderHint(QPainter.Antialiasing)
+        painter.setRenderHint(QPainter.RenderHint.Antialiasing)
 
         # Define opt to retrieve states
         opt = QStyleOptionButton()
         self.initStyleOption(opt)
 
         # Set selected circle color
-        painter.setBrush(Qt.NoBrush)
-        painter.setPen(Qt.NoPen)
+        painter.setBrush(Qt.BrushStyle.NoBrush)
+        painter.setPen(Qt.PenStyle.NoPen)
 
         # Load SVG content
         svg_string_file = QFile(":/images/images/credit_card_white_24dp.svg")
@@ -230,7 +230,7 @@ class Mean(QWidget):
         painter = QPainter(self)
 
         # Configure pen and brush
-        painter.setPen(Qt.NoPen)
+        painter.setPen(Qt.PenStyle.NoPen)
         painter.setBrush(QColor(28, 41, 59, 128))
 
         # Paint background

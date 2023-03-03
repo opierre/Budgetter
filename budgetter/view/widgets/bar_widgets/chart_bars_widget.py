@@ -40,7 +40,7 @@ class ChartBars(QWidget):
         """
 
         # Configure chart view
-        self.chart_view.setRenderHint(QPainter.Antialiasing)
+        self.chart_view.setRenderHint(QPainter.RenderHint.Antialiasing)
         self.chart_view.setVisible(True)
 
         # Configure chart
@@ -100,10 +100,10 @@ class ChartBars(QWidget):
 
         # Get painter """
         painter = QPainter(self)
-        painter.setRenderHint(QPainter.Antialiasing)
+        painter.setRenderHint(QPainter.RenderHint.Antialiasing)
 
         # Configure painter """
-        painter.setPen(Qt.NoPen)
+        painter.setPen(Qt.PenStyle.NoPen)
 
         # Draw background """
         if self._show_total is True or self._show_average is True:
@@ -129,10 +129,10 @@ class ChartBars(QWidget):
         """
 
         # Configure pen and painter """
-        pen = QPen(QColor("#9298a8"), 1, c=Qt.RoundCap)
+        pen = QPen(QColor("#9298a8"), 1, c=Qt.PenCapStyle.RoundCap)
         painter.setPen(pen)
-        painter.setBrush(Qt.NoBrush)
-        painter.setFont(QFont("Roboto", 11, QFont.Normal))
+        painter.setBrush(Qt.BrushStyle.NoBrush)
+        painter.setFont(QFont("Roboto", 11, QFont.Weight.Normal))
 
         # Set text """
         text_average = self.AVERAGE
@@ -145,10 +145,10 @@ class ChartBars(QWidget):
         rectangle_total = QRectF(self.rect().x() + 9, self.rect().y() + 9,
                                  text_width, text_heigth)
 
-        painter.drawText(rectangle_total, int(Qt.AlignLeft | Qt.AlignTop), text_total)
+        painter.drawText(rectangle_total, int(Qt.AlignmentFlag.AlignLeft | Qt.AlignmentFlag.AlignTop), text_total)
 
         # Set bold font """
-        painter.setFont(QFont("Roboto", 11, QFont.Bold))
+        painter.setFont(QFont("Roboto", 11, QFont.Weight.Bold))
 
         # Set text """
         text_amount = convert_amount_to_str(self.chart.total()) + " €"
@@ -159,7 +159,7 @@ class ChartBars(QWidget):
         text_heigth = font_metrics.height()
         rectangle_amount = QRectF(rectangle_total.x() + rectangle_total.width() + 9, rectangle_total.y(),
                                   text_amount_width, text_heigth)
-        painter.drawText(rectangle_amount, int(Qt.AlignLeft | Qt.AlignTop), text_amount)
+        painter.drawText(rectangle_amount, int(Qt.AlignmentFlag.AlignLeft | Qt.AlignmentFlag.AlignTop), text_amount)
 
     def draw_average(self, painter: QPainter):
         """
@@ -170,10 +170,10 @@ class ChartBars(QWidget):
         """
 
         # Configure pen and painter """
-        pen = QPen(QColor("#9298a8"), 1, c=Qt.RoundCap)
+        pen = QPen(QColor("#9298a8"), 1, c=Qt.PenCapStyle.RoundCap)
         painter.setPen(pen)
-        painter.setBrush(Qt.NoBrush)
-        painter.setFont(QFont("Roboto", 11, QFont.Normal))
+        painter.setBrush(Qt.BrushStyle.NoBrush)
+        painter.setFont(QFont("Roboto", 11, QFont.Weight.Normal))
 
         # Set text """
         text_average = self.AVERAGE
@@ -191,10 +191,10 @@ class ChartBars(QWidget):
         rectangle_average = QRectF(self.rect().x() + 9, y_coord,
                                    text_average_width, text_heigth)
 
-        painter.drawText(rectangle_average, int(Qt.AlignLeft | Qt.AlignTop), text_average)
+        painter.drawText(rectangle_average, int(Qt.AlignmentFlag.AlignLeft | Qt.AlignmentFlag.AlignTop), text_average)
 
         # Set bold font """
-        painter.setFont(QFont("Roboto", 11, QFont.Bold))
+        painter.setFont(QFont("Roboto", 11, QFont.Weight.Bold))
 
         # Set text """
         text_amount = convert_amount_to_str(self.chart.average()) + " €"
@@ -205,7 +205,7 @@ class ChartBars(QWidget):
         text_heigth = font_metrics.height()
         rectangle_amount = QRectF(rectangle_average.x() + rectangle_average.width() + 9, rectangle_average.y(),
                                   text_amount_width, text_heigth)
-        painter.drawText(rectangle_amount, int(Qt.AlignLeft | Qt.AlignTop), text_amount)
+        painter.drawText(rectangle_amount, int(Qt.AlignmentFlag.AlignLeft | Qt.AlignmentFlag.AlignTop), text_amount)
 
     def draw_background(self, painter: QPainter):
         """
@@ -216,7 +216,7 @@ class ChartBars(QWidget):
         """
 
         # Configure pen and painter """
-        pen = QPen(QColor("transparent"), 1, c=Qt.RoundCap)
+        pen = QPen(QColor("transparent"), 1, c=Qt.PenCapStyle.RoundCap)
         painter.setPen(pen)
 
         # Set text """
@@ -226,8 +226,8 @@ class ChartBars(QWidget):
         text_total_amount = convert_amount_to_str(self.chart.total()) + " €"
 
         # Set rectangle according to font metrics """
-        font_metrics_name = QFontMetrics(QFont("Roboto", 11, QFont.Normal))
-        font_metrics_amount = QFontMetrics(QFont("Roboto", 11, QFont.Bold))
+        font_metrics_name = QFontMetrics(QFont("Roboto", 11, QFont.Weight.Normal))
+        font_metrics_amount = QFontMetrics(QFont("Roboto", 11, QFont.Weight.Bold))
         text_total_width = font_metrics_name.horizontalAdvance(text_total)
         text_average_width = font_metrics_name.horizontalAdvance(text_average)
         text_total_amount = font_metrics_amount.horizontalAdvance(text_total_amount)

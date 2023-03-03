@@ -17,7 +17,8 @@
 # LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 # THE SOFTWARE.
-from PySide6.QtCore import QParallelAnimationGroup, QPropertyAnimation, QRect, QObject, QEvent, Signal, Qt
+from PySide6.QtCore import QParallelAnimationGroup, QPropertyAnimation, QRect, QObject, QEvent, Signal, Qt, \
+    QVariantAnimation
 from PySide6.QtGui import QKeySequence, QShortcut, QIcon
 from PySide6.QtWidgets import QWidget, QGraphicsOpacityEffect
 
@@ -47,8 +48,8 @@ class Dialog(QWidget):
         self._dialog.setupUi(self)
 
         # Store shortcuts
-        self.escape_shortcut = QShortcut(QKeySequence(Qt.Key_Escape), self, self.escape.emit)
-        self.confirm_shortcut = QShortcut(QKeySequence(Qt.CTRL | Qt.Key_Return), self, self.confirm.emit)
+        self.escape_shortcut = QShortcut(QKeySequence(Qt.Key.Key_Escape), self, self.escape.emit)
+        self.confirm_shortcut = QShortcut(QKeySequence(Qt.CTRL | Qt.Key.Key_Return), self, self.confirm.emit)
 
         # Store overlay
         self.overlay = Overlay(parent)
@@ -142,8 +143,9 @@ class Dialog(QWidget):
                                      end_rect.width(),
                                      end_rect.height())
 
-        self.parallel_animation_group.animationAt(0).setStartValue(start_animation_rect)
-        self.parallel_animation_group.animationAt(0).setEndValue(end_rect)
+        animation: QVariantAnimation = self.parallel_animation_group.animationAt(0)
+        animation.setStartValue(start_animation_rect)
+        animation.setEndValue(end_rect)
 
         # Show dialog
         super().show()
@@ -172,7 +174,7 @@ class Dialog(QWidget):
         :return: True/False to accept/reject event
         """
 
-        if watched == self.parent() and event.type() == QEvent.Resize:
+        if watched == self.parent() and event.type() == QEvent.Type.Resize:
             # Stop animations
             self.parallel_animation_group.stop()
 

@@ -268,7 +268,7 @@ class MaterialLineEditPrivate:
         self.line_edit.setTextMargins(0, 2, 0, 4)
 
         # Set font on line edit
-        self.line_edit.setFont(QFont("Roboto", 11, QFont.Normal))
+        self.line_edit.setFont(QFont("Roboto", 11, QFont.Weight.Normal))
 
         # Start state machine for normal/focus state
         self.state_machine.start()
@@ -298,7 +298,7 @@ class MaterialLineEdit(QLineEdit):
         """
 
         self.trailing_symbol = QLabel(symbol + " ", parent=self)
-        self.trailing_symbol.setFont(QFont("Roboto", 11, QFont.Normal))
+        self.trailing_symbol.setFont(QFont("Roboto", 11, QFont.Weight.Normal))
         self.trailing_symbol.setStyleSheet("color: " + self.text_color().name() + "; padding: 0px;")
         self.trailing_symbol.setWordWrap(True)
         self.trailing_symbol.setVisible(False)
@@ -488,7 +488,7 @@ class MaterialLineEdit(QLineEdit):
         """
 
         # Handle Resize and Move event to update geometry
-        if event.type() in [QEvent.Resize, QEvent.Move]:
+        if event.type() in [QEvent.Type.Resize, QEvent.Move]:
             if self.line_edit_private.label:
                 self.line_edit_private.label.setGeometry(self.rect())
 
@@ -530,7 +530,7 @@ class MaterialLineEdit(QLineEdit):
         if self.text() == '' and progress < 1:
             painter.setOpacity(1 - progress)
             painter.fillRect(
-                self.rect(), QColor(Qt.transparent)
+                self.rect(), QColor(Qt.GlobalColor.transparent)
             )
 
         y_start: int = self.height() - 1
@@ -555,7 +555,7 @@ class MaterialLineEdit(QLineEdit):
             brush.setColor(self.ink_color())
 
             if progress > 0:
-                painter.setPen(Qt.NoPen)
+                painter.setPen(Qt.PenStyle.NoPen)
                 painter.setBrush(brush)
                 width: int = int((1 - progress) * (width_start / 2))
                 painter.drawRect(int(width + 2.5), self.height() - 2, width_start - width * 2, 2)
@@ -655,7 +655,7 @@ class MaterialLineEditLabel(QWidget):
 
         # Configure painter
         painter = QPainter(self)
-        painter.setRenderHint(QPainter.Antialiasing)
+        painter.setRenderHint(QPainter.RenderHint.Antialiasing)
         painter.scale(self.__scale, self.__scale)
         painter.setPen(self.private_color)
         painter.setOpacity(1)

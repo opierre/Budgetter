@@ -64,7 +64,7 @@ class CategoryChart(QChart):
         self.axis_x.setVisible(True)
         self.axis_x.setGridLineVisible(False)
         self.axis_x.setLabelsColor(QColor("#9298a8"))
-        self.axis_x.setLabelsFont(QFont("Roboto", 10, QFont.Normal))
+        self.axis_x.setLabelsFont(QFont("Roboto", 10, QFont.Weight.Normal))
         pen = QPen(QColor(66, 96, 135, 200))
         pen.setWidthF(2.0)
         self.axis_x.setLinePen(pen)
@@ -101,7 +101,7 @@ class CategoryChart(QChart):
         else:
             pen = QPen(QColor("#8118F9"))
         pen.setWidthF(1.0)
-        pen.setCapStyle(Qt.RoundCap)
+        pen.setCapStyle(Qt.PenCapStyle.RoundCap)
         pen.setStyle(Qt.DashLine)
         self.average_series.setPen(pen)
         self.average_series.setOpacity(0.8)
@@ -114,7 +114,7 @@ class CategoryChart(QChart):
         """
 
         self.set = QBarSet("Category")
-        self.set.setLabelFont(QFont("Roboto", 10, QFont.Normal))
+        self.set.setLabelFont(QFont("Roboto", 10, QFont.Weight.Normal))
         self.set.setLabelColor(QColor("#9298a8"))
 
         # Configure gradient to fulfill bars
@@ -131,7 +131,7 @@ class CategoryChart(QChart):
         # Create pen to draw borders
         pen = QPen()
         pen.setWidthF(5.0)
-        pen.setCapStyle(Qt.RoundCap)
+        pen.setCapStyle(Qt.PenCapStyle.RoundCap)
         pen.setJoinStyle(Qt.RoundJoin)
         pen.setBrush(gradient)
         self.set.setPen(pen)
@@ -189,7 +189,7 @@ class CategoryChart(QChart):
         # Configure pen
         pen = QPen(QColor("#6dd230"))
         pen.setWidthF(3.0)
-        pen.setCapStyle(Qt.RoundCap)
+        pen.setCapStyle(Qt.PenCapStyle.RoundCap)
 
         # Fulfill series
         y_max_value = 0
@@ -225,7 +225,7 @@ class CategoryChart(QChart):
 
         # Set axes
         self.addAxis(self.axis_x, Qt.AlignBottom)
-        self.addAxis(self.axis_y, Qt.AlignLeft)
+        self.addAxis(self.axis_y, Qt.AlignmentFlag.AlignLeft)
 
         # Attach axes to series
         self.series.attachAxis(self.axis_x)
