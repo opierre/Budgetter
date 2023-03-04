@@ -62,12 +62,12 @@ class Menu(QObject):
 
         if page_number == 0:
             # Update Header
-            self.ui_setup.menuLabel.setText(QCoreApplication.translate(b"menu", "Dashboard"))
+            self.ui_setup.menuLabel.setText(QCoreApplication.translate(b"menu", b"Dashboard"))
 
         elif page_number == 1:
             # Update Header
-            self.ui_setup.menuLabel.setText(QCoreApplication.translate(b"menu", "Graph"))
+            self.ui_setup.menuLabel.setText(QCoreApplication.translate(b"menu", b"Graph"))
 
         elif page_number == 2:
             # Update Header
-            self.ui_setup.menuLabel.setText(QCoreApplication.translate(b"menu", "Insights"))
+            self.ui_setup.menuLabel.setText(QCoreApplication.translate(b"menu", b"Insights"))

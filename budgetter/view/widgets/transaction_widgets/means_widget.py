@@ -23,7 +23,7 @@ class MeanCheckbox(QPushButton):
         self.setContentsMargins(0, 0, 0, 0)
 
         # Set cursors
-        self.setCursor(Qt.PointingHandCursor)
+        self.setCursor(Qt.CursorShape.PointingHandCursor)
 
     def set_type(self, _type: str):
         """
@@ -70,14 +70,14 @@ class MeanCheckbox(QPushButton):
             svg_string = text_stream.readAll()
             svg_string_file.close()
 
-        if not opt.state & QStyle.State_Selected:
+        if not opt.state & QStyle.StateFlag.State_Selected:
             svg_string = svg_string.replace("fill=\"#0190EA\"", "fill=\"white\" fill-opacity=\"0.65\"")
 
         svg_bytes = bytearray(svg_string, encoding='utf-8')
 
         # Load SVG as bytes
         svg_render = QSvgRenderer(svg_bytes)
-        svg_render.setAspectRatioMode(Qt.KeepAspectRatio)
+        svg_render.setAspectRatioMode(Qt.AspectRatioMode.KeepAspectRatio)
         svg_render.render(painter, self.rect())
 
 

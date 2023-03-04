@@ -122,7 +122,7 @@ class Ui_Dialog(object):
         font1.setFamilies([u"Roboto Medium"])
         font1.setPointSize(11)
         self.confirm.setFont(font1)
-        self.confirm.setCursor(QCursor(Qt.PointingHandCursor))
+        self.confirm.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
 
         self.horizontalLayout.addWidget(self.confirm)
 

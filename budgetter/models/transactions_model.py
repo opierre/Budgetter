@@ -1,7 +1,13 @@
 from datetime import datetime
 from typing import Union, Any
 
-from PySide6.QtCore import QAbstractListModel, Qt, QSortFilterProxyModel, QModelIndex, QPersistentModelIndex
+from PySide6.QtCore import (
+    QAbstractListModel,
+    Qt,
+    QSortFilterProxyModel,
+    QModelIndex,
+    QPersistentModelIndex,
+)
 
 
 class TransactionsFilterModel(QSortFilterProxyModel):
@@ -90,7 +96,9 @@ class TransactionsFilterModel(QSortFilterProxyModel):
         """
 
         index_from_source = self.mapToSource(index)
-        self.sourceModel().setData(index_from_source, value, Qt.DisplayRole)
+        self.sourceModel().setData(
+            index_from_source, value, Qt.ItemDataRole.DisplayRole
+        )
 
     def filterAcceptsRow(self, source_row, _source_parent):
         """
@@ -103,9 +111,9 @@ class TransactionsFilterModel(QSortFilterProxyModel):
 
         src_model = self.sourceModel()
         source_index = src_model.index(source_row, 0)
-        transaction = source_index.data(Qt.DisplayRole)
+        transaction = source_index.data(Qt.ItemDataRole.DisplayRole)
 
-        if self.type == 'All' and self.account == 'All':
+        if self.type == "All" and self.account == "All":
             if self.search is not None:
                 if "name" in self.search:
                     result = self.search_value.lower() in transaction["name"].lower()
@@ -117,12 +125,14 @@ class TransactionsFilterModel(QSortFilterProxyModel):
                     result = True
             else:
                 result = True
-        elif self.type == 'All' and self.account != 'All':
+        elif self.type == "All" and self.account != "All":
             result = transaction["account"] == self.account
-        elif self.type != 'All' and self.account == 'All':
+        elif self.type != "All" and self.account == "All":
             result = transaction["type"] == self.type
-        elif self.type != 'All' and self.account != 'All':
-            result = (transaction["type"] == self.type) and (transaction["account"] == self.account)
+        elif self.type != "All" and self.account != "All":
+            result = (transaction["type"] == self.type) and (
+                    transaction["account"] == self.account
+            )
         else:
             result = False
 
@@ -137,8 +147,12 @@ class TransactionsFilterModel(QSortFilterProxyModel):
         :return: (bool)
         """
 
-        left_data_date = self.sourceModel().data(source_left, Qt.DisplayRole)["date"]
-        right_data_date = self.sourceModel().data(source_right, Qt.DisplayRole)["date"]
+        left_data_date = self.sourceModel().data(
+            source_left, Qt.ItemDataRole.DisplayRole
+        )["date"]
+        right_data_date = self.sourceModel().data(
+            source_right, Qt.ItemDataRole.DisplayRole
+        )["date"]
 
         left_date = datetime.strptime(left_data_date, "%d/%m/%Y")
         right_date = datetime.strptime(right_data_date, "%d/%m/%Y")
@@ -157,7 +171,11 @@ class TransactionsModel(QAbstractListModel):
         # Store transactions
         self.transactions = transactions or {}
 
-    def data(self, index: Union[QModelIndex, QPersistentModelIndex], role=Qt.ItemDataRole.DisplayRole):
+    def data(
+            self,
+            index: Union[QModelIndex, QPersistentModelIndex],
+            role=Qt.ItemDataRole.DisplayRole,
+    ):
         """
         Override data() from QAbstractListModel
 
@@ -166,7 +184,7 @@ class TransactionsModel(QAbstractListModel):
         :return: according to role (text, ...)
         """
 
-        if index.isValid() and role == Qt.DisplayRole:
+        if index.isValid() and role == Qt.ItemDataRole.DisplayRole:
             transaction = self.transactions[index.row()]
 
             # Return current transaction list
@@ -176,7 +194,9 @@ class TransactionsModel(QAbstractListModel):
 
         return result
 
-    def setData(self, index: QModelIndex, value: Any, _role=Qt.ItemDataRole.EditRole) -> True:
+    def setData(
+            self, index: QModelIndex, value: Any, _role=Qt.ItemDataRole.EditRole
+    ) -> True:
         """
         Override setData() from QAbstractListModel
 
@@ -229,7 +249,7 @@ class TransactionsModel(QAbstractListModel):
         """
 
         # self.beginInsertRows(QModelIndex(), 0, 0)
-        # previous_type = self.data(self.index(0, 0, QModelIndex()), Qt.DisplayRole)["type"]
+        # previous_type = self.data(self.index(0, 0, QModelIndex()), Qt.ItemDataRole.DisplayRole)["type"]
         # current_date = QDate.currentDate().toString("dd/MM/yyyy")
         # self.transactions.insert(0, {"name": "Enter name", "category": "", "amount": 0, "date": current_date,
         #                              "account": "", "type": previous_type, "means": "Virement", "comment": ""})

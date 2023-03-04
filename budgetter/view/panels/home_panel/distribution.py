@@ -92,8 +92,8 @@ class Distribution(QObject):
         self.previous_month.update()
 
         # Set cursor for left buttons
-        self.current_month.setCursor(Qt.PointingHandCursor)
-        self.previous_month.setCursor(Qt.PointingHandCursor)
+        self.current_month.setCursor(Qt.CursorShape.PointingHandCursor)
+        self.previous_month.setCursor(Qt.CursorShape.PointingHandCursor)
 
         # Add custom status bar to classic one
         self.status_bar.addPermanentWidget(self.custom_status_bar)

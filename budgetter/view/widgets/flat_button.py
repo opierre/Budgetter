@@ -73,14 +73,14 @@ class OverlayWidget(QWidget):
 
         event_type = event.type()
 
-        if event_type == QEvent.ParentChange:
+        if event_type == QEvent.Type.ParentChange:
             # Install event filter on new parent
             self.parent().installEventFilter(self)
 
             # Resize according to new parent size
             self.setGeometry(self.overlay_geometry())
 
-        elif event_type == QEvent.ParentAboutToChange:
+        elif event_type == QEvent.Type.ParentAboutToChange:
             # Remove current event filter on existing parent
             self.parent().removeEventFilter(self)
 
@@ -142,8 +142,8 @@ class Wave(QParallelAnimationGroup):
         self.set_radius_values(0, 300)
 
         # Configure brush style
-        self._brush.setColor(Qt.black)
-        self._brush.setStyle(Qt.SolidPattern)
+        self._brush.setColor(Qt.GlobalColor.black)
+        self._brush.setStyle(Qt.BrushStyle.SolidPattern)
 
         # Connect animation finished to destroy
         self.finished.connect(self.destroy)  # pylint: disable=no-member
@@ -329,7 +329,7 @@ class WaveOverlay(OverlayWidget):
     Override default wave overlay
     """
 
-    def __init__(self, parent: QWidget = None):
+    def __init__(self, parent=None):
         super().__init__(parent)
 
         # Store attributes
@@ -338,8 +338,8 @@ class WaveOverlay(OverlayWidget):
         self.use_clip = False
 
         # Set attributes on overlay to hide background and set transparent
-        self.setAttribute(Qt.WA_TransparentForMouseEvents)
-        self.setAttribute(Qt.WA_NoSystemBackground)
+        self.setAttribute(Qt.WidgetAttribute.WA_TransparentForMouseEvents)
+        self.setAttribute(Qt.WidgetAttribute.WA_NoSystemBackground)
 
     def add_wave(self, wave: Wave = None, position: QPoint = None, radius: float = 300) -> None:
         """

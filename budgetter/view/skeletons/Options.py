@@ -298,7 +298,7 @@ class Ui_Options(object):
         self.add.setObjectName("add")
         self.add.setMinimumSize(QSize(28, 28))
         self.add.setMaximumSize(QSize(28, 28))
-        self.add.setCursor(QCursor(Qt.PointingHandCursor))
+        self.add.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         icon = QIcon()
         icon.addFile(":/images/images/add_circle_outline-white-24dp.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         self.add.setIcon(icon)

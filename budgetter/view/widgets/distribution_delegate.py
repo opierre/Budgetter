@@ -39,7 +39,7 @@ class DistributionDelegate(QItemDelegate):
         painter.save()
 
         # Get values
-        value = index.data(Qt.DisplayRole)
+        value = index.data(Qt.ItemDataRole.DisplayRole)
         category = str(value[0])
         nb_transactions = str(value[1])
         if int(nb_transactions) > 1:
@@ -103,7 +103,7 @@ class DistributionDelegate(QItemDelegate):
             svg_render = QSvgRenderer(":/images/images/local_grocery_store-white-18dp.svg")
         else:
             svg_render = QSvgRenderer(":/images/images/restaurant-white-18dp.svg")
-        svg_render.setAspectRatioMode(Qt.KeepAspectRatio)
+        svg_render.setAspectRatioMode(Qt.AspectRatioMode.KeepAspectRatio)
         svg_render.render(painter, rect_svg)
 
         # Set font on painter for category
@@ -123,7 +123,7 @@ class DistributionDelegate(QItemDelegate):
         rect_category = QRect(rect_icon.x() + rect_icon.width() + option.rect.width() * 1 / 50,
                               rect_icon.y() + option.rect.height() * 1 / 30,
                               pixels_width, pixels_height)
-        painter.drawText(rect_category, int(Qt.AlignmentFlag.AlignLeft | Qt.AlignVCenter), category)
+        painter.drawText(rect_category, int(Qt.AlignmentFlag.AlignLeft | Qt.AlignmentFlag.AlignVCenter), category)
 
         # Set font on painter for number of transactions
         self.font.setFamily("Roboto")
@@ -142,7 +142,8 @@ class DistributionDelegate(QItemDelegate):
         rect_transaction = QRect(rect_category.x(),
                                  rect_category.y() + rect_category.height() + option.rect.height() * 1 / 10,
                                  pixels_width, pixels_height)
-        painter.drawText(rect_transaction, int(Qt.AlignmentFlag.AlignLeft | Qt.AlignVCenter), nb_transactions)
+        painter.drawText(rect_transaction, int(Qt.AlignmentFlag.AlignLeft | Qt.AlignmentFlag.AlignVCenter),
+                         nb_transactions)
 
         # Set font on painter for amount
         self.font.setFamily("Roboto")
@@ -161,7 +162,7 @@ class DistributionDelegate(QItemDelegate):
         rect_amount = QRect(rect_background.width() + rect_background.x() - pixels_width - option.rect.width() * 1 / 50,
                             rect_category.y() + option.rect.height() * 2 / 50,
                             pixels_width, pixels_height)
-        painter.drawText(rect_amount, int(Qt.AlignRight | Qt.AlignVCenter), amount)
+        painter.drawText(rect_amount, int(Qt.AlignmentFlag.AlignRight | Qt.AlignmentFlag.AlignVCenter), amount)
 
         # Set font on painter for percentage
         self.font.setFamily("Roboto")
@@ -179,6 +180,6 @@ class DistributionDelegate(QItemDelegate):
         # Set percentage beside amount
         rect_perc = QRect(rect_background.width() + rect_background.x() - pixels_width - option.rect.width() * 1 / 50,
                           rect_transaction.y(), pixels_width, pixels_height)
-        painter.drawText(rect_perc, int(Qt.AlignRight | Qt.AlignVCenter), percentage)
+        painter.drawText(rect_perc, int(Qt.AlignmentFlag.AlignRight | Qt.AlignmentFlag.AlignVCenter), percentage)
 
         painter.restore()

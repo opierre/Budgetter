@@ -109,7 +109,7 @@ class SavingChart(QChart):
         self.addSeries(self.series_scatter)
 
         # Set axes
-        self.addAxis(self.axis_x, Qt.AlignBottom)
+        self.addAxis(self.axis_x, Qt.AlignmentFlag.AlignBottom)
         self.addAxis(self.axis_y, Qt.AlignmentFlag.AlignLeft)
 
         # Attach axes to series

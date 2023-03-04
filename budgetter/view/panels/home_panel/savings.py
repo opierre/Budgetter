@@ -172,9 +172,9 @@ class Savings(QObject):
         self.last_twelve_months.update()
 
         # Set cursor for left buttons
-        self.current_year.setCursor(Qt.PointingHandCursor)
-        self.previous_year.setCursor(Qt.PointingHandCursor)
-        self.last_twelve_months.setCursor(Qt.PointingHandCursor)
+        self.current_year.setCursor(Qt.CursorShape.PointingHandCursor)
+        self.previous_year.setCursor(Qt.CursorShape.PointingHandCursor)
+        self.last_twelve_months.setCursor(Qt.CursorShape.PointingHandCursor)
 
         # Show next and previous arrows
         self.custom_status_bar.show_previous_next()

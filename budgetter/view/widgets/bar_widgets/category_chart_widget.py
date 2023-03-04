@@ -224,7 +224,7 @@ class CategoryChart(QChart):
         self.average_series.setVisible(self._show_average)
 
         # Set axes
-        self.addAxis(self.axis_x, Qt.AlignBottom)
+        self.addAxis(self.axis_x, Qt.AlignmentFlag.AlignBottom)
         self.addAxis(self.axis_y, Qt.AlignmentFlag.AlignLeft)
 
         # Attach axes to series

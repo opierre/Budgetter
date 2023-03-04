@@ -106,7 +106,7 @@ class Ui_ColorPicker(object):
         self.color_2.setObjectName("color_2")
         self.color_2.setMinimumSize(QSize(30, 30))
         self.color_2.setMaximumSize(QSize(30, 30))
-        self.color_2.setCursor(QCursor(Qt.PointingHandCursor))
+        self.color_2.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         self.color_2.setStyleSheet("QToolButton\n"
                                    "{\n"
                                    "	background-radius: 2px;\n"
@@ -139,7 +139,7 @@ class Ui_ColorPicker(object):
         self.color_3.setObjectName("color_3")
         self.color_3.setMinimumSize(QSize(30, 30))
         self.color_3.setMaximumSize(QSize(30, 30))
-        self.color_3.setCursor(QCursor(Qt.PointingHandCursor))
+        self.color_3.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         self.color_3.setStyleSheet("QToolButton\n"
                                    "{\n"
                                    "	background-radius: 2px;\n"
@@ -162,7 +162,7 @@ class Ui_ColorPicker(object):
         self.color_4.setObjectName("color_4")
         self.color_4.setMinimumSize(QSize(30, 30))
         self.color_4.setMaximumSize(QSize(30, 30))
-        self.color_4.setCursor(QCursor(Qt.PointingHandCursor))
+        self.color_4.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         self.color_4.setStyleSheet("QToolButton\n"
                                    "{\n"
                                    "	background-radius: 2px;\n"
@@ -185,7 +185,7 @@ class Ui_ColorPicker(object):
         self.color_1.setObjectName("color_1")
         self.color_1.setMinimumSize(QSize(30, 30))
         self.color_1.setMaximumSize(QSize(30, 30))
-        self.color_1.setCursor(QCursor(Qt.PointingHandCursor))
+        self.color_1.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         self.color_1.setStyleSheet("QToolButton\n"
                                    "{\n"
                                    "	background-radius: 2px;\n"
@@ -208,7 +208,7 @@ class Ui_ColorPicker(object):
         self.color_5.setObjectName("color_5")
         self.color_5.setMinimumSize(QSize(30, 30))
         self.color_5.setMaximumSize(QSize(30, 30))
-        self.color_5.setCursor(QCursor(Qt.PointingHandCursor))
+        self.color_5.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         self.color_5.setStyleSheet("QToolButton\n"
                                    "{\n"
                                    "	background-radius: 2px;\n"

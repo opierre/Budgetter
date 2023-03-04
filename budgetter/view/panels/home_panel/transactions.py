@@ -367,22 +367,22 @@ class Transactions(QObject):
         self.account3.update()
 
         # Set cursor for left buttons
-        self.all.setCursor(Qt.PointingHandCursor)
-        self.expenses.setCursor(Qt.PointingHandCursor)
+        self.all.setCursor(Qt.CursorShape.PointingHandCursor)
+        self.expenses.setCursor(Qt.CursorShape.PointingHandCursor)
         self.expenses.setIconSize(QSize(18, 18))
         self.expenses.setIcon(QIcon(":/images/images/hdr_weak_black_18dp_expenses.svg"))
-        self.income.setCursor(Qt.PointingHandCursor)
+        self.income.setCursor(Qt.CursorShape.PointingHandCursor)
         self.income.setIconSize(QSize(18, 18))
         self.income.setIcon(QIcon(":/images/images/hdr_weak_black_18dp_income.svg"))
-        self.transfer.setCursor(Qt.PointingHandCursor)
+        self.transfer.setCursor(Qt.CursorShape.PointingHandCursor)
         self.transfer.setIconSize(QSize(18, 18))
         self.transfer.setIcon(QIcon(":/images/images/hdr_weak_black_18dp_transfer.svg"))
 
         # Set cursor for left buttons
-        self.all_account.setCursor(Qt.PointingHandCursor)
-        self.account1.setCursor(Qt.PointingHandCursor)
-        self.account2.setCursor(Qt.PointingHandCursor)
-        self.account3.setCursor(Qt.PointingHandCursor)
+        self.all_account.setCursor(Qt.CursorShape.PointingHandCursor)
+        self.account1.setCursor(Qt.CursorShape.PointingHandCursor)
+        self.account2.setCursor(Qt.CursorShape.PointingHandCursor)
+        self.account3.setCursor(Qt.CursorShape.PointingHandCursor)
 
         # Add custom status bar to classic one
         self.status_bar.addPermanentWidget(self.custom_status_bar)

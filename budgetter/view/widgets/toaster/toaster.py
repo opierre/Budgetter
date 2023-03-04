@@ -98,7 +98,7 @@ class Toaster(QWidget):
 
         # Configure animation
         self._animation.setDuration(500)
-        self._animation.setEasingCurve(QEasingCurve.OutCubic)
+        self._animation.setEasingCurve(QEasingCurve.Type.OutCubic)
 
         # Raise dialog widget on top of all window
         self.raise_()

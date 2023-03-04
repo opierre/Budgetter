@@ -55,7 +55,7 @@ class CalendarWidget(QCalendarWidget):
 
             # Draw day number
             painter.setPen(QPen(QColor("white")))
-            painter.drawText(rect_selection, Qt.AlignCenter, str(date.day()))
+            painter.drawText(rect_selection, Qt.AlignmentFlag.AlignCenter, str(date.day()))
 
             painter.restore()
         else:

@@ -24,7 +24,7 @@ class CircleCheckbox(QPushButton):
         self.setContentsMargins(0, 0, 0, 0)
 
         # Set cursors
-        self.setCursor(Qt.PointingHandCursor)
+        self.setCursor(Qt.CursorShape.PointingHandCursor)
 
     def set_type(self, _type: str):
         """
@@ -78,15 +78,15 @@ class CircleCheckbox(QPushButton):
         painter.setPen(Qt.PenStyle.NoPen)
         if self._type in {'Income', 'Revenus'} and opt.state & QStyle.State_On:
             painter.setBrush(QColor(109, 210, 48, 255))
-        elif self._type in {'Income', 'Revenus'} and not opt.state & QStyle.State_Selected:
+        elif self._type in {'Income', 'Revenus'} and not opt.state & QStyle.StateFlag.State_Selected:
             painter.setBrush(QColor(109, 210, 48, 128))
         elif self._type in {'Expenses', 'Dépenses'} and opt.state & QStyle.State_On:
             painter.setBrush(QColor(254, 77, 151, 255))
-        elif self._type in {'Expenses', 'Dépenses'} and not opt.state & QStyle.State_Selected:
+        elif self._type in {'Expenses', 'Dépenses'} and not opt.state & QStyle.StateFlag.State_Selected:
             painter.setBrush(QColor(254, 77, 151, 128))
         elif self._type in {'Transfer', 'Transferts'} and opt.state & QStyle.State_On:
             painter.setBrush(QColor(250, 202, 0, 255))
-        elif self._type in {'Transfer', 'Transferts'} and not opt.state & QStyle.State_Selected:
+        elif self._type in {'Transfer', 'Transferts'} and not opt.state & QStyle.StateFlag.State_Selected:
             painter.setBrush(QColor(250, 202, 0, 128))
 
         # Draw circle

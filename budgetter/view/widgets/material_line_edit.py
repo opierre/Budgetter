@@ -100,24 +100,24 @@ class MaterialLineEditStateMachine(QStateMachine):
         self.setInitialState(self.normal_state)
 
         # Add transition from normal to focus
-        transition = QEventTransition(parent, QEvent.FocusIn)
+        transition = QEventTransition(parent, QEvent.Type.FocusIn)
         transition.setTargetState(self.focused_state)
         self.normal_state.addTransition(transition)
 
         # Add animation on transition to update progress
         animation = QPropertyAnimation(self, b"_progress", self)
-        animation.setEasingCurve(QEasingCurve.InCubic)
+        animation.setEasingCurve(QEasingCurve.Type.InCubic)
         animation.setDuration(310)
         transition.addAnimation(animation)
 
         # Add transition from focus to normal
-        transition = QEventTransition(parent, QEvent.FocusOut)
+        transition = QEventTransition(parent, QEvent.Type.FocusOut)
         transition.setTargetState(self.normal_state)
         self.focused_state.addTransition(transition)
 
         # Add animation on transition to update progress
         animation = QPropertyAnimation(self, b"_progress", self)
-        animation.setEasingCurve(QEasingCurve.OutCubic)
+        animation.setEasingCurve(QEasingCurve.Type.OutCubic)
         animation.setDuration(310)
         transition.addAnimation(animation)
 
@@ -163,7 +163,7 @@ class MaterialLineEditStateMachine(QStateMachine):
             # Apply new offset animation
             self.offset_animation = QPropertyAnimation(self.label, b"_offset", self)
             self.offset_animation.setDuration(210)
-            self.offset_animation.setEasingCurve(QEasingCurve.OutCubic)
+            self.offset_animation.setEasingCurve(QEasingCurve.Type.OutCubic)
             self.addDefaultAnimation(self.offset_animation)
 
             # Apply new color animation
@@ -284,7 +284,7 @@ class MaterialLineEdit(QLineEdit):
         super().__init__(parent)
 
         # Store trailing symbol
-        self.trailing_symbol = None
+        self.trailing_symbol = QLabel()
 
         if create is True:
             self.line_edit_private = MaterialLineEditPrivate(self)
@@ -488,7 +488,7 @@ class MaterialLineEdit(QLineEdit):
         """
 
         # Handle Resize and Move event to update geometry
-        if event.type() in [QEvent.Type.Resize, QEvent.Move]:
+        if event.type() in [QEvent.Type.Resize, QEvent.Type.Move]:
             if self.line_edit_private.label:
                 self.line_edit_private.label.setGeometry(self.rect())
 
@@ -543,7 +543,7 @@ class MaterialLineEdit(QLineEdit):
             pen.setColor(self.input_line_color())
 
             if not self.isEnabled():
-                pen.setStyle(Qt.DashLine)
+                pen.setStyle(Qt.PenStyle.DashLine)
 
             painter.setPen(pen)
             painter.setOpacity(1)
@@ -551,7 +551,7 @@ class MaterialLineEdit(QLineEdit):
 
             # Configure brush
             brush = QBrush()
-            brush.setStyle(Qt.SolidPattern)
+            brush.setStyle(Qt.BrushSyle.SolidPattern)
             brush.setColor(self.ink_color())
 
             if progress > 0:
@@ -582,7 +582,7 @@ class MaterialLineEditLabel(QWidget):
         self.private_color = QColor(parent.label_color())
 
         # Configure and apply default font
-        font = QFont("Roboto", int(parent.fontInfo().pointSizeF()), QFont.Medium)
+        font = QFont("Roboto", int(parent.fontInfo().pointSizeF()), QFont.Weight.Medium)
         # font.setLetterSpacing(QFont.PercentageSpacing, 102)
         self.setFont(font)
 

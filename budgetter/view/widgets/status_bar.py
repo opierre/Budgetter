@@ -60,18 +60,18 @@ class StatusBar(QWidget):
         # Configure Add button on bottom right corner
         self._settings.setIcon(QIcon(":/images/images/more_horiz-white-24dp.svg"))
         self._settings.setIconSize(QSize(22, 22))
-        self._settings.setCursor(Qt.PointingHandCursor)
+        self._settings.setCursor(Qt.CursorShape.PointingHandCursor)
 
         # Configure Previous button on bottom right corner
         self._previous.setIcon(QIcon(":/images/images/navigate_before_black_24dp.svg"))
         self._previous.setIconSize(QSize(22, 22))
-        self._previous.setCursor(Qt.PointingHandCursor)
+        self._previous.setCursor(Qt.CursorShape.PointingHandCursor)
         self._previous.setVisible(False)
 
         # Configure Add button on bottom right corner
         self._next.setIcon(QIcon(":/images/images/navigate_next_black_24dp.svg"))
         self._next.setIconSize(QSize(22, 22))
-        self._next.setCursor(Qt.PointingHandCursor)
+        self._next.setCursor(Qt.CursorShape.PointingHandCursor)
         self._next.setVisible(False)
 
     def configure_layout(self):

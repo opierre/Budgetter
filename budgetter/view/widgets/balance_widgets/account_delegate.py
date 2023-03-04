@@ -20,7 +20,8 @@ class AccountDelegate(QItemDelegate):
         # Store font for values
         self.font = QFont()
 
-    def sizeHint(self, _option_qstyle_option_view_item: QStyleOptionViewItem, _index: QModelIndex):
+    def sizeHint(self, _option_qstyle_option_view_item: QStyleOptionViewItem,
+                 _index: Union[QModelIndex, QPersistentModelIndex]):
         """
         Override sizeHint
 
@@ -44,7 +45,7 @@ class AccountDelegate(QItemDelegate):
         painter.save()
 
         # Get values
-        value = index.data(Qt.DisplayRole)
+        value = index.data(Qt.ItemDataRole.DisplayRole)
         bank = value.get('bank')
         account_name = value.get('name')
         amount = convert_amount_to_str(value.get('amount')) + " €"
@@ -89,7 +90,7 @@ class AccountDelegate(QItemDelegate):
         bank_logo_path = os.path.join(os.path.dirname(__file__), '..', '..', 'resources', 'bank_logo',
                                       bank.lower().replace(' ', '_') + "_logo.svg")
         svg_render = QSvgRenderer(bank_logo_path)
-        svg_render.setAspectRatioMode(Qt.KeepAspectRatio)
+        svg_render.setAspectRatioMode(Qt.AspectRatioMode.KeepAspectRatio)
         svg_render.render(painter, rect_svg)
 
         # Set font on painter for account name
@@ -108,7 +109,7 @@ class AccountDelegate(QItemDelegate):
         # Set category on top
         rect_category = QRect(rect_icon.x() + rect_icon.width() + option.rect.width() * 1 / 30,
                               rect_icon.y() + option.rect.height() * 1 / 30, pixels_width, pixels_height)
-        painter.drawText(rect_category, int(Qt.AlignmentFlag.AlignLeft | Qt.AlignVCenter), account_name)
+        painter.drawText(rect_category, int(Qt.AlignmentFlag.AlignLeft | Qt.AlignmentFlag.AlignVCenter), account_name)
 
         # Set font on painter for account label
         self.font.setFamily("Roboto")
@@ -127,8 +128,8 @@ class AccountDelegate(QItemDelegate):
         rect_transaction = QRect(rect_category.x(),
                                  rect_category.y() + rect_category.height() + option.rect.height() * 1 / 10,
                                  pixels_width, pixels_height)
-        painter.drawText(rect_transaction, int(Qt.AlignmentFlag.AlignLeft | Qt.AlignVCenter),
-                         QCoreApplication.translate(b"account_delegate", 'Account'))
+        painter.drawText(rect_transaction, int(Qt.AlignmentFlag.AlignLeft | Qt.AlignmentFlag.AlignVCenter),
+                         QCoreApplication.translate(b"account_delegate", b'Account'))
 
         # Set font on painter for amount
         self.font.setFamily("Roboto")
@@ -146,7 +147,7 @@ class AccountDelegate(QItemDelegate):
         # Set amount on right corner
         rect_amount = QRect(rect_background.width() + rect_background.x() - pixels_width - option.rect.width() * 1 / 50,
                             rect_category.y(), pixels_width, pixels_height)
-        painter.drawText(rect_amount, int(Qt.AlignRight | Qt.AlignVCenter), amount)
+        painter.drawText(rect_amount, int(Qt.AlignmentFlag.AlignRight | Qt.AlignmentFlag.AlignVCenter), amount)
 
         # Set rect for trend drawing
         rect_svg = QRectF(rect_amount.x() - 24, rect_amount.y(), 18, 18)
@@ -176,7 +177,7 @@ class AccountDelegate(QItemDelegate):
         # Set percentage beside amount
         rect_perc = QRect(rect_background.width() + rect_background.x() - pixels_width - option.rect.width() * 1 / 50,
                           rect_transaction.y(), pixels_width, pixels_height)
-        painter.drawText(rect_perc, int(Qt.AlignRight | Qt.AlignVCenter),
+        painter.drawText(rect_perc, int(Qt.AlignmentFlag.AlignRight | Qt.AlignmentFlag.AlignVCenter),
                          QCoreApplication.translate(b"account_delegate", b'Balance'))
 
         painter.restore()

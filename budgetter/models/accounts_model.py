@@ -1,4 +1,6 @@
-from PySide6.QtCore import QAbstractListModel, Qt, QModelIndex
+from typing import Union
+
+from PySide6.QtCore import QAbstractListModel, Qt, QModelIndex, QPersistentModelIndex
 
 
 class AccountsModel(QAbstractListModel):
@@ -15,7 +17,7 @@ class AccountsModel(QAbstractListModel):
         # Store bank idents/name
         self.banks = {}
 
-    def data(self, index: QModelIndex, role: Qt.ItemDataRole = None):
+    def data(self, index: Union[QModelIndex, QPersistentModelIndex], role: Qt.ItemDataRole = None):
         """
         Override data() from QAbstractListModel
 
@@ -24,7 +26,7 @@ class AccountsModel(QAbstractListModel):
         :return: according to role (text, ...)
         """
 
-        if index.isValid() and role == Qt.DisplayRole:
+        if index.isValid() and role == Qt.ItemDataRole.DisplayRole:
             account = self.accounts[index.row()]
 
             # Return current account list
@@ -34,7 +36,7 @@ class AccountsModel(QAbstractListModel):
 
         return result
 
-    def rowCount(self, _index: QModelIndex = QModelIndex()):
+    def rowCount(self, _index: Union[QModelIndex, QPersistentModelIndex] = QModelIndex()):
         """
         Override rowCount() from QAbstractListModel
 

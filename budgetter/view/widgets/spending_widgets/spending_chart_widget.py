@@ -22,7 +22,7 @@ class SpendingChart(QChart):
         self.axis_y.setVisible(False)
 
         # Configure axis range and add them to chart
-        self.addAxis(self.axis_x, QtCore.Qt.AlignBottom)
+        self.addAxis(self.axis_x, QtCore.Qt.AlignmentFlag.AlignBottom)
         self.addAxis(self.axis_y, QtCore.Qt.AlignmentFlag.AlignLeft)
         self.axis_x.setRange(0, 5)
         self.axis_x.setTickCount(1)

@@ -1,5 +1,5 @@
 from PySide6.QtCharts import QChartView
-from PySide6.QtCore import Qt, QDate, QRect, QRectF, QLocale
+from PySide6.QtCore import Qt, QDate, QRectF, QLocale
 from PySide6.QtGui import QPainter, QColor, QLinearGradient, QBrush, QPen, QFont
 from PySide6.QtWidgets import QWidget, QPushButton, QButtonGroup, QGridLayout
 
@@ -110,7 +110,7 @@ class ChartDashboard(QWidget):
         current_month = QLocale().toString(QDate.currentDate(), 'MMM')
         self.months[5].setText(current_month.upper())
         self.months[5].setStyleSheet(stylesheet)
-        self.months[5].setCursor(Qt.PointingHandCursor)
+        self.months[5].setCursor(Qt.CursorShape.PointingHandCursor)
         self.months[5].setCheckable(True)
         self.button_group.addButton(self.months[5])
 
@@ -119,7 +119,7 @@ class ChartDashboard(QWidget):
             previous_month = QLocale().toString(QDate.currentDate().addMonths(-index), 'MMM')
             self.months[5 - index].setText(previous_month.upper())
             self.months[5 - index].setStyleSheet(stylesheet)
-            self.months[5 - index].setCursor(Qt.PointingHandCursor)
+            self.months[5 - index].setCursor(Qt.CursorShape.PointingHandCursor)
             self.months[5 - index].setCheckable(True)
             self.button_group.addButton(self.months[5 - index])
 
@@ -220,10 +220,10 @@ class ChartDashboard(QWidget):
 
                 if self.months[index].isChecked() is True:
                     # Set white gradient
-                    rectangle_background = QRect(button_rectangle.x(),
-                                                 button_rectangle.y() + button_rectangle.height(),
-                                                 button_rectangle.width(),
-                                                 self.rect().height())
+                    rectangle_background = QRectF(button_rectangle.x(),
+                                                  button_rectangle.y() + button_rectangle.height(),
+                                                  button_rectangle.width(),
+                                                  float(self.rect().height()))
                     gradient = QLinearGradient(rectangle_background.x(),
                                                rectangle_background.y(),
                                                rectangle_background.x(),
@@ -261,7 +261,7 @@ class ChartDashboard(QWidget):
 
         # Set text
         text = convert_amount_to_str(self.values[self.current_month]) + " €"
-        painter.drawText(rectangle_amount, Qt.AlignCenter, text)
+        painter.drawText(rectangle_amount, Qt.AlignmentFlag.AlignCenter, text)
 
         return rectangle_amount
 
@@ -294,7 +294,7 @@ class ChartDashboard(QWidget):
         days_in_month = QDate(QDate.currentDate().year(), month_number, 1).daysInMonth()
         text = "01 " + self.months[self.current_month].text() + ' - ' + str(days_in_month) + " " + \
                self.months[self.current_month].text()
-        painter.drawText(rectangle_period, Qt.AlignCenter, text)
+        painter.drawText(rectangle_period, Qt.AlignmentFlag.AlignCenter, text)
         painter.setOpacity(1)
 
         return rectangle_period

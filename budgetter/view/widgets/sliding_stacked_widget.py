@@ -27,7 +27,7 @@ class SlidingStackedWidget(QtWidgets.QStackedWidget):
 
         self.m_direction = QtCore.Qt.Vertical
         self.m_speed = 500
-        self.m_animationtype = QtCore.QEasingCurve.OutCubic
+        self.m_animationtype = QtCore.QEasingCurve.Type.OutCubic
         self.m_now = 0
         self.m_next = 0
         self.m_wrap = False

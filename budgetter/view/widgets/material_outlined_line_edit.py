@@ -135,7 +135,7 @@ class MaterialLineEditStateMachine(QStateMachine):
 
         # Add animation on transition to update progress
         animation = QPropertyAnimation(self, b"_progress", self)
-        animation.setEasingCurve(QEasingCurve.OutCubic)
+        animation.setEasingCurve(QEasingCurve.Type.OutCubic)
         animation.setDuration(310)
         transition.addAnimation(animation)
 
@@ -181,7 +181,7 @@ class MaterialLineEditStateMachine(QStateMachine):
             # Apply new offset animation
             self.offset_animation = QPropertyAnimation(self.label, b"_offset", self)
             self.offset_animation.setDuration(210)
-            self.offset_animation.setEasingCurve(QEasingCurve.OutCubic)
+            self.offset_animation.setEasingCurve(QEasingCurve.Type.OutCubic)
             self.addDefaultAnimation(self.offset_animation)
 
             # Apply new color animation
@@ -302,7 +302,7 @@ class MaterialOutlinedLineEdit(QLineEdit):
         super().__init__(parent)
 
         # Store trailing symbol
-        self.trailing_symbol = None
+        self.trailing_symbol = QLabel()
 
         if create is True:
             self.line_edit_private = MaterialLineEditPrivate(self)
@@ -458,7 +458,7 @@ class MaterialOutlinedLineEdit(QLineEdit):
         """
 
         # Handle Resize and Move event to update geometry
-        if event.type() in [QEvent.Type.Resize, QEvent.Move]:
+        if event.type() in [QEvent.Type.Resize, QEvent.Type.Move]:
             if self.line_edit_private.label:
                 self.line_edit_private.label.setGeometry(self.rect())
 
@@ -606,7 +606,7 @@ class MaterialLineEditLabel(QWidget):
 
         if self.y_position != 13:
             # Configure and apply default font
-            font = QFont("Roboto", int(self.parent().fontInfo().pointSizeF()), QFont.Medium)
+            font = QFont("Roboto", int(self.parent().fontInfo().pointSizeF()), QFont.Weight.Medium)
         else:
             # Configure and apply default font
             font = QFont("Roboto", int(self.parent().fontInfo().pointSizeF()), QFont.Weight.Normal)

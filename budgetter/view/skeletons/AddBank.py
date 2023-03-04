@@ -145,7 +145,7 @@ class Ui_AddBank(object):
         self.bank_logo.setObjectName("bank_logo")
         self.bank_logo.setMinimumSize(QSize(50, 50))
         self.bank_logo.setMaximumSize(QSize(50, 50))
-        self.bank_logo.setCursor(QCursor(Qt.PointingHandCursor))
+        self.bank_logo.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         icon = QIcon()
         icon.addFile(":/images/images/image_FILL0_wght400_GRAD0_opsz48.svg", QSize(), QIcon.Mode.Normal,
                      QIcon.State.Off)

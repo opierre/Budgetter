@@ -146,7 +146,7 @@ class Ui_AddAccount(object):
         self.color_picker.setObjectName("color_picker")
         self.color_picker.setMinimumSize(QSize(50, 50))
         self.color_picker.setMaximumSize(QSize(50, 50))
-        self.color_picker.setCursor(QCursor(Qt.PointingHandCursor))
+        self.color_picker.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         icon = QIcon()
         icon.addFile(":/images/images/palette_FILL0_wght500_GRAD0_opsz48.svg", QSize(), QIcon.Mode.Normal,
                      QIcon.State.Off)

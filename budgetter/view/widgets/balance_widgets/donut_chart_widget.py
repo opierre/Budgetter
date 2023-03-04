@@ -156,7 +156,7 @@ class DonutChart(QWidget):
             painter.setPen(pen)
 
             # Draw arc
-            painter.drawArc(rect_origins, start_angle * 16, span_angle * 16)
+            painter.drawArc(rect_origins, int(start_angle * 16), int(span_angle * 16))
             painter.setOpacity(1.0)
 
     def draw_total_amount(self, pen, painter):
@@ -189,7 +189,7 @@ class DonutChart(QWidget):
         rect_description = QRect(self.rect().x(), self.rect().y(), pixels_width, pixels_height)
         rect_description.moveCenter(self.rect().center())
         rect_description.moveTop(rect_description.y() + rect_description.height() / 2 + 7)
-        painter.drawText(rect_description, int(Qt.AlignHCenter | Qt.AlignVCenter), previous_value)
+        painter.drawText(rect_description, int(Qt.AlignHCenter | Qt.AlignmentFlag.AlignVCenter), previous_value)
 
         # Set pen color
         value = str(self.percentage) + "%"
@@ -213,7 +213,7 @@ class DonutChart(QWidget):
         rect_percentage = QRect(self.rect().x(), self.rect().y(), pixels_width, pixels_height)
         rect_percentage.moveCenter(self.rect().center())
         rect_percentage.moveTop(rect_percentage.y() + rect_percentage.height() / 2 + 35)
-        painter.drawText(rect_percentage, int(Qt.AlignHCenter | Qt.AlignVCenter), value)
+        painter.drawText(rect_percentage, int(Qt.AlignHCenter | Qt.AlignmentFlag.AlignVCenter), value)
 
         # Configure font for total amount
         font.setFamily("Roboto Medium")
@@ -235,7 +235,7 @@ class DonutChart(QWidget):
         rect_value = QRect(self.rect().x(), self.rect().y(), pixels_width, pixels_height)
         rect_value.moveCenter(self.rect().center())
         rect_value.moveBottom(rect_value.y() + rect_value.height() / 2.0)
-        painter.drawText(rect_value, int(Qt.AlignHCenter | Qt.AlignVCenter), value)
+        painter.drawText(rect_value, int(Qt.AlignHCenter | Qt.AlignmentFlag.AlignVCenter), value)
 
         # Set trend
         rect_trend = QRect(self.rect().x(), self.rect().y(), 24, 24)
@@ -248,7 +248,7 @@ class DonutChart(QWidget):
             svg_render = QSvgRenderer(":/images/images/trending_down_white_24dp.svg")
         else:
             svg_render = QSvgRenderer(":/images/images/trending_flat_white_24dp.svg")
-        svg_render.setAspectRatioMode(Qt.KeepAspectRatio)
+        svg_render.setAspectRatioMode(Qt.AspectRatioMode.KeepAspectRatio)
         svg_render.render(painter, rect_trend)
 
         painter.end()

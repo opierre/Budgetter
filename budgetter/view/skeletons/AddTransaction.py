@@ -221,7 +221,7 @@ class Ui_AddTransaction(object):
         font1.setFamilies([u"Roboto"])
         font1.setPointSize(11)
         self.expenses.setFont(font1)
-        self.expenses.setCursor(QCursor(Qt.PointingHandCursor))
+        self.expenses.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         self.expenses.setStyleSheet("color: rgba(255, 255, 255, 210);")
         self.expenses.setChecked(True)
 
@@ -231,7 +231,7 @@ class Ui_AddTransaction(object):
         self.income.setObjectName("income")
         self.income.setMinimumSize(QSize(92, 0))
         self.income.setFont(font1)
-        self.income.setCursor(QCursor(Qt.PointingHandCursor))
+        self.income.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         self.income.setStyleSheet("color: rgba(255, 255, 255, 210);")
 
         self.horizontalLayout_3.addWidget(self.income)
@@ -240,7 +240,7 @@ class Ui_AddTransaction(object):
         self.transfer.setObjectName("transfer")
         self.transfer.setMinimumSize(QSize(92, 0))
         self.transfer.setFont(font1)
-        self.transfer.setCursor(QCursor(Qt.PointingHandCursor))
+        self.transfer.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         self.transfer.setStyleSheet("color: rgba(255, 255, 255, 210);")
 
         self.horizontalLayout_3.addWidget(self.transfer)
@@ -353,7 +353,7 @@ class Ui_AddTransaction(object):
         self.card.setObjectName("card")
         self.card.setMinimumSize(QSize(92, 0))
         self.card.setFont(font1)
-        self.card.setCursor(QCursor(Qt.PointingHandCursor))
+        self.card.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         self.card.setStyleSheet("color: rgba(255, 255, 255, 210);")
         self.card.setChecked(True)
 
@@ -363,7 +363,7 @@ class Ui_AddTransaction(object):
         self.cash.setObjectName("cash")
         self.cash.setMinimumSize(QSize(92, 0))
         self.cash.setFont(font1)
-        self.cash.setCursor(QCursor(Qt.PointingHandCursor))
+        self.cash.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         self.cash.setStyleSheet("color: rgba(255, 255, 255, 210);")
 
         self.horizontalLayout_6.addWidget(self.cash)
@@ -372,7 +372,7 @@ class Ui_AddTransaction(object):
         self.money_transfer.setObjectName("money_transfer")
         self.money_transfer.setMinimumSize(QSize(92, 0))
         self.money_transfer.setFont(font1)
-        self.money_transfer.setCursor(QCursor(Qt.PointingHandCursor))
+        self.money_transfer.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         self.money_transfer.setStyleSheet("color: rgba(255, 255, 255, 210);")
         self.money_transfer.setIconSize(QSize(22, 22))
 

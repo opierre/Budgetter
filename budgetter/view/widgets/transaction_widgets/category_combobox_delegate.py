@@ -26,4 +26,4 @@ class CategoryComboBox(QStyledItemDelegate):
         opt.decorationSize.setWidth(opt.rect.width() - 1)
 
         # Draw item """
-        opt.widget.style().drawControl(QStyle.CE_ItemViewItem, opt, painter, opt.widget)
+        opt.widget.style().drawControl(QStyle.ControlElement.CE_ItemViewItem, opt, painter, opt.widget)
