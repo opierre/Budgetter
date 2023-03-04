@@ -28,16 +28,17 @@ jobs:
           python -m pip install --upgrade pylint
       - name: Code analysis with pylint
         run: |
+          source .venv/bin/activate
           python -m pylint --version
-          python -m pylint ./budgetter -j 0 --rcfile=pylintrc --output=pylint_analysis.txt --output-format=colorized
+          python -m pylint budgetter -j 0 --rcfile=pylintrc --output=pylint_analysis.txt --output-format=colorized
       - name: Set pylint score
         run: |
-          echo "PYLINT_SCORE=`tail -n 2 pylint_analysis.txt | awk '/^Your/ {print $7}'`" >> $GITHUB_ENV
+          echo "PYLINT_SCORE=`tail -n 2 pylint_analysis.txt | awk -F/ '/^Your/ {print $7}'`" >> $GITHUB_ENV
         shell: bash
-      - name: Set pylint color
-        run: |
-          echo "PYLINT_COLOR=`python -c 'import os; score = os.getenv("PYLINT_SCORE", "0.0/10"); y = float(score[:score.find("/")]); print("#0ca40c" if y >= 8.5 else "#e84134")'`" >> $GITHUB_ENV
-        shell: bash
+      #      - name: Set pylint color
+      #        run: |
+      #          echo "PYLINT_COLOR=`python -c 'import os; score = os.getenv("PYLINT_SCORE", "0.0/10"); y = float(score[:score.find("/")]); print("#0ca40c" if y >= 8.5 else "#e84134")'`" >> $GITHUB_ENV
+      #        shell: bash
       - name: Display pylint analysis result
         run: |
           cat pylint_analysis.txt
@@ -49,12 +50,16 @@ jobs:
           gistID: da061024a6dc8c3dcaf32f4e79abf032
           filename: pylint.json
           label: Pylint Rating
-          message: ${{ env.PYLINT_SCORE }}
-          color: "${{ env.PYLINT_COLOR }}"
+          message: "${{ env.PYLINT_SCORE }}/10"
+          #          color: "${{ env.PYLINT_COLOR }}"
+          valColorRange: ${{ env.PYLINT_SCORE }}
+          maxColorRange: 10
+          minColorRange: 0
           namedLogo: Python
           logoColor: "#1f425f"
   mypy:
     runs-on: ubuntu-latest
+    needs: pylint
 
     steps:
       - uses: actions/checkout@v3
@@ -73,17 +78,17 @@ jobs:
           python -m pip install --upgrade mypy
       - name: Checking types with mypy
         run: |
-          .venv/Scripts/activate
-          mypy --version
-          mypy budgetter --install-types --non-interactive
+          source .venv/bin/activate
+          python -m mypy --version
+          python -m mypy budgetter --install-types --non-interactive
       - name: Creating dynamic badge
         uses: Schneegans/dynamic-badges-action@v1.6.0
         with:
           auth: ${{ secrets.GIST_SECRET }}
           gistID: da061024a6dc8c3dcaf32f4e79abf032
           filename: mypy.json
-          label: Pylint Rating
-          message: ${{ env.PYLINT_SCORE }}
-          color: "${{ env.PYLINT_COLOR }}"
+          label: mypy
+          message: Types Checked
+          color: "#0ca40c"
           namedLogo: Python
           logoColor: "#1f425f"
