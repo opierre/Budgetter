@@ -21,14 +21,11 @@ jobs:
           cache: "pip"
       - name: Install dependencies
         run: |
-          python -m venv .venv
-          source .venv/bin/activate
           python -m pip install --upgrade pip
           python -m pip install -r requirements.txt
           python -m pip install --upgrade pylint
       - name: Code analysis with pylint
         run: |
-          source .venv/bin/activate
           python -m pylint --version
           python -m pylint budgetter -j 0 --rcfile=pylintrc --output=pylint_analysis.txt --output-format=colorized
       - name: Set pylint score
@@ -47,7 +44,6 @@ jobs:
           filename: pylint.json
           label: Pylint Rating
           message: "${{ env.PYLINT_SCORE }}/10"
-          #          color: "${{ env.PYLINT_COLOR }}"
           valColorRange: ${{ env.PYLINT_SCORE }}
           maxColorRange: 10
           minColorRange: 0
@@ -66,17 +62,14 @@ jobs:
           cache: "pip"
       - name: Install dependencies
         run: |
-          python -m venv .venv
-          source .venv/bin/activate
           python -m pip install --upgrade pip
           python -m pip install -r requirements.txt
           python -m pip install lxml
           python -m pip install --upgrade mypy
       - name: Checking types with mypy
         run: |
-          source .venv/bin/activate
           python -m mypy --version
-          do python -m mypy budgetter --install-types --non-interactive || true; done
+          python -m mypy budgetter --install-types --non-interactive || true
       - name: Creating dynamic badge
         uses: Schneegans/dynamic-badges-action@v1.6.0
         with:
