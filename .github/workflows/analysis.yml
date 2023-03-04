@@ -26,6 +26,7 @@ jobs:
           python -m pip install --upgrade pylint
       - name: Code analysis with pylint
         run: |
+          python -m pip list
           python -m pylint --version
           python -m pylint budgetter -j 0 --rcfile=pylintrc --output=pylint_analysis.txt --output-format=colorized
       - name: Set pylint score
