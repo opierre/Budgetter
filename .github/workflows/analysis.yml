@@ -21,21 +21,23 @@ jobs:
           cache: "pip"
       - name: Install dependencies
         run: |
+          python -m venv .venv
+          source .venv/bin/activate
           python -m pip install --upgrade pip
           python -m pip install -r requirements.txt
           python -m pip install --upgrade pylint
       - name: Code analysis with pylint
         run: |
-          python -m pip list
+          source .venv/bin/activate
           python -m pylint --version
-          python -m pylint ./budgetter -j 0 --rcfile=pylintrc --output=pylint2_analysis.txt --output-format=colorized
+          python -m pylint budgetter -j 0 --rcfile=pylintrc --output=pylint_analysis.txt --output-format=colorized
       - name: Set pylint score
         run: |
-          echo "PYLINT_SCORE=`tail -n 2 pylint2_analysis.txt | awk '/^Your/ {print $7}' | awk -F'/' '{print $1}'`" >> $GITHUB_ENV
+          echo "PYLINT_SCORE=`tail -n 2 pylint_analysis.txt | awk '/^Your/ {print $7}' | awk -F'/' '{print $1}'`" >> $GITHUB_ENV
         shell: bash
       - name: Display pylint analysis result
         run: |
-          cat pylint2_analysis.txt
+          cat pylint_analysis.txt
         shell: bash
       - name: Creating dynamic badge
         uses: Schneegans/dynamic-badges-action@v1.6.0
@@ -63,12 +65,15 @@ jobs:
           cache: "pip"
       - name: Install dependencies
         run: |
+          python -m venv .venv
+          source .venv/bin/activate
           python -m pip install --upgrade pip
           python -m pip install -r requirements.txt
           python -m pip install lxml
           python -m pip install --upgrade mypy
       - name: Checking types with mypy
         run: |
+          source .venv/bin/activate
           python -m mypy --version
           python -m mypy budgetter --install-types --non-interactive || true
       - name: Creating dynamic badge
