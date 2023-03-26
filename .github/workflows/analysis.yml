@@ -25,13 +25,16 @@ jobs:
           python -m virtualenv .virtualenv
           source .virtualenv/bin/activate
           which python
+          whereis python
           python -m pip install --upgrade pip
           python -m pip install -r requirements.txt
           python -m pip install --upgrade pylint
           which pylint
+          whereis pylint
       - name: Code analysis with pylint
         run: |
           source .virtualenv/bin/activate
+          whereis pylint
           python -m pylint --version
           python -m pylint budgetter -j 0 --rcfile=pylintrc --output=pylint_analysis.txt --output-format=colorized
       - name: Set pylint score
