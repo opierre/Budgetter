@@ -75,7 +75,7 @@ jobs:
         run: |
           source .virtualenv/bin/activate
           python -m mypy --version
-          python -m mypy budgetter --install-types --non-interactive > mypy_analysis.txt  || true
+          python -m mypy budgetter --install-types --non-interactive 2>&1 mypy_analysis.txt  || true
       - name: Display mypy analysis result
         run: |
           cat mypy_analysis.txt
@@ -86,9 +86,9 @@ jobs:
           auth: ${{ secrets.GIST_SECRET }}
           gistID: da061024a6dc8c3dcaf32f4e79abf032
           filename: mypy.json
-          label: mypy
-          message: types checked
-          color: "#2a6db2"
+          label: static typing
+          message: mypy
+          color: "#f8d241"
   bandit:
     runs-on: ubuntu-latest
 
@@ -110,13 +110,13 @@ jobs:
         run: |
           source .virtualenv/bin/activate
           python -m bandit --version
-          python -m bandit budgetter
+          python -m bandit -r budgetter
       - name: Creating dynamic badge
         uses: Schneegans/dynamic-badges-action@v1.6.0
         with:
           auth: ${{ secrets.GIST_SECRET }}
           gistID: da061024a6dc8c3dcaf32f4e79abf032
           filename: bandit.json
-          label: bandit
+          label: security lint
           message: bandit
           color: "#0ca40c"

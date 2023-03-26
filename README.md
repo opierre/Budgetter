@@ -16,6 +16,10 @@
     <a style="text-decoration:none" href="https://github.com/opierre/Budgetter/actions/workflows/analysis.yml" target="_blank">
       <img src="https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/opierre/da061024a6dc8c3dcaf32f4e79abf032/raw/mypy.json">
     </a>
+    <a style="text-decoration:none" href="https://github.com/opierre/Budgetter/actions/workflows/analysis.yml" target="_blank">
+      <img src="https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/opierre/da061024a6dc8c3dcaf32f4e79abf032/raw/bandit.json">
+    </a>
+    <br /> 
     <a style="text-decoration:none" href="https://sonarcloud.io/summary/new_code?id=opierre_Budgetter" target="_blank">
       <img src="https://sonarcloud.io/api/project_badges/measure?project=opierre_Budgetter&metric=alert_status">
     </a>
