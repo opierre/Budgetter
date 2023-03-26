@@ -55,12 +55,12 @@ jobs:
           auth: ${{ secrets.GIST_SECRET }}
           gistID: da061024a6dc8c3dcaf32f4e79abf032
           filename: pylint.json
-          label: Pylint Rating
+          label: pylint
           message: "${{ env.PYLINT_SCORE }}/10"
           valColorRange: ${{ env.PYLINT_SCORE }}
           maxColorRange: 10
           minColorRange: 0
-          namedLogo: Python
+          logoSvg: "https://raw.githubusercontent.com/PyCQA/pylint/main/doc/logo.svg"
           logoColor: "#1f425f"
   mypy:
     runs-on: ubuntu-latest
