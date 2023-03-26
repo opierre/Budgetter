@@ -56,7 +56,6 @@ jobs:
           logoSvg: "https://raw.githubusercontent.com/PyCQA/pylint/main/doc/logo.svg"
   mypy:
     runs-on: ubuntu-latest
-    needs: pylint
 
     steps:
       - uses: actions/checkout@v3
@@ -85,12 +84,11 @@ jobs:
           gistID: da061024a6dc8c3dcaf32f4e79abf032
           filename: mypy.json
           label: mypy
-          message: Types Checked
-          color: "#0ca40c"
+          message: types checked
+          color: "#2a6db2"
           logoSvg: "https://raw.githubusercontent.com/python/mypy/master/docs/source/mypy_light.svg"
   bandit:
     runs-on: ubuntu-latest
-    needs: mypy
 
     steps:
       - uses: actions/checkout@v3
@@ -101,14 +99,14 @@ jobs:
           cache: "pip"
       - name: Install dependencies
         run: |
-          python -m venv .venv
-          source .venv/bin/activate
-          python -m pip install --upgrade pip
+          python -m pip install virtualenv
+          python -m virtualenv .virtualenv
+          source .virtualenv/bin/activate
           python -m pip install -r requirements.txt
           python -m pip install bandit
       - name: Checking vulnerabilities with bandit
         run: |
-          source .venv/bin/activate
+          source .virtualenv/bin/activate
           python -m bandit --version
           python -m bandit budgetter
       - name: Creating dynamic badge
@@ -120,5 +118,4 @@ jobs:
           label: bandit
           message: bandit
           color: "#0ca40c"
-          namedLogo: Python
-          logoColor: "#1f425f"
+          logoSvg: "https://raw.githubusercontent.com/PyCQA/bandit/main/logo/logo.svg"
