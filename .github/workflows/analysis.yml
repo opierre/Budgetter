@@ -12,7 +12,7 @@ jobs:
   pylint:
     runs-on: ubuntu-latest
     container:
-      image: python:3.11.2-alpine3.17
+      image: python:3.11-alpine
 
     steps:
       - uses: actions/checkout@v3
