@@ -53,7 +53,6 @@ jobs:
           valColorRange: ${{ env.PYLINT_SCORE }}
           maxColorRange: 10
           minColorRange: 0
-          logoSvg: "https://raw.githubusercontent.com/PyCQA/pylint/main/doc/logo.svg"
   mypy:
     runs-on: ubuntu-latest
 
@@ -76,7 +75,11 @@ jobs:
         run: |
           source .virtualenv/bin/activate
           python -m mypy --version
-          python -m mypy budgetter --install-types --non-interactive || true
+          python -m mypy budgetter --install-types --non-interactive > mypy_analysis.txt  || true
+      - name: Display mypy analysis result
+        run: |
+          cat mypy_analysis.txt
+        shell: bash
       - name: Creating dynamic badge
         uses: Schneegans/dynamic-badges-action@v1.6.0
         with:
@@ -86,7 +89,6 @@ jobs:
           label: mypy
           message: types checked
           color: "#2a6db2"
-          logoSvg: "https://raw.githubusercontent.com/python/mypy/master/docs/source/mypy_light.svg"
   bandit:
     runs-on: ubuntu-latest
 
@@ -118,4 +120,3 @@ jobs:
           label: bandit
           message: bandit
           color: "#0ca40c"
-          logoSvg: "https://raw.githubusercontent.com/PyCQA/bandit/main/logo/logo.svg"
