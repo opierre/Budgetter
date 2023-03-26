@@ -24,10 +24,10 @@ jobs:
           python -m venv .venv
           source .venv/bin/activate
           which python
-          which pylint
           python -m pip install --upgrade pip
           python -m pip install -r requirements.txt
           python -m pip install --upgrade pylint
+          which pylint
       - name: Code analysis with pylint
         run: |
           source .venv/bin/activate
