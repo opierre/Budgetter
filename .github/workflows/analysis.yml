@@ -75,7 +75,7 @@ jobs:
         run: |
           source .virtualenv/bin/activate
           python -m mypy --version
-          python -m mypy budgetter --install-types --non-interactive 2>&1 mypy_analysis.txt  || true
+          python -m mypy budgetter --install-types --non-interactive &> mypy_analysis.txt  || true
       - name: Display mypy analysis result
         run: |
           cat mypy_analysis.txt
@@ -86,7 +86,7 @@ jobs:
           auth: ${{ secrets.GIST_SECRET }}
           gistID: da061024a6dc8c3dcaf32f4e79abf032
           filename: mypy.json
-          label: static typing
+          label: static type checker
           message: mypy
           color: "#f8d241"
   bandit:
