@@ -35,8 +35,8 @@ jobs:
         run: |
           source .virtualenv/bin/activate
           whereis pylint
-          python -m $(which pylint) --version
-          python -m $(which pylint) budgetter -j 0 --rcfile=pylintrc --output=pylint_analysis.txt --output-format=colorized
+          $(which pylint) --version
+          $(which pylint) budgetter -j 0 --rcfile=pylintrc --output=pylint_analysis.txt --output-format=colorized
       - name: Set pylint score
         run: |
           echo "PYLINT_SCORE=`tail -n 2 pylint_analysis.txt | awk '/^Your/ {print $7}' | awk -F'/' '{print $1}'`" >> $GITHUB_ENV
