@@ -16,22 +16,15 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-      - name: Set up Python 3.x
-        uses: actions/setup-python@v4
-        with:
-          python-version: "3.x"
       - name: Install dependencies
         run: |
-          #          python -m venv .venv
-          #          source .venv/bin/activate
-               which python
-               python -m pip install --upgrade pip
-               python -m pip install -r requirements.txt
-               python -m pip install --upgrade pylint
-               which pylint
+          which python
+          python -m pip install --upgrade pip
+          python -m pip install -r requirements.txt
+          python -m pip install --upgrade pylint
+          which pylint
       - name: Code analysis with pylint
         run: |
-          #          source .venv/bin/activate
           python -m pylint --version
           python -m pip list
           python -m pylint budgetter -j 0 --rcfile=pylintrc --output=pylint_analysis.txt --output-format=colorized
