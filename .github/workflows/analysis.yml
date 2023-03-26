@@ -19,6 +19,7 @@ jobs:
       - name: Install dependencies
         run: |
           which python
+          python -m pip install virtualenv
           python -m virtualenv venv
           venv/activate
           python -m pip install --upgrade pip
