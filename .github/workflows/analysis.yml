@@ -21,18 +21,18 @@ jobs:
           cache: "pip"
       - name: Install dependencies
         run: |
-          python -m venv .venv
-          source .venv/bin/activate
-          which python
-          python -m pip install --upgrade pip
-          python -m pip install -r requirements.txt
-          python -m pip install --upgrade pylint
-          which pylint
+          #          python -m venv .venv
+          #          source .venv/bin/activate
+               which python
+               python -m pip install --upgrade pip
+               python -m pip install -r requirements.txt
+               python -m pip install --upgrade pylint
+               which pylint
       - name: Code analysis with pylint
         run: |
-          source .venv/bin/activate
-          python -m pylint --version
-          python -m pylint budgetter -j 0 --rcfile=pylintrc --output=pylint_analysis.txt --output-format=colorized
+          #          source .venv/bin/activate
+               python -m pylint --version
+               python -m pylint budgetter -j 0 --rcfile=pylintrc --output=pylint_analysis.txt --output-format=colorized
       - name: Set pylint score
         run: |
           echo "PYLINT_SCORE=`tail -n 2 pylint_analysis.txt | awk '/^Your/ {print $7}' | awk -F'/' '{print $1}'`" >> $GITHUB_ENV
