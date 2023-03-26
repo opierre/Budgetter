@@ -31,6 +31,7 @@ jobs:
           which pylint
       - name: Code analysis with pylint
         run: |
+          source .virtualenv/bin/activate
           python -m pylint --version
           python -m pylint budgetter -j 0 --rcfile=pylintrc --output=pylint_analysis.txt --output-format=colorized
       - name: Set pylint score
