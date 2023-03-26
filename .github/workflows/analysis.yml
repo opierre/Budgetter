@@ -43,7 +43,6 @@ jobs:
           source .virtualenv/bin/activate
           whereis pylint
           python -c "import PySide6"
-          ls /usr/lib/x86_64-linux-gnu | grep -i libegl
           $(which pylint) --version
           $(which pylint) budgetter -j 0 --rcfile=pylintrc --output=pylint_analysis.txt --output-format=colorized
       - name: Set pylint score
