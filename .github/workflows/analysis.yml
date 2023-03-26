@@ -89,3 +89,37 @@ jobs:
           color: "#0ca40c"
           namedLogo: Python
           logoColor: "#1f425f"
+  bandit:
+    runs-on: ubuntu-latest
+    needs: mypy
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Python 3.x
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.x"
+          cache: "pip"
+      - name: Install dependencies
+        run: |
+          python -m venv .venv
+          source .venv/bin/activate
+          python -m pip install --upgrade pip
+          python -m pip install -r requirements.txt
+          python -m pip install bandit
+      - name: Checking vulnerabilities with bandit
+        run: |
+          source .venv/bin/activate
+          python -m bandit --version
+          python -m bandit budgetter
+      - name: Creating dynamic badge
+        uses: Schneegans/dynamic-badges-action@v1.6.0
+        with:
+          auth: ${{ secrets.GIST_SECRET }}
+          gistID: da061024a6dc8c3dcaf32f4e79abf032
+          filename: bandit.json
+          label: bandit
+          message: bandit
+          color: "#0ca40c"
+          namedLogo: Python
+          logoColor: "#1f425f"

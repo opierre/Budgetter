@@ -129,7 +129,7 @@ class AccountDelegate(QItemDelegate):
                                  rect_category.y() + rect_category.height() + option.rect.height() * 1 / 10,
                                  pixels_width, pixels_height)
         painter.drawText(rect_transaction, int(Qt.AlignmentFlag.AlignLeft | Qt.AlignmentFlag.AlignVCenter),
-                         QCoreApplication.translate(b"account_delegate", b'Account'))
+                         QCoreApplication.translate("account_delegate", b'Account'))
 
         # Set font on painter for amount
         self.font.setFamily("Roboto")
@@ -178,6 +178,6 @@ class AccountDelegate(QItemDelegate):
         rect_perc = QRect(rect_background.width() + rect_background.x() - pixels_width - option.rect.width() * 1 / 50,
                           rect_transaction.y(), pixels_width, pixels_height)
         painter.drawText(rect_perc, int(Qt.AlignmentFlag.AlignRight | Qt.AlignmentFlag.AlignVCenter),
-                         QCoreApplication.translate(b"account_delegate", b'Balance'))
+                         QCoreApplication.translate("account_delegate", b'Balance'))
 
         painter.restore()

@@ -137,9 +137,9 @@ class Ui_Dialog(object):
     # setupUi
 
     def retranslateUi(self, Dialog):
-        Dialog.setWindowTitle(QCoreApplication.translate(b"Dialog", "Form", None))
+        Dialog.setWindowTitle(QCoreApplication.translate("Dialog", "Form", None))
         self.header_icon.setText("")
-        self.title.setText(QCoreApplication.translate(b"Dialog", "Header", None))
+        self.title.setText(QCoreApplication.translate("Dialog", "Header", None))
         self.close.setText("")
-        self.confirm.setText(QCoreApplication.translate(b"Dialog", "CONFIRM", None))
+        self.confirm.setText(QCoreApplication.translate("Dialog", "CONFIRM", None))
     # retranslateUi

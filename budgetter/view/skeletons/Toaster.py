@@ -97,7 +97,7 @@ class Ui_Notification(object):
     # setupUi
 
     def retranslateUi(self, Notification):
-        Notification.setWindowTitle(QCoreApplication.translate(b"Notification", "Form", None))
+        Notification.setWindowTitle(QCoreApplication.translate("Notification", "Form", None))
         self.icon.setText("")
-        self.message.setText(QCoreApplication.translate(b"Notification", "This is a success message!", None))
+        self.message.setText(QCoreApplication.translate("Notification", "This is a success message!", None))
     # retranslateUi

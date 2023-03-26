@@ -35,19 +35,19 @@ class Transactions(QObject):
         self.transaction_shortcut = QShortcut(QKeySequence(Qt.CTRL | Qt.Key_T), self)
 
         # All button - Type
-        self.all = QPushButton(QCoreApplication.translate(b"transactions", "All"))
+        self.all = QPushButton(QCoreApplication.translate("transactions", "All"))
 
         # Expenses button - Type
-        self.expenses = QPushButton(QCoreApplication.translate(b"transactions", "Expenses"))
+        self.expenses = QPushButton(QCoreApplication.translate("transactions", "Expenses"))
 
         # Incomes button - Type
-        self.income = QPushButton(QCoreApplication.translate(b"transactions", "Income"))
+        self.income = QPushButton(QCoreApplication.translate("transactions", "Income"))
 
         # Transfers button - Type
-        self.transfer = QPushButton(QCoreApplication.translate(b"transactions", "Transfer"))
+        self.transfer = QPushButton(QCoreApplication.translate("transactions", "Transfer"))
 
         # All button - Account
-        self.all_account = QPushButton(QCoreApplication.translate(b"transactions", "All"))
+        self.all_account = QPushButton(QCoreApplication.translate("transactions", "All"))
 
         # Account 1 button - Account
         self.account1 = QPushButton("Livret A")
@@ -211,7 +211,7 @@ class Transactions(QObject):
                             QSize(24, 24), QIcon.Mode.Disabled, QIcon.State.On)
 
         # Open dialog
-        self.dialogs.append(Dialog(QCoreApplication.translate(b"Transactions", 'Add Transaction'), header_icon,
+        self.dialogs.append(Dialog(QCoreApplication.translate("Transactions", 'Add Transaction'), header_icon,
                                    dialog_content, self.main_window))
 
         # Connect signal from popup to add new account
@@ -420,8 +420,8 @@ class Transactions(QObject):
         """
 
         # Set title
-        self.ui_setup.transactions.set_title(QCoreApplication.translate(b"transactions", "Transactions"))
-        self.ui_setup.transactions.set_button_tooltip(QCoreApplication.translate(b"transactions", "Add transaction"))
+        self.ui_setup.transactions.set_title(QCoreApplication.translate("transactions", "Transactions"))
+        self.ui_setup.transactions.set_button_tooltip(QCoreApplication.translate("transactions", "Add transaction"))
 
     def update_current_filtering(self):
         """

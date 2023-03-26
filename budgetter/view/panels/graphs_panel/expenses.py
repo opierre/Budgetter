@@ -83,7 +83,7 @@ class Expenses(QObject):
         """
 
         # Set title
-        self.ui_setup.expenses.set_title(QCoreApplication.translate(b"graphs", "Expenses"))
+        self.ui_setup.expenses.set_title(QCoreApplication.translate("graphs", "Expenses"))
 
         # Hide all widgets in title bar
         self.ui_setup.expenses.disable_title_bar_button()

@@ -199,8 +199,8 @@ class Ui_AddAccount(object):
     # setupUi
 
     def retranslateUi(self, AddAccount):
-        AddAccount.setWindowTitle(QCoreApplication.translate(b"AddAccount", "Form", None))
-        self.label.setText(QCoreApplication.translate(b"AddAccount", "Please enter account information.", None))
+        AddAccount.setWindowTitle(QCoreApplication.translate("AddAccount", "Form", None))
+        self.label.setText(QCoreApplication.translate("AddAccount", "Please enter account information.", None))
         self.color_picker.setText("")
         self.account_amount_date.setInputMask("")
     # retranslateUi

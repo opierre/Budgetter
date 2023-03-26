@@ -315,13 +315,13 @@ class Ui_Options(object):
     # setupUi
 
     def retranslateUi(self, Options):
-        Options.setWindowTitle(QCoreApplication.translate(b"Options", "Form", None))
-        self.title_bar_title.setText(QCoreApplication.translate(b"Options", "Title", None))
+        Options.setWindowTitle(QCoreApplication.translate("Options", b"Form", None))
+        self.title_bar_title.setText(QCoreApplication.translate("Options", "Title", None))
         self.info.setText("")
-        self.title_bar_search.setPlaceholderText(QCoreApplication.translate(b"Options", "Search...", None))
-        self.search_field.setItemText(0, QCoreApplication.translate(b"Options", "Name", None))
-        self.search_field.setItemText(1, QCoreApplication.translate(b"Options", "Amount", None))
-        self.search_field.setItemText(2, QCoreApplication.translate(b"Options", "Date", None))
+        self.title_bar_search.setPlaceholderText(QCoreApplication.translate("Options", "Search...", None))
+        self.search_field.setItemText(0, QCoreApplication.translate("Options", "Name", None))
+        self.search_field.setItemText(1, QCoreApplication.translate("Options", "Amount", None))
+        self.search_field.setItemText(2, QCoreApplication.translate("Options", "Date", None))
 
         self.add.setText("")
     # retranslateUi

@@ -48,5 +48,5 @@ class Ui_Account(object):
     # setupUi
 
     def retranslateUi(self, Account):
-        Account.setWindowTitle(QCoreApplication.translate(b"Account", "Form", None))
+        Account.setWindowTitle(QCoreApplication.translate("Account", "Form", None))
     # retranslateUi

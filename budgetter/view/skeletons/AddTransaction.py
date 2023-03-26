@@ -409,13 +409,13 @@ class Ui_AddTransaction(object):
     # setupUi
 
     def retranslateUi(self, AddTransaction):
-        AddTransaction.setWindowTitle(QCoreApplication.translate(b"AddTransaction", "Form", None))
-        self.label.setText(QCoreApplication.translate(b"AddTransaction", "Please enter transaction information.", None))
-        self.expenses.setText(QCoreApplication.translate(b"AddTransaction", "Expenses", None))
-        self.income.setText(QCoreApplication.translate(b"AddTransaction", "Income", None))
-        self.transfer.setText(QCoreApplication.translate(b"AddTransaction", "Transfer", None))
+        AddTransaction.setWindowTitle(QCoreApplication.translate("AddTransaction", "Form", None))
+        self.label.setText(QCoreApplication.translate("AddTransaction", "Please enter transaction information.", None))
+        self.expenses.setText(QCoreApplication.translate("AddTransaction", "Expenses", None))
+        self.income.setText(QCoreApplication.translate("AddTransaction", "Income", None))
+        self.transfer.setText(QCoreApplication.translate("AddTransaction", "Transfer", None))
         self.category_icon.setText("")
-        self.card.setText(QCoreApplication.translate(b"AddTransaction", "Card", None))
-        self.cash.setText(QCoreApplication.translate(b"AddTransaction", "Cash", None))
-        self.money_transfer.setText(QCoreApplication.translate(b"AddTransaction", "Transfer", None))
+        self.card.setText(QCoreApplication.translate("AddTransaction", "Card", None))
+        self.cash.setText(QCoreApplication.translate("AddTransaction", "Cash", None))
+        self.money_transfer.setText(QCoreApplication.translate("AddTransaction", "Transfer", None))
     # retranslateUi

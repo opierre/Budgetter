@@ -167,8 +167,8 @@ class Ui_AddBank(object):
     # setupUi
 
     def retranslateUi(self, AddBank):
-        AddBank.setWindowTitle(QCoreApplication.translate(b"AddBank", "Form", None))
-        self.label.setText(QCoreApplication.translate(b"AddBank",
+        AddBank.setWindowTitle(QCoreApplication.translate("AddBank", "Form", None))
+        self.label.setText(QCoreApplication.translate("AddBank",
                                                       "<html><head/><body><p>It seems like you are adding an account to a new bank.</p></body></html>",
                                                       None))
         self.bank_logo.setText("")
