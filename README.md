@@ -16,6 +16,9 @@
     <a style="text-decoration:none" href="https://github.com/opierre/Budgetter/actions/workflows/analysis.yml" target="_blank">
       <img src="https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/opierre/da061024a6dc8c3dcaf32f4e79abf032/raw/mypy.json">
     </a>
+    <a style="text-decoration:none" target="_blank">
+      <img src="https://img.shields.io/badge/code%20style-black-000000.svg">
+    </a>    
     <a style="text-decoration:none" href="https://github.com/opierre/Budgetter/actions/workflows/analysis.yml" target="_blank">
       <img src="https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/opierre/da061024a6dc8c3dcaf32f4e79abf032/raw/bandit.json">
     </a>
