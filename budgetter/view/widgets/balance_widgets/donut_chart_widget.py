@@ -1,5 +1,14 @@
 from PySide6.QtCore import Qt, QRect, QRectF
-from PySide6.QtGui import QPainter, QPen, QColor, QFont, QFontMetrics, QPaintEvent, QBrush, QMouseEvent
+from PySide6.QtGui import (
+    QPainter,
+    QPen,
+    QColor,
+    QFont,
+    QFontMetrics,
+    QPaintEvent,
+    QBrush,
+    QMouseEvent,
+)
 from PySide6.QtSvg import QSvgRenderer
 from PySide6.QtWidgets import QWidget
 
@@ -55,7 +64,7 @@ class DonutChart(QWidget):
         self._total_amount += amount
 
         # Compute percentage
-        self._slices.append({'value': amount, 'color': color})
+        self._slices.append({"value": amount, "color": color})
         self.update()
 
     def mousePressEvent(self, event_qmouse_event: QMouseEvent):
@@ -116,8 +125,12 @@ class DonutChart(QWidget):
         painter.setOpacity(1)
 
         # Configure rectangle
-        rect_origins = QRectF(self.rect().center().x(), self.rect().center().y(),
-                              self.rect().width() / 1.5, self.rect().height() / 1.5)
+        rect_origins = QRectF(
+            self.rect().center().x(),
+            self.rect().center().y(),
+            self.rect().width() / 1.5,
+            self.rect().height() / 1.5,
+        )
         rect_origins.moveCenter(self.rect().center())
 
         # Draw arc
@@ -135,13 +148,17 @@ class DonutChart(QWidget):
         previous_end_angle = 0
 
         # Configure rectangle
-        rect_origins = QRectF(self.rect().center().x(), self.rect().center().y(),
-                              self.rect().width() / 1.2, self.rect().height() / 1.2)
+        rect_origins = QRectF(
+            self.rect().center().x(),
+            self.rect().center().y(),
+            self.rect().width() / 1.2,
+            self.rect().height() / 1.2,
+        )
         rect_origins.moveCenter(self.rect().center())
 
         for index, current_slice in enumerate(self._slices):
             # Set span angles
-            percentage = int(current_slice.get('value') * 100 / self._total_amount)
+            percentage = int(current_slice.get("value") * 100 / self._total_amount)
             span_angle = percentage * (360 - 12.5 * len(self._slices)) / 100
 
             # Set start angle
@@ -152,7 +169,7 @@ class DonutChart(QWidget):
                 span_angle += 360 - previous_end_angle
 
             # Set color on arc
-            pen.setBrush(QBrush(QColor(current_slice.get('color'))))
+            pen.setBrush(QBrush(QColor(current_slice.get("color"))))
             painter.setPen(pen)
 
             # Draw arc
@@ -179,17 +196,27 @@ class DonutChart(QWidget):
         painter.setPen(pen)
 
         # Get font metrics
-        previous_month_total_amount_str = convert_amount_to_str(self.previous_month_total_amount)
+        previous_month_total_amount_str = convert_amount_to_str(
+            self.previous_month_total_amount
+        )
         previous_value = previous_month_total_amount_str + " €"
         font_metrics = QFontMetrics(font)
         pixels_width = font_metrics.horizontalAdvance(previous_value)
         pixels_height = font_metrics.height()
 
         # Set text
-        rect_description = QRect(self.rect().x(), self.rect().y(), pixels_width, pixels_height)
+        rect_description = QRect(
+            self.rect().x(), self.rect().y(), pixels_width, pixels_height
+        )
         rect_description.moveCenter(self.rect().center())
-        rect_description.moveTop(rect_description.y() + rect_description.height() / 2 + 7)
-        painter.drawText(rect_description, int(Qt.AlignHCenter | Qt.AlignmentFlag.AlignVCenter), previous_value)
+        rect_description.moveTop(
+            rect_description.y() + rect_description.height() / 2 + 7
+        )
+        painter.drawText(
+            rect_description,
+            int(Qt.AlignHCenter | Qt.AlignmentFlag.AlignVCenter),
+            previous_value,
+        )
 
         # Set pen color
         value = str(self.percentage) + "%"
@@ -210,10 +237,14 @@ class DonutChart(QWidget):
         pixels_height = font_metrics.height()
 
         # Set text
-        rect_percentage = QRect(self.rect().x(), self.rect().y(), pixels_width, pixels_height)
+        rect_percentage = QRect(
+            self.rect().x(), self.rect().y(), pixels_width, pixels_height
+        )
         rect_percentage.moveCenter(self.rect().center())
         rect_percentage.moveTop(rect_percentage.y() + rect_percentage.height() / 2 + 35)
-        painter.drawText(rect_percentage, int(Qt.AlignHCenter | Qt.AlignmentFlag.AlignVCenter), value)
+        painter.drawText(
+            rect_percentage, int(Qt.AlignHCenter | Qt.AlignmentFlag.AlignVCenter), value
+        )
 
         # Configure font for total amount
         font.setFamily("Roboto Medium")
@@ -232,10 +263,14 @@ class DonutChart(QWidget):
         pixels_height = font_metrics.height()
 
         # Set value
-        rect_value = QRect(self.rect().x(), self.rect().y(), pixels_width, pixels_height)
+        rect_value = QRect(
+            self.rect().x(), self.rect().y(), pixels_width, pixels_height
+        )
         rect_value.moveCenter(self.rect().center())
         rect_value.moveBottom(rect_value.y() + rect_value.height() / 2.0)
-        painter.drawText(rect_value, int(Qt.AlignHCenter | Qt.AlignmentFlag.AlignVCenter), value)
+        painter.drawText(
+            rect_value, int(Qt.AlignHCenter | Qt.AlignmentFlag.AlignVCenter), value
+        )
 
         # Set trend
         rect_trend = QRect(self.rect().x(), self.rect().y(), 24, 24)
@@ -253,7 +288,9 @@ class DonutChart(QWidget):
 
         painter.end()
 
-    def set_total_amounts(self, total_amount: float, previous_month_total_amount: float):
+    def set_total_amounts(
+            self, total_amount: float, previous_month_total_amount: float
+    ):
         """
         Update total amount
 
@@ -278,4 +315,8 @@ class DonutChart(QWidget):
         if previous_month_total_amount == 0:
             self.percentage = 0
         else:
-            self.percentage = round(abs(previous_month_total_amount - total_amount) / previous_month_total_amount * 100)
+            self.percentage = round(
+                abs(previous_month_total_amount - total_amount)
+                / previous_month_total_amount
+                * 100
+            )

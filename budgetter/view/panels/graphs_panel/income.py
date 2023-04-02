@@ -1,6 +1,12 @@
 from PySide6.QtCore import QObject, QCoreApplication, QDate, Qt
 from PySide6.QtGui import QColor
-from PySide6.QtWidgets import QListView, QWidget, QVBoxLayout, QApplication, QGraphicsDropShadowEffect
+from PySide6.QtWidgets import (
+    QListView,
+    QWidget,
+    QVBoxLayout,
+    QApplication,
+    QGraphicsDropShadowEffect,
+)
 
 from budgetter.view.widgets.bar_widgets.chart_bars_widget import ChartBars
 
@@ -23,12 +29,18 @@ class Income(QObject):
         self.shadow_effect = QGraphicsDropShadowEffect(self)
 
         # Store range options
-        self.this_year_option = {"to": QDate.currentDate(),
-                                 "from": QDate.currentDate().addMonths(-QDate.currentDate().month() + 1)}
-        self.last_12_months_income = {"to": QDate.currentDate(),
-                                      "from": QDate.currentDate().addDays(-365)}
-        self.previous_year_income = {"to": QDate.currentDate().addMonths(-QDate.currentDate().month()),
-                                     "from": QDate.currentDate().addMonths(-QDate.currentDate().month() - 11)}
+        self.this_year_option = {
+            "to": QDate.currentDate(),
+            "from": QDate.currentDate().addMonths(-QDate.currentDate().month() + 1),
+        }
+        self.last_12_months_income = {
+            "to": QDate.currentDate(),
+            "from": QDate.currentDate().addDays(-365),
+        }
+        self.previous_year_income = {
+            "to": QDate.currentDate().addMonths(-QDate.currentDate().month()),
+            "from": QDate.currentDate().addMonths(-QDate.currentDate().month() - 11),
+        }
 
         # Configure title bar
         self.configure_title_bar()
@@ -70,7 +82,9 @@ class Income(QObject):
         self.ui_setup.check_labels_income.clicked.connect(self.show_labels)
 
         # Connect show average to display line on graph
-        self.ui_setup.check_average_income.toggled.connect(self.chart_widget.show_average)
+        self.ui_setup.check_average_income.toggled.connect(
+            self.chart_widget.show_average
+        )
 
         # Connect show total to display total amount on graph view
         self.ui_setup.check_total_income.toggled.connect(self.chart_widget.show_total)
@@ -84,16 +98,22 @@ class Income(QObject):
 
         # Configure combobox for category
         self.ui_setup.income_choice.setView(QListView())
-        self.ui_setup.income_choice.setStyleSheet("QListView {"
-                                                  "font-size: 11pt;"
-                                                  "font-family: \"Roboto\";"
-                                                  "}"
-                                                  "QComboBox QAbstractItemView::item\n"
-                                                  "{\n"
-                                                  "	min-height: 25px;\n"
-                                                  "}\n")
-        self.ui_setup.income_choice.view().window().setWindowFlags(Qt.Popup | Qt.FramelessWindowHint)
-        self.ui_setup.income_choice.view().window().setAttribute(Qt.WA_TranslucentBackground)
+        self.ui_setup.income_choice.setStyleSheet(
+            "QListView {"
+            "font-size: 11pt;"
+            'font-family: "Roboto";'
+            "}"
+            "QComboBox QAbstractItemView::item\n"
+            "{\n"
+            "	min-height: 25px;\n"
+            "}\n"
+        )
+        self.ui_setup.income_choice.view().window().setWindowFlags(
+            Qt.Popup | Qt.FramelessWindowHint
+        )
+        self.ui_setup.income_choice.view().window().setAttribute(
+            Qt.WA_TranslucentBackground
+        )
 
         # Set widget to display animated icon
         self.ui_setup.refresh_income.set_animation_type("bars_blue")
@@ -157,18 +177,26 @@ class Income(QObject):
         sender = self.sender()
 
         # Disconnect signals to avoid conflicts
-        self.ui_setup.dateEdit_income_from.dateChanged.disconnect(self.update_range_option)
-        self.ui_setup.dateEdit_income_to.dateChanged.disconnect(self.update_range_option)
+        self.ui_setup.dateEdit_income_from.dateChanged.disconnect(
+            self.update_range_option
+        )
+        self.ui_setup.dateEdit_income_to.dateChanged.disconnect(
+            self.update_range_option
+        )
 
         if sender == self.ui_setup.this_year_income:
             self.ui_setup.dateEdit_income_to.setDate(self.this_year_option["to"])
             self.ui_setup.dateEdit_income_from.setDate(self.this_year_option["from"])
         elif sender == self.ui_setup.last_12_months_income:
             self.ui_setup.dateEdit_income_to.setDate(self.last_12_months_income["to"])
-            self.ui_setup.dateEdit_income_from.setDate(self.last_12_months_income["from"])
+            self.ui_setup.dateEdit_income_from.setDate(
+                self.last_12_months_income["from"]
+            )
         elif sender == self.ui_setup.previous_year_income:
             self.ui_setup.dateEdit_income_to.setDate(self.previous_year_income["to"])
-            self.ui_setup.dateEdit_income_from.setDate(self.previous_year_income["from"])
+            self.ui_setup.dateEdit_income_from.setDate(
+                self.previous_year_income["from"]
+            )
 
         # Refresh bars
         self.refresh()
@@ -189,11 +217,20 @@ class Income(QObject):
         to_date = self.ui_setup.dateEdit_income_to.date()
 
         # Compare dates to each range option
-        if from_date == self.this_year_option["from"] and to_date == self.this_year_option["to"]:
+        if (
+                from_date == self.this_year_option["from"]
+                and to_date == self.this_year_option["to"]
+        ):
             self.ui_setup.this_year_income.setChecked(True)
-        elif from_date == self.last_12_months_income["from"] and to_date == self.last_12_months_income["to"]:
+        elif (
+                from_date == self.last_12_months_income["from"]
+                and to_date == self.last_12_months_income["to"]
+        ):
             self.ui_setup.last_12_months_income.setChecked(True)
-        elif from_date == self.previous_year_income["from"] and to_date == self.previous_year_income["to"]:
+        elif (
+                from_date == self.previous_year_income["from"]
+                and to_date == self.previous_year_income["to"]
+        ):
             self.ui_setup.previous_year_income.setChecked(True)
         else:
             self.ui_setup.this_year_income.setAutoExclusive(False)
@@ -217,33 +254,39 @@ class Income(QObject):
         self.ui_setup.refresh_income.start(1)
         QApplication.processEvents()
 
-        values = {"01-2020": 4235.23,
-                  "02-2020": 4565.23,
-                  "03-2020": 5454.34,
-                  "04-2020": 5674.76,
-                  "05-2020": 7345.87,
-                  "06-2020": 8340.89,
-                  "07-2020": 8957.54,
-                  "08-2020": 11100.34,
-                  "09-2020": 11550.12,
-                  "10-2020": 11567.87,
-                  "11-2020": 11978.78,
-                  "12-2020": 12010.98,
-                  "01-2021": 12056,
-                  "02-2021": 13450.12,
-                  "03-2021": 15469.35,
-                  "04-2021": 14356.00,
-                  "05-2021": 25098.63,
-                  "06-2021": 26098.57,
-                  "07-2021": 22054.00,
-                  "09-2021": 22000.45,
-                  "10-2021": 20012.45,
-                  "11-2021": 18042.45}
+        values = {
+            "01-2020": 4235.23,
+            "02-2020": 4565.23,
+            "03-2020": 5454.34,
+            "04-2020": 5674.76,
+            "05-2020": 7345.87,
+            "06-2020": 8340.89,
+            "07-2020": 8957.54,
+            "08-2020": 11100.34,
+            "09-2020": 11550.12,
+            "10-2020": 11567.87,
+            "11-2020": 11978.78,
+            "12-2020": 12010.98,
+            "01-2021": 12056,
+            "02-2021": 13450.12,
+            "03-2021": 15469.35,
+            "04-2021": 14356.00,
+            "05-2021": 25098.63,
+            "06-2021": 26098.57,
+            "07-2021": 22054.00,
+            "09-2021": 22000.45,
+            "10-2021": 20012.45,
+            "11-2021": 18042.45,
+        }
 
         final_values = {}
         for key, value in values.items():
             date = QDate.fromString(key, "MM-yyyy")
-            if self.ui_setup.dateEdit_income_from.date() <= date <= self.ui_setup.dateEdit_income_to.date():
+            if (
+                    self.ui_setup.dateEdit_income_from.date()
+                    <= date
+                    <= self.ui_setup.dateEdit_income_to.date()
+            ):
                 final_values.update({key: value})
 
         # Set date range
@@ -257,28 +300,30 @@ class Income(QObject):
         :return: None
         """
 
-        values = {"01-2020": 4235.23,
-                  "02-2020": 4565.23,
-                  "03-2020": 5454.34,
-                  "04-2020": 5674.76,
-                  "05-2020": 7345.87,
-                  "06-2020": 8340.89,
-                  "07-2020": 8957.54,
-                  "08-2020": 11100.34,
-                  "09-2020": 11550.12,
-                  "10-2020": 11567.87,
-                  "11-2020": 11978.78,
-                  "12-2020": 12010.98,
-                  "01-2021": 12056,
-                  "02-2021": 13450.12,
-                  "03-2021": 15469.35,
-                  "04-2021": 14356.00,
-                  "05-2021": 25098.63,
-                  "06-2021": 26098.57,
-                  "07-2021": 22054.00,
-                  "09-2021": 22000.45,
-                  "10-2021": 20012.45,
-                  "11-2021": 18042.45}
+        values = {
+            "01-2020": 4235.23,
+            "02-2020": 4565.23,
+            "03-2020": 5454.34,
+            "04-2020": 5674.76,
+            "05-2020": 7345.87,
+            "06-2020": 8340.89,
+            "07-2020": 8957.54,
+            "08-2020": 11100.34,
+            "09-2020": 11550.12,
+            "10-2020": 11567.87,
+            "11-2020": 11978.78,
+            "12-2020": 12010.98,
+            "01-2021": 12056,
+            "02-2021": 13450.12,
+            "03-2021": 15469.35,
+            "04-2021": 14356.00,
+            "05-2021": 25098.63,
+            "06-2021": 26098.57,
+            "07-2021": 22054.00,
+            "09-2021": 22000.45,
+            "10-2021": 20012.45,
+            "11-2021": 18042.45,
+        }
 
         # Set values on chat
         self.chart_widget.set_values(values)

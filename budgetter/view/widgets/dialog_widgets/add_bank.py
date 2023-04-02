@@ -29,7 +29,7 @@ class AddBankDialog(QWidget):
         self.content.bank_name.setText(bank_name)
 
         # Store bank icon path
-        self.bank_icon_path = ''
+        self.bank_icon_path = ""
 
         # Configure widgets
         self.configure()
@@ -45,7 +45,7 @@ class AddBankDialog(QWidget):
         """
 
         # Configure account name attributes
-        self.content.bank_name.set_label('Bank Name')
+        self.content.bank_name.set_label("Bank Name")
         self.content.bank_name.set_label_background_color(QColor("#1C293B"))
         self.content.bank_name.set_text_color(QColor(255, 255, 255, 255))
         self.content.bank_name.set_label_color(QColor(224, 224, 224, 150))
@@ -68,14 +68,18 @@ class AddBankDialog(QWidget):
         """
 
         # Open OS dialog to select file
-        file_name, _ = QFileDialog.getOpenFileName(self.parent(), "Select a logo for this new bank",
-                                                   os.path.expanduser('~'), "Image Files (*.png *.svg)")
+        file_name, _ = QFileDialog.getOpenFileName(
+            self.parent(),
+            "Select a logo for this new bank",
+            os.path.expanduser("~"),
+            "Image Files (*.png *.svg)",
+        )
 
         # Store path for download
         self.bank_icon_path = os.path.abspath(file_name)
 
         # Set icon
-        if file_name == '':
+        if file_name == "":
             file_name = ":/images/images/image_FILL0_wght400_GRAD0_opsz48.svg"
         icon = QIcon()
         icon.addFile(file_name, QSize(40, 40), QIcon.Mode.Normal, QIcon.State.On)
@@ -91,17 +95,23 @@ class AddBankDialog(QWidget):
         # Retrieve values
         bank_name = self.content.bank_name.text()
 
-        if bank_name != '':
+        if bank_name != "":
             # Register icon in current folder
-            bank_logo_path = os.path.join(os.path.dirname(__file__), '..', '..', 'resources', 'bank_logo',
-                                          bank_name.lower().replace(' ', '_') + "_logo.svg")
+            bank_logo_path = os.path.join(
+                os.path.dirname(__file__),
+                "..",
+                "..",
+                "resources",
+                "bank_logo",
+                bank_name.lower().replace(" ", "_") + "_logo.svg",
+            )
             shutil.copyfile(self.bank_icon_path, bank_logo_path)
 
             # Emit signal to close popup and add new account
             self.addBank.emit(bank_name)
             return
 
-        if bank_name == '':
+        if bank_name == "":
             self.warn_widget(self.content.bank_name)
 
     @staticmethod
@@ -114,7 +124,13 @@ class AddBankDialog(QWidget):
         """
 
         back_style_sheet = widget.styleSheet()
-        QTimer.singleShot(0, lambda: update_style(widget, "  border: 2px solid #e84134;"
-                                                          "  border-radius: 5px;"
-                                                          "  padding-left: 9px"))
+        QTimer.singleShot(
+            0,
+            lambda: update_style(
+                widget,
+                "  border: 2px solid #e84134;"
+                "  border-radius: 5px;"
+                "  padding-left: 9px",
+            ),
+        )
         QTimer.singleShot(2000, lambda: update_style(widget, back_style_sheet))

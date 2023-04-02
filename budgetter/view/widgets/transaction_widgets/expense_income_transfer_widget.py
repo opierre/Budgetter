@@ -2,8 +2,14 @@ import sys
 
 from PySide6.QtCore import Qt, QRectF
 from PySide6.QtGui import QPainter, QColor, QPen
-from PySide6.QtWidgets import QWidget, QVBoxLayout, QPushButton, QApplication, \
-    QStyleOptionButton, QStyle
+from PySide6.QtWidgets import (
+    QWidget,
+    QVBoxLayout,
+    QPushButton,
+    QApplication,
+    QStyleOptionButton,
+    QStyle,
+)
 
 
 class CircleCheckbox(QPushButton):
@@ -67,32 +73,47 @@ class CircleCheckbox(QPushButton):
             painter.setPen(pen)
 
         # Draw circle
-        rect_ellipse = QRectF(self.rect().x(), self.rect().y(),
-                              min(self.rect().width(), self.rect().height()) * 2.6 / 3,
-                              min(self.rect().width(), self.rect().height()) * 2.6 / 3)
+        rect_ellipse = QRectF(
+            self.rect().x(),
+            self.rect().y(),
+            min(self.rect().width(), self.rect().height()) * 2.6 / 3,
+            min(self.rect().width(), self.rect().height()) * 2.6 / 3,
+        )
 
         rect_ellipse.moveCenter(self.rect().center())
         painter.drawEllipse(rect_ellipse)
 
         # Set color according to type
         painter.setPen(Qt.PenStyle.NoPen)
-        if self._type in {'Income', 'Revenus'} and opt.state & QStyle.State_On:
+        if self._type in {"Income", "Revenus"} and opt.state & QStyle.State_On:
             painter.setBrush(QColor(109, 210, 48, 255))
-        elif self._type in {'Income', 'Revenus'} and not opt.state & QStyle.StateFlag.State_Selected:
+        elif (
+                self._type in {"Income", "Revenus"}
+                and not opt.state & QStyle.StateFlag.State_Selected
+        ):
             painter.setBrush(QColor(109, 210, 48, 128))
-        elif self._type in {'Expenses', 'Dépenses'} and opt.state & QStyle.State_On:
+        elif self._type in {"Expenses", "Dépenses"} and opt.state & QStyle.State_On:
             painter.setBrush(QColor(254, 77, 151, 255))
-        elif self._type in {'Expenses', 'Dépenses'} and not opt.state & QStyle.StateFlag.State_Selected:
+        elif (
+                self._type in {"Expenses", "Dépenses"}
+                and not opt.state & QStyle.StateFlag.State_Selected
+        ):
             painter.setBrush(QColor(254, 77, 151, 128))
-        elif self._type in {'Transfer', 'Transferts'} and opt.state & QStyle.State_On:
+        elif self._type in {"Transfer", "Transferts"} and opt.state & QStyle.State_On:
             painter.setBrush(QColor(250, 202, 0, 255))
-        elif self._type in {'Transfer', 'Transferts'} and not opt.state & QStyle.StateFlag.State_Selected:
+        elif (
+                self._type in {"Transfer", "Transferts"}
+                and not opt.state & QStyle.StateFlag.State_Selected
+        ):
             painter.setBrush(QColor(250, 202, 0, 128))
 
         # Draw circle
-        rect_ellipse = QRectF(self.rect().x(), self.rect().y(),
-                              min(self.rect().width(), self.rect().height()) * 1.8 / 3,
-                              min(self.rect().width(), self.rect().height()) * 1.8 / 3)
+        rect_ellipse = QRectF(
+            self.rect().x(),
+            self.rect().y(),
+            min(self.rect().width(), self.rect().height()) * 1.8 / 3,
+            min(self.rect().width(), self.rect().height()) * 1.8 / 3,
+        )
 
         rect_ellipse.moveCenter(self.rect().center())
         painter.drawEllipse(rect_ellipse)
@@ -148,8 +169,12 @@ class ExpensesIncomeTransfer(QWidget):
 
         # Connect all typeCliked from buttons
         self.top_button.clicked.connect(self.handle_click)  # pylint: disable=no-member
-        self.middle_button.clicked.connect(self.handle_click)  # pylint: disable=no-member
-        self.bottom_button.clicked.connect(self.handle_click)  # pylint: disable=no-member
+        self.middle_button.clicked.connect(
+            self.handle_click
+        )  # pylint: disable=no-member
+        self.bottom_button.clicked.connect(
+            self.handle_click
+        )  # pylint: disable=no-member
 
     def handle_click(self):
         """

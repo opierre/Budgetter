@@ -19,12 +19,14 @@ class ChartDashboard(QWidget):
         self.current_month = 5
 
         # Store buttons
-        self.months = [QPushButton(self),
-                       QPushButton(self),
-                       QPushButton(self),
-                       QPushButton(self),
-                       QPushButton(self),
-                       QPushButton(self)]
+        self.months = [
+            QPushButton(self),
+            QPushButton(self),
+            QPushButton(self),
+            QPushButton(self),
+            QPushButton(self),
+            QPushButton(self),
+        ]
 
         # Store values for months
         self.values = [2589, 1809, 1026, 1547, 1258, 987]
@@ -74,7 +76,9 @@ class ChartDashboard(QWidget):
         """
 
         # Connect click on button to update current month
-        self.button_group.buttonClicked.connect(self.update)  # pylint: disable=no-member
+        self.button_group.buttonClicked.connect(
+            self.update
+        )  # pylint: disable=no-member
 
     def get_months(self):
         """
@@ -83,31 +87,33 @@ class ChartDashboard(QWidget):
         :return: None
         """
 
-        stylesheet = "QPushButton" \
-                     "{" \
-                     "  background-color: transparent; " \
-                     "  color: rgba(255, 255, 255, 100);" \
-                     "  font-family: \"Roboto Medium\";" \
-                     "  font-size: 12pts;" \
-                     "  border-top-left-radius: 2px;" \
-                     "  border-top-right-radius: 2px;" \
-                     "  border-bottom-left-radius: 0px;" \
-                     "  border-bottom-right-radius: 0px;" \
-                     "}" \
-                     "QPushButton::checked" \
-                     "{" \
-                     "  background-color: rgba(255, 255, 255, 30); " \
-                     "  color: rgba(255, 255, 255, 200);" \
-                     "  font-family: \"Roboto Black\";" \
-                     "  font-size: 12pts;" \
-                     "  border-top-left-radius: 2px;" \
-                     "  border-top-right-radius: 2px;" \
-                     "  border-bottom-left-radius: 0px;" \
-                     "  border-bottom-right-radius: 0px;" \
-                     "}"
+        stylesheet = (
+            "QPushButton"
+            "{"
+            "  background-color: transparent; "
+            "  color: rgba(255, 255, 255, 100);"
+            '  font-family: "Roboto Medium";'
+            "  font-size: 12pts;"
+            "  border-top-left-radius: 2px;"
+            "  border-top-right-radius: 2px;"
+            "  border-bottom-left-radius: 0px;"
+            "  border-bottom-right-radius: 0px;"
+            "}"
+            "QPushButton::checked"
+            "{"
+            "  background-color: rgba(255, 255, 255, 30); "
+            "  color: rgba(255, 255, 255, 200);"
+            '  font-family: "Roboto Black";'
+            "  font-size: 12pts;"
+            "  border-top-left-radius: 2px;"
+            "  border-top-right-radius: 2px;"
+            "  border-bottom-left-radius: 0px;"
+            "  border-bottom-right-radius: 0px;"
+            "}"
+        )
 
         # Get current month
-        current_month = QLocale().toString(QDate.currentDate(), 'MMM')
+        current_month = QLocale().toString(QDate.currentDate(), "MMM")
         self.months[5].setText(current_month.upper())
         self.months[5].setStyleSheet(stylesheet)
         self.months[5].setCursor(Qt.CursorShape.PointingHandCursor)
@@ -116,7 +122,9 @@ class ChartDashboard(QWidget):
 
         # Get 5 previous month and update stylesheet
         for index in range(1, 6):
-            previous_month = QLocale().toString(QDate.currentDate().addMonths(-index), 'MMM')
+            previous_month = QLocale().toString(
+                QDate.currentDate().addMonths(-index), "MMM"
+            )
             self.months[5 - index].setText(previous_month.upper())
             self.months[5 - index].setStyleSheet(stylesheet)
             self.months[5 - index].setCursor(Qt.CursorShape.PointingHandCursor)
@@ -152,7 +160,9 @@ class ChartDashboard(QWidget):
         painter.setPen(Qt.PenStyle.NoPen)
 
         # Set gradient
-        gradient = QLinearGradient(self.rect().x(), self.rect().y(), self.rect().width(), self.rect().height())
+        gradient = QLinearGradient(
+            self.rect().x(), self.rect().y(), self.rect().width(), self.rect().height()
+        )
         gradient.setColorAt(1, QColor("#199DE5"))
         gradient.setColorAt(0, QColor("#0154C8"))
         brush = QBrush(gradient)
@@ -192,8 +202,12 @@ class ChartDashboard(QWidget):
         painter.setOpacity(0.06)
 
         # Draw line
-        painter.drawLine(self.rect().x(), self.rect().y() + self.rect().height() * 1 / 6,
-                         self.rect().width(), self.rect().y() + self.rect().height() * 1 / 6)
+        painter.drawLine(
+            self.rect().x(),
+            self.rect().y() + self.rect().height() * 1 / 6,
+            self.rect().width(),
+            self.rect().y() + self.rect().height() * 1 / 6,
+        )
 
     def draw_months(self, painter: QPainter):
         """
@@ -209,10 +223,12 @@ class ChartDashboard(QWidget):
         if len(self.months) == 6:
             for index in range(0, 6):
                 # Align rectangle for button
-                button_rectangle = QRectF(self.rect().x() + 0 + (self.rect().width() - 0) * index / 6.0,
-                                          float(self.rect().y()),
-                                          self.rect().width() / 6.0,
-                                          self.rect().height() * 1.0 / 6.0)
+                button_rectangle = QRectF(
+                    self.rect().x() + 0 + (self.rect().width() - 0) * index / 6.0,
+                    float(self.rect().y()),
+                    self.rect().width() / 6.0,
+                    self.rect().height() * 1.0 / 6.0,
+                )
 
                 # Define buttons positions
                 self.months[index].resize(button_rectangle.size())
@@ -220,14 +236,18 @@ class ChartDashboard(QWidget):
 
                 if self.months[index].isChecked() is True:
                     # Set white gradient
-                    rectangle_background = QRectF(button_rectangle.x(),
-                                                  button_rectangle.y() + button_rectangle.height(),
-                                                  button_rectangle.width(),
-                                                  float(self.rect().height()))
-                    gradient = QLinearGradient(rectangle_background.x(),
-                                               rectangle_background.y(),
-                                               rectangle_background.x(),
-                                               rectangle_background.height())
+                    rectangle_background = QRectF(
+                        button_rectangle.x(),
+                        button_rectangle.y() + button_rectangle.height(),
+                        button_rectangle.width(),
+                        float(self.rect().height()),
+                    )
+                    gradient = QLinearGradient(
+                        rectangle_background.x(),
+                        rectangle_background.y(),
+                        rectangle_background.x(),
+                        rectangle_background.height(),
+                    )
                     gradient.setColorAt(0, QColor(255, 255, 255, 30))
                     gradient.setColorAt(1, QColor(255, 255, 255, 5))
                     brush = QBrush(gradient)
@@ -248,10 +268,12 @@ class ChartDashboard(QWidget):
         """
 
         # Set rectangle
-        rectangle_amount = QRectF(self.rect().x() + self.rect().width() * 1 / 24,
-                                  self.rect().y() + self.rect().height() * 1 / 4,
-                                  self.rect().width() / 4.5,
-                                  28)
+        rectangle_amount = QRectF(
+            self.rect().x() + self.rect().width() * 1 / 24,
+            self.rect().y() + self.rect().height() * 1 / 4,
+            self.rect().width() / 4.5,
+            28,
+        )
 
         # Configure pen and painter
         pen = QPen(QColor("white"), 1, c=Qt.PenCapStyle.RoundCap)
@@ -275,10 +297,12 @@ class ChartDashboard(QWidget):
         """
 
         # Set rectangle
-        rectangle_period = QRectF(rectangle_amount.x(),
-                                  rectangle_amount.y() + rectangle_amount.height(),
-                                  rectangle_amount.width(),
-                                  rectangle_amount.height())
+        rectangle_period = QRectF(
+            rectangle_amount.x(),
+            rectangle_amount.y() + rectangle_amount.height(),
+            rectangle_amount.width(),
+            rectangle_amount.height(),
+        )
 
         # Configure pen and painter
         pen = QPen(QColor("#c4c9cf"), 1, c=Qt.PenCapStyle.RoundCap)
@@ -292,8 +316,14 @@ class ChartDashboard(QWidget):
         if month_number == 0:
             month_number = 12
         days_in_month = QDate(QDate.currentDate().year(), month_number, 1).daysInMonth()
-        text = "01 " + self.months[self.current_month].text() + ' - ' + str(days_in_month) + " " + \
-               self.months[self.current_month].text()
+        text = (
+                "01 "
+                + self.months[self.current_month].text()
+                + " - "
+                + str(days_in_month)
+                + " "
+                + self.months[self.current_month].text()
+        )
         painter.drawText(rectangle_period, Qt.AlignmentFlag.AlignCenter, text)
         painter.setOpacity(1)
 
@@ -308,8 +338,11 @@ class ChartDashboard(QWidget):
         """
 
         # Draw chart view
-        self.chart_view.setGeometry(self.rect().x(), rectangle_period.y(),
-                                    self.rect().width(),
-                                    self.rect().height() - rectangle_period.y())
+        self.chart_view.setGeometry(
+            self.rect().x(),
+            rectangle_period.y(),
+            self.rect().width(),
+            self.rect().height() - rectangle_period.y(),
+        )
 
         self.chart_view.setVisible(True)

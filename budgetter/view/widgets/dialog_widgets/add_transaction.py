@@ -53,19 +53,19 @@ class AddTransactionDialog(QWidget):
         """
 
         # Configure name attributes
-        self.content.name.set_label('Label')
+        self.content.name.set_label("Label")
         self.content.name.set_label_background_color(QColor("#1C293B"))
         self.content.name.set_text_color(QColor(255, 255, 255, 255))
         self.content.name.set_label_color(QColor(224, 224, 224, 150))
 
         # Configure notes attributes
-        self.content.notes.set_label('Notes')
+        self.content.notes.set_label("Notes")
         self.content.notes.set_label_background_color(QColor("#1C293B"))
         self.content.notes.set_text_color(QColor(255, 255, 255, 255))
         self.content.notes.set_label_color(QColor(224, 224, 224, 150))
 
         # Configure amount attributes
-        self.content.amount.set_label('Amount')
+        self.content.amount.set_label("Amount")
         self.content.amount.set_label_background_color(QColor("#1C293B"))
         self.content.amount.set_text_color(QColor(255, 255, 255, 255))
         self.content.amount.set_label_color(QColor(224, 224, 224, 150))
@@ -73,13 +73,13 @@ class AddTransactionDialog(QWidget):
         self.content.amount.set_trailing_symbol("€")
 
         # Configure date edit
-        self.content.date.set_label('Date')
+        self.content.date.set_label("Date")
         self.content.date.set_label_background_color(QColor("#1C293B"))
         self.content.date.set_text_color(QColor(255, 255, 255, 255))
         self.content.date.set_label_color(QColor(224, 224, 224, 150))
 
         # Configure combobox for category choice
-        self.content.category.set_label('Category')
+        self.content.category.set_label("Category")
         self.content.category.set_label_background_color(QColor("#1C293B"))
         self.content.category.set_text_color(QColor(255, 255, 255, 255))
         self.content.category.set_label_color(QColor(224, 224, 224, 150))
@@ -89,7 +89,7 @@ class AddTransactionDialog(QWidget):
         self.content.category.setCompleter(self.category_completer)
 
         # Configure combobox for account choice
-        self.content.account.set_label('Account')
+        self.content.account.set_label("Account")
         self.content.account.set_label_background_color(QColor("#1C293B"))
         self.content.account.set_text_color(QColor(255, 255, 255, 255))
         self.content.account.set_label_color(QColor(224, 224, 224, 150))
@@ -109,11 +109,19 @@ class AddTransactionDialog(QWidget):
         icon = QIcon()
         if Categories.has_key_in(category):
             # Update icon
-            icon.addFile(getattr(Categories, category.upper()).value, QSize(30, 30),
-                         QIcon.Mode.Disabled, QIcon.State.On)
+            icon.addFile(
+                getattr(Categories, category.upper()).value,
+                QSize(30, 30),
+                QIcon.Mode.Disabled,
+                QIcon.State.On,
+            )
         else:
-            icon.addFile(":/images/images/category_FILL0_wght400_GRAD0_opsz48.svg", QSize(30, 30),
-                         QIcon.Mode.Disabled, QIcon.State.On)
+            icon.addFile(
+                ":/images/images/category_FILL0_wght400_GRAD0_opsz48.svg",
+                QSize(30, 30),
+                QIcon.Mode.Disabled,
+                QIcon.State.On,
+            )
         self.content.category_icon.setIcon(icon)
 
     def check_inputs(self):
@@ -130,30 +138,32 @@ class AddTransactionDialog(QWidget):
         category = self.content.category.text()
         account = self.content.account.text()
 
-        if name != '' and \
-                amount != '' and \
-                amount_date != '' and \
-                category != '' and \
-                account != '':
+        if (
+                name != ""
+                and amount != ""
+                and amount_date != ""
+                and category != ""
+                and account != ""
+        ):
             # Find corresponding bank identifier
             account_id = self.account_ids.get(account, None)
             if account_id is None:
-                print('Error in account id')
+                print("Error in account id")
                 return
 
             # Emit signal to close popup and add new transaction
             self.addTransaction.emit(name, amount, amount_date, category, account_id)
             return
 
-        if name == '':
+        if name == "":
             self.warn_widget(self.content.name)
-        if amount == '':
+        if amount == "":
             self.warn_widget(self.content.amount)
-        if amount_date == '':
+        if amount_date == "":
             self.warn_widget(self.content.date)
-        if category == '':
+        if category == "":
             self.warn_widget(self.content.category)
-        if account == '':
+        if account == "":
             self.warn_widget(self.content.account)
 
     @staticmethod
@@ -166,7 +176,13 @@ class AddTransactionDialog(QWidget):
         """
 
         back_style_sheet = widget.styleSheet()
-        QTimer.singleShot(0, lambda: update_style(widget, "  border: 2px solid #e84134;"
-                                                          "  border-radius: 5px;"
-                                                          "  padding-left: 9px"))
+        QTimer.singleShot(
+            0,
+            lambda: update_style(
+                widget,
+                "  border: 2px solid #e84134;"
+                "  border-radius: 5px;"
+                "  padding-left: 9px",
+            ),
+        )
         QTimer.singleShot(2000, lambda: update_style(widget, back_style_sheet))

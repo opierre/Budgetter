@@ -112,7 +112,7 @@ class SlidingStackedWidget(QtWidgets.QStackedWidget):
                 duration=self.m_speed,
                 easingCurve=self.m_animationtype,
                 startValue=start,
-                endValue=end
+                endValue=end,
             )
             anim_group.addAnimation(animation)
 

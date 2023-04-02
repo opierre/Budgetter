@@ -1,8 +1,13 @@
 from PySide6.QtCore import Qt, QFile, QTextStream
 from PySide6.QtGui import QPainter, QColor
 from PySide6.QtSvg import QSvgRenderer
-from PySide6.QtWidgets import QWidget, QHBoxLayout, QPushButton, \
-    QStyleOptionButton, QStyle
+from PySide6.QtWidgets import (
+    QWidget,
+    QHBoxLayout,
+    QPushButton,
+    QStyleOptionButton,
+    QStyle,
+)
 
 
 class MeanCheckbox(QPushButton):
@@ -64,16 +69,18 @@ class MeanCheckbox(QPushButton):
             svg_string_file = QFile(":/images/images/swap_horiz_white_24dp.svg")
 
         # Replace fill color in SVG
-        svg_string = ''
+        svg_string = ""
         if svg_string_file.open(QFile.ReadOnly | QFile.Text):
             text_stream = QTextStream(svg_string_file)
             svg_string = text_stream.readAll()
             svg_string_file.close()
 
         if not opt.state & QStyle.StateFlag.State_Selected:
-            svg_string = svg_string.replace("fill=\"#0190EA\"", "fill=\"white\" fill-opacity=\"0.65\"")
+            svg_string = svg_string.replace(
+                'fill="#0190EA"', 'fill="white" fill-opacity="0.65"'
+            )
 
-        svg_bytes = bytearray(svg_string, encoding='utf-8')
+        svg_bytes = bytearray(svg_string, encoding="utf-8")
 
         # Load SVG as bytes
         svg_render = QSvgRenderer(svg_bytes)
@@ -122,8 +129,12 @@ class Mean(QWidget):
 
         # Connect all typeCliked from buttons
         self.left_button.clicked.connect(self.handle_click)  # pylint: disable=no-member
-        self.center_button.clicked.connect(self.handle_click)  # pylint: disable=no-member
-        self.right_button.clicked.connect(self.handle_click)  # pylint: disable=no-member
+        self.center_button.clicked.connect(
+            self.handle_click
+        )  # pylint: disable=no-member
+        self.right_button.clicked.connect(
+            self.handle_click
+        )  # pylint: disable=no-member
 
     def handle_click(self):
         """

@@ -36,11 +36,26 @@
 
 import sys
 
-from PySide6.QtCore import Qt, QEvent, QPropertyAnimation, \
-    QEasingCurve, Property, QPointF, QCoreApplication, QLineF
+from PySide6.QtCore import (
+    Qt,
+    QEvent,
+    QPropertyAnimation,
+    QEasingCurve,
+    Property,
+    QPointF,
+    QCoreApplication,
+    QLineF,
+)
 from PySide6.QtGui import QPainter, QColor, QBrush, QPen, QPaintEvent, QFont
 from PySide6.QtStateMachine import QStateMachine, QState, QEventTransition
-from PySide6.QtWidgets import QPushButton, QWidget, QApplication, QHBoxLayout, QLineEdit, QLabel
+from PySide6.QtWidgets import (
+    QPushButton,
+    QWidget,
+    QApplication,
+    QHBoxLayout,
+    QLineEdit,
+    QLabel,
+)
 
 
 class MaterialLineEdit(QLineEdit):
@@ -209,17 +224,25 @@ class MaterialLineEditStateMachine(QStateMachine):
             margin_top: int = self.line_edit.textMargins().top()
 
             # Move label on top if text in line edit is not empty
-            if self.line_edit.text() == '':
+            if self.line_edit.text() == "":
                 self.normal_state.assignProperty(self.label, "_offset", QPointF(0, 23))
                 self.normal_state.assignProperty(self.label, "_scale", 1.0)
             else:
-                self.normal_state.assignProperty(self.label, "_offset", QPointF(0, 0 - margin_top))
+                self.normal_state.assignProperty(
+                    self.label, "_offset", QPointF(0, 0 - margin_top)
+                )
                 self.normal_state.assignProperty(self.label, "_scale", 0.82)
 
             # Define properties values for label
-            self.focused_state.assignProperty(self.label, "_offset", QPointF(0, 0 - margin_top))
-            self.focused_state.assignProperty(self.label, "_color", self.line_edit.ink_color())
-            self.normal_state.assignProperty(self.label, "_color", self.line_edit.label_color())
+            self.focused_state.assignProperty(
+                self.label, "_offset", QPointF(0, 0 - margin_top)
+            )
+            self.focused_state.assignProperty(
+                self.label, "_color", self.line_edit.ink_color()
+            )
+            self.normal_state.assignProperty(
+                self.label, "_color", self.line_edit.label_color()
+            )
             self.focused_state.assignProperty(self.label, "_scale", 0.82)
 
         self.line_edit.update()
@@ -239,7 +262,7 @@ class MaterialLineEditPrivate:
         self.label_color = QColor(158, 158, 158)
         self.ink_color = QColor(0, 188, 212)
         self.input_line_color = QColor(224, 224, 224)
-        self.label_string = ''
+        self.label_string = ""
         self.label_font_size: float = 9.5
         self.show_label: bool = False
         self.show_input_line: bool = True
@@ -299,7 +322,9 @@ class MaterialLineEdit(QLineEdit):
 
         self.trailing_symbol = QLabel(symbol + " ", parent=self)
         self.trailing_symbol.setFont(QFont("Roboto", 11, QFont.Weight.Normal))
-        self.trailing_symbol.setStyleSheet("color: " + self.text_color().name() + "; padding: 0px;")
+        self.trailing_symbol.setStyleSheet(
+            "color: " + self.text_color().name() + "; padding: 0px;"
+        )
         self.trailing_symbol.setWordWrap(True)
         self.trailing_symbol.setVisible(False)
 
@@ -502,16 +527,24 @@ class MaterialLineEdit(QLineEdit):
         :return: None
         """
 
-        if self.trailing_symbol is not None and self.text() != '':
-            self.setContentsMargins(self.trailing_symbol.rect().width(), self.contentsMargins().top(),
-                                    self.contentsMargins().right(), self.contentsMargins().bottom())
+        if self.trailing_symbol is not None and self.text() != "":
+            self.setContentsMargins(
+                self.trailing_symbol.rect().width(),
+                self.contentsMargins().top(),
+                self.contentsMargins().right(),
+                self.contentsMargins().bottom(),
+            )
         else:
-            self.setContentsMargins(0, self.contentsMargins().top(),
-                                    self.contentsMargins().right(), self.contentsMargins().bottom())
+            self.setContentsMargins(
+                0,
+                self.contentsMargins().top(),
+                self.contentsMargins().right(),
+                self.contentsMargins().bottom(),
+            )
 
         super().paintEvent(event)
 
-        if self.text() != '' and self.trailing_symbol is not None:
+        if self.text() != "" and self.trailing_symbol is not None:
             self.trailing_symbol.move(self.rect().left(), self.rect().center().y() + 1)
             self.trailing_symbol.setVisible(True)
         else:
@@ -527,11 +560,9 @@ class MaterialLineEdit(QLineEdit):
         painter = QPainter(self)
 
         # Handle no text and progress for background color
-        if self.text() == '' and progress < 1:
+        if self.text() == "" and progress < 1:
             painter.setOpacity(1 - progress)
-            painter.fillRect(
-                self.rect(), QColor(Qt.GlobalColor.transparent)
-            )
+            painter.fillRect(self.rect(), QColor(Qt.GlobalColor.transparent))
 
         y_start: int = self.height() - 1
         width_start: int = self.width() - 5
@@ -558,7 +589,9 @@ class MaterialLineEdit(QLineEdit):
                 painter.setPen(Qt.PenStyle.NoPen)
                 painter.setBrush(brush)
                 width: int = int((1 - progress) * (width_start / 2))
-                painter.drawRect(int(width + 2.5), self.height() - 2, width_start - width * 2, 2)
+                painter.drawRect(
+                    int(width + 2.5), self.height() - 2, width_start - width * 2, 2
+                )
 
     # Properties to animate or modify
     _textColor = Property(QColor, fset=set_text_color, fget=text_color)
@@ -670,14 +703,14 @@ class MaterialLineEditLabel(QWidget):
     _color = Property(QColor, fset=set_color, fget=color)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     app = QApplication([])
     widget = QWidget()
     button = MaterialLineEdit()
     button.setStyleSheet("background: transparent;")
-    test = QPushButton('alors')
-    button.set_label('Coucou')
-    button.set_trailing_symbol('€')
+    test = QPushButton("alors")
+    button.set_label("Coucou")
+    button.set_trailing_symbol("€")
     layout = QHBoxLayout()
     widget.setLayout(layout)
     layout.addWidget(test)

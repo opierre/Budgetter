@@ -38,7 +38,7 @@ class ColorPickerDialog(QWidget):
         """
 
         # Configure color edit attributes
-        self.content.color_edit.set_label('HEX Color')
+        self.content.color_edit.set_label("HEX Color")
         self.content.color_edit.set_label_background_color(QColor("#1C293B"))
         self.content.color_edit.set_text_color(QColor(255, 255, 255, 255))
         self.content.color_edit.set_label_color(QColor(224, 224, 224, 150))
@@ -78,22 +78,27 @@ class ColorPickerDialog(QWidget):
         :return: None
         """
 
-        if color_text == '':
+        if color_text == "":
             self.content.color_choice.setStyleSheet(
                 "background-radius: 2px;\nbackground-color: #26374d;\n"
-                "border: 2px solid #2b405b;\nborder-radius: 2px;")
+                "border: 2px solid #2b405b;\nborder-radius: 2px;"
+            )
         else:
             # Check color
-            hex_reg_exp = QRegularExpression("^[0-9A-F]{6}$", QRegularExpression.PatternOption.CaseInsensitiveOption)
+            hex_reg_exp = QRegularExpression(
+                "^[0-9A-F]{6}$", QRegularExpression.PatternOption.CaseInsensitiveOption
+            )
             match: QRegularExpressionMatch = hex_reg_exp.match(color_text)
             if match.hasMatch():
                 self.content.color_choice.setStyleSheet(
                     f"background-radius: 2px;\nbackground-color: #{color_text};\n"
-                    "border: 2px solid #0190EA;\nborder-radius: 2px;")
+                    "border: 2px solid #0190EA;\nborder-radius: 2px;"
+                )
             else:
                 self.content.color_choice.setStyleSheet(
                     "background-radius: 2px;\nbackground-color: #26374d;\n"
-                    "border: 2px solid #2b405b;\nborder-radius: 2px;")
+                    "border: 2px solid #2b405b;\nborder-radius: 2px;"
+                )
 
     def check_inputs(self):
         """
@@ -105,10 +110,10 @@ class ColorPickerDialog(QWidget):
         # Retrieve values
         color_stylesheet = self.content.color_choice.styleSheet()
 
-        if "0190EA" in color_stylesheet != '':
+        if "0190EA" in color_stylesheet != "":
             # Emit signal to close popup and selected color
             self.colorSelected.emit("#" + self.content.color_edit.text())
-        elif self._basic_selected != '':
+        elif self._basic_selected != "":
             # Emit signal to close popup and selected color
             self.colorSelected.emit(self._basic_selected)
         else:
@@ -125,7 +130,13 @@ class ColorPickerDialog(QWidget):
         """
 
         back_style_sheet = widget.styleSheet()
-        QTimer.singleShot(0, lambda: update_style(widget, "  border: 2px solid #e84134;"
-                                                          "  border-radius: 5px;"
-                                                          "  padding-left: 9px"))
+        QTimer.singleShot(
+            0,
+            lambda: update_style(
+                widget,
+                "  border: 2px solid #e84134;"
+                "  border-radius: 5px;"
+                "  padding-left: 9px",
+            ),
+        )
         QTimer.singleShot(2000, lambda: update_style(widget, back_style_sheet))

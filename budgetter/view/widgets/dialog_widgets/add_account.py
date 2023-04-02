@@ -48,13 +48,13 @@ class AddAccountDialog(QWidget):
         """
 
         # Configure account name attributes
-        self.content.account_name.set_label('Account Name')
+        self.content.account_name.set_label("Account Name")
         self.content.account_name.set_label_background_color(QColor("#1C293B"))
         self.content.account_name.set_text_color(QColor(255, 255, 255, 255))
         self.content.account_name.set_label_color(QColor(224, 224, 224, 150))
 
         # Configure amount attributes
-        self.content.account_amount.set_label('Initial Amount')
+        self.content.account_amount.set_label("Initial Amount")
         self.content.account_amount.set_label_background_color(QColor("#1C293B"))
         self.content.account_amount.set_text_color(QColor(255, 255, 255, 255))
         self.content.account_amount.set_label_color(QColor(224, 224, 224, 150))
@@ -62,13 +62,13 @@ class AddAccountDialog(QWidget):
         self.content.account_amount.set_trailing_symbol("€")
 
         # Configure date edit
-        self.content.account_amount_date.set_label('Date')
+        self.content.account_amount_date.set_label("Date")
         self.content.account_amount_date.set_label_background_color(QColor("#1C293B"))
         self.content.account_amount_date.set_text_color(QColor(255, 255, 255, 255))
         self.content.account_amount_date.set_label_color(QColor(224, 224, 224, 150))
 
         # Configure combobox for bank choice
-        self.content.account_bank.set_label('Bank')
+        self.content.account_bank.set_label("Bank")
         self.content.account_bank.set_label_background_color(QColor("#1C293B"))
         self.content.account_bank.set_text_color(QColor(255, 255, 255, 255))
         self.content.account_bank.set_label_color(QColor(224, 224, 224, 150))
@@ -113,15 +113,25 @@ class AddAccountDialog(QWidget):
 
         # Update icon and stylesheet
         palette_icon = QIcon()
-        if color != '':
-            self.content.color_picker.setStyleSheet(f"background-color: rgba({transparent_color.red()},"
-                                                    f"{transparent_color.green()}, {transparent_color.blue()}, 128);")
-            palette_icon.addFile(":/images/images/palette_FILL0_wght500_GRAD0_opsz48_white.svg",
-                                 QSize(24, 24), QIcon.Mode.Normal, QIcon.State.On)
+        if color != "":
+            self.content.color_picker.setStyleSheet(
+                f"background-color: rgba({transparent_color.red()},"
+                f"{transparent_color.green()}, {transparent_color.blue()}, 128);"
+            )
+            palette_icon.addFile(
+                ":/images/images/palette_FILL0_wght500_GRAD0_opsz48_white.svg",
+                QSize(24, 24),
+                QIcon.Mode.Normal,
+                QIcon.State.On,
+            )
         else:
             self.content.color_picker.setStyleSheet(f"background-color: transparent;")
-            palette_icon.addFile(":/images/images/palette_FILL0_wght500_GRAD0_opsz48.svg",
-                                 QSize(24, 24), QIcon.Mode.Normal, QIcon.State.On)
+            palette_icon.addFile(
+                ":/images/images/palette_FILL0_wght500_GRAD0_opsz48.svg",
+                QSize(24, 24),
+                QIcon.Mode.Normal,
+                QIcon.State.On,
+            )
         self.content.color_picker.setIcon(palette_icon)
 
     def check_inputs(self):
@@ -137,27 +147,35 @@ class AddAccountDialog(QWidget):
         account_amount_date = self.content.account_amount_date.text()
         account_bank = self.content.account_bank.text()
 
-        if account_name != '' and \
-                account_amount != '' and \
-                account_amount_date != '' and \
-                account_bank != '':
+        if (
+                account_name != ""
+                and account_amount != ""
+                and account_amount_date != ""
+                and account_bank != ""
+        ):
             # Find corresponding bank identifier
             bank_id = self.bank_ids.get(account_bank, None)
             if bank_id is None:
                 bank_id = -1
 
             # Emit signal to close popup and add new account
-            self.addAccount.emit(account_name, account_amount, bank_id, account_amount_date,
-                                 account_bank, self._color)
+            self.addAccount.emit(
+                account_name,
+                account_amount,
+                bank_id,
+                account_amount_date,
+                account_bank,
+                self._color,
+            )
             return
 
-        if account_name == '':
+        if account_name == "":
             self.warn_widget(self.content.account_name)
-        if account_amount == '':
+        if account_amount == "":
             self.warn_widget(self.content.account_amount)
-        if account_amount_date == '':
+        if account_amount_date == "":
             self.warn_widget(self.content.account_amount_date)
-        if account_bank == '':
+        if account_bank == "":
             self.warn_widget(self.content.account_bank)
 
     @staticmethod
@@ -170,7 +188,13 @@ class AddAccountDialog(QWidget):
         """
 
         back_style_sheet = widget.styleSheet()
-        QTimer.singleShot(0, lambda: update_style(widget, "  border: 2px solid #e84134;"
-                                                          "  border-radius: 5px;"
-                                                          "  padding-left: 9px"))
+        QTimer.singleShot(
+            0,
+            lambda: update_style(
+                widget,
+                "  border: 2px solid #e84134;"
+                "  border-radius: 5px;"
+                "  padding-left: 9px",
+            ),
+        )
         QTimer.singleShot(2000, lambda: update_style(widget, back_style_sheet))

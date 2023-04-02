@@ -142,10 +142,15 @@ class ChartBars(QWidget):
         font_metrics = QFontMetrics(painter.font())
         text_heigth = font_metrics.height()
         text_width = font_metrics.horizontalAdvance(text_average)
-        rectangle_total = QRectF(self.rect().x() + 9, self.rect().y() + 9,
-                                 text_width, text_heigth)
+        rectangle_total = QRectF(
+            self.rect().x() + 9, self.rect().y() + 9, text_width, text_heigth
+        )
 
-        painter.drawText(rectangle_total, int(Qt.AlignmentFlag.AlignLeft | Qt.AlignmentFlag.AlignTop), text_total)
+        painter.drawText(
+            rectangle_total,
+            int(Qt.AlignmentFlag.AlignLeft | Qt.AlignmentFlag.AlignTop),
+            text_total,
+        )
 
         # Set bold font """
         painter.setFont(QFont("Roboto", 11, QFont.Weight.Bold))
@@ -157,9 +162,17 @@ class ChartBars(QWidget):
         font_metrics = QFontMetrics(painter.font())
         text_amount_width = font_metrics.horizontalAdvance(text_amount)
         text_heigth = font_metrics.height()
-        rectangle_amount = QRectF(rectangle_total.x() + rectangle_total.width() + 9, rectangle_total.y(),
-                                  text_amount_width, text_heigth)
-        painter.drawText(rectangle_amount, int(Qt.AlignmentFlag.AlignLeft | Qt.AlignmentFlag.AlignTop), text_amount)
+        rectangle_amount = QRectF(
+            rectangle_total.x() + rectangle_total.width() + 9,
+            rectangle_total.y(),
+            text_amount_width,
+            text_heigth,
+        )
+        painter.drawText(
+            rectangle_amount,
+            int(Qt.AlignmentFlag.AlignLeft | Qt.AlignmentFlag.AlignTop),
+            text_amount,
+        )
 
     def draw_average(self, painter: QPainter):
         """
@@ -188,10 +201,15 @@ class ChartBars(QWidget):
         else:
             y_coord = self.rect().y() + 9
 
-        rectangle_average = QRectF(self.rect().x() + 9, y_coord,
-                                   text_average_width, text_heigth)
+        rectangle_average = QRectF(
+            self.rect().x() + 9, y_coord, text_average_width, text_heigth
+        )
 
-        painter.drawText(rectangle_average, int(Qt.AlignmentFlag.AlignLeft | Qt.AlignmentFlag.AlignTop), text_average)
+        painter.drawText(
+            rectangle_average,
+            int(Qt.AlignmentFlag.AlignLeft | Qt.AlignmentFlag.AlignTop),
+            text_average,
+        )
 
         # Set bold font """
         painter.setFont(QFont("Roboto", 11, QFont.Weight.Bold))
@@ -203,9 +221,17 @@ class ChartBars(QWidget):
         font_metrics = QFontMetrics(painter.font())
         text_amount_width = font_metrics.horizontalAdvance(text_amount)
         text_heigth = font_metrics.height()
-        rectangle_amount = QRectF(rectangle_average.x() + rectangle_average.width() + 9, rectangle_average.y(),
-                                  text_amount_width, text_heigth)
-        painter.drawText(rectangle_amount, int(Qt.AlignmentFlag.AlignLeft | Qt.AlignmentFlag.AlignTop), text_amount)
+        rectangle_amount = QRectF(
+            rectangle_average.x() + rectangle_average.width() + 9,
+            rectangle_average.y(),
+            text_amount_width,
+            text_heigth,
+        )
+        painter.drawText(
+            rectangle_amount,
+            int(Qt.AlignmentFlag.AlignLeft | Qt.AlignmentFlag.AlignTop),
+            text_amount,
+        )
 
     def draw_background(self, painter: QPainter):
         """
@@ -235,7 +261,10 @@ class ChartBars(QWidget):
         text_heigth = font_metrics_amount.height()
 
         # Get max width """
-        max_width = max(text_total_width + text_total_amount + 9, text_average_width + text_average_amount + 9)
+        max_width = max(
+            text_total_width + text_total_amount + 9,
+            text_average_width + text_average_amount + 9,
+        )
 
         if self._show_total is True and self._show_average is True:
             height = text_heigth * 2 + 27
@@ -244,9 +273,15 @@ class ChartBars(QWidget):
         else:
             height = 0
 
-        rectangle_background = QRectF(self.rect().x(), self.rect().y(), max_width + 27, height)
-        rectangle_background_shadow = QRectF(rectangle_background.x() + 3, rectangle_background.y() + 3,
-                                             rectangle_background.width(), rectangle_background.height())
+        rectangle_background = QRectF(
+            self.rect().x(), self.rect().y(), max_width + 27, height
+        )
+        rectangle_background_shadow = QRectF(
+            rectangle_background.x() + 3,
+            rectangle_background.y() + 3,
+            rectangle_background.width(),
+            rectangle_background.height(),
+        )
 
         # Draw background shadow """
         brush = QBrush(QColor(28, 41, 59, 128))
@@ -267,8 +302,8 @@ class ChartBars(QWidget):
         """
 
         # Draw chart view """
-        self.chart_view.setGeometry(self.rect().x(), self.rect().y(),
-                                    self.rect().width(),
-                                    self.rect().height())
+        self.chart_view.setGeometry(
+            self.rect().x(), self.rect().y(), self.rect().width(), self.rect().height()
+        )
 
         self.chart_view.setVisible(True)

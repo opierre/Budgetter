@@ -40,10 +40,14 @@ class TitleBar(QWidget):
         """
 
         # Connect click on _add button to emit signal
-        self.gui.add.clicked[bool].connect(self.clicked.emit)  # pylint: disable=unsubscriptable-object
+        self.gui.add.clicked[bool].connect(
+            self.clicked.emit
+        )  # pylint: disable=unsubscriptable-object
 
         # Connect text changed on _search line edit to emit signal
-        self.gui.title_bar_search.textChanged[str].connect(self.emit_search)  # pylint: disable=unsubscriptable-object
+        self.gui.title_bar_search.textChanged[str].connect(
+            self.emit_search
+        )  # pylint: disable=unsubscriptable-object
 
     def configure_widgets(self):
         """
@@ -55,19 +59,24 @@ class TitleBar(QWidget):
         # Configure Search bar on top right corner
         self.gui.title_bar_search.setClearButtonEnabled(True)
         self.gui.title_bar_search.findChild(QAction, "_q_qlineeditclearaction").setIcon(
-            QIcon(":/images/images/clear-white-18dp.svg"))
+            QIcon(":/images/images/clear-white-18dp.svg")
+        )
 
         # Configure ComboBox widget
         self.gui.search_field.setView(QListView())
-        self.gui.search_field.setStyleSheet("QListView {"
-                                            "font-size: 11pt;"
-                                            "font-family: \"Roboto\";"
-                                            "}"
-                                            "QComboBox QAbstractItemView::item\n"
-                                            "{\n"
-                                            "	min-height: 25px;\n"
-                                            "}\n")
-        self.gui.search_field.view().window().setWindowFlags(Qt.Popup | Qt.FramelessWindowHint)
+        self.gui.search_field.setStyleSheet(
+            "QListView {"
+            "font-size: 11pt;"
+            'font-family: "Roboto";'
+            "}"
+            "QComboBox QAbstractItemView::item\n"
+            "{\n"
+            "	min-height: 25px;\n"
+            "}\n"
+        )
+        self.gui.search_field.view().window().setWindowFlags(
+            Qt.Popup | Qt.FramelessWindowHint
+        )
         self.gui.search_field.view().window().setAttribute(Qt.WA_TranslucentBackground)
 
     def configure_layout(self):
@@ -78,7 +87,9 @@ class TitleBar(QWidget):
         """
 
         # Set search icon
-        self.gui.title_bar_search.set_icon(QIcon(":/images/images/search-white-24dp.svg"))
+        self.gui.title_bar_search.set_icon(
+            QIcon(":/images/images/search-white-24dp.svg")
+        )
 
     def set_info(self, info: str):
         """

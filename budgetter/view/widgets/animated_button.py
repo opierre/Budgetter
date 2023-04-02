@@ -29,7 +29,7 @@ class AnimatedButton(QWidget):
         super().__init__(parent)
 
         # Store animation name
-        self.animation_name = ''
+        self.animation_name = ""
 
         # Store timer
         self.timer = QTimer()
@@ -107,7 +107,13 @@ class AnimatedButton(QWidget):
         """
 
         # Load frame
-        self.svg.load(self.ANIMATED_PATH + self.animation_name + "/frame" + f"{self.frame_counter:02}" + ".svg")
+        self.svg.load(
+            self.ANIMATED_PATH
+            + self.animation_name
+            + "/frame"
+            + f"{self.frame_counter:02}"
+            + ".svg"
+        )
         QApplication.processEvents()
 
         # Update frame count
@@ -134,7 +140,13 @@ class AnimatedButton(QWidget):
         """
 
         # Load frame
-        self.svg.load(self.ANIMATED_PATH + self.animation_name + "/frame" + f"{self.frame_counter:02}" + ".svg")
+        self.svg.load(
+            self.ANIMATED_PATH
+            + self.animation_name
+            + "/frame"
+            + f"{self.frame_counter:02}"
+            + ".svg"
+        )
         QApplication.processEvents()
 
         # Update frame count

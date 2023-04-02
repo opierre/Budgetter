@@ -17,8 +17,16 @@
 # LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 # THE SOFTWARE.
-from PySide6.QtCore import QParallelAnimationGroup, QPropertyAnimation, QRect, QObject, QEvent, Signal, Qt, \
-    QVariantAnimation
+from PySide6.QtCore import (
+    QParallelAnimationGroup,
+    QPropertyAnimation,
+    QRect,
+    QObject,
+    QEvent,
+    Signal,
+    Qt,
+    QVariantAnimation,
+)
 from PySide6.QtGui import QKeySequence, QShortcut, QIcon
 from PySide6.QtWidgets import QWidget, QGraphicsOpacityEffect
 
@@ -37,8 +45,14 @@ class Dialog(QWidget):
     # Signal emitted when escape clicked
     escape = Signal()
 
-    def __init__(self, dialog_title: str, header_icon: QIcon, central_widget: QWidget, parent=None,
-                 show_overlay: bool = True):
+    def __init__(
+            self,
+            dialog_title: str,
+            header_icon: QIcon,
+            central_widget: QWidget,
+            parent=None,
+            show_overlay: bool = True,
+    ):
         super().__init__(parent)
 
         # Store dialog UI
@@ -48,8 +62,12 @@ class Dialog(QWidget):
         self._dialog.setupUi(self)
 
         # Store shortcuts
-        self.escape_shortcut = QShortcut(QKeySequence(Qt.Key.Key_Escape), self, self.escape.emit)
-        self.confirm_shortcut = QShortcut(QKeySequence(Qt.CTRL | Qt.Key.Key_Return), self, self.confirm.emit)
+        self.escape_shortcut = QShortcut(
+            QKeySequence(Qt.Key.Key_Escape), self, self.escape.emit
+        )
+        self.confirm_shortcut = QShortcut(
+            QKeySequence(Qt.CTRL | Qt.Key.Key_Return), self, self.confirm.emit
+        )
 
         # Store overlay
         self.overlay = Overlay(parent)
@@ -77,12 +95,18 @@ class Dialog(QWidget):
         """
 
         # Connect click on close to close dialog
-        self._dialog.close.clicked.connect(self.escape.emit)  # pylint: disable=no-member
+        self._dialog.close.clicked.connect(
+            self.escape.emit
+        )  # pylint: disable=no-member
 
         # Connect click on confirm to emit signal
-        self._dialog.confirm.clicked.connect(self.confirm.emit)  # pylint: disable=no-member
+        self._dialog.confirm.clicked.connect(
+            self.confirm.emit
+        )  # pylint: disable=no-member
 
-    def configure_widgets(self, dialog_title: str, header_icon: QIcon, central_widget: QWidget):
+    def configure_widgets(
+            self, dialog_title: str, header_icon: QIcon, central_widget: QWidget
+    ):
         """
         Configure title, central widget and animations
 
@@ -99,11 +123,11 @@ class Dialog(QWidget):
         self._dialog.header_icon.setIcon(header_icon)
 
         # Configure animations - Geometry and opacity
-        geometry_animation = QPropertyAnimation(self, b'geometry')
+        geometry_animation = QPropertyAnimation(self, b"geometry")
         geometry_animation.setDuration(200)
         self.parallel_animation_group.addAnimation(geometry_animation)
 
-        opacity_animation = QPropertyAnimation(self, b'opacity')
+        opacity_animation = QPropertyAnimation(self, b"opacity")
         opacity_animation.setStartValue(0)
         opacity_animation.setEndValue(1)
         opacity_animation.setDuration(200)
@@ -138,10 +162,12 @@ class Dialog(QWidget):
         end_rect.moveCenter(self.parent().rect().center())
 
         # Update geometry animation coordinates for y
-        start_animation_rect = QRect(end_rect.x(),
-                                     end_rect.y() - end_rect.height() / 3.0,
-                                     end_rect.width(),
-                                     end_rect.height())
+        start_animation_rect = QRect(
+            end_rect.x(),
+            end_rect.y() - end_rect.height() / 3.0,
+            end_rect.width(),
+            end_rect.height(),
+        )
 
         animation: QVariantAnimation = self.parallel_animation_group.animationAt(0)
         animation.setStartValue(start_animation_rect)

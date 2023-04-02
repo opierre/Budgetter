@@ -37,9 +37,26 @@
 import sys
 from typing import List
 
-from PySide6.QtCore import Qt, QEvent, QObject, QParallelAnimationGroup, QPropertyAnimation, QRect, QPoint, \
-    QEasingCurve, Property
-from PySide6.QtGui import QPainter, QColor, QBrush, QPainterPath, QPaintEvent, QMouseEvent, QResizeEvent
+from PySide6.QtCore import (
+    Qt,
+    QEvent,
+    QObject,
+    QParallelAnimationGroup,
+    QPropertyAnimation,
+    QRect,
+    QPoint,
+    QEasingCurve,
+    Property,
+)
+from PySide6.QtGui import (
+    QPainter,
+    QColor,
+    QBrush,
+    QPainterPath,
+    QPaintEvent,
+    QMouseEvent,
+    QResizeEvent,
+)
 from PySide6.QtWidgets import QPushButton, QWidget, QApplication, QHBoxLayout
 
 
@@ -123,7 +140,9 @@ class Wave(QParallelAnimationGroup):
     Wave animation
     """
 
-    def __init__(self, center: QPoint, overlay: WaveOverlay = None, parent: QObject = None):
+    def __init__(
+            self, center: QPoint, overlay: WaveOverlay = None, parent: QObject = None
+    ):
         super().__init__(parent)
 
         # Store attributes for animation
@@ -298,8 +317,12 @@ class Wave(QParallelAnimationGroup):
 
         self.overlay.remove_wave(self)
 
-    def animate(self, _property: bytes, easing: QEasingCurve = QEasingCurve.OutQuad,
-                duration: int = 800) -> QPropertyAnimation:
+    def animate(
+            self,
+            _property: bytes,
+            easing: QEasingCurve = QEasingCurve.OutQuad,
+            duration: int = 800,
+    ) -> QPropertyAnimation:
         """
         Create animation on property with default values
 
@@ -341,7 +364,9 @@ class WaveOverlay(OverlayWidget):
         self.setAttribute(Qt.WidgetAttribute.WA_TransparentForMouseEvents)
         self.setAttribute(Qt.WidgetAttribute.WA_NoSystemBackground)
 
-    def add_wave(self, wave: Wave = None, position: QPoint = None, radius: float = 300) -> None:
+    def add_wave(
+            self, wave: Wave = None, position: QPoint = None, radius: float = 300
+    ) -> None:
         """
         Add wave in overlay
 
@@ -445,7 +470,7 @@ class FlatButton(QPushButton):
     Flat Button with animation
     """
 
-    def __init__(self, text: str = '', parent=None):
+    def __init__(self, text: str = "", parent=None):
         super().__init__(text, parent)
 
         # Store corner radius
@@ -519,18 +544,20 @@ class FlatButton(QPushButton):
         super().mousePressEvent(event)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     app = QApplication([])
     widget = QWidget()
     button = FlatButton("I'm flat")
-    button.setStyleSheet("	background-color: rgba(128, 128, 128, 128); "
-                         "color: #8ec6f4; "
-                         "outline: none; "
-                         "padding-left: 8px; "
-                         "padding-right: 8px; "
-                         "padding-top: 8px; "
-                         "padding-bottom: 8px;"
-                         "border-radius: 14px;")
+    button.setStyleSheet(
+        "	background-color: rgba(128, 128, 128, 128); "
+        "color: #8ec6f4; "
+        "outline: none; "
+        "padding-left: 8px; "
+        "padding-right: 8px; "
+        "padding-top: 8px; "
+        "padding-bottom: 8px;"
+        "border-radius: 14px;"
+    )
     layout = QHBoxLayout()
     widget.setLayout(layout)
     layout.addWidget(button)

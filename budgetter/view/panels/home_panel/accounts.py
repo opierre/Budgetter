@@ -80,8 +80,12 @@ class Accounts(QObject):
         """
 
         # Set title
-        self.ui_setup.accounts.set_title(QCoreApplication.translate("accounts", "Balance"))
-        self.ui_setup.accounts.set_button_tooltip(QCoreApplication.translate("accounts", "Add new account"))
+        self.ui_setup.accounts.set_title(
+            QCoreApplication.translate("accounts", "Balance")
+        )
+        self.ui_setup.accounts.set_button_tooltip(
+            QCoreApplication.translate("accounts", "Add new account")
+        )
 
         # Hide all widgets in title bar
         self.ui_setup.accounts.disable_search_bar()
@@ -112,8 +116,8 @@ class Accounts(QObject):
         """
 
         for bank in banks:
-            self.bank_identifiers[bank.get('name')] = bank.get('id')
-            self.accounts_model.add_bank({bank.get('id'): bank.get('name')})
+            self.bank_identifiers[bank.get("name")] = bank.get("id")
+            self.accounts_model.add_bank({bank.get("id"): bank.get("name")})
 
     def add_account(self):
         """
@@ -127,12 +131,22 @@ class Accounts(QObject):
 
         # Set icon
         header_icon = QIcon()
-        header_icon.addFile(":/images/images/account_balance_wallet_FILL0_wght400_GRAD0_opsz48.svg",
-                            QSize(24, 24), QIcon.Mode.Disabled, QIcon.State.On)
+        header_icon.addFile(
+            ":/images/images/account_balance_wallet_FILL0_wght400_GRAD0_opsz48.svg",
+            QSize(24, 24),
+            QIcon.Mode.Disabled,
+            QIcon.State.On,
+        )
 
         # Open dialog
-        self.dialogs.append(Dialog(QCoreApplication.translate("Accounts", 'Add Account'), header_icon, dialog_content,
-                                   self.main_window))
+        self.dialogs.append(
+            Dialog(
+                QCoreApplication.translate("Accounts", "Add Account"),
+                header_icon,
+                dialog_content,
+                self.main_window,
+            )
+        )
 
         # Connect signal from popup to add new account
         dialog_content.addAccount.connect(self.pre_add_account)
@@ -159,15 +173,25 @@ class Accounts(QObject):
 
         # Set icon
         header_icon = QIcon()
-        header_icon.addFile(":/images/images/palette_FILL0_wght500_GRAD0_opsz48_white.svg",
-                            QSize(24, 24), QIcon.Mode.Disabled, QIcon.State.On)
+        header_icon.addFile(
+            ":/images/images/palette_FILL0_wght500_GRAD0_opsz48_white.svg",
+            QSize(24, 24),
+            QIcon.Mode.Disabled,
+            QIcon.State.On,
+        )
 
         # Hide previous dialog
         self.dialogs[-1].hide()
 
         # Open dialog
-        self.dialogs.append(Dialog(QCoreApplication.translate("Accounts", 'Color Picker'), header_icon, dialog_content,
-                                   self.main_window))
+        self.dialogs.append(
+            Dialog(
+                QCoreApplication.translate("Accounts", "Color Picker"),
+                header_icon,
+                dialog_content,
+                self.main_window,
+            )
+        )
 
         # Connect signal coming from click on Confirm button
         self.dialogs[-1].confirm.connect(dialog_content.check_inputs)
@@ -209,7 +233,15 @@ class Accounts(QObject):
         if len(self.dialogs) > 0:
             self.dialogs[-1].show(False)
 
-    def pre_add_account(self, name: str, amount: str, bank_id: int, date: str, new_bank_name: str, color: str):
+    def pre_add_account(
+            self,
+            name: str,
+            amount: str,
+            bank_id: int,
+            date: str,
+            new_bank_name: str,
+            color: str,
+    ):
         """
         Check bank already exists
 
@@ -231,13 +263,23 @@ class Accounts(QObject):
 
             # Set icon
             header_icon = QIcon()
-            header_icon.addFile(":/images/images/account_balance_wallet_FILL1_wght400_GRAD0_opsz48.svg",
-                                QSize(24, 24), QIcon.Mode.Disabled, QIcon.State.On)
+            header_icon.addFile(
+                ":/images/images/account_balance_wallet_FILL1_wght400_GRAD0_opsz48.svg",
+                QSize(24, 24),
+                QIcon.Mode.Disabled,
+                QIcon.State.On,
+            )
 
             # Open dialog
             self.dialogs.append(
-                Dialog(QCoreApplication.translate("Accounts", b'Add Bank'), header_icon, dialog_content,
-                       self.main_window, show_overlay=False))
+                Dialog(
+                    QCoreApplication.translate("Accounts", b"Add Bank"),
+                    header_icon,
+                    dialog_content,
+                    self.main_window,
+                    show_overlay=False,
+                )
+            )
 
             # Connect signal from popup to add new bank
             dialog_content.addBank.connect(self.addBankCall.emit)
@@ -264,8 +306,8 @@ class Accounts(QObject):
         _ = Toaster("Bank added", ToasterType.SUCCESS, self.main_window)
 
         # Update models
-        self.bank_identifiers[bank.get('name')] = bank.get('id')
-        self.accounts_model.add_bank({bank.get('id'): bank.get('name')})
+        self.bank_identifiers[bank.get("name")] = bank.get("id")
+        self.accounts_model.add_bank({bank.get("id"): bank.get("name")})
 
         # Close current popup and show previous one again
         self.dialogs[-1].close()
@@ -286,8 +328,7 @@ class Accounts(QObject):
         self.dialogs.pop(-1)
 
         # Update balance widget
-        self.balance_chart.add_slice(float(account.get('amount')),
-                                     account.get('color'))
+        self.balance_chart.add_slice(float(account.get("amount")), account.get("color"))
 
         # Open toaster
         _ = Toaster("Account added", ToasterType.SUCCESS, self.main_window)
@@ -301,10 +342,11 @@ class Accounts(QObject):
         """
 
         for account in accounts:
-            self.account_identifiers[account.get('name')] = account.get('id')
+            self.account_identifiers[account.get("name")] = account.get("id")
             # Update model
             self.accounts_model.add_account(account)
 
             # Update balance widget
-            self.balance_chart.add_slice(float(account.get('amount')),
-                                         account.get('color'))
+            self.balance_chart.add_slice(
+                float(account.get("amount")), account.get("color")
+            )

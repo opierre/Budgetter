@@ -18,7 +18,10 @@ class CalendarWidget(QCalendarWidget):
         self.setHorizontalHeaderFormat(QCalendarWidget.SingleLetterDayNames)
 
         # Change red color on weekends
-        for day in (Qt.Saturday, Qt.Sunday,):
+        for day in (
+                Qt.Saturday,
+                Qt.Sunday,
+        ):
             fmt = self.weekdayTextFormat(day)
             fmt.setForeground(QColor("white"))
             self.setWeekdayTextFormat(day, fmt)
@@ -55,7 +58,9 @@ class CalendarWidget(QCalendarWidget):
 
             # Draw day number
             painter.setPen(QPen(QColor("white")))
-            painter.drawText(rect_selection, Qt.AlignmentFlag.AlignCenter, str(date.day()))
+            painter.drawText(
+                rect_selection, Qt.AlignmentFlag.AlignCenter, str(date.day())
+            )
 
             painter.restore()
         else:

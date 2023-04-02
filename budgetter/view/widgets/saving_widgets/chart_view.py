@@ -89,6 +89,10 @@ class ChartView(QGraphicsView):
         """
 
         # Set text
-        x_value = QLocale().toString(QDateTime.fromMSecsSinceEpoch(int(point.x())), "MMMM yyyy").capitalize()
+        x_value = (
+            QLocale()
+            .toString(QDateTime.fromMSecsSinceEpoch(int(point.x())), "MMMM yyyy")
+            .capitalize()
+        )
         y_value = convert_amount_to_str(point.y())
         self.legend.emit(f"{x_value}", f"{y_value} €")

@@ -1,6 +1,13 @@
 import math
 
-from PySide6.QtCharts import QChart, QDateTimeAxis, QValueAxis, QAreaSeries, QLineSeries, QScatterSeries
+from PySide6.QtCharts import (
+    QChart,
+    QDateTimeAxis,
+    QValueAxis,
+    QAreaSeries,
+    QLineSeries,
+    QScatterSeries,
+)
 from PySide6.QtCore import Qt, QDateTime, QPointF, Signal
 from PySide6.QtGui import QPen, QColor, QBrush, QLinearGradient, QGradient
 
@@ -101,7 +108,7 @@ class SavingChart(QChart):
 
         # Remove border from area zone
         self.area_series.setPen(pen)
-        self.area_series.setBorderColor(QColor('transparent'))
+        self.area_series.setBorderColor(QColor("transparent"))
 
         # Add series to graph
         self.addSeries(self.area_series)
@@ -137,8 +144,12 @@ class SavingChart(QChart):
         """
 
         # Connect click on series finale to display scatter
-        self.series_finale.clicked[QPointF].connect(self.show_point)  # pylint: disable=unsubscriptable-object
-        self.area_series.clicked[QPointF].connect(self.show_point)  # pylint: disable=unsubscriptable-object
+        self.series_finale.clicked[QPointF].connect(
+            self.show_point
+        )  # pylint: disable=unsubscriptable-object
+        self.area_series.clicked[QPointF].connect(
+            self.show_point
+        )  # pylint: disable=unsubscriptable-object
 
     def show_point(self, clicked_point):
         """
@@ -154,10 +165,12 @@ class SavingChart(QChart):
 
         # Find closest point in series finale
         for current_point in self.series_finale.points():
-            current_distance = math.sqrt((current_point.x() - clicked_point.x()) *
-                                         (current_point.x() - clicked_point.x())
-                                         + (current_point.y() - clicked_point.y())
-                                         * (current_point.y() - clicked_point.y()))
+            current_distance = math.sqrt(
+                (current_point.x() - clicked_point.x())
+                * (current_point.x() - clicked_point.x())
+                + (current_point.y() - clicked_point.y())
+                * (current_point.y() - clicked_point.y())
+            )
 
             if current_distance < distance:
                 distance = current_distance

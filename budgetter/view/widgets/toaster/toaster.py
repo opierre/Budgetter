@@ -1,6 +1,13 @@
 import enum
 
-from PySide6.QtCore import QSize, QRect, QPropertyAnimation, QEasingCurve, QTimer, QAbstractAnimation
+from PySide6.QtCore import (
+    QSize,
+    QRect,
+    QPropertyAnimation,
+    QEasingCurve,
+    QTimer,
+    QAbstractAnimation,
+)
 from PySide6.QtGui import QIcon
 from PySide6.QtWidgets import QWidget
 
@@ -63,7 +70,7 @@ class Toaster(QWidget):
         self.toast.setupUi(self)
 
         # Store animation
-        self._animation = QPropertyAnimation(self, b'geometry')
+        self._animation = QPropertyAnimation(self, b"geometry")
 
         # Configure toaster
         self.configure(message, toaster_type)
@@ -93,7 +100,9 @@ class Toaster(QWidget):
 
         # Set icon
         icon = QIcon()
-        icon.addFile(":/images/success", QSize(32, 32), QIcon.Mode.Disabled, QIcon.State.Off)
+        icon.addFile(
+            ":/images/success", QSize(32, 32), QIcon.Mode.Disabled, QIcon.State.Off
+        )
         self.toast.icon.setIcon(icon)
 
         # Configure animation
@@ -111,10 +120,12 @@ class Toaster(QWidget):
         end_rect.moveBottomRight(self.parent().rect().bottomRight())
 
         # Update geometry animation coordinates for y
-        start_animation_rect = QRect(self.parent().rect().bottomRight().x(),
-                                     end_rect.y(),
-                                     end_rect.width(),
-                                     end_rect.height())
+        start_animation_rect = QRect(
+            self.parent().rect().bottomRight().x(),
+            end_rect.y(),
+            end_rect.width(),
+            end_rect.height(),
+        )
 
         self._animation.setStartValue(start_animation_rect)
         self._animation.setEndValue(end_rect)

@@ -1,5 +1,12 @@
-from PySide6.QtCharts import QBarCategoryAxis, QValueAxis, QBarSeries, QSplineSeries, QAbstractBarSeries, \
-    QChart, QBarSet
+from PySide6.QtCharts import (
+    QBarCategoryAxis,
+    QValueAxis,
+    QBarSeries,
+    QSplineSeries,
+    QAbstractBarSeries,
+    QChart,
+    QBarSet,
+)
 from PySide6.QtCore import Qt, QDateTime, QPointF, QLocale
 from PySide6.QtGui import QPen, QColor, QBrush, QLinearGradient, QGradient, QFont
 
@@ -80,7 +87,7 @@ class CategoryChart(QChart):
         # Configure gradient to fulfill bars
         gradient = QLinearGradient(QPointF(0, 0), QPointF(0, 1))
 
-        if self.chart_type == 'Income':
+        if self.chart_type == "Income":
             gradient.setColorAt(0.0, QColor("#23D0FE"))
             gradient.setColorAt(1.0, QColor("#1A68FA"))
         else:
@@ -96,7 +103,7 @@ class CategoryChart(QChart):
         self.layout().setContentsMargins(0, 0, 0, 0)
 
         # Configure average series
-        if self.chart_type == 'Income':
+        if self.chart_type == "Income":
             pen = QPen(QColor("#1a68fa"))
         else:
             pen = QPen(QColor("#8118F9"))
@@ -119,7 +126,7 @@ class CategoryChart(QChart):
 
         # Configure gradient to fulfill bars
         gradient = QLinearGradient(QPointF(0, 0), QPointF(0, 1))
-        if self.chart_type == 'Income':
+        if self.chart_type == "Income":
             gradient.setColorAt(0.0, QColor("#23D0FE"))
             gradient.setColorAt(1.0, QColor("#1A68FA"))
         else:

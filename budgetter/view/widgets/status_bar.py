@@ -47,7 +47,9 @@ class StatusBar(QWidget):
         """
 
         # Connect click on previous/next buttons to emit signal
-        self._previous.clicked.connect(self.previousClicked.emit)  # pylint: disable=no-member
+        self._previous.clicked.connect(
+            self.previousClicked.emit
+        )  # pylint: disable=no-member
         self._next.clicked.connect(self.nextClicked.emit)  # pylint: disable=no-member
 
     def configure_widgets(self):
@@ -109,7 +111,9 @@ class StatusBar(QWidget):
         :return: None
         """
 
-        self._settings.setIcon(QIcon(":/images/images/more_horiz-white-24dp_hidden.svg"))
+        self._settings.setIcon(
+            QIcon(":/images/images/more_horiz-white-24dp_hidden.svg")
+        )
         self._settings.setCursor(Qt.ArrowCursor)
 
     def show_previous_next(self):

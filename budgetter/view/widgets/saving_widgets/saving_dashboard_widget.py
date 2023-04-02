@@ -68,7 +68,11 @@ class SavingDashboard(QWidget):
         self.previous_year_values.clear()
 
         # Order data by date
-        self.values = sorted(values.items(), key=lambda x: datetime.strptime(x[0], '%m-%Y'), reverse=False)
+        self.values = sorted(
+            values.items(),
+            key=lambda x: datetime.strptime(x[0], "%m-%Y"),
+            reverse=False,
+        )
 
         # Retrieve current year for parsing
         current_year = str(QDate.currentDate().year())
@@ -120,7 +124,11 @@ class SavingDashboard(QWidget):
             values = self.current_year_values
 
         # Order values
-        ordered_values = sorted(values.items(), key=lambda x: datetime.strptime(x[0], '%m-%Y'), reverse=False)
+        ordered_values = sorted(
+            values.items(),
+            key=lambda x: datetime.strptime(x[0], "%m-%Y"),
+            reverse=False,
+        )
 
         # Display last 12 months values
         self.chart_view.set_values(dict(ordered_values))

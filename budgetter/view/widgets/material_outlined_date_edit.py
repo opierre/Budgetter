@@ -37,30 +37,57 @@
 import sys
 from datetime import datetime
 
-from PySide6.QtCore import Qt, QEvent, QPropertyAnimation, QEasingCurve, Property, QPointF, QCoreApplication, QTimer, \
-    QRegularExpression
-from PySide6.QtGui import QPainter, QColor, QPaintEvent, QFont, QKeyEvent, QFontMetrics, \
-    QRegularExpressionValidator, QFocusEvent, QMouseEvent
+from PySide6.QtCore import (
+    Qt,
+    QEvent,
+    QPropertyAnimation,
+    QEasingCurve,
+    Property,
+    QPointF,
+    QCoreApplication,
+    QTimer,
+    QRegularExpression,
+)
+from PySide6.QtGui import (
+    QPainter,
+    QColor,
+    QPaintEvent,
+    QFont,
+    QKeyEvent,
+    QFontMetrics,
+    QRegularExpressionValidator,
+    QFocusEvent,
+    QMouseEvent,
+)
 from PySide6.QtStateMachine import QStateMachine, QState, QEventTransition
-from PySide6.QtWidgets import QPushButton, QWidget, QApplication, QHBoxLayout, QLineEdit, QLabel
+from PySide6.QtWidgets import (
+    QPushButton,
+    QWidget,
+    QApplication,
+    QHBoxLayout,
+    QLineEdit,
+    QLabel,
+)
 
-STYLESHEET = "QLineEdit {{" \
-             "  background: transparent;" \
-             "  border: 1px solid rgba(224, 224, 224, 150);" \
-             "  border-radius: 5px;" \
-             "  padding-top: 12px;" \
-             "  padding-bottom: 10px;" \
-             "  padding-left: {padding}px;" \
-             "}}" \
-             "QLineEdit:hover {{" \
-             "  background: transparent;" \
-             "  border: 1px solid rgba(255, 255, 255, 255);" \
-             "}}" \
-             "QLineEdit:focus {{" \
-             "  background: transparent;" \
-             "  border: 2px solid #199DE5;" \
-             "  padding-left: {padding_minus}px;" \
-             "}}"
+STYLESHEET = (
+    "QLineEdit {{"
+    "  background: transparent;"
+    "  border: 1px solid rgba(224, 224, 224, 150);"
+    "  border-radius: 5px;"
+    "  padding-top: 12px;"
+    "  padding-bottom: 10px;"
+    "  padding-left: {padding}px;"
+    "}}"
+    "QLineEdit:hover {{"
+    "  background: transparent;"
+    "  border: 1px solid rgba(255, 255, 255, 255);"
+    "}}"
+    "QLineEdit:focus {{"
+    "  background: transparent;"
+    "  border: 2px solid #199DE5;"
+    "  padding-left: {padding_minus}px;"
+    "}}"
+)
 
 
 class MaterialOutlinedDateEdit(QLineEdit):
@@ -229,20 +256,30 @@ class MaterialLineEditStateMachine(QStateMachine):
             margin_top: int = self.line_edit.textMargins().top() + 7
 
             # Move label on top if text in line edit is not empty
-            if self.line_edit.text() == '':
+            if self.line_edit.text() == "":
                 self.normal_state.assignProperty(self.label, "_offset", QPointF(0, 13))
                 self.normal_state.assignProperty(self.label, "_scale", 1.0)
             else:
-                self.normal_state.assignProperty(self.label, "_offset", QPointF(0, 0 - margin_top))
+                self.normal_state.assignProperty(
+                    self.label, "_offset", QPointF(0, 0 - margin_top)
+                )
                 self.normal_state.assignProperty(self.label, "_scale", 0.82)
 
             # Define properties values for label
-            self.focused_state.assignProperty(self.label, "_offset", QPointF(0, 0 - margin_top))
+            self.focused_state.assignProperty(
+                self.label, "_offset", QPointF(0, 0 - margin_top)
+            )
             self.focused_state.assignProperty(self.label, "_color", QColor("#199DE5"))
-            self.normal_state.assignProperty(self.label, "_color", QColor(158, 158, 158, 255))
+            self.normal_state.assignProperty(
+                self.label, "_color", QColor(158, 158, 158, 255)
+            )
             self.focused_state.assignProperty(self.label, "_scale", 0.82)
-            self.normal_state.assignProperty(self.line_edit, "_placeholder_visible", False)
-            self.focused_state.assignProperty(self.line_edit, "_placeholder_visible", True)
+            self.normal_state.assignProperty(
+                self.line_edit, "_placeholder_visible", False
+            )
+            self.focused_state.assignProperty(
+                self.line_edit, "_placeholder_visible", True
+            )
 
         self.line_edit.update()
 
@@ -261,7 +298,7 @@ class MaterialLineEditPrivate:
         self.label_color = QColor(158, 158, 158)
         self.ink_color = QColor(0, 188, 212)
         self.input_line_color = QColor(224, 224, 224)
-        self.label_string = ''
+        self.label_string = ""
         self.label_font_size: float = 9.5
         self.show_label: bool = False
         self.show_input_line: bool = True
@@ -291,7 +328,7 @@ class MaterialLineEditPrivate:
         self.line_edit.setTextMargins(0, 2, 0, 4)
 
         # Set stylesheet
-        self.line_edit.setStyleSheet(STYLESHEET.format(padding='9', padding_minus='8'))
+        self.line_edit.setStyleSheet(STYLESHEET.format(padding="9", padding_minus="8"))
 
         # Set font on line edit
         self.line_edit.setFont(QFont("Roboto", 11, QFont.Weight.Normal))
@@ -316,7 +353,9 @@ class MaterialOutlinedDateEdit(QLineEdit):
             self.line_edit_private = MaterialLineEditPrivate(self)
 
         # Set regexp for date
-        reg_exp_date = QRegularExpression("(0[1-9]|[12][0-9]|3[01])/(0[1-9]|[1][0-2])/(19[0-9][0-9]|20[0-9][0-9])")
+        reg_exp_date = QRegularExpression(
+            "(0[1-9]|[12][0-9]|3[01])/(0[1-9]|[1][0-2])/(19[0-9][0-9]|20[0-9][0-9])"
+        )
         validator = QRegularExpressionValidator(reg_exp_date)
         self.setValidator(validator)
 
@@ -330,7 +369,7 @@ class MaterialOutlinedDateEdit(QLineEdit):
 
         super().focusInEvent(arg__1)
 
-        if self.text() == '':
+        if self.text() == "":
             # Set current date by default
             current_date = datetime.today().strftime("%d/%m/%Y")
             self.setText(current_date)
@@ -368,7 +407,7 @@ class MaterialOutlinedDateEdit(QLineEdit):
         if len(current_text) in {2, 5}:
             if arg__1.key() != Qt.Key.Key_Backspace:
                 # Add /
-                self.setText(self.text() + '/')
+                self.setText(self.text() + "/")
             else:
                 # Add /
                 self.setText(self.text()[:-1])
@@ -412,7 +451,9 @@ class MaterialOutlinedDateEdit(QLineEdit):
 
         self.trailing_symbol = QLabel(symbol + " ", parent=self)
         self.trailing_symbol.setFont(QFont("Roboto", 11, QFont.Weight.Normal))
-        self.trailing_symbol.setStyleSheet("color: " + self.text_color().name() + "; padding: 0px;")
+        self.trailing_symbol.setStyleSheet(
+            "color: " + self.text_color().name() + "; padding: 0px;"
+        )
         self.trailing_symbol.setWordWrap(True)
         self.trailing_symbol.setVisible(False)
 
@@ -562,12 +603,12 @@ class MaterialOutlinedDateEdit(QLineEdit):
         else:
             self.setPlaceholderText("")
 
-        if self.trailing_symbol is not None and self.text() != '':
-            self.setStyleSheet(STYLESHEET.format(padding='24', padding_minus='23'))
+        if self.trailing_symbol is not None and self.text() != "":
+            self.setStyleSheet(STYLESHEET.format(padding="24", padding_minus="23"))
 
         super().paintEvent(event)
 
-        if self.text() != '' and self.trailing_symbol is not None:
+        if self.text() != "" and self.trailing_symbol is not None:
             self.trailing_symbol.move(self.rect().left() + 15, self.rect().center().y())
             self.trailing_symbol.setVisible(True)
         else:
@@ -576,7 +617,9 @@ class MaterialOutlinedDateEdit(QLineEdit):
 
     # Properties to animate or modify
     _textColor = Property(QColor, fset=set_text_color, fget=text_color)
-    _placeholder_visible = Property(bool, fset=show_placeholder, fget=placeholder_visible)
+    _placeholder_visible = Property(
+        bool, fset=show_placeholder, fget=placeholder_visible
+    )
 
 
 class MaterialLineEditLabel(QWidget):
@@ -690,16 +733,25 @@ class MaterialLineEditLabel(QWidget):
 
         if self.y_position != 13:
             # Configure and apply default font
-            font = QFont("Roboto", int(self.parent().fontInfo().pointSizeF()), QFont.Weight.Medium)
+            font = QFont(
+                "Roboto",
+                int(self.parent().fontInfo().pointSizeF()),
+                QFont.Weight.Medium,
+            )
         else:
             # Configure and apply default font
-            font = QFont("Roboto", int(self.parent().fontInfo().pointSizeF()), QFont.Weight.Normal)
+            font = QFont(
+                "Roboto",
+                int(self.parent().fontInfo().pointSizeF()),
+                QFont.Weight.Normal,
+            )
         self.setFont(font)
 
         # Draw label with offset
         pos = QPointF(15 + self.x_position, self.height() - 32 + self.y_position)
-        painter.fillRect(pos.x() - 3, pos.y() - height, width + 6, height + 4,
-                         self.background_color)
+        painter.fillRect(
+            pos.x() - 3, pos.y() - height, width + 6, height + 4, self.background_color
+        )
         painter.drawText(pos.x(), pos.y(), self.line_edit.label())
 
     # Properties to animate or modify
@@ -708,13 +760,13 @@ class MaterialLineEditLabel(QWidget):
     _color = Property(QColor, fset=set_color, fget=color)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     app = QApplication([])
     widget = QWidget()
     button = MaterialOutlinedDateEdit()
     # button.setStyleSheet("background: transparent;")
-    test = QPushButton('alors')
-    button.set_label('Coucou')
+    test = QPushButton("alors")
+    button.set_label("Coucou")
     button.set_label_color(QColor(224, 224, 224, 255))
     button.set_label_background_color(QColor(255, 255, 255, 255))
     # button.set_trailing_symbol('€')

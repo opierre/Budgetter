@@ -53,46 +53,61 @@ class DistributionDelegate(QItemDelegate):
         # Draw bottom border
         painter.setPen(QPen(QColor("#344457")))
         painter.setBrush(Qt.BrushStyle.NoBrush)
-        painter.drawLine(option.rect.x() + option.rect.width() * 1 / 30, option.rect.y() + option.rect.height() - 1,
-                         option.rect.width() - +option.rect.width() * 1 / 30,
-                         option.rect.y() + option.rect.height() - 1)
+        painter.drawLine(
+            option.rect.x() + option.rect.width() * 1 / 30,
+            option.rect.y() + option.rect.height() - 1,
+            option.rect.width() - +option.rect.width() * 1 / 30,
+            option.rect.y() + option.rect.height() - 1,
+        )
 
         painter.setRenderHint(QPainter.RenderHint.Antialiasing)
 
         # Draw item background
         painter.setPen(QPen(QColor("#26374C")))
         painter.setBrush(QColor("transparent"))
-        rect_background = QRect(option.rect.x() + option.rect.width() * 1 / 30,
-                                option.rect.y() + option.rect.height() * 1 / 5,
-                                option.rect.width() - option.rect.width() * 2 / 30,
-                                option.rect.height() - option.rect.height() * 2 / 5)
+        rect_background = QRect(
+            option.rect.x() + option.rect.width() * 1 / 30,
+            option.rect.y() + option.rect.height() * 1 / 5,
+            option.rect.width() - option.rect.width() * 2 / 30,
+            option.rect.height() - option.rect.height() * 2 / 5,
+        )
         painter.drawRect(rect_background)
 
         # Draw percentage background
         painter.setPen(QPen(QColor("#21415D")))
         painter.setBrush(QColor("#21415D"))
         rect_percentage = QRect(
-            rect_background.x() + rect_background.width() - (
-                    rect_background.width() - (option.rect.width() * 1 / 3)) * (value[3] / 100),
+            rect_background.x()
+            + rect_background.width()
+            - (rect_background.width() - (option.rect.width() * 1 / 3))
+            * (value[3] / 100),
             option.rect.y() + 10,
-            (rect_background.width() - (option.rect.width() * 1 / 3)) * (value[3] / 100),
-            option.rect.height() - 20)
+            (rect_background.width() - (option.rect.width() * 1 / 3))
+            * (value[3] / 100),
+            option.rect.height() - 20,
+        )
         painter.drawRoundedRect(rect_percentage, 3.0, 3.0)
 
         # Draw left icon background
         painter.setPen(QPen(QColor("#1A537D")))
         painter.setBrush(QColor("#1A537D"))
-        rect_icon = QRect(rect_background.x() + option.rect.width() * 1 / 60,
-                          rect_background.y() - option.rect.height() * 1 / 30,
-                          rect_background.height() + option.rect.height() * 2 / 30,
-                          rect_background.height() + option.rect.height() * 2 / 30)
+        rect_icon = QRect(
+            rect_background.x() + option.rect.width() * 1 / 60,
+            rect_background.y() - option.rect.height() * 1 / 30,
+            rect_background.height() + option.rect.height() * 2 / 30,
+            rect_background.height() + option.rect.height() * 2 / 30,
+        )
         painter.drawRoundedRect(rect_icon, 1.0, 1.0)
 
         # Draw icon and render svg
         painter.setPen(QPen(Qt.GlobalColor.transparent))
         painter.setBrush(QColor("transparent"))
-        rect_svg = QRect(rect_icon.x() + 10, rect_icon.y() + 10,
-                         rect_icon.width() - 20, rect_icon.height() - 20)
+        rect_svg = QRect(
+            rect_icon.x() + 10,
+            rect_icon.y() + 10,
+            rect_icon.width() - 20,
+            rect_icon.height() - 20,
+        )
         painter.drawRect(rect_svg)
 
         if category == "Restaurants":
@@ -100,7 +115,9 @@ class DistributionDelegate(QItemDelegate):
         elif category == "Transport":
             svg_render = QSvgRenderer(":/images/images/directions_car-white-18dp.svg")
         elif category == "Groceries":
-            svg_render = QSvgRenderer(":/images/images/local_grocery_store-white-18dp.svg")
+            svg_render = QSvgRenderer(
+                ":/images/images/local_grocery_store-white-18dp.svg"
+            )
         else:
             svg_render = QSvgRenderer(":/images/images/restaurant-white-18dp.svg")
         svg_render.setAspectRatioMode(Qt.AspectRatioMode.KeepAspectRatio)
@@ -120,10 +137,17 @@ class DistributionDelegate(QItemDelegate):
         pixels_height = font_metrics.height()
 
         # Set category on top
-        rect_category = QRect(rect_icon.x() + rect_icon.width() + option.rect.width() * 1 / 50,
-                              rect_icon.y() + option.rect.height() * 1 / 30,
-                              pixels_width, pixels_height)
-        painter.drawText(rect_category, int(Qt.AlignmentFlag.AlignLeft | Qt.AlignmentFlag.AlignVCenter), category)
+        rect_category = QRect(
+            rect_icon.x() + rect_icon.width() + option.rect.width() * 1 / 50,
+            rect_icon.y() + option.rect.height() * 1 / 30,
+            pixels_width,
+            pixels_height,
+        )
+        painter.drawText(
+            rect_category,
+            int(Qt.AlignmentFlag.AlignLeft | Qt.AlignmentFlag.AlignVCenter),
+            category,
+        )
 
         # Set font on painter for number of transactions
         self.font.setFamily("Roboto")
@@ -139,11 +163,17 @@ class DistributionDelegate(QItemDelegate):
         pixels_height = font_metrics.height()
 
         # Set number of transactions beside category
-        rect_transaction = QRect(rect_category.x(),
-                                 rect_category.y() + rect_category.height() + option.rect.height() * 1 / 10,
-                                 pixels_width, pixels_height)
-        painter.drawText(rect_transaction, int(Qt.AlignmentFlag.AlignLeft | Qt.AlignmentFlag.AlignVCenter),
-                         nb_transactions)
+        rect_transaction = QRect(
+            rect_category.x(),
+            rect_category.y() + rect_category.height() + option.rect.height() * 1 / 10,
+            pixels_width,
+            pixels_height,
+        )
+        painter.drawText(
+            rect_transaction,
+            int(Qt.AlignmentFlag.AlignLeft | Qt.AlignmentFlag.AlignVCenter),
+            nb_transactions,
+        )
 
         # Set font on painter for amount
         self.font.setFamily("Roboto")
@@ -159,10 +189,20 @@ class DistributionDelegate(QItemDelegate):
         pixels_height = font_metrics.height()
 
         # Set amount on right corner
-        rect_amount = QRect(rect_background.width() + rect_background.x() - pixels_width - option.rect.width() * 1 / 50,
-                            rect_category.y() + option.rect.height() * 2 / 50,
-                            pixels_width, pixels_height)
-        painter.drawText(rect_amount, int(Qt.AlignmentFlag.AlignRight | Qt.AlignmentFlag.AlignVCenter), amount)
+        rect_amount = QRect(
+            rect_background.width()
+            + rect_background.x()
+            - pixels_width
+            - option.rect.width() * 1 / 50,
+            rect_category.y() + option.rect.height() * 2 / 50,
+            pixels_width,
+            pixels_height,
+        )
+        painter.drawText(
+            rect_amount,
+            int(Qt.AlignmentFlag.AlignRight | Qt.AlignmentFlag.AlignVCenter),
+            amount,
+        )
 
         # Set font on painter for percentage
         self.font.setFamily("Roboto")
@@ -178,8 +218,19 @@ class DistributionDelegate(QItemDelegate):
         pixels_height = font_metrics.height()
 
         # Set percentage beside amount
-        rect_perc = QRect(rect_background.width() + rect_background.x() - pixels_width - option.rect.width() * 1 / 50,
-                          rect_transaction.y(), pixels_width, pixels_height)
-        painter.drawText(rect_perc, int(Qt.AlignmentFlag.AlignRight | Qt.AlignmentFlag.AlignVCenter), percentage)
+        rect_perc = QRect(
+            rect_background.width()
+            + rect_background.x()
+            - pixels_width
+            - option.rect.width() * 1 / 50,
+            rect_transaction.y(),
+            pixels_width,
+            pixels_height,
+        )
+        painter.drawText(
+            rect_perc,
+            int(Qt.AlignmentFlag.AlignRight | Qt.AlignmentFlag.AlignVCenter),
+            percentage,
+        )
 
         painter.restore()

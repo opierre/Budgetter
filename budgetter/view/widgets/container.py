@@ -20,7 +20,7 @@ class Container(QDockWidget):
         super().__init__(parent)
 
         # Container title
-        self._title = ''
+        self._title = ""
 
         # Title bar with title and add button
         self.title_bar = TitleBar(self)

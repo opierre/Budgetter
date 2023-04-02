@@ -24,3 +24,20 @@ dependencies = [
 
 [project.urls]
 repository = "https://github.com/opierre/Budgetter"
+
+[tool.black]
+line-length = 120
+exclude = '''
+(
+  /(
+      \.eggs         # exclude a few common directories in the
+    | \.git          # root of the project
+    | \.github
+    | \.mypy_cache
+    | \.venv
+    | build
+    | dist
+  )/
+  ^resources/
+  ^skeletons/
+)

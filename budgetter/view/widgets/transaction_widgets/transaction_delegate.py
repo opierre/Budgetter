@@ -2,11 +2,26 @@ import datetime
 from typing import Union
 
 from PySide6 import QtCore
-from PySide6.QtCore import QSize, Qt, QRect, QRectF, Signal, QModelIndex, QEvent, QPoint, QPersistentModelIndex
+from PySide6.QtCore import (
+    QSize,
+    Qt,
+    QRect,
+    QRectF,
+    Signal,
+    QModelIndex,
+    QEvent,
+    QPoint,
+    QPersistentModelIndex,
+)
 from PySide6.QtGui import QPen, QColor, QPainter, QFont, QFontMetrics, QIcon
 from PySide6.QtSvg import QSvgRenderer
-from PySide6.QtWidgets import QStyledItemDelegate, QPushButton, QStyleOptionButton, QStyle, \
-    QApplication
+from PySide6.QtWidgets import (
+    QStyledItemDelegate,
+    QPushButton,
+    QStyleOptionButton,
+    QStyle,
+    QApplication,
+)
 
 
 class TransactionDelegate(QStyledItemDelegate):
@@ -85,7 +100,9 @@ class TransactionDelegate(QStyledItemDelegate):
         self.delete.setStyleSheet("background-color: transparent;\n")
         self.comment.setStyleSheet("background-color: transparent;\n")
 
-    def createEditor(self, parent, option, index: Union[QModelIndex, QPersistentModelIndex]):
+    def createEditor(
+            self, parent, option, index: Union[QModelIndex, QPersistentModelIndex]
+    ):
         """
         Override createEditor
 
@@ -97,7 +114,13 @@ class TransactionDelegate(QStyledItemDelegate):
 
         pass
 
-    def editorEvent(self, event: QEvent, _model, _option, index: Union[QModelIndex, QPersistentModelIndex]):
+    def editorEvent(
+            self,
+            event: QEvent,
+            _model,
+            _option,
+            index: Union[QModelIndex, QPersistentModelIndex],
+    ):
         """
         Override editorEvent to handle events
 
@@ -117,10 +140,19 @@ class TransactionDelegate(QStyledItemDelegate):
 
             if self.rect_edit.contains(cursor_position) and index != self.editable:
                 # Emit pressed signal with model's index and rect position
-                self.transactionEditPressed.emit(index, self.rect_name, self.rect_amount, self.rect_date,
-                                                 self.rect_account, self.rect_exp_or_inc, self.rect_category,
-                                                 self.rect_category_name, self.rect_mean, self.rect_edit,
-                                                 self.rect_delete)
+                self.transactionEditPressed.emit(
+                    index,
+                    self.rect_name,
+                    self.rect_amount,
+                    self.rect_date,
+                    self.rect_account,
+                    self.rect_exp_or_inc,
+                    self.rect_category,
+                    self.rect_category_name,
+                    self.rect_mean,
+                    self.rect_edit,
+                    self.rect_delete,
+                )
 
                 # Set transaction editable to paint different
                 self.set_editable(index)
@@ -232,7 +264,7 @@ class TransactionDelegate(QStyledItemDelegate):
         amount = value["amount"]
         amount = "{:,.2f}".format(amount).replace(",", " ") + " €"
         date = str(value["date"])
-        date = datetime.datetime.strptime(date, '%d/%m/%Y').strftime('%d %b %Y')
+        date = datetime.datetime.strptime(date, "%d/%m/%Y").strftime("%d %b %Y")
         account = str(value["account"])
         exp_or_inc = str(value["type"])
         means = str(value["means"])
@@ -242,17 +274,21 @@ class TransactionDelegate(QStyledItemDelegate):
         self.draw_separator(painter, option, index)
 
         # Draw item background
-        rect_background = QRect(option.rect.x() + option.rect.width() * 1 / 60,
-                                option.rect.y() + option.rect.height() * 1 / 5,
-                                option.rect.width() - option.rect.width() * 2 / 60,
-                                option.rect.height() - option.rect.height() * 2 / 5)
+        rect_background = QRect(
+            option.rect.x() + option.rect.width() * 1 / 60,
+            option.rect.y() + option.rect.height() * 1 / 5,
+            option.rect.width() - option.rect.width() * 2 / 60,
+            option.rect.height() - option.rect.height() * 2 / 5,
+        )
         self.draw_item_background(painter, option, index, rect_background)
 
         # Draw left icon background
-        self.rect_category = QRect(rect_background.x() + option.rect.width() * 1 / 35,
-                                   rect_background.y() - option.rect.height() * 1 / 30,
-                                   rect_background.height() + option.rect.height() * 2 / 30,
-                                   rect_background.height() + option.rect.height() * 2 / 30)
+        self.rect_category = QRect(
+            rect_background.x() + option.rect.width() * 1 / 35,
+            rect_background.y() - option.rect.height() * 1 / 30,
+            rect_background.height() + option.rect.height() * 2 / 30,
+            rect_background.height() + option.rect.height() * 2 / 30,
+        )
         self.draw_left_icon(painter, index, category)
 
         # Draw name
@@ -265,19 +301,34 @@ class TransactionDelegate(QStyledItemDelegate):
         self.draw_amount(painter, rect_background, index, amount)
 
         # Draw amount label
-        self.draw_label(painter, rect_background, QApplication.translate("transaction_delegate", "Amount"), 1 / 4)
+        self.draw_label(
+            painter,
+            rect_background,
+            QApplication.translate("transaction_delegate", "Amount"),
+            1 / 4,
+        )
 
         # Draw date
         self.draw_date(painter, rect_background, index, date)
 
         # Draw date label
-        self.draw_label(painter, rect_background, QApplication.translate("transaction_delegate", "Date"), 1.8 / 4)
+        self.draw_label(
+            painter,
+            rect_background,
+            QApplication.translate("transaction_delegate", "Date"),
+            1.8 / 4,
+        )
 
         # Draw account
         self.draw_account(painter, rect_background, index, account)
 
         # Draw account label
-        self.draw_label(painter, rect_background, QApplication.translate("transaction_delegate", "Account"), 2.6 / 4)
+        self.draw_label(
+            painter,
+            rect_background,
+            QApplication.translate("transaction_delegate", "Account"),
+            2.6 / 4,
+        )
 
         # Draw mean icon
         self.draw_means(painter, rect_background, means, index)
@@ -300,10 +351,14 @@ class TransactionDelegate(QStyledItemDelegate):
         pixels_height = font_metrics.height()
 
         # Set income/expense on left corner
-        rect_ellipse = QRectF(rect_background.x() + option.rect.width() * 1 / 140,
-                              self.rect_category.y() + (self.rect_category.width() - pixels_height - 8) / 2.0 +
-                              (pixels_height + 8) / 3.5,
-                              (pixels_height + 8) / 2.5, (pixels_height + 8) / 2.5)
+        rect_ellipse = QRectF(
+            rect_background.x() + option.rect.width() * 1 / 140,
+            self.rect_category.y()
+            + (self.rect_category.width() - pixels_height - 8) / 2.0
+            + (pixels_height + 8) / 3.5,
+            (pixels_height + 8) / 2.5,
+            (pixels_height + 8) / 2.5,
+        )
 
         self.rect_exp_or_inc = rect_ellipse
 
@@ -325,8 +380,9 @@ class TransactionDelegate(QStyledItemDelegate):
         painter.setBrush(QColor("transparent"))
 
         # Button edit
-        self.rect_edit = QRect(rect_background.width() + rect_background.x() - 15,
-                               option.rect.y(), 25, 25)
+        self.rect_edit = QRect(
+            rect_background.width() + rect_background.x() - 15, option.rect.y(), 25, 25
+        )
 
         if self.editable != index and option.state & QStyle.StateFlag.State_Selected:
             # Draw background of edit as pastille
@@ -334,8 +390,12 @@ class TransactionDelegate(QStyledItemDelegate):
             painter.setPen(QColor(28, 41, 59, 128))
 
             # Draw hover effect
-            shadow_rect = QRect(self.rect_edit.x() + 3, self.rect_edit.y() + 3,
-                                self.rect_edit.width(), self.rect_edit.height())
+            shadow_rect = QRect(
+                self.rect_edit.x() + 3,
+                self.rect_edit.y() + 3,
+                self.rect_edit.width(),
+                self.rect_edit.height(),
+            )
             painter.drawEllipse(shadow_rect)
 
             # Draw background of edit as pastille
@@ -352,8 +412,12 @@ class TransactionDelegate(QStyledItemDelegate):
             painter.restore()
 
         # Buttons delete
-        self.rect_delete = QRect(rect_background.width() + rect_background.x() - 15,
-                                 option.rect.y() + option.rect.height() - 25, 25, 25)
+        self.rect_delete = QRect(
+            rect_background.width() + rect_background.x() - 15,
+            option.rect.y() + option.rect.height() - 25,
+            25,
+            25,
+        )
 
         if self.editable != index and option.state & QStyle.StateFlag.State_Selected:
             # Draw background of edit as pastille
@@ -361,8 +425,12 @@ class TransactionDelegate(QStyledItemDelegate):
             painter.setPen(QColor(28, 41, 59, 128))
 
             # Draw hover effect
-            shadow_rect = QRect(self.rect_delete.x() + 3, self.rect_delete.y() + 3,
-                                self.rect_delete.width(), self.rect_delete.height())
+            shadow_rect = QRect(
+                self.rect_delete.x() + 3,
+                self.rect_delete.y() + 3,
+                self.rect_delete.width(),
+                self.rect_delete.height(),
+            )
             painter.drawEllipse(shadow_rect)
 
             # Draw background of edit as pastille
@@ -400,9 +468,12 @@ class TransactionDelegate(QStyledItemDelegate):
             # Draw bottom border
             painter.setPen(QPen(QColor("#344457")))
             painter.setBrush(Qt.BrushStyle.NoBrush)
-            painter.drawLine(option.rect.x() + option.rect.width() * 1 / 60, option.rect.y() + option.rect.height() - 1,
-                             option.rect.width() - option.rect.width() * 1 / 60,
-                             option.rect.y() + option.rect.height() - 1)
+            painter.drawLine(
+                option.rect.x() + option.rect.width() * 1 / 60,
+                option.rect.y() + option.rect.height() - 1,
+                option.rect.width() - option.rect.width() * 1 / 60,
+                option.rect.y() + option.rect.height() - 1,
+            )
 
     def draw_means(self, painter: QPainter, rect_background, means, index):
         """
@@ -415,9 +486,12 @@ class TransactionDelegate(QStyledItemDelegate):
         :return: None
         """
 
-        self.rect_mean = QRectF(rect_background.width() * 3.5 / 4 - 24,
-                                rect_background.y() + (rect_background.height() - 24) / 2.0,
-                                24, 24)
+        self.rect_mean = QRectF(
+            rect_background.width() * 3.5 / 4 - 24,
+            rect_background.y() + (rect_background.height() - 24) / 2.0,
+            24,
+            24,
+        )
         if self.editable != index:
             svg_render = QSvgRenderer(":/images/images/credit_card_white_24dp.svg")
             if means == "Espèces":
@@ -438,12 +512,15 @@ class TransactionDelegate(QStyledItemDelegate):
         :return: None
         """
 
-        self.rect_comment = QRect(rect_background.width() * 3.85 / 4 - 24,
-                                  rect_background.y() + (rect_background.height() - 24) / 2.0,
-                                  24, 24)
+        self.rect_comment = QRect(
+            rect_background.width() * 3.85 / 4 - 24,
+            rect_background.y() + (rect_background.height() - 24) / 2.0,
+            24,
+            24,
+        )
         option_more = QStyleOptionButton()
 
-        if self.editable != index and comment != '':
+        if self.editable != index and comment != "":
             # Set tooltip
             self.comment.setToolTip(comment)
 
@@ -453,9 +530,13 @@ class TransactionDelegate(QStyledItemDelegate):
             option_more.iconSize = QtCore.QSize(24, 24)
             option_more.state = option_more.state or QStyle.StateFlag.State_MouseOver
 
-            self.comment.style().drawControl(QStyle.ControlElement.CE_PushButton, option_more, painter, self.comment)
+            self.comment.style().drawControl(
+                QStyle.ControlElement.CE_PushButton, option_more, painter, self.comment
+            )
 
-    def draw_item_background(self, painter: QPainter, option, index: QModelIndex, rect_background: QRect):
+    def draw_item_background(
+            self, painter: QPainter, option, index: QModelIndex, rect_background: QRect
+    ):
         """
         Draw item background
 
@@ -469,7 +550,10 @@ class TransactionDelegate(QStyledItemDelegate):
         # Set pen
         painter.setPen(QPen(QColor("#26374C")))
 
-        if self.editable != index and not option.state & QStyle.StateFlag.State_Selected:
+        if (
+                self.editable != index
+                and not option.state & QStyle.StateFlag.State_Selected
+        ):
             # Do nothing
             pass
 
@@ -477,9 +561,14 @@ class TransactionDelegate(QStyledItemDelegate):
             # Item selected and not editable
             self.selected = index
             painter.setBrush(QColor("#19344D"))
-            painter.drawRoundedRect(rect_background.x(), rect_background.y() - option.rect.height() * 1 / 6,
-                                    rect_background.width(), rect_background.height() + option.rect.height() * 2 / 6,
-                                    10, 10)
+            painter.drawRoundedRect(
+                rect_background.x(),
+                rect_background.y() - option.rect.height() * 1 / 6,
+                rect_background.width(),
+                rect_background.height() + option.rect.height() * 2 / 6,
+                10,
+                10,
+            )
 
         elif self.editable == index and option.state & QStyle.StateFlag.State_Selected:
             # Item selected and editable
@@ -487,17 +576,26 @@ class TransactionDelegate(QStyledItemDelegate):
             painter.setOpacity(0.17)
 
             # Draw shadow
-            painter.drawRoundedRect(rect_background.x(), rect_background.y() - option.rect.height() * 1 / 6,
-                                    rect_background.width() + 2,
-                                    rect_background.height() + option.rect.height() * 2 / 6 + 2,
-                                    7, 7)
+            painter.drawRoundedRect(
+                rect_background.x(),
+                rect_background.y() - option.rect.height() * 1 / 6,
+                rect_background.width() + 2,
+                rect_background.height() + option.rect.height() * 2 / 6 + 2,
+                7,
+                7,
+            )
 
             # Draw background
             painter.setBrush(QColor(1, 84, 200, 200))
             painter.setOpacity(1)
-            painter.drawRoundedRect(rect_background.x(), option.rect.y(),
-                                    rect_background.width(), rect_background.height() + option.rect.height() * 2 / 6,
-                                    7, 7)
+            painter.drawRoundedRect(
+                rect_background.x(),
+                option.rect.y(),
+                rect_background.width(),
+                rect_background.height() + option.rect.height() * 2 / 6,
+                7,
+                7,
+            )
 
     def draw_left_icon(self, painter: QPainter, index: QModelIndex, category):
         """
@@ -517,19 +615,33 @@ class TransactionDelegate(QStyledItemDelegate):
             # Draw icon and render svg
             painter.setPen(QPen(Qt.GlobalColor.transparent))
             painter.setBrush(QColor("transparent"))
-            rect_svg = QRect(self.rect_category.x() + 10, self.rect_category.y() + 10,
-                             self.rect_category.width() - 20, self.rect_category.height() - 20)
+            rect_svg = QRect(
+                self.rect_category.x() + 10,
+                self.rect_category.y() + 10,
+                self.rect_category.width() - 20,
+                self.rect_category.height() - 20,
+            )
             painter.drawRect(rect_svg)
 
-            svg_render = QSvgRenderer(":/images/images/restaurant-white-18dp_outlined.svg")
+            svg_render = QSvgRenderer(
+                ":/images/images/restaurant-white-18dp_outlined.svg"
+            )
             if category == "Restaurants":
-                svg_render = QSvgRenderer(":/images/images/restaurant-white-18dp_outlined.svg")
+                svg_render = QSvgRenderer(
+                    ":/images/images/restaurant-white-18dp_outlined.svg"
+                )
             elif category == "Transport":
-                svg_render = QSvgRenderer(":/images/images/directions_car-white-18dp_outlined.svg")
+                svg_render = QSvgRenderer(
+                    ":/images/images/directions_car-white-18dp_outlined.svg"
+                )
             elif category == "Groceries":
-                svg_render = QSvgRenderer(":/images/images/local_grocery_store-white-18dp_outlined.svg")
+                svg_render = QSvgRenderer(
+                    ":/images/images/local_grocery_store-white-18dp_outlined.svg"
+                )
             elif category == "Transfer":
-                svg_render = QSvgRenderer(":/images/images/swap_horiz_white_18dp_outlined.svg")
+                svg_render = QSvgRenderer(
+                    ":/images/images/swap_horiz_white_18dp_outlined.svg"
+                )
             svg_render.setAspectRatioMode(Qt.AspectRatioMode.KeepAspectRatio)
             svg_render.render(painter, rect_svg)
 
@@ -559,11 +671,20 @@ class TransactionDelegate(QStyledItemDelegate):
         pixels_height = font_metrics.height()
 
         # Set name on top
-        self.rect_name = QRect(self.rect_category.x() + self.rect_category.width() + option.rect.width() * 1 / 140,
-                               self.rect_category.y() + option.rect.height() * 1 / 30,
-                               pixels_width, pixels_height)
+        self.rect_name = QRect(
+            self.rect_category.x()
+            + self.rect_category.width()
+            + option.rect.width() * 1 / 140,
+            self.rect_category.y() + option.rect.height() * 1 / 30,
+            pixels_width,
+            pixels_height,
+        )
         if self.editable != index:
-            painter.drawText(self.rect_name, int(Qt.AlignmentFlag.AlignLeft | Qt.AlignmentFlag.AlignVCenter), name)
+            painter.drawText(
+                self.rect_name,
+                int(Qt.AlignmentFlag.AlignLeft | Qt.AlignmentFlag.AlignVCenter),
+                name,
+            )
 
     def draw_category(self, painter: QPainter, option, index: QModelIndex, category):
         """
@@ -590,13 +711,24 @@ class TransactionDelegate(QStyledItemDelegate):
         pixels_height = font_metrics.height()
 
         # Set category beside name
-        self.rect_category_name = QRect(self.rect_name.x(), self.rect_name.y() + self.rect_name.height() +
-                                        option.rect.height() * 1 / 10, pixels_width, pixels_height)
+        self.rect_category_name = QRect(
+            self.rect_name.x(),
+            self.rect_name.y()
+            + self.rect_name.height()
+            + option.rect.height() * 1 / 10,
+            pixels_width,
+            pixels_height,
+        )
         if self.editable != index:
-            painter.drawText(self.rect_category_name, int(Qt.AlignmentFlag.AlignLeft | Qt.AlignmentFlag.AlignVCenter),
-                             category)
+            painter.drawText(
+                self.rect_category_name,
+                int(Qt.AlignmentFlag.AlignLeft | Qt.AlignmentFlag.AlignVCenter),
+                category,
+            )
 
-    def draw_amount(self, painter: QPainter, rect_background, index: QModelIndex, amount):
+    def draw_amount(
+            self, painter: QPainter, rect_background, index: QModelIndex, amount
+    ):
         """
         Draw amount
 
@@ -621,10 +753,18 @@ class TransactionDelegate(QStyledItemDelegate):
         pixels_width = font_metrics.horizontalAdvance(amount)
 
         # Set amount on right corner
-        self.rect_amount = QRect(rect_background.width() * 1 / 4, self.rect_name.y(),
-                                 pixels_width, pixels_height)
+        self.rect_amount = QRect(
+            rect_background.width() * 1 / 4,
+            self.rect_name.y(),
+            pixels_width,
+            pixels_height,
+        )
         if self.editable != index:
-            painter.drawText(self.rect_amount, int(Qt.AlignmentFlag.AlignLeft | Qt.AlignmentFlag.AlignVCenter), amount)
+            painter.drawText(
+                self.rect_amount,
+                int(Qt.AlignmentFlag.AlignLeft | Qt.AlignmentFlag.AlignVCenter),
+                amount,
+            )
 
     def draw_label(self, painter: QPainter, rect_background, label, x_position):
         """
@@ -651,9 +791,17 @@ class TransactionDelegate(QStyledItemDelegate):
         pixels_height = font_metrics.height()
 
         # Set percentage beside amount
-        rect_amount_label = QRect(rect_background.width() * x_position, self.rect_category_name.y(),
-                                  pixels_width, pixels_height)
-        painter.drawText(rect_amount_label, int(Qt.AlignmentFlag.AlignLeft | Qt.AlignmentFlag.AlignVCenter), label)
+        rect_amount_label = QRect(
+            rect_background.width() * x_position,
+            self.rect_category_name.y(),
+            pixels_width,
+            pixels_height,
+        )
+        painter.drawText(
+            rect_amount_label,
+            int(Qt.AlignmentFlag.AlignLeft | Qt.AlignmentFlag.AlignVCenter),
+            label,
+        )
 
     def draw_date(self, painter: QPainter, rect_background, index: QModelIndex, date):
         """
@@ -680,12 +828,22 @@ class TransactionDelegate(QStyledItemDelegate):
         pixels_width = font_metrics.horizontalAdvance(date)
 
         # Set date on right corner
-        self.rect_date = QRect(rect_background.width() * 1.8 / 4, self.rect_name.y(),
-                               pixels_width, pixels_height)
+        self.rect_date = QRect(
+            rect_background.width() * 1.8 / 4,
+            self.rect_name.y(),
+            pixels_width,
+            pixels_height,
+        )
         if self.editable != index:
-            painter.drawText(self.rect_date, int(Qt.AlignmentFlag.AlignLeft | Qt.AlignmentFlag.AlignVCenter), date)
+            painter.drawText(
+                self.rect_date,
+                int(Qt.AlignmentFlag.AlignLeft | Qt.AlignmentFlag.AlignVCenter),
+                date,
+            )
 
-    def draw_account(self, painter: QPainter, rect_background, index: QModelIndex, account):
+    def draw_account(
+            self, painter: QPainter, rect_background, index: QModelIndex, account
+    ):
         """
         Draw account
 
@@ -710,9 +868,16 @@ class TransactionDelegate(QStyledItemDelegate):
         pixels_width = font_metrics.horizontalAdvance(account)
 
         # Set account on right corner
-        self.rect_account = QRect(rect_background.width() * 2.6 / 4, self.rect_name.y(),
-                                  pixels_width, pixels_height)
+        self.rect_account = QRect(
+            rect_background.width() * 2.6 / 4,
+            self.rect_name.y(),
+            pixels_width,
+            pixels_height,
+        )
 
         if self.editable != index:
-            painter.drawText(self.rect_account, int(Qt.AlignmentFlag.AlignLeft | Qt.AlignmentFlag.AlignVCenter),
-                             account)
+            painter.drawText(
+                self.rect_account,
+                int(Qt.AlignmentFlag.AlignLeft | Qt.AlignmentFlag.AlignVCenter),
+                account,
+            )
