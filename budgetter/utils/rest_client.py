@@ -56,7 +56,7 @@ class RestClient:
         """
 
         # Call post method
-        response = requests.post(url, json=data)
+        response = requests.post(url, json=data, timeout=2.5)
 
         # Handle error case
         if response.status_code != 201:
@@ -74,7 +74,7 @@ class RestClient:
         """
 
         # Call get method
-        response = requests.get(url)
+        response = requests.get(url, timeout=3.5)
 
         # Handle error case
         if response.status_code != 200:
@@ -92,7 +92,7 @@ class RestClient:
         """
 
         # Call delete method
-        response = requests.delete(url)
+        response = requests.delete(url, timeout=1.5)
 
         # Handle error case
         if response.status_code != 200:

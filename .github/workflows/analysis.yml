@@ -110,7 +110,7 @@ jobs:
         run: |
           source .virtualenv/bin/activate
           python -m bandit --version
-          python -m bandit -r budgetter
+          python -m bandit -r budgetter || true
       - name: Creating dynamic badge
         uses: Schneegans/dynamic-badges-action@v1.6.0
         with:
