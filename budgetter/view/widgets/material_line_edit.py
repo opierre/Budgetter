@@ -44,7 +44,7 @@ from PySide6.QtCore import (
     Property,
     QPointF,
     QCoreApplication,
-    QLineF,
+    QLineF, QObject,
 )
 from PySide6.QtGui import QPainter, QColor, QBrush, QPen, QPaintEvent, QFont
 from PySide6.QtStateMachine import QStateMachine, QState, QEventTransition
@@ -86,7 +86,7 @@ class MaterialLineEditStateMachine(QStateMachine):
         self.focused_state = QState()
 
         # Store label to display on top of line edit
-        self.label = 0
+        self.label = QObject()
 
         # Store animation: offset and color and scale
         self.offset_animation = QPropertyAnimation(self)
@@ -137,8 +137,8 @@ class MaterialLineEditStateMachine(QStateMachine):
         transition.addAnimation(animation)
 
         # Set progress values for states
-        self.normal_state.assignProperty(self, "_progress", 0)
-        self.focused_state.assignProperty(self, "_progress", 1)
+        self.normal_state.assignProperty(self, b"_progress", 0)
+        self.focused_state.assignProperty(self, b"_progress", 1)
 
         # Setup label and states properties
         self.setup_properties()
@@ -225,25 +225,25 @@ class MaterialLineEditStateMachine(QStateMachine):
 
             # Move label on top if text in line edit is not empty
             if self.line_edit.text() == "":
-                self.normal_state.assignProperty(self.label, "_offset", QPointF(0, 23))
-                self.normal_state.assignProperty(self.label, "_scale", 1.0)
+                self.normal_state.assignProperty(self.label, b"_offset", QPointF(0, 23))
+                self.normal_state.assignProperty(self.label, b"_scale", 1.0)
             else:
                 self.normal_state.assignProperty(
-                    self.label, "_offset", QPointF(0, 0 - margin_top)
+                    self.label, b"_offset", QPointF(0, 0 - margin_top)
                 )
-                self.normal_state.assignProperty(self.label, "_scale", 0.82)
+                self.normal_state.assignProperty(self.label, b"_scale", 0.82)
 
             # Define properties values for label
             self.focused_state.assignProperty(
-                self.label, "_offset", QPointF(0, 0 - margin_top)
+                self.label, b"_offset", QPointF(0, 0 - margin_top)
             )
             self.focused_state.assignProperty(
-                self.label, "_color", self.line_edit.ink_color()
+                self.label, b"_color", self.line_edit.ink_color()
             )
             self.normal_state.assignProperty(
-                self.label, "_color", self.line_edit.label_color()
+                self.label, b"_color", self.line_edit.label_color()
             )
-            self.focused_state.assignProperty(self.label, "_scale", 0.82)
+            self.focused_state.assignProperty(self.label, b"_scale", 0.82)
 
         self.line_edit.update()
 
@@ -582,7 +582,7 @@ class MaterialLineEdit(QLineEdit):
 
             # Configure brush
             brush = QBrush()
-            brush.setStyle(Qt.BrushSyle.SolidPattern)
+            brush.setStyle(Qt.BrushStyle.SolidPattern)
             brush.setColor(self.ink_color())
 
             if progress > 0:
@@ -611,7 +611,7 @@ class MaterialLineEditLabel(QWidget):
         self.line_edit = parent
         self.__scale = 1.0
         self.x_position = 0.0
-        self.y_position = 23
+        self.y_position = 23.0
         self.private_color = QColor(parent.label_color())
 
         # Configure and apply default font
@@ -695,7 +695,7 @@ class MaterialLineEditLabel(QWidget):
 
         # Draw label with offset
         pos = QPointF(2 + self.x_position, self.height() - 32 + self.y_position)
-        painter.drawText(pos.x(), pos.y(), self.line_edit.label())
+        painter.drawText(int(pos.x()), int(pos.y()), self.line_edit.label())
 
     # Properties to animate or modify
     _scale = Property(float, fset=set_scale, fget=scale)

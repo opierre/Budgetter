@@ -172,7 +172,7 @@ class TransactionDelegate(QStyledItemDelegate):
             else:
                 return False
 
-        elif event.type() == QtCore.QEvent.MouseMove:
+        elif event.type() == QEvent.Type.MouseMove:
             # Store position on click
             cursor_position = event.pos()
 
@@ -245,7 +245,7 @@ class TransactionDelegate(QStyledItemDelegate):
 
         return QSize(10, 70)
 
-    def paint(self, painter: QPainter, option, index: QModelIndex):
+    def paint(self, painter: QPainter, option, index: Union[QModelIndex, QPersistentModelIndex]):
         """
         Override paint
 
@@ -662,7 +662,7 @@ class TransactionDelegate(QStyledItemDelegate):
         painter.setFont(self.font)
 
         # Set category painter color
-        painter.setPen(QPen(Qt.white))
+        painter.setPen(QPen(Qt.GlobalColor.white))
         painter.setBrush(QColor(Qt.GlobalColor.transparent))
 
         # Get font metrics

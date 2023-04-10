@@ -96,7 +96,7 @@ class SavingChart(QChart):
         gradient = QLinearGradient(QPointF(0, 0), QPointF(0, 1))
         gradient.setColorAt(0.0, QColor("#35536D"))
         gradient.setColorAt(1.0, QColor("transparent"))
-        gradient.setCoordinateMode(QGradient.ObjectMode)
+        gradient.setCoordinateMode(QGradient.Type.ObjectMode)
 
         # Set brush and pen for series
         self.area_series.setBrush(gradient)

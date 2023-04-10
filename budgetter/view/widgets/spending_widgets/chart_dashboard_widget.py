@@ -204,9 +204,9 @@ class ChartDashboard(QWidget):
         # Draw line
         painter.drawLine(
             self.rect().x(),
-            self.rect().y() + self.rect().height() * 1 / 6,
+            self.rect().y() + int(self.rect().height() * 1 / 6),
             self.rect().width(),
-            self.rect().y() + self.rect().height() * 1 / 6,
+            self.rect().y() + int(self.rect().height() * 1 / 6),
         )
 
     def draw_months(self, painter: QPainter):

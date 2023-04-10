@@ -114,7 +114,7 @@ class OverlayWidget(QWidget):
 
         event_type = event.type()
 
-        if event_type in {QEvent.Move, QEvent.Type.Resize}:
+        if event_type in {QEvent.Type.Move, QEvent.Type.Resize}:
             # Resize according to resize
             self.setGeometry(self.overlay_geometry())
 
@@ -273,7 +273,7 @@ class Wave(QParallelAnimationGroup):
         :return: None
         """
 
-        self.radius_animation.setDuration(duration)
+        self.radius_animation.setDuration(int(duration))
 
     def set_opacity_animation_duration(self, duration: float) -> None:
         """
@@ -282,7 +282,7 @@ class Wave(QParallelAnimationGroup):
         :return: None
         """
 
-        self.opacity_animation.setDuration(duration)
+        self.opacity_animation.setDuration(int(duration))
 
     def set_opacity_values(self, start_value: float, end_value: float) -> None:
         """
@@ -320,7 +320,7 @@ class Wave(QParallelAnimationGroup):
     def animate(
             self,
             _property: bytes,
-            easing: QEasingCurve = QEasingCurve.OutQuad,
+            easing: QEasingCurve = QEasingCurve.Type.OutQuad,
             duration: int = 800,
     ) -> QPropertyAnimation:
         """

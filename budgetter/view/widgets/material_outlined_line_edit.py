@@ -105,7 +105,7 @@ class MaterialLineEditStateMachine(QStateMachine):
         self.focused_state = QState()
 
         # Store label to display on top of line edit
-        self.label = 0
+        self.label = None
 
         # Store animation: offset and color and scale
         self.offset_animation = QPropertyAnimation(self)
@@ -134,18 +134,18 @@ class MaterialLineEditStateMachine(QStateMachine):
         self.setInitialState(self.normal_state)
 
         # Add transition from normal to focus
-        transition = QEventTransition(parent, QEvent.FocusIn)
+        transition = QEventTransition(parent, QEvent.Type.FocusIn)
         transition.setTargetState(self.focused_state)
         self.normal_state.addTransition(transition)
 
         # Add animation on transition to update progress
         animation = QPropertyAnimation(self, b"_progress", self)
-        animation.setEasingCurve(QEasingCurve.InCubic)
+        animation.setEasingCurve(QEasingCurve.Type.InCubic)
         animation.setDuration(310)
         transition.addAnimation(animation)
 
         # Add transition from focus to normal
-        transition = QEventTransition(parent, QEvent.FocusOut)
+        transition = QEventTransition(parent, QEvent.Type.FocusOut)
         transition.setTargetState(self.normal_state)
         self.focused_state.addTransition(transition)
 
@@ -156,8 +156,8 @@ class MaterialLineEditStateMachine(QStateMachine):
         transition.addAnimation(animation)
 
         # Set progress values for states
-        self.normal_state.assignProperty(self, "_progress", 0)
-        self.focused_state.assignProperty(self, "_progress", 1)
+        self.normal_state.assignProperty(self, b"_progress", 0)
+        self.focused_state.assignProperty(self, b"_progress", 1)
 
         # Setup label and states properties
         self.setup_properties()
@@ -244,23 +244,23 @@ class MaterialLineEditStateMachine(QStateMachine):
 
             # Move label on top if text in line edit is not empty
             if self.line_edit.text() == "":
-                self.normal_state.assignProperty(self.label, "_offset", QPointF(0, 13))
-                self.normal_state.assignProperty(self.label, "_scale", 1.0)
+                self.normal_state.assignProperty(self.label, b"_offset", QPointF(0, 13))
+                self.normal_state.assignProperty(self.label, b"_scale", 1.0)
             else:
                 self.normal_state.assignProperty(
-                    self.label, "_offset", QPointF(0, 0 - margin_top)
+                    self.label, b"_offset", QPointF(0, 0 - margin_top)
                 )
-                self.normal_state.assignProperty(self.label, "_scale", 0.82)
+                self.normal_state.assignProperty(self.label, b"_scale", 0.82)
 
             # Define properties values for label
             self.focused_state.assignProperty(
-                self.label, "_offset", QPointF(0, 0 - margin_top)
+                self.label, b"_offset", QPointF(0, 0 - margin_top)
             )
-            self.focused_state.assignProperty(self.label, "_color", QColor("#199DE5"))
+            self.focused_state.assignProperty(self.label, b"_color", QColor("#199DE5"))
             self.normal_state.assignProperty(
-                self.label, "_color", QColor(158, 158, 158, 255)
+                self.label, b"_color", QColor(158, 158, 158, 255)
             )
-            self.focused_state.assignProperty(self.label, "_scale", 0.82)
+            self.focused_state.assignProperty(self.label, b"_scale", 0.82)
 
         self.line_edit.update()
 
@@ -531,7 +531,7 @@ class MaterialLineEditLabel(QWidget):
         self.line_edit = parent
         self.__scale = 1.0
         self.x_position = 0.0
-        self.y_position = 13
+        self.y_position = 13.0
         self.private_color = QColor(parent.label_color())
         self.background_color = QColor("transparent")
 
@@ -647,9 +647,9 @@ class MaterialLineEditLabel(QWidget):
         # Draw label with offset
         pos = QPointF(15 + self.x_position, self.height() - 32 + self.y_position)
         painter.fillRect(
-            pos.x() - 3, pos.y() - height, width + 6, height + 4, self.background_color
+            int(pos.x() - 3), int(pos.y() - height), width + 6, height + 4, self.background_color
         )
-        painter.drawText(pos.x(), pos.y(), self.line_edit.label())
+        painter.drawText(int(pos.x()), int(pos.y()), self.line_edit.label())
 
     # Properties to animate or modify
     _scale = Property(float, fset=set_scale, fget=scale)

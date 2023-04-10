@@ -195,15 +195,15 @@ class TransactionsModel(QAbstractListModel):
         return result
 
     def setData(
-            self, index: QModelIndex, value: Any, _role=Qt.ItemDataRole.EditRole
-    ) -> True:
+            self, index: Union[QModelIndex, QPersistentModelIndex], value: Any, _role=Qt.ItemDataRole.EditRole
+    ) -> bool:
         """
         Override setData() from QAbstractListModel
 
         :param index: index
         :param value: value
         :param _role: role
-        :return: True
+        :return: bool (always True)
         """
 
         self.transactions[index.row()]["name"] = value["name"]
@@ -219,7 +219,7 @@ class TransactionsModel(QAbstractListModel):
 
         return True
 
-    def rowCount(self, _index: QModelIndex = QModelIndex()):
+    def rowCount(self, _index: Union[QModelIndex, QPersistentModelIndex] = QModelIndex()):
         """
         Override rowCount() from QAbstractListModel
 

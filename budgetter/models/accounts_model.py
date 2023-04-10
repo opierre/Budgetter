@@ -17,7 +17,7 @@ class AccountsModel(QAbstractListModel):
         # Store bank idents/name
         self.banks = {}
 
-    def data(self, index: Union[QModelIndex, QPersistentModelIndex], role: Qt.ItemDataRole = None):
+    def data(self, index: Union[QModelIndex, QPersistentModelIndex], role: int = -1):
         """
         Override data() from QAbstractListModel
 
@@ -36,7 +36,9 @@ class AccountsModel(QAbstractListModel):
 
         return result
 
-    def rowCount(self, _index: Union[QModelIndex, QPersistentModelIndex] = QModelIndex()):
+    def rowCount(
+            self, _index: Union[QModelIndex, QPersistentModelIndex] = QModelIndex()
+    ):
         """
         Override rowCount() from QAbstractListModel
 
@@ -66,10 +68,10 @@ class AccountsModel(QAbstractListModel):
 
         self.beginInsertRows(QModelIndex(), 0, 1)
         data = {
-            'bank': self.banks.get(account.get('bank')),
-            'name': account.get('name'),
-            'amount': account.get('amount'),
-            'color': account.get('color')
+            "bank": self.banks.get(account.get("bank")),
+            "name": account.get("name"),
+            "amount": account.get("amount"),
+            "color": account.get("color"),
         }
         self.accounts.append(data)
         self.endInsertRows()

@@ -169,8 +169,8 @@ class MaterialLineEditStateMachine(QStateMachine):
         transition.addAnimation(animation)
 
         # Set progress values for states
-        self.normal_state.assignProperty(self, "_progress", 0)
-        self.focused_state.assignProperty(self, "_progress", 1)
+        self.normal_state.assignProperty(self, b"_progress", 0)
+        self.focused_state.assignProperty(self, b"_progress", 1)
 
         # Setup label and states properties
         self.setup_properties()
@@ -257,28 +257,28 @@ class MaterialLineEditStateMachine(QStateMachine):
 
             # Move label on top if text in line edit is not empty
             if self.line_edit.text() == "":
-                self.normal_state.assignProperty(self.label, "_offset", QPointF(0, 13))
-                self.normal_state.assignProperty(self.label, "_scale", 1.0)
+                self.normal_state.assignProperty(self.label, b"_offset", QPointF(0, 13))
+                self.normal_state.assignProperty(self.label, b"_scale", 1.0)
             else:
                 self.normal_state.assignProperty(
-                    self.label, "_offset", QPointF(0, 0 - margin_top)
+                    self.label, b"_offset", QPointF(0, 0 - margin_top)
                 )
-                self.normal_state.assignProperty(self.label, "_scale", 0.82)
+                self.normal_state.assignProperty(self.label, b"_scale", 0.82)
 
             # Define properties values for label
             self.focused_state.assignProperty(
-                self.label, "_offset", QPointF(0, 0 - margin_top)
+                self.label, b"_offset", QPointF(0, 0 - margin_top)
             )
-            self.focused_state.assignProperty(self.label, "_color", QColor("#199DE5"))
+            self.focused_state.assignProperty(self.label, b"_color", QColor("#199DE5"))
             self.normal_state.assignProperty(
-                self.label, "_color", QColor(158, 158, 158, 255)
+                self.label, b"_color", QColor(158, 158, 158, 255)
             )
-            self.focused_state.assignProperty(self.label, "_scale", 0.82)
+            self.focused_state.assignProperty(self.label, b"_scale", 0.82)
             self.normal_state.assignProperty(
-                self.line_edit, "_placeholder_visible", False
+                self.line_edit, b"_placeholder_visible", False
             )
             self.focused_state.assignProperty(
-                self.line_edit, "_placeholder_visible", True
+                self.line_edit, b"_placeholder_visible", True
             )
 
         self.line_edit.update()
@@ -583,7 +583,7 @@ class MaterialOutlinedDateEdit(QLineEdit):
         """
 
         # Handle Resize and Move event to update geometry
-        if event.type() in [QEvent.Type.Resize, QEvent.Move]:
+        if event.type() in [QEvent.Type.Resize, QEvent.Type.Move]:
             if self.line_edit_private.label:
                 self.line_edit_private.label.setGeometry(self.rect())
 
@@ -750,9 +750,9 @@ class MaterialLineEditLabel(QWidget):
         # Draw label with offset
         pos = QPointF(15 + self.x_position, self.height() - 32 + self.y_position)
         painter.fillRect(
-            pos.x() - 3, pos.y() - height, width + 6, height + 4, self.background_color
+            int(pos.x() - 3), int(pos.y() - height), width + 6, height + 4, self.background_color
         )
-        painter.drawText(pos.x(), pos.y(), self.line_edit.label())
+        painter.drawText(int(pos.x()), int(pos.y()), self.line_edit.label())
 
     # Properties to animate or modify
     _scale = Property(float, fset=set_scale, fget=scale)

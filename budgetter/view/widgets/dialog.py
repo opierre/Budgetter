@@ -25,7 +25,6 @@ from PySide6.QtCore import (
     QEvent,
     Signal,
     Qt,
-    QVariantAnimation,
 )
 from PySide6.QtGui import QKeySequence, QShortcut, QIcon
 from PySide6.QtWidgets import QWidget, QGraphicsOpacityEffect
@@ -66,7 +65,7 @@ class Dialog(QWidget):
             QKeySequence(Qt.Key.Key_Escape), self, self.escape.emit
         )
         self.confirm_shortcut = QShortcut(
-            QKeySequence(Qt.CTRL | Qt.Key.Key_Return), self, self.confirm.emit
+            QKeySequence(Qt.Modifier.CTRL | Qt.Key.Key_Return), self, self.confirm.emit
         )
 
         # Store overlay
@@ -164,12 +163,12 @@ class Dialog(QWidget):
         # Update geometry animation coordinates for y
         start_animation_rect = QRect(
             end_rect.x(),
-            end_rect.y() - end_rect.height() / 3.0,
+            end_rect.y() - int(end_rect.height() / 3.0),
             end_rect.width(),
             end_rect.height(),
         )
 
-        animation: QVariantAnimation = self.parallel_animation_group.animationAt(0)
+        animation = self.parallel_animation_group.animationAt(0)
         animation.setStartValue(start_animation_rect)
         animation.setEndValue(end_rect)
 

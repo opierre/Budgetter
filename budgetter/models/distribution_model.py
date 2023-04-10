@@ -1,4 +1,6 @@
-from PySide6.QtCore import QAbstractListModel, Qt, QModelIndex
+from typing import Union
+
+from PySide6.QtCore import QAbstractListModel, Qt, QModelIndex, QPersistentModelIndex
 
 
 class DistributionModel(QAbstractListModel):
@@ -12,7 +14,7 @@ class DistributionModel(QAbstractListModel):
         # Store categories
         self.categories = categories or []
 
-    def data(self, index: QModelIndex, role: Qt.ItemDataRole = None):
+    def data(self, index: Union[QModelIndex, QPersistentModelIndex], role: int = -1):
         """
         Override data() from QAbstractListModel
 
@@ -31,7 +33,9 @@ class DistributionModel(QAbstractListModel):
 
         return result
 
-    def rowCount(self, _index: QModelIndex = QModelIndex()):
+    def rowCount(
+            self, _index: Union[QModelIndex, QPersistentModelIndex] = QModelIndex()
+    ):
         """
         Override rowCount() from QAbstractListModel
 
