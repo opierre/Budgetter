@@ -3,15 +3,20 @@
 ################################################################################
 ## Form generated from reading UI file 'Account.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.4.1
+## Created by: Qt User Interface Compiler version 6.4.3
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
 
-from PySide6.QtCore import (QCoreApplication, QMetaObject, QRect)
-from PySide6.QtWidgets import (QComboBox, QDoubleSpinBox, QGridLayout,
-                               QLineEdit, QWidget)
-
+from PySide6.QtCore import (QCoreApplication, QDate, QDateTime, QLocale,
+    QMetaObject, QObject, QPoint, QRect,
+    QSize, QTime, QUrl, Qt)
+from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
+    QFont, QFontDatabase, QGradient, QIcon,
+    QImage, QKeySequence, QLinearGradient, QPainter,
+    QPalette, QPixmap, QRadialGradient, QTransform)
+from PySide6.QtWidgets import (QApplication, QComboBox, QDoubleSpinBox, QGridLayout,
+    QLineEdit, QSizePolicy, QWidget)
 
 class Ui_Account(object):
     def setupUi(self, Account):
@@ -19,12 +24,12 @@ class Ui_Account(object):
             Account.setObjectName("Account")
         Account.resize(565, 504)
         Account.setStyleSheet("QWidget#account\n"
-                              "{\n"
-                              "	background-color: #1C293B;\n"
-                              "	border: none;\n"
-                              "	border-radius: 2px;\n"
-                              "	outline: none;\n"
-                              "}")
+"{\n"
+"	background-color: #1C293B;\n"
+"	border: none;\n"
+"	border-radius: 2px;\n"
+"	outline: none;\n"
+"}")
         self.gridLayout = QGridLayout(Account)
         self.gridLayout.setObjectName("gridLayout")
         self.account = QWidget(Account)
@@ -41,12 +46,13 @@ class Ui_Account(object):
 
         self.gridLayout.addWidget(self.account, 0, 0, 1, 1)
 
+
         self.retranslateUi(Account)
 
         QMetaObject.connectSlotsByName(Account)
-
     # setupUi
 
     def retranslateUi(self, Account):
         Account.setWindowTitle(QCoreApplication.translate("Account", "Form", None))
     # retranslateUi
+

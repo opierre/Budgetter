@@ -173,7 +173,7 @@ class AccountDelegate(QItemDelegate):
         painter.drawText(
             rect_transaction,
             int(Qt.AlignmentFlag.AlignLeft | Qt.AlignmentFlag.AlignVCenter),
-            QCoreApplication.translate("account_delegate", b"Account"),
+            QCoreApplication.translate("account_delegate", "Account"),
         )
 
         # Set font on painter for amount
@@ -245,7 +245,7 @@ class AccountDelegate(QItemDelegate):
         painter.drawText(
             rect_perc,
             int(Qt.AlignmentFlag.AlignRight | Qt.AlignmentFlag.AlignVCenter),
-            QCoreApplication.translate("account_delegate", b"Balance"),
+            QCoreApplication.translate("account_delegate", "Balance"),
         )
 
         painter.restore()

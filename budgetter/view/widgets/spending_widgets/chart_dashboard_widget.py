@@ -1,5 +1,5 @@
 from PySide6.QtCharts import QChartView
-from PySide6.QtCore import Qt, QDate, QRectF, QLocale
+from PySide6.QtCore import Qt, QDate, QRectF, QLocale, QRect
 from PySide6.QtGui import QPainter, QColor, QLinearGradient, QBrush, QPen, QFont
 from PySide6.QtWidgets import QWidget, QPushButton, QButtonGroup, QGridLayout
 
@@ -223,11 +223,11 @@ class ChartDashboard(QWidget):
         if len(self.months) == 6:
             for index in range(0, 6):
                 # Align rectangle for button
-                button_rectangle = QRectF(
+                button_rectangle = QRect(
                     self.rect().x() + 0 + (self.rect().width() - 0) * index / 6.0,
-                    float(self.rect().y()),
-                    self.rect().width() / 6.0,
-                    self.rect().height() * 1.0 / 6.0,
+                    int(self.rect().y()),
+                    self.rect().width() / 6,
+                    self.rect().height() / 6.0,
                 )
 
                 # Define buttons positions

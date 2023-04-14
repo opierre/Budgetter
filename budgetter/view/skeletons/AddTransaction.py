@@ -3,21 +3,25 @@
 ################################################################################
 ## Form generated from reading UI file 'AddTransaction.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.4.1
+## Created by: Qt User Interface Compiler version 6.4.3
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
 
-from PySide6.QtCore import (QCoreApplication, QMetaObject, QSize, Qt)
-from PySide6.QtGui import (QCursor,
-                           QFont, QIcon)
-from PySide6.QtWidgets import (QGridLayout, QHBoxLayout, QLabel,
-                               QRadioButton, QSizePolicy, QSpacerItem, QToolButton,
-                               QVBoxLayout, QWidget)
+from PySide6.QtCore import (QCoreApplication, QDate, QDateTime, QLocale,
+    QMetaObject, QObject, QPoint, QRect,
+    QSize, QTime, QUrl, Qt)
+from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
+    QFont, QFontDatabase, QGradient, QIcon,
+    QImage, QKeySequence, QLinearGradient, QPainter,
+    QPalette, QPixmap, QRadialGradient, QTransform)
+from PySide6.QtWidgets import (QApplication, QGridLayout, QHBoxLayout, QLabel,
+    QRadioButton, QSizePolicy, QSpacerItem, QToolButton,
+    QVBoxLayout, QWidget)
 
 from budgetter.view.widgets.material_outlined_date_edit import MaterialOutlinedDateEdit
 from budgetter.view.widgets.material_outlined_line_edit import MaterialOutlinedLineEdit
-
+from budgetter.view.resources import resources_rc
 
 class Ui_AddTransaction(object):
     def setupUi(self, AddTransaction):
@@ -25,154 +29,154 @@ class Ui_AddTransaction(object):
             AddTransaction.setObjectName("AddTransaction")
         AddTransaction.resize(427, 431)
         AddTransaction.setStyleSheet("QWidget#transaction \n"
-                                     "{\n"
-                                     "	background-color: #1C293B;\n"
-                                     "	border: none;\n"
-                                     "	border-radius: 4px;\n"
-                                     "	outline: none;\n"
-                                     "}\n"
-                                     "\n"
-                                     "QPushButton\n"
-                                     "{\n"
-                                     "	background-color: transparent;\n"
-                                     "	color: #8ec6f4;\n"
-                                     "	outline: none;\n"
-                                     "	padding-left: 8px;\n"
-                                     "	padding-right: 8px;\n"
-                                     "	padding-top: 8px;\n"
-                                     "	padding-bottom: 8px;\n"
-                                     "	border-radius: 4px;\n"
-                                     "}\n"
-                                     "\n"
-                                     "QPushButton:hover\n"
-                                     "{\n"
-                                     "	background-color: rgba(140, 195, 240, 30);\n"
-                                     "}\n"
-                                     "\n"
-                                     "QToolButton\n"
-                                     "{\n"
-                                     "	background-color: transparent;\n"
-                                     "	outline: none;\n"
-                                     "}\n"
-                                     "\n"
-                                     "QLineEdit\n"
-                                     "{\n"
-                                     "	background-color: transparent;\n"
-                                     "	border: none;\n"
-                                     "	border-radius: 0px;\n"
-                                     "	padding-left: 0px;\n"
-                                     "	/*border-bottom: 1px solid rgba(255, 255, 255, 180);*/\n"
-                                     "	outline: none;\n"
-                                     "}\n"
-                                     "\n"
-                                     "QLineEdit:hover\n"
-                                     "{\n"
-                                     "	/*border-bottom: 2px solid rgba(255, 255, 255, 230);*/\n"
-                                     "}\n"
-                                     "\n"
-                                     "\n"
-                                     "QLineEdit:focus\n"
-                                     "{\n"
-                                     "	/*border-bottom: 2px solid rgba(255, 255, 255, 230);*/\n"
-                                     "}\n"
-                                     "\n"
-                                     "QComboBox\n"
-                                     "{\n"
-                                     "	background-color: transparent;\n"
-                                     "	border:"
-                                     " none;\n"
-                                     "	border-radius: 0px;\n"
-                                     "	padding-left: 0px;\n"
-                                     "	/*border-bottom: 1px solid rgba(255, 255, 255, 180);*/\n"
-                                     "	outline: none;\n"
-                                     "}\n"
-                                     "\n"
-                                     "QRadioButton\n"
-                                     "{\n"
-                                     "	outline: none;\n"
-                                     "}\n"
-                                     "\n"
-                                     "QRadioButton::indicator \n"
-                                     "{\n"
-                                     "    width: 22px;\n"
-                                     "    height: 22px;\n"
-                                     "}\n"
-                                     "\n"
-                                     "QRadioButton#expenses::indicator::checked \n"
-                                     "{\n"
-                                     "	image: url(:/images/images/radio_button_checked_FILL0_wght400_GRAD0_opsz48_expenses.svg);\n"
-                                     "}\n"
-                                     "\n"
-                                     "QRadioButton#expenses::indicator::unchecked \n"
-                                     "{\n"
-                                     "	image: url(:/images/images/radio_button_unchecked_FILL0_wght400_GRAD0_opsz48_expenses.svg);\n"
-                                     "}\n"
-                                     "\n"
-                                     "QRadioButton#income::indicator::checked \n"
-                                     "{\n"
-                                     "	image: url(:/images/images/radio_button_checked_FILL0_wght400_GRAD0_opsz48_income.svg);\n"
-                                     "}\n"
-                                     "\n"
-                                     "QRadioButton#income::indicator::unchecked \n"
-                                     "{\n"
-                                     "	image: url(:/images/images/radio_button_unchecked_FILL0_wght400_GRAD0_opsz48_income.svg);\n"
-                                     "}\n"
-                                     "\n"
-                                     "QRadioButton#transfer::indicator::checked \n"
-                                     "{\n"
-                                     "	image: url(:/images/images/radio_button_c"
-                                     "hecked_FILL0_wght400_GRAD0_opsz48_transfer.svg);\n"
-                                     "}\n"
-                                     "\n"
-                                     "QRadioButton#transfer::indicator::unchecked \n"
-                                     "{\n"
-                                     "	image: url(:/images/images/radio_button_unchecked_FILL0_wght400_GRAD0_opsz48_transfer.svg);\n"
-                                     "}\n"
-                                     "\n"
-                                     "QToolButton\n"
-                                     "{\n"
-                                     "	border: none;\n"
-                                     "	border-radius: 3px;\n"
-                                     "	outline: none;\n"
-                                     "}\n"
-                                     "\n"
-                                     "QRadioButton#card::indicator::checked \n"
-                                     "{\n"
-                                     "	image: url(:/images/images/credit_card_FILL1_wght400_GRAD0_opsz48.svg);\n"
-                                     "}\n"
-                                     "\n"
-                                     "QRadioButton#card::indicator::unchecked \n"
-                                     "{\n"
-                                     "	image: url(:/images/images/credit_card_FILL0_wght400_GRAD0_opsz48.svg);\n"
-                                     "}\n"
-                                     "\n"
-                                     "QRadioButton#cash::indicator::checked \n"
-                                     "{\n"
-                                     "	image: url(:/images/images/local_atm_FILL1_wght400_GRAD0_opsz48.svg);\n"
-                                     "}\n"
-                                     "\n"
-                                     "QRadioButton#cash::indicator::unchecked \n"
-                                     "{\n"
-                                     "	image: url(:/images/images/local_atm_FILL0_wght400_GRAD0_opsz48.svg);\n"
-                                     "}\n"
-                                     "\n"
-                                     "QRadioButton#money_transfer::indicator::checked \n"
-                                     "{\n"
-                                     "	image: url(:/images/images/swap_horizontal_circle_FILL1_wght400_GRAD0_opsz48.svg);\n"
-                                     "}\n"
-                                     ""
-                                     "\n"
-                                     "QRadioButton#money_transfer::indicator::unchecked \n"
-                                     "{\n"
-                                     "	image: url(:/images/images/swap_horizontal_circle_FILL0_wght400_GRAD0_opsz48.svg);\n"
-                                     "}\n"
-                                     "\n"
-                                     "QRadioButton#cash::indicator, QRadioButton#card::indicator, QRadioButton#money_transfer::indicator \n"
-                                     "{\n"
-                                     "    width: 26px;\n"
-                                     "    height: 26px;\n"
-                                     "}\n"
-                                     "")
+"{\n"
+"	background-color: #1C293B;\n"
+"	border: none;\n"
+"	border-radius: 4px;\n"
+"	outline: none;\n"
+"}\n"
+"\n"
+"QPushButton\n"
+"{\n"
+"	background-color: transparent;\n"
+"	color: #8ec6f4;\n"
+"	outline: none;\n"
+"	padding-left: 8px;\n"
+"	padding-right: 8px;\n"
+"	padding-top: 8px;\n"
+"	padding-bottom: 8px;\n"
+"	border-radius: 4px;\n"
+"}\n"
+"\n"
+"QPushButton:hover\n"
+"{\n"
+"	background-color: rgba(140, 195, 240, 30);\n"
+"}\n"
+"\n"
+"QToolButton\n"
+"{\n"
+"	background-color: transparent;\n"
+"	outline: none;\n"
+"}\n"
+"\n"
+"QLineEdit\n"
+"{\n"
+"	background-color: transparent;\n"
+"	border: none;\n"
+"	border-radius: 0px;\n"
+"	padding-left: 0px;\n"
+"	/*border-bottom: 1px solid rgba(255, 255, 255, 180);*/\n"
+"	outline: none;\n"
+"}\n"
+"\n"
+"QLineEdit:hover\n"
+"{\n"
+"	/*border-bottom: 2px solid rgba(255, 255, 255, 230);*/\n"
+"}\n"
+"\n"
+"\n"
+"QLineEdit:focus\n"
+"{\n"
+"	/*border-bottom: 2px solid rgba(255, 255, 255, 230);*/\n"
+"}\n"
+"\n"
+"QComboBox\n"
+"{\n"
+"	background-color: transparent;\n"
+"	border:"
+                        " none;\n"
+"	border-radius: 0px;\n"
+"	padding-left: 0px;\n"
+"	/*border-bottom: 1px solid rgba(255, 255, 255, 180);*/\n"
+"	outline: none;\n"
+"}\n"
+"\n"
+"QRadioButton\n"
+"{\n"
+"	outline: none;\n"
+"}\n"
+"\n"
+"QRadioButton::indicator \n"
+"{\n"
+"    width: 22px;\n"
+"    height: 22px;\n"
+"}\n"
+"\n"
+"QRadioButton#expenses::indicator::checked \n"
+"{\n"
+"	image: url(:/images/images/radio_button_checked_FILL0_wght400_GRAD0_opsz48_expenses.svg);\n"
+"}\n"
+"\n"
+"QRadioButton#expenses::indicator::unchecked \n"
+"{\n"
+"	image: url(:/images/images/radio_button_unchecked_FILL0_wght400_GRAD0_opsz48_expenses.svg);\n"
+"}\n"
+"\n"
+"QRadioButton#income::indicator::checked \n"
+"{\n"
+"	image: url(:/images/images/radio_button_checked_FILL0_wght400_GRAD0_opsz48_income.svg);\n"
+"}\n"
+"\n"
+"QRadioButton#income::indicator::unchecked \n"
+"{\n"
+"	image: url(:/images/images/radio_button_unchecked_FILL0_wght400_GRAD0_opsz48_income.svg);\n"
+"}\n"
+"\n"
+"QRadioButton#transfer::indicator::checked \n"
+"{\n"
+"	image: url(:/images/images/radio_button_c"
+                        "hecked_FILL0_wght400_GRAD0_opsz48_transfer.svg);\n"
+"}\n"
+"\n"
+"QRadioButton#transfer::indicator::unchecked \n"
+"{\n"
+"	image: url(:/images/images/radio_button_unchecked_FILL0_wght400_GRAD0_opsz48_transfer.svg);\n"
+"}\n"
+"\n"
+"QToolButton\n"
+"{\n"
+"	border: none;\n"
+"	border-radius: 3px;\n"
+"	outline: none;\n"
+"}\n"
+"\n"
+"QRadioButton#card::indicator::checked \n"
+"{\n"
+"	image: url(:/images/images/credit_card_FILL1_wght400_GRAD0_opsz48.svg);\n"
+"}\n"
+"\n"
+"QRadioButton#card::indicator::unchecked \n"
+"{\n"
+"	image: url(:/images/images/credit_card_FILL0_wght400_GRAD0_opsz48.svg);\n"
+"}\n"
+"\n"
+"QRadioButton#cash::indicator::checked \n"
+"{\n"
+"	image: url(:/images/images/local_atm_FILL1_wght400_GRAD0_opsz48.svg);\n"
+"}\n"
+"\n"
+"QRadioButton#cash::indicator::unchecked \n"
+"{\n"
+"	image: url(:/images/images/local_atm_FILL0_wght400_GRAD0_opsz48.svg);\n"
+"}\n"
+"\n"
+"QRadioButton#money_transfer::indicator::checked \n"
+"{\n"
+"	image: url(:/images/images/swap_horizontal_circle_FILL1_wght400_GRAD0_opsz48.svg);\n"
+"}\n"
+""
+                        "\n"
+"QRadioButton#money_transfer::indicator::unchecked \n"
+"{\n"
+"	image: url(:/images/images/swap_horizontal_circle_FILL0_wght400_GRAD0_opsz48.svg);\n"
+"}\n"
+"\n"
+"QRadioButton#cash::indicator, QRadioButton#card::indicator, QRadioButton#money_transfer::indicator \n"
+"{\n"
+"    width: 26px;\n"
+"    height: 26px;\n"
+"}\n"
+"")
         self.gridLayout = QGridLayout(AddTransaction)
         self.gridLayout.setObjectName("gridLayout")
         self.transaction = QWidget(AddTransaction)
@@ -221,7 +225,7 @@ class Ui_AddTransaction(object):
         font1.setFamilies([u"Roboto"])
         font1.setPointSize(11)
         self.expenses.setFont(font1)
-        self.expenses.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
+        self.expenses.setCursor(QCursor(Qt.PointingHandCursor))
         self.expenses.setStyleSheet("color: rgba(255, 255, 255, 210);")
         self.expenses.setChecked(True)
 
@@ -231,7 +235,7 @@ class Ui_AddTransaction(object):
         self.income.setObjectName("income")
         self.income.setMinimumSize(QSize(92, 0))
         self.income.setFont(font1)
-        self.income.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
+        self.income.setCursor(QCursor(Qt.PointingHandCursor))
         self.income.setStyleSheet("color: rgba(255, 255, 255, 210);")
 
         self.horizontalLayout_3.addWidget(self.income)
@@ -240,7 +244,7 @@ class Ui_AddTransaction(object):
         self.transfer.setObjectName("transfer")
         self.transfer.setMinimumSize(QSize(92, 0))
         self.transfer.setFont(font1)
-        self.transfer.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
+        self.transfer.setCursor(QCursor(Qt.PointingHandCursor))
         self.transfer.setStyleSheet("color: rgba(255, 255, 255, 210);")
 
         self.horizontalLayout_3.addWidget(self.transfer)
@@ -248,6 +252,7 @@ class Ui_AddTransaction(object):
         self.horizontalSpacer_2 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
         self.horizontalLayout_3.addItem(self.horizontalSpacer_2)
+
 
         self.verticalLayout_2.addWidget(self.widget)
 
@@ -265,12 +270,12 @@ class Ui_AddTransaction(object):
         self.category_icon.setFocusPolicy(Qt.NoFocus)
         self.category_icon.setStyleSheet("background-color: #21405D;")
         icon = QIcon()
-        icon.addFile(":/images/images/category_FILL0_wght400_GRAD0_opsz48.svg", QSize(), QIcon.Mode.Normal,
-                     QIcon.State.Off)
+        icon.addFile(":/images/images/category_FILL0_wght400_GRAD0_opsz48.svg", QSize(), QIcon.Normal, QIcon.Off)
         self.category_icon.setIcon(icon)
         self.category_icon.setIconSize(QSize(30, 30))
 
         self.verticalLayout_3.addWidget(self.category_icon)
+
 
         self.horizontalLayout.addLayout(self.verticalLayout_3)
 
@@ -281,6 +286,7 @@ class Ui_AddTransaction(object):
         self.category.setFont(font1)
 
         self.horizontalLayout.addWidget(self.category)
+
 
         self.verticalLayout_2.addLayout(self.horizontalLayout)
 
@@ -302,6 +308,7 @@ class Ui_AddTransaction(object):
 
         self.horizontalLayout_2.addWidget(self.account)
 
+
         self.verticalLayout_2.addLayout(self.horizontalLayout_2)
 
         self.horizontalLayout_4 = QHBoxLayout()
@@ -322,6 +329,7 @@ class Ui_AddTransaction(object):
         self.amount.setFont(font1)
 
         self.horizontalLayout_4.addWidget(self.amount)
+
 
         self.verticalLayout_2.addLayout(self.horizontalLayout_4)
 
@@ -353,7 +361,7 @@ class Ui_AddTransaction(object):
         self.card.setObjectName("card")
         self.card.setMinimumSize(QSize(92, 0))
         self.card.setFont(font1)
-        self.card.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
+        self.card.setCursor(QCursor(Qt.PointingHandCursor))
         self.card.setStyleSheet("color: rgba(255, 255, 255, 210);")
         self.card.setChecked(True)
 
@@ -363,7 +371,7 @@ class Ui_AddTransaction(object):
         self.cash.setObjectName("cash")
         self.cash.setMinimumSize(QSize(92, 0))
         self.cash.setFont(font1)
-        self.cash.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
+        self.cash.setCursor(QCursor(Qt.PointingHandCursor))
         self.cash.setStyleSheet("color: rgba(255, 255, 255, 210);")
 
         self.horizontalLayout_6.addWidget(self.cash)
@@ -372,7 +380,7 @@ class Ui_AddTransaction(object):
         self.money_transfer.setObjectName("money_transfer")
         self.money_transfer.setMinimumSize(QSize(92, 0))
         self.money_transfer.setFont(font1)
-        self.money_transfer.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
+        self.money_transfer.setCursor(QCursor(Qt.PointingHandCursor))
         self.money_transfer.setStyleSheet("color: rgba(255, 255, 255, 210);")
         self.money_transfer.setIconSize(QSize(22, 22))
 
@@ -382,11 +390,15 @@ class Ui_AddTransaction(object):
 
         self.horizontalLayout_6.addItem(self.horizontalSpacer_4)
 
+
         self.gridLayout_2.addWidget(self.widget_2, 0, 0, 1, 3)
+
 
         self.verticalLayout_2.addLayout(self.gridLayout_2)
 
+
         self.verticalLayout.addLayout(self.verticalLayout_2)
+
 
         self.gridLayout.addWidget(self.transaction, 0, 0, 1, 1)
 
@@ -405,7 +417,6 @@ class Ui_AddTransaction(object):
         self.retranslateUi(AddTransaction)
 
         QMetaObject.connectSlotsByName(AddTransaction)
-
     # setupUi
 
     def retranslateUi(self, AddTransaction):
@@ -419,3 +430,4 @@ class Ui_AddTransaction(object):
         self.cash.setText(QCoreApplication.translate("AddTransaction", "Cash", None))
         self.money_transfer.setText(QCoreApplication.translate("AddTransaction", "Transfer", None))
     # retranslateUi
+

@@ -26,7 +26,7 @@ class AccountsModel(QAbstractListModel):
         :return: according to role (text, ...)
         """
 
-        if index.isValid() and role == Qt.ItemDataRole.DisplayRole:
+        if isinstance(index, QModelIndex) and index.isValid() and role == Qt.ItemDataRole.DisplayRole:
             account = self.accounts[index.row()]
 
             # Return current account list

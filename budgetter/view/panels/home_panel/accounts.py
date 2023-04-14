@@ -273,7 +273,7 @@ class Accounts(QObject):
             # Open dialog
             self.dialogs.append(
                 Dialog(
-                    QCoreApplication.translate("Accounts", b"Add Bank"),
+                    QCoreApplication.translate("Accounts", "Add Bank"),
                     header_icon,
                     dialog_content,
                     self.main_window,

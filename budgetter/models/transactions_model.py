@@ -184,7 +184,7 @@ class TransactionsModel(QAbstractListModel):
         :return: according to role (text, ...)
         """
 
-        if index.isValid() and role == Qt.ItemDataRole.DisplayRole:
+        if isinstance(index, QModelIndex) and index.isValid() and role == Qt.ItemDataRole.DisplayRole:
             transaction = self.transactions[index.row()]
 
             # Return current transaction list

@@ -23,7 +23,7 @@ class DistributionModel(QAbstractListModel):
         :return: according to role (text, ...)
         """
 
-        if index.isValid() and role == Qt.ItemDataRole.DisplayRole:
+        if isinstance(index, QModelIndex) and index.isValid() and role == Qt.ItemDataRole.DisplayRole:
             category = self.categories[index.row()]
 
             # Return current category list

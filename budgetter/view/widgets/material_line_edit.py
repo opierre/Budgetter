@@ -137,8 +137,8 @@ class MaterialLineEditStateMachine(QStateMachine):
         transition.addAnimation(animation)
 
         # Set progress values for states
-        self.normal_state.assignProperty(self, b"_progress", 0)
-        self.focused_state.assignProperty(self, b"_progress", 1)
+        self.normal_state.assignProperty(self, "_progress", 0)
+        self.focused_state.assignProperty(self, "_progress", 1)
 
         # Setup label and states properties
         self.setup_properties()
@@ -225,25 +225,25 @@ class MaterialLineEditStateMachine(QStateMachine):
 
             # Move label on top if text in line edit is not empty
             if self.line_edit.text() == "":
-                self.normal_state.assignProperty(self.label, b"_offset", QPointF(0, 23))
-                self.normal_state.assignProperty(self.label, b"_scale", 1.0)
+                self.normal_state.assignProperty(self.label, "_offset", QPointF(0, 23))
+                self.normal_state.assignProperty(self.label, "_scale", 1.0)
             else:
                 self.normal_state.assignProperty(
-                    self.label, b"_offset", QPointF(0, 0 - margin_top)
+                    self.label, "_offset", QPointF(0, 0 - margin_top)
                 )
-                self.normal_state.assignProperty(self.label, b"_scale", 0.82)
+                self.normal_state.assignProperty(self.label, "_scale", 0.82)
 
             # Define properties values for label
             self.focused_state.assignProperty(
-                self.label, b"_offset", QPointF(0, 0 - margin_top)
+                self.label, "_offset", QPointF(0, 0 - margin_top)
             )
             self.focused_state.assignProperty(
-                self.label, b"_color", self.line_edit.ink_color()
+                self.label, "_color", self.line_edit.ink_color()
             )
             self.normal_state.assignProperty(
-                self.label, b"_color", self.line_edit.label_color()
+                self.label, "_color", self.line_edit.label_color()
             )
-            self.focused_state.assignProperty(self.label, b"_scale", 0.82)
+            self.focused_state.assignProperty(self.label, "_scale", 0.82)
 
         self.line_edit.update()
 
