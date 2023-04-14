@@ -147,24 +147,24 @@ class MaterialLineEditStateMachine(QStateMachine):
         self.setInitialState(self.normal_state)
 
         # Add transition from normal to focus
-        transition = QEventTransition(parent, QEvent.Type.FocusIn)
+        transition = QEventTransition(parent, QEvent.FocusIn)
         transition.setTargetState(self.focused_state)
         self.normal_state.addTransition(transition)
 
         # Add animation on transition to update progress
         animation = QPropertyAnimation(self, b"_progress", self)
-        animation.setEasingCurve(QEasingCurve.Type.InCubic)
+        animation.setEasingCurve(QEasingCurve.InCubic)
         animation.setDuration(310)
         transition.addAnimation(animation)
 
         # Add transition from focus to normal
-        transition = QEventTransition(parent, QEvent.Type.FocusOut)
+        transition = QEventTransition(parent, QEvent.FocusOut)
         transition.setTargetState(self.normal_state)
         self.focused_state.addTransition(transition)
 
         # Add animation on transition to update progress
         animation = QPropertyAnimation(self, b"_progress", self)
-        animation.setEasingCurve(QEasingCurve.Type.OutCubic)
+        animation.setEasingCurve(QEasingCurve.OutCubic)
         animation.setDuration(310)
         transition.addAnimation(animation)
 
@@ -210,7 +210,7 @@ class MaterialLineEditStateMachine(QStateMachine):
             # Apply new offset animation
             self.offset_animation = QPropertyAnimation(self.label, b"_offset", self)
             self.offset_animation.setDuration(210)
-            self.offset_animation.setEasingCurve(QEasingCurve.Type.OutCubic)
+            self.offset_animation.setEasingCurve(QEasingCurve.OutCubic)
             self.addDefaultAnimation(self.offset_animation)
 
             # Apply new color animation
@@ -304,8 +304,8 @@ class MaterialLineEditPrivate:
         self.show_input_line: bool = True
         self.use_theme_colors: bool = True
         self.placeholder_visible = False
-        self.label = None
-        self.state_machine = None
+        self.label: MaterialLineEditLabel = None
+        self.state_machine: MaterialLineEditStateMachine = None
 
         # Configure properties
         self.configure()
@@ -331,7 +331,7 @@ class MaterialLineEditPrivate:
         self.line_edit.setStyleSheet(STYLESHEET.format(padding="9", padding_minus="8"))
 
         # Set font on line edit
-        self.line_edit.setFont(QFont("Roboto", 11, QFont.Weight.Normal))
+        self.line_edit.setFont(QFont("Roboto", 11, QFont.Normal))
 
         # Start state machine for normal/focus state
         self.state_machine.start()
@@ -347,7 +347,7 @@ class MaterialOutlinedDateEdit(QLineEdit):
         super().__init__(parent)
 
         # Store trailing symbol
-        self.trailing_symbol = QLabel()
+        self.trailing_symbol = None
 
         if create is True:
             self.line_edit_private = MaterialLineEditPrivate(self)
@@ -395,7 +395,7 @@ class MaterialOutlinedDateEdit(QLineEdit):
         :return: None
         """
 
-        if arg__1.key() in {Qt.Key.Key_Left, Qt.Key.Key_Right}:
+        if arg__1.key() in {Qt.Key_Left, Qt.Key_Right}:
             return
 
         # Add character
@@ -404,8 +404,15 @@ class MaterialOutlinedDateEdit(QLineEdit):
         # Retrieve current text
         current_text = self.text()
 
-        if len(current_text) in {2, 5}:
-            if arg__1.key() != Qt.Key.Key_Backspace:
+        if len(current_text) == 2:
+            if arg__1.key() != Qt.Key_Backspace:
+                # Add /
+                self.setText(self.text() + "/")
+            else:
+                # Add /
+                self.setText(self.text()[:-1])
+        elif len(current_text) == 5:
+            if arg__1.key() != Qt.Key_Backspace:
                 # Add /
                 self.setText(self.text() + "/")
             else:
@@ -450,7 +457,7 @@ class MaterialOutlinedDateEdit(QLineEdit):
         """
 
         self.trailing_symbol = QLabel(symbol + " ", parent=self)
-        self.trailing_symbol.setFont(QFont("Roboto", 11, QFont.Weight.Normal))
+        self.trailing_symbol.setFont(QFont("Roboto", 11, QFont.Normal))
         self.trailing_symbol.setStyleSheet(
             "color: " + self.text_color().name() + "; padding: 0px;"
         )
@@ -583,7 +590,7 @@ class MaterialOutlinedDateEdit(QLineEdit):
         """
 
         # Handle Resize and Move event to update geometry
-        if event.type() in [QEvent.Type.Resize, QEvent.Type.Move]:
+        if event.type() in [QEvent.Resize, QEvent.Move]:
             if self.line_edit_private.label:
                 self.line_edit_private.label.setGeometry(self.rect())
 
@@ -634,12 +641,12 @@ class MaterialLineEditLabel(QWidget):
         self.line_edit = parent
         self.__scale = 1.0
         self.x_position = 0.0
-        self.y_position = 13.0
+        self.y_position = 13
         self.private_color = QColor(parent.label_color())
         self.background_color = QColor("transparent")
 
         # Configure and apply default font
-        font = QFont("Roboto", int(parent.fontInfo().pointSizeF()), QFont.Weight.Normal)
+        font = QFont("Roboto", int(parent.fontInfo().pointSizeF()), QFont.Medium)
         self.setFont(font)
 
     def set_scale(self, scale: float) -> None:
@@ -721,7 +728,7 @@ class MaterialLineEditLabel(QWidget):
 
         # Configure painter
         painter = QPainter(self)
-        painter.setRenderHint(QPainter.RenderHint.Antialiasing)
+        painter.setRenderHint(QPainter.Antialiasing)
         painter.scale(self.__scale, self.__scale)
         painter.setPen(self.private_color)
         painter.setOpacity(1)
@@ -731,28 +738,12 @@ class MaterialLineEditLabel(QWidget):
         width = font_metrics.horizontalAdvance(self.line_edit.label())
         height = font_metrics.height()
 
-        if self.y_position != 13:
-            # Configure and apply default font
-            font = QFont(
-                "Roboto",
-                int(self.parent().fontInfo().pointSizeF()),
-                QFont.Weight.Medium,
-            )
-        else:
-            # Configure and apply default font
-            font = QFont(
-                "Roboto",
-                int(self.parent().fontInfo().pointSizeF()),
-                QFont.Weight.Normal,
-            )
-        self.setFont(font)
-
         # Draw label with offset
         pos = QPointF(15 + self.x_position, self.height() - 32 + self.y_position)
         painter.fillRect(
-            int(pos.x() - 3), int(pos.y() - height), width + 6, height + 4, self.background_color
+            pos.x() - 3, pos.y() - height, width + 6, height + 4, self.background_color
         )
-        painter.drawText(int(pos.x()), int(pos.y()), self.line_edit.label())
+        painter.drawText(pos.x(), pos.y(), self.line_edit.label())
 
     # Properties to animate or modify
     _scale = Property(float, fset=set_scale, fget=scale)

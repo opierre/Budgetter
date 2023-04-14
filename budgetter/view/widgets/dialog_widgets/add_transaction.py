@@ -112,15 +112,15 @@ class AddTransactionDialog(QWidget):
             icon.addFile(
                 getattr(Categories, category.upper()).value,
                 QSize(30, 30),
-                QIcon.Mode.Disabled,
-                QIcon.State.On,
+                QIcon.Disabled,
+                QIcon.On,
             )
         else:
             icon.addFile(
                 ":/images/images/category_FILL0_wght400_GRAD0_opsz48.svg",
                 QSize(30, 30),
-                QIcon.Mode.Disabled,
-                QIcon.State.On,
+                QIcon.Disabled,
+                QIcon.On,
             )
         self.content.category_icon.setIcon(icon)
 
