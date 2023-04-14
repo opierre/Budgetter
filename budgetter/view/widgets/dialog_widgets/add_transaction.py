@@ -1,6 +1,6 @@
 from PySide6.QtCore import QStringListModel, QTimer, Signal, QSize
 from PySide6.QtGui import QColor, QDoubleValidator, Qt, QIcon
-from PySide6.QtWidgets import QWidget, QCompleter
+from PySide6.QtWidgets import QWidget, QCompleter, QButtonGroup
 
 from budgetter.utils.defines import Categories
 from budgetter.utils.tools import update_style
@@ -24,6 +24,12 @@ class AddTransactionDialog(QWidget):
 
         # Store account identifiers
         self.account_ids = account_ids
+
+        # Store radio button group
+        self.mean_group = QButtonGroup()
+
+        # Store transaction group
+        self.transaction_type_group = QButtonGroup()
 
         # Store completer for category/account choices
         self.category_completer = QCompleter(self.content.category)
@@ -98,6 +104,16 @@ class AddTransactionDialog(QWidget):
         self.account_completer.setCompletionMode(QCompleter.InlineCompletion)
         self.content.account.setCompleter(self.account_completer)
 
+        # Add all means to one group
+        self.mean_group.addButton(self.content.card)
+        self.mean_group.addButton(self.content.transfer)
+        self.mean_group.addButton(self.content.cash)
+
+        # Add all transaction types to one group
+        self.transaction_type_group.addButton(self.content.expenses)
+        self.transaction_type_group.addButton(self.content.income)
+        self.transaction_type_group.addButton(self.content.transfer)
+
     def update_category_icon(self, category: str):
         """
         Update category icon according to text
@@ -137,6 +153,9 @@ class AddTransactionDialog(QWidget):
         amount_date = self.content.date.text()
         category = self.content.category.text()
         account = self.content.account.text()
+        mean = self.mean_group.checkedButton().text().lower()
+        transaction_type = self.transaction_type_group.checkedButton().text()
+        notes = self.content.notes.text()
 
         if (
                 name != ""
@@ -152,7 +171,9 @@ class AddTransactionDialog(QWidget):
                 return
 
             # Emit signal to close popup and add new transaction
-            self.addTransaction.emit(name, amount, amount_date, category, account_id)
+            self.addTransaction.emit(
+                transaction_type, category, name, amount, amount_date, mean, notes, account_id
+            )
             return
 
         if name == "":

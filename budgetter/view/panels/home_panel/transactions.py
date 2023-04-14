@@ -1,18 +1,34 @@
-from PySide6.QtCore import QObject, Qt, QSize, QCoreApplication
+from PySide6.QtCore import QObject, Qt, QSize, QCoreApplication, Signal
 from PySide6.QtGui import QIcon, QShortcut, QKeySequence
-from PySide6.QtWidgets import QVBoxLayout, QStatusBar, QWidget, QPushButton, QListView, QFrame
+from PySide6.QtWidgets import (
+    QVBoxLayout,
+    QStatusBar,
+    QWidget,
+    QPushButton,
+    QListView,
+    QFrame,
+)
 
-from budgetter.models.transactions_model import TransactionsModel, TransactionsFilterModel
+from budgetter.models.transactions_model import (
+    TransactionsModel,
+    TransactionsFilterModel,
+)
 from budgetter.view.widgets.dialog import Dialog
 from budgetter.view.widgets.dialog_widgets.add_transaction import AddTransactionDialog
 from budgetter.view.widgets.status_bar import StatusBar
-from budgetter.view.widgets.transaction_widgets.transaction_delegate import TransactionDelegate
+from budgetter.view.widgets.toaster.toaster import Toaster, ToasterType
+from budgetter.view.widgets.transaction_widgets.transaction_delegate import (
+    TransactionDelegate,
+)
 
 
 class Transactions(QObject):
     """
     Transactions
     """
+
+    # Signal emitted to add new transaction with type, category, name, amount, amount date, mean, notes, account ID
+    addTransaction = Signal(str, str, str, str, str, str, str, int)
 
     def __init__(self, gui, parent):
         super().__init__()
@@ -38,16 +54,22 @@ class Transactions(QObject):
         self.all = QPushButton(QCoreApplication.translate("transactions", "All"))
 
         # Expenses button - Type
-        self.expenses = QPushButton(QCoreApplication.translate("transactions", "Expenses"))
+        self.expenses = QPushButton(
+            QCoreApplication.translate("transactions", "Expenses")
+        )
 
         # Incomes button - Type
         self.income = QPushButton(QCoreApplication.translate("transactions", "Income"))
 
         # Transfers button - Type
-        self.transfer = QPushButton(QCoreApplication.translate("transactions", "Transfer"))
+        self.transfer = QPushButton(
+            QCoreApplication.translate("transactions", "Transfer")
+        )
 
         # All button - Account
-        self.all_account = QPushButton(QCoreApplication.translate("transactions", "All"))
+        self.all_account = QPushButton(
+            QCoreApplication.translate("transactions", "All")
+        )
 
         # Account 1 button - Account
         self.account1 = QPushButton("Livret A")
@@ -77,7 +99,7 @@ class Transactions(QObject):
                 "account": "Compte Chèque",
                 "type": "Income",
                 "means": "Carte Bleue",
-                "comment": ""
+                "comment": "",
             },
             {
                 "name": "Gasoil",
@@ -87,7 +109,7 @@ class Transactions(QObject):
                 "account": "Livret A",
                 "type": "Expenses",
                 "means": "Espèces",
-                "comment": ""
+                "comment": "",
             },
             {
                 "name": "Computer",
@@ -97,7 +119,7 @@ class Transactions(QObject):
                 "account": "Livret Jeune",
                 "type": "Expenses",
                 "means": "Virement",
-                "comment": "Télétravail"
+                "comment": "Télétravail",
             },
             {
                 "name": "Virement",
@@ -107,8 +129,8 @@ class Transactions(QObject):
                 "account": "Livret Jeune",
                 "type": "Transfer",
                 "means": "Virement",
-                "comment": "Virement vers Livret A"
-            }
+                "comment": "Virement vers Livret A",
+            },
         ]
         self.transactions_model = TransactionsModel(data)
 
@@ -135,7 +157,9 @@ class Transactions(QObject):
         """
 
         # Connect signal from Delete button in list view to delete item
-        self.transaction_delegate.transactionDeletePressed.connect(self.delete_transaction)
+        self.transaction_delegate.transactionDeletePressed.connect(
+            self.delete_transaction
+        )
 
         # Connect signal from Apply button in list view to modify item
         self.transaction_delegate.transactionModified.connect(self.modify_transaction)
@@ -148,10 +172,18 @@ class Transactions(QObject):
         self.ui_setup.transactions.titleBarSearched.connect(self.search_transaction)
 
         # Update filtering when click on button in status bar
-        self.expenses.clicked.connect(self.update_current_filtering)  # pylint: disable=no-member
-        self.income.clicked.connect(self.update_current_filtering)  # pylint: disable=no-member
-        self.all.clicked.connect(self.update_current_filtering)  # pylint: disable=no-member
-        self.transfer.clicked.connect(self.update_current_filtering)  # pylint: disable=no-member
+        self.expenses.clicked.connect(
+            self.update_current_filtering
+        )  # pylint: disable=no-member
+        self.income.clicked.connect(
+            self.update_current_filtering
+        )  # pylint: disable=no-member
+        self.all.clicked.connect(
+            self.update_current_filtering
+        )  # pylint: disable=no-member
+        self.transfer.clicked.connect(
+            self.update_current_filtering
+        )  # pylint: disable=no-member
 
         # Update filtering when click on button in status bar
         self.all_account.clicked.connect(self.add_filter)  # pylint: disable=no-member
@@ -160,7 +192,29 @@ class Transactions(QObject):
         self.account3.clicked.connect(self.add_filter)  # pylint: disable=no-member
 
         # Connect shortcut to add new transaction
-        self.transaction_shortcut.activated.connect(self.add_transaction)  # pylint: disable=no-member
+        self.transaction_shortcut.activated.connect(
+            self.add_transaction
+        )  # pylint: disable=no-member
+
+    def transaction_added(self, transaction: dict):
+        """
+        Handle transaction added
+
+        :param transaction: transaction details
+        :return: None
+        """
+
+        # Show notification on bank added
+        _ = Toaster("Transaction added", ToasterType.SUCCESS, self.main_window)
+
+        # Update models
+        print(transaction)
+        # self.transactions_filter_model.add_transaction({bank.get("id"): bank.get("name")})
+
+        # Close current popup and show previous one again
+        self.dialogs[-1].close()
+        self.dialogs.pop(-1)
+        self.dialogs[-1].show(False)
 
     def display_comment(self, rectangle, index):
         """
@@ -193,7 +247,7 @@ class Transactions(QObject):
         """
 
         for account in accounts:
-            self.account_identifiers[account.get('name')] = account.get('id')
+            self.account_identifiers[account.get("name")] = account.get("id")
 
     def add_transaction(self):
         """
@@ -203,19 +257,31 @@ class Transactions(QObject):
         """
 
         # Set dialog content
-        dialog_content = AddTransactionDialog(self.account_identifiers, self.main_window)
+        dialog_content = AddTransactionDialog(
+            self.account_identifiers, self.main_window
+        )
 
         # Set icon
         header_icon = QIcon()
-        header_icon.addFile(":/images/images/receipt_long_FILL1_wght400_GRAD0_opsz48.svg",
-                            QSize(24, 24), QIcon.Mode.Disabled, QIcon.State.On)
+        header_icon.addFile(
+            ":/images/images/receipt_long_FILL1_wght400_GRAD0_opsz48.svg",
+            QSize(24, 24),
+            QIcon.Mode.Disabled,
+            QIcon.State.On,
+        )
 
         # Open dialog
-        self.dialogs.append(Dialog(QCoreApplication.translate("Transactions", 'Add Transaction'), header_icon,
-                                   dialog_content, self.main_window))
+        self.dialogs.append(
+            Dialog(
+                QCoreApplication.translate("Transactions", "Add Transaction"),
+                header_icon,
+                dialog_content,
+                self.main_window,
+            )
+        )
 
         # Connect signal from popup to add new account
-        dialog_content.addTransaction.connect(self.add_transaction_debug)
+        dialog_content.addTransaction.connect(self.addTransaction.emit)
 
         # Connect signal coming from click on Confirm button
         self.dialogs[-1].confirm.connect(dialog_content.check_inputs)
@@ -240,24 +306,6 @@ class Transactions(QObject):
 
         if len(self.dialogs) > 0:
             self.dialogs[-1].show(False)
-
-    def add_transaction_debug(self, transaction_type: str, category: str, name: str, amount: str, amount_date: str,
-                              mean: str, notes: str):
-        """
-        Add transaction in database
-
-        :param transaction_type: transaction type (income, expenses, transfer)
-        :param category: category
-        :param name: account name
-        :param amount: account amount
-        :param amount_date: account amount in date
-        :param mean: transaction mean
-        :param notes: notes
-        :return: None
-        """
-
-        # TODO: call REST API
-        print(transaction_type, category, name, amount, amount_date, mean, notes)
 
     def search_transaction(self, content: str, search_field: str):
         """
@@ -420,8 +468,12 @@ class Transactions(QObject):
         """
 
         # Set title
-        self.ui_setup.transactions.set_title(QCoreApplication.translate("transactions", "Transactions"))
-        self.ui_setup.transactions.set_button_tooltip(QCoreApplication.translate("transactions", "Add transaction"))
+        self.ui_setup.transactions.set_title(
+            QCoreApplication.translate("transactions", "Transactions")
+        )
+        self.ui_setup.transactions.set_button_tooltip(
+            QCoreApplication.translate("transactions", "Add transaction")
+        )
 
     def update_current_filtering(self):
         """
@@ -440,17 +492,17 @@ class Transactions(QObject):
         self.transactions_filter_model.update_filter(new_filter)
 
         # Update activated state
-        if new_filter in {'All', 'Tout'}:
+        if new_filter in {"All", "Tout"}:
             self.all.setProperty("activated", "true")
             self.expenses.setProperty("activated", "false")
             self.income.setProperty("activated", "false")
             self.transfer.setProperty("activated", "false")
-        elif new_filter in {'Expenses', 'Dépenses'}:
+        elif new_filter in {"Expenses", "Dépenses"}:
             self.all.setProperty("activated", "false")
             self.expenses.setProperty("activated", "true")
             self.income.setProperty("activated", "false")
             self.transfer.setProperty("activated", "false")
-        elif new_filter in {'Income', 'Revenus'}:
+        elif new_filter in {"Income", "Revenus"}:
             self.all.setProperty("activated", "false")
             self.expenses.setProperty("activated", "false")
             self.income.setProperty("activated", "true")
@@ -488,7 +540,7 @@ class Transactions(QObject):
         self.transactions_filter_model.add_filter(new_filter)
 
         # Update activated state
-        if new_filter == 'All':
+        if new_filter == "All":
             self.all_account.setProperty("activated", "true")
             self.account1.setProperty("activated", "false")
             self.account2.setProperty("activated", "false")

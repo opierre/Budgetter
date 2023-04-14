@@ -17,6 +17,7 @@ class Home(QObject):
     # Signals list
     addAccountController = Signal(str, str, int, str, str)
     addBankController = Signal(str)
+    addTransactionController = Signal(str, str, str, str, str, str, str, int)
 
     def __init__(self, parent, gui):
         super().__init__()
@@ -53,6 +54,7 @@ class Home(QObject):
         # Connect signals from accounts
         self._accounts.addAccountCall.connect(self.addAccountController.emit)
         self._accounts.addBankCall.connect(self.addBankController.emit)
+        self._transactions.addTransaction.connect(self.addTransactionController.emit)
 
     def handle_error(self, error: Tuple[Exception, Any, str]):
         """
@@ -85,6 +87,17 @@ class Home(QObject):
 
         # Set bank ID to ad account popup
         self._accounts.bank_added(bank)
+
+    def handle_add_transaction(self, transaction: dict):
+        """
+        Handle add transaction result from API call
+
+        :param transaction: transaction details
+        :return: None
+        """
+
+        # Add transaction to model and close popup
+        self._transactions.transaction_added(transaction)
 
     def handle_get_banks(self, bank_list: list):
         """

@@ -12,6 +12,7 @@ class Dashboard(QObject):
     # URLs List
     ACCOUNT_URL = "http://127.0.0.1:8080/api/budget/account/"
     BANK_URL = "http://127.0.0.1:8080/api/budget/bank/"
+    TRANSACTION_URL = "http://127.0.0.1:8080/api/budget/transaction/"
 
     # Signals list
     errorDashboard = Signal(tuple)
@@ -19,6 +20,7 @@ class Dashboard(QObject):
     bankAdded = Signal(object)
     banksFound = Signal(object)
     accountsFound = Signal(object)
+    transactionAdded = Signal(object)
 
     def get_banks_worker(self):
         """
@@ -50,7 +52,9 @@ class Dashboard(QObject):
         # Start worker
         worker.run()
 
-    def add_account_worker(self, name: str, amount: str, bank_id: int, date: str, color: str):
+    def add_account_worker(
+            self, name: str, amount: str, bank_id: int, date: str, color: str
+    ):
         """
         Add account via worker call
 
@@ -66,9 +70,9 @@ class Dashboard(QObject):
         data = {
             "name": name,
             "bank": bank_id,
-            "amount": float(amount.replace(',', '.')),
+            "amount": float(amount.replace(",", ".")),
             "last_update": date,
-            "color": color
+            "color": color,
         }
 
         # Create worker
@@ -88,13 +92,58 @@ class Dashboard(QObject):
         """
 
         # Build data
-        data = {
-            "name": name
-        }
+        data = {"name": name}
 
         # Create worker
         worker = Worker(RestClient.post, url=self.BANK_URL, data=data)
         worker.signals.result.connect(self.bankAdded.emit)
+        worker.signals.error.connect(self.errorDashboard.emit)
+
+        # Start worker
+        worker.run()
+
+    def add_transaction_worker(
+            self,
+            transaction_type: str,
+            category: str,
+            name: str,
+            amount: str,
+            amount_date: str,
+            mean: str,
+            notes: str,
+            account_id: int,
+    ):
+        """
+        Add transaction via worker call
+
+        :param transaction_type: transaction type (income, expenses, transfer)
+        :param category: category
+        :param name: account name
+        :param amount: account amount
+        :param amount_date: account amount in date
+        :param mean: transaction mean
+        :param notes: notes
+        :param account_id: account ID
+        :return: None
+        """
+
+        # Build data
+        data = {
+            "name": name,
+            "amount": float(amount),
+            "date": amount_date,
+            "account": account_id,
+            "category": category,
+            "comment": notes,
+            "mean": mean,
+            "transaction_type": transaction_type,
+        }
+
+        print(data)
+
+        # Create worker
+        worker = Worker(RestClient.post, url=self.TRANSACTION_URL, data=data)
+        worker.signals.result.connect(self.transactionAdded.emit)
         worker.signals.error.connect(self.errorDashboard.emit)
 
         # Start worker
