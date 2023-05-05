@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>427</width>
-    <height>431</height>
+    <height>357</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -362,151 +362,10 @@ QRadioButton#cash::indicator, QRadioButton#card::indicator, QRadioButton#money_t
            <number>20</number>
           </property>
           <item>
-           <layout class="QVBoxLayout" name="verticalLayout_3">
-            <property name="topMargin">
-             <number>17</number>
-            </property>
-            <item>
-             <widget class="QToolButton" name="category_icon">
-              <property name="enabled">
-               <bool>false</bool>
-              </property>
-              <property name="minimumSize">
-               <size>
-                <width>52</width>
-                <height>52</height>
-               </size>
-              </property>
-              <property name="maximumSize">
-               <size>
-                <width>52</width>
-                <height>52</height>
-               </size>
-              </property>
-              <property name="focusPolicy">
-               <enum>Qt::NoFocus</enum>
-              </property>
-              <property name="styleSheet">
-               <string notr="true">background-color: #21405D;</string>
-              </property>
-              <property name="text">
-               <string/>
-              </property>
-              <property name="icon">
-               <iconset resource="../resources/resources.qrc">
-                <normaloff>:/images/images/category_FILL0_wght400_GRAD0_opsz48.svg</normaloff>:/images/images/category_FILL0_wght400_GRAD0_opsz48.svg</iconset>
-              </property>
-              <property name="iconSize">
-               <size>
-                <width>30</width>
-                <height>30</height>
-               </size>
-              </property>
-             </widget>
-            </item>
-           </layout>
-          </item>
-          <item>
-           <widget class="MaterialOutlinedLineEdit" name="category">
-            <property name="minimumSize">
-             <size>
-              <width>200</width>
-              <height>67</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>16777215</width>
-              <height>67</height>
-             </size>
-            </property>
-            <property name="font">
-             <font>
-              <family>Roboto</family>
-              <pointsize>11</pointsize>
-             </font>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </item>
-        <item>
-         <layout class="QHBoxLayout" name="horizontalLayout_2">
-          <property name="spacing">
-           <number>20</number>
-          </property>
-          <item>
            <widget class="MaterialOutlinedLineEdit" name="name">
             <property name="minimumSize">
              <size>
               <width>200</width>
-              <height>67</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>16777215</width>
-              <height>67</height>
-             </size>
-            </property>
-            <property name="font">
-             <font>
-              <family>Roboto</family>
-              <pointsize>11</pointsize>
-             </font>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="MaterialOutlinedLineEdit" name="account">
-            <property name="minimumSize">
-             <size>
-              <width>170</width>
-              <height>67</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>16777215</width>
-              <height>67</height>
-             </size>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </item>
-        <item>
-         <layout class="QHBoxLayout" name="horizontalLayout_4">
-          <property name="spacing">
-           <number>20</number>
-          </property>
-          <item>
-           <widget class="MaterialOutlinedDateEdit" name="date">
-            <property name="minimumSize">
-             <size>
-              <width>0</width>
-              <height>67</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>16777215</width>
-              <height>67</height>
-             </size>
-            </property>
-            <property name="font">
-             <font>
-              <family>Roboto</family>
-              <pointsize>11</pointsize>
-             </font>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="MaterialOutlinedLineEdit" name="amount">
-            <property name="minimumSize">
-             <size>
-              <width>170</width>
               <height>67</height>
              </size>
             </property>
@@ -540,28 +399,6 @@ QRadioButton#cash::indicator, QRadioButton#card::indicator, QRadioButton#money_t
           <property name="verticalSpacing">
            <number>0</number>
           </property>
-          <item row="1" column="0" colspan="3">
-           <widget class="MaterialOutlinedLineEdit" name="notes">
-            <property name="minimumSize">
-             <size>
-              <width>0</width>
-              <height>67</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>16777215</width>
-              <height>67</height>
-             </size>
-            </property>
-            <property name="font">
-             <font>
-              <family>Roboto</family>
-              <pointsize>11</pointsize>
-             </font>
-            </property>
-           </widget>
-          </item>
           <item row="0" column="0" colspan="3">
            <widget class="QWidget" name="widget_2" native="true">
             <property name="minimumSize">
@@ -701,6 +538,102 @@ QRadioButton#cash::indicator, QRadioButton#card::indicator, QRadioButton#money_t
           </item>
          </layout>
         </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_2">
+          <property name="spacing">
+           <number>20</number>
+          </property>
+          <item>
+           <widget class="MaterialOutlinedLineEdit" name="amount">
+            <property name="minimumSize">
+             <size>
+              <width>170</width>
+              <height>67</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>67</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <family>Roboto</family>
+              <pointsize>11</pointsize>
+             </font>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="MaterialOutlinedLineEdit" name="account">
+            <property name="minimumSize">
+             <size>
+              <width>170</width>
+              <height>67</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>67</height>
+             </size>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_4">
+          <property name="spacing">
+           <number>20</number>
+          </property>
+          <item>
+           <widget class="MaterialOutlinedDateEdit" name="date">
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>67</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>67</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <family>Roboto</family>
+              <pointsize>11</pointsize>
+             </font>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="MaterialOutlinedLineEdit" name="notes">
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>67</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>67</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <family>Roboto</family>
+              <pointsize>11</pointsize>
+             </font>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
        </layout>
       </item>
      </layout>
@@ -724,15 +657,11 @@ QRadioButton#cash::indicator, QRadioButton#card::indicator, QRadioButton#money_t
   <tabstop>expenses</tabstop>
   <tabstop>income</tabstop>
   <tabstop>transfer</tabstop>
-  <tabstop>category</tabstop>
-  <tabstop>name</tabstop>
   <tabstop>account</tabstop>
   <tabstop>date</tabstop>
-  <tabstop>amount</tabstop>
   <tabstop>card</tabstop>
   <tabstop>cash</tabstop>
   <tabstop>money_transfer</tabstop>
-  <tabstop>notes</tabstop>
  </tabstops>
  <resources>
   <include location="../resources/resources.qrc"/>

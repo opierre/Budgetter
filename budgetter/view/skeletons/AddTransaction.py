@@ -16,8 +16,8 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QApplication, QGridLayout, QHBoxLayout, QLabel,
-    QRadioButton, QSizePolicy, QSpacerItem, QToolButton,
-    QVBoxLayout, QWidget)
+    QRadioButton, QSizePolicy, QSpacerItem, QVBoxLayout,
+    QWidget)
 
 from budgetter.view.widgets.material_outlined_date_edit import MaterialOutlinedDateEdit
 from budgetter.view.widgets.material_outlined_line_edit import MaterialOutlinedLineEdit
@@ -27,7 +27,7 @@ class Ui_AddTransaction(object):
     def setupUi(self, AddTransaction):
         if not AddTransaction.objectName():
             AddTransaction.setObjectName("AddTransaction")
-        AddTransaction.resize(427, 431)
+        AddTransaction.resize(427, 357)
         AddTransaction.setStyleSheet("QWidget#transaction \n"
 "{\n"
 "	background-color: #1C293B;\n"
@@ -259,93 +259,22 @@ class Ui_AddTransaction(object):
         self.horizontalLayout = QHBoxLayout()
         self.horizontalLayout.setSpacing(20)
         self.horizontalLayout.setObjectName("horizontalLayout")
-        self.verticalLayout_3 = QVBoxLayout()
-        self.verticalLayout_3.setObjectName("verticalLayout_3")
-        self.verticalLayout_3.setContentsMargins(-1, 17, -1, -1)
-        self.category_icon = QToolButton(self.transaction)
-        self.category_icon.setObjectName("category_icon")
-        self.category_icon.setEnabled(False)
-        self.category_icon.setMinimumSize(QSize(52, 52))
-        self.category_icon.setMaximumSize(QSize(52, 52))
-        self.category_icon.setFocusPolicy(Qt.NoFocus)
-        self.category_icon.setStyleSheet("background-color: #21405D;")
-        icon = QIcon()
-        icon.addFile(":/images/images/category_FILL0_wght400_GRAD0_opsz48.svg", QSize(), QIcon.Normal, QIcon.Off)
-        self.category_icon.setIcon(icon)
-        self.category_icon.setIconSize(QSize(30, 30))
-
-        self.verticalLayout_3.addWidget(self.category_icon)
-
-
-        self.horizontalLayout.addLayout(self.verticalLayout_3)
-
-        self.category = MaterialOutlinedLineEdit(self.transaction)
-        self.category.setObjectName("category")
-        self.category.setMinimumSize(QSize(200, 67))
-        self.category.setMaximumSize(QSize(16777215, 67))
-        self.category.setFont(font1)
-
-        self.horizontalLayout.addWidget(self.category)
-
-
-        self.verticalLayout_2.addLayout(self.horizontalLayout)
-
-        self.horizontalLayout_2 = QHBoxLayout()
-        self.horizontalLayout_2.setSpacing(20)
-        self.horizontalLayout_2.setObjectName("horizontalLayout_2")
         self.name = MaterialOutlinedLineEdit(self.transaction)
         self.name.setObjectName("name")
         self.name.setMinimumSize(QSize(200, 67))
         self.name.setMaximumSize(QSize(16777215, 67))
         self.name.setFont(font1)
 
-        self.horizontalLayout_2.addWidget(self.name)
-
-        self.account = MaterialOutlinedLineEdit(self.transaction)
-        self.account.setObjectName("account")
-        self.account.setMinimumSize(QSize(170, 67))
-        self.account.setMaximumSize(QSize(16777215, 67))
-
-        self.horizontalLayout_2.addWidget(self.account)
+        self.horizontalLayout.addWidget(self.name)
 
 
-        self.verticalLayout_2.addLayout(self.horizontalLayout_2)
-
-        self.horizontalLayout_4 = QHBoxLayout()
-        self.horizontalLayout_4.setSpacing(20)
-        self.horizontalLayout_4.setObjectName("horizontalLayout_4")
-        self.date = MaterialOutlinedDateEdit(self.transaction)
-        self.date.setObjectName("date")
-        self.date.setMinimumSize(QSize(0, 67))
-        self.date.setMaximumSize(QSize(16777215, 67))
-        self.date.setFont(font1)
-
-        self.horizontalLayout_4.addWidget(self.date)
-
-        self.amount = MaterialOutlinedLineEdit(self.transaction)
-        self.amount.setObjectName("amount")
-        self.amount.setMinimumSize(QSize(170, 67))
-        self.amount.setMaximumSize(QSize(16777215, 67))
-        self.amount.setFont(font1)
-
-        self.horizontalLayout_4.addWidget(self.amount)
-
-
-        self.verticalLayout_2.addLayout(self.horizontalLayout_4)
+        self.verticalLayout_2.addLayout(self.horizontalLayout)
 
         self.gridLayout_2 = QGridLayout()
         self.gridLayout_2.setObjectName("gridLayout_2")
         self.gridLayout_2.setHorizontalSpacing(30)
         self.gridLayout_2.setVerticalSpacing(0)
         self.gridLayout_2.setContentsMargins(-1, 10, -1, 0)
-        self.notes = MaterialOutlinedLineEdit(self.transaction)
-        self.notes.setObjectName("notes")
-        self.notes.setMinimumSize(QSize(0, 67))
-        self.notes.setMaximumSize(QSize(16777215, 67))
-        self.notes.setFont(font1)
-
-        self.gridLayout_2.addWidget(self.notes, 1, 0, 1, 3)
-
         self.widget_2 = QWidget(self.transaction)
         self.widget_2.setObjectName("widget_2")
         self.widget_2.setMinimumSize(QSize(20, 32))
@@ -396,6 +325,49 @@ class Ui_AddTransaction(object):
 
         self.verticalLayout_2.addLayout(self.gridLayout_2)
 
+        self.horizontalLayout_2 = QHBoxLayout()
+        self.horizontalLayout_2.setSpacing(20)
+        self.horizontalLayout_2.setObjectName("horizontalLayout_2")
+        self.amount = MaterialOutlinedLineEdit(self.transaction)
+        self.amount.setObjectName("amount")
+        self.amount.setMinimumSize(QSize(170, 67))
+        self.amount.setMaximumSize(QSize(16777215, 67))
+        self.amount.setFont(font1)
+
+        self.horizontalLayout_2.addWidget(self.amount)
+
+        self.account = MaterialOutlinedLineEdit(self.transaction)
+        self.account.setObjectName("account")
+        self.account.setMinimumSize(QSize(170, 67))
+        self.account.setMaximumSize(QSize(16777215, 67))
+
+        self.horizontalLayout_2.addWidget(self.account)
+
+
+        self.verticalLayout_2.addLayout(self.horizontalLayout_2)
+
+        self.horizontalLayout_4 = QHBoxLayout()
+        self.horizontalLayout_4.setSpacing(20)
+        self.horizontalLayout_4.setObjectName("horizontalLayout_4")
+        self.date = MaterialOutlinedDateEdit(self.transaction)
+        self.date.setObjectName("date")
+        self.date.setMinimumSize(QSize(0, 67))
+        self.date.setMaximumSize(QSize(16777215, 67))
+        self.date.setFont(font1)
+
+        self.horizontalLayout_4.addWidget(self.date)
+
+        self.notes = MaterialOutlinedLineEdit(self.transaction)
+        self.notes.setObjectName("notes")
+        self.notes.setMinimumSize(QSize(0, 67))
+        self.notes.setMaximumSize(QSize(16777215, 67))
+        self.notes.setFont(font1)
+
+        self.horizontalLayout_4.addWidget(self.notes)
+
+
+        self.verticalLayout_2.addLayout(self.horizontalLayout_4)
+
 
         self.verticalLayout.addLayout(self.verticalLayout_2)
 
@@ -404,15 +376,11 @@ class Ui_AddTransaction(object):
 
         QWidget.setTabOrder(self.expenses, self.income)
         QWidget.setTabOrder(self.income, self.transfer)
-        QWidget.setTabOrder(self.transfer, self.category)
-        QWidget.setTabOrder(self.category, self.name)
-        QWidget.setTabOrder(self.name, self.account)
+        QWidget.setTabOrder(self.transfer, self.account)
         QWidget.setTabOrder(self.account, self.date)
-        QWidget.setTabOrder(self.date, self.amount)
-        QWidget.setTabOrder(self.amount, self.card)
+        QWidget.setTabOrder(self.date, self.card)
         QWidget.setTabOrder(self.card, self.cash)
         QWidget.setTabOrder(self.cash, self.money_transfer)
-        QWidget.setTabOrder(self.money_transfer, self.notes)
 
         self.retranslateUi(AddTransaction)
 
@@ -425,7 +393,6 @@ class Ui_AddTransaction(object):
         self.expenses.setText(QCoreApplication.translate("AddTransaction", "Expenses", None))
         self.income.setText(QCoreApplication.translate("AddTransaction", "Income", None))
         self.transfer.setText(QCoreApplication.translate("AddTransaction", "Transfer", None))
-        self.category_icon.setText("")
         self.card.setText(QCoreApplication.translate("AddTransaction", "Card", None))
         self.cash.setText(QCoreApplication.translate("AddTransaction", "Cash", None))
         self.money_transfer.setText(QCoreApplication.translate("AddTransaction", "Transfer", None))

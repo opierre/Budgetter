@@ -288,7 +288,7 @@ class Transactions(QObject):
         self.dialogs[-1].escape.connect(self.escape_dialog)
 
         # Set focus on first widget when opening
-        dialog_content.content.category.setFocus()
+        dialog_content.content.name.setFocus()
 
         # Add transaction to model
         # self.transactions_filter_model.add_transaction()

@@ -1,8 +1,7 @@
-from PySide6.QtCore import QStringListModel, QTimer, Signal, QSize
-from PySide6.QtGui import QColor, QDoubleValidator, Qt, QIcon
+from PySide6.QtCore import QStringListModel, QTimer, Signal
+from PySide6.QtGui import QColor, QDoubleValidator, Qt
 from PySide6.QtWidgets import QWidget, QCompleter, QButtonGroup
 
-from budgetter.utils.defines import Categories
 from budgetter.utils.tools import update_style
 from budgetter.view.skeletons.AddTransaction import Ui_AddTransaction
 
@@ -31,8 +30,7 @@ class AddTransactionDialog(QWidget):
         # Store transaction group
         self.transaction_type_group = QButtonGroup()
 
-        # Store completer for category/account choices
-        self.category_completer = QCompleter(self.content.category)
+        # Store completer for account choice
         self.account_completer = QCompleter(self.content.account)
 
         # Configure widgets
@@ -48,8 +46,7 @@ class AddTransactionDialog(QWidget):
         :return: None
         """
 
-        # Connect category change to icon
-        self.content.category.textChanged.connect(self.update_category_icon)
+        pass
 
     def configure(self):
         """
@@ -84,16 +81,6 @@ class AddTransactionDialog(QWidget):
         self.content.date.set_text_color(QColor(255, 255, 255, 255))
         self.content.date.set_label_color(QColor(224, 224, 224, 150))
 
-        # Configure combobox for category choice
-        self.content.category.set_label("Category")
-        self.content.category.set_label_background_color(QColor("#1C293B"))
-        self.content.category.set_text_color(QColor(255, 255, 255, 255))
-        self.content.category.set_label_color(QColor(224, 224, 224, 150))
-        self.category_completer.setModel(QStringListModel(Categories.get_members()))
-        self.category_completer.setCaseSensitivity(Qt.CaseInsensitive)
-        self.category_completer.setCompletionMode(QCompleter.InlineCompletion)
-        self.content.category.setCompleter(self.category_completer)
-
         # Configure combobox for account choice
         self.content.account.set_label("Account")
         self.content.account.set_label_background_color(QColor("#1C293B"))
@@ -114,32 +101,6 @@ class AddTransactionDialog(QWidget):
         self.transaction_type_group.addButton(self.content.income)
         self.transaction_type_group.addButton(self.content.transfer)
 
-    def update_category_icon(self, category: str):
-        """
-        Update category icon according to text
-
-        :param category: category to set
-        :return: None
-        """
-
-        icon = QIcon()
-        if Categories.has_key_in(category):
-            # Update icon
-            icon.addFile(
-                getattr(Categories, category.upper()).value,
-                QSize(30, 30),
-                QIcon.Disabled,
-                QIcon.On,
-            )
-        else:
-            icon.addFile(
-                ":/images/images/category_FILL0_wght400_GRAD0_opsz48.svg",
-                QSize(30, 30),
-                QIcon.Disabled,
-                QIcon.On,
-            )
-        self.content.category_icon.setIcon(icon)
-
     def check_inputs(self):
         """
         Check every inputs on opened dialog
@@ -151,28 +112,30 @@ class AddTransactionDialog(QWidget):
         name = self.content.name.text()
         amount = self.content.amount.text()
         amount_date = self.content.date.text()
-        category = self.content.category.text()
         account = self.content.account.text()
         mean = self.mean_group.checkedButton().text().lower()
         transaction_type = self.transaction_type_group.checkedButton().text()
         notes = self.content.notes.text()
 
-        if (
-                name != ""
-                and amount != ""
-                and amount_date != ""
-                and category != ""
-                and account != ""
-        ):
+        if name != "" and amount != "" and amount_date != "" and account != "":
             # Find corresponding bank identifier
             account_id = self.account_ids.get(account, None)
             if account_id is None:
                 print("Error in account id")
                 return
 
+            # Retrieve category according to label
+
             # Emit signal to close popup and add new transaction
             self.addTransaction.emit(
-                transaction_type, category, name, amount, amount_date, mean, notes, account_id
+                transaction_type,
+                0,
+                name,
+                amount,
+                amount_date,
+                mean,
+                notes,
+                account_id,
             )
             return
 
@@ -182,8 +145,6 @@ class AddTransactionDialog(QWidget):
             self.warn_widget(self.content.amount)
         if amount_date == "":
             self.warn_widget(self.content.date)
-        if category == "":
-            self.warn_widget(self.content.category)
         if account == "":
             self.warn_widget(self.content.account)
 
