@@ -1,7 +1,7 @@
 import sys
 
 from PySide6.QtCore import Qt, QRectF
-from PySide6.QtGui import QPainter, QColor, QPen, QFont
+from PySide6.QtGui import QPainter, QColor, QPen
 from PySide6.QtWidgets import (
     QWidget,
     QVBoxLayout,
@@ -41,21 +41,6 @@ class CircleCheckbox(QPushButton):
         """
 
         self._type = _type
-
-    def setChecked(self, arg__1: bool) -> None:
-        """
-        Override setChecked to set content in bold
-
-        :param arg__1: True/False
-        :return: None
-        """
-
-        font = self.font()
-        if arg__1 is True:
-            font.setWeight(QFont.Bold)
-        else:
-            font.setWeight(QFont.Normal)
-        super().setChecked(arg__1)
 
     def paintEvent(self, _event):
         """
