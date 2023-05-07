@@ -159,7 +159,11 @@ QRadioButton#cash::indicator, QRadioButton#card::indicator, QRadioButton#money_t
     width: 26px;
     height: 26px;
 }
-</string>
+
+QRadioButton
+{
+	color: rgba(255, 255, 255, 210);
+}</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
    <item row="0" column="0">
@@ -279,9 +283,6 @@ QRadioButton#cash::indicator, QRadioButton#card::indicator, QRadioButton#money_t
              <property name="cursor">
               <cursorShape>PointingHandCursor</cursorShape>
              </property>
-             <property name="styleSheet">
-              <string notr="true">color: rgba(255, 255, 255, 210);</string>
-             </property>
              <property name="text">
               <string>Expenses</string>
              </property>
@@ -308,7 +309,7 @@ QRadioButton#cash::indicator, QRadioButton#card::indicator, QRadioButton#money_t
               <cursorShape>PointingHandCursor</cursorShape>
              </property>
              <property name="styleSheet">
-              <string notr="true">color: rgba(255, 255, 255, 210);</string>
+              <string notr="true"/>
              </property>
              <property name="text">
               <string>Income</string>
@@ -333,7 +334,7 @@ QRadioButton#cash::indicator, QRadioButton#card::indicator, QRadioButton#money_t
               <cursorShape>PointingHandCursor</cursorShape>
              </property>
              <property name="styleSheet">
-              <string notr="true">color: rgba(255, 255, 255, 210);</string>
+              <string notr="true"/>
              </property>
              <property name="text">
               <string>Transfer</string>

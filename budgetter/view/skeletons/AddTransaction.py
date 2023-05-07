@@ -176,7 +176,11 @@ class Ui_AddTransaction(object):
 "    width: 26px;\n"
 "    height: 26px;\n"
 "}\n"
-"")
+"\n"
+"QRadioButton\n"
+"{\n"
+"	color: rgba(255, 255, 255, 210);\n"
+"}")
         self.gridLayout = QGridLayout(AddTransaction)
         self.gridLayout.setObjectName("gridLayout")
         self.transaction = QWidget(AddTransaction)
@@ -226,7 +230,6 @@ class Ui_AddTransaction(object):
         font1.setPointSize(11)
         self.expenses.setFont(font1)
         self.expenses.setCursor(QCursor(Qt.PointingHandCursor))
-        self.expenses.setStyleSheet("color: rgba(255, 255, 255, 210);")
         self.expenses.setChecked(True)
 
         self.horizontalLayout_3.addWidget(self.expenses)
@@ -236,7 +239,7 @@ class Ui_AddTransaction(object):
         self.income.setMinimumSize(QSize(92, 0))
         self.income.setFont(font1)
         self.income.setCursor(QCursor(Qt.PointingHandCursor))
-        self.income.setStyleSheet("color: rgba(255, 255, 255, 210);")
+        self.income.setStyleSheet("")
 
         self.horizontalLayout_3.addWidget(self.income)
 
@@ -245,7 +248,7 @@ class Ui_AddTransaction(object):
         self.transfer.setMinimumSize(QSize(92, 0))
         self.transfer.setFont(font1)
         self.transfer.setCursor(QCursor(Qt.PointingHandCursor))
-        self.transfer.setStyleSheet("color: rgba(255, 255, 255, 210);")
+        self.transfer.setStyleSheet("")
 
         self.horizontalLayout_3.addWidget(self.transfer)
 
