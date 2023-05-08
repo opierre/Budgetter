@@ -56,16 +56,22 @@ class AddTransactionDialog(QWidget):
         """
 
         # Connect clicked type/mean to update style
-        self.transaction_type_group.buttonClicked.connect(self.update_type_style)
+        self.transaction_type_group.buttonClicked.connect(self.update_style)
+        self.mean_group.buttonClicked.connect(self.update_style)
 
-    def update_type_style(self, button_clicked: QRadioButton) -> None:
+    def update_style(self, button_clicked: QRadioButton) -> None:
         """
         Update font and color
 
         :return: None
         """
 
-        for button in self.transaction_type_group.buttons():
+        if button_clicked in self.transaction_type_group.buttons():
+            group = self.transaction_type_group
+        else:
+            group = self.mean_group
+
+        for button in group.buttons():
             # Set font normal
             font = button.font()
             font.setWeight(QFont.Normal)
@@ -80,12 +86,17 @@ class AddTransactionDialog(QWidget):
         button_clicked.setFont(font)
 
         # Set color
-        button_clicked.setStyleSheet(
-            f"color: rgba({TRANSACTION_COLOR.get(button_clicked.text()).red()},"
-            f"{TRANSACTION_COLOR.get(button_clicked.text()).green()},"
-            f"{TRANSACTION_COLOR.get(button_clicked.text()).blue()},"
-            f"{TRANSACTION_COLOR.get(button_clicked.text()).alpha()});"
-        )
+        if group == self.transaction_type_group:
+            button_clicked.setStyleSheet(
+                f"color: rgba({TRANSACTION_COLOR.get(button_clicked.text()).red()},"
+                f"{TRANSACTION_COLOR.get(button_clicked.text()).green()},"
+                f"{TRANSACTION_COLOR.get(button_clicked.text()).blue()},"
+                f"{TRANSACTION_COLOR.get(button_clicked.text()).alpha()});"
+            )
+        else:
+            button_clicked.setStyleSheet(
+                "color: rgba(1, 144, 234, 255);"
+            )
 
     def configure(self):
         """
@@ -140,8 +151,9 @@ class AddTransactionDialog(QWidget):
         self.transaction_type_group.addButton(self.content.income)
         self.transaction_type_group.addButton(self.content.transfer)
 
-        # Set initial color on expenses
-        self.update_type_style(self.content.expenses)
+        # Set initial color on expenses/card
+        self.update_style(self.content.expenses)
+        self.update_style(self.content.card)
 
     def check_inputs(self):
         """
