@@ -178,8 +178,6 @@ class AddTransactionDialog(QWidget):
                 print("Error in account id")
                 return
 
-            # Retrieve category according to label
-
             # Emit signal to close popup and add new transaction
             self.addTransaction.emit(
                 transaction_type,
