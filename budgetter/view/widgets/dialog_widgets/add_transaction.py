@@ -1,9 +1,18 @@
 from PySide6.QtCore import QStringListModel, QTimer, Signal
-from PySide6.QtGui import QColor, QDoubleValidator, Qt
-from PySide6.QtWidgets import QWidget, QCompleter, QButtonGroup
+from PySide6.QtGui import QColor, QDoubleValidator, Qt, QFont
+from PySide6.QtWidgets import QWidget, QCompleter, QButtonGroup, QRadioButton
 
 from budgetter.utils.tools import update_style
 from budgetter.view.skeletons.AddTransaction import Ui_AddTransaction
+
+TRANSACTION_COLOR = {
+    "Expenses": QColor(254, 77, 151, 255),
+    "Dépenses": QColor(254, 77, 151, 255),
+    "Income": QColor(109, 210, 48, 255),
+    "Revenus": QColor(109, 210, 48, 255),
+    "Internal": QColor(250, 202, 0, 255),
+    "Interne": QColor(250, 202, 0, 255),
+}
 
 
 class AddTransactionDialog(QWidget):
@@ -46,7 +55,37 @@ class AddTransactionDialog(QWidget):
         :return: None
         """
 
-        pass
+        # Connect clicked type/mean to update style
+        self.transaction_type_group.buttonClicked.connect(self.update_type_style)
+
+    def update_type_style(self, button_clicked: QRadioButton) -> None:
+        """
+        Update font and color
+
+        :return: None
+        """
+
+        for button in self.transaction_type_group.buttons():
+            # Set font normal
+            font = button.font()
+            font.setWeight(QFont.Normal)
+            button.setFont(font)
+
+            # Set color
+            button.setStyleSheet("color: rgba(255, 255, 255, 210);")
+
+        # Set bold font
+        font = button_clicked.font()
+        font.setWeight(QFont.Bold)
+        button_clicked.setFont(font)
+
+        # Set color
+        button_clicked.setStyleSheet(
+            f"color: rgba({TRANSACTION_COLOR.get(button_clicked.text()).red()},"
+            f"{TRANSACTION_COLOR.get(button_clicked.text()).green()},"
+            f"{TRANSACTION_COLOR.get(button_clicked.text()).blue()},"
+            f"{TRANSACTION_COLOR.get(button_clicked.text()).alpha()});"
+        )
 
     def configure(self):
         """
@@ -93,13 +132,16 @@ class AddTransactionDialog(QWidget):
 
         # Add all means to one group
         self.mean_group.addButton(self.content.card)
-        self.mean_group.addButton(self.content.transfer)
+        self.mean_group.addButton(self.content.money_transfer)
         self.mean_group.addButton(self.content.cash)
 
         # Add all transaction types to one group
         self.transaction_type_group.addButton(self.content.expenses)
         self.transaction_type_group.addButton(self.content.income)
         self.transaction_type_group.addButton(self.content.transfer)
+
+        # Set initial color on expenses
+        self.update_type_style(self.content.expenses)
 
     def check_inputs(self):
         """

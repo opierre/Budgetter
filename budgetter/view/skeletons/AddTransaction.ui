@@ -337,7 +337,7 @@ QRadioButton
               <string notr="true"/>
              </property>
              <property name="text">
-              <string>Transfer</string>
+              <string>Internal</string>
              </property>
             </widget>
            </item>
@@ -658,11 +658,14 @@ QRadioButton
   <tabstop>expenses</tabstop>
   <tabstop>income</tabstop>
   <tabstop>transfer</tabstop>
-  <tabstop>account</tabstop>
-  <tabstop>date</tabstop>
+  <tabstop>name</tabstop>
   <tabstop>card</tabstop>
   <tabstop>cash</tabstop>
   <tabstop>money_transfer</tabstop>
+  <tabstop>amount</tabstop>
+  <tabstop>account</tabstop>
+  <tabstop>date</tabstop>
+  <tabstop>notes</tabstop>
  </tabstops>
  <resources>
   <include location="../resources/resources.qrc"/>

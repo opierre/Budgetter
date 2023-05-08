@@ -379,11 +379,14 @@ class Ui_AddTransaction(object):
 
         QWidget.setTabOrder(self.expenses, self.income)
         QWidget.setTabOrder(self.income, self.transfer)
-        QWidget.setTabOrder(self.transfer, self.account)
-        QWidget.setTabOrder(self.account, self.date)
-        QWidget.setTabOrder(self.date, self.card)
+        QWidget.setTabOrder(self.transfer, self.name)
+        QWidget.setTabOrder(self.name, self.card)
         QWidget.setTabOrder(self.card, self.cash)
         QWidget.setTabOrder(self.cash, self.money_transfer)
+        QWidget.setTabOrder(self.money_transfer, self.amount)
+        QWidget.setTabOrder(self.amount, self.account)
+        QWidget.setTabOrder(self.account, self.date)
+        QWidget.setTabOrder(self.date, self.notes)
 
         self.retranslateUi(AddTransaction)
 
@@ -395,7 +398,7 @@ class Ui_AddTransaction(object):
         self.label.setText(QCoreApplication.translate("AddTransaction", "Please enter transaction information.", None))
         self.expenses.setText(QCoreApplication.translate("AddTransaction", "Expenses", None))
         self.income.setText(QCoreApplication.translate("AddTransaction", "Income", None))
-        self.transfer.setText(QCoreApplication.translate("AddTransaction", "Transfer", None))
+        self.transfer.setText(QCoreApplication.translate("AddTransaction", "Internal", None))
         self.card.setText(QCoreApplication.translate("AddTransaction", "Card", None))
         self.cash.setText(QCoreApplication.translate("AddTransaction", "Cash", None))
         self.money_transfer.setText(QCoreApplication.translate("AddTransaction", "Transfer", None))
