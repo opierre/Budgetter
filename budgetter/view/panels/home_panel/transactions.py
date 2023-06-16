@@ -70,15 +70,7 @@ class Transactions(QObject):
         self.all_account = QPushButton(
             QCoreApplication.translate("transactions", "All")
         )
-
-        # Account 1 button - Account
-        self.account1 = QPushButton("Livret A")
-
-        # Account 2 button - Account
-        self.account2 = QPushButton("Compte Chèque")
-
-        # Account 3 button - Account
-        self.account3 = QPushButton("Livret Jeune")
+        self.accounts = []
 
         # Store item delegate
         self.transaction_delegate = TransactionDelegate()
@@ -89,50 +81,7 @@ class Transactions(QObject):
         # Model for filtering
         self.transactions_filter_model = TransactionsFilterModel()
 
-        # Model to handle data in transactions list
-        data = [
-            {
-                "name": "Flunch",
-                "category": "Restaurants",
-                "amount": 25.99,
-                "date": "20/02/2020",
-                "account": "Compte Chèque",
-                "type": "Income",
-                "means": "Carte Bleue",
-                "comment": "",
-            },
-            {
-                "name": "Gasoil",
-                "category": "Transport",
-                "amount": 40.01,
-                "date": "12/05/2020",
-                "account": "Livret A",
-                "type": "Expenses",
-                "means": "Espèces",
-                "comment": "",
-            },
-            {
-                "name": "Computer",
-                "category": "Groceries",
-                "amount": 900.99,
-                "date": "24/05/2020",
-                "account": "Livret Jeune",
-                "type": "Expenses",
-                "means": "Virement",
-                "comment": "Télétravail",
-            },
-            {
-                "name": "Virement",
-                "category": "Transfer",
-                "amount": 245.00,
-                "date": "22/05/2020",
-                "account": "Livret Jeune",
-                "type": "Transfer",
-                "means": "Virement",
-                "comment": "Virement vers Livret A",
-            },
-        ]
-        self.transactions_model = TransactionsModel(data)
+        self.transactions_model = TransactionsModel()
 
         # Configure status bar
         self.configure_status_bar()
@@ -187,9 +136,6 @@ class Transactions(QObject):
 
         # Update filtering when click on button in status bar
         self.all_account.clicked.connect(self.add_filter)  # pylint: disable=no-member
-        self.account1.clicked.connect(self.add_filter)  # pylint: disable=no-member
-        self.account2.clicked.connect(self.add_filter)  # pylint: disable=no-member
-        self.account3.clicked.connect(self.add_filter)  # pylint: disable=no-member
 
         # Connect shortcut to add new transaction
         self.transaction_shortcut.activated.connect(
@@ -246,8 +192,34 @@ class Transactions(QObject):
         :return: None
         """
 
+        # Clear previous accounts
+        self.account_identifiers.clear()
+        self.accounts.clear()
+
         for account in accounts:
+            # Store identifier
             self.account_identifiers[account.get("name")] = account.get("id")
+
+            # Create new button
+            new_account_filter = QPushButton(account.get("name"))
+            new_account_filter.clicked.connect(self.update_current_filtering)
+            new_account_filter.setProperty("activated", "false")
+            new_account_filter.update()
+            new_account_filter.setCursor(Qt.CursorShape.PointingHandCursor)
+            self.status_bar.addWidget(new_account_filter)
+
+            # Update footer for list view
+            self.accounts.append(new_account_filter)
+
+    def set_transactions(self, transactions: list):
+        """
+        Set transactions in list views
+
+        :param transactions: transactions to set
+        :return: None
+        """
+
+        self.transactions_model.setup_transactions(transactions)
 
     def add_transaction(self):
         """
@@ -407,12 +379,6 @@ class Transactions(QObject):
         # Set states for activation
         self.all_account.setProperty("activated", "true")
         self.all_account.update()
-        self.account1.setProperty("activated", "false")
-        self.account1.update()
-        self.account2.setProperty("activated", "false")
-        self.account2.update()
-        self.account3.setProperty("activated", "false")
-        self.account3.update()
 
         # Set cursor for left buttons
         self.all.setCursor(Qt.CursorShape.PointingHandCursor)
@@ -428,9 +394,6 @@ class Transactions(QObject):
 
         # Set cursor for left buttons
         self.all_account.setCursor(Qt.CursorShape.PointingHandCursor)
-        self.account1.setCursor(Qt.CursorShape.PointingHandCursor)
-        self.account2.setCursor(Qt.CursorShape.PointingHandCursor)
-        self.account3.setCursor(Qt.CursorShape.PointingHandCursor)
 
         # Add custom status bar to classic one
         self.status_bar.addPermanentWidget(self.custom_status_bar)
@@ -450,9 +413,6 @@ class Transactions(QObject):
 
         # Add buttons on left corner
         self.status_bar.addWidget(self.all_account)
-        self.status_bar.addWidget(self.account1)
-        self.status_bar.addWidget(self.account2)
-        self.status_bar.addWidget(self.account3)
 
         # Disable size grip
         self.status_bar.setSizeGripEnabled(False)
@@ -542,31 +502,19 @@ class Transactions(QObject):
         # Update activated state
         if new_filter == "All":
             self.all_account.setProperty("activated", "true")
-            self.account1.setProperty("activated", "false")
-            self.account2.setProperty("activated", "false")
-            self.account3.setProperty("activated", "false")
-        elif new_filter == self.account1.text():
+            for account in self.accounts:
+                account.setProperty("activated", "false")
+        else:
             self.all_account.setProperty("activated", "false")
-            self.account1.setProperty("activated", "true")
-            self.account2.setProperty("activated", "false")
-            self.account3.setProperty("activated", "false")
-        elif new_filter == self.account2.text():
-            self.all_account.setProperty("activated", "false")
-            self.account1.setProperty("activated", "false")
-            self.account2.setProperty("activated", "true")
-            self.account3.setProperty("activated", "false")
-        elif new_filter == self.account3.text():
-            self.all_account.setProperty("activated", "false")
-            self.account1.setProperty("activated", "false")
-            self.account2.setProperty("activated", "false")
-            self.account3.setProperty("activated", "true")
+            for account in self.accounts:
+                if new_filter == account.text():
+                    account.setProperty("activated", "true")
+                else:
+                    account.setProperty("activated", "false")
 
         # Update style
         self.all_account.style().unpolish(self.all_account)
         self.all_account.style().polish(self.all_account)
-        self.account1.style().unpolish(self.account1)
-        self.account1.style().polish(self.account1)
-        self.account2.style().unpolish(self.account2)
-        self.account2.style().polish(self.account2)
-        self.account3.style().unpolish(self.account3)
-        self.account3.style().polish(self.account3)
+        for account in self.accounts:
+            account.style().unpolish(account)
+            account.style().polish(account)

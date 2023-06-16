@@ -21,6 +21,7 @@ class Dashboard(QObject):
     banksFound = Signal(object)
     accountsFound = Signal(object)
     transactionAdded = Signal(object)
+    transactionsFound = Signal(object)
 
     def get_banks_worker(self):
         """
@@ -32,6 +33,21 @@ class Dashboard(QObject):
         # Create worker
         worker = Worker(RestClient.get, url=self.BANK_URL)
         worker.signals.result.connect(self.banksFound.emit)
+        worker.signals.error.connect(self.errorDashboard.emit)
+
+        # Start worker
+        worker.run()
+
+    def get_transactions_worker(self):
+        """
+        Retrieve all transactions via worker call
+
+        :return: None
+        """
+
+        # Create worker
+        worker = Worker(RestClient.get, url=self.TRANSACTION_URL)
+        worker.signals.result.connect(self.transactionsFound.emit)
         worker.signals.error.connect(self.errorDashboard.emit)
 
         # Start worker
@@ -53,7 +69,7 @@ class Dashboard(QObject):
         worker.run()
 
     def add_account_worker(
-            self, name: str, amount: str, bank_id: int, date: str, color: str
+        self, name: str, amount: str, bank_id: int, date: str, color: str
     ):
         """
         Add account via worker call
@@ -103,15 +119,15 @@ class Dashboard(QObject):
         worker.run()
 
     def add_transaction_worker(
-            self,
-            transaction_type: str,
-            category: str,
-            name: str,
-            amount: str,
-            amount_date: str,
-            mean: str,
-            notes: str,
-            account_id: int,
+        self,
+        transaction_type: str,
+        category: str,
+        name: str,
+        amount: str,
+        amount_date: str,
+        mean: str,
+        notes: str,
+        account_id: int,
     ):
         """
         Add transaction via worker call

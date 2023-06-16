@@ -88,6 +88,16 @@ class Home(QObject):
         # Set bank ID to ad account popup
         self._accounts.bank_added(bank)
 
+    def handle_set_transactions(self, transactions: list):
+        """
+        Handle set transactions result from API call
+
+        :param transactions: transactions from db
+        :return: None
+        """
+
+        self._transactions.set_transactions(transactions)
+
     def handle_add_transaction(self, transaction: dict):
         """
         Handle add transaction result from API call

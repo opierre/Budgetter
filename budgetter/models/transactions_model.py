@@ -184,7 +184,11 @@ class TransactionsModel(QAbstractListModel):
         :return: according to role (text, ...)
         """
 
-        if isinstance(index, QModelIndex) and index.isValid() and role == Qt.ItemDataRole.DisplayRole:
+        if (
+                isinstance(index, QModelIndex)
+                and index.isValid()
+                and role == Qt.ItemDataRole.DisplayRole
+        ):
             transaction = self.transactions[index.row()]
 
             # Return current transaction list
@@ -195,7 +199,10 @@ class TransactionsModel(QAbstractListModel):
         return result
 
     def setData(
-            self, index: Union[QModelIndex, QPersistentModelIndex], value: Any, _role=Qt.ItemDataRole.EditRole
+            self,
+            index: Union[QModelIndex, QPersistentModelIndex],
+            value: Any,
+            _role=Qt.ItemDataRole.EditRole,
     ) -> bool:
         """
         Override setData() from QAbstractListModel
@@ -219,7 +226,9 @@ class TransactionsModel(QAbstractListModel):
 
         return True
 
-    def rowCount(self, _index: Union[QModelIndex, QPersistentModelIndex] = QModelIndex()):
+    def rowCount(
+            self, _index: Union[QModelIndex, QPersistentModelIndex] = QModelIndex()
+    ):
         """
         Override rowCount() from QAbstractListModel
 
@@ -264,3 +273,16 @@ class TransactionsModel(QAbstractListModel):
         """
 
         return Qt.ItemIsEditable | Qt.ItemIsEnabled | Qt.ItemIsSelectable
+
+    def setup_transactions(self, transactions: list):
+        """
+        Add transactions to model
+
+        :param transactions: transactions as a list
+        :return: None
+        """
+
+        self.beginInsertRows(QModelIndex(), 0, len(transactions) - 1)
+        for transaction in transactions:
+            self.transactions.insert(0, transaction)
+        self.endInsertRows()

@@ -60,6 +60,9 @@ class Controller:
         self.home_threads.transactionAdded.connect(
             self.home_panel.handle_add_transaction
         )
+        self.home_threads.transactionsFound.connect(
+            self.home_panel.handle_set_transactions
+        )
         self.home_threads.banksFound.connect(self.home_panel.handle_get_banks)
         self.home_threads.banksFound.connect(self.home_threads.get_accounts_worker)
         self.home_threads.accountsFound.connect(self.home_panel.handle_get_accounts)
