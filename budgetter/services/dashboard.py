@@ -13,6 +13,8 @@ class Dashboard(QObject):
     ACCOUNT_URL = "http://127.0.0.1:8080/api/budget/account/"
     BANK_URL = "http://127.0.0.1:8080/api/budget/bank/"
     TRANSACTION_URL = "http://127.0.0.1:8080/api/budget/transaction/"
+    EXPENSES_URL = "http://127.0.0.1:8080/api/budget/expenses/"
+    EXPENSES_DISTRIBUTION_URL = f"{EXPENSES_URL}distribution/"
 
     # Signals list
     errorDashboard = Signal(tuple)
@@ -22,6 +24,7 @@ class Dashboard(QObject):
     accountsFound = Signal(object)
     transactionAdded = Signal(object)
     transactionsFound = Signal(object)
+    expensesDistribution = Signal(object)
 
     def get_banks_worker(self):
         """
@@ -68,8 +71,23 @@ class Dashboard(QObject):
         # Start worker
         worker.run()
 
+    def get_expenses_distribution_worker(self):
+        """
+        Retrieve expenses distribution via worker call
+
+        :return: None
+        """
+
+        # Create worker
+        worker = Worker(RestClient.get, url=self.EXPENSES_DISTRIBUTION_URL)
+        worker.signals.result.connect(self.expensesDistribution.emit)
+        worker.signals.error.connect(self.errorDashboard.emit)
+
+        # Start worker
+        worker.run()
+
     def add_account_worker(
-        self, name: str, amount: str, bank_id: int, date: str, color: str
+            self, name: str, amount: str, bank_id: int, date: str, color: str
     ):
         """
         Add account via worker call
@@ -119,15 +137,15 @@ class Dashboard(QObject):
         worker.run()
 
     def add_transaction_worker(
-        self,
-        transaction_type: str,
-        category: str,
-        name: str,
-        amount: str,
-        amount_date: str,
-        mean: str,
-        notes: str,
-        account_id: int,
+            self,
+            transaction_type: str,
+            category: str,
+            name: str,
+            amount: str,
+            amount_date: str,
+            mean: str,
+            notes: str,
+            account_id: int,
     ):
         """
         Add transaction via worker call

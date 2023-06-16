@@ -1,5 +1,5 @@
 from datetime import datetime
-from typing import Union, Any
+from typing import Union, Any, List
 
 from PySide6.QtCore import (
     QAbstractListModel,
@@ -165,11 +165,11 @@ class TransactionsModel(QAbstractListModel):
     Transactions model
     """
 
-    def __init__(self, transactions=None):
+    def __init__(self, transactions: List[dict] = None):
         super().__init__()
 
         # Store transactions
-        self.transactions = transactions or {}
+        self.transactions = transactions or []
 
     def data(
             self,
@@ -213,14 +213,14 @@ class TransactionsModel(QAbstractListModel):
         :return: bool (always True)
         """
 
-        self.transactions[index.row()]["name"] = value["name"]
-        self.transactions[index.row()]["category"] = value["category"]
-        self.transactions[index.row()]["amount"] = value["amount"]
-        self.transactions[index.row()]["date"] = value["date"]
-        self.transactions[index.row()]["account"] = value["account"]
-        self.transactions[index.row()]["type"] = value["type"]
-        self.transactions[index.row()]["means"] = value["means"]
-        self.transactions[index.row()]["comment"] = value["comment"]
+        self.transactions[index.row()].update({"name": value["name"]})
+        self.transactions[index.row()].update({"category": value["category"]})
+        self.transactions[index.row()].update({"amount": value["amount"]})
+        self.transactions[index.row()].update({"date": value["date"]})
+        self.transactions[index.row()].update({"account_name": value["account_name"]})
+        self.transactions[index.row()].update({"transaction_type": value["transaction_type"]})
+        self.transactions[index.row()].update({"mean": value["mean"]})
+        self.transactions[index.row()].update({"comment": value["comment"]})
 
         self.dataChanged.emit(index, index)  # pylint: disable=no-member
 
