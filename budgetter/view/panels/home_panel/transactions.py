@@ -202,7 +202,7 @@ class Transactions(QObject):
 
             # Create new button
             new_account_filter = QPushButton(account.get("name"))
-            new_account_filter.clicked.connect(self.update_current_filtering)
+            new_account_filter.clicked.connect(self.add_filter)
             new_account_filter.setProperty("activated", "false")
             new_account_filter.update()
             new_account_filter.setCursor(Qt.CursorShape.PointingHandCursor)
