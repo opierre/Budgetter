@@ -144,7 +144,7 @@ class Toaster(QWidget):
         self._animation.start()
 
         # Execute rollback on timer timeout
-        QTimer.singleShot(3500, self.rollback_toast)
+        QTimer.singleShot(8500, self.rollback_toast)
 
     def rollback_toast(self):
         """

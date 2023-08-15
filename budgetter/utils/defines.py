@@ -2,6 +2,26 @@ from enum import Enum
 from typing import List
 
 
+class TransactionMean(Enum):
+    """
+    Transactions Mean
+    """
+
+    CASH = "CASH"
+    CARD = "CARD"
+    TRANSFER = "TRANSFER"
+
+
+class TransactionType(Enum):
+    """
+    Transactions Mean
+    """
+
+    INCOME = "INCOME"
+    EXPENSES = "EXPENSES"
+    INTERNAL = "INTERNAL"
+
+
 class Categories(Enum):
     MORTGAGE = ":/categories/categories/real_estate_agent_FILL0_wght400_GRAD0_opsz48.svg"
     RENT = ":/categories/categories/apartment_FILL0_wght400_GRAD0_opsz48.svg"

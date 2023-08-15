@@ -7,6 +7,7 @@ from budgetter.view.panels.home_panel.distribution import Distribution
 from budgetter.view.panels.home_panel.savings import Savings
 from budgetter.view.panels.home_panel.spending import Spending
 from budgetter.view.panels.home_panel.transactions import Transactions
+from budgetter.view.widgets.toaster.toaster import Toaster, ToasterType
 
 
 class Home(QObject):
@@ -64,7 +65,12 @@ class Home(QObject):
         :return: None
         """
 
-        print("error: ++++++++++ ", error)
+        # Show notification on bank added
+        _ = Toaster(
+            f"Adding transaction failed due to: {error[2]}",
+            ToasterType.ERROR,
+            self.main_window,
+        )
 
     def handle_add_account(self, account: dict):
         """

@@ -1,3 +1,5 @@
+import datetime
+
 from PySide6.QtCore import QObject, Signal
 
 from budgetter.utils.rest_client import RestClient
@@ -164,13 +166,15 @@ class Dashboard(QObject):
         # Build data
         data = {
             "name": name,
-            "amount": float(amount),
-            "date": amount_date,
+            "amount": amount,
+            "date": datetime.datetime.strptime(amount_date, "%d/%m/%Y").strftime(
+                "%Y-%m-%d"
+            ),
             "account": account_id,
-            "category": category,
+            "category": category if category else None,
             "comment": notes,
-            "mean": mean,
-            "transaction_type": transaction_type,
+            "mean": mean.upper(),
+            "transaction_type": transaction_type.upper(),
         }
 
         print(data)

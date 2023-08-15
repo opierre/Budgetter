@@ -23,6 +23,8 @@ from PySide6.QtWidgets import (
     QApplication,
 )
 
+from budgetter.utils.defines import TransactionMean, TransactionType
+
 
 class TransactionDelegate(QStyledItemDelegate):
     """
@@ -363,9 +365,9 @@ class TransactionDelegate(QStyledItemDelegate):
 
         if self.editable != index:
             painter.setPen(Qt.PenStyle.NoPen)
-            if exp_or_inc == "Income":
+            if exp_or_inc.lower() == TransactionType.INCOME.value.lower():
                 painter.setBrush(QColor("#6DD230"))
-            elif exp_or_inc == "Expenses":
+            elif exp_or_inc.lower() == TransactionType.EXPENSES.value.lower():
                 painter.setBrush(QColor("#FE4D97"))
             else:
                 painter.setBrush(QColor("#FACA00"))
@@ -493,9 +495,9 @@ class TransactionDelegate(QStyledItemDelegate):
         )
         if self.editable != index:
             svg_render = QSvgRenderer(":/images/images/credit_card_white_24dp.svg")
-            if means == "Espèces":
+            if means == TransactionMean.CASH.value:
                 svg_render = QSvgRenderer(":/images/images/local_atm_white_24dp.svg")
-            elif means == "Virement":
+            elif means == TransactionMean.TRANSFER.value:
                 svg_render = QSvgRenderer(":/images/images/swap_horiz_white_24dp.svg")
             svg_render.setAspectRatioMode(Qt.AspectRatioMode.KeepAspectRatio)
             svg_render.render(painter, self.rect_mean)

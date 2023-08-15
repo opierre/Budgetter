@@ -94,9 +94,7 @@ class AddTransactionDialog(QWidget):
                 f"{TRANSACTION_COLOR.get(button_clicked.text()).alpha()});"
             )
         else:
-            button_clicked.setStyleSheet(
-                "color: rgba(1, 144, 234, 255);"
-            )
+            button_clicked.setStyleSheet("color: rgba(1, 144, 234, 255);")
 
     def configure(self):
         """
@@ -136,7 +134,7 @@ class AddTransactionDialog(QWidget):
         self.content.account.set_label_background_color(QColor("#1C293B"))
         self.content.account.set_text_color(QColor(255, 255, 255, 255))
         self.content.account.set_label_color(QColor(224, 224, 224, 150))
-        self.account_completer.setModel(QStringListModel(self.account_ids.keys()))
+        self.account_completer.setModel(QStringListModel(self.account_ids.values()))
         self.account_completer.setCaseSensitivity(Qt.CaseInsensitive)
         self.account_completer.setCompletionMode(QCompleter.InlineCompletion)
         self.content.account.setCompleter(self.account_completer)
@@ -163,7 +161,7 @@ class AddTransactionDialog(QWidget):
         """
 
         # Retrieve values
-        name = self.content.name.text()
+        label = self.content.name.text()
         amount = self.content.amount.text()
         amount_date = self.content.date.text()
         account = self.content.account.text()
@@ -171,9 +169,13 @@ class AddTransactionDialog(QWidget):
         transaction_type = self.transaction_type_group.checkedButton().text()
         notes = self.content.notes.text()
 
-        if name != "" and amount != "" and amount_date != "" and account != "":
+        if label != "" and amount != "" and amount_date != "" and account != "":
             # Find corresponding bank identifier
-            account_id = self.account_ids.get(account, None)
+            account_id = None
+            for ident, name in self.account_ids.items():
+                if name == account:
+                    account_id = ident
+                    break
             if account_id is None:
                 print("Error in account id")
                 return
@@ -182,7 +184,7 @@ class AddTransactionDialog(QWidget):
             self.addTransaction.emit(
                 transaction_type,
                 0,
-                name,
+                label,
                 amount,
                 amount_date,
                 mean,
@@ -191,7 +193,7 @@ class AddTransactionDialog(QWidget):
             )
             return
 
-        if name == "":
+        if label == "":
             self.warn_widget(self.content.name)
         if amount == "":
             self.warn_widget(self.content.amount)

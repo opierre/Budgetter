@@ -108,7 +108,8 @@ class BackEndError(Exception):
 
     def __init__(self, response: requests.Response):
         self.status_code = response.status_code
-        self.error_msg = f"Backend server return status code {self.status_code} for current access: {response.url}"
+        self.error_msg = (f"Backend server return status code {self.status_code} for current access: {response.url}\n"
+                          f"{response.text}")
 
     def __str__(self):
         return self.error_msg

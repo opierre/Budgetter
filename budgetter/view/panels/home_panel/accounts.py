@@ -234,13 +234,13 @@ class Accounts(QObject):
             self.dialogs[-1].show(False)
 
     def pre_add_account(
-            self,
-            name: str,
-            amount: str,
-            bank_id: int,
-            date: str,
-            new_bank_name: str,
-            color: str,
+        self,
+        name: str,
+        amount: str,
+        bank_id: int,
+        date: str,
+        new_bank_name: str,
+        color: str,
     ):
         """
         Check bank already exists

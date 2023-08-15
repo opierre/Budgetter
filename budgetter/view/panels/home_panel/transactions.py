@@ -154,13 +154,18 @@ class Transactions(QObject):
         _ = Toaster("Transaction added", ToasterType.SUCCESS, self.main_window)
 
         # Update models
-        print(transaction)
-        # self.transactions_filter_model.add_transaction({bank.get("id"): bank.get("name")})
+        transaction.update(
+            {
+                "account_name": self.account_identifiers.get(
+                    transaction.get("account")
+                )
+            }
+        )
+        self.transactions_filter_model.add_transaction(transaction)
 
         # Close current popup and show previous one again
         self.dialogs[-1].close()
         self.dialogs.pop(-1)
-        self.dialogs[-1].show(False)
 
     def display_comment(self, rectangle, index):
         """
@@ -198,7 +203,7 @@ class Transactions(QObject):
 
         for account in accounts:
             # Store identifier
-            self.account_identifiers[account.get("name")] = account.get("id")
+            self.account_identifiers[account.get("id")] = account.get("name")
 
             # Create new button
             new_account_filter = QPushButton(account.get("name"))
@@ -219,6 +224,14 @@ class Transactions(QObject):
         :return: None
         """
 
+        for transaction in transactions:
+            transaction.update(
+                {
+                    "account_name": self.account_identifiers.get(
+                        transaction.get("account")
+                    )
+                }
+            )
         self.transactions_model.setup_transactions(transactions)
 
     def add_transaction(self):
@@ -261,9 +274,6 @@ class Transactions(QObject):
 
         # Set focus on first widget when opening
         dialog_content.content.name.setFocus()
-
-        # Add transaction to model
-        # self.transactions_filter_model.add_transaction()
 
     def escape_dialog(self):
         """

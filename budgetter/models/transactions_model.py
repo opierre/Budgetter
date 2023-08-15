@@ -76,15 +76,16 @@ class TransactionsFilterModel(QSortFilterProxyModel):
         self.sourceModel().delete_transaction(index_from_source)
         self.endRemoveRows()
 
-    def add_transaction(self):
+    def add_transaction(self, transaction: dict):
         """
         Call for add_transaction in source model
 
+        :param transaction: transaction to add
         :return: None
         """
 
         self.beginInsertRows(QModelIndex(), 0, 0)
-        self.sourceModel().add_transaction()
+        self.sourceModel().add_transaction(transaction)
         self.endInsertRows()
 
     def modify_transaction(self, index, value):
@@ -128,9 +129,9 @@ class TransactionsFilterModel(QSortFilterProxyModel):
         elif self.type == "All" and self.account != "All":
             result = transaction["account"] == self.account
         elif self.type != "All" and self.account == "All":
-            result = transaction["type"] == self.type
+            result = transaction["transaction_type"].lower() == self.type.lower()
         elif self.type != "All" and self.account != "All":
-            result = (transaction["type"] == self.type) and (
+            result = (transaction["transaction_type"].lower() == self.type.lower()) and (
                     transaction["account"] == self.account
             )
         else:
@@ -154,8 +155,8 @@ class TransactionsFilterModel(QSortFilterProxyModel):
             source_right, Qt.ItemDataRole.DisplayRole
         )["date"]
 
-        left_date = datetime.strptime(left_data_date, "%d/%m/%Y")
-        right_date = datetime.strptime(right_data_date, "%d/%m/%Y")
+        left_date = datetime.strptime(left_data_date, "%Y-%m-%d")
+        right_date = datetime.strptime(right_data_date, "%Y-%m-%d")
 
         return left_date < right_date
 
@@ -218,7 +219,9 @@ class TransactionsModel(QAbstractListModel):
         self.transactions[index.row()].update({"amount": value["amount"]})
         self.transactions[index.row()].update({"date": value["date"]})
         self.transactions[index.row()].update({"account_name": value["account_name"]})
-        self.transactions[index.row()].update({"transaction_type": value["transaction_type"]})
+        self.transactions[index.row()].update(
+            {"transaction_type": value["transaction_type"]}
+        )
         self.transactions[index.row()].update({"mean": value["mean"]})
         self.transactions[index.row()].update({"comment": value["comment"]})
 
@@ -250,19 +253,17 @@ class TransactionsModel(QAbstractListModel):
         self.transactions.pop(index.row())
         self.endRemoveRows()
 
-    def add_transaction(self):
+    def add_transaction(self, transaction: dict):
         """
         Add transaction to model
 
+        :param transaction: transaction to add
         :return: None
         """
 
-        # self.beginInsertRows(QModelIndex(), 0, 0)
-        # previous_type = self.data(self.index(0, 0, QModelIndex()), Qt.ItemDataRole.DisplayRole)["type"]
-        # current_date = QDate.currentDate().toString("dd/MM/yyyy")
-        # self.transactions.insert(0, {"name": "Enter name", "category": "", "amount": 0, "date": current_date,
-        #                              "account": "", "type": previous_type, "means": "Virement", "comment": ""})
-        # self.endInsertRows()
+        self.beginInsertRows(QModelIndex(), 0, 0)
+        self.transactions.insert(0, transaction)
+        self.endInsertRows()
 
     def flags(self, _index):
         """
