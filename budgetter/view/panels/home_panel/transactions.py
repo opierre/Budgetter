@@ -47,9 +47,6 @@ class Transactions(QObject):
         # Store dialogs for adding account
         self.dialogs = []
 
-        # Store shortcut for adding a transaction
-        self.transaction_shortcut = QShortcut(QKeySequence(Qt.CTRL | Qt.Key_T), self)
-
         # All button - Type
         self.all = QPushButton(QCoreApplication.translate("transactions", "All"))
 
@@ -80,8 +77,11 @@ class Transactions(QObject):
 
         # Model for filtering
         self.transactions_filter_model = TransactionsFilterModel()
-
         self.transactions_model = TransactionsModel()
+
+        # Store shortcut for adding a transaction
+        self.transaction_shortcut = QShortcut(QKeySequence(Qt.CTRL | Qt.Key_T), self)
+        self.delete_shortcut = QShortcut(Qt.Key.Key_Delete, self.transactions_listview, context=Qt.WidgetShortcut)
 
         # Configure status bar
         self.configure_status_bar()
@@ -109,6 +109,9 @@ class Transactions(QObject):
         self.transaction_delegate.transactionDeletePressed.connect(
             self.delete_transaction
         )
+
+        # Connect Del key to confirm transaction deletion
+        self.delete_shortcut.activated.connect(self.confirm_deletion)
 
         # Connect signal from Apply button in list view to modify item
         self.transaction_delegate.transactionModified.connect(self.modify_transaction)
@@ -141,6 +144,17 @@ class Transactions(QObject):
         self.transaction_shortcut.activated.connect(
             self.add_transaction
         )  # pylint: disable=no-member
+
+    def confirm_deletion(self):
+        """
+        Open dialog to confirm transaction deletion
+
+        :return: None
+        """
+
+        print('alors')
+        indexes_list = self.transactions_listview.selectionModel()
+        print(indexes_list)
 
     def transaction_added(self, transaction: dict):
         """
