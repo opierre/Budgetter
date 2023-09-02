@@ -51,7 +51,9 @@ class AddEditTransactionDialog(QWidget):
         self.account_completer = QCompleter(self.content.account)
 
         # Store mode
-        self._transaction_id = transaction_content.get('id') if transaction_content is not None else -1
+        self._transaction_id = (
+            transaction_content.get("id") if transaction_content is not None else -1
+        )
 
         # Configure widgets
         self.configure(transaction_content)
@@ -121,7 +123,7 @@ class AddEditTransactionDialog(QWidget):
         self.content.name.set_text_color(QColor(255, 255, 255, 255))
         self.content.name.set_label_color(QColor(224, 224, 224, 150))
         if transaction_content is not None:
-            self.content.name.setText(transaction_content.get('name'))
+            self.content.name.setText(transaction_content.get("name"))
 
         # Configure notes attributes
         self.content.notes.set_label("Notes")
@@ -129,7 +131,7 @@ class AddEditTransactionDialog(QWidget):
         self.content.notes.set_text_color(QColor(255, 255, 255, 255))
         self.content.notes.set_label_color(QColor(224, 224, 224, 150))
         if transaction_content is not None:
-            self.content.notes.setText(transaction_content.get('comment'))
+            self.content.notes.setText(transaction_content.get("comment"))
 
         # Configure amount attributes
         self.content.amount.set_label("Amount")
@@ -139,7 +141,7 @@ class AddEditTransactionDialog(QWidget):
         self.content.amount.setValidator(QDoubleValidator(0, 100000, 2))
         self.content.amount.set_trailing_symbol("€")
         if transaction_content is not None:
-            self.content.amount.setText(transaction_content.get('amount'))
+            self.content.amount.setText(transaction_content.get("amount"))
 
         # Configure date edit
         self.content.date.set_label("Date")
@@ -147,7 +149,7 @@ class AddEditTransactionDialog(QWidget):
         self.content.date.set_text_color(QColor(255, 255, 255, 255))
         self.content.date.set_label_color(QColor(224, 224, 224, 150))
         if transaction_content is not None:
-            date = transaction_content.get('date')
+            date = transaction_content.get("date")
             formatted_date = datetime.strptime(date, "%Y-%m-%d").strftime("%d/%m/%Y")
             self.content.date.setText(formatted_date)
 
@@ -162,7 +164,7 @@ class AddEditTransactionDialog(QWidget):
         self.content.account.setCompleter(self.account_completer)
         if transaction_content is not None:
             self.content.account.setText(
-                self.account_ids.get(transaction_content.get('account'))
+                self.account_ids.get(transaction_content.get("account"))
             )
 
         # Add all means to one group
@@ -170,12 +172,12 @@ class AddEditTransactionDialog(QWidget):
         self.mean_group.addButton(self.content.money_transfer)
         self.mean_group.addButton(self.content.cash)
         if transaction_content is not None:
-            mean = transaction_content.get('mean')
-            if mean == MeanType.CARD:
+            mean = transaction_content.get("mean")
+            if mean.lower() == MeanType.CARD.value.lower():
                 self.content.card.setChecked(True)
-            elif mean == MeanType.CASH:
+            elif mean.lower() == MeanType.CASH.value.lower():
                 self.content.cash.setChecked(True)
-            elif mean == MeanType.TRANSFER:
+            elif mean.lower() == MeanType.TRANSFER.value.lower():
                 self.content.money_transfer.setChecked(True)
 
         # Add all transaction types to one group
@@ -183,7 +185,7 @@ class AddEditTransactionDialog(QWidget):
         self.transaction_type_group.addButton(self.content.income)
         self.transaction_type_group.addButton(self.content.transfer)
         if transaction_content is not None:
-            transaction_type = transaction_content.get('mean')
+            transaction_type = transaction_content.get("transaction_type")
             if transaction_type == TransactionType.INCOME:
                 self.content.income.setChecked(True)
             elif transaction_type == TransactionType.EXPENSES:
@@ -244,7 +246,7 @@ class AddEditTransactionDialog(QWidget):
                     mean,
                     notes,
                     account_id,
-                    self._transaction_id
+                    self._transaction_id,
                 )
             return
 

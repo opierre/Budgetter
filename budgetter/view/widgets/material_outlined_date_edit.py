@@ -404,20 +404,25 @@ class MaterialOutlinedDateEdit(QLineEdit):
         # Retrieve current text
         current_text = self.text()
 
-        if len(current_text) == 2:
+        if len(current_text) in {2, 5}:
             if arg__1.key() != Qt.Key_Backspace:
                 # Add /
                 self.setText(self.text() + "/")
             else:
                 # Add /
                 self.setText(self.text()[:-1])
-        elif len(current_text) == 5:
-            if arg__1.key() != Qt.Key_Backspace:
-                # Add /
-                self.setText(self.text() + "/")
-            else:
-                # Add /
-                self.setText(self.text()[:-1])
+
+    def setText(self, arg__1: str) -> None:
+        """
+        Override setText to enable custom animation
+
+        :param arg__1: text to set
+        :return: None
+        """
+
+        self.setFocus()
+        super().setText(arg__1)
+        QTimer.singleShot(100, self.deselect)
 
     def show_placeholder(self, value: bool):
         """

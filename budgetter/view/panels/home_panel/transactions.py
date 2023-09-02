@@ -231,6 +231,7 @@ class Transactions(QObject):
                 header_icon,
                 dialog_content,
                 self.main_window,
+                confirm_label="UPDATE"
             )
         )
 

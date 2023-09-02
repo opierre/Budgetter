@@ -51,6 +51,7 @@ class Dialog(QWidget):
             central_widget: QWidget,
             parent=None,
             show_overlay: bool = True,
+            confirm_label: str = '',
     ):
         super().__init__(parent)
 
@@ -59,6 +60,10 @@ class Dialog(QWidget):
 
         # Setup UI on current widget
         self._dialog.setupUi(self)
+
+        # Update confirm button label
+        if confirm_label != '':
+            self._dialog.confirm.setText(confirm_label)
 
         # Store shortcuts
         self.escape_shortcut = QShortcut(

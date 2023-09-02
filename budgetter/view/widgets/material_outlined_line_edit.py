@@ -334,6 +334,17 @@ class MaterialOutlinedLineEdit(QLineEdit):
             self.line_edit_private = MaterialLineEditPrivate(self)
             self.line_edit_private.configure()
 
+    def setText(self, arg__1: str) -> None:
+        """
+        Override setText to enable custom animation
+
+        :param arg__1: text to set
+        :return: None
+        """
+
+        self.setFocus()
+        super().setText(arg__1)
+
     def set_label_background_color(self, color: QColor):
         """
         Set label background color
@@ -491,13 +502,6 @@ class MaterialOutlinedLineEdit(QLineEdit):
                 self.line_edit_private.label.setGeometry(self.rect())
 
         return super().event(event)
-
-    def warn(self):
-        """
-        Update stylesheet for warning
-
-        :return: None
-        """
 
     def paintEvent(self, event: QPaintEvent) -> None:
         """
@@ -662,5 +666,6 @@ if __name__ == "__main__":
     layout.setContentsMargins(20, 20, 20, 20)
     button.setFixedWidth(300)
     # button.setFixedHeight(100)
+    button.started()
     widget.show()
     sys.exit(app.exec_())
