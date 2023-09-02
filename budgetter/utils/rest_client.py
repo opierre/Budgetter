@@ -100,6 +100,25 @@ class RestClient:
 
         return {}
 
+    @staticmethod
+    def patch(url, data):
+        """
+        Patch method
+
+        :param url: url
+        :param data: data to patch - JSON format
+        :return: JSON return
+        """
+
+        # Call post method
+        response = requests.patch(url, json=data, timeout=2.5)
+
+        # Handle error case
+        if response.status_code != 200:
+            raise BackEndError(response)
+
+        return response.json()
+
 
 class BackEndError(Exception):
     """

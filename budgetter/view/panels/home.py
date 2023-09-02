@@ -20,6 +20,7 @@ class Home(QObject):
     addBankController = Signal(str)
     addTransactionController = Signal(str, str, str, str, str, str, str, int)
     removeTransactionController = Signal(int)
+    editTransactionController = Signal(str, str, str, str, str, str, str, int, int)
 
     def __init__(self, parent, gui):
         super().__init__()
@@ -58,6 +59,7 @@ class Home(QObject):
         self._accounts.addBankCall.connect(self.addBankController.emit)
         self._transactions.addTransaction.connect(self.addTransactionController.emit)
         self._transactions.removeTransaction.connect(self.removeTransactionController.emit)
+        self._transactions.editTransaction.connect(self.editTransactionController.emit)
 
     def handle_error(self, error: Tuple[Exception, Any, str]):
         """
@@ -115,6 +117,16 @@ class Home(QObject):
         """
 
         self._transactions.transaction_added(transaction)
+
+    def handle_edit_transaction(self, transaction: dict):
+        """
+        Handle edit transaction result from API call
+
+        :param transaction: transaction details
+        :return: None
+        """
+
+        self._transactions.transaction_edited(transaction)
 
     def handle_remove_transaction(self):
         """

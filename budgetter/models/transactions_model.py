@@ -88,6 +88,17 @@ class TransactionsFilterModel(QSortFilterProxyModel):
         self.sourceModel().add_transaction(transaction)
         self.endInsertRows()
 
+    def edit_transaction(self, transaction: dict):
+        """
+        Call for edit_transaction in source model
+
+        :param transaction: transaction to edit
+        :return: None
+        """
+
+        index = self.sourceModel().edit_transaction(transaction)
+        self.dataChanged.emit(index, index)
+
     def modify_transaction(self, index, value):
         """
         Call for modifyTransaction in source model
@@ -264,6 +275,24 @@ class TransactionsModel(QAbstractListModel):
         self.beginInsertRows(QModelIndex(), 0, 0)
         self.transactions.insert(0, transaction)
         self.endInsertRows()
+
+    def edit_transaction(self, transaction: dict) -> QModelIndex:
+        """
+        Edit transaction from model
+
+        :param transaction: transaction to edit
+        :return: model index updated
+        """
+
+        index_updated = QModelIndex()
+        for index, existing_transaction in enumerate(self.transactions):
+            if existing_transaction.get('id') == transaction.get('id'):
+                existing_transaction.update(transaction)
+                index_updated = self.index(index, 0)
+                self.dataChanged.emit(index_updated, index_updated)
+                break
+
+        return index_updated
 
     def flags(self, _index):
         """

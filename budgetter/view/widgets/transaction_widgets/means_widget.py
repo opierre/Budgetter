@@ -1,3 +1,5 @@
+from enum import Enum
+
 from PySide6.QtCore import Qt, QFile, QTextStream
 from PySide6.QtGui import QPainter, QColor
 from PySide6.QtSvg import QSvgRenderer
@@ -8,6 +10,12 @@ from PySide6.QtWidgets import (
     QStyleOptionButton,
     QStyle,
 )
+
+
+class MeanType(Enum):
+    CARD = 'CARD'
+    CASH = 'CASH'
+    TRANSFER = 'TRANSFER'
 
 
 class MeanCheckbox(QPushButton):

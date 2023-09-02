@@ -26,6 +26,7 @@ class Dashboard(QObject):
     accountsFound = Signal(object)
     transactionAdded = Signal(object)
     transactionRemoved = Signal(object)
+    transactionEdited = Signal(object)
     transactionsFound = Signal(object)
     expensesDistribution = Signal(object)
 
@@ -178,8 +179,6 @@ class Dashboard(QObject):
             "transaction_type": transaction_type.upper(),
         }
 
-        print(data)
-
         # Create worker
         worker = Worker(RestClient.post, url=self.TRANSACTION_URL, data=data)
         worker.signals.result.connect(self.transactionAdded.emit)
@@ -200,6 +199,57 @@ class Dashboard(QObject):
         worker = Worker(RestClient.delete,
                         url=f"{self.TRANSACTION_URL}{transaction_id}/")
         worker.signals.result.connect(self.transactionRemoved.emit)
+        worker.signals.error.connect(self.errorDashboard.emit)
+
+        # Start worker
+        worker.run()
+
+    def edit_transaction_worker(
+            self,
+            transaction_type: str,
+            category: str,
+            name: str,
+            amount: str,
+            amount_date: str,
+            mean: str,
+            notes: str,
+            account_id: int,
+            transaction_id: int,
+    ):
+        """
+        Edit transaction via worker call
+
+        :param transaction_type: transaction type (income, expenses, transfer)
+        :param category: category
+        :param name: account name
+        :param amount: account amount
+        :param amount_date: account amount in date
+        :param mean: transaction mean
+        :param notes: notes
+        :param account_id: account ID
+        :param transaction_id: transaction ID
+        :return: None
+        """
+
+        # Build data
+        data = {
+            "name": name,
+            "amount": amount,
+            "date": datetime.datetime.strptime(amount_date, "%d/%m/%Y").strftime(
+                "%Y-%m-%d"
+            ),
+            "account": account_id,
+            "category": category if category else None,
+            "comment": notes,
+            "mean": mean.upper(),
+            "transaction_type": transaction_type.upper(),
+        }
+
+        # Create worker
+        worker = Worker(RestClient.patch,
+                        url=f"{self.TRANSACTION_URL}{transaction_id}/",
+                        data=data)
+        worker.signals.result.connect(self.transactionEdited.emit)
         worker.signals.error.connect(self.errorDashboard.emit)
 
         # Start worker

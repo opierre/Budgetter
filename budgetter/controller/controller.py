@@ -55,6 +55,9 @@ class Controller:
         self.home_panel.removeTransactionController.connect(
             self.home_threads.remove_transaction_worker
         )
+        self.home_panel.editTransactionController.connect(
+            self.home_threads.edit_transaction_worker
+        )
 
         # Connect dashboard threads results to display
         self.home_threads.errorDashboard.connect(self.home_panel.handle_error)
@@ -62,6 +65,9 @@ class Controller:
         self.home_threads.bankAdded.connect(self.home_panel.handle_add_bank)
         self.home_threads.transactionAdded.connect(
             self.home_panel.handle_add_transaction
+        )
+        self.home_threads.transactionEdited.connect(
+            self.home_panel.handle_edit_transaction
         )
         self.home_threads.transactionRemoved.connect(
             self.home_panel.handle_remove_transaction

@@ -30,15 +30,6 @@ class TransactionDelegate(QStyledItemDelegate):
     Transaction Delegate
     """
 
-    # Signal emitted on Delete button click
-    transactionDeletePressed = Signal(QModelIndex)
-
-    # Signal emitted on Apply button click
-    transactionModified = Signal(QModelIndex)
-
-    # Signal emitted on Cancel button click
-    transactionModifCanceled = Signal(QModelIndex)
-
     # Signal emitted when hovering comment button - Rectangle with comment (QRect) / Data index (QModelIndex)
     commentHovered = Signal(QRect, QModelIndex)
 

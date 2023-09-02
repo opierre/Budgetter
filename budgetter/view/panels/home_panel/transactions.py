@@ -14,7 +14,7 @@ from budgetter.models.transactions_model import (
     TransactionsFilterModel,
 )
 from budgetter.view.widgets.dialog import Dialog
-from budgetter.view.widgets.dialog_widgets.add_transaction import AddTransactionDialog
+from budgetter.view.widgets.dialog_widgets.add_transaction import AddEditTransactionDialog
 from budgetter.view.widgets.dialog_widgets.remove_transaction import (
     RemoveTransactionDialog,
 )
@@ -35,6 +35,10 @@ class Transactions(QObject):
 
     # Signal emitted to remove transaction with transaction ID
     removeTransaction = Signal(int)
+
+    # Signal emitted to edit transaction with type, category, name, amount, amount date, mean, notes, account ID,
+    # transaction ID
+    editTransaction = Signal(str, str, str, str, str, str, str, int, int)
 
     def __init__(self, gui, parent):
         super().__init__()
@@ -113,16 +117,8 @@ class Transactions(QObject):
         :return: None
         """
 
-        # Connect signal from Delete button in list view to delete item
-        self.transaction_delegate.transactionDeletePressed.connect(
-            self.delete_transaction
-        )
-
         # Connect Del key to confirm transaction deletion
         self.delete_shortcut.activated.connect(self.remove_transaction)
-
-        # Connect signal from Apply button in list view to modify item
-        self.transaction_delegate.transactionModified.connect(self.modify_transaction)
 
         # Connect signal from comment hovered button in list view to open menu with comment content
         self.transaction_delegate.commentHovered.connect(self.display_comment)
@@ -152,6 +148,9 @@ class Transactions(QObject):
         self.transaction_shortcut.activated.connect(
             self.add_transaction
         )  # pylint: disable=no-member
+
+        # Connect double click on item to update content
+        self.transactions_listview.doubleClicked.connect(self.edit_transaction)
 
     def remove_transaction(self):
         """
@@ -196,6 +195,55 @@ class Transactions(QObject):
         # Set focus on confirm button
         self.dialogs[-1].set_focus_on_confirm()
 
+    def edit_transaction(self):
+        """
+        Open dialog to edit transaction
+
+        :return: None
+        """
+
+        # Get transaction selected
+        indexes_list = self.transactions_listview.selectionModel().selectedIndexes()
+        if not indexes_list:
+            return
+        transaction = indexes_list[0].model().data(indexes_list[0])
+
+        # Set dialog content
+        dialog_content = AddEditTransactionDialog(
+            self.account_identifiers,
+            transaction_content=transaction,
+            parent=self.main_window
+        )
+
+        # Set icon
+        header_icon = QIcon()
+        header_icon.addFile(
+            ":/images/images/receipt_long_FILL1_wght400_GRAD0_opsz48.svg",
+            QSize(24, 24),
+            QIcon.Mode.Disabled,
+            QIcon.State.On,
+        )
+
+        # Open dialog
+        self.dialogs.append(
+            Dialog(
+                QCoreApplication.translate("Transactions", "Edit Transaction"),
+                header_icon,
+                dialog_content,
+                self.main_window,
+            )
+        )
+
+        # Connect signal from popup to remove transaction
+        dialog_content.editTransaction.connect(self.editTransaction.emit)
+
+        # Connect signal coming from click on Confirm button
+        self.dialogs[-1].confirm.connect(dialog_content.check_inputs)
+        self.dialogs[-1].escape.connect(self.escape_dialog)
+
+        # Set focus on first widget when opening
+        dialog_content.content.name.setFocus()
+
     def transaction_removed(self):
         """
         Handle transaction removed
@@ -231,6 +279,27 @@ class Transactions(QObject):
             {"account_name": self.account_identifiers.get(transaction.get("account"))}
         )
         self.transactions_filter_model.add_transaction(transaction)
+
+        # Close current popup and show previous one again
+        self.dialogs[-1].close()
+        self.dialogs.pop(-1)
+
+    def transaction_edited(self, transaction: dict):
+        """
+        Handle transaction edited
+
+        :param transaction: transaction details
+        :return: None
+        """
+
+        # Show notification on transaction added
+        _ = Toaster("Transaction edited", ToasterType.SUCCESS, self.main_window)
+
+        # Update models
+        transaction.update(
+            {"account_name": self.account_identifiers.get(transaction.get("account"))}
+        )
+        self.transactions_filter_model.edit_transaction(transaction)
 
         # Close current popup and show previous one again
         self.dialogs[-1].close()
@@ -311,7 +380,7 @@ class Transactions(QObject):
         """
 
         # Set dialog content
-        dialog_content = AddTransactionDialog(
+        dialog_content = AddEditTransactionDialog(
             self.account_identifiers, self.main_window
         )
 
