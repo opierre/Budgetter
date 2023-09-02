@@ -31,7 +31,7 @@ class AddEditTransactionDialog(QWidget):
     # transaction ID
     editTransaction = Signal(str, str, str, str, str, str, str, int, int)
 
-    def __init__(self, account_ids: dict, transaction_content=None, parent=None):
+    def __init__(self, account_ids: dict, parent=None, transaction_content=None):
         super().__init__(parent)
 
         # Store dialog content
