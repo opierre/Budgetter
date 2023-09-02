@@ -65,7 +65,7 @@ class RestClient:
         return response.json()
 
     @staticmethod
-    def get(url):
+    def get(url) -> dict:
         """
         Get method
 
@@ -83,7 +83,7 @@ class RestClient:
         return response.json()
 
     @staticmethod
-    def delete(url):
+    def delete(url) -> dict:
         """
         Delete method
 
@@ -95,10 +95,10 @@ class RestClient:
         response = requests.delete(url, timeout=1.5)
 
         # Handle error case
-        if response.status_code != 200:
+        if response.status_code not in {200, 204}:
             raise BackEndError(response)
 
-        return response.json()
+        return {}
 
 
 class BackEndError(Exception):

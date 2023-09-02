@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>RemoveTransaction</class>
+ <widget class="QWidget" name="RemoveTransaction">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>427</width>
+    <height>90</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QWidget#transaction 
+{
+	background-color: #1C293B;
+	border: none;
+	border-radius: 4px;
+	outline: none;
+}
+
+QPushButton
+{
+	background-color: transparent;
+	color: #8ec6f4;
+	outline: none;
+	padding-left: 8px;
+	padding-right: 8px;
+	padding-top: 8px;
+	padding-bottom: 8px;
+	border-radius: 4px;
+}
+
+QPushButton:hover
+{
+	background-color: rgba(140, 195, 240, 30);
+}
+
+QToolButton
+{
+	background-color: transparent;
+	outline: none;
+}
+
+QLineEdit
+{
+	background-color: transparent;
+	border: none;
+	border-radius: 0px;
+	padding-left: 0px;
+	/*border-bottom: 1px solid rgba(255, 255, 255, 180);*/
+	outline: none;
+}
+
+QLineEdit:hover
+{
+	/*border-bottom: 2px solid rgba(255, 255, 255, 230);*/
+}
+
+
+QLineEdit:focus
+{
+	/*border-bottom: 2px solid rgba(255, 255, 255, 230);*/
+}
+
+QComboBox
+{
+	background-color: transparent;
+	border: none;
+	border-radius: 0px;
+	padding-left: 0px;
+	/*border-bottom: 1px solid rgba(255, 255, 255, 180);*/
+	outline: none;
+}
+
+QRadioButton
+{
+	outline: none;
+}
+
+QRadioButton::indicator 
+{
+    width: 22px;
+    height: 22px;
+}
+
+QRadioButton#expenses::indicator::checked 
+{
+	image: url(:/images/images/radio_button_checked_FILL0_wght400_GRAD0_opsz48_expenses.svg);
+}
+
+QRadioButton#expenses::indicator::unchecked 
+{
+	image: url(:/images/images/radio_button_unchecked_FILL0_wght400_GRAD0_opsz48_expenses.svg);
+}
+
+QRadioButton#income::indicator::checked 
+{
+	image: url(:/images/images/radio_button_checked_FILL0_wght400_GRAD0_opsz48_income.svg);
+}
+
+QRadioButton#income::indicator::unchecked 
+{
+	image: url(:/images/images/radio_button_unchecked_FILL0_wght400_GRAD0_opsz48_income.svg);
+}
+
+QRadioButton#transfer::indicator::checked 
+{
+	image: url(:/images/images/radio_button_checked_FILL0_wght400_GRAD0_opsz48_transfer.svg);
+}
+
+QRadioButton#transfer::indicator::unchecked 
+{
+	image: url(:/images/images/radio_button_unchecked_FILL0_wght400_GRAD0_opsz48_transfer.svg);
+}
+
+QToolButton
+{
+	border: none;
+	border-radius: 3px;
+	outline: none;
+}
+
+QRadioButton#card::indicator::checked 
+{
+	image: url(:/images/images/credit_card_FILL1_wght400_GRAD0_opsz48.svg);
+}
+
+QRadioButton#card::indicator::unchecked 
+{
+	image: url(:/images/images/credit_card_FILL0_wght400_GRAD0_opsz48.svg);
+}
+
+QRadioButton#cash::indicator::checked 
+{
+	image: url(:/images/images/local_atm_FILL1_wght400_GRAD0_opsz48.svg);
+}
+
+QRadioButton#cash::indicator::unchecked 
+{
+	image: url(:/images/images/local_atm_FILL0_wght400_GRAD0_opsz48.svg);
+}
+
+QRadioButton#money_transfer::indicator::checked 
+{
+	image: url(:/images/images/swap_horizontal_circle_FILL1_wght400_GRAD0_opsz48.svg);
+}
+
+QRadioButton#money_transfer::indicator::unchecked 
+{
+	image: url(:/images/images/swap_horizontal_circle_FILL0_wght400_GRAD0_opsz48.svg);
+}
+
+QRadioButton#cash::indicator, QRadioButton#card::indicator, QRadioButton#money_transfer::indicator 
+{
+    width: 26px;
+    height: 26px;
+}
+
+QRadioButton
+{
+	color: rgba(255, 255, 255, 210);
+}</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="0" column="0">
+    <widget class="QWidget" name="transaction" native="true">
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <property name="spacing">
+       <number>20</number>
+      </property>
+      <property name="leftMargin">
+       <number>0</number>
+      </property>
+      <property name="topMargin">
+       <number>0</number>
+      </property>
+      <property name="rightMargin">
+       <number>15</number>
+      </property>
+      <property name="bottomMargin">
+       <number>0</number>
+      </property>
+      <item>
+       <widget class="QLabel" name="label">
+        <property name="minimumSize">
+         <size>
+          <width>270</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <family>Roboto</family>
+          <pointsize>12</pointsize>
+          <weight>50</weight>
+          <bold>false</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgba(255, 255, 255, 180);</string>
+        </property>
+        <property name="text">
+         <string>Are you sure you want to delete selected transaction?</string>
+        </property>
+        <property name="wordWrap">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="label_2">
+        <property name="font">
+         <font>
+          <family>Roboto</family>
+          <pointsize>11</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: #75879B;</string>
+        </property>
+        <property name="text">
+         <string>This item will be deleted immediately. You can't undo this action.</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="verticalSpacer">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>40</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+     </layout>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources>
+  <include location="../resources/resources.qrc"/>
+ </resources>
+ <connections/>
+</ui>

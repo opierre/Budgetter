@@ -15,6 +15,9 @@ from budgetter.models.transactions_model import (
 )
 from budgetter.view.widgets.dialog import Dialog
 from budgetter.view.widgets.dialog_widgets.add_transaction import AddTransactionDialog
+from budgetter.view.widgets.dialog_widgets.remove_transaction import (
+    RemoveTransactionDialog,
+)
 from budgetter.view.widgets.status_bar import StatusBar
 from budgetter.view.widgets.toaster.toaster import Toaster, ToasterType
 from budgetter.view.widgets.transaction_widgets.transaction_delegate import (
@@ -29,6 +32,9 @@ class Transactions(QObject):
 
     # Signal emitted to add new transaction with type, category, name, amount, amount date, mean, notes, account ID
     addTransaction = Signal(str, str, str, str, str, str, str, int)
+
+    # Signal emitted to remove transaction with transaction ID
+    removeTransaction = Signal(int)
 
     def __init__(self, gui, parent):
         super().__init__()
@@ -81,7 +87,9 @@ class Transactions(QObject):
 
         # Store shortcut for adding a transaction
         self.transaction_shortcut = QShortcut(QKeySequence(Qt.CTRL | Qt.Key_T), self)
-        self.delete_shortcut = QShortcut(Qt.Key.Key_Delete, self.transactions_listview, context=Qt.WidgetShortcut)
+        self.delete_shortcut = QShortcut(
+            Qt.Key.Key_Delete, self.transactions_listview, context=Qt.WidgetShortcut
+        )
 
         # Configure status bar
         self.configure_status_bar()
@@ -111,7 +119,7 @@ class Transactions(QObject):
         )
 
         # Connect Del key to confirm transaction deletion
-        self.delete_shortcut.activated.connect(self.confirm_deletion)
+        self.delete_shortcut.activated.connect(self.remove_transaction)
 
         # Connect signal from Apply button in list view to modify item
         self.transaction_delegate.transactionModified.connect(self.modify_transaction)
@@ -145,16 +153,67 @@ class Transactions(QObject):
             self.add_transaction
         )  # pylint: disable=no-member
 
-    def confirm_deletion(self):
+    def remove_transaction(self):
         """
         Open dialog to confirm transaction deletion
 
         :return: None
         """
 
-        print('alors')
-        indexes_list = self.transactions_listview.selectionModel()
-        print(indexes_list)
+        # Get transaction ID
+        indexes_list = self.transactions_listview.selectionModel().selectedIndexes()
+        transaction_id = indexes_list[0].model().data(indexes_list[0]).get("id")
+
+        # Set dialog content
+        dialog_content = RemoveTransactionDialog(transaction_id, self.main_window)
+
+        # Set icon
+        header_icon = QIcon()
+        header_icon.addFile(
+            ":/images/images/receipt_long_FILL1_wght400_GRAD0_opsz48.svg",
+            QSize(24, 24),
+            QIcon.Mode.Disabled,
+            QIcon.State.On,
+        )
+
+        # Open dialog
+        self.dialogs.append(
+            Dialog(
+                QCoreApplication.translate("Transactions", "Delete Transaction"),
+                header_icon,
+                dialog_content,
+                self.main_window,
+            )
+        )
+
+        # Connect signal from popup to remove transaction
+        dialog_content.removeTransaction.connect(self.removeTransaction.emit)
+
+        # Connect signal coming from click on Confirm button
+        self.dialogs[-1].confirm.connect(dialog_content.confirm_removal)
+        self.dialogs[-1].escape.connect(self.escape_dialog)
+
+        # Set focus on confirm button
+        self.dialogs[-1].set_focus_on_confirm()
+
+    def transaction_removed(self):
+        """
+        Handle transaction removed
+
+        :return: None
+        """
+
+        # Show notification on bank added
+        _ = Toaster("Transaction removed", ToasterType.SUCCESS, self.main_window)
+
+        # Update models
+        indexes_list = self.transactions_listview.selectionModel().selectedIndexes()
+        for index in indexes_list:
+            self.transactions_listview.model().removeRow(index.row(), index.parent())
+
+        # Close current popup and show previous one again
+        self.dialogs[-1].close()
+        self.dialogs.pop(-1)
 
     def transaction_added(self, transaction: dict):
         """
@@ -169,11 +228,7 @@ class Transactions(QObject):
 
         # Update models
         transaction.update(
-            {
-                "account_name": self.account_identifiers.get(
-                    transaction.get("account")
-                )
-            }
+            {"account_name": self.account_identifiers.get(transaction.get("account"))}
         )
         self.transactions_filter_model.add_transaction(transaction)
 

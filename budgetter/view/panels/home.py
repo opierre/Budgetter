@@ -19,6 +19,7 @@ class Home(QObject):
     addAccountController = Signal(str, str, int, str, str)
     addBankController = Signal(str)
     addTransactionController = Signal(str, str, str, str, str, str, str, int)
+    removeTransactionController = Signal(int)
 
     def __init__(self, parent, gui):
         super().__init__()
@@ -56,6 +57,7 @@ class Home(QObject):
         self._accounts.addAccountCall.connect(self.addAccountController.emit)
         self._accounts.addBankCall.connect(self.addBankController.emit)
         self._transactions.addTransaction.connect(self.addTransactionController.emit)
+        self._transactions.removeTransaction.connect(self.removeTransactionController.emit)
 
     def handle_error(self, error: Tuple[Exception, Any, str]):
         """
@@ -67,7 +69,7 @@ class Home(QObject):
 
         # Show notification on bank added
         _ = Toaster(
-            f"Adding transaction failed due to: {error[2]}",
+            f"Action on transaction failed due to: {error[2]}",
             ToasterType.ERROR,
             self.main_window,
         )
@@ -112,8 +114,16 @@ class Home(QObject):
         :return: None
         """
 
-        # Add transaction to model and close popup
         self._transactions.transaction_added(transaction)
+
+    def handle_remove_transaction(self):
+        """
+        Handle delete transaction result from API call
+
+        :return: None
+        """
+
+        self._transactions.transaction_removed()
 
     def handle_get_banks(self, bank_list: list):
         """

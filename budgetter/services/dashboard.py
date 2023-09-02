@@ -25,6 +25,7 @@ class Dashboard(QObject):
     banksFound = Signal(object)
     accountsFound = Signal(object)
     transactionAdded = Signal(object)
+    transactionRemoved = Signal(object)
     transactionsFound = Signal(object)
     expensesDistribution = Signal(object)
 
@@ -182,6 +183,23 @@ class Dashboard(QObject):
         # Create worker
         worker = Worker(RestClient.post, url=self.TRANSACTION_URL, data=data)
         worker.signals.result.connect(self.transactionAdded.emit)
+        worker.signals.error.connect(self.errorDashboard.emit)
+
+        # Start worker
+        worker.run()
+
+    def remove_transaction_worker(self, transaction_id: int):
+        """
+        Delete transaction from database
+
+        :param transaction_id: transaction ID to remove
+        :return:
+        """
+
+        # Create worker
+        worker = Worker(RestClient.delete,
+                        url=f"{self.TRANSACTION_URL}{transaction_id}/")
+        worker.signals.result.connect(self.transactionRemoved.emit)
         worker.signals.error.connect(self.errorDashboard.emit)
 
         # Start worker

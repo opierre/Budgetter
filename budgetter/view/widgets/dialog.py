@@ -250,3 +250,12 @@ class Dialog(QWidget):
         """
 
         return self._dialog.central_widget.layout().itemAt(0).widget()
+
+    def set_focus_on_confirm(self):
+        """
+        Set focus on confirm button
+
+        :return: None
+        """
+
+        self._dialog.confirm.setFocus()
