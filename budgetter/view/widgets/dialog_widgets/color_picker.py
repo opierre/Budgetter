@@ -110,7 +110,7 @@ class ColorPickerDialog(QWidget):
         # Retrieve values
         color_stylesheet = self.content.color_choice.styleSheet()
 
-        if "0190EA" in color_stylesheet != "":
+        if "0190EA" in color_stylesheet:
             # Emit signal to close popup and selected color
             self.colorSelected.emit("#" + self.content.color_edit.text())
         elif self._basic_selected != "":

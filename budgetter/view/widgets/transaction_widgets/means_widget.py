@@ -13,9 +13,13 @@ from PySide6.QtWidgets import (
 
 
 class MeanType(Enum):
-    CARD = 'CARD'
-    CASH = 'CASH'
-    TRANSFER = 'TRANSFER'
+    """
+    Different mean types
+    """
+
+    CARD = "CARD"
+    CASH = "CASH"
+    TRANSFER = "TRANSFER"
 
 
 class MeanCheckbox(QPushButton):

@@ -125,7 +125,7 @@ class AddAccountDialog(QWidget):
                 QIcon.State.On,
             )
         else:
-            self.content.color_picker.setStyleSheet(f"background-color: transparent;")
+            self.content.color_picker.setStyleSheet("background-color: transparent;")
             palette_icon.addFile(
                 ":/images/images/palette_FILL0_wght500_GRAD0_opsz48.svg",
                 QSize(24, 24),

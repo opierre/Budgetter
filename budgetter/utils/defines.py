@@ -23,7 +23,13 @@ class TransactionType(Enum):
 
 
 class Categories(Enum):
-    MORTGAGE = ":/categories/categories/real_estate_agent_FILL0_wght400_GRAD0_opsz48.svg"
+    """
+    Expenses/Income categories
+    """
+
+    MORTGAGE = (
+        ":/categories/categories/real_estate_agent_FILL0_wght400_GRAD0_opsz48.svg"
+    )
     RENT = ":/categories/categories/apartment_FILL0_wght400_GRAD0_opsz48.svg"
     TAXES = ":/categories/categories/receipt_long_FILL0_wght400_GRAD0_opsz48.svg"
     GAS = ":/categories/categories/local_gas_station_FILL0_wght400_GRAD0_opsz48.svg"
@@ -36,15 +42,21 @@ class Categories(Enum):
     WATER = ":/categories/categories/water_drop_FILL0_wght400_GRAD0_opsz48.svg"
     ELECTRONICS = ":/categories/categories/devices_FILL0_wght400_GRAD0_opsz48.svg"
     INTERNET = ":/categories/categories/wifi_FILL0_wght400_GRAD0_opsz48.svg"
-    SUBSCRIPTIONS = ":/categories/categories/subscriptions_FILL0_wght400_GRAD0_opsz48.svg"
+    SUBSCRIPTIONS = (
+        ":/categories/categories/subscriptions_FILL0_wght400_GRAD0_opsz48.svg"
+    )
     CLOTHING = ":/categories/categories/checkroom_FILL0_wght400_GRAD0_opsz48.svg"
     MEDICAL = ":/categories/categories/medical_services_FILL0_wght400_GRAD0_opsz48.svg"
     INSURANCE = ":/categories/categories/personal_injury_FILL0_wght400_GRAD0_opsz48.svg"
     CHILD = ":/categories/categories/child_care_FILL0_wght400_GRAD0_opsz48.svg"
-    SPORT_MEMBERSHIP = ":/categories/categories/fitness_center_FILL0_wght400_GRAD0_opsz48.svg"
+    SPORT_MEMBERSHIP = (
+        ":/categories/categories/fitness_center_FILL0_wght400_GRAD0_opsz48.svg"
+    )
     HAIRCUT = ":/categories/categories/cut_FILL0_wght400_GRAD0_opsz48.svg"
     BANK_FEES = ":/categories/categories/account_balance_FILL0_wght400_GRAD0_opsz48.svg"
-    PERSONAL_LOANS = ":/categories/categories/request_quote_FILL0_wght400_GRAD0_opsz48.svg"
+    PERSONAL_LOANS = (
+        ":/categories/categories/request_quote_FILL0_wght400_GRAD0_opsz48.svg"
+    )
     INVESTING = ":/categories/categories/waterfall_chart_FILL0_wght400_GRAD0_opsz48.svg"
     EDUCATION = ":/categories/categories/school_FILL0_wght400_GRAD0_opsz48.svg"
     GIFTS = ":/categories/categories/redeem_FILL0_wght400_GRAD0_opsz48.svg"
@@ -70,4 +82,6 @@ class Categories(Enum):
 
         :return: categories as a list
         """
-        return [member.capitalize().replace('_', ' ') for member in list(cls.__members__)]
+        return [
+            member.capitalize().replace("_", " ") for member in list(cls.__members__)
+        ]
