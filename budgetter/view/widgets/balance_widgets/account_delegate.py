@@ -117,6 +117,7 @@ class AccountDelegate(QItemDelegate):
             "..",
             "..",
             "resources",
+            "bank_info",
             "bank_logo",
             bank.lower().replace(" ", "_") + "_logo.svg",
         )

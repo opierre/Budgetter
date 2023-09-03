@@ -16,6 +16,9 @@ class TitleBar(QWidget):
     # Signal emitted when right corner button clicked - Checked state: bool
     clicked = Signal(bool)
 
+    # Signal emitted when second right corner button clicked (second from right to left) - Checked state: bool
+    secondClicked = Signal(bool)
+
     def __init__(self, parent=None):
         super().__init__(parent)
 
@@ -43,6 +46,11 @@ class TitleBar(QWidget):
         self.gui.add.clicked[bool].connect(
             self.clicked.emit
         )  # pylint: disable=unsubscriptable-object
+
+        # Connect click on _upload_file button to emit signal
+        # self.gui.upload_file.clicked[bool].connect(
+        #     self.secondClicked.emit
+        # )  # pylint: disable=unsubscriptable-object
 
         # Connect text changed on _search line edit to emit signal
         self.gui.title_bar_search.textChanged[str].connect(
@@ -120,7 +128,7 @@ class TitleBar(QWidget):
 
         return self._title.text()
 
-    def disable_button(self):
+    def disable_add(self):
         """
         Hide button on top right corner if useless
 
@@ -129,7 +137,17 @@ class TitleBar(QWidget):
 
         self.gui.add.hide()
 
-    def set_button_tooltip(self, tooltip: str):
+    def disable_upload(self):
+        """
+        Hide button on top right corner if useless
+
+        :return: None
+        """
+
+        # self.gui.upload_file.hide()
+        pass
+
+    def set_add_tooltip(self, tooltip: str):
         """
         Set button tooltip
 

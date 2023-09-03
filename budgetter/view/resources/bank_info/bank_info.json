@@ -1,0 +1,7118 @@
+[
+  {
+    "bic": "00007",
+    "name": "RESEAU BANQUES POPULAIRES"
+  },
+  {
+    "bic": "23",
+    "name": "Beobank SA"
+  },
+  {
+    "bic": "1023",
+    "name": "Deutsche hypothekenbank"
+  },
+  {
+    "bic": "3023",
+    "name": "CBC Banque"
+  },
+  {
+    "bic": "07389",
+    "name": "CREDIT MARITIME MUTUEL"
+  },
+  {
+    "bic": "10008",
+    "name": "GE CAPITAL EQUIPEMENT FINANCE"
+  },
+  {
+    "bic": "10018",
+    "name": "EFG EUROFINANCIERE D’INVESTISSEMENTS S.A.M."
+  },
+  {
+    "bic": "10037",
+    "name": "CREDIT INDUSTRIEL D’ALSACE ET DE LORRAINE – C.I.A.L."
+  },
+  {
+    "bic": "10038",
+    "name": "FINANCIERE IMMOBILIERE INDOSUEZ"
+  },
+  {
+    "bic": "10048",
+    "name": "AUXIMURS"
+  },
+  {
+    "bic": "10050",
+    "name": "SOCIETE REUNIONNAISE DE FINANCEMENT – SOREFI"
+  },
+  {
+    "bic": "10057",
+    "name": "SOCIETE BORDELAISE DE CREDIT INDUSTRIEL ET COMMERCIAL – SOCIETE B"
+  },
+  {
+    "bic": "10061",
+    "name": "NATEXIS S.A."
+  },
+  {
+    "bic": "10067",
+    "name": "SOCIETE GENERALE ALSACIENNE DE BANQUE – SOGENAL"
+  },
+  {
+    "bic": "10088",
+    "name": "SOCIETE DE PROMOTION ET DE PARTICIPATION POUR LA COOPERATION ECON"
+  },
+  {
+    "bic": "10096",
+    "name": "LYONNAISE DE BANQUE “L.B.”"
+  },
+  {
+    "bic": "10107",
+    "name": "BRED – Banque populaire PARIS 12"
+  },
+  {
+    "bic": "10108",
+    "name": "Bayerische landesbank"
+  },
+  {
+    "bic": "10123",
+    "name": "European mortgage bank (Ireland) limited"
+  },
+  {
+    "bic": "10128",
+    "name": "BANCA INTESA (FRANCE)"
+  },
+  {
+    "bic": "10140",
+    "name": "Caisse de crédit municipal de Marseille MARSEILLE"
+  },
+  {
+    "bic": "10160",
+    "name": "Crédit mobilier de Monaco MONACO"
+  },
+  {
+    "bic": "10178",
+    "name": "BANQUE CHAIX"
+  },
+  {
+    "bic": "10188",
+    "name": "BANQUE CHALUS"
+  },
+  {
+    "bic": "10206",
+    "name": "Caisse régionale de crédit agricole mutuel du Nord Est"
+  },
+  {
+    "bic": "10207",
+    "name": "Banque populaire Rives de Paris PARIS 13"
+  },
+  {
+    "bic": "10218",
+    "name": "Rabobank Nederland – Rabobank international"
+  },
+  {
+    "bic": "10223",
+    "name": "Optimus bank für finanz-service GmbH"
+  },
+  {
+    "bic": "10228",
+    "name": "BANQUE LAYDERNIER"
+  },
+  {
+    "bic": "10268",
+    "name": "BANQUE COURTOIS – SUCCESSEURS DE L’ANCIENNE MAISON COURTOIS ET CI"
+  },
+  {
+    "bic": "10269",
+    "name": "SOCIETE ANONYME DE CREDIT IMMOBILIER REGIONAL"
+  },
+  {
+    "bic": "10278",
+    "name": "Caisse fédérale de crédit mutuel STRASBOURG"
+  },
+  {
+    "bic": "10289",
+    "name": "CREDIT IMMOBILIER ALPES-MEDITERRANEE – CIAM, SOCIETE ANONYME DE C"
+  },
+  {
+    "bic": "10323",
+    "name": "Merrill Lynch international bank limited"
+  },
+  {
+    "bic": "10369",
+    "name": "SOCIETE ANONYME DE CREDIT IMMOBILIER DE CHAMPAGNE"
+  },
+  {
+    "bic": "10439",
+    "name": "CREDIT IMMOBILIER MIDI-MEDITERRANEE, SOCIETE ANONYME DE CREDIT IM"
+  },
+  {
+    "bic": "10463",
+    "name": "BHW bausparkasse AG"
+  },
+  {
+    "bic": "10468",
+    "name": "BANQUE RHONE-ALPES – GROUPE CREDIT DU NORD"
+  },
+  {
+    "bic": "10498",
+    "name": "BANQUE REGIONALE DE L’AIN (ANCIENNEMENT TENDRET, RIVE ET CIE) – ”"
+  },
+  {
+    "bic": "10523",
+    "name": "Investec bank plc"
+  },
+  {
+    "bic": "10528",
+    "name": "BANQUE REGIONALE DE L’OUEST"
+  },
+  {
+    "bic": "10539",
+    "name": "CREDIT IMMOBILIER DE FRANCE “COTE D’OR” – SOCIETE ANONYME DE CRED"
+  },
+  {
+    "bic": "10548",
+    "name": "BANQUE DE SAVOIE"
+  },
+  {
+    "bic": "10550",
+    "name": "DAIMLERCHRYSLER SERVICES FRANCE S.A."
+  },
+  {
+    "bic": "10558",
+    "name": "BANQUE TARNEAUD"
+  },
+  {
+    "bic": "10610",
+    "name": "SOFINAUTO"
+  },
+  {
+    "bic": "10620",
+    "name": "ACTI – EQUIPEMENT"
+  },
+  {
+    "bic": "10638",
+    "name": "CREDIT COMMERCIAL DU SUD-OUEST"
+  },
+  {
+    "bic": "10640",
+    "name": "ACCEA FINANCE"
+  },
+  {
+    "bic": "10660",
+    "name": "LOFINORD-LOCATION FINANCIERE DU NORD"
+  },
+  {
+    "bic": "10680",
+    "name": "COMPAGNIE COMMERCIALE DE LOCATION – C.C.L."
+  },
+  {
+    "bic": "10688",
+    "name": "CREDIT INDUSTRIEL DE NORMANDIE"
+  },
+  {
+    "bic": "10690",
+    "name": "CAPITOLE LOCATION"
+  },
+  {
+    "bic": "10708",
+    "name": "FIDEIMUR"
+  },
+  {
+    "bic": "10723",
+    "name": "Bank of America Merrill Lynch international limited"
+  },
+  {
+    "bic": "10730",
+    "name": "SOCIETE IMMOBILIERE POUR L’AUTOMOBILE ET LA MECANIQUE (SIAM)"
+  },
+  {
+    "bic": "10740",
+    "name": "SOCIETE IMMOBILIERE D’EPONE"
+  },
+  {
+    "bic": "10750",
+    "name": "MATIF S.A."
+  },
+  {
+    "bic": "10768",
+    "name": "BANQUE I.B.J. (FRANCE) S.A."
+  },
+  {
+    "bic": "10770",
+    "name": "FIMAGEN"
+  },
+  {
+    "bic": "10790",
+    "name": "COMPAGNIE FINANCIERE DES CAFETIERS, HOTELIERS, RESTAURATEURS, C.F"
+  },
+  {
+    "bic": "10800",
+    "name": "LOCAM – LOCATION AUTOMOBILES MATERIEL S.A."
+  },
+  {
+    "bic": "10807",
+    "name": "Banque populaire Bourgogne Franche-Comté DIJON"
+  },
+  {
+    "bic": "10810",
+    "name": "AUXILIAIRE DU CREDIT FONCIER DE FRANCE"
+  },
+  {
+    "bic": "10820",
+    "name": "FRUCTIBAIL"
+  },
+  {
+    "bic": "10890",
+    "name": "FACTOBAIL"
+  },
+  {
+    "bic": "10900",
+    "name": "DIFFUCO"
+  },
+  {
+    "bic": "10907",
+    "name": "Banque populaire Aquitaine Centre Atlantique BORDEAUX"
+  },
+  {
+    "bic": "10918",
+    "name": "CHOLET DUPONT"
+  },
+  {
+    "bic": "10920",
+    "name": "SODELEM"
+  },
+  {
+    "bic": "10930",
+    "name": "Fonds régional de garantie du Nord-Pas-de-Calais – F.R.G.- No"
+  },
+  {
+    "bic": "10940",
+    "name": "BAIL-OUEST"
+  },
+  {
+    "bic": "10950",
+    "name": "NATIO LOCATION"
+  },
+  {
+    "bic": "10963",
+    "name": "Deutsche handelsbank AG"
+  },
+  {
+    "bic": "10968",
+    "name": "BANQUE AIG"
+  },
+  {
+    "bic": "10980",
+    "name": "GENERALE DE FINANCEMENTS ET DE SERVICES-GEFISERVICES"
+  },
+  {
+    "bic": "10990",
+    "name": "SIIC PARIS 8ème"
+  },
+  {
+    "bic": "10999",
+    "name": "SOCIETE ANONYME DE CREDIT IMMOBILIER DU LOT"
+  },
+  {
+    "bic": "11006",
+    "name": "Caisse régionale de crédit agricole mutuel de Champagne-Bourg"
+  },
+  {
+    "bic": "11008",
+    "name": "S E B – Skandinaviska enskilda banken AB (publ)"
+  },
+  {
+    "bic": "11018",
+    "name": "BSI SAM INTERNATIONAL PRIVATE BANKING"
+  },
+  {
+    "bic": "11038",
+    "name": "SODERMUR"
+  },
+  {
+    "bic": "11039",
+    "name": "SOCIETE ANONYME DE CREDIT IMMOBILIER RICHELIEU, SOCIETE ANONYME D"
+  },
+  {
+    "bic": "11048",
+    "name": "COMPAGNIE EUROPEENNE DE BAIL – C.E. BAIL"
+  },
+  {
+    "bic": "11058",
+    "name": "THE RIGGS NATIONAL BANK (EUROPE) S.A."
+  },
+  {
+    "bic": "11063",
+    "name": "HSBC private bank (UK) limited"
+  },
+  {
+    "bic": "11078",
+    "name": "BAIL IMMO NORD"
+  },
+  {
+    "bic": "11079",
+    "name": "SOCIETE DE CREDIT IMMOBILIER DE CHAMPAGNE-ARDENNE, SOCIETE ANONYM"
+  },
+  {
+    "bic": "11088",
+    "name": "UCB LOCABAIL IMMOBILIER"
+  },
+  {
+    "bic": "11118",
+    "name": "IMMOBILIERE COMPLEXES COMMERCIAUX – I.C.C."
+  },
+  {
+    "bic": "11119",
+    "name": "UNICOMI S.A."
+  },
+  {
+    "bic": "11123",
+    "name": "Crédit suisse (Luxembourg) S.A."
+  },
+  {
+    "bic": "11128",
+    "name": "NATEXIS LEASE"
+  },
+  {
+    "bic": "11138",
+    "name": "NATEXIS FACTOREM"
+  },
+  {
+    "bic": "11140",
+    "name": "SEDEF (SOCIETE EUROPEENNE DE DEVELOPPEMENT DU FINANCEMENT)"
+  },
+  {
+    "bic": "11159",
+    "name": "BAIL INVESTISSEMENT FONCIERE"
+  },
+  {
+    "bic": "11168",
+    "name": "BANQUE ALCYON"
+  },
+  {
+    "bic": "11170",
+    "name": "L’IMMOBILIERE DE CREDIT"
+  },
+  {
+    "bic": "11178",
+    "name": "FENWICK FINANCEMENT"
+  },
+  {
+    "bic": "11188",
+    "name": "RCI BANQUE"
+  },
+  {
+    "bic": "11190",
+    "name": "CAISSE DE GARANTIE DU LOGEMENT LOCATIF SOCIAL"
+  },
+  {
+    "bic": "11206",
+    "name": "Caisse régionale de crédit agricole mutuel Nord Midi-Pyrénées"
+  },
+  {
+    "bic": "11210",
+    "name": "BANQUE DE REALISATIONS DE GESTION ET DE FINANCEMENT – REGEFI"
+  },
+  {
+    "bic": "11230",
+    "name": "COFINOGA"
+  },
+  {
+    "bic": "11238",
+    "name": "SWISSLIFE BANQUE"
+  },
+  {
+    "bic": "11248",
+    "name": "ING LEASE FRANCE S.A."
+  },
+  {
+    "bic": "11260",
+    "name": "COFICA"
+  },
+  {
+    "bic": "11278",
+    "name": "THE TOKAI BANK LIMITED"
+  },
+  {
+    "bic": "11289",
+    "name": "BANQUE DE L’AQUITAINE"
+  },
+  {
+    "bic": "11290",
+    "name": "GENERALE DE PLACEMENT BANQUE (G.P.-BANQUE)"
+  },
+  {
+    "bic": "11298",
+    "name": "SINOPIA FINANCIAL SERVICES"
+  },
+  {
+    "bic": "11306",
+    "name": "Caisse régionale de crédit agricole mutuel d’Alpes-Provence"
+  },
+  {
+    "bic": "11307",
+    "name": "CASDEN Banque Populaire NOISIEL"
+  },
+  {
+    "bic": "11315",
+    "name": "Caisse d’épargne et de prévoyance Provence-Alpes-Corse"
+  },
+  {
+    "bic": "11318",
+    "name": "DRESDNER GESTION PRIVEE"
+  },
+  {
+    "bic": "11348",
+    "name": "BANQUE DU BOSPHORE"
+  },
+  {
+    "bic": "11358",
+    "name": "COMPAGNIE FINANCIERE DU CREDIT MUTUEL"
+  },
+  {
+    "bic": "11379",
+    "name": "BANQUE DE PICARDIE"
+  },
+  {
+    "bic": "11380",
+    "name": "CAISSE DE REFINANCEMENT DE L’HABITAT"
+  },
+  {
+    "bic": "11390",
+    "name": "C.C.A.M.A. – CREDIT A LA CONSTRUCTION ET L’ACHAT DE MAISONS ET AP"
+  },
+  {
+    "bic": "11408",
+    "name": "BANQUE DE WALLIS ET FUTUNA"
+  },
+  {
+    "bic": "11418",
+    "name": "COMPAGNIE FRANCAISE DE BAIL ET DE CREDIT-BAIL IMMOBILIER “COFRABA"
+  },
+  {
+    "bic": "11419",
+    "name": "BANQUE CLEMENT ET CIE"
+  },
+  {
+    "bic": "11420",
+    "name": "COMPTOIR FINANCIER DES MATIERES PREMIERES"
+  },
+  {
+    "bic": "11425",
+    "name": "Caisse d’épargne et de prévoyance Normandie BOIS GUILL"
+  },
+  {
+    "bic": "11438",
+    "name": "SOCIETE FINANCIERE HR"
+  },
+  {
+    "bic": "11449",
+    "name": "BANQUE THEMIS"
+  },
+  {
+    "bic": "11468",
+    "name": "BANQUE PATRIMOINE ET IMMOBILIER (B.P.I.)"
+  },
+  {
+    "bic": "11470",
+    "name": "NATEXIS COFICINE"
+  },
+  {
+    "bic": "11488",
+    "name": "FONCIER-BAIL"
+  },
+  {
+    "bic": "11490",
+    "name": "INTERFIMO"
+  },
+  {
+    "bic": "11498",
+    "name": "BNP PARIBAS PRIVATE BANK MONACO"
+  },
+  {
+    "bic": "11518",
+    "name": "STATE STREET BANQUE S.A."
+  },
+  {
+    "bic": "11523",
+    "name": "Banque privée Edmond de Rothschild Europe"
+  },
+  {
+    "bic": "11528",
+    "name": "SANPAOLO BAIL"
+  },
+  {
+    "bic": "11529",
+    "name": "CCF BANQUE PRIVEE INTERNATIONALE"
+  },
+  {
+    "bic": "11548",
+    "name": "UBS BANQUE S.A."
+  },
+  {
+    "bic": "11550",
+    "name": "Caisse de crédit municipal de Toulouse TOULOUSE"
+  },
+  {
+    "bic": "11558",
+    "name": "BANQUE REGIONALE DU NORD – BRN"
+  },
+  {
+    "bic": "11588",
+    "name": "CARGILL INVESTOR SERVICES"
+  },
+  {
+    "bic": "11600",
+    "name": "CMCIC LEASE"
+  },
+  {
+    "bic": "11610",
+    "name": "FINALION"
+  },
+  {
+    "bic": "11623",
+    "name": "NV bank nederlandse gemeenten"
+  },
+  {
+    "bic": "11628",
+    "name": "BANQUE DU CREDIT MUTUEL ILE-DE-FRANCE – BCMI"
+  },
+  {
+    "bic": "11663",
+    "name": "Iduna bausparkasse AG"
+  },
+  {
+    "bic": "11668",
+    "name": "BANQUE DE GESTION EDMOND DE ROTHSCHILD – MONACO"
+  },
+  {
+    "bic": "11669",
+    "name": "BANQUE GALLIERE"
+  },
+  {
+    "bic": "11678",
+    "name": "DE LAGE LANDEN LEASING S.A.S."
+  },
+  {
+    "bic": "11680",
+    "name": "BANQUE DIFFUSION INDUSTRIELLE NOUVELLE – DIN"
+  },
+  {
+    "bic": "11688",
+    "name": "COFICAPE"
+  },
+  {
+    "bic": "11689",
+    "name": "Citibank international plc – Citigroup"
+  },
+  {
+    "bic": "11706",
+    "name": "Caisse régionale de crédit agricole mutuel Charente-Maritime"
+  },
+  {
+    "bic": "11708",
+    "name": "DEUTSCHE BANK FRANCE S.A."
+  },
+  {
+    "bic": "11710",
+    "name": "I.P.B.M."
+  },
+  {
+    "bic": "11720",
+    "name": "HSBC CCF EPARGNE ENTREPRISE"
+  },
+  {
+    "bic": "11729",
+    "name": "BNP PARIBAS GUYANE"
+  },
+  {
+    "bic": "11733",
+    "name": "Axa bank Europe SA"
+  },
+  {
+    "bic": "11740",
+    "name": "L’ETOILE COMMERCIALE"
+  },
+  {
+    "bic": "11749",
+    "name": "BANQUE DES ILES SAINT-PIERRE ET MIQUELON"
+  },
+  {
+    "bic": "11763",
+    "name": "Landesbausparkasse saarbrucken"
+  },
+  {
+    "bic": "11768",
+    "name": "MORGAN STANLEY S.A."
+  },
+  {
+    "bic": "11769",
+    "name": "SIIC DE PARIS"
+  },
+  {
+    "bic": "11778",
+    "name": "CREDIT DU MAROC"
+  },
+  {
+    "bic": "11790",
+    "name": "COFACREDIT"
+  },
+  {
+    "bic": "11798",
+    "name": "NORBAIL AUTO"
+  },
+  {
+    "bic": "11799",
+    "name": "BANQUE DES FLANDRES"
+  },
+  {
+    "bic": "11808",
+    "name": "BANQUE FEDERATIVE DU CREDIT MUTUEL"
+  },
+  {
+    "bic": "11809",
+    "name": "SOCIETE ANONYME DE CREDIT IMMOBILIER DE L’EST"
+  },
+  {
+    "bic": "11818",
+    "name": "TRANSAMERICA COMMERCIAL FINANCE FRANCE S.A."
+  },
+  {
+    "bic": "11819",
+    "name": "BANQUE LENOIR ET BERNARD"
+  },
+  {
+    "bic": "11830",
+    "name": "INTER-COOP (2ème du nom)"
+  },
+  {
+    "bic": "11833",
+    "name": "Industrial and commercial bank of China (Europe) SA – ICBC (E"
+  },
+  {
+    "bic": "11848",
+    "name": "LOCINDUS CREDIT-BAIL"
+  },
+  {
+    "bic": "11863",
+    "name": "VR Bank Südpfalz eG"
+  },
+  {
+    "bic": "11868",
+    "name": "ETOILE CREDIT"
+  },
+  {
+    "bic": "11870",
+    "name": "LOUIS DREYFUS FINANCE (BANQUE) S.A."
+  },
+  {
+    "bic": "11888",
+    "name": "SCHRODER FRANCE S.A."
+  },
+  {
+    "bic": "11889",
+    "name": "SOCIETE DE BANQUE DE L’ORLEANAIS"
+  },
+  {
+    "bic": "11899",
+    "name": "BANQUE DE L’ECONOMIE DU COMMERCE ET DE LA MONETIQUE"
+  },
+  {
+    "bic": "11907",
+    "name": "Banque populaire du Massif central CLERMONT FERRAND"
+  },
+  {
+    "bic": "11930",
+    "name": "LOCAFRANCE"
+  },
+  {
+    "bic": "11938",
+    "name": "AGRI FINANCE SNC"
+  },
+  {
+    "bic": "11939",
+    "name": "NATIOBAIL"
+  },
+  {
+    "bic": "11960",
+    "name": "CITICAPITAL S.A.S."
+  },
+  {
+    "bic": "11963",
+    "name": "Rheinboden hypothekenbank"
+  },
+  {
+    "bic": "11968",
+    "name": "CIT GROUP FINANCE (FRANCE) S.N.C."
+  },
+  {
+    "bic": "11978",
+    "name": "FACTOCIC"
+  },
+  {
+    "bic": "11988",
+    "name": "BANQUE EUROPEENNE DE CREDIT"
+  },
+  {
+    "bic": "11989",
+    "name": "BANQUE POUYANNE"
+  },
+  {
+    "bic": "11998",
+    "name": "Unicredit bank AG"
+  },
+  {
+    "bic": "11999",
+    "name": "UBS (MONACO) S.A."
+  },
+  {
+    "bic": "12006",
+    "name": "Caisse régionale de crédit agricole mutuel de la Corse"
+  },
+  {
+    "bic": "12008",
+    "name": "Sofiscop Sud-Est MARSEILLE"
+  },
+  {
+    "bic": "12018",
+    "name": "BANQUE PRIVEE FIDEURAM WARGNY"
+  },
+  {
+    "bic": "12039",
+    "name": "CREDIT IMMOBILIER HAUTS DE FRANCE"
+  },
+  {
+    "bic": "12050",
+    "name": "CREDIT MODERNE OCEAN INDIEN"
+  },
+  {
+    "bic": "12058",
+    "name": "SANPAOLO MUR"
+  },
+  {
+    "bic": "12063",
+    "name": "Rheinischen hypothekenbank AG"
+  },
+  {
+    "bic": "12069",
+    "name": "CREDIT IMMOBILIER DE FRANCE-FINALOG"
+  },
+  {
+    "bic": "12078",
+    "name": "INTERBAIL S.A."
+  },
+  {
+    "bic": "12088",
+    "name": "Banca Carige S.p.A – Cassa di risparmio di Genova e Imperia"
+  },
+  {
+    "bic": "12099",
+    "name": "SOCIETE ANONYME DE CREDIT IMMOBILIER DE PICARDIE"
+  },
+  {
+    "bic": "12110",
+    "name": "CMV MEDIFORCE"
+  },
+  {
+    "bic": "12118",
+    "name": "IMMOCREDIT"
+  },
+  {
+    "bic": "12128",
+    "name": "SOCIETE CENTRALE POUR LE FINANCEMENT DE L’IMMOBILIER – SOCFIM"
+  },
+  {
+    "bic": "12130",
+    "name": "SOCIETE ALSACIENNE ET LORRAINE DE VALEURS ET D’ENTREPRISES (S.A.L"
+  },
+  {
+    "bic": "12135",
+    "name": "Caisse d’épargne et de prévoyance de Bourgogne Franche-Comté"
+  },
+  {
+    "bic": "12138",
+    "name": "CATERPILLAR FINANCE FRANCE S.A."
+  },
+  {
+    "bic": "12148",
+    "name": "SG OPTION EUROPE"
+  },
+  {
+    "bic": "12149",
+    "name": "BANQUE DE POLYNESIE"
+  },
+  {
+    "bic": "12158",
+    "name": "FIAT FACTORING S.A."
+  },
+  {
+    "bic": "12168",
+    "name": "ING FERRI S.A."
+  },
+  {
+    "bic": "12169",
+    "name": "BANQUE DE LA REUNION"
+  },
+  {
+    "bic": "12179",
+    "name": "BANQUE INTERCONTINENTALE ARABE (B.I.A.)"
+  },
+  {
+    "bic": "12198",
+    "name": "FIMAT INTERNATIONAL BANQUE"
+  },
+  {
+    "bic": "12206",
+    "name": "Caisse régionale de crédit agricole mutuel des Côtes-d’Armor"
+  },
+  {
+    "bic": "12218",
+    "name": "RESTAURATION INVESTISSEMENT"
+  },
+  {
+    "bic": "12228",
+    "name": "CREDIT IMMOBILIER DE FRANCE ALSACE LORRAINE"
+  },
+  {
+    "bic": "12238",
+    "name": "CREDIT IMMOBILIER DE FRANCE CENTRE-LOIRE"
+  },
+  {
+    "bic": "12239",
+    "name": "BANQUE DE TAHITI “B.D.T.”"
+  },
+  {
+    "bic": "12240",
+    "name": "BANQUE AGF"
+  },
+  {
+    "bic": "12248",
+    "name": "FINANCIERE DE CREDIT IMMOBILIER DE PICARDIE-CHAMPAGNE-ARDENNE"
+  },
+  {
+    "bic": "12249",
+    "name": "BANQUE MAROCAINE DU COMMERCE EXTERIEUR"
+  },
+  {
+    "bic": "12258",
+    "name": "FINANCIERE DE L’IMMOBILIER SUD ATLANTIQUE"
+  },
+  {
+    "bic": "12260",
+    "name": "BARCLAYS FINANCEMENTS IMMOBILIERS – BARFIMMO"
+  },
+  {
+    "bic": "12280",
+    "name": "SOCIETE DE CREDIT DES SOCIETES D’ASSURANCES A CARACTERE MUTUEL (S"
+  },
+  {
+    "bic": "12288",
+    "name": "FINANCIERE REGIONALE ALPES"
+  },
+  {
+    "bic": "12290",
+    "name": "SOCIETE DE CREDIT A L’INDUSTRIE AUTOMOBILE (S.O.C.I.A.)"
+  },
+  {
+    "bic": "12298",
+    "name": "FINANCIERE REGIONALE DE CREDIT IMMOBILIER DE BRETAGNE"
+  },
+  {
+    "bic": "12300",
+    "name": "UNION POUR LE FINANCEMENT DU CINEMA ET DE L’AUDIOVISUEL U.F.C.A."
+  },
+  {
+    "bic": "12308",
+    "name": "FINANCIERE REGIONALE DE CREDIT IMMOBILIER DU NORD/PAS-DE-CALAIS"
+  },
+  {
+    "bic": "12318",
+    "name": "FINANCIERE REGIONALE DE CREDITS IMMOBILIERS DE L’EST"
+  },
+  {
+    "bic": "12319",
+    "name": "BONNASSE – LYONNAISE DE BANQUE"
+  },
+  {
+    "bic": "12323",
+    "name": "CIBC world markets plc"
+  },
+  {
+    "bic": "12328",
+    "name": "CREDIT IMMOBILIER DE FRANCE – SUD RHONE ALPES AUVERGNE"
+  },
+  {
+    "bic": "12338",
+    "name": "FINANCIERE REGIONALE POUR L’HABITAT BOURGOGNE, FRANCHE-COMTE ET A"
+  },
+  {
+    "bic": "12340",
+    "name": "SICOMAX"
+  },
+  {
+    "bic": "12348",
+    "name": "CREDIT IMMOBILIER DE FRANCE BRETAGNE ATLANTIQUE"
+  },
+  {
+    "bic": "12358",
+    "name": "CREDIT IMMOBILIER DE FRANCE – PAYS DE LA LOIRE"
+  },
+  {
+    "bic": "12368",
+    "name": "CREDIT IMMOBILIER DE FRANCE SUD"
+  },
+  {
+    "bic": "12378",
+    "name": "CREDIT IMMOBILIER DE FRANCE MIDI-PYRENEES, FINANCIERE REGIONALE"
+  },
+  {
+    "bic": "12380",
+    "name": "SOCIETE POUR FAVORISER L’ACCESSION A LA PROPRIETE IMMOBILIERE –"
+  },
+  {
+    "bic": "12388",
+    "name": "CREDIT IMMOBILIER DE FRANCE FINANCIERE RHONE AIN"
+  },
+  {
+    "bic": "12398",
+    "name": "CREDIT IMMOBILIER DE FRANCE CENTRE-OUEST"
+  },
+  {
+    "bic": "12406",
+    "name": "Caisse régionale de crédit agricole mutuel Charente-Périgord"
+  },
+  {
+    "bic": "12408",
+    "name": "SOCIETE ANONYME FINANCIERE REGIONALE SUD MASSIF CENTRAL"
+  },
+  {
+    "bic": "12418",
+    "name": "CREDIT IMMOBILIER DE FRANCE NORMANDIE"
+  },
+  {
+    "bic": "12420",
+    "name": "Caisse de crédit municipal de Reims REIMS"
+  },
+  {
+    "bic": "12423",
+    "name": "Rabobank Ireland limited"
+  },
+  {
+    "bic": "12428",
+    "name": "CREDIT IMMOBILIER DE FRANCE MEDITERRANEE"
+  },
+  {
+    "bic": "12438",
+    "name": "SOFIAP (SOCIETE FINANCIERE POUR L’ACCESSION A LA PROPRIETE)"
+  },
+  {
+    "bic": "12448",
+    "name": "Barclays bank plc Monaco MONACO"
+  },
+  {
+    "bic": "12468",
+    "name": "BANQUE CANTONALE DE GENEVE (FRANCE) S.A."
+  },
+  {
+    "bic": "12478",
+    "name": "FCE bank plc-Ford credit Europe Ford credit-Jaguar financial"
+  },
+  {
+    "bic": "12488",
+    "name": "N.F.M.D.A."
+  },
+  {
+    "bic": "12489",
+    "name": "ALFABANQUE"
+  },
+  {
+    "bic": "12490",
+    "name": "SOCIETE FINANCIERE ET CHARBONNIERE – SOFICHAR"
+  },
+  {
+    "bic": "12498",
+    "name": "SOCIETE FINANCIERE D’ILE DE FRANCE"
+  },
+  {
+    "bic": "12500",
+    "name": "SOCIETE DE FINANCEMENT DE LA MEUNERIE"
+  },
+  {
+    "bic": "12506",
+    "name": "Caisse régionale de crédit agricole mutuel de Franche-Comté"
+  },
+  {
+    "bic": "12518",
+    "name": "Kutxabank SA BAYONNE"
+  },
+  {
+    "bic": "12520",
+    "name": "FINACOR"
+  },
+  {
+    "bic": "12523",
+    "name": "Helaba Dublin landesbank Hessen-Thuringen international"
+  },
+  {
+    "bic": "12538",
+    "name": "SOCIETE FINANCIERE POUR L’HABITAT D’AQUITAINE"
+  },
+  {
+    "bic": "12548",
+    "name": "AXA BANQUE"
+  },
+  {
+    "bic": "12549",
+    "name": "LOCINDUS S.A."
+  },
+  {
+    "bic": "12558",
+    "name": "VFS FINANCE FRANCE"
+  },
+  {
+    "bic": "12563",
+    "name": "Cera investment bank"
+  },
+  {
+    "bic": "12568",
+    "name": "PARIBAS DERIVES GARANTIS S.N.C. (PDG)"
+  },
+  {
+    "bic": "12569",
+    "name": "GE REAL ESTATE FRANCE"
+  },
+  {
+    "bic": "12578",
+    "name": "Bausparkasse Schwaebisch hall AG Bausparkasse der Volksbanken"
+  },
+  {
+    "bic": "12579",
+    "name": "BANQUE BCP"
+  },
+  {
+    "bic": "12580",
+    "name": "OMNIUM DE PARTICIPATION ET FINANCEMENT-OPAFI"
+  },
+  {
+    "bic": "12588",
+    "name": "Deutsche bausparkasse Badenia AG"
+  },
+  {
+    "bic": "12589",
+    "name": "Banco BPI"
+  },
+  {
+    "bic": "12598",
+    "name": "AGF FINANCEMENT 2"
+  },
+  {
+    "bic": "12619",
+    "name": "Caixa geral de depositos S.A. PARIS 09"
+  },
+  {
+    "bic": "12658",
+    "name": "EULER HERMES SFAC CREDIT"
+  },
+  {
+    "bic": "12663",
+    "name": "Belfius bank SA/NV"
+  },
+  {
+    "bic": "12668",
+    "name": "SOFRAFI"
+  },
+  {
+    "bic": "12670",
+    "name": "SOCIETE FINANCIERE ET MOBILIERE"
+  },
+  {
+    "bic": "12698",
+    "name": "BEAR STEARNS FINANCE S.A."
+  },
+  {
+    "bic": "12718",
+    "name": "EXPERTS IMMOBILIERS ASSOCIES – E.I.A."
+  },
+  {
+    "bic": "12719",
+    "name": "CREDIT FECAMPOIS"
+  },
+  {
+    "bic": "12733",
+    "name": "Scotiabank Europe plc"
+  },
+  {
+    "bic": "12738",
+    "name": "MERRILL LYNCH FINANCE S.A."
+  },
+  {
+    "bic": "12739",
+    "name": "CREDIT FONCIER DE MONACO"
+  },
+  {
+    "bic": "12748",
+    "name": "SOGEFINANCEMENT"
+  },
+  {
+    "bic": "12749",
+    "name": "NATEXIS BAIL"
+  },
+  {
+    "bic": "12750",
+    "name": "SOCIETE DE GESTION ET D’ETUDES FINANCIERES (F.I.G.E.S.T.)"
+  },
+  {
+    "bic": "12778",
+    "name": "CANON FINANCE FRANCE"
+  },
+  {
+    "bic": "12779",
+    "name": "BRED COFILEASE"
+  },
+  {
+    "bic": "12798",
+    "name": "UBS"
+  },
+  {
+    "bic": "12818",
+    "name": "INSTITUT POUR LE FINANCEMENT DU CINEMA ET DES INDUSTRIES CULTUREL"
+  },
+  {
+    "bic": "12823",
+    "name": "Sotto leasing"
+  },
+  {
+    "bic": "12828",
+    "name": "Société financière des entreprises du Gard – Sofigard"
+  },
+  {
+    "bic": "12860",
+    "name": "MEDIATIS"
+  },
+  {
+    "bic": "12868",
+    "name": "Abbey national treasury services plc"
+  },
+  {
+    "bic": "12869",
+    "name": "BANQUE ACCORD"
+  },
+  {
+    "bic": "12870",
+    "name": "S.I.COM.I.COOP. SOCIETE IMMOBILIERE POUR LE COMMERCE ET L’INDUSTR"
+  },
+  {
+    "bic": "12879",
+    "name": "DELUBAC ET CIE"
+  },
+  {
+    "bic": "12898",
+    "name": "ARCA, BANQUE DU PAYS BASQUE S.A."
+  },
+  {
+    "bic": "12906",
+    "name": "Caisse régionale de crédit agricole mutuel du Finistère"
+  },
+  {
+    "bic": "12918",
+    "name": "THORN FINANCEMENT"
+  },
+  {
+    "bic": "12919",
+    "name": "BANKBOSTON S.A."
+  },
+  {
+    "bic": "12928",
+    "name": "B.I.E. – BANQUE IMMOBILIERE EUROPEENNE (DEVENUE COMPAGNIE EUROPEE"
+  },
+  {
+    "bic": "12930",
+    "name": "UNIFINA ETABLISSEMENT FINANCIER"
+  },
+  {
+    "bic": "12938",
+    "name": "SUD-OUEST BAIL"
+  },
+  {
+    "bic": "12939",
+    "name": "BANQUE DUPUY DE PARSEVAL"
+  },
+  {
+    "bic": "12950",
+    "name": "UNION COMMERCIALE DE CREDIT MULTISERVICES – U.C.C.M."
+  },
+  {
+    "bic": "12978",
+    "name": "FINANCE ET GESTION S.A."
+  },
+  {
+    "bic": "12989",
+    "name": "BANQUE TRANSALPINE DE PARIS"
+  },
+  {
+    "bic": "12998",
+    "name": "S.A.M. CREDIT NAVAL"
+  },
+  {
+    "bic": "13018",
+    "name": "BATIROC PAYS DE LA LOIRE"
+  },
+  {
+    "bic": "13020",
+    "name": "UNION INDUSTRIELLE ET COMMERCIALE DE FRANCE – UNINCOFRA"
+  },
+  {
+    "bic": "13028",
+    "name": "Société de gestion des fonds de garantie d’outre-mer (Sogefom"
+  },
+  {
+    "bic": "13038",
+    "name": "FIDEM"
+  },
+  {
+    "bic": "13058",
+    "name": "ANTEE S.A."
+  },
+  {
+    "bic": "13070",
+    "name": "CM-CIC BAIL"
+  },
+  {
+    "bic": "13078",
+    "name": "BNP PARIBAS GUADELOUPE"
+  },
+  {
+    "bic": "13088",
+    "name": "BNP PARIBAS MARTINIQUE"
+  },
+  {
+    "bic": "13098",
+    "name": "SOCIETE FINANCIERE MONEGASQUE DE CREDIT – COGENEC"
+  },
+  {
+    "bic": "13100",
+    "name": "LEASE PLAN FINANCE S.A."
+  },
+  {
+    "bic": "13106",
+    "name": "Caisse régionale de crédit agricole mutuel Toulouse 31"
+  },
+  {
+    "bic": "13108",
+    "name": "DRESDNER KLEINWORT WASSERSTEIN FRANCE"
+  },
+  {
+    "bic": "13118",
+    "name": "LBS landesbausparkasse Baden-Württemberg"
+  },
+  {
+    "bic": "13128",
+    "name": "COFICA BAIL"
+  },
+  {
+    "bic": "13135",
+    "name": "Caisse d’épargne et de prévoyance de Midi-Pyrénées TOU"
+  },
+  {
+    "bic": "13148",
+    "name": "DEXIA CLF BANQUE"
+  },
+  {
+    "bic": "13149",
+    "name": "BANQUE EDEL SNC"
+  },
+  {
+    "bic": "13150",
+    "name": "LIXXBAIL"
+  },
+  {
+    "bic": "13158",
+    "name": "FRANCE ACTIVE GARANTIE FAG S.A."
+  },
+  {
+    "bic": "13168",
+    "name": "BANQUE PSA FINANCE"
+  },
+  {
+    "bic": "13178",
+    "name": "CREDIT SUISSE ASSET MANAGEMENT (FRANCE) S.A."
+  },
+  {
+    "bic": "13179",
+    "name": "BANQUE FINANCIAL"
+  },
+  {
+    "bic": "13180",
+    "name": "DINERS CLUB DE FRANCE – D.C.F."
+  },
+  {
+    "bic": "13208",
+    "name": "C.F.M. (FRANCE) – CREDIT FONCIER DE MONACO (FRANCE)"
+  },
+  {
+    "bic": "13210",
+    "name": "UCABAIL"
+  },
+  {
+    "bic": "13218",
+    "name": "SOCIETE ANONYME DE FINANCEMENT IMMOBILIER ET DE TRANSACTIONS – SA"
+  },
+  {
+    "bic": "13219",
+    "name": "INCHAUSPE ET CIE S.A."
+  },
+  {
+    "bic": "13220",
+    "name": "SOCIETE COOPERATIVE POUR LA RENOVATION ET L’EQUIPEMENT DU COMMERC"
+  },
+  {
+    "bic": "13238",
+    "name": "CREDIAL"
+  },
+  {
+    "bic": "13239",
+    "name": "HERVET CREDITERME"
+  },
+  {
+    "bic": "13248",
+    "name": "SOFRACEM"
+  },
+  {
+    "bic": "13259",
+    "name": "BANQUE KOLB S.A."
+  },
+  {
+    "bic": "13270",
+    "name": "SOFINABAIL – SOCIETE FINANCIERE POUR LE CREDIT-BAIL"
+  },
+  {
+    "bic": "13279",
+    "name": "AFFINE"
+  },
+  {
+    "bic": "13280",
+    "name": "SOCIETE FRANCAISE DE FACTORING INTERNATIONAL FACTORS FRANCE – S.A"
+  },
+  {
+    "bic": "13298",
+    "name": "BANQUE DU CREDIT MUTUEL NORD EUROPE-BCMN"
+  },
+  {
+    "bic": "13299",
+    "name": "SOPHIA"
+  },
+  {
+    "bic": "13306",
+    "name": "Caisse régionale de crédit agricole mutuel d’Aquitaine"
+  },
+  {
+    "bic": "13308",
+    "name": "HEWLETT-PACKARD FRANCE FINANCE"
+  },
+  {
+    "bic": "13309",
+    "name": "SOCIETE ANONYME DE CREDIT IMMOBILIER AXIALIM"
+  },
+  {
+    "bic": "13310",
+    "name": "VOLKSWAGEN FINANCE S.A."
+  },
+  {
+    "bic": "13318",
+    "name": "SOCIETE FINANCIERE LOCABANQUE"
+  },
+  {
+    "bic": "13323",
+    "name": "Nomura bank international plc"
+  },
+  {
+    "bic": "13328",
+    "name": "BATIROC BRETAGNE"
+  },
+  {
+    "bic": "13335",
+    "name": "Caisse d’épargne et de prévoyance Aquitaine Poitou-Charentes"
+  },
+  {
+    "bic": "13338",
+    "name": "KB LUXEMBOURG (MONACO)"
+  },
+  {
+    "bic": "13343",
+    "name": "J.P. Morgan securities Plc"
+  },
+  {
+    "bic": "13348",
+    "name": "SERVICES ET PRETS IMMOBILIERS"
+  },
+  {
+    "bic": "13350",
+    "name": "COMPAGNIE CENTRALE DE CREDIT ET DE FINANCEMENT IMMOBILIER – COCEF"
+  },
+  {
+    "bic": "13358",
+    "name": "TRANSMEDIA LA CARTE RESTAURANT"
+  },
+  {
+    "bic": "13359",
+    "name": "BANQUE MARIN ET GIANOLA"
+  },
+  {
+    "bic": "13360",
+    "name": "COMPAGNIE GENERALE DE GARANTIE"
+  },
+  {
+    "bic": "13368",
+    "name": "SOCIETE GENERALE BANK & TRUST (MONACO)"
+  },
+  {
+    "bic": "13369",
+    "name": "BANQUE MARTIN-MAUREL"
+  },
+  {
+    "bic": "13379",
+    "name": "BANQUE MARZE"
+  },
+  {
+    "bic": "13390",
+    "name": "UNION FINANCIERE POUR LE DEVELOPPEMENT DE L’ECONOMIE CEREALIERE –"
+  },
+  {
+    "bic": "13400",
+    "name": "FC FRANCE"
+  },
+  {
+    "bic": "13408",
+    "name": "EUROPENNE DE CAUTIONNEMENT S.A."
+  },
+  {
+    "bic": "13418",
+    "name": "CHRYSLER FINANCIAL FRANCE"
+  },
+  {
+    "bic": "13419",
+    "name": "BANQUE FRANCAISE INTERCONTINENTALE"
+  },
+  {
+    "bic": "13428",
+    "name": "CREDIT SUISSE FIRST BOSTON"
+  },
+  {
+    "bic": "13448",
+    "name": "CDC IXIS CAPITAL MARKETS"
+  },
+  {
+    "bic": "13458",
+    "name": "LONDON FORFAITING A PARIS SA"
+  },
+  {
+    "bic": "13463",
+    "name": "Record bank SA"
+  },
+  {
+    "bic": "13485",
+    "name": "Caisse d’épargne et de prévoyance du Languedoc Roussillon"
+  },
+  {
+    "bic": "13488",
+    "name": "HSBC PRIVATE BANK (MONACO) S.A."
+  },
+  {
+    "bic": "13489",
+    "name": "BANQUE NUGER"
+  },
+  {
+    "bic": "13490",
+    "name": "CENTRAL EXPANSION"
+  },
+  {
+    "bic": "13506",
+    "name": "Caisse régionale de crédit agricole mutuel du Languedoc"
+  },
+  {
+    "bic": "13507",
+    "name": "Banque populaire du Nord MARCQ EN BAROEUL"
+  },
+  {
+    "bic": "13508",
+    "name": "ARROCHE"
+  },
+  {
+    "bic": "13518",
+    "name": "SOCIETE PRIVEE D’INVESTISSEMENTS MONCEAU 19 -SPIM 19"
+  },
+  {
+    "bic": "13520",
+    "name": "DIEBOLD COMPUTER LEASING S.A."
+  },
+  {
+    "bic": "13523",
+    "name": "Commerzbank Europe (Ireland)"
+  },
+  {
+    "bic": "13528",
+    "name": "Unicredit SpA"
+  },
+  {
+    "bic": "13529",
+    "name": "BANQUE PELLETIER"
+  },
+  {
+    "bic": "13538",
+    "name": "FINIFAC"
+  },
+  {
+    "bic": "13539",
+    "name": "BANQUE PETROFIGAZ"
+  },
+  {
+    "bic": "13540",
+    "name": "FINANCIERE DU MARCHE SAINT-HONORE"
+  },
+  {
+    "bic": "13558",
+    "name": "AUXIFIP"
+  },
+  {
+    "bic": "13563",
+    "name": "DePfa-Bank Europe plc"
+  },
+  {
+    "bic": "13568",
+    "name": "DAF FINANCE ET SERVICES S.A."
+  },
+  {
+    "bic": "13570",
+    "name": "SOVAC ENTREPRISES"
+  },
+  {
+    "bic": "13578",
+    "name": "SOCIETE GENERALE ASSET MANAGEMENT FINANCE (SGAM FINANCE)"
+  },
+  {
+    "bic": "13579",
+    "name": "BANQUE SAINT-OLIVE"
+  },
+  {
+    "bic": "13580",
+    "name": "GE FACTOFRANCE"
+  },
+  {
+    "bic": "13588",
+    "name": "BANQUE DU DEVELOPPEMENT DES PME – B.D.P.M.E."
+  },
+  {
+    "bic": "13598",
+    "name": "CASTOFI"
+  },
+  {
+    "bic": "13606",
+    "name": "Caisse régionale de crédit agricole mutuel d’Ille-et-Vilaine"
+  },
+  {
+    "bic": "13608",
+    "name": "FINCHRYS"
+  },
+  {
+    "bic": "13618",
+    "name": "SOLIDARITE ECONOMIE-SOLIDEC S.A."
+  },
+  {
+    "bic": "13628",
+    "name": "ABN-AMRO CORPORATE FINANCE FRANCE"
+  },
+  {
+    "bic": "13648",
+    "name": "Bank of Scotland plc"
+  },
+  {
+    "bic": "13650",
+    "name": "SOCIETE FINANCIERE POUR L’EQUIPEMENT INDUSTRIEL ET COMMERCIAL – S"
+  },
+  {
+    "bic": "13658",
+    "name": "AGF BANQUE"
+  },
+  {
+    "bic": "13668",
+    "name": "ABN AMRO FRANCE"
+  },
+  {
+    "bic": "13678",
+    "name": "IFN FINANCE S.A."
+  },
+  {
+    "bic": "13688",
+    "name": "Isbank AG PARIS 09"
+  },
+  {
+    "bic": "13698",
+    "name": "ESTER FINANCE TITRISATION"
+  },
+  {
+    "bic": "13709",
+    "name": "SOCIETE ANONYME DE CREDIT IMMOBILIER DU MAINE"
+  },
+  {
+    "bic": "13719",
+    "name": "SOCIETE MONEGASQUE DE BANQUE PRIVEE"
+  },
+  {
+    "bic": "13720",
+    "name": "LIXXBAIL GROUPE"
+  },
+  {
+    "bic": "13728",
+    "name": "COFIPLAN S. A."
+  },
+  {
+    "bic": "13733",
+    "name": "The bank of New York Mellon SA/NV"
+  },
+  {
+    "bic": "13738",
+    "name": "KLELINE"
+  },
+  {
+    "bic": "13740",
+    "name": "SOPROMEC, SOCIETE DE PROMOTION ECONOMIQUE"
+  },
+  {
+    "bic": "13748",
+    "name": "WILSHIRE SERVICING COMPAGNIE"
+  },
+  {
+    "bic": "13758",
+    "name": "PRETS ET SERVICES S.A.S."
+  },
+  {
+    "bic": "13763",
+    "name": "Banque et caisse d’épargne de l’Etat, Luxembourg"
+  },
+  {
+    "bic": "13768",
+    "name": "NATEXIS FACTOR"
+  },
+  {
+    "bic": "13769",
+    "name": "SOCIETE GENERALE POUR LE DEVELOPPEMENT DES OPERATIONS DE CREDIT-B"
+  },
+  {
+    "bic": "13778",
+    "name": "BOMBARDIER CAPITAL INTERNATIONAL S.A."
+  },
+  {
+    "bic": "13788",
+    "name": "IDIFINE"
+  },
+  {
+    "bic": "13798",
+    "name": "CAISSE SOLIDAIRE"
+  },
+  {
+    "bic": "13807",
+    "name": "Banque populaire Atlantique NANTES"
+  },
+  {
+    "bic": "13810",
+    "name": "PROCREDIT – PROBAIL"
+  },
+  {
+    "bic": "13823",
+    "name": "Kleinwort Benson private bank ltd"
+  },
+  {
+    "bic": "13825",
+    "name": "Caisse d’épargne et de prévoyance de Rhône Alpes LYON"
+  },
+  {
+    "bic": "13828",
+    "name": "DEXIA PROJECT AND PUBLIC FINANCE INTERNATIONAL BANK"
+  },
+  {
+    "bic": "13833",
+    "name": "Mainfirst bank AG PARIS 08"
+  },
+  {
+    "bic": "13838",
+    "name": "CNH CAPITAL EUROPE"
+  },
+  {
+    "bic": "13848",
+    "name": "DARTEM"
+  },
+  {
+    "bic": "13858",
+    "name": "LOISIRS FINANCE"
+  },
+  {
+    "bic": "13860",
+    "name": "COOPAMAT (2ème du nom)"
+  },
+  {
+    "bic": "13870",
+    "name": "LOCAMUR – SOFIGROS"
+  },
+  {
+    "bic": "13878",
+    "name": "Toyota kreditbank GmbH – Toyota France financement VAU"
+  },
+  {
+    "bic": "13880",
+    "name": "SOCIETE DE BATIMENTS INDUSTRIELS DES REGIONS DE L’OUEST ET DU CEN"
+  },
+  {
+    "bic": "13888",
+    "name": "ELYSEES FACTOR"
+  },
+  {
+    "bic": "13898",
+    "name": "NEW HOLLAND FINANCE"
+  },
+  {
+    "bic": "13906",
+    "name": "Caisse régionale de crédit agricole mutuel Sud Rhône-Alpes"
+  },
+  {
+    "bic": "13907",
+    "name": "Banque populaire Loire et Lyonnais LYON"
+  },
+  {
+    "bic": "13910",
+    "name": "COMPAGNIE FINANCIERE DE PARIBAS"
+  },
+  {
+    "bic": "13923",
+    "name": "Landesbank Baden-Württemberg"
+  },
+  {
+    "bic": "13928",
+    "name": "GE CAPITAL FINANCEMENTS IMMOBILIERS D’ENTREPRISE"
+  },
+  {
+    "bic": "13938",
+    "name": "BANQUE RIVAUD"
+  },
+  {
+    "bic": "13948",
+    "name": "CDC PROJETS"
+  },
+  {
+    "bic": "13958",
+    "name": "CAPITAL ONE"
+  },
+  {
+    "bic": "13959",
+    "name": "AGRIFIGEST-ALMA – SOCIETE FINANCIERE ET AGRICOLE DE GESTION"
+  },
+  {
+    "bic": "13968",
+    "name": "UCB – ENTREPRISES"
+  },
+  {
+    "bic": "13978",
+    "name": "COFICAR"
+  },
+  {
+    "bic": "13988",
+    "name": "COMPAQ FINANCIAL SERVICE S.A.S."
+  },
+  {
+    "bic": "13998",
+    "name": "SAME – DEUTZ – FAHR FINANCE"
+  },
+  {
+    "bic": "13999",
+    "name": "BANQUE DE VIZILLE"
+  },
+  {
+    "bic": "14006",
+    "name": "Caisse régionale de crédit agricole mutuel de la Guadeloupe"
+  },
+  {
+    "bic": "14008",
+    "name": "FIMIPAR"
+  },
+  {
+    "bic": "14010",
+    "name": "LE CREDIT TOURISTIQUE ” C2T”"
+  },
+  {
+    "bic": "14018",
+    "name": "NORRSKEN FINANCE"
+  },
+  {
+    "bic": "14020",
+    "name": "FIAT LEASE AUTO"
+  },
+  {
+    "bic": "14023",
+    "name": "Banco Espirito Santo de investimento, SA.”BES investimento”"
+  },
+  {
+    "bic": "14028",
+    "name": "TEMPRO"
+  },
+  {
+    "bic": "14029",
+    "name": "AIPAL CREDIT’ SOCIETE ANONYME DE CREDIT IMMOBILIER – S.A.C.I.A.C"
+  },
+  {
+    "bic": "14038",
+    "name": "CREDIT LYONNAIS PRIVATE BANKING INTERNATIONAL MONACO S.A.M."
+  },
+  {
+    "bic": "14040",
+    "name": "GOLDMAN SACHS PARIS INC ET CIE"
+  },
+  {
+    "bic": "14048",
+    "name": "CREDIT SUISSE (MONACO)"
+  },
+  {
+    "bic": "14069",
+    "name": "SOCIETE ANONYME DE CREDIT IMMOBILIER DES ENVIRONS DE PARIS-SACIEP"
+  },
+  {
+    "bic": "14078",
+    "name": "Caisse de crédit municipal de Lille LILLE"
+  },
+  {
+    "bic": "14088",
+    "name": "COMPAGNIE SUISSE ET FRANCAISE"
+  },
+  {
+    "bic": "14098",
+    "name": "DAIMLERCHRYSLER CAPITAL SERVICES (debis) FRANCE S.A."
+  },
+  {
+    "bic": "14108",
+    "name": "JOHN DEERE CREDIT"
+  },
+  {
+    "bic": "14110",
+    "name": "PINATTON FINANCE"
+  },
+  {
+    "bic": "14118",
+    "name": "SYGMA FINANCE S.N.C."
+  },
+  {
+    "bic": "14120",
+    "name": "LEGAL & GENERAL BANK (FRANCE)"
+  },
+  {
+    "bic": "14128",
+    "name": "FORTIS LEASE IMMOBILIER FRANCE"
+  },
+  {
+    "bic": "14138",
+    "name": "BRETAGNE DEVELOPPEMENT"
+  },
+  {
+    "bic": "14139",
+    "name": "NATIONAL BANK OF PAKISTAN"
+  },
+  {
+    "bic": "14148",
+    "name": "Hypothekenbank Frankfurt AG"
+  },
+  {
+    "bic": "14150",
+    "name": "BANQUE ROBECO"
+  },
+  {
+    "bic": "14178",
+    "name": "DEXIA BAIL"
+  },
+  {
+    "bic": "14180",
+    "name": "PROMINNOFI (SA) CENTRALE DE COTATION ET DE CONTREPARTIE"
+  },
+  {
+    "bic": "14188",
+    "name": "KBC BAIL FRANCE"
+  },
+  {
+    "bic": "14190",
+    "name": "CYRIL FINANCE"
+  },
+  {
+    "bic": "14198",
+    "name": "SOGELEASE FRANCE"
+  },
+  {
+    "bic": "14206",
+    "name": "EUROPAY FRANCE"
+  },
+  {
+    "bic": "14208",
+    "name": "FIRST BRETAGNE"
+  },
+  {
+    "bic": "14209",
+    "name": "SOCIETE ANONYME RURALE ET OUVRIERE DE CREDIT IMMOBILIER DE SEINE-"
+  },
+  {
+    "bic": "14210",
+    "name": "KLEBAIL"
+  },
+  {
+    "bic": "14218",
+    "name": "CLAAS FINANCIAL SERVICES"
+  },
+  {
+    "bic": "14228",
+    "name": "SGB FINANCE"
+  },
+  {
+    "bic": "14229",
+    "name": "CREDIT SAINT-PIERRAIS"
+  },
+  {
+    "bic": "14238",
+    "name": "NOUMEA CREDIT"
+  },
+  {
+    "bic": "14239",
+    "name": "J.P. MORGAN ET CIE S.A."
+  },
+  {
+    "bic": "14248",
+    "name": "UBS (FRANCE) S.A."
+  },
+  {
+    "bic": "14250",
+    "name": "THE DAI-ICHI KANGYO BANK LIMITED"
+  },
+  {
+    "bic": "14258",
+    "name": "ING SECURITIES BANK (FRANCE)"
+  },
+  {
+    "bic": "14259",
+    "name": "UNITED EUROPEAN BANK – MONACO"
+  },
+  {
+    "bic": "14263",
+    "name": "Natixis Bank"
+  },
+  {
+    "bic": "14265",
+    "name": "Caisse d’épargne et de prévoyance Loire Drôme Ardèche"
+  },
+  {
+    "bic": "14270",
+    "name": "SELECTIBAIL"
+  },
+  {
+    "bic": "14278",
+    "name": "BGL-BAIL"
+  },
+  {
+    "bic": "14288",
+    "name": "EURO SALES FINANCE S.A."
+  },
+  {
+    "bic": "14308",
+    "name": "O.F.I.V.A.L.M.O. OMNIUM FINANCIER DE VALEURS MOBILIERES"
+  },
+  {
+    "bic": "14310",
+    "name": "CAISSE AUTONOME DE REFINANCEMENT"
+  },
+  {
+    "bic": "14318",
+    "name": "BRED GESTION"
+  },
+  {
+    "bic": "14320",
+    "name": "BANKERS TRUST (FRANCE) S.A."
+  },
+  {
+    "bic": "14328",
+    "name": "CREDIT LYONNAIS ASSET MANAGEMENT FINANCE"
+  },
+  {
+    "bic": "14348",
+    "name": "NETVALOR"
+  },
+  {
+    "bic": "14358",
+    "name": "AMERICAN EXPRESS BANK (SWITZERLAND) S.A. (“AEBS”)"
+  },
+  {
+    "bic": "14363",
+    "name": "Banque Raiffeisen"
+  },
+  {
+    "bic": "14368",
+    "name": "CREDIT FONCIER DE FRANCE"
+  },
+  {
+    "bic": "14378",
+    "name": "SOCIETE FINANCIERE DU PORTE-MONNAIE ELECTRONIQUE INTERBANCAIRE"
+  },
+  {
+    "bic": "14380",
+    "name": "FACET"
+  },
+  {
+    "bic": "14388",
+    "name": "DEXIA MUNICIPAL AGENCY"
+  },
+  {
+    "bic": "14389",
+    "name": "SOCIETE ANONYME DE CREDIT IMMOBILIER DE LA SOMME"
+  },
+  {
+    "bic": "14398",
+    "name": "HSBC CCF LEASING"
+  },
+  {
+    "bic": "14400",
+    "name": "SOFIMURS"
+  },
+  {
+    "bic": "14406",
+    "name": "Caisse régionale de crédit agricole mutuel Val de France"
+  },
+  {
+    "bic": "14408",
+    "name": "IMMOBILIER ELYBAIL"
+  },
+  {
+    "bic": "14410",
+    "name": "DEXIA FLOBAIL"
+  },
+  {
+    "bic": "14428",
+    "name": "BNP PARIBAS EMERGIS"
+  },
+  {
+    "bic": "14445",
+    "name": "Caisse d’épargne et de prévoyance Bretagne-Pays de Loire"
+  },
+  {
+    "bic": "14448",
+    "name": "CREDIT FONCIER ET COMMUNAL D’ALSACE ET DE LORRAINE – SOCIETE DE C"
+  },
+  {
+    "bic": "14450",
+    "name": "COMPTOIR DE BANQUE"
+  },
+  {
+    "bic": "14460",
+    "name": "CREDISUEZ"
+  },
+  {
+    "bic": "14469",
+    "name": "SOFAL"
+  },
+  {
+    "bic": "14478",
+    "name": "MARTIN MAUREL SELLA – BANQUE PRIVEE – MONACO S.A.M."
+  },
+  {
+    "bic": "14480",
+    "name": "DOMIMUR"
+  },
+  {
+    "bic": "14488",
+    "name": "EGG S.A."
+  },
+  {
+    "bic": "14498",
+    "name": "WESTDEUTSCHE LANDESBANK (FRANCE) S.A."
+  },
+  {
+    "bic": "14505",
+    "name": "Caisse d’épargne et de prévoyance Loire-Centre ORLEANS"
+  },
+  {
+    "bic": "14506",
+    "name": "Caisse régionale de crédit agricole mutuel Loire – Haute-Loir"
+  },
+  {
+    "bic": "14508",
+    "name": "ING BANK (MONACO) S.A.M."
+  },
+  {
+    "bic": "14518",
+    "name": "SYMPHONIS"
+  },
+  {
+    "bic": "14523",
+    "name": "Crédit agricole Luxembourg"
+  },
+  {
+    "bic": "14548",
+    "name": "NABAB S.A."
+  },
+  {
+    "bic": "14549",
+    "name": "SLIBAIL IMMOBILIER"
+  },
+  {
+    "bic": "14558",
+    "name": "FORTIS EBANKING FRANCE"
+  },
+  {
+    "bic": "14563",
+    "name": "ING Luxembourg S.A."
+  },
+  {
+    "bic": "14568",
+    "name": "Svenska handelsbanken AB (publ)"
+  },
+  {
+    "bic": "14569",
+    "name": "UNIBAIL"
+  },
+  {
+    "bic": "14578",
+    "name": "ALSOLIA"
+  },
+  {
+    "bic": "14579",
+    "name": "SOPHIA (2eme du nom)"
+  },
+  {
+    "bic": "14588",
+    "name": "COMPAGNIE FINANCIERE DE BOURBON"
+  },
+  {
+    "bic": "14589",
+    "name": "FIDEI – COMPAGNIE FINANCIERE POUR L’IMMOBILIER D’ENTREPRISE"
+  },
+  {
+    "bic": "14590",
+    "name": "COGERA SOCIETE ANONYME"
+  },
+  {
+    "bic": "14598",
+    "name": "CDC FINANCE – CDC IXIS"
+  },
+  {
+    "bic": "14607",
+    "name": "Banque populaire provençale et Corse MARSEILLE"
+  },
+  {
+    "bic": "14608",
+    "name": "BANQUE SAFRA FRANCE SA"
+  },
+  {
+    "bic": "14618",
+    "name": "FORTIS LEASE FRANCE"
+  },
+  {
+    "bic": "14623",
+    "name": "SGZ – Bank Ireland plc"
+  },
+  {
+    "bic": "14628",
+    "name": "BANQUE DU GROUPE CASINO"
+  },
+  {
+    "bic": "14629",
+    "name": "FINEXTEL – SOCIETE FINANCIERE POUR L’EXPANSION DES TELECOMMUNICAT"
+  },
+  {
+    "bic": "14630",
+    "name": "CALYON FINANCIAL S.N.C."
+  },
+  {
+    "bic": "14633",
+    "name": "Western Union international bank GmbH"
+  },
+  {
+    "bic": "14638",
+    "name": "SICOMAX (2ème du nom)"
+  },
+  {
+    "bic": "14640",
+    "name": "BANQUE DU DOME – CREDIFRANCE FACTOR"
+  },
+  {
+    "bic": "14648",
+    "name": "CAPITOLE FINANCE"
+  },
+  {
+    "bic": "14649",
+    "name": "SOCIETE FINANCIERE POUR LE FINANCEMENT DE BUREAUX ET D’USINES –"
+  },
+  {
+    "bic": "14658",
+    "name": "CIF EUROMORTGAGE"
+  },
+  {
+    "bic": "14668",
+    "name": "DINERS CLUB FRANCE"
+  },
+  {
+    "bic": "14670",
+    "name": "BMW FINANCE"
+  },
+  {
+    "bic": "14679",
+    "name": "BANQUE PARIBAS PACIFIQUE"
+  },
+  {
+    "bic": "14680",
+    "name": "BMW LEASE"
+  },
+  {
+    "bic": "14688",
+    "name": "STAR LEASE"
+  },
+  {
+    "bic": "14690",
+    "name": "BANQUE COVEFI"
+  },
+  {
+    "bic": "14699",
+    "name": "SOVABAIL"
+  },
+  {
+    "bic": "14706",
+    "name": "Caisse régionale de crédit agricole mutuel Atlantique Vendée"
+  },
+  {
+    "bic": "14707",
+    "name": "Banque populaire Lorraine Champagne METZ"
+  },
+  {
+    "bic": "14723",
+    "name": "Credito italiano S.p.A."
+  },
+  {
+    "bic": "14738",
+    "name": "W-HA S.A."
+  },
+  {
+    "bic": "14749",
+    "name": "SOCIETE FINANCIERE DE BANQUE – SOFIB"
+  },
+  {
+    "bic": "14758",
+    "name": "CREDIT LYONNAIS EPARGNE ENTREPRISE"
+  },
+  {
+    "bic": "14763",
+    "name": "Danske bank international S.A."
+  },
+  {
+    "bic": "14768",
+    "name": "CAISSE D’EPARGNE FINANCEMENT"
+  },
+  {
+    "bic": "14778",
+    "name": "MARTIGNAC FINANCE"
+  },
+  {
+    "bic": "14788",
+    "name": "DEUTSCHE BANK (MONACO) SAM"
+  },
+  {
+    "bic": "14798",
+    "name": "CAMEFI BANQUE"
+  },
+  {
+    "bic": "14800",
+    "name": "UNION NOTARIALE FINANCIERE DE CREDIT – UNOFI CREDIT"
+  },
+  {
+    "bic": "14806",
+    "name": "Caisse régionale de crédit agricole mutuel Centre Loire"
+  },
+  {
+    "bic": "14810",
+    "name": "SICOMI RHONE-ALPES"
+  },
+  {
+    "bic": "14818",
+    "name": "Banca regionale Europea S.p.A. NICE"
+  },
+  {
+    "bic": "14819",
+    "name": "BANQUE ARABE ET INTERNATIONALE D’INVESTISSEMENT (B.A.I.I.)"
+  },
+  {
+    "bic": "14833",
+    "name": "GE Capital bank limited"
+  },
+  {
+    "bic": "14838",
+    "name": "BIOTECH-GARANTIE"
+  },
+  {
+    "bic": "14848",
+    "name": "GENERAL ELECTRIC FINANCEMENT PACIFIQUE S.A.S."
+  },
+  {
+    "bic": "14849",
+    "name": "SOCIETE FINANCIERE POUR LA LOCATION – LOCAFINANCIERE"
+  },
+  {
+    "bic": "14863",
+    "name": "DekaBank deutsche girozentrale Luxembourg S.A."
+  },
+  {
+    "bic": "14868",
+    "name": "FRANCE TELECOM ENCAISSEMENTS"
+  },
+  {
+    "bic": "14869",
+    "name": "BANQUE DE REESCOMPTE ET DE PLACEMENT – B.A.R.E.P."
+  },
+  {
+    "bic": "14878",
+    "name": "GROUPAMA BANQUE"
+  },
+  {
+    "bic": "14879",
+    "name": "BANK OF INDIA"
+  },
+  {
+    "bic": "14888",
+    "name": "FINANCIERE OCEOR"
+  },
+  {
+    "bic": "14889",
+    "name": "BANQUE DE NOUVELLE CALEDONIE"
+  },
+  {
+    "bic": "14898",
+    "name": "BANQUE NATIONALE DE PARIS INTERCONTINENTALE"
+  },
+  {
+    "bic": "14908",
+    "name": "BANCA POPOLARE DI SONDRIO (SUISSE)"
+  },
+  {
+    "bic": "14918",
+    "name": "DePfa bank plc"
+  },
+  {
+    "bic": "14928",
+    "name": "SOCIETE FINANCIERE DE PAIEMENTS"
+  },
+  {
+    "bic": "14930",
+    "name": "IDIANOVA PARTICIPATIONS"
+  },
+  {
+    "bic": "14940",
+    "name": "COMPAGNIE FINANCIERE POUR LA DISTRIBUTION – COFIDIS"
+  },
+  {
+    "bic": "14948",
+    "name": "NATEXIS INTEREPARGNE"
+  },
+  {
+    "bic": "14958",
+    "name": "Siemens financial services ST DENIS"
+  },
+  {
+    "bic": "14960",
+    "name": "FINATRANS"
+  },
+  {
+    "bic": "14963",
+    "name": "Hypothekenbank Frankfurt international S.A."
+  },
+  {
+    "bic": "14968",
+    "name": "GENERAL ELECTRIC FINANCEMENT POLYNESIE S.A.S."
+  },
+  {
+    "bic": "14970",
+    "name": "BAIL ECONOMIE"
+  },
+  {
+    "bic": "14978",
+    "name": "BANQUE NSM ENTREPRISES"
+  },
+  {
+    "bic": "14988",
+    "name": "CREFIDIS"
+  },
+  {
+    "bic": "14989",
+    "name": "KOREA EXCHANGE BANK"
+  },
+  {
+    "bic": "14998",
+    "name": "Domofinance PARIS 09"
+  },
+  {
+    "bic": "15000",
+    "name": "EURONEXT PARIS S.A."
+  },
+  {
+    "bic": "15008",
+    "name": "Jyske bank A/S"
+  },
+  {
+    "bic": "15023",
+    "name": "J.P. Morgan Europe limited"
+  },
+  {
+    "bic": "15063",
+    "name": "KBL European private bankers SA"
+  },
+  {
+    "bic": "15068",
+    "name": "Pictet & Cie (Europe) SA"
+  },
+  {
+    "bic": "15078",
+    "name": "MFF PUTEAUX"
+  },
+  {
+    "bic": "15123",
+    "name": "Deutsche ausgleichsbank"
+  },
+  {
+    "bic": "15128",
+    "name": "Volkswagen bank GmbH VILLEPINTE"
+  },
+  {
+    "bic": "15135",
+    "name": "Caisse d’épargne et de prévoyance de Lorraine Champagne-Arden"
+  },
+  {
+    "bic": "15138",
+    "name": "Océanienne de financement (OFINA) PAPEETE"
+  },
+  {
+    "bic": "15148",
+    "name": "Mediobanca – Banca di credito finanziario S.p.A."
+  },
+  {
+    "bic": "15149",
+    "name": "CREDIT FONCIER ET COMMUNAL D’ALSACE ET DE LORRAINE-BANQUE"
+  },
+  {
+    "bic": "15163",
+    "name": "HSBC Private bank (Luxembourg) S.A."
+  },
+  {
+    "bic": "15168",
+    "name": "GE Corporate finance bank S.A.S. PARIS 09"
+  },
+  {
+    "bic": "15178",
+    "name": "Sogelease BDP PAPEETE"
+  },
+  {
+    "bic": "15179",
+    "name": "FRANKOPARIS SA"
+  },
+  {
+    "bic": "15208",
+    "name": "Crédit municipal de Paris PARIS 04"
+  },
+  {
+    "bic": "15218",
+    "name": "Bibby factor France LYON"
+  },
+  {
+    "bic": "15223",
+    "name": "Deutsche bank Luxembourg S.A."
+  },
+  {
+    "bic": "15228",
+    "name": "Société financière Antilles Guyane – SOFIAG FORT DE FR"
+  },
+  {
+    "bic": "15250",
+    "name": "SUMITOMO MITSUI BANKING CORPORATION"
+  },
+  {
+    "bic": "15258",
+    "name": "The Governor and company of the bank of Ireland (Bank of Irel"
+  },
+  {
+    "bic": "15278",
+    "name": "Créalfi EVRY"
+  },
+  {
+    "bic": "15298",
+    "name": "RBC Investor services bank France SA PARIS 02"
+  },
+  {
+    "bic": "15318",
+    "name": "Allied irish banks plc (AIB)"
+  },
+  {
+    "bic": "15333",
+    "name": "Toyota material handling Europe rental AB BUSSY ST GEO"
+  },
+  {
+    "bic": "15338",
+    "name": "Disponis MARCQ EN BAROEUL"
+  },
+  {
+    "bic": "15348",
+    "name": "Caisse régionale de crédit maritime mutuel de la région Nord"
+  },
+  {
+    "bic": "15358",
+    "name": "Caisse régionale de crédit maritime mutuel d’outre mer"
+  },
+  {
+    "bic": "15363",
+    "name": "State street bank Luxembourg"
+  },
+  {
+    "bic": "15378",
+    "name": "Komatsu financial France COURBEVOIE"
+  },
+  {
+    "bic": "15380",
+    "name": "CONSERVATEUR FINANCE"
+  },
+  {
+    "bic": "15398",
+    "name": "JP Morgan bank Dublin plc"
+  },
+  {
+    "bic": "15399",
+    "name": "SOCIETE FRANCAISE DU CHEQUE DE VOYAGE"
+  },
+  {
+    "bic": "15408",
+    "name": "BNP Paribas dealing services PARIS 09"
+  },
+  {
+    "bic": "15409",
+    "name": "SOFIRIF – Coopérative financière de la région Ile de France"
+  },
+  {
+    "bic": "15423",
+    "name": "Unicredit bank Austria AG"
+  },
+  {
+    "bic": "15428",
+    "name": "KBC bail immobilier France SAS PARIS 09"
+  },
+  {
+    "bic": "15429",
+    "name": "Caisse agricole Crédit Mutuel DIJON"
+  },
+  {
+    "bic": "15448",
+    "name": "CNH Financial services MORIGNY CHAMPIGNY"
+  },
+  {
+    "bic": "15449",
+    "name": "Caisse de Bretagne de crédit mutuel agricole LE RELECQ"
+  },
+  {
+    "bic": "15458",
+    "name": "Joh. Berenberg, Gossler & Co. KG"
+  },
+  {
+    "bic": "15488",
+    "name": "Projeo LEVALLOIS PERRET"
+  },
+  {
+    "bic": "15489",
+    "name": "Caisse fédérale du crédit mutuel de Maine-Anjou et Basse-Norm"
+  },
+  {
+    "bic": "15490",
+    "name": "ROBERT FLEMING (FRANCE) S.A."
+  },
+  {
+    "bic": "15498",
+    "name": "MAN financial services SAS EVRY"
+  },
+  {
+    "bic": "15519",
+    "name": "Caisse fédérale du crédit mutuel Océan LA ROCHE SUR YO"
+  },
+  {
+    "bic": "15528",
+    "name": "Lloyds bank plc"
+  },
+  {
+    "bic": "15548",
+    "name": "Prioris MARCQ EN BAROEUL"
+  },
+  {
+    "bic": "15568",
+    "name": "Crédit lift EVRY"
+  },
+  {
+    "bic": "15578",
+    "name": "Hoist kredit Aktiebolag"
+  },
+  {
+    "bic": "15588",
+    "name": "R Raphael & Sons plc"
+  },
+  {
+    "bic": "15589",
+    "name": "Crédit mutuel Arkéa LE RELECQ KERHUON"
+  },
+  {
+    "bic": "15590",
+    "name": "FORTIS COMMERCIAL FINANCE S.A.S."
+  },
+  {
+    "bic": "15607",
+    "name": "Banque populaire Côte d’Azur NICE"
+  },
+  {
+    "bic": "15608",
+    "name": "PNB (Europe) Plc"
+  },
+  {
+    "bic": "15610",
+    "name": "SOCIETE ANONYME DE GESTION ET DE FINANCEMENT – SAGEFI"
+  },
+  {
+    "bic": "15618",
+    "name": "SNS property finance (SNSPF)"
+  },
+  {
+    "bic": "15623",
+    "name": "Finansbanken A/S"
+  },
+  {
+    "bic": "15628",
+    "name": "CheBanca! SpA – Micos LYON"
+  },
+  {
+    "bic": "15629",
+    "name": "Caisse fédérale du crédit mutuel Nord Europe LILLE"
+  },
+  {
+    "bic": "15638",
+    "name": "Andbanc Monaco S.A.M. MONACO"
+  },
+  {
+    "bic": "15648",
+    "name": "Deutsche leasing France RUEIL MALMAISON"
+  },
+  {
+    "bic": "15650",
+    "name": "AUSTRALIA AND NEW ZEALAND BANKING GROUP LIMITED"
+  },
+  {
+    "bic": "15668",
+    "name": "BNP Paribas home loan SFH PARIS 09"
+  },
+  {
+    "bic": "15723",
+    "name": "Deutsche bank / DB Ireland plc"
+  },
+  {
+    "bic": "15728",
+    "name": "Sefia MARCQ EN BAROEUL"
+  },
+  {
+    "bic": "15733",
+    "name": "La Française Bank"
+  },
+  {
+    "bic": "15740",
+    "name": "SOCIETE LORRAINE DE CREDIT-BAIL IMMOBILIER – LORBAIL"
+  },
+  {
+    "bic": "15750",
+    "name": "SOLYBAIL"
+  },
+  {
+    "bic": "15763",
+    "name": "Credit Europe bank NV"
+  },
+  {
+    "bic": "15798",
+    "name": "FBN bank (UK) Ltd PARIS 08"
+  },
+  {
+    "bic": "15808",
+    "name": "Sal. Oppenheim jr. & Cie. AG & Co. KGaA"
+  },
+  {
+    "bic": "15818",
+    "name": "Binckbank NV"
+  },
+  {
+    "bic": "15830",
+    "name": "NOVACREDIT"
+  },
+  {
+    "bic": "15840",
+    "name": "DEXIA ASSET MANAGEMENT"
+  },
+  {
+    "bic": "15848",
+    "name": "Crédit Mutuel – CIC Home Loan SFH PARIS 09"
+  },
+  {
+    "bic": "15868",
+    "name": "Saxo banque (France) PARIS 02"
+  },
+  {
+    "bic": "15898",
+    "name": "Crédit Agricole home loan SFH MONTROUGE"
+  },
+  {
+    "bic": "15900",
+    "name": "FEDERAL FINANCE BANQUE"
+  },
+  {
+    "bic": "15908",
+    "name": "RBC Europe limited"
+  },
+  {
+    "bic": "15918",
+    "name": "Standard chartered bank"
+  },
+  {
+    "bic": "15920",
+    "name": "MERRILL LYNCH CAPITAL MARKETS (FRANCE) S.A.S."
+  },
+  {
+    "bic": "15928",
+    "name": "UBS limited"
+  },
+  {
+    "bic": "15930",
+    "name": "NATEXIS PAIEMENTS"
+  },
+  {
+    "bic": "15940",
+    "name": "M.J. BAIL"
+  },
+  {
+    "bic": "15950",
+    "name": "DOMI-EQUIPEMENT"
+  },
+  {
+    "bic": "15958",
+    "name": "Banques Populaires covered bonds PARIS 13"
+  },
+  {
+    "bic": "15960",
+    "name": "MACSF FINANCEMENT"
+  },
+  {
+    "bic": "15963",
+    "name": "Société générale bank Nederland N.V."
+  },
+  {
+    "bic": "15968",
+    "name": "Société Générale SCF PUTEAUX"
+  },
+  {
+    "bic": "15970",
+    "name": "BAIL-ACTEA"
+  },
+  {
+    "bic": "15980",
+    "name": "BAIL-ENTREPRISES"
+  },
+  {
+    "bic": "15988",
+    "name": "Cafineo BAIE MAHAULT"
+  },
+  {
+    "bic": "15998",
+    "name": "GCE COVERED BONDS PARIS 13"
+  },
+  {
+    "bic": "16000",
+    "name": "DIAC"
+  },
+  {
+    "bic": "16006",
+    "name": "Caisse régionale de crédit agricole mutuel du Morbihan"
+  },
+  {
+    "bic": "16008",
+    "name": "HSH Nordbank AG"
+  },
+  {
+    "bic": "16020",
+    "name": "BATIMAP"
+  },
+  {
+    "bic": "16030",
+    "name": "IBM FRANCE FINANCEMENT"
+  },
+  {
+    "bic": "16038",
+    "name": "Banque Havilland (Monaco) S.A.M. MONACO"
+  },
+  {
+    "bic": "16048",
+    "name": "Ebi SA PUTEAUX"
+  },
+  {
+    "bic": "16050",
+    "name": "BATINOREST"
+  },
+  {
+    "bic": "16058",
+    "name": "HSBC SFH (FRANCE) PARIS 08"
+  },
+  {
+    "bic": "16060",
+    "name": "CGMTR"
+  },
+  {
+    "bic": "16068",
+    "name": "Landesbank Hessen-Thüringen Girozentrale (Helaba)"
+  },
+  {
+    "bic": "16078",
+    "name": "BNP Paribas Public Sector SCF PARIS 09"
+  },
+  {
+    "bic": "16088",
+    "name": "Crédit Mutuel Arkéa Home Loans SFH BREST"
+  },
+  {
+    "bic": "16098",
+    "name": "Banca IFIS"
+  },
+  {
+    "bic": "16100",
+    "name": "Caisse de crédit municipal de Rouen ROUEN"
+  },
+  {
+    "bic": "16106",
+    "name": "Caisse régionale de crédit agricole mutuel de Lorraine"
+  },
+  {
+    "bic": "16120",
+    "name": "LOXXIA BAIL"
+  },
+  {
+    "bic": "16130",
+    "name": "S.I.R.C.A.M."
+  },
+  {
+    "bic": "16150",
+    "name": "SOCIETE FINANCIERE DES S.D.R. (FINANSDER)"
+  },
+  {
+    "bic": "16158",
+    "name": "BGFI International PARIS 08"
+  },
+  {
+    "bic": "16159",
+    "name": "Caisse fédérale du crédit mutuel Antilles-Guyane FORT"
+  },
+  {
+    "bic": "16160",
+    "name": "ALSABAIL – ALSACIENNE DE CREDIT BAIL IMMOBILIER"
+  },
+  {
+    "bic": "16168",
+    "name": "BOA France PARIS 02"
+  },
+  {
+    "bic": "16170",
+    "name": "Caisse de crédit municipal de Boulogne-sur-Mer BOULOGN"
+  },
+  {
+    "bic": "16178",
+    "name": "La Banque Postale Financement PARIS 15"
+  },
+  {
+    "bic": "16180",
+    "name": "BATIROC NORMANDIE"
+  },
+  {
+    "bic": "16188",
+    "name": "BPCE PARIS 13"
+  },
+  {
+    "bic": "16190",
+    "name": "FRUCTICOMI"
+  },
+  {
+    "bic": "16198",
+    "name": "EFG banque privée PARIS 07"
+  },
+  {
+    "bic": "16200",
+    "name": "Caisse de crédit municipal de Nice NICE"
+  },
+  {
+    "bic": "16208",
+    "name": "GE SCF COURBEVOIE"
+  },
+  {
+    "bic": "16218",
+    "name": "Bforbank COURBEVOIE"
+  },
+  {
+    "bic": "16228",
+    "name": "Société générale SFH PUTEAUX"
+  },
+  {
+    "bic": "16230",
+    "name": "BATIROC CENTRE – BATICENTRE"
+  },
+  {
+    "bic": "16233",
+    "name": "Mercedes-Benz bank AG MONTIGNY LE BRETONNEUX"
+  },
+  {
+    "bic": "16250",
+    "name": "LEASE PLAN CREDIT S.A."
+  },
+  {
+    "bic": "16263",
+    "name": "Banco popular Portugal"
+  },
+  {
+    "bic": "16270",
+    "name": "Comptoir financier de garantie – CFG PARIS 01"
+  },
+  {
+    "bic": "16275",
+    "name": "Caisse d’épargne et de prévoyance Nord France Europe E"
+  },
+  {
+    "bic": "16278",
+    "name": "Natixis Asset Management Finance PARIS 13"
+  },
+  {
+    "bic": "16298",
+    "name": "Arkéa banking services PUTEAUX"
+  },
+  {
+    "bic": "16300",
+    "name": "B.S.D. EXPANSION"
+  },
+  {
+    "bic": "16318",
+    "name": "Axa bank Europe SCF FONTENAY SOUS BOIS"
+  },
+  {
+    "bic": "16320",
+    "name": "PITNEY BOWES FINANCE SA"
+  },
+  {
+    "bic": "16323",
+    "name": "Banco português de investimento, S.A."
+  },
+  {
+    "bic": "16330",
+    "name": "CHANGE DE LA BOURSE"
+  },
+  {
+    "bic": "16358",
+    "name": "Crédit mutuel Arkéa public sector SCF LE RELECQ KERHUO"
+  },
+  {
+    "bic": "16370",
+    "name": "ACTI-BAIL LYON"
+  },
+  {
+    "bic": "16438",
+    "name": "BPCE SFH PARIS 13"
+  },
+  {
+    "bic": "16468",
+    "name": "Crédit Agricole Public Sector SCF MONTROUGE"
+  },
+  {
+    "bic": "16478",
+    "name": "La Banque Postale crédit entreprises PARIS 06"
+  },
+  {
+    "bic": "16488",
+    "name": "Prêt d’union ISSY LES MOULINEAUX"
+  },
+  {
+    "bic": "16500",
+    "name": "INSTITUT DE DEVELOPPEMENT DE L’ECONOMIE SOCIALE (I.D.E.S.)"
+  },
+  {
+    "bic": "16523",
+    "name": "Deutsche genossenschafts hypothekenbank AG"
+  },
+  {
+    "bic": "16540",
+    "name": "SOCIETE FINANCIERE DE GESTION ET D’EXPLOITATION DU RHIN – SOGER"
+  },
+  {
+    "bic": "16548",
+    "name": "Banque européenne du crédit mutuel Monaco MONACO"
+  },
+  {
+    "bic": "16560",
+    "name": "Caisse de crédit municipal de Bordeaux BORDEAUX"
+  },
+  {
+    "bic": "16588",
+    "name": "Société de financement local COURBEVOIE"
+  },
+  {
+    "bic": "16600",
+    "name": "CREDIT CALEDONIEN ET TAHITIEN CREDICAL"
+  },
+  {
+    "bic": "16606",
+    "name": "Caisse régionale de crédit agricole mutuel de Normandie"
+  },
+  {
+    "bic": "16607",
+    "name": "Banque populaire du Sud PERPIGNAN"
+  },
+  {
+    "bic": "16608",
+    "name": "LA BANQUE POSTALE HOME LOAN SFH PARIS 07"
+  },
+  {
+    "bic": "16618",
+    "name": "The Export-Import Bank of China PARIS 08"
+  },
+  {
+    "bic": "16620",
+    "name": "CREDIT DE L’EST"
+  },
+  {
+    "bic": "16628",
+    "name": "Coutts & Co Ltd, Succursale de Monaco MONACO"
+  },
+  {
+    "bic": "16640",
+    "name": "CREDIT FINANCIER LILLOIS"
+  },
+  {
+    "bic": "16680",
+    "name": "SOCREPAR – STE DE CREDITS AUX PARTICULIERS"
+  },
+  {
+    "bic": "16700",
+    "name": "CICOBAIL"
+  },
+  {
+    "bic": "16705",
+    "name": "Caisse d’épargne et de prévoyance d’Alsace STRASBOURG"
+  },
+  {
+    "bic": "16706",
+    "name": "Caisse régionale de crédit agricole mutuel Nord de France"
+  },
+  {
+    "bic": "16707",
+    "name": "Banque populaire de l’Ouest RENNES"
+  },
+  {
+    "bic": "16740",
+    "name": "CREDIT LYONNAIS FORFAITING"
+  },
+  {
+    "bic": "16750",
+    "name": "UNIMAT"
+  },
+  {
+    "bic": "16760",
+    "name": "FRANFINANCE"
+  },
+  {
+    "bic": "16769",
+    "name": "SOBAIL"
+  },
+  {
+    "bic": "16780",
+    "name": "SOFINGEST – SOCIETE FINANCIERE D’INVESTISSEMENT ET DE GESTION"
+  },
+  {
+    "bic": "16806",
+    "name": "Caisse régionale de crédit agricole mutuel de Centre France –"
+  },
+  {
+    "bic": "16807",
+    "name": "Banque populaire des Alpes CORENC"
+  },
+  {
+    "bic": "16820",
+    "name": "AMERICAN EXPRESS CARTE FRANCE"
+  },
+  {
+    "bic": "16830",
+    "name": "GENECAL"
+  },
+  {
+    "bic": "16839",
+    "name": "FINANCO"
+  },
+  {
+    "bic": "16840",
+    "name": "BANQUE PASCHE MONACO SAM"
+  },
+  {
+    "bic": "16850",
+    "name": "EUROFACTOR"
+  },
+  {
+    "bic": "16859",
+    "name": "AXAMUR"
+  },
+  {
+    "bic": "16870",
+    "name": "NORD FINANCEMENT"
+  },
+  {
+    "bic": "16879",
+    "name": "FINANCIERE DES MARCHES A TERME (FIMAT)"
+  },
+  {
+    "bic": "16889",
+    "name": "PARNASSIENNE DE CREDIT"
+  },
+  {
+    "bic": "16906",
+    "name": "Caisse régionale de crédit agricole mutuel Pyrénées-Gascogne"
+  },
+  {
+    "bic": "16929",
+    "name": "CREDIT MODERNE GUYANNE"
+  },
+  {
+    "bic": "16960",
+    "name": "FINAREF"
+  },
+  {
+    "bic": "16963",
+    "name": "N M Rothschild & sons limited"
+  },
+  {
+    "bic": "16989",
+    "name": "CAVABANQUE"
+  },
+  {
+    "bic": "17023",
+    "name": "Banco Santander Totta, S.A."
+  },
+  {
+    "bic": "17060",
+    "name": "COMPAGNIE GENERALE D’AFFACTURAGE – C.G.A."
+  },
+  {
+    "bic": "17070",
+    "name": "INTER EUROPE CONSEIL"
+  },
+  {
+    "bic": "17100",
+    "name": "Caisse de crédit municipal de Strasbourg STRASBOURG"
+  },
+  {
+    "bic": "17106",
+    "name": "Caisse régionale de crédit agricole mutuel Sud-Méditerranée ("
+  },
+  {
+    "bic": "17123",
+    "name": "IKB deutsche industriebank AG"
+  },
+  {
+    "bic": "17140",
+    "name": "NORBAIL S.N.C."
+  },
+  {
+    "bic": "17149",
+    "name": "Caisse régionale de crédit maritime mutuel de Bretagne-Norman"
+  },
+  {
+    "bic": "17150",
+    "name": "Caisse de crédit municipal de Toulon TOULON"
+  },
+  {
+    "bic": "17169",
+    "name": "Caisse régionale de crédit maritime mutuel du littoral du sud"
+  },
+  {
+    "bic": "17179",
+    "name": "Caisse régionale de crédit maritime mutuel de la Méditerranée"
+  },
+  {
+    "bic": "17190",
+    "name": "PICARDIE BAIL"
+  },
+  {
+    "bic": "17206",
+    "name": "Caisse régionale de crédit agricole mutuel Alsace Vosges"
+  },
+  {
+    "bic": "17210",
+    "name": "BCV FINANCE (FRANCE)"
+  },
+  {
+    "bic": "17219",
+    "name": "Caisse régionale de crédit maritime mutuel Atlantique"
+  },
+  {
+    "bic": "17223",
+    "name": "Hypovereinsbank Ireland"
+  },
+  {
+    "bic": "17230",
+    "name": "LAVIOLETTE FINANCEMENT"
+  },
+  {
+    "bic": "17250",
+    "name": "FRANKOBAIL – SOCIETE FINANCIERE D’INVESTISSEMENTS IMMOBILIERS D’E"
+  },
+  {
+    "bic": "17270",
+    "name": "LOCA-DIN"
+  },
+  {
+    "bic": "17290",
+    "name": "DEXIA CREDIT LOCAL"
+  },
+  {
+    "bic": "17340",
+    "name": "ACTI-BAIL"
+  },
+  {
+    "bic": "17350",
+    "name": "SLIBAILAUTOS"
+  },
+  {
+    "bic": "17363",
+    "name": "NIBC bank NV"
+  },
+  {
+    "bic": "17380",
+    "name": "SOLYCREDIT"
+  },
+  {
+    "bic": "17389",
+    "name": "GROUPE CREDIT COOPERATIF"
+  },
+  {
+    "bic": "17410",
+    "name": "BNP BAIL"
+  },
+  {
+    "bic": "17419",
+    "name": "SOCIETE FINANCIERE POUR LE DEVELOPPEMENT ECONOMIQUE DE LA GUYANE"
+  },
+  {
+    "bic": "17420",
+    "name": "OFIVM"
+  },
+  {
+    "bic": "17429",
+    "name": "CAISSE DE CREDIT AGRICOLE MUTUEL DE LA NOUVELLE-CALEDONIE ET DEPE"
+  },
+  {
+    "bic": "17430",
+    "name": "OMNIUM INDUSTRIEL ET FINANCIER"
+  },
+  {
+    "bic": "17439",
+    "name": "SOCIETE FINANCIERE POUR LE DEVELOPPEMENT DE LA REUNION (S.O.F.I.D"
+  },
+  {
+    "bic": "17440",
+    "name": "IMAFFINE"
+  },
+  {
+    "bic": "17449",
+    "name": "SOCIETE DE CREDIT POUR LE DEVELOPPEMENT DE LA MARTINIQUE (SODEMA)"
+  },
+  {
+    "bic": "17459",
+    "name": "SOCIETE DE CREDIT POUR LE DEVELOPPEMENT DE LA GUADELOUPE (SODEGA)"
+  },
+  {
+    "bic": "17463",
+    "name": "Banque internationale à Luxembourg"
+  },
+  {
+    "bic": "17469",
+    "name": "BANQUE SOCREDO"
+  },
+  {
+    "bic": "17470",
+    "name": "LIONBAIL"
+  },
+  {
+    "bic": "17479",
+    "name": "COOPERATIVE IMMOBILIERE DES ILES SAINT-PIERRE-ET-MIQUELON (C.I.S."
+  },
+  {
+    "bic": "17499",
+    "name": "BANQUE CALEDONIENNE D’INVESTISSEMENT – B.C.I."
+  },
+  {
+    "bic": "17510",
+    "name": "Créatis VILLENEUVE D ASCQ"
+  },
+  {
+    "bic": "17515",
+    "name": "Caisse d’épargne et de prévoyance Ile-de-France PARIS"
+  },
+  {
+    "bic": "17519",
+    "name": "BANQUE CENTRALE DE COMPENSATION"
+  },
+  {
+    "bic": "17520",
+    "name": "TRANSFACT"
+  },
+  {
+    "bic": "17529",
+    "name": "FRANCETEL – SOCIETE FRANCAISE DE FINANCEMENT DES TELECOMMUNICATIO"
+  },
+  {
+    "bic": "17549",
+    "name": "NATIOCREDIBAIL"
+  },
+  {
+    "bic": "17553",
+    "name": "SELF TRADE"
+  },
+  {
+    "bic": "17559",
+    "name": "SOCIETE FINANCIERE SELECTIBAIL"
+  },
+  {
+    "bic": "17560",
+    "name": "CFP-CREDIT"
+  },
+  {
+    "bic": "17563",
+    "name": "Deutsche schiffsbank AG"
+  },
+  {
+    "bic": "17569",
+    "name": "COMPAGNIE MONEGASQUE DE BANQUE"
+  },
+  {
+    "bic": "17579",
+    "name": "BANK TEJARAT"
+  },
+  {
+    "bic": "17580",
+    "name": "SOCIETE FINANCIERE DES PAYS DE L’ADOUR – SEBADOUR"
+  },
+  {
+    "bic": "17590",
+    "name": "SECURITAS"
+  },
+  {
+    "bic": "17599",
+    "name": "BANQUE BANORABE"
+  },
+  {
+    "bic": "17607",
+    "name": "Banque populaire d’Alsace STRASBOURG"
+  },
+  {
+    "bic": "17609",
+    "name": "PRIMABAIL"
+  },
+  {
+    "bic": "17610",
+    "name": "INSTITUT PROVENCAL DE PARTICIPATION"
+  },
+  {
+    "bic": "17619",
+    "name": "BANQUE DE L’EUROPE MERIDIONALE – BEMO"
+  },
+  {
+    "bic": "17620",
+    "name": "Caisse de crédit municipal de Nîmes NIMES"
+  },
+  {
+    "bic": "17629",
+    "name": "Commerzbank AG"
+  },
+  {
+    "bic": "17640",
+    "name": "BANQUE FINANCIERE CARDIF"
+  },
+  {
+    "bic": "17649",
+    "name": "BANQUE REVILLON"
+  },
+  {
+    "bic": "17660",
+    "name": "GENEFIM"
+  },
+  {
+    "bic": "17663",
+    "name": "Gambro credit AB"
+  },
+  {
+    "bic": "17670",
+    "name": "SOCIETE GENERALE FINANCIERE D’ALSACE ET DE LORRAINE – SOGEFINAL"
+  },
+  {
+    "bic": "17679",
+    "name": "SOCIETE DE BANQUE ET D’EXPANSION – S.B.E."
+  },
+  {
+    "bic": "17709",
+    "name": "COMPAGNIE FRANCAISE IMMOBILIERE POUR LE COMMERCE ET L’INDUSTRIE –"
+  },
+  {
+    "bic": "17723",
+    "name": "Banco finantia"
+  },
+  {
+    "bic": "17730",
+    "name": "SOCIETE AUXILIAIRE DES INDUSTRIES ALIMENTAIRES (AUXINDAL)"
+  },
+  {
+    "bic": "17749",
+    "name": "SOCIETE DE CREDIT POUR LE DEVELOPPEMENT DES DEPARTEMENTS D’OUTRE-"
+  },
+  {
+    "bic": "17779",
+    "name": "BANQUE SBA"
+  },
+  {
+    "bic": "17789",
+    "name": "Deutsche bank AG"
+  },
+  {
+    "bic": "17799",
+    "name": "BANK SEPAH"
+  },
+  {
+    "bic": "17806",
+    "name": "Caisse régionale de crédit agricole mutuel Centre-Est"
+  },
+  {
+    "bic": "17807",
+    "name": "Banque populaire Occitane BALMA"
+  },
+  {
+    "bic": "17809",
+    "name": "ASSURBAIL"
+  },
+  {
+    "bic": "17819",
+    "name": "VIA BAIL"
+  },
+  {
+    "bic": "17829",
+    "name": "BANQUE TRAD – CREDIT LYONNAIS (FRANCE) S.A."
+  },
+  {
+    "bic": "17839",
+    "name": "GMAC BANQUE"
+  },
+  {
+    "bic": "17859",
+    "name": "BANQUE FRANCAISE DE L’ORIENT – B.F.O."
+  },
+  {
+    "bic": "17863",
+    "name": "Deutsche pfandbriefbank AG"
+  },
+  {
+    "bic": "17869",
+    "name": "COMPAGNIE DE BANQUES INTERNATIONALES DE PARIS"
+  },
+  {
+    "bic": "17890",
+    "name": "SIFIS"
+  },
+  {
+    "bic": "17906",
+    "name": "Caisse régionale de crédit agricole mutuel de l’Anjou et du M"
+  },
+  {
+    "bic": "17919",
+    "name": "QATAR NATIONAL BANK"
+  },
+  {
+    "bic": "17930",
+    "name": "SOCIETE FINANCIERE INDUSTRIELLE COMMERCIALE ET IMMOBILIERE – SOFI"
+  },
+  {
+    "bic": "17939",
+    "name": "BNP PARIBAS NOUVELLE-CALEDONIE"
+  },
+  {
+    "bic": "17959",
+    "name": "BANQUE MICHEL INCHAUSPE – BAMI"
+  },
+  {
+    "bic": "17960",
+    "name": "CIAL FINANCE"
+  },
+  {
+    "bic": "17963",
+    "name": "Société européenne de banque S.A."
+  },
+  {
+    "bic": "17973",
+    "name": "Exane derivatives PARIS 08"
+  },
+  {
+    "bic": "17979",
+    "name": "ARAB BANK PLC"
+  },
+  {
+    "bic": "17980",
+    "name": "SNVB FINANCEMENTS"
+  },
+  {
+    "bic": "17989",
+    "name": "NATIONAL BANK OF ABU DHABI"
+  },
+  {
+    "bic": "17999",
+    "name": "SOFEBAIL – SOCIETE FEDERATIVE DE CREDIT-BAIL IMMOBILIER"
+  },
+  {
+    "bic": "18000",
+    "name": "COFITEM-COFIMUR"
+  },
+  {
+    "bic": "18020",
+    "name": "BNP PARIBAS FACTOR"
+  },
+  {
+    "bic": "18023",
+    "name": "UBS (Luxembourg) S.A."
+  },
+  {
+    "bic": "18025",
+    "name": "Caisse d’épargne et de prévoyance de Picardie AMIENS"
+  },
+  {
+    "bic": "18029",
+    "name": "CETELEM"
+  },
+  {
+    "bic": "18039",
+    "name": "CITIBANK S.A."
+  },
+  {
+    "bic": "18040",
+    "name": "BATIFRANC"
+  },
+  {
+    "bic": "18049",
+    "name": "IFABANQUE S.A."
+  },
+  {
+    "bic": "18050",
+    "name": "Caisse de crédit municipal de Lyon LYON"
+  },
+  {
+    "bic": "18053",
+    "name": "FORTIS INVESTMENT FINANCE"
+  },
+  {
+    "bic": "18059",
+    "name": "HSBC bank plc"
+  },
+  {
+    "bic": "18063",
+    "name": "BGL BNP Paribas"
+  },
+  {
+    "bic": "18069",
+    "name": "COMPAGNIE POUR LE DEVELOPPEMENT DE L’HOTELLERIE ET DU TOURISME –"
+  },
+  {
+    "bic": "18079",
+    "name": "SOCIETE GENERALE DE BANQUE AUX ANTILLES"
+  },
+  {
+    "bic": "18089",
+    "name": "BANQUE AUDI (FRANCE) S.A."
+  },
+  {
+    "bic": "18099",
+    "name": "BANQUE NATIONALE DE GRECE (FRANCE)"
+  },
+  {
+    "bic": "18106",
+    "name": "Caisse régionale de crédit agricole mutuel des Savoie – Crédi"
+  },
+  {
+    "bic": "18129",
+    "name": "CREDIT AGRICOLE INVESTOR SERVICES BANK"
+  },
+  {
+    "bic": "18140",
+    "name": "UNION ECONOMIQUE ET FINANCIERE"
+  },
+  {
+    "bic": "18149",
+    "name": "BANCO DE LA NACION ARGENTINA"
+  },
+  {
+    "bic": "18160",
+    "name": "Caisse de crédit municipal de Nancy NANCY"
+  },
+  {
+    "bic": "18163",
+    "name": "Banque Degroof Luxembourg S.A."
+  },
+  {
+    "bic": "18169",
+    "name": "CREDIT SUISSE HOTTINGUER"
+  },
+  {
+    "bic": "18179",
+    "name": "DRESDNER BANK GESTIONS FRANCE"
+  },
+  {
+    "bic": "18189",
+    "name": "COMPAGNIE GENERALE DE CREDIT AUX PARTICULIERS – CREDIPAR"
+  },
+  {
+    "bic": "18190",
+    "name": "SOFARIS – SOCIETE FRANCAISE DE GARANTIE DES FINANCEMENTS DES PETI"
+  },
+  {
+    "bic": "18200",
+    "name": "INTERCITES"
+  },
+  {
+    "bic": "18206",
+    "name": "Caisse régionale de crédit agricole mutuel de Paris et d’Ile-"
+  },
+  {
+    "bic": "18209",
+    "name": "EXANE FINANCE"
+  },
+  {
+    "bic": "18219",
+    "name": "SOCIETE DE BANQUE PRIVEE (S.B.P.)"
+  },
+  {
+    "bic": "18223",
+    "name": "Morgan Stanley bank AG"
+  },
+  {
+    "bic": "18229",
+    "name": "BNP FINANCE"
+  },
+  {
+    "bic": "18230",
+    "name": "SOFIPROTEOL"
+  },
+  {
+    "bic": "18249",
+    "name": "Banca nazionale del Lavoro S.p.A."
+  },
+  {
+    "bic": "18250",
+    "name": "SOCIETE REUNIONNAISE DE FINANCEMENT – SOREFI"
+  },
+  {
+    "bic": "18263",
+    "name": "Dornbirner sparkasse bank AG"
+  },
+  {
+    "bic": "18269",
+    "name": "ARJIL ET ASSOCIES BANQUE"
+  },
+  {
+    "bic": "18279",
+    "name": "CREDIT FONCIER BANQUE"
+  },
+  {
+    "bic": "18280",
+    "name": "UNIFERGIE – UNION POUR LE FINANCEMENT DES ECONOMIES D’ENERGIE"
+  },
+  {
+    "bic": "18289",
+    "name": "HABIB BANK LIMITED"
+  },
+  {
+    "bic": "18299",
+    "name": "BANCO ATLANTICO (MONACO) S.A.M."
+  },
+  {
+    "bic": "18306",
+    "name": "Caisse régionale de crédit agricole mutuel Normandie-Seine"
+  },
+  {
+    "bic": "18315",
+    "name": "Caisse d’épargne et de prévoyance Côte d’Azur NICE"
+  },
+  {
+    "bic": "18319",
+    "name": "SOCIETE GENERALE CALEDONIENNE DE BANQUE S G C B"
+  },
+  {
+    "bic": "18320",
+    "name": "UCB BAIL"
+  },
+  {
+    "bic": "18329",
+    "name": "STATE BANK OF INDIA"
+  },
+  {
+    "bic": "18359",
+    "name": "CREDIT D’EQUIPEMENT DES PETITES ET MOYENNES ENTREPRISES – C.E.P.M"
+  },
+  {
+    "bic": "18363",
+    "name": "Bankgesellschaft – Berlin (Ireland) plc"
+  },
+  {
+    "bic": "18370",
+    "name": "BANQUE FINAMA"
+  },
+  {
+    "bic": "18379",
+    "name": "SOFERBAIL – SOCIETE FINANCIERE POUR L’ENERGIE, LES EQUIPEMENTS PU"
+  },
+  {
+    "bic": "18389",
+    "name": "FINERGIE"
+  },
+  {
+    "bic": "18399",
+    "name": "ERGIFRANCE"
+  },
+  {
+    "bic": "18410",
+    "name": "SOCIETE LORRAINE D’EQUIPEMENT – LOREQUIP"
+  },
+  {
+    "bic": "18423",
+    "name": "Erste group bank AG"
+  },
+  {
+    "bic": "18429",
+    "name": "NORBAIL SOFERGIE"
+  },
+  {
+    "bic": "18439",
+    "name": "NATIOENERGIE – SOCIETE POUR LE FINANCEMENT DES ECONOMIES D’ENERGI"
+  },
+  {
+    "bic": "18440",
+    "name": "SOFINROUTE – SOCIETE EN NOM COLLECTIF"
+  },
+  {
+    "bic": "18450",
+    "name": "Caisse de crédit municipal de Roubaix ROUBAIX"
+  },
+  {
+    "bic": "18460",
+    "name": "RHIN EXPANSION"
+  },
+  {
+    "bic": "18469",
+    "name": "SLIBAILENERGIE"
+  },
+  {
+    "bic": "18470",
+    "name": "Caisse de crédit municipal de Nantes NANTES"
+  },
+  {
+    "bic": "18479",
+    "name": "TRANSBANQUE"
+  },
+  {
+    "bic": "18500",
+    "name": "MASSILIA BAIL"
+  },
+  {
+    "bic": "18519",
+    "name": "SOCIETE D’EQUIPEMENT FERROVIAIRE POUR L’ETUDE ET LA REALISATION D"
+  },
+  {
+    "bic": "18520",
+    "name": "GROUPE SOFEMO"
+  },
+  {
+    "bic": "18523",
+    "name": "Goldman Sachs & Co oHG"
+  },
+  {
+    "bic": "18529",
+    "name": "MIZUHO CORPORATE BANK LIMITED PARIS BRANCH"
+  },
+  {
+    "bic": "18530",
+    "name": "NATIOCREDIMURS, SOCIETE EN NOM COLLECTIF"
+  },
+  {
+    "bic": "18539",
+    "name": "HYPO REAL ESTATE CAPITAL FRANCE S.A."
+  },
+  {
+    "bic": "18540",
+    "name": "CORSABAIL"
+  },
+  {
+    "bic": "18563",
+    "name": "VR Diskontbank GmbH"
+  },
+  {
+    "bic": "18569",
+    "name": "BANQUE MISR"
+  },
+  {
+    "bic": "18580",
+    "name": "VISOFI"
+  },
+  {
+    "bic": "18589",
+    "name": "CAISSE FRANCAISE DE DEVELOPPEMENT INDUSTRIEL – C.F.D.I."
+  },
+  {
+    "bic": "18590",
+    "name": "BULL FINANCE"
+  },
+  {
+    "bic": "18600",
+    "name": "SOFI PATRIMOINE"
+  },
+  {
+    "bic": "18609",
+    "name": "CAISSE CENTRALE DU CREDIT IMMOBILIER DE FRANCE – 3CIF"
+  },
+  {
+    "bic": "18610",
+    "name": "COMPAGNIE POUR LA LOCATION DE VEHICULES – CLV"
+  },
+  {
+    "bic": "18623",
+    "name": "Sparkasse südliche weinstrasse in Landau"
+  },
+  {
+    "bic": "18629",
+    "name": "HSBC PRIVATE BANK FRANCE"
+  },
+  {
+    "bic": "18640",
+    "name": "W FINANCE"
+  },
+  {
+    "bic": "18649",
+    "name": "THE INDUSTRIAL BANK OF JAPAN LIMITED"
+  },
+  {
+    "bic": "18650",
+    "name": "SOFISCOP PARIS 17"
+  },
+  {
+    "bic": "18660",
+    "name": "COFILOISIRS – COMPAGNIE POUR LE FINANCEMENT DES LOISIRS"
+  },
+  {
+    "bic": "18669",
+    "name": "ROTHSCHILD ET COMPAGNIE BANQUE"
+  },
+  {
+    "bic": "18680",
+    "name": "GAILLON SOFERGIE"
+  },
+  {
+    "bic": "18689",
+    "name": "FRANSABANK FRANCE S.A."
+  },
+  {
+    "bic": "18690",
+    "name": "ARTESIA BAIL"
+  },
+  {
+    "bic": "18700",
+    "name": "FINEDIS"
+  },
+  {
+    "bic": "18706",
+    "name": "Caisse régionale de crédit agricole mutuel Brie Picardie"
+  },
+  {
+    "bic": "18707",
+    "name": "Banque populaire Val de France (2ème du nom) MONTIGNY"
+  },
+  {
+    "bic": "18709",
+    "name": "CREDIT IMMOBILIER DE FRANCE ILE DE FRANCE"
+  },
+  {
+    "bic": "18710",
+    "name": "AUXICOMI"
+  },
+  {
+    "bic": "18715",
+    "name": "Caisse d’épargne et de prévoyance d’Auvergne et du Limousin"
+  },
+  {
+    "bic": "18719",
+    "name": "BANQUE FRANCAISE COMMERCIALE OCEAN INDIEN – B.F.C. OCEAN INDIEN"
+  },
+  {
+    "bic": "18720",
+    "name": "CIAL EQUIPEMENT"
+  },
+  {
+    "bic": "18729",
+    "name": "BANQUE FRANCAISE COMMERCIALE ANTILLES-GUYANE – B.F.C. ANTILLES-GU"
+  },
+  {
+    "bic": "18730",
+    "name": "CREDIT COMMERCIAL DE NOUMEA"
+  },
+  {
+    "bic": "18739",
+    "name": "The royal bank of Scotland plc"
+  },
+  {
+    "bic": "18749",
+    "name": "BANQUE PARISIENNE INTERNATIONALE"
+  },
+  {
+    "bic": "18750",
+    "name": "MONACREDIT"
+  },
+  {
+    "bic": "18759",
+    "name": "BANQUE MONEGASQUE DE GESTION"
+  },
+  {
+    "bic": "18769",
+    "name": "BANQUE DE CHINE"
+  },
+  {
+    "bic": "18779",
+    "name": "BANQUE PARIBAS POLYNESIE"
+  },
+  {
+    "bic": "18780",
+    "name": "SOFID – SOCIETE FINANCIERE DE DEVELOPPEMENT"
+  },
+  {
+    "bic": "18789",
+    "name": "INTERNATIONAL COMMERCIAL BANK OF CHINA"
+  },
+  {
+    "bic": "18799",
+    "name": "HSBC BANK FRANCE S.A."
+  },
+  {
+    "bic": "18809",
+    "name": "SOFICARTE"
+  },
+  {
+    "bic": "18823",
+    "name": "Kas-bank N.V."
+  },
+  {
+    "bic": "18829",
+    "name": "BANQUE COMMERCIALE POUR LE MARCHE DE L’ENTREPRISE – BCME"
+  },
+  {
+    "bic": "18839",
+    "name": "B.F.T. – BANQUE DE FINANCEMENT ET DE TRESORERIE"
+  },
+  {
+    "bic": "18869",
+    "name": "BANQUE FEDERALE MUTUALISTE – B.F.M."
+  },
+  {
+    "bic": "18879",
+    "name": "BANQUE MONETAIRE ET FINANCIERE – B.M.F."
+  },
+  {
+    "bic": "18889",
+    "name": "CORTAL CONSORS"
+  },
+  {
+    "bic": "18890",
+    "name": "SOCIETE MARTINIQUAISE DE FINANCEMENT – SOMAFI"
+  },
+  {
+    "bic": "18899",
+    "name": "CPR GESTION (DEVENUE CPR GESTION ASSET MANAGEMENT)"
+  },
+  {
+    "bic": "18900",
+    "name": "SOCIETE GUADELOUPEENNE DE FINANCEMENT – SOGUAFI"
+  },
+  {
+    "bic": "18919",
+    "name": "BANQUE PRIVEE SAINT DOMINIQUE"
+  },
+  {
+    "bic": "18929",
+    "name": "BANKBOSTON N.A."
+  },
+  {
+    "bic": "18930",
+    "name": "COMPAGNIE FINANCIERE DU LITTORAL – COFILIT"
+  },
+  {
+    "bic": "18949",
+    "name": "CREDIT COMMERCIAL DE FRANCE (MONACO)"
+  },
+  {
+    "bic": "18950",
+    "name": "Caisse de crédit municipal d’Avignon AVIGNON"
+  },
+  {
+    "bic": "18959",
+    "name": "BANQUE SARADAR FRANCE"
+  },
+  {
+    "bic": "18979",
+    "name": "ABC international bank plc PARIS 09"
+  },
+  {
+    "bic": "18989",
+    "name": "AAREAL BANK FRANCE"
+  },
+  {
+    "bic": "18990",
+    "name": "LA FINANCE IMMOBILIERE"
+  },
+  {
+    "bic": "19000",
+    "name": "SOCIETE AUXILIAIRE D’ETUDES ET D’INVESTISSEMENTS MOBILIERS -INVES"
+  },
+  {
+    "bic": "19020",
+    "name": "CREDIT MODERNE ANTILLES"
+  },
+  {
+    "bic": "19029",
+    "name": "OMNIFINANCE"
+  },
+  {
+    "bic": "19030",
+    "name": "BATICAL"
+  },
+  {
+    "bic": "19039",
+    "name": "MONCEAU MURS"
+  },
+  {
+    "bic": "19063",
+    "name": "Landesbank Saar (SAARLB)"
+  },
+  {
+    "bic": "19069",
+    "name": "KBL FRANCE"
+  },
+  {
+    "bic": "19089",
+    "name": "BANQUE D’ORSAY"
+  },
+  {
+    "bic": "19099",
+    "name": "SICOLOISIRS"
+  },
+  {
+    "bic": "19106",
+    "name": "Caisse régionale de crédit agricole mutuel Provence-Côte d’Az"
+  },
+  {
+    "bic": "19109",
+    "name": "COMPAGNIE DE CREDIT"
+  },
+  {
+    "bic": "19110",
+    "name": "CREDIPAC POLYNESIE"
+  },
+  {
+    "bic": "19119",
+    "name": "B.M.A. – BANQUE DE MARCHES ET D’ARBITRAGE"
+  },
+  {
+    "bic": "19120",
+    "name": "SOGEXTER – SOCIETE GENERALE POUR LE COMMERCE EXTERIEUR"
+  },
+  {
+    "bic": "19123",
+    "name": "State street bank Europe limited"
+  },
+  {
+    "bic": "19130",
+    "name": "SOCIETE POUR LE DEVELOPPEMENT INTERNATIONAL DU COMMERCE ET DE L’I"
+  },
+  {
+    "bic": "19139",
+    "name": "CREALFI"
+  },
+  {
+    "bic": "19149",
+    "name": "BANQUE D’IENA"
+  },
+  {
+    "bic": "19150",
+    "name": "CREDIT ET SERVICES FINANCIERS – CRESERFI"
+  },
+  {
+    "bic": "19160",
+    "name": "ELECTRO BAIL"
+  },
+  {
+    "bic": "19169",
+    "name": "UCABAIL IMMOBILIER"
+  },
+  {
+    "bic": "19180",
+    "name": "SOCIETE REGIONALE DE PARTICIPATIONS"
+  },
+  {
+    "bic": "19189",
+    "name": "SOCIETE DE CREDIT A LA CONSOMMATION CAMIF – C2C"
+  },
+  {
+    "bic": "19190",
+    "name": "SLIBAIL REUNION"
+  },
+  {
+    "bic": "19199",
+    "name": "BANQUE LEHMAN BROTHERS"
+  },
+  {
+    "bic": "19209",
+    "name": "BANQUE ARJIL ET COMPAGNIE"
+  },
+  {
+    "bic": "19210",
+    "name": "SOCIETE FINANCIERE DES COMITES INTERPROFESSIONNELS DU LOGEMENT –"
+  },
+  {
+    "bic": "19223",
+    "name": "ABN Amro bank (Luxembourg)"
+  },
+  {
+    "bic": "19229",
+    "name": "Banco de Sabadell PARIS 08"
+  },
+  {
+    "bic": "19230",
+    "name": "CREDIT LOGEMENT"
+  },
+  {
+    "bic": "19239",
+    "name": "SOCIETE DE BANQUE FRANCAISE ET INTERNATIONALE"
+  },
+  {
+    "bic": "19240",
+    "name": "DE LAGE LANDEN TRADE FINANCE – DE LAGE LANDEN LEASING & TRADE FIN"
+  },
+  {
+    "bic": "19249",
+    "name": "GENEFIMMO"
+  },
+  {
+    "bic": "19250",
+    "name": "COMPAGNIE GENERALE DE LOCATION D’EQUIPEMENT “C.G.L.”"
+  },
+  {
+    "bic": "19259",
+    "name": "SOGEFIMUR"
+  },
+  {
+    "bic": "19260",
+    "name": "EULIA-CAUTION"
+  },
+  {
+    "bic": "19263",
+    "name": "The british linen bank limited"
+  },
+  {
+    "bic": "19269",
+    "name": "GENEBANQUE"
+  },
+  {
+    "bic": "19290",
+    "name": "DAIWA EUROPE (FRANCE) S.A."
+  },
+  {
+    "bic": "19300",
+    "name": "BARCLAYS BAIL"
+  },
+  {
+    "bic": "19310",
+    "name": "COMPAGNIE FONCIERE ELYSEES"
+  },
+  {
+    "bic": "19319",
+    "name": "FIMACOM – FINANCIERE MATRA COMMUNICATION"
+  },
+  {
+    "bic": "19339",
+    "name": "BAIL ECUREUIL"
+  },
+  {
+    "bic": "19340",
+    "name": "SOCIETE FINANCIERE POUR L’EXPANSION DE LA DISTRIBUTION – SOFINEDI"
+  },
+  {
+    "bic": "19360",
+    "name": "ABBEY NATIONAL FRANCE"
+  },
+  {
+    "bic": "19379",
+    "name": "CAVABAIL"
+  },
+  {
+    "bic": "19389",
+    "name": "PARICOMI"
+  },
+  {
+    "bic": "19390",
+    "name": "HSBC CCF ASSET MANAGEMENT GROUP"
+  },
+  {
+    "bic": "19399",
+    "name": "ANTIN-BAIL"
+  },
+  {
+    "bic": "19406",
+    "name": "Caisse régionale de crédit agricole mutuel de la Touraine et"
+  },
+  {
+    "bic": "19410",
+    "name": "AGFA FINANCE"
+  },
+  {
+    "bic": "19460",
+    "name": "SOFAX BANQUE"
+  },
+  {
+    "bic": "19463",
+    "name": "Goldman Sachs international bank"
+  },
+  {
+    "bic": "19479",
+    "name": "Société coopérative et mutuelle de la région P.A.C.A. – “S.O."
+  },
+  {
+    "bic": "19480",
+    "name": "CAISSE AUXILIAIRE DE TRESORERIE ET DE CREDIT – C.A.T.C."
+  },
+  {
+    "bic": "19500",
+    "name": "SOCIETE FEDERATIVE DE CREDIT-BAIL MOBILIER – FEDEBAIL"
+  },
+  {
+    "bic": "19505",
+    "name": "CAISSE NATIONALE DES CAISSES D’EPARGNE ET DE PREVOYANCE"
+  },
+  {
+    "bic": "19506",
+    "name": "Caisse régionale de crédit agricole mutuel du Centre Ouest"
+  },
+  {
+    "bic": "19510",
+    "name": "ENERBAIL – SOCIETE DE CREDIT-BAIL POUR L’ENERGIE"
+  },
+  {
+    "bic": "19519",
+    "name": "GEDEX DISTRIBUTION"
+  },
+  {
+    "bic": "19530",
+    "name": "SEGESPAR"
+  },
+  {
+    "bic": "19540",
+    "name": "CAISSE DE GARANTIE MUTUELLE POUR LE CREDIT ET LE CREDIT-BAIL – C."
+  },
+  {
+    "bic": "19560",
+    "name": "SOCIETE DE GARANTIE COOPERATIVE ET MUTUELLE DES INDUSTRIES METALL"
+  },
+  {
+    "bic": "19563",
+    "name": "Havin bank ltd"
+  },
+  {
+    "bic": "19570",
+    "name": "UNION FINANCIERE DE FRANCE BANQUE"
+  },
+  {
+    "bic": "19590",
+    "name": "NATEXIS EQUIPEMENT"
+  },
+  {
+    "bic": "19609",
+    "name": "UNICEFI 33 S.A."
+  },
+  {
+    "bic": "19620",
+    "name": "21,SOCIETE CENTRALE POUR L’INDUSTRIE"
+  },
+  {
+    "bic": "19640",
+    "name": "SOCIETE IMMOBILIERE POUR L’EXPANSION DE LA DISTRIBUTION – IMMODIS"
+  },
+  {
+    "bic": "19649",
+    "name": "SOFARIS REGIONS"
+  },
+  {
+    "bic": "19650",
+    "name": "SOCIETE DE GESTION FINANCIERE DES INDUSTRIES DU BATIMENT ET DES T"
+  },
+  {
+    "bic": "19660",
+    "name": "SOCIETE DE FINANCEMENT REUNIONNAISE POUR L’ELECTO-MENAGER ET LE M"
+  },
+  {
+    "bic": "19670",
+    "name": "SOCIETE AUXILIAIRE DE FINANCEMENT DU BATIMENT ET DES TRAVAUX PUBL"
+  },
+  {
+    "bic": "19730",
+    "name": "BANQUE NOMURA FRANCE"
+  },
+  {
+    "bic": "19740",
+    "name": "SLIBAIL MURS"
+  },
+  {
+    "bic": "19790",
+    "name": "SOCIETE FINANCIERE DE DEPOTS ET DE PLACEMENTS – SOFIDEP"
+  },
+  {
+    "bic": "19800",
+    "name": "CREDIT IMMOBILIER GENERAL – C.I.G."
+  },
+  {
+    "bic": "19806",
+    "name": "Caisse régionale de crédit agricole mutuel de la Martinique e"
+  },
+  {
+    "bic": "19820",
+    "name": "IDIA"
+  },
+  {
+    "bic": "19825",
+    "name": "CAISSE D’EPARGNE ET DE PREVOYANCE DE NOUVELLE-CALEDONIE"
+  },
+  {
+    "bic": "19850",
+    "name": "COMPAGNIE DE GESTION ET DE PRETS – C.D.G.P."
+  },
+  {
+    "bic": "19870",
+    "name": "SOCIETE DES PAIEMENTS PASS – S2P"
+  },
+  {
+    "bic": "19880",
+    "name": "CREDIT LYONNAIS IMMOBILIER"
+  },
+  {
+    "bic": "19890",
+    "name": "COFICO"
+  },
+  {
+    "bic": "19906",
+    "name": "Caisse régionale de crédit agricole mutuel de la Réunion"
+  },
+  {
+    "bic": "19910",
+    "name": "FINOR S.A."
+  },
+  {
+    "bic": "19930",
+    "name": "CINERGIE"
+  },
+  {
+    "bic": "19940",
+    "name": "ENERGECO"
+  },
+  {
+    "bic": "19959",
+    "name": "SOCIETE FINANCIERE REGIONALE PROVENCE-ALPES-COTE D’AZUR – SOFIPAC"
+  },
+  {
+    "bic": "19989",
+    "name": "SOCIETE FINANCIERE DU LANGUEDOC-ROUSSILLON – SOFILARO"
+  },
+  {
+    "bic": "19990",
+    "name": "SOGEFINERG – SOCIETE GENERALE POUR LE FINANCEMENT DES INVESTISSEM"
+  },
+  {
+    "bic": "19995",
+    "name": "RESEAU DES CAISSES D’EPARGNE ET DE PREVOYANCE"
+  },
+  {
+    "bic": "20019",
+    "name": "Société pour le financement du développement industriel en Po"
+  },
+  {
+    "bic": "20041",
+    "name": "La Banque Postale PARIS 06"
+  },
+  {
+    "bic": "20280",
+    "name": "SOCIETE DE CAUTION MUTUELLE DES PROFESSIONS IMMOBILIERES ET FONCI"
+  },
+  {
+    "bic": "20290",
+    "name": "CAUTION MUTUELLE DU CREDIT IMMOBILIER DE FRANCE – CM-CIF"
+  },
+  {
+    "bic": "20320",
+    "name": "SOCIETE DE CAUTION MUTUELLE DES NEGOCIANTS EN GRAINS DES REGIONS"
+  },
+  {
+    "bic": "20380",
+    "name": "SOCIETE DE CAUTION MUTUELLE DES NEGOCIANTS EN GRAINS “CAUTION GRA"
+  },
+  {
+    "bic": "20650",
+    "name": "ELECTROLUX FINANCEMENT S.N.C."
+  },
+  {
+    "bic": "20898",
+    "name": "THE SANWA BANK LIMITED"
+  },
+  {
+    "bic": "21120",
+    "name": "Lloyds bank plc MONACO"
+  },
+  {
+    "bic": "21229",
+    "name": "SAPAR FINANCE"
+  },
+  {
+    "bic": "21279",
+    "name": "SOCIETE FINANCIERE DES MIROIRS"
+  },
+  {
+    "bic": "21280",
+    "name": "SELACO BAIL"
+  },
+  {
+    "bic": "21320",
+    "name": "COMPAGNIE POUR LE FINANCEMENT DU LEASING OUTRE-MER – COFILEASE"
+  },
+  {
+    "bic": "21339",
+    "name": "FORTIS LEASE"
+  },
+  {
+    "bic": "21349",
+    "name": "PARILEASE"
+  },
+  {
+    "bic": "21360",
+    "name": "BOURSORAMA"
+  },
+  {
+    "bic": "21570",
+    "name": "SOCIETE FINANCIERE DE LA N.E.F."
+  },
+  {
+    "bic": "21590",
+    "name": "BANK VON ERNST (MONACO)"
+  },
+  {
+    "bic": "21619",
+    "name": "SOPHIA-BAIL"
+  },
+  {
+    "bic": "21670",
+    "name": "CPR BILLETS"
+  },
+  {
+    "bic": "21859",
+    "name": "Bourgogne garantie DIJON"
+  },
+  {
+    "bic": "21879",
+    "name": "MURS ENTREPRISES SOCIETE EN NOM COLLECTIF"
+  },
+  {
+    "bic": "21929",
+    "name": "P.T. BANK EKSPOR IMPOR INDONESIA (PERSERO) – BANKEXIM"
+  },
+  {
+    "bic": "21990",
+    "name": "V. P. FINANCE S.A."
+  },
+  {
+    "bic": "22040",
+    "name": "CONFEDERATION NATIONALE DU CREDIT MUTUEL"
+  },
+  {
+    "bic": "22299",
+    "name": "S.N.C. FICOMUR"
+  },
+  {
+    "bic": "22599",
+    "name": "CICAMUR"
+  },
+  {
+    "bic": "22629",
+    "name": "GPK FINANCE"
+  },
+  {
+    "bic": "22780",
+    "name": "THE SAKURA BANK LIMITED"
+  },
+  {
+    "bic": "22840",
+    "name": "SCANIA FINANCE FRANCE"
+  },
+  {
+    "bic": "22910",
+    "name": "TRANSOLVER FINANCE S.A."
+  },
+  {
+    "bic": "22970",
+    "name": "EPARGNE CREDIT DES MILITAIRES (E.C.M.)"
+  },
+  {
+    "bic": "23269",
+    "name": "CAVIA LOCATION"
+  },
+  {
+    "bic": "23380",
+    "name": "DEXIA C.L.F. REGIONS-BAIL"
+  },
+  {
+    "bic": "23710",
+    "name": "SICOPIERRE – SOCIETE IMMOBILIERE POUR LE COMMERCE ET L’INDUSTRIE"
+  },
+  {
+    "bic": "23779",
+    "name": "Byblos bank Europe PARIS 08"
+  },
+  {
+    "bic": "23890",
+    "name": "BANQUE COMMERCIALE DU MAROC"
+  },
+  {
+    "bic": "23930",
+    "name": "SOGAMA – CREDIT ASSOCIATIF"
+  },
+  {
+    "bic": "24119",
+    "name": "FINANCIERE UNIPHENIX"
+  },
+  {
+    "bic": "24249",
+    "name": "CREDIT LYONNAIS ROUSE (FRANCE) SNC"
+  },
+  {
+    "bic": "24280",
+    "name": "ODDO PINATTON CORPORATE"
+  },
+  {
+    "bic": "24349",
+    "name": "BANQUE DU GOTHARD (MONACO)"
+  },
+  {
+    "bic": "24489",
+    "name": "CREDIT DE L’ARCHE"
+  },
+  {
+    "bic": "24599",
+    "name": "BARCLAYS FRANCE"
+  },
+  {
+    "bic": "24659",
+    "name": "BANQUE CHABRIERES"
+  },
+  {
+    "bic": "24850",
+    "name": "FINANCIERE ATLAS"
+  },
+  {
+    "bic": "24990",
+    "name": "SONAUTO FINANCEMENT"
+  },
+  {
+    "bic": "25080",
+    "name": "AXA BANQUE FINANCEMENT"
+  },
+  {
+    "bic": "25140",
+    "name": "GENERAL ELECTRIC CAPITAL S.A.S. – GE CAPITAL S.A.S."
+  },
+  {
+    "bic": "25170",
+    "name": "ETICA BAIL S.N.C."
+  },
+  {
+    "bic": "25200",
+    "name": "UNIMIE FINANCEMENTS"
+  },
+  {
+    "bic": "25320",
+    "name": "SOPHIA-MUR"
+  },
+  {
+    "bic": "25410",
+    "name": "NATEXIS ECO"
+  },
+  {
+    "bic": "25479",
+    "name": "BATIMUR"
+  },
+  {
+    "bic": "25609",
+    "name": "SOCIETE DE CAUTION MUTUELLE DES ENTREPRISES DE TRAVAIL TEMPORAIRE"
+  },
+  {
+    "bic": "25679",
+    "name": "WESTPAC BANKING CORPORATION"
+  },
+  {
+    "bic": "25709",
+    "name": "CAISSE DE GARANTIE DE L’IMMOBILIER F.N.A.I.M."
+  },
+  {
+    "bic": "25730",
+    "name": "EUROSIC"
+  },
+  {
+    "bic": "25790",
+    "name": "PARIFERGIE"
+  },
+  {
+    "bic": "25819",
+    "name": "ILC FRANCE S.A."
+  },
+  {
+    "bic": "25979",
+    "name": "TURGOT GESTION"
+  },
+  {
+    "bic": "26099",
+    "name": "SOCIETE DE CAUTION MUTUELLE DE L’AUTOMOBILE, DU CYCLE ET DU MOTOC"
+  },
+  {
+    "bic": "26259",
+    "name": "TOURISME-EXPANSION"
+  },
+  {
+    "bic": "26269",
+    "name": "SOGAL – SOCIETE DE GARANTIE DES ENTREPRISES LAITIERES AGRICOLES E"
+  },
+  {
+    "bic": "26310",
+    "name": "SYGMA BANQUE"
+  },
+  {
+    "bic": "26359",
+    "name": "SOCIETE DE CAUTION MUTUELLE NATIONALE DU NEGOCE DES GRAINS"
+  },
+  {
+    "bic": "26400",
+    "name": "THE LONG-TERM CREDIT BANK OF JAPAN LIMITED"
+  },
+  {
+    "bic": "26530",
+    "name": "COMPAGNIE FONCIERE DE CREDIT"
+  },
+  {
+    "bic": "26570",
+    "name": "INTERNATIONAL CREDIT SERVICE S.A.S."
+  },
+  {
+    "bic": "26590",
+    "name": "SOCIETE DE CREDIT POUR LE LOGEMENT – SOCRELOG"
+  },
+  {
+    "bic": "26629",
+    "name": "CAISSE DE GARANTIE IMMOBILIERE DE LA FEDERATION FRANCAISE DU BATI"
+  },
+  {
+    "bic": "26630",
+    "name": "COMPAGNIE FINANCIERE DE PARIS"
+  },
+  {
+    "bic": "26679",
+    "name": "SOCIETE INTERPROFESSIONNELLE ARTISANALE DE GARANTIE D’INVESTISSEM"
+  },
+  {
+    "bic": "26819",
+    "name": "Caisse mutuelle de garantie des industries mécaniques et tran"
+  },
+  {
+    "bic": "27059",
+    "name": "SOCIETE DE CAUTION MUTUELLE DES ADMINISTRATEURS DE BIENS ET AGENT"
+  },
+  {
+    "bic": "27180",
+    "name": "NORBAIL-IMMOBILIER"
+  },
+  {
+    "bic": "27550",
+    "name": "S.G.S.O. – SOCIETE DU GRAND SUD-OUEST"
+  },
+  {
+    "bic": "27589",
+    "name": "OUDART S.A."
+  },
+  {
+    "bic": "27630",
+    "name": "FINAMA CREDIT"
+  },
+  {
+    "bic": "27659",
+    "name": "INVESCO FRANCE S.A."
+  },
+  {
+    "bic": "27720",
+    "name": "MUR ECUREUIL"
+  },
+  {
+    "bic": "27800",
+    "name": "KBC bank"
+  },
+  {
+    "bic": "27880",
+    "name": "VENDOME LEASE"
+  },
+  {
+    "bic": "27889",
+    "name": "FINEXIMMO"
+  },
+  {
+    "bic": "27910",
+    "name": "REUNIBAIL"
+  },
+  {
+    "bic": "27970",
+    "name": "INVESTIMUR"
+  },
+  {
+    "bic": "28310",
+    "name": "GENECOMI"
+  },
+  {
+    "bic": "28419",
+    "name": "FIDEICOMI"
+  },
+  {
+    "bic": "28570",
+    "name": "Caisse de crédit municipal de Dijon DIJON"
+  },
+  {
+    "bic": "28860",
+    "name": "FONCARIS"
+  },
+  {
+    "bic": "29440",
+    "name": "VEGA FINANCE"
+  },
+  {
+    "bic": "29450",
+    "name": "DEXIA C.L.F. IMMO"
+  },
+  {
+    "bic": "29610",
+    "name": "PLACEMENT-BAIL"
+  },
+  {
+    "bic": "30002",
+    "name": "CREDIT LYONNAIS"
+  },
+  {
+    "bic": "30003",
+    "name": "SOCIETE GENERALE"
+  },
+  {
+    "bic": "30004",
+    "name": "BNP PARIBAS"
+  },
+  {
+    "bic": "30006",
+    "name": "Crédit Agricole S.A. MONTROUGE"
+  },
+  {
+    "bic": "30007",
+    "name": "NATEXIS BANQUES POPULAIRES"
+  },
+  {
+    "bic": "30021",
+    "name": "NATEXIS BANQUE"
+  },
+  {
+    "bic": "30026",
+    "name": "PARIBAS"
+  },
+  {
+    "bic": "30027",
+    "name": "BANQUE SCALBERT DUPONT – B.S.D."
+  },
+  {
+    "bic": "30047",
+    "name": "CREDIT INDUSTRIEL DE L’OUEST “C.I.O.”"
+  },
+  {
+    "bic": "30051",
+    "name": "COMPAGNIE DE FINANCEMENT FONCIER"
+  },
+  {
+    "bic": "30056",
+    "name": "CCF"
+  },
+  {
+    "bic": "30066",
+    "name": "CREDIT INDUSTRIEL ET COMMERCIAL – CIC"
+  },
+  {
+    "bic": "30076",
+    "name": "CREDIT DU NORD"
+  },
+  {
+    "bic": "30077",
+    "name": "SOCIETE MARSEILLAISE DE CREDIT"
+  },
+  {
+    "bic": "30087",
+    "name": "SOCIETE NANCEIENNE VARIN-BERNIER"
+  },
+  {
+    "bic": "30118",
+    "name": "BANQUE DE BAECQUE BEAU"
+  },
+  {
+    "bic": "30258",
+    "name": "BANQUE DU BATIMENT ET DES TRAVAUX PUBLICS – BTP BANQUE"
+  },
+  {
+    "bic": "30318",
+    "name": "BANQUE SUDAMERIS"
+  },
+  {
+    "bic": "30368",
+    "name": "BANQUE HERVET"
+  },
+  {
+    "bic": "30438",
+    "name": "ING BANK (FRANCE) S.A."
+  },
+  {
+    "bic": "30478",
+    "name": "MONTE PASCHI BANQUE S.A."
+  },
+  {
+    "bic": "30488",
+    "name": "FORTIS BANQUE FRANCE"
+  },
+  {
+    "bic": "30568",
+    "name": "BANQUE TRANSATLANTIQUE S.A."
+  },
+  {
+    "bic": "30588",
+    "name": "Barclays bank plc"
+  },
+  {
+    "bic": "30628",
+    "name": "J.P. MORGAN CHASE BANK"
+  },
+  {
+    "bic": "30748",
+    "name": "LAZARD FRERES BANQUE"
+  },
+  {
+    "bic": "30758",
+    "name": "UBS (FRANCE) S.A."
+  },
+  {
+    "bic": "30778",
+    "name": "MORGAN GUARANTY TRUST COMPANY OF NEW-YORK"
+  },
+  {
+    "bic": "30788",
+    "name": "BANQUE DE NEUFLIZE"
+  },
+  {
+    "bic": "30818",
+    "name": "BANQUE POMMIER"
+  },
+  {
+    "bic": "30938",
+    "name": "UNION DE BANQUES A PARIS – U.B.P."
+  },
+  {
+    "bic": "30948",
+    "name": "COMPAGNIE FINANCIERE DE C.I.C. ET DE L’UNION EUROPEENNE"
+  },
+  {
+    "bic": "30958",
+    "name": "BNP PARIBAS LEASE GROUP"
+  },
+  {
+    "bic": "30998",
+    "name": "BANQUE WORMS"
+  },
+  {
+    "bic": "31489",
+    "name": "CALYON"
+  },
+  {
+    "bic": "39996",
+    "name": "RESEAU CREDIT AGRICOLE"
+  },
+  {
+    "bic": "40168",
+    "name": "BANQUE DE BRETAGNE"
+  },
+  {
+    "bic": "40198",
+    "name": "BNP PARIBAS PRIVATE BANK"
+  },
+  {
+    "bic": "40238",
+    "name": "BANQUE COMMERCIALE POUR L’EUROPE DU NORD – EUROBANK"
+  },
+  {
+    "bic": "40398",
+    "name": "BANQUE INTERNATIONALE DE COMMERCE – BRED"
+  },
+  {
+    "bic": "40458",
+    "name": "DEXIA BANQUE PRIVEE FRANCE"
+  },
+  {
+    "bic": "40578",
+    "name": "AXA FRANCE FINANCE"
+  },
+  {
+    "bic": "40598",
+    "name": "BANQUE DU LOUVRE"
+  },
+  {
+    "bic": "40618",
+    "name": "CAIXABANK FRANCE"
+  },
+  {
+    "bic": "40678",
+    "name": "CREDIT FRANCAIS INTERNATIONAL"
+  },
+  {
+    "bic": "40698",
+    "name": "CITIBANK N.A."
+  },
+  {
+    "bic": "40738",
+    "name": "HSBC BANK FRANCE S.A."
+  },
+  {
+    "bic": "40798",
+    "name": "BANQUE OBC – ODIER BUNGENER COURVOISIER"
+  },
+  {
+    "bic": "40848",
+    "name": "S.A.P.C. – UFIPRO"
+  },
+  {
+    "bic": "40868",
+    "name": "VIA BANQUE"
+  },
+  {
+    "bic": "40978",
+    "name": "BANQUE SANPAOLO"
+  },
+  {
+    "bic": "41040",
+    "name": "BANQUE SOFI"
+  },
+  {
+    "bic": "41139",
+    "name": "BANCO DO BRASIL"
+  },
+  {
+    "bic": "41179",
+    "name": "AXA BANQUE"
+  },
+  {
+    "bic": "41189",
+    "name": "Banco Bilbao Vizcaya Argentaria (BBVA)"
+  },
+  {
+    "bic": "41199",
+    "name": "BANCO POPULAR FRANCE"
+  },
+  {
+    "bic": "41219",
+    "name": "BANK OF AMERICA NATIONAL ASSOCIATION"
+  },
+  {
+    "bic": "41239",
+    "name": "BANK POLSKA KASA OPIEKI SPOLKA AKCYJNA"
+  },
+  {
+    "bic": "41249",
+    "name": "THE BANK OF TOKYO – MITSUBISHI LTD"
+  },
+  {
+    "bic": "41259",
+    "name": "BANK MELLI IRAN"
+  },
+  {
+    "bic": "41329",
+    "name": "BNP PARIBAS SECURITIES SERVICES"
+  },
+  {
+    "bic": "41369",
+    "name": "AMERICAN EXPRESS BANK (FRANCE)"
+  },
+  {
+    "bic": "41439",
+    "name": "BANQUE CHAABI DU MAROC"
+  },
+  {
+    "bic": "41479",
+    "name": "INTERMEDIA BANQUE"
+  },
+  {
+    "bic": "41539",
+    "name": "SOFINCO"
+  },
+  {
+    "bic": "41549",
+    "name": "BANQUE DE L’ENTREPRISE"
+  },
+  {
+    "bic": "41559",
+    "name": "BANQUE D’ESCOMPTE"
+  },
+  {
+    "bic": "41579",
+    "name": "BANQUE FRANCO-ROUMAINE"
+  },
+  {
+    "bic": "41589",
+    "name": "BANQUE DE L’EURAFRIQUE"
+  },
+  {
+    "bic": "41599",
+    "name": "BANQUE FRANCAISE"
+  },
+  {
+    "bic": "41629",
+    "name": "WESTDEUTSCHE LANDESBANK (FRANCE) S.A. – WESTLB FRANCE"
+  },
+  {
+    "bic": "41639",
+    "name": "National bank of Kuwait (International) plc PARIS 08"
+  },
+  {
+    "bic": "41649",
+    "name": "BANQUE FRANCO-PORTUGAISE"
+  },
+  {
+    "bic": "41719",
+    "name": "BANQUE POUR L’INDUSTRIE FRANCAISE (B.I.F.)"
+  },
+  {
+    "bic": "41829",
+    "name": "BLC BANK (FRANCE) S.A."
+  },
+  {
+    "bic": "41839",
+    "name": "BANQUE DES ANTILLES FRANCAISES “B.D.A.F.”"
+  },
+  {
+    "bic": "41890",
+    "name": "HSBC CCF INVESTMENT BANK (FRANCE)"
+  },
+  {
+    "bic": "41919",
+    "name": "BNP PARIBAS REUNION"
+  },
+  {
+    "bic": "41969",
+    "name": "BANQUE LEUMI FRANCE S.A."
+  },
+  {
+    "bic": "42349",
+    "name": "CAISSE CENTRALE DE REESCOMPTE"
+  },
+  {
+    "bic": "42350",
+    "name": "SOCIETE D’ETUDES ET DE GESTION INTERNATIONALES (S.E.G.I.)"
+  },
+  {
+    "bic": "42389",
+    "name": "CPR"
+  },
+  {
+    "bic": "42439",
+    "name": "BANQUE POMMIER-FININDUS"
+  },
+  {
+    "bic": "42469",
+    "name": "COMPAGNIE BANCAIRE"
+  },
+  {
+    "bic": "42519",
+    "name": "BANQUE CPR"
+  },
+  {
+    "bic": "42529",
+    "name": "LA COMPAGNIE FINANCIERE EDMOND DE ROTHSCHILD BANQUE"
+  },
+  {
+    "bic": "42539",
+    "name": "BANQUE DES TUILERIES"
+  },
+  {
+    "bic": "42559",
+    "name": "CREDIT COOPERATIF"
+  },
+  {
+    "bic": "42639",
+    "name": "BANQUE VERNES ARTESIA"
+  },
+  {
+    "bic": "42640",
+    "name": "SOCIETE FINANCIERE DE GRANDS MAGASINS"
+  },
+  {
+    "bic": "42649",
+    "name": "BANQUE TRAVELEX S.A."
+  },
+  {
+    "bic": "42689",
+    "name": "BANQUE DU PHENIX"
+  },
+  {
+    "bic": "42720",
+    "name": "SOGIP BANQUE SOCIETE DE GERANCE D’INTERETS PRIVES"
+  },
+  {
+    "bic": "42789",
+    "name": "GE CAPITAL FINANCE"
+  },
+  {
+    "bic": "42799",
+    "name": "GE CAPITAL BANK"
+  },
+  {
+    "bic": "42839",
+    "name": "BANQUE SAINT-DOMINIQUE"
+  },
+  {
+    "bic": "42889",
+    "name": "BANQUE DEMACHY"
+  },
+  {
+    "bic": "42959",
+    "name": "ELECTRO BANQUE"
+  },
+  {
+    "bic": "42960",
+    "name": "UNION DE CREDIT POUR LE BATIMENT (U.C.B.)"
+  },
+  {
+    "bic": "42990",
+    "name": "UNION FINANCIERE ET INDUSTRIELLE PRIVEE"
+  },
+  {
+    "bic": "43030",
+    "name": "ALTRA BANQUE"
+  },
+  {
+    "bic": "43119",
+    "name": "BANQUE SOVAC IMMOBILIER"
+  },
+  {
+    "bic": "43199",
+    "name": "ENTENIAL"
+  },
+  {
+    "bic": "43459",
+    "name": "BANQUE PART-DIEU"
+  },
+  {
+    "bic": "43559",
+    "name": "BANQUE COMMERCIALE ET DE GESTION RIVAUD"
+  },
+  {
+    "bic": "43569",
+    "name": "ROYAL ST GEORGES BANQUE"
+  },
+  {
+    "bic": "43589",
+    "name": "BNP LEASE"
+  },
+  {
+    "bic": "43629",
+    "name": "SOCIETE ANONYME DE CREDIT A L’INDUSTRIE FRANCAISE (C.A.L.I.F.)"
+  },
+  {
+    "bic": "43649",
+    "name": "BANQUE FINAREF"
+  },
+  {
+    "bic": "43659",
+    "name": "BANQUE ESPIRITO SANTO ET DE LA VENETIE"
+  },
+  {
+    "bic": "43739",
+    "name": "SOCIETE FINANCIERE ET FONCIERE"
+  },
+  {
+    "bic": "43759",
+    "name": "BANQUE BIPOP"
+  },
+  {
+    "bic": "43789",
+    "name": "BANQUE PRIVEE QUILVEST"
+  },
+  {
+    "bic": "43799",
+    "name": "BANQUE DE GESTION PRIVEE INDOSUEZ – BGPI"
+  },
+  {
+    "bic": "43819",
+    "name": "FINTER BANK FRANCE"
+  },
+  {
+    "bic": "43849",
+    "name": "UNION TUNISIENNE DE BANQUES"
+  },
+  {
+    "bic": "43899",
+    "name": "UNION DE BANQUES ARABES ET FRANCAISES – U.B.A.F."
+  },
+  {
+    "bic": "43919",
+    "name": "UNION DE BANQUES REGIONALES POUR LE CREDIT INDUSTRIEL – U.B.R."
+  },
+  {
+    "bic": "43969",
+    "name": "UNION INDUSTRIELLE DE CREDIT – U.I.C."
+  },
+  {
+    "bic": "43979",
+    "name": "CHASE MANHATTAN BANK FRANCE"
+  },
+  {
+    "bic": "43989",
+    "name": "BANCO POPOLARE DI VERONA E NOVARA (FRANCE) S.A."
+  },
+  {
+    "bic": "44149",
+    "name": "BANQUE D’ESCOMPTE"
+  },
+  {
+    "bic": "44269",
+    "name": "BANK SADERAT IRAN"
+  },
+  {
+    "bic": "44319",
+    "name": "BANQUE PRIVEE EUROPEENNE"
+  },
+  {
+    "bic": "44449",
+    "name": "LIXXCREDIT"
+  },
+  {
+    "bic": "44459",
+    "name": "BANCA INTESA (FRANCE)"
+  },
+  {
+    "bic": "44479",
+    "name": "CDR FINANCE"
+  },
+  {
+    "bic": "44539",
+    "name": "BANK OF TOKYO-MITSUBISHI (FRANCE) S.A."
+  },
+  {
+    "bic": "44729",
+    "name": "Banco Santander SA"
+  },
+  {
+    "bic": "45129",
+    "name": "AGENCE FRANCAISE DE DEVELOPPEMENT"
+  },
+  {
+    "bic": "45169",
+    "name": "COMPTOIR DES ENTREPRENEURS"
+  },
+  {
+    "bic": "45539",
+    "name": "Caisse centrale du crédit mutuel PARIS 17"
+  },
+  {
+    "bic": "45550",
+    "name": "BARCLAYS CAPITAL FRANCE S.A."
+  },
+  {
+    "bic": "45720",
+    "name": "BNP Paribas Fortis"
+  },
+  {
+    "bic": "45850",
+    "name": "Oddo et cie PARIS 09"
+  },
+  {
+    "bic": "50140",
+    "name": "CMP-Banque PARIS 04"
+  },
+  {
+    "bic": "60000",
+    "name": "SOCIETES DE DEVELOPPEMENT REGIONAL"
+  },
+  {
+    "bic": "60020",
+    "name": "SOCIETE DE DEVELOPPEMENT REGIONAL – CHAMPEX"
+  },
+  {
+    "bic": "60060",
+    "name": "SOCIETE DE DEVELOPPEMENT REGIONAL DU NORD ET DU PAS-DE-CALAIS"
+  },
+  {
+    "bic": "60080",
+    "name": "SOCIETE ALSACIENNE DE DEVELOPPEMENT ET D’EXPANSION – SADE"
+  },
+  {
+    "bic": "60110",
+    "name": "SOCIETE DE DEVELOPPEMENT REGIONAL DE L’OUEST – SODERO"
+  },
+  {
+    "bic": "60120",
+    "name": "SOCIETE DE DEVELOPPEMENT REGIONAL DE LA BRETAGNE – SDR DE LA BRET"
+  },
+  {
+    "bic": "60130",
+    "name": "SOCIETE DE DEVELOPPEMENT ECONOMIQUE DU CENTRE ET DU CENTRE-OUEST"
+  },
+  {
+    "bic": "60170",
+    "name": "BANQUE TOFINSO"
+  },
+  {
+    "bic": "60200",
+    "name": "SOCIETE DE DEVELOPPEMENT REGIONAL DU LANGUEDOC-ROUSSILLON – SODLE"
+  },
+  {
+    "bic": "60220",
+    "name": "CAISSE DE DEVELOPPEMENT DE LA CORSE"
+  },
+  {
+    "bic": "60270",
+    "name": "SOCIETE DE FINANCEMENT POUR LE MASSIF CENTRAL (SOFIMAC)"
+  },
+  {
+    "bic": "62108",
+    "name": "EXPANSO – LA SOCIETE POUR LE DEVELOPPEMENT REGIONAL"
+  },
+  {
+    "bic": "70009",
+    "name": "Banca popolare di Novara"
+  },
+  {
+    "bic": "70010",
+    "name": "Citibank Espana S.A."
+  },
+  {
+    "bic": "70011",
+    "name": "Bankinter S.A."
+  },
+  {
+    "bic": "70025",
+    "name": "Chase Manhattan bank AG"
+  },
+  {
+    "bic": "70043",
+    "name": "Banca del Piemonte"
+  },
+  {
+    "bic": "70044",
+    "name": "Caixa economica Montepio Geral (CEMG)"
+  },
+  {
+    "bic": "70046",
+    "name": "Mediofactoring S.p.A."
+  },
+  {
+    "bic": "70047",
+    "name": "Achmea hypotheekbank N.V.- Avero, centraal Beheer Achmea – FB"
+  },
+  {
+    "bic": "70051",
+    "name": "Banque LBLux S.A."
+  },
+  {
+    "bic": "70078",
+    "name": "Berlin-hannoversche hypothekenbank AG"
+  },
+  {
+    "bic": "70079",
+    "name": "DZ Bank AG, Deutsche Zentral-Genossenschaftsbank Frankfurt am"
+  },
+  {
+    "bic": "70080",
+    "name": "The bank of New York Mellon (international) limited"
+  },
+  {
+    "bic": "70082",
+    "name": "BNP Paribas bank NV"
+  },
+  {
+    "bic": "70085",
+    "name": "NCG Banco SA"
+  },
+  {
+    "bic": "70087",
+    "name": "Landesbank rheinland-pfalz girozentrale"
+  },
+  {
+    "bic": "70092",
+    "name": "Caja rural de Navarra sociedad cooperativa de credito"
+  },
+  {
+    "bic": "70374",
+    "name": "Crédit suisse (UK) limited"
+  },
+  {
+    "bic": "70489",
+    "name": "Erik Penser Bankaktiebolag"
+  },
+  {
+    "bic": "70690",
+    "name": "Citibank privatkunden AG"
+  },
+  {
+    "bic": "70700",
+    "name": "Postbank N.V."
+  },
+  {
+    "bic": "70701",
+    "name": "UBS Investment bank AG"
+  },
+  {
+    "bic": "70717",
+    "name": "Banca Akros S.p.A."
+  },
+  {
+    "bic": "70718",
+    "name": "Banca del Salento – Credito popolare salentino S.p.A."
+  },
+  {
+    "bic": "70720",
+    "name": "Banca monte dei Paschi dei Siena S.p.A."
+  },
+  {
+    "bic": "70722",
+    "name": "Banca popolare di Milano S.c.a.r.l."
+  },
+  {
+    "bic": "70724",
+    "name": "Deutsche bank S.p.A"
+  },
+  {
+    "bic": "70725",
+    "name": "Fideuram bank (Luxembourg) S.A."
+  },
+  {
+    "bic": "70728",
+    "name": "Raiffeisen zentralbank Österreich AG"
+  },
+  {
+    "bic": "70729",
+    "name": "Sanpaolo IMI S.p.A."
+  },
+  {
+    "bic": "70730",
+    "name": "Westland / Utrecht hypotheekbank N.V."
+  },
+  {
+    "bic": "70743",
+    "name": "Nordea bank Finland plc"
+  },
+  {
+    "bic": "70745",
+    "name": "UBS investment bank (Nederland) BV"
+  },
+  {
+    "bic": "70756",
+    "name": "Morgan Stanley bank international limited"
+  },
+  {
+    "bic": "70757",
+    "name": "Münchener Hypothekenbank EG"
+  },
+  {
+    "bic": "70758",
+    "name": "Santander Benelux"
+  },
+  {
+    "bic": "70759",
+    "name": "Lehman brothers bankhaus aktiengesellschaft"
+  },
+  {
+    "bic": "70793",
+    "name": "Banca popolare di Verona – Banco s. geminiano e s. prospero"
+  },
+  {
+    "bic": "70794",
+    "name": "Credito bergamasco S.p.A."
+  },
+  {
+    "bic": "70795",
+    "name": "Citibank AG & Co KGaA"
+  },
+  {
+    "bic": "70796",
+    "name": "Banque Degroof S.A."
+  },
+  {
+    "bic": "70797",
+    "name": "Raiffeisenbank Illertal eG"
+  },
+  {
+    "bic": "70807",
+    "name": "Catella bank SA"
+  },
+  {
+    "bic": "70808",
+    "name": "Danske bank Plc"
+  },
+  {
+    "bic": "70818",
+    "name": "Triodos bank N.V."
+  },
+  {
+    "bic": "70821",
+    "name": "Comdirect bank AG"
+  },
+  {
+    "bic": "70835",
+    "name": "Bayerische handelsbank AG"
+  },
+  {
+    "bic": "70846",
+    "name": "J.P. Morgan international bank limited (JPMIB)"
+  },
+  {
+    "bic": "70861",
+    "name": "Dexia bank Nederland NV"
+  },
+  {
+    "bic": "70863",
+    "name": "DZ Privatbank SA"
+  },
+  {
+    "bic": "70868",
+    "name": "Marks & Spencer financial services Plc"
+  },
+  {
+    "bic": "70869",
+    "name": "Banca commerciale italiana (Ireland) plc"
+  },
+  {
+    "bic": "70870",
+    "name": "Commerzbank international (Ireland)"
+  },
+  {
+    "bic": "70882",
+    "name": "Puilaetco Dewaay private bankers SA"
+  },
+  {
+    "bic": "70895",
+    "name": "CIT bank limited"
+  },
+  {
+    "bic": "70898",
+    "name": "Intermarket bank AG"
+  },
+  {
+    "bic": "70900",
+    "name": "WGZ-Bank Ireland plc"
+  },
+  {
+    "bic": "70906",
+    "name": "ABN Amro clearing bank NV"
+  },
+  {
+    "bic": "70914",
+    "name": "Allgemeine hypothekenbank AG"
+  },
+  {
+    "bic": "70916",
+    "name": "M.M. Warburg & Co Luxembourg S.A."
+  },
+  {
+    "bic": "70917",
+    "name": "Westdeutsche immobilienbank"
+  },
+  {
+    "bic": "70943",
+    "name": "Bankgesellschaft Berlin AG – Berliner bank"
+  },
+  {
+    "bic": "70945",
+    "name": "Belfius commercial finance NV/SA"
+  },
+  {
+    "bic": "70946",
+    "name": "Hewlett-Packard international bank limited"
+  },
+  {
+    "bic": "70959",
+    "name": "Gudme Raaschou bank A/S"
+  },
+  {
+    "bic": "70962",
+    "name": "Banque Delen & de Schaetzen S.A.- Banque Delen – Banque d"
+  },
+  {
+    "bic": "70989",
+    "name": "Nordea bank Danmark A/S"
+  },
+  {
+    "bic": "71006",
+    "name": "CIBC world markets Ireland limited"
+  },
+  {
+    "bic": "71015",
+    "name": "Carnegie bank A/S"
+  },
+  {
+    "bic": "71018",
+    "name": "Deutsche Postbank AG"
+  },
+  {
+    "bic": "71019",
+    "name": "Financiera El Corte Inglés, E.F.C., S.A."
+  },
+  {
+    "bic": "71035",
+    "name": "Nachenius, Tjeenk & Co. N.V."
+  },
+  {
+    "bic": "71050",
+    "name": "Dierickx, Leys & Cie effectenbank S.A."
+  },
+  {
+    "bic": "71057",
+    "name": "Van de Put & Co banque de titres S.C.A."
+  },
+  {
+    "bic": "71075",
+    "name": "Westlandutrecht effectenbank NV"
+  },
+  {
+    "bic": "71076",
+    "name": "Bank Insinger de Beaufort N.V."
+  },
+  {
+    "bic": "71077",
+    "name": "Bank Ten Cate & Cie N.V."
+  },
+  {
+    "bic": "71078",
+    "name": "KBC bank Nederland N.V."
+  },
+  {
+    "bic": "71079",
+    "name": "Maple bank GmbH"
+  },
+  {
+    "bic": "71081",
+    "name": "Saxo bank A/S"
+  },
+  {
+    "bic": "71082",
+    "name": "Theodoor Gilissen Bankiers N.V."
+  },
+  {
+    "bic": "71085",
+    "name": "Veer Palthe Voûte (VPV) N.V."
+  },
+  {
+    "bic": "71119",
+    "name": "SNS securities NV"
+  },
+  {
+    "bic": "71121",
+    "name": "Banque Artesia Nederland N.V."
+  },
+  {
+    "bic": "71122",
+    "name": "Banque de Luxembourg S.A."
+  },
+  {
+    "bic": "71123",
+    "name": "Brown brothers Harriman (Luxembourg) S.C.A."
+  },
+  {
+    "bic": "71124",
+    "name": "Evli bank plc"
+  },
+  {
+    "bic": "71125",
+    "name": "Mizuho corporate bank Nederland NV"
+  },
+  {
+    "bic": "71138",
+    "name": "Depfa ACS Bank"
+  },
+  {
+    "bic": "71140",
+    "name": "F. Van Lanschot bankiers NV – Cene Bankiers"
+  },
+  {
+    "bic": "71141",
+    "name": "Schretlen & Co N.V."
+  },
+  {
+    "bic": "71142",
+    "name": "Bank of Tokyo-Mitsubishi UFJ (Holland) NV"
+  },
+  {
+    "bic": "71143",
+    "name": "Zurich bank"
+  },
+  {
+    "bic": "71182",
+    "name": "Keytrade bank S.A."
+  },
+  {
+    "bic": "71195",
+    "name": "Düsseldorfer hypothekenbank AG"
+  },
+  {
+    "bic": "71196",
+    "name": "Süd leasing Espana E.F.C., S.A."
+  },
+  {
+    "bic": "71219",
+    "name": "Dekabank deutsche girozentrale"
+  },
+  {
+    "bic": "71236",
+    "name": "SG Private banking SA"
+  },
+  {
+    "bic": "71237",
+    "name": "Bank für Tirol und Vorarlberg AG"
+  },
+  {
+    "bic": "71248",
+    "name": "CECABANK S.A"
+  },
+  {
+    "bic": "71249",
+    "name": "Citibank Europe plc"
+  },
+  {
+    "bic": "71250",
+    "name": "Credit suisse international"
+  },
+  {
+    "bic": "71267",
+    "name": "B. Metzler seel. Sohn & Co KGaA"
+  },
+  {
+    "bic": "71278",
+    "name": "ING bank N.V. – ING direct – ING Barings"
+  },
+  {
+    "bic": "71280",
+    "name": "UBI banca international SA"
+  },
+  {
+    "bic": "71281",
+    "name": "Banca per la finanza alle opere pubbliche e alle infrastruttu"
+  },
+  {
+    "bic": "71296",
+    "name": "Staalbankiers NV"
+  },
+  {
+    "bic": "71299",
+    "name": "Banif-banco de investimento, S.A."
+  },
+  {
+    "bic": "71311",
+    "name": "EAA covered bond bank plc"
+  },
+  {
+    "bic": "71325",
+    "name": "Vereins-und Westbank AG"
+  },
+  {
+    "bic": "71337",
+    "name": "Fin-Eco Banca ICQ S.p.A."
+  },
+  {
+    "bic": "71338",
+    "name": "Bankprivat AG"
+  },
+  {
+    "bic": "71340",
+    "name": "Banca Aletti & C. S.p.A."
+  },
+  {
+    "bic": "71352",
+    "name": "TD bank Europe limited"
+  },
+  {
+    "bic": "71353",
+    "name": "TD Bank international SA"
+  },
+  {
+    "bic": "71363",
+    "name": "Hypo Tirol bank Aktiengesellschaft"
+  },
+  {
+    "bic": "71364",
+    "name": "WGZ-Bank westdeutsche genossenschafts-Zentralbank eG"
+  },
+  {
+    "bic": "71371",
+    "name": "CACEIS bank Luxembourg"
+  },
+  {
+    "bic": "71372",
+    "name": "Nykredit realkredit A/S"
+  },
+  {
+    "bic": "71373",
+    "name": "Baden – Württembergische bank AG"
+  },
+  {
+    "bic": "71389",
+    "name": "Kempen & Co N.V."
+  },
+  {
+    "bic": "71390",
+    "name": "Spar Nord bank A/S"
+  },
+  {
+    "bic": "71391",
+    "name": "Leaseplan corporation N.V."
+  },
+  {
+    "bic": "71399",
+    "name": "Caixa-banco de investimento, S.A."
+  },
+  {
+    "bic": "71401",
+    "name": "Jyske bank (Gibraltar) limited"
+  },
+  {
+    "bic": "71402",
+    "name": "Landesbank Sachsen Girozentrale"
+  },
+  {
+    "bic": "71411",
+    "name": "Toyota material handling Europe rental AB"
+  },
+  {
+    "bic": "71412",
+    "name": "LGT Bank AG"
+  },
+  {
+    "bic": "71419",
+    "name": "Bankinter Luxembourg S.A"
+  },
+  {
+    "bic": "71428",
+    "name": "Crédit suisse (Gibraltar) limited"
+  },
+  {
+    "bic": "71431",
+    "name": "Banco de investimento global, S.A."
+  },
+  {
+    "bic": "71436",
+    "name": "Banco millennium BCP investimento,SA"
+  },
+  {
+    "bic": "71439",
+    "name": "Banco invest SA"
+  },
+  {
+    "bic": "71440",
+    "name": "Banco comercial portugues SA"
+  },
+  {
+    "bic": "71441",
+    "name": "Banco Espirito Santo, SA"
+  },
+  {
+    "bic": "71442",
+    "name": "BSN – Banco Santander de negocios Portugal S.A."
+  },
+  {
+    "bic": "71450",
+    "name": "Lombard Odier Darier Hentsch & cie (Nederland) N.V."
+  },
+  {
+    "bic": "71467",
+    "name": "Banca IMI SpA"
+  },
+  {
+    "bic": "71486",
+    "name": "DNB bank ASA"
+  },
+  {
+    "bic": "71503",
+    "name": "Oyens & van Eeghen N.V."
+  },
+  {
+    "bic": "71511",
+    "name": "Aareal hyp AG"
+  },
+  {
+    "bic": "71512",
+    "name": "Norddeutsche Landesbank Luxembourg S.A."
+  },
+  {
+    "bic": "71513",
+    "name": "NRW. Bank"
+  },
+  {
+    "bic": "71514",
+    "name": "Société générale bank & trust"
+  },
+  {
+    "bic": "71525",
+    "name": "Amfa Finans AB"
+  },
+  {
+    "bic": "71526",
+    "name": "Bank Winter & CO AG"
+  },
+  {
+    "bic": "71528",
+    "name": "IW Bank S.p.A."
+  },
+  {
+    "bic": "71529",
+    "name": "Norddeutsche Landesbank Girozentrale"
+  },
+  {
+    "bic": "71530",
+    "name": "Ulster bank Ireland limited"
+  },
+  {
+    "bic": "71535",
+    "name": "Bank of Ireland mortgage bank"
+  },
+  {
+    "bic": "71536",
+    "name": "Kexim bank (UK) limited"
+  },
+  {
+    "bic": "71549",
+    "name": "Northern trust global services Ltd"
+  },
+  {
+    "bic": "71553",
+    "name": "SNS Bank NV"
+  },
+  {
+    "bic": "71555",
+    "name": "Chelsea building society"
+  },
+  {
+    "bic": "71556",
+    "name": "Kommunalkredit Austria AG"
+  },
+  {
+    "bic": "71557",
+    "name": "Standard bank plc"
+  },
+  {
+    "bic": "71558",
+    "name": "Volksbank Linz Mühlviertel Gen.m.b.H"
+  },
+  {
+    "bic": "71571",
+    "name": "MKB Bank Zrt"
+  },
+  {
+    "bic": "71575",
+    "name": "Raiffeisenlandesbank Oberösterreich AG"
+  },
+  {
+    "bic": "71585",
+    "name": "Irish nationwide building society"
+  },
+  {
+    "bic": "71586",
+    "name": "Bank of Cyprus public company limited"
+  },
+  {
+    "bic": "71587",
+    "name": "Capital bank-Grawe gruppe AG"
+  },
+  {
+    "bic": "71588",
+    "name": "Nordnet bank AB"
+  },
+  {
+    "bic": "71597",
+    "name": "DB UK Bank limited"
+  },
+  {
+    "bic": "71598",
+    "name": "Brüll Kallmus bank AG"
+  },
+  {
+    "bic": "71608",
+    "name": "Mezzanin Finanzierungs AG"
+  },
+  {
+    "bic": "71609",
+    "name": "Banco popular espanol, S.A."
+  },
+  {
+    "bic": "71610",
+    "name": "Caixabank SA"
+  },
+  {
+    "bic": "71611",
+    "name": "Bank Julius Bär Europe AG"
+  },
+  {
+    "bic": "71612",
+    "name": "HSBC Trinkaus & Burkhardt KGaA"
+  },
+  {
+    "bic": "71613",
+    "name": "Nordea bank AB (publ)"
+  },
+  {
+    "bic": "71623",
+    "name": "Bank Millenium S.A."
+  },
+  {
+    "bic": "71636",
+    "name": "Crédit professionnel du Brabant – banque (Banque du Brabant,"
+  },
+  {
+    "bic": "71637",
+    "name": "Credit professionnel interfédéral, SCRL"
+  },
+  {
+    "bic": "71638",
+    "name": "Federale kas voor het beroepskrediet, SCRL"
+  },
+  {
+    "bic": "71640",
+    "name": "Noble Grossart Ltd"
+  },
+  {
+    "bic": "71641",
+    "name": "Dexia kommunalkredit bank AG"
+  },
+  {
+    "bic": "71642",
+    "name": "BHF-Bank AG"
+  },
+  {
+    "bic": "71653",
+    "name": "LGT bank (Ireland) limited"
+  },
+  {
+    "bic": "71654",
+    "name": "OKO Pankki Oyj – OKO Bank plc"
+  },
+  {
+    "bic": "71655",
+    "name": "UBS Deutschland AG"
+  },
+  {
+    "bic": "71665",
+    "name": "DZB bank GmbH"
+  },
+  {
+    "bic": "71666",
+    "name": "ING bank Slaski S.A."
+  },
+  {
+    "bic": "71667",
+    "name": "Turicum private bank limited"
+  },
+  {
+    "bic": "71668",
+    "name": "WestLB Hungaria bank RT."
+  },
+  {
+    "bic": "71685",
+    "name": "Nationwide building society"
+  },
+  {
+    "bic": "71696",
+    "name": "Coventry building society"
+  },
+  {
+    "bic": "71697",
+    "name": "Banque transatlantique Luxembourg SA"
+  },
+  {
+    "bic": "71705",
+    "name": "ANZ bank (Europe) limited"
+  },
+  {
+    "bic": "71706",
+    "name": "Nordea bank S.A."
+  },
+  {
+    "bic": "71719",
+    "name": "Caja de ahorros y Monte de Piedad de Madrid – Caja Madrid"
+  },
+  {
+    "bic": "71720",
+    "name": "CommBank Europe limited"
+  },
+  {
+    "bic": "71735",
+    "name": "ING Real estate finance (ESPANA), EFC, SA"
+  },
+  {
+    "bic": "71736",
+    "name": "CIB Lizing Rt."
+  },
+  {
+    "bic": "71737",
+    "name": "Danish Ship Finance A/S"
+  },
+  {
+    "bic": "71747",
+    "name": "Unicredit banca d’Impresa SpA"
+  },
+  {
+    "bic": "71748",
+    "name": "Bremer Landesbank"
+  },
+  {
+    "bic": "71749",
+    "name": "JP Morgan bank Luxembourg SA"
+  },
+  {
+    "bic": "71760",
+    "name": "Deutsche Factoring Bank Deutsche Factoring GmbH & Co"
+  },
+  {
+    "bic": "71784",
+    "name": "Travelex bank NV"
+  },
+  {
+    "bic": "71786",
+    "name": "Banque transatlantique Belgium SA"
+  },
+  {
+    "bic": "71787",
+    "name": "DVB bank NV"
+  },
+  {
+    "bic": "71788",
+    "name": "State street bank GmbH"
+  },
+  {
+    "bic": "71789",
+    "name": "Caixa d’Estalvis de Manresa"
+  },
+  {
+    "bic": "71811",
+    "name": "Westpac Europe limited"
+  },
+  {
+    "bic": "71824",
+    "name": "DVB bank AG"
+  },
+  {
+    "bic": "71844",
+    "name": "Magyarorszagi Volksbank zrt"
+  },
+  {
+    "bic": "71845",
+    "name": "Mizuho international plc"
+  },
+  {
+    "bic": "71846",
+    "name": "Skandinaviska enskilda banken sa"
+  },
+  {
+    "bic": "71847",
+    "name": "Union bancaire privée (Europe) SA"
+  },
+  {
+    "bic": "71866",
+    "name": "Arbuthnot Latham & Co limited"
+  },
+  {
+    "bic": "71867",
+    "name": "Banco itaú BBA international SA"
+  },
+  {
+    "bic": "71872",
+    "name": "Newcastle building society"
+  },
+  {
+    "bic": "71896",
+    "name": "Permanent TSB Plc"
+  },
+  {
+    "bic": "71897",
+    "name": "National irish bank limited"
+  },
+  {
+    "bic": "71899",
+    "name": "EFG private bank limited"
+  },
+  {
+    "bic": "71913",
+    "name": "Handel und kredit GmbH & Co KG Bankhaus"
+  },
+  {
+    "bic": "71915",
+    "name": "Bank Leumi (UK) plc"
+  },
+  {
+    "bic": "71930",
+    "name": "IDT financial services limited"
+  },
+  {
+    "bic": "71931",
+    "name": "Ringkobing landbobank"
+  },
+  {
+    "bic": "71932",
+    "name": "Sparbank vest"
+  },
+  {
+    "bic": "71933",
+    "name": "Delta Lloyd bank SA"
+  },
+  {
+    "bic": "71934",
+    "name": "Elavon financial services limited"
+  },
+  {
+    "bic": "71949",
+    "name": "Nordea hypotek AB (publ)"
+  },
+  {
+    "bic": "71951",
+    "name": "SG Hambros bank limited"
+  },
+  {
+    "bic": "71952",
+    "name": "The cyprus development bank public company ltd"
+  },
+  {
+    "bic": "71963",
+    "name": "Bank Leumi (Luxembourg) SA"
+  },
+  {
+    "bic": "71964",
+    "name": "Danske Bank A/S"
+  },
+  {
+    "bic": "71965",
+    "name": "ICICI bank UK Plc"
+  },
+  {
+    "bic": "71966",
+    "name": "Lombard Odier & Cie (Gibraltar) limited"
+  },
+  {
+    "bic": "71967",
+    "name": "Nordea bank Norge ASA"
+  },
+  {
+    "bic": "71993",
+    "name": "Clydesdale bank plc"
+  },
+  {
+    "bic": "71994",
+    "name": "Brokerjet bank AG"
+  },
+  {
+    "bic": "71996",
+    "name": "Nykredit bank A/S"
+  },
+  {
+    "bic": "72024",
+    "name": "Coöperatieve Rabobank Utrechtse Heuvelrug UA"
+  },
+  {
+    "bic": "72025",
+    "name": "Volksbank international AG"
+  },
+  {
+    "bic": "72026",
+    "name": "Wells Fargo bank international"
+  },
+  {
+    "bic": "72027",
+    "name": "Gruppo banca Leonardo SpA"
+  },
+  {
+    "bic": "72028",
+    "name": "Mediobanca international (Luxembourg) SA"
+  },
+  {
+    "bic": "72033",
+    "name": "DNB Luxembourg SA"
+  },
+  {
+    "bic": "72036",
+    "name": "PayPal (Europe) SARL et cie SCA"
+  },
+  {
+    "bic": "72037",
+    "name": "UniCredit private banking SpA"
+  },
+  {
+    "bic": "72038",
+    "name": "The Bank of New York Mellon (Luxembourg) SA"
+  },
+  {
+    "bic": "72039",
+    "name": "Anthos bank BV"
+  },
+  {
+    "bic": "72056",
+    "name": "Bank of London & the middle East Plc"
+  },
+  {
+    "bic": "72070",
+    "name": "Mediocredito centrale SpA (MCC)"
+  },
+  {
+    "bic": "72077",
+    "name": "National Westminster bank plc"
+  },
+  {
+    "bic": "72079",
+    "name": "Heller bank AG"
+  },
+  {
+    "bic": "72094",
+    "name": "Compagnie de banque privée quilvest"
+  },
+  {
+    "bic": "72095",
+    "name": "Coutts & company"
+  },
+  {
+    "bic": "72096",
+    "name": "Investkredit international bank plc"
+  },
+  {
+    "bic": "72097",
+    "name": "Rathbone investment management limited"
+  },
+  {
+    "bic": "72143",
+    "name": "Aktia real estate mortgage bank plc"
+  },
+  {
+    "bic": "72144",
+    "name": "European islamic investment bank Plc"
+  },
+  {
+    "bic": "72186",
+    "name": "Schroder & Co. limited"
+  },
+  {
+    "bic": "72333",
+    "name": "Mediterranean bank plc"
+  },
+  {
+    "bic": "72334",
+    "name": "DNB Nor Finans AS"
+  },
+  {
+    "bic": "72335",
+    "name": "E*trade Bank A/S"
+  },
+  {
+    "bic": "72336",
+    "name": "KBC bank Ireland plc (KBCBI)"
+  },
+  {
+    "bic": "72355",
+    "name": "Equinet AG"
+  },
+  {
+    "bic": "72406",
+    "name": "Wirecard bank AG"
+  },
+  {
+    "bic": "72407",
+    "name": "HSBC Trinkaus & Burkhardt (international) SA"
+  },
+  {
+    "bic": "72408",
+    "name": "KfW IPEX-Bank GmbH"
+  },
+  {
+    "bic": "72459",
+    "name": "Kathrein & co privatgeschäftsbank AG"
+  },
+  {
+    "bic": "72462",
+    "name": "Commerzbank international SA"
+  },
+  {
+    "bic": "72463",
+    "name": "VTB capital plc"
+  },
+  {
+    "bic": "72491",
+    "name": "Barclays bank Ireland plc"
+  },
+  {
+    "bic": "72492",
+    "name": "Macquarie bank international limited"
+  },
+  {
+    "bic": "72569",
+    "name": "EFG bank (Luxembourg) SA"
+  },
+  {
+    "bic": "72574",
+    "name": "Glitnir bank Ltd"
+  },
+  {
+    "bic": "72603",
+    "name": "Caja de Ahorros del Mediterraneo (CAM)"
+  },
+  {
+    "bic": "72635",
+    "name": "Bigbank AS"
+  },
+  {
+    "bic": "72652",
+    "name": "Kaupthing Singer & Friedlander limited"
+  },
+  {
+    "bic": "72697",
+    "name": "CIB Faktor Zrt"
+  },
+  {
+    "bic": "72705",
+    "name": "Budapest credit and development bank public company limited b"
+  },
+  {
+    "bic": "72706",
+    "name": "Goldman Sachs bank (Europe) Plc"
+  },
+  {
+    "bic": "72719",
+    "name": "CSC24Seven.com Ltd"
+  },
+  {
+    "bic": "72732",
+    "name": "European finance house Ltd"
+  },
+  {
+    "bic": "72733",
+    "name": "Cyprus popular bank public co Ltd"
+  },
+  {
+    "bic": "72736",
+    "name": "CACEIS bank Deutschland GmbH"
+  },
+  {
+    "bic": "72751",
+    "name": "Lloyds TSB bank (Gibraltar) limited"
+  },
+  {
+    "bic": "72752",
+    "name": "HSBC bank Malta plc"
+  },
+  {
+    "bic": "72773",
+    "name": "SG Hambros bank (Gibraltar) limited"
+  },
+  {
+    "bic": "72785",
+    "name": "Bank of the Philippine Islands (Europe) plc"
+  },
+  {
+    "bic": "72786",
+    "name": "Raiffeisenbank Leoben-Bruck eGen"
+  },
+  {
+    "bic": "72813",
+    "name": "Goffin banque SA"
+  },
+  {
+    "bic": "72821",
+    "name": "Commerzbank Zrt"
+  },
+  {
+    "bic": "72836",
+    "name": "Erste bank der Österreichischen sparkassen AG"
+  },
+  {
+    "bic": "72840",
+    "name": "Piraeus bank SA"
+  },
+  {
+    "bic": "72875",
+    "name": "Advanzia bank SA"
+  },
+  {
+    "bic": "72886",
+    "name": "KDB Bank (Magyarorszag) zrt"
+  },
+  {
+    "bic": "72906",
+    "name": "Standard chartered bank (Germany) GmbH"
+  },
+  {
+    "bic": "72911",
+    "name": "Carnegie investment bank AB"
+  },
+  {
+    "bic": "72919",
+    "name": "Amsterdam trade bank NV"
+  },
+  {
+    "bic": "72925",
+    "name": "Hi-média porte monnaie électronique (HPME) SA"
+  },
+  {
+    "bic": "72964",
+    "name": "Aegon bank NV"
+  },
+  {
+    "bic": "72966",
+    "name": "Izola bank limited"
+  },
+  {
+    "bic": "72967",
+    "name": "New HBU II NV"
+  },
+  {
+    "bic": "72968",
+    "name": "Nord/LB covered finance bank SA"
+  },
+  {
+    "bic": "72969",
+    "name": "Raiffeisen Centrobank AG"
+  },
+  {
+    "bic": "72998",
+    "name": "Banca infrastrutture innovazione e sviluppo SpA"
+  },
+  {
+    "bic": "73009",
+    "name": "Unicrédit Luxembourg SA"
+  },
+  {
+    "bic": "73010",
+    "name": "Hypo Noe Gruppe Bank AG"
+  },
+  {
+    "bic": "73028",
+    "name": "Centrum bank AG"
+  },
+  {
+    "bic": "73041",
+    "name": "Banca March SA"
+  },
+  {
+    "bic": "73059",
+    "name": "KBC Commercial finance BV"
+  },
+  {
+    "bic": "73064",
+    "name": "Punjab national bank (international) limited"
+  },
+  {
+    "bic": "73066",
+    "name": "FIH Erhvervsbank A/S"
+  },
+  {
+    "bic": "73067",
+    "name": "JP Morgan bank (Ireland) plc"
+  },
+  {
+    "bic": "73068",
+    "name": "Landesbank Berlin AG"
+  },
+  {
+    "bic": "73088",
+    "name": "Banque Puilaetco Dewaay Luxembourg SA"
+  },
+  {
+    "bic": "73097",
+    "name": "BSI Europe SA"
+  },
+  {
+    "bic": "73098",
+    "name": "Coöperatieve Rabobank Leiden, Leiderdorp en Oegstgeest UA"
+  },
+  {
+    "bic": "73099",
+    "name": "Coöperatieve Rabobank Rotterdam UA"
+  },
+  {
+    "bic": "73129",
+    "name": "Kaiser partner privatbank AG"
+  },
+  {
+    "bic": "73131",
+    "name": "Dexia Kommunalbank Deutschland AG"
+  },
+  {
+    "bic": "73139",
+    "name": "Nemea bank plc"
+  },
+  {
+    "bic": "73173",
+    "name": "Friesland bank NV"
+  },
+  {
+    "bic": "73174",
+    "name": "Banque Havilland SA"
+  },
+  {
+    "bic": "73176",
+    "name": "GE Capital SpA"
+  },
+  {
+    "bic": "73233",
+    "name": "Landsbankinn HF"
+  },
+  {
+    "bic": "73240",
+    "name": "Coöperatieve Rabobank Walcheren/Noord-Beveland UA"
+  },
+  {
+    "bic": "73242",
+    "name": "Gulf international bank (UK) Ltd"
+  },
+  {
+    "bic": "73257",
+    "name": "Alpha bank SA"
+  },
+  {
+    "bic": "73268",
+    "name": "Citigroup global markets Deutschland AG & Co KGaA"
+  },
+  {
+    "bic": "73269",
+    "name": "ASN Bank NV"
+  },
+  {
+    "bic": "73307",
+    "name": "ABN Amro bank NV"
+  },
+  {
+    "bic": "73355",
+    "name": "Banco Bradesco Europa SA"
+  },
+  {
+    "bic": "73369",
+    "name": "John Deere Bank SA"
+  },
+  {
+    "bic": "73370",
+    "name": "Eurocard AB"
+  },
+  {
+    "bic": "73371",
+    "name": "Ceska Exportni Banka, AS"
+  },
+  {
+    "bic": "73373",
+    "name": "Deutsche bank (Malta) Ltd"
+  },
+  {
+    "bic": "73388",
+    "name": "BAWAG PSK Bank für arbeit und wirtschaft und österreichische"
+  },
+  {
+    "bic": "73489",
+    "name": "OTP Bank Nyrt"
+  },
+  {
+    "bic": "73505",
+    "name": "Bank of Montreal Ireland plc"
+  },
+  {
+    "bic": "73508",
+    "name": "Deutsche bank privat und geschäftskunden AG"
+  },
+  {
+    "bic": "73509",
+    "name": "Novum bank limited"
+  },
+  {
+    "bic": "73514",
+    "name": "Direktanlage.At AG"
+  },
+  {
+    "bic": "73575",
+    "name": "UBS Bank (Netherlands) BV"
+  },
+  {
+    "bic": "73580",
+    "name": "Hellenic Bank Public Company Ltd"
+  },
+  {
+    "bic": "73583",
+    "name": "Raiffeisen bank international AG"
+  },
+  {
+    "bic": "73635",
+    "name": "China construction bank (London) limited"
+  },
+  {
+    "bic": "73646",
+    "name": "Coöperatieve Rabobank Ijmond Noord UA"
+  },
+  {
+    "bic": "73647",
+    "name": "Coöperatieve Rabobank West Twente UA"
+  },
+  {
+    "bic": "73658",
+    "name": "KA finanz AG"
+  },
+  {
+    "bic": "73689",
+    "name": "Dexia LdG banque SA"
+  },
+  {
+    "bic": "73691",
+    "name": "Siemens bank GmbH"
+  },
+  {
+    "bic": "73692",
+    "name": "OP mortgage bank"
+  },
+  {
+    "bic": "73710",
+    "name": "Coöperatieve Rabobank Oost Betuwe UA"
+  },
+  {
+    "bic": "73711",
+    "name": "Coöperatieve Rabobank Rijk van Nijmegen UA"
+  },
+  {
+    "bic": "73712",
+    "name": "Coöperatieve Rabobank Westland UA"
+  },
+  {
+    "bic": "73713",
+    "name": "ICBC (London) limited"
+  },
+  {
+    "bic": "73714",
+    "name": "ABN Amro lease N.V."
+  },
+  {
+    "bic": "73728",
+    "name": "ABC Factors SA"
+  },
+  {
+    "bic": "73734",
+    "name": "UBS Bank SA"
+  },
+  {
+    "bic": "73737",
+    "name": "BNP Paribas Fortis factor SA/NV"
+  },
+  {
+    "bic": "73748",
+    "name": "Close Brothers Seydler bank AG"
+  },
+  {
+    "bic": "73787",
+    "name": "Bankia SA"
+  },
+  {
+    "bic": "73792",
+    "name": "JSC Rietumu banka"
+  },
+  {
+    "bic": "73823",
+    "name": "Aktia bank plc"
+  },
+  {
+    "bic": "73827",
+    "name": "Cooperatieve Rabobank Hart van Brabant UA"
+  },
+  {
+    "bic": "73841",
+    "name": "Coöperatieve Rabobank Arnhem en Omstreken UA"
+  },
+  {
+    "bic": "73883",
+    "name": "Coöperatieve Rabobank Weerterland en Cranendonck"
+  },
+  {
+    "bic": "73891",
+    "name": "Coöperatieve Rabobank Amsterdam UA"
+  },
+  {
+    "bic": "73932",
+    "name": "Valartis bank (Liechtenstein) AG"
+  },
+  {
+    "bic": "73936",
+    "name": "ING-DiBa AG"
+  },
+  {
+    "bic": "73940",
+    "name": "Eksportfinans ASA"
+  },
+  {
+    "bic": "73941",
+    "name": "Coöperatieve Rabobank Drechtsteden UA"
+  },
+  {
+    "bic": "73944",
+    "name": "Ethniki Factors SA"
+  },
+  {
+    "bic": "73951",
+    "name": "Coöperatieve Rabobank Regio Schiphol UA"
+  },
+  {
+    "bic": "73987",
+    "name": "Coöperatieve Rabobank Barneveld-Voorthuizen UA"
+  },
+  {
+    "bic": "73988",
+    "name": "Coöperatieve Rabobank Katwijk UA"
+  },
+  {
+    "bic": "74000",
+    "name": "Neue bank AG"
+  },
+  {
+    "bic": "74012",
+    "name": "Swedbank AB (publ)"
+  },
+  {
+    "bic": "74036",
+    "name": "Caixa leasing e factoring – Instituiçao financeira de crédito"
+  },
+  {
+    "bic": "74070",
+    "name": "Diners club nordic AB"
+  },
+  {
+    "bic": "74072",
+    "name": "Valitor hf."
+  },
+  {
+    "bic": "74093",
+    "name": "Coöperatieve Rabobank Amerstreek UA"
+  },
+  {
+    "bic": "74113",
+    "name": "Net-M Privatbank 1891 AG"
+  },
+  {
+    "bic": "74117",
+    "name": "Catalunya banc SA"
+  },
+  {
+    "bic": "74155",
+    "name": "Coöperatieve Rabobank Flevoland UA"
+  },
+  {
+    "bic": "74161",
+    "name": "MHB-Bank AG"
+  },
+  {
+    "bic": "74177",
+    "name": "Aktiebolaget Svensk exportkredit (publ)"
+  },
+  {
+    "bic": "74182",
+    "name": "Latvijas pasta banka JSC"
+  },
+  {
+    "bic": "74196",
+    "name": "Borgun hf"
+  },
+  {
+    "bic": "74203",
+    "name": "Sal. Oppenheim Jr & Cie Luxembourg SA"
+  },
+  {
+    "bic": "74212",
+    "name": "Deutsche bank Österreich AG"
+  },
+  {
+    "bic": "74240",
+    "name": "Klarna AB"
+  },
+  {
+    "bic": "74304",
+    "name": "Volksbank Offenburg eG"
+  },
+  {
+    "bic": "74321",
+    "name": "Banque Öhman S.A"
+  },
+  {
+    "bic": "74340",
+    "name": "Natixis pfandbriefbank AG"
+  },
+  {
+    "bic": "74360",
+    "name": "Lombard Odier (Europe) S.A"
+  },
+  {
+    "bic": "74364",
+    "name": "Coöperatieve Rabobank IJsseldelta U.A"
+  },
+  {
+    "bic": "74365",
+    "name": "Coöperatieve Rabobank Gouwestreek U.A"
+  },
+  {
+    "bic": "74430",
+    "name": "Itau BBA international limited"
+  },
+  {
+    "bic": "74440",
+    "name": "Lloyds bank private banking Limited"
+  },
+  {
+    "bic": "74450",
+    "name": "Coöperatieve Rabobank den haag en omgeving U.A."
+  },
+  {
+    "bic": "74455",
+    "name": "RBC Investor services bank S.A"
+  },
+  {
+    "bic": "74460",
+    "name": "Alior bank S.A"
+  },
+  {
+    "bic": "74477",
+    "name": "Akbank AG"
+  },
+  {
+    "bic": "74486",
+    "name": "BEST – Banco electronico de serviço total, SA"
+  },
+  {
+    "bic": "74498",
+    "name": "Coöperatieve Rabobank Helmond U.A"
+  },
+  {
+    "bic": "74513",
+    "name": "FactorBank aktiengesellschaft"
+  },
+  {
+    "bic": "74515",
+    "name": "Sberbank Slovensko, A.S"
+  },
+  {
+    "bic": "74527",
+    "name": "TSB Bank Plc"
+  },
+  {
+    "bic": "74559",
+    "name": "JSC Baltic international bank"
+  },
+  {
+    "bic": "74562",
+    "name": "European American investment bank AG"
+  },
+  {
+    "bic": "74563",
+    "name": "Scotiabank (Ireland) Limited"
+  },
+  {
+    "bic": "74583",
+    "name": "Close brothers limited"
+  },
+  {
+    "bic": "74593",
+    "name": "ETRIS BANK GmbH"
+  },
+  {
+    "bic": "74597",
+    "name": "Dell bank international limited"
+  },
+  {
+    "bic": "74607",
+    "name": "Bank of China (Hungaria) Hitelintezet Zartkoruen Mukodo Reszv"
+  },
+  {
+    "bic": "74624",
+    "name": "Bank frick & Co. AG"
+  },
+  {
+    "bic": "74627",
+    "name": "ABLV Bank Luxembourg SA"
+  },
+  {
+    "bic": "74648",
+    "name": "Bank mendes gans N.V"
+  },
+  {
+    "bic": "74669",
+    "name": "GarantiBank international N.V"
+  },
+  {
+    "bic": "74679",
+    "name": "VR-Bank in Mittelbaden eG"
+  },
+  {
+    "bic": "74690",
+    "name": "Scottish widows bank PLC"
+  },
+  {
+    "bic": "74702",
+    "name": "Coöperatieve rabobank apeldoorn en omgeving U.A"
+  },
+  {
+    "bic": "74703",
+    "name": "Coöperatieve rabobank sneek-zuidwestfriesland U.A"
+  },
+  {
+    "bic": "74716",
+    "name": "Banque hapoalim (Luxembourg) S.A"
+  },
+  {
+    "bic": "74720",
+    "name": "Saxo privatbank A/S"
+  },
+  {
+    "bic": "74726",
+    "name": "Demir halk bank (Nederland) N.V"
+  },
+  {
+    "bic": "74738",
+    "name": "Coöperatieve Rabobank noord-holland noord U.A"
+  },
+  {
+    "bic": "74740",
+    "name": "Gatehouse bank Plc"
+  },
+  {
+    "bic": "74790",
+    "name": "JSC Regionala investiciju banka"
+  },
+  {
+    "bic": "74793",
+    "name": "Coöperatieve Rabobank Zaanstreek UA"
+  },
+  {
+    "bic": "74815",
+    "name": "Pohjola bank plc"
+  }
+]

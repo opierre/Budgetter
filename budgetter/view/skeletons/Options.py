@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'Options.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.5.1
+## Created by: Qt User Interface Compiler version 6.5.2
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -16,8 +16,8 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QApplication, QComboBox, QGridLayout, QHBoxLayout,
-    QLabel, QSizePolicy, QSpacerItem, QToolButton,
-    QWidget)
+    QLabel, QLayout, QSizePolicy, QSpacerItem,
+    QToolButton, QWidget)
 
 from budgetter.view.widgets.line_edit_with_icon import LineEditWithIcon
 from budgetter.view.resources import resources_rc
@@ -242,6 +242,7 @@ class Ui_Options(object):
         self.horizontalLayout = QHBoxLayout(self.content)
         self.horizontalLayout.setSpacing(20)
         self.horizontalLayout.setObjectName("horizontalLayout")
+        self.horizontalLayout.setSizeConstraint(QLayout.SetDefaultConstraint)
         self.horizontalLayout.setContentsMargins(16, 3, 16, 3)
         self.title_bar_title = QLabel(self.content)
         self.title_bar_title.setObjectName("title_bar_title")

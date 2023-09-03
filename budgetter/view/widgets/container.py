@@ -71,7 +71,8 @@ class Container(QDockWidget):
         :return: None
         """
 
-        self.title_bar.disable_button()
+        self.title_bar.disable_add()
+        self.title_bar.disable_upload()
 
     def disable_search_bar(self):
         """
@@ -81,6 +82,15 @@ class Container(QDockWidget):
         """
 
         self.title_bar.disable_search()
+
+    def disable_upload(self):
+        """
+        Hide upload button on top right corner in title bar if useless
+
+        :return: None
+        """
+
+        self.title_bar.disable_upload()
 
     def set_info(self, info: str):
         """
@@ -110,4 +120,4 @@ class Container(QDockWidget):
         :return: None
         """
 
-        self.title_bar.set_button_tooltip(tooltip)
+        self.title_bar.set_add_tooltip(tooltip)

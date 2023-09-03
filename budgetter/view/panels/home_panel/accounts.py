@@ -89,6 +89,7 @@ class Accounts(QObject):
 
         # Hide all widgets in title bar
         self.ui_setup.accounts.disable_search_bar()
+        self.ui_setup.accounts.disable_upload()
 
     def configure_layout(self):
         """
@@ -234,13 +235,13 @@ class Accounts(QObject):
             self.dialogs[-1].show(False)
 
     def pre_add_account(
-        self,
-        name: str,
-        amount: str,
-        bank_id: int,
-        date: str,
-        new_bank_name: str,
-        color: str,
+            self,
+            name: str,
+            amount: str,
+            bank_id: int,
+            date: str,
+            new_bank_name: str,
+            color: str,
     ):
         """
         Check bank already exists

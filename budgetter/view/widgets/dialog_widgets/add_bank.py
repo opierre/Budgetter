@@ -102,6 +102,7 @@ class AddBankDialog(QWidget):
                 "..",
                 "..",
                 "resources",
+                "bank_info",
                 "bank_logo",
                 bank_name.lower().replace(" ", "_") + "_logo.svg",
             )
