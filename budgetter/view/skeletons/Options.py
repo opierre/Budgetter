@@ -300,14 +300,26 @@ class Ui_Options(object):
 
         self.horizontalLayout.addLayout(self.horizontalLayout_2)
 
+        self.upload_file = QToolButton(self.content)
+        self.upload_file.setObjectName("upload_file")
+        self.upload_file.setMinimumSize(QSize(28, 28))
+        self.upload_file.setMaximumSize(QSize(28, 28))
+        self.upload_file.setCursor(QCursor(Qt.PointingHandCursor))
+        icon = QIcon()
+        icon.addFile(":/images/images/upload_file_FILL0_wght400_GRAD0_opsz24.svg", QSize(), QIcon.Normal, QIcon.Off)
+        self.upload_file.setIcon(icon)
+        self.upload_file.setIconSize(QSize(24, 24))
+
+        self.horizontalLayout.addWidget(self.upload_file)
+
         self.add = QToolButton(self.content)
         self.add.setObjectName("add")
         self.add.setMinimumSize(QSize(28, 28))
         self.add.setMaximumSize(QSize(28, 28))
         self.add.setCursor(QCursor(Qt.PointingHandCursor))
-        icon = QIcon()
-        icon.addFile(":/images/images/add_circle_outline-white-24dp.svg", QSize(), QIcon.Normal, QIcon.Off)
-        self.add.setIcon(icon)
+        icon1 = QIcon()
+        icon1.addFile(":/images/images/add_circle_outline-white-24dp.svg", QSize(), QIcon.Normal, QIcon.Off)
+        self.add.setIcon(icon1)
         self.add.setIconSize(QSize(24, 24))
 
         self.horizontalLayout.addWidget(self.add)
@@ -330,6 +342,10 @@ class Ui_Options(object):
         self.search_field.setItemText(1, QCoreApplication.translate("Options", "Amount", None))
         self.search_field.setItemText(2, QCoreApplication.translate("Options", "Date", None))
 
+#if QT_CONFIG(tooltip)
+        self.upload_file.setToolTip(QCoreApplication.translate("Options", "Upload OFX File", None))
+#endif // QT_CONFIG(tooltip)
+        self.upload_file.setText("")
         self.add.setText("")
     # retranslateUi
 

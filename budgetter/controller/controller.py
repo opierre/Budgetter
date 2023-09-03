@@ -35,7 +35,7 @@ class Controller:
         self.connect_slots_and_signals()
 
         # Show FullScreen
-        self.main_window.showMaximized()
+        QTimer.singleShot(50, self.main_window.showMaximized)
 
     def connect_slots_and_signals(self):
         """

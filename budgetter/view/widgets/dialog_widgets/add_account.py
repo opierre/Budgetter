@@ -148,10 +148,10 @@ class AddAccountDialog(QWidget):
         account_bank = self.content.account_bank.text()
 
         if (
-                account_name != ""
-                and account_amount != ""
-                and account_amount_date != ""
-                and account_bank != ""
+            account_name != ""
+            and account_amount != ""
+            and account_amount_date != ""
+            and account_bank != ""
         ):
             # Find corresponding bank identifier
             bank_id = self.bank_ids.get(account_bank, None)

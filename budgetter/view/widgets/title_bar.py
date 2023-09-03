@@ -48,9 +48,9 @@ class TitleBar(QWidget):
         )  # pylint: disable=unsubscriptable-object
 
         # Connect click on _upload_file button to emit signal
-        # self.gui.upload_file.clicked[bool].connect(
-        #     self.secondClicked.emit
-        # )  # pylint: disable=unsubscriptable-object
+        self.gui.upload_file.clicked[bool].connect(
+            self.secondClicked.emit
+        )  # pylint: disable=unsubscriptable-object
 
         # Connect text changed on _search line edit to emit signal
         self.gui.title_bar_search.textChanged[str].connect(
@@ -144,8 +144,7 @@ class TitleBar(QWidget):
         :return: None
         """
 
-        # self.gui.upload_file.hide()
-        pass
+        self.gui.upload_file.hide()
 
     def set_add_tooltip(self, tooltip: str):
         """
