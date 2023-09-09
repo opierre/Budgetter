@@ -157,3 +157,13 @@ class Home(QObject):
 
         self._accounts.set_accounts(accounts_list)
         self._transactions.set_accounts(accounts_list)
+
+    def handle_convert_ofx(self, ofx_data: dict):
+        """
+        Handle OFX data converted to dict
+
+        :param ofx_data: OFX data
+        :return: None
+        """
+
+        self._transactions.handle_convert_ofx(ofx_data)

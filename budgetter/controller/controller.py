@@ -66,6 +66,9 @@ class Controller:
         self.home_threads.transactionAdded.connect(
             self.home_panel.handle_add_transaction
         )
+        self.home_threads.importOFXCompleted.connect(
+            self.home_panel.handle_convert_ofx
+        )
         self.home_threads.transactionEdited.connect(
             self.home_panel.handle_edit_transaction
         )

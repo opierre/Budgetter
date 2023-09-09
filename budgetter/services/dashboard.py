@@ -2,6 +2,7 @@ import datetime
 
 from PySide6.QtCore import QObject, Signal
 
+from budgetter.utils.ofxtools import convert_ofx_to_json
 from budgetter.utils.rest_client import RestClient
 from budgetter.worker.worker import Worker
 
@@ -29,6 +30,7 @@ class Dashboard(QObject):
     transactionEdited = Signal(object)
     transactionsFound = Signal(object)
     expensesDistribution = Signal(object)
+    importOFXCompleted = Signal(object)
 
     def get_banks_worker(self):
         """
@@ -192,7 +194,7 @@ class Dashboard(QObject):
         Delete transaction from database
 
         :param transaction_id: transaction ID to remove
-        :return:
+        :return: None
         """
 
         # Create worker
@@ -203,6 +205,43 @@ class Dashboard(QObject):
 
         # Start worker
         worker.run()
+
+    def import_ofx(self, ofx_path: str):
+        """
+        Import OFX file with transactions for parsing
+
+        :param ofx_path: ofx file path
+        :return:
+        """
+
+        # Create worker
+        worker = Worker(convert_ofx_to_json,
+                        ofx_file_path=ofx_path)
+        worker.signals.result.connect(self.push_ofx_transactions)
+        worker.signals.error.connect(self.errorDashboard.emit)
+
+        # Start worker
+        worker.run()
+
+    def push_ofx_transactions(self, ofx_data: dict):
+        """
+        Push OFX data to server
+
+        :param ofx_data: OFX data as dict
+        :return: None
+        """
+
+        self.importOFXCompleted.emit(ofx_data)
+
+        # TODO: URL for posting JSON transactions
+        # # Create worker
+        # worker = Worker(RestClient.post,
+        #                 url=ofx_path)
+        # worker.signals.result.connect(self.push_ofx_transactions)
+        # worker.signals.error.connect(self.errorDashboard.emit)
+        #
+        # # Start worker
+        # worker.run()
 
     def edit_transaction_worker(
             self,

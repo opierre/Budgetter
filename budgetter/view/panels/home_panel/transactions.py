@@ -14,7 +14,9 @@ from budgetter.models.transactions_model import (
     TransactionsFilterModel,
 )
 from budgetter.view.widgets.dialog import Dialog
-from budgetter.view.widgets.dialog_widgets.add_transaction import AddEditTransactionDialog
+from budgetter.view.widgets.dialog_widgets.add_transaction import (
+    AddEditTransactionDialog,
+)
 from budgetter.view.widgets.dialog_widgets.remove_transaction import (
     RemoveTransactionDialog,
 )
@@ -212,7 +214,7 @@ class Transactions(QObject):
         dialog_content = AddEditTransactionDialog(
             self.account_identifiers,
             transaction_content=transaction,
-            parent=self.main_window
+            parent=self.main_window,
         )
 
         # Set icon
@@ -231,7 +233,7 @@ class Transactions(QObject):
                 header_icon,
                 dialog_content,
                 self.main_window,
-                confirm_label="UPDATE"
+                confirm_label="UPDATE",
             )
         )
 
@@ -451,25 +453,6 @@ class Transactions(QObject):
             # Reset filter model
             self.transactions_filter_model.update_search_filter(None, None)
 
-    def modify_transaction(self, index):
-        """
-        Modify transaction content on Apply click
-
-        :param index: index in model
-        :return: None
-        """
-
-        # value = {"name": self.edit_name.text(), "category": self.edit_category_name.text(),
-        #          "amount": self.edit_amount.value(), "date": self.edit_date.date().toString("dd/MM/yyyy"),
-        #          "account": self.edit_account.currentText(), "type": self.edit_exp_or_inc.active_type(),
-        #          "means": self.edit_mean.active_type(), "comment": ""}
-
-        # Remove transaction from model
-        # self.transactions_filter_model.modify_transaction(self.transaction_delegate.editable, value)
-
-        # TODO: to remove
-        # rest_client = RestClient().POST("http://127.0.0.1:8000/dashboard/transaction/", value)
-
     def configure_layout(self):
         """
         Configure layout inside of Container
@@ -667,3 +650,14 @@ class Transactions(QObject):
         for account in self.accounts:
             account.style().unpolish(account)
             account.style().polish(account)
+
+    def handle_convert_ofx(self, ofx_data: dict):
+        """
+        Handle OFX data converted to dict
+
+        :param ofx_data: OFX data
+        :return: None
+        """
+
+        # TODO: update open dialog with import date and account concerned
+        # self._transactions.handle_convert_ofx(ofx_data)
