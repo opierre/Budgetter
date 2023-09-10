@@ -700,11 +700,12 @@ class Transactions(QObject):
             account.style().unpolish(account)
             account.style().polish(account)
 
-    def handle_convert_ofx(self, ofx_data: dict):
+    def handle_convert_ofx(self, ofx_data: dict, header: dict):
         """
         Handle OFX data converted to dict
 
         :param ofx_data: OFX data
+        :param header: global info for import
         :return: None
         """
 

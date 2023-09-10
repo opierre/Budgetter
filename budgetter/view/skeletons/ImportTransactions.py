@@ -185,7 +185,7 @@ class Ui_ImportTransactions(object):
         self.verticalLayout = QVBoxLayout(self.transaction)
         self.verticalLayout.setSpacing(20)
         self.verticalLayout.setObjectName("verticalLayout")
-        self.verticalLayout.setContentsMargins(0, 0, 15, 0)
+        self.verticalLayout.setContentsMargins(0, 0, 15, 10)
         self.label = QLabel(self.transaction)
         self.label.setObjectName("label")
         self.label.setMinimumSize(QSize(270, 0))
@@ -221,6 +221,18 @@ class Ui_ImportTransactions(object):
 
         self.verticalLayout.addLayout(self.horizontalLayout)
 
+        self.header_info = QLabel(self.transaction)
+        self.header_info.setObjectName("header_info")
+        font1 = QFont()
+        font1.setFamilies([u"Roboto"])
+        font1.setPointSize(10)
+        font1.setItalic(True)
+        self.header_info.setFont(font1)
+        self.header_info.setStyleSheet("color: rgba(255, 255, 255, 100);\n"
+"font-style: italic;")
+
+        self.verticalLayout.addWidget(self.header_info)
+
 
         self.gridLayout.addWidget(self.transaction, 0, 0, 1, 1)
 
@@ -234,5 +246,6 @@ class Ui_ImportTransactions(object):
         ImportTransactions.setWindowTitle(QCoreApplication.translate("ImportTransactions", "Form", None))
         self.label.setText(QCoreApplication.translate("ImportTransactions", "Import an OFX file with transactions.", None))
         self.verdict.setText("")
+        self.header_info.setText(QCoreApplication.translate("ImportTransactions", "Importing nb transactions from start date to end end date on accounts A and B", None))
     # retranslateUi
 

@@ -30,7 +30,7 @@ class Dashboard(QObject):
     transactionEdited = Signal(object)
     transactionsFound = Signal(object)
     expensesDistribution = Signal(object)
-    importOFXCompleted = Signal(object)
+    convertOFXCompleted = Signal(object)
 
     def get_banks_worker(self):
         """
@@ -223,15 +223,16 @@ class Dashboard(QObject):
         # Start worker
         worker.run()
 
-    def push_ofx_transactions(self, ofx_data: dict):
+    def push_ofx_transactions(self, ofx_data: dict, header: dict):
         """
         Push OFX data to server
 
         :param ofx_data: OFX data as dict
+        :param header: global info
         :return: None
         """
 
-        self.importOFXCompleted.emit(ofx_data)
+        self.convertOFXCompleted.emit(ofx_data, header)
 
         # TODO: URL for posting JSON transactions
         # # Create worker

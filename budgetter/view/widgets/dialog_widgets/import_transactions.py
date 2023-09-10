@@ -38,6 +38,9 @@ class ImportTransactionsDialog(QWidget):
             browse_action, QLineEdit.ActionPosition.TrailingPosition
         )
 
+        # Hide header info first
+        self.content.header_info.setVisible(False)
+
     def get_ofx_path(self):
         """
         Emit current OFX path
