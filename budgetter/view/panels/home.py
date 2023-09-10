@@ -19,6 +19,7 @@ class Home(QObject):
     addAccountController = Signal(str, str, int, str, str)
     addBankController = Signal(str)
     addTransactionController = Signal(str, str, str, str, str, str, str, int)
+    importTransactionsController = Signal(str)
     removeTransactionController = Signal(int)
     editTransactionController = Signal(str, str, str, str, str, str, str, int, int)
 
@@ -58,7 +59,12 @@ class Home(QObject):
         self._accounts.addAccountCall.connect(self.addAccountController.emit)
         self._accounts.addBankCall.connect(self.addBankController.emit)
         self._transactions.addTransaction.connect(self.addTransactionController.emit)
-        self._transactions.removeTransaction.connect(self.removeTransactionController.emit)
+        self._transactions.importTransactions.connect(
+            self.importTransactionsController.emit
+        )
+        self._transactions.removeTransaction.connect(
+            self.removeTransactionController.emit
+        )
         self._transactions.editTransaction.connect(self.editTransactionController.emit)
 
     def handle_error(self, error: Tuple[Exception, Any, str]):

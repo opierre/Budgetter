@@ -15,6 +15,7 @@ class Container(QDockWidget):
 
     # Signal emitted when button in title bar has been clicked - Checked state: bool
     titleBarClicked = Signal(bool)
+    titleBarSecondClicked = Signal(bool)
 
     def __init__(self, parent=None):
         super().__init__(parent)
@@ -40,6 +41,7 @@ class Container(QDockWidget):
 
         # Emit signal when button in title bar has been clicked
         self.title_bar.clicked.connect(self.titleBarClicked.emit)
+        self.title_bar.secondClicked.connect(self.titleBarSecondClicked.emit)
 
         # Emit signal when text typed in search bar
         self.title_bar.searched.connect(self.titleBarSearched.emit)

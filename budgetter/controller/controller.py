@@ -52,6 +52,9 @@ class Controller:
         self.home_panel.addTransactionController.connect(
             self.home_threads.add_transaction_worker
         )
+        self.home_panel.importTransactionsController.connect(
+            self.home_threads.import_ofx
+        )
         self.home_panel.removeTransactionController.connect(
             self.home_threads.remove_transaction_worker
         )
@@ -66,9 +69,7 @@ class Controller:
         self.home_threads.transactionAdded.connect(
             self.home_panel.handle_add_transaction
         )
-        self.home_threads.importOFXCompleted.connect(
-            self.home_panel.handle_convert_ofx
-        )
+        self.home_threads.importOFXCompleted.connect(self.home_panel.handle_convert_ofx)
         self.home_threads.transactionEdited.connect(
             self.home_panel.handle_edit_transaction
         )
@@ -81,6 +82,8 @@ class Controller:
         self.home_threads.banksFound.connect(self.home_panel.handle_get_banks)
         self.home_threads.banksFound.connect(self.home_threads.get_accounts_worker)
         self.home_threads.accountsFound.connect(self.home_panel.handle_get_accounts)
-        self.home_threads.accountsFound.connect(self.home_threads.get_transactions_worker)
+        self.home_threads.accountsFound.connect(
+            self.home_threads.get_transactions_worker
+        )
 
         QTimer.singleShot(500, self.home_threads.get_banks_worker)

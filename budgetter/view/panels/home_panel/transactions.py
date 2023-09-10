@@ -17,6 +17,9 @@ from budgetter.view.widgets.dialog import Dialog
 from budgetter.view.widgets.dialog_widgets.add_transaction import (
     AddEditTransactionDialog,
 )
+from budgetter.view.widgets.dialog_widgets.import_transactions import (
+    ImportTransactionsDialog,
+)
 from budgetter.view.widgets.dialog_widgets.remove_transaction import (
     RemoveTransactionDialog,
 )
@@ -37,6 +40,9 @@ class Transactions(QObject):
 
     # Signal emitted to remove transaction with transaction ID
     removeTransaction = Signal(int)
+
+    # Signal emitted with OFX file path
+    importTransactions = Signal(str)
 
     # Signal emitted to edit transaction with type, category, name, amount, amount date, mean, notes, account ID,
     # transaction ID
@@ -128,6 +134,9 @@ class Transactions(QObject):
         # Connect signal from click/edit on +/search button
         self.ui_setup.transactions.titleBarClicked.connect(self.add_transaction)
         self.ui_setup.transactions.titleBarSearched.connect(self.search_transaction)
+        self.ui_setup.transactions.titleBarSecondClicked.connect(
+            self.import_transaction
+        )
 
         # Update filtering when click on button in status bar
         self.expenses.clicked.connect(
@@ -415,6 +424,46 @@ class Transactions(QObject):
 
         # Set focus on first widget when opening
         dialog_content.content.name.setFocus()
+
+    def import_transaction(self):
+        """
+        Import transaction on click
+
+        :return: None
+        """
+
+        # Set dialog content
+        dialog_content = ImportTransactionsDialog(self.main_window)
+
+        # Set icon
+        # TODO: to change
+        header_icon = QIcon()
+        header_icon.addFile(
+            ":/images/images/receipt_long_FILL1_wght400_GRAD0_opsz48.svg",
+            QSize(24, 24),
+            QIcon.Mode.Disabled,
+            QIcon.State.On,
+        )
+
+        # Open dialog
+        self.dialogs.append(
+            Dialog(
+                QCoreApplication.translate("Transactions", "Import Transactions"),
+                header_icon,
+                dialog_content,
+                self.main_window,
+            )
+        )
+
+        # Connect signal from popup to import transactions
+        dialog_content.importTransactions.connect(self.importTransactions.emit)
+
+        # Connect signal coming from click on Confirm button
+        self.dialogs[-1].confirm.connect(dialog_content.get_ofx_path)
+        self.dialogs[-1].escape.connect(self.escape_dialog)
+
+        # Set focus on first widget when opening
+        dialog_content.content.import_path.setFocus()
 
     def escape_dialog(self):
         """
