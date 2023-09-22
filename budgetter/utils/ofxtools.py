@@ -2,6 +2,7 @@ import os.path
 from datetime import datetime
 from typing import Tuple
 
+import pytz
 from ofxtools import OFXTree
 
 from budgetter.utils.defines import TransactionType
@@ -25,13 +26,13 @@ def convert_ofx_to_json(ofx_file_path: str) -> Tuple[dict, dict]:
 
     # Convert to OFX tree for parsing
     ofx = ofx_parser.convert()
+    utc_timezone = pytz.UTC
     data = {"transactions": []}
     header = {
         "count": 0,
         "accounts": [],
-        "start_date": datetime.max,
-        "end_date": datetime.min,
-
+        "start_date": utc_timezone.localize(datetime.max),
+        "end_date": utc_timezone.localize(datetime.min),
     }
     for statement in ofx.statements:
         # Get account info
@@ -53,23 +54,23 @@ def convert_ofx_to_json(ofx_file_path: str) -> Tuple[dict, dict]:
         for transaction in statement.transactions:
             # TODO: fix generic term for internal transaction
             if "VIREMENT EN VOTRE FAVEUR DE OLIVIER PIERRE" in transaction.memo:
-                transaction_type = TransactionType.INTERNAL
-                transaction_mean = MeanType.TRANSFER
+                transaction_type = TransactionType.INTERNAL.value
+                transaction_mean = MeanType.TRANSFER.value
             elif float(transaction.trnamt) < 0:
-                transaction_type = TransactionType.EXPENSES
-                transaction_mean = MeanType.CARD
+                transaction_type = TransactionType.EXPENSES.value
+                transaction_mean = MeanType.CARD.value
             else:
-                transaction_type = TransactionType.INCOME
-                transaction_mean = MeanType.CARD
+                transaction_type = TransactionType.INCOME.value
+                transaction_mean = MeanType.CARD.value
             data.get("transactions").append(
                 {
                     "name": transaction.name,
                     "amount": abs(float(transaction.trnamt)),
                     "transaction_type": transaction_type,
-                    "date": transaction.dtposted.strftime('%Y-%m-%d'),
+                    "date": transaction.dtposted.strftime("%Y-%m-%d"),
                     "comment": transaction.memo,
                     "mean": transaction_mean,
-                    "account": account
+                    "account": account,
                 }
             )
 
