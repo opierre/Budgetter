@@ -1,6 +1,8 @@
+import os
+
 from PySide6.QtCore import Signal
-from PySide6.QtGui import QAction, QIcon
-from PySide6.QtWidgets import QWidget, QLineEdit
+from PySide6.QtGui import QIcon
+from PySide6.QtWidgets import QWidget, QLineEdit, QFileDialog
 
 from budgetter.view.skeletons.ImportTransactions import Ui_ImportTransactions
 
@@ -30,13 +32,12 @@ class ImportTransactionsDialog(QWidget):
         :return: None
         """
 
-        # Set browse icon
-        # TODO: browse icon
-        browse_icon = QIcon(":/images/images/hdr_weak_black_18dp_expenses.svg")
-        browse_action = QAction(browse_icon, "")
-        self.content.import_path.addAction(
-            browse_action, QLineEdit.ActionPosition.TrailingPosition
+        # Set browse icon with rescale mode
+        browse_action = self.content.import_path.addAction(
+            QIcon(":/images/images/folder_open_FILL1_wght500_GRAD0_opsz24.svg"),
+            QLineEdit.ActionPosition.TrailingPosition,
         )
+        browse_action.triggered.connect(self.load_ofx)
 
         # Hide header info first
         self.content.header_info.setVisible(False)
@@ -49,3 +50,21 @@ class ImportTransactionsDialog(QWidget):
         """
 
         self.importTransactions.emit(self.content.import_path.text())
+
+    def load_ofx(self):
+        """
+        Open OS dialog to search for OFX to download
+
+        :return: None
+        """
+
+        # Open OS dialog to select file
+        file_name, _ = QFileDialog.getOpenFileName(
+            self.parent(),
+            "Load OFX file",
+            os.path.expanduser("~"),
+            "All files (*); OFX files (*.ofx)",
+        )
+
+        if file_name:
+            self.content.import_path.setText(file_name)

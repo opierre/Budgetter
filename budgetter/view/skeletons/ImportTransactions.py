@@ -24,7 +24,7 @@ class Ui_ImportTransactions(object):
     def setupUi(self, ImportTransactions):
         if not ImportTransactions.objectName():
             ImportTransactions.setObjectName("ImportTransactions")
-        ImportTransactions.resize(427, 126)
+        ImportTransactions.resize(472, 154)
         ImportTransactions.setStyleSheet("QWidget#transaction \n"
 "{\n"
 "	background-color: #1C293B;\n"
@@ -204,8 +204,8 @@ class Ui_ImportTransactions(object):
         self.horizontalLayout.setContentsMargins(-1, -1, -1, 0)
         self.import_path = MaterialOutlinedLineEdit(self.transaction)
         self.import_path.setObjectName("import_path")
-        self.import_path.setMinimumSize(QSize(320, 67))
-        self.import_path.setMaximumSize(QSize(16777215, 67))
+        self.import_path.setMinimumSize(QSize(320, 50))
+        self.import_path.setMaximumSize(QSize(16777215, 50))
         self.import_path.setReadOnly(True)
 
         self.horizontalLayout.addWidget(self.import_path)
@@ -213,7 +213,7 @@ class Ui_ImportTransactions(object):
         self.verdict = QToolButton(self.transaction)
         self.verdict.setObjectName("verdict")
         self.verdict.setEnabled(False)
-        self.verdict.setMinimumSize(QSize(67, 67))
+        self.verdict.setMinimumSize(QSize(50, 50))
         self.verdict.setIconSize(QSize(42, 42))
 
         self.horizontalLayout.addWidget(self.verdict)
@@ -245,6 +245,7 @@ class Ui_ImportTransactions(object):
     def retranslateUi(self, ImportTransactions):
         ImportTransactions.setWindowTitle(QCoreApplication.translate("ImportTransactions", "Form", None))
         self.label.setText(QCoreApplication.translate("ImportTransactions", "Import an OFX file with transactions.", None))
+        self.import_path.setText("")
         self.verdict.setText("")
         self.header_info.setText(QCoreApplication.translate("ImportTransactions", "Importing nb transactions from start date to end end date on accounts A and B", None))
     # retranslateUi

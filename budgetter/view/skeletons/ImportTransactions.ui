@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>427</width>
-    <height>126</height>
+    <width>472</width>
+    <height>154</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -222,14 +222,17 @@ QRadioButton
           <property name="minimumSize">
            <size>
             <width>320</width>
-            <height>67</height>
+            <height>50</height>
            </size>
           </property>
           <property name="maximumSize">
            <size>
             <width>16777215</width>
-            <height>67</height>
+            <height>50</height>
            </size>
+          </property>
+          <property name="text">
+           <string/>
           </property>
           <property name="readOnly">
            <bool>true</bool>
@@ -243,8 +246,8 @@ QRadioButton
           </property>
           <property name="minimumSize">
            <size>
-            <width>67</width>
-            <height>67</height>
+            <width>50</width>
+            <height>50</height>
            </size>
           </property>
           <property name="text">
