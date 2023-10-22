@@ -59,12 +59,8 @@ class Home(QObject):
         self._accounts.addAccountCall.connect(self.addAccountController.emit)
         self._accounts.addBankCall.connect(self.addBankController.emit)
         self._transactions.addTransaction.connect(self.addTransactionController.emit)
-        self._transactions.importTransactions.connect(
-            self.importTransactionsController.emit
-        )
-        self._transactions.removeTransaction.connect(
-            self.removeTransactionController.emit
-        )
+        self._transactions.importTransactions.connect(self.importTransactionsController.emit)
+        self._transactions.removeTransaction.connect(self.removeTransactionController.emit)
         self._transactions.editTransaction.connect(self.editTransactionController.emit)
 
     def handle_error(self, error: Tuple[Exception, Any, str]):
@@ -164,12 +160,14 @@ class Home(QObject):
         self._accounts.set_accounts(accounts_list)
         self._transactions.set_accounts(accounts_list)
 
-    def handle_convert_ofx(self, result: Tuple[dict, dict]):
+    def handle_convert_ofx(self, ofx_data: dict, header: dict, message: str):
         """
         Handle OFX data converted to dict
 
-        :param result: OFX data with header
+        :param ofx_data: OFX data
+        :param header: data header
+        :param message: error message
         :return: None
         """
 
-        self._transactions.handle_convert_ofx(result[0], result[1])
+        self._transactions.handle_convert_ofx(ofx_data, header, message)

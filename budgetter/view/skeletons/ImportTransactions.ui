@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>472</width>
-    <height>154</height>
+    <height>144</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -182,7 +182,7 @@ QRadioButton
        <number>15</number>
       </property>
       <property name="bottomMargin">
-       <number>10</number>
+       <number>0</number>
       </property>
       <item>
        <widget class="QLabel" name="label">

@@ -12,8 +12,8 @@ class ImportTransactionsDialog(QWidget):
     Import transactions dialog content
     """
 
-    # Signal emitted to import transactions
-    importTransactions = Signal()
+    # Signal emitted to import transactions - File path
+    importTransactions = Signal(str)
 
     def __init__(self, parent=None):
         super().__init__(parent)
@@ -40,7 +40,7 @@ class ImportTransactionsDialog(QWidget):
         browse_action.triggered.connect(self.load_ofx)
 
         # Hide header info first
-        self.content.header_info.setVisible(False)
+        self.content.header_info.setText("")
 
     def get_ofx_path(self):
         """
@@ -68,3 +68,15 @@ class ImportTransactionsDialog(QWidget):
 
         if file_name:
             self.content.import_path.setText(file_name)
+
+    def set_header_info(self, nb_transactions: int, start_date: str, end_date: str):
+        """
+        Update header info
+
+        :param nb_transactions: number of transactions imported
+        :param start_date: start date
+        :param end_date: end date
+        :return: None
+        """
+
+        self.content.header_info.setText(f"Importing {nb_transactions} transactions from {start_date} to {end_date}...")

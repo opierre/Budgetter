@@ -1,4 +1,5 @@
 import datetime
+from typing import Tuple
 
 from PySide6.QtCore import QObject, Signal
 
@@ -30,7 +31,7 @@ class Dashboard(QObject):
     transactionEdited = Signal(object)
     transactionsFound = Signal(object)
     expensesDistribution = Signal(object)
-    convertOFXCompleted = Signal(object)
+    convertOFXCompleted = Signal(dict, dict, str)
 
     def get_banks_worker(self):
         """
@@ -92,9 +93,7 @@ class Dashboard(QObject):
         # Start worker
         worker.run()
 
-    def add_account_worker(
-            self, name: str, amount: str, bank_id: int, date: str, color: str
-    ):
+    def add_account_worker(self, name: str, amount: str, bank_id: int, date: str, color: str):
         """
         Add account via worker call
 
@@ -171,9 +170,7 @@ class Dashboard(QObject):
         data = {
             "name": name,
             "amount": amount,
-            "date": datetime.datetime.strptime(amount_date, "%d/%m/%Y").strftime(
-                "%Y-%m-%d"
-            ),
+            "date": datetime.datetime.strptime(amount_date, "%d/%m/%Y").strftime("%Y-%m-%d"),
             "account": account_id,
             "category": category if category else None,
             "comment": notes,
@@ -198,8 +195,7 @@ class Dashboard(QObject):
         """
 
         # Create worker
-        worker = Worker(RestClient.delete,
-                        url=f"{self.TRANSACTION_URL}{transaction_id}/")
+        worker = Worker(RestClient.delete, url=f"{self.TRANSACTION_URL}{transaction_id}/")
         worker.signals.result.connect(self.transactionRemoved.emit)
         worker.signals.error.connect(self.errorDashboard.emit)
 
@@ -215,24 +211,24 @@ class Dashboard(QObject):
         """
 
         # Create worker
-        worker = Worker(convert_ofx_to_json,
-                        ofx_file_path=ofx_path)
+        worker = Worker(convert_ofx_to_json, ofx_file_path=ofx_path)
         worker.signals.result.connect(self.push_ofx_transactions)
         worker.signals.error.connect(self.errorDashboard.emit)
 
         # Start worker
         worker.run()
 
-    def push_ofx_transactions(self, ofx_data: dict, header: dict):
+    def push_ofx_transactions(self, result: Tuple[dict, dict, str]):
         """
         Push OFX data to server
 
-        :param ofx_data: OFX data as dict
-        :param header: global info
+        :param: ofx data, header, error
         :return: None
         """
 
-        self.convertOFXCompleted.emit(ofx_data, header)
+        ofx_data, header, message = result
+
+        self.convertOFXCompleted.emit(ofx_data, header, message)
 
         # TODO: URL for posting JSON transactions
         # # Create worker
@@ -275,9 +271,7 @@ class Dashboard(QObject):
         data = {
             "name": name,
             "amount": amount,
-            "date": datetime.datetime.strptime(amount_date, "%d/%m/%Y").strftime(
-                "%Y-%m-%d"
-            ),
+            "date": datetime.datetime.strptime(amount_date, "%d/%m/%Y").strftime("%Y-%m-%d"),
             "account": account_id,
             "category": category if category else None,
             "comment": notes,
@@ -286,9 +280,7 @@ class Dashboard(QObject):
         }
 
         # Create worker
-        worker = Worker(RestClient.patch,
-                        url=f"{self.TRANSACTION_URL}{transaction_id}/",
-                        data=data)
+        worker = Worker(RestClient.patch, url=f"{self.TRANSACTION_URL}{transaction_id}/", data=data)
         worker.signals.result.connect(self.transactionEdited.emit)
         worker.signals.error.connect(self.errorDashboard.emit)
 

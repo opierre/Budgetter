@@ -9,20 +9,24 @@ from budgetter.utils.defines import TransactionType
 from budgetter.view.widgets.transaction_widgets.means_widget import MeanType
 
 
-def convert_ofx_to_json(ofx_file_path: str) -> Tuple[dict, dict]:
+def convert_ofx_to_json(ofx_file_path: str) -> Tuple[dict, dict, str]:
     """
     Convert OFX file to JSON to send to server
 
     :param ofx_file_path: OFX file path
-    :return: converted data as JSON, header with global info
+    :return: converted data as JSON, header with global info, error message
     """
 
     if not os.path.exists(ofx_file_path):
-        return {}, {}
+        return {}, {}, f"File {ofx_file_path} not found, import aborted"
 
     ofx_parser = OFXTree()
-    with open(ofx_file_path, "rb") as ofx_file:
-        ofx_parser.parse(ofx_file)
+
+    try:
+        with open(ofx_file_path, "rb") as ofx_file:
+            ofx_parser.parse(ofx_file)
+    except Exception as exc:
+        return {}, {}, str(exc)
 
     # Convert to OFX tree for parsing
     ofx = ofx_parser.convert()
@@ -51,7 +55,7 @@ def convert_ofx_to_json(ofx_file_path: str) -> Tuple[dict, dict]:
             header.update({"end_date": statement.transactions.dtend})
 
         # Parse transactions
-        for transaction in statement.transactions:
+        for transaction in statement.transactions[:2]:
             # TODO: fix generic term for internal transaction
             if "VIREMENT EN VOTRE FAVEUR DE OLIVIER PIERRE" in transaction.memo:
                 transaction_type = TransactionType.INTERNAL.value
@@ -74,4 +78,4 @@ def convert_ofx_to_json(ofx_file_path: str) -> Tuple[dict, dict]:
                 }
             )
 
-    return data, header
+    return data, header, ""
