@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>476</width>
-    <height>179</height>
+    <width>435</width>
+    <height>163</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -167,25 +167,12 @@ QRadioButton
 
 QProgressBar
 {
-	background-color: #1c293b;
-    border: none;
-    border-radius: 2px;
-}
-
-QProgressBar[activated=&quot;true&quot;] 
-{
 	background-color: #212f41;
     border: none;
     border-radius: 2px;
 }
 
 QProgressBar::chunk 
-{
-    background-color: #1c293b;
-    border-radius: 2px;
-}
-
-QProgressBar[activated=&quot;true&quot;]::chunk 
 {
     background-color: #199ce5;
     border-radius: 2px;
@@ -247,13 +234,13 @@ QProgressBar[activated=&quot;true&quot;]::chunk
          <widget class="MaterialOutlinedLineEdit" name="import_path">
           <property name="minimumSize">
            <size>
-            <width>320</width>
+            <width>400</width>
             <height>50</height>
            </size>
           </property>
           <property name="maximumSize">
            <size>
-            <width>16777215</width>
+            <width>400</width>
             <height>50</height>
            </size>
           </property>
@@ -280,6 +267,24 @@ QProgressBar[activated=&quot;true&quot;]::chunk
         </property>
         <item>
          <widget class="QLabel" name="header_info">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>400</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>400</width>
+            <height>16777215</height>
+           </size>
+          </property>
           <property name="font">
            <font>
             <family>Roboto</family>
@@ -293,6 +298,15 @@ font-style: italic;</string>
           </property>
           <property name="text">
            <string>Importing nb transactions from start date to end end date on accounts A and B</string>
+          </property>
+          <property name="textFormat">
+           <enum>Qt::AutoText</enum>
+          </property>
+          <property name="scaledContents">
+           <bool>false</bool>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
           </property>
           <property name="wordWrap">
            <bool>true</bool>

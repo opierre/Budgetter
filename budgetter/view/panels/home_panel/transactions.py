@@ -66,19 +66,19 @@ class Transactions(QObject):
         self.dialogs = []
 
         # All button - Type
-        self.all = QPushButton(QCoreApplication.translate("transactions", "All"))
+        self.all = QPushButton(QCoreApplication.translate("transactions", "All", None))
 
         # Expenses button - Type
-        self.expenses = QPushButton(QCoreApplication.translate("transactions", "Expenses"))
+        self.expenses = QPushButton(QCoreApplication.translate("transactions", "Expenses", None))
 
         # Incomes button - Type
-        self.income = QPushButton(QCoreApplication.translate("transactions", "Income"))
+        self.income = QPushButton(QCoreApplication.translate("transactions", "Income", None))
 
         # Transfers button - Type
-        self.transfer = QPushButton(QCoreApplication.translate("transactions", "Transfer"))
+        self.transfer = QPushButton(QCoreApplication.translate("transactions", "Transfer", None))
 
         # All button - Account
-        self.all_account = QPushButton(QCoreApplication.translate("transactions", "All"))
+        self.all_account = QPushButton(QCoreApplication.translate("transactions", "All", None))
         self.accounts = []
 
         # Store item delegate
@@ -433,7 +433,7 @@ class Transactions(QObject):
 
         # Set focus on first widget when opening
         dialog_content.content.import_path.setFocus()
-        QTimer.singleShot(200, dialog_content.load_ofx)
+        QTimer.singleShot(500, dialog_content.load_ofx)
 
     def escape_dialog(self):
         """
@@ -666,21 +666,28 @@ class Transactions(QObject):
             account.style().unpolish(account)
             account.style().polish(account)
 
-    def handle_convert_ofx(self, ofx_data: dict, header: dict, message: str):
+    def handle_convert_ofx(self, header: dict, message: str):
         """
         Handle OFX data converted to dict
 
-        :param ofx_data: OFX data
         :param header: data header
         :param message: error message
         :return: None
         :return: None
         """
 
-        # TODO: update open dialog with import date and account concerned
-        # self._transactions.handle_convert_ofx(ofx_data)
+        if message != "":
+            self.dialogs[-1].central_widget().set_error(message)
+
+        # Update info on dialog
+        new_accounts = []
+        for account in header.get("accounts", []):
+            if account.get("account_id", "") not in self.account_identifiers:
+                new_accounts.append(account.get("account_id", ""))
+
         self.dialogs[-1].central_widget().set_header_info(
             header.get("count", -1),
             header.get("start_date", "xx/xx/xxxx").strftime("%d/%m/%Y"),
             header.get("end_date", "xx/xx/xxxx").strftime("%d/%m/%Y"),
+            new_accounts,
         )

@@ -24,7 +24,7 @@ class Ui_ImportTransactions(object):
     def setupUi(self, ImportTransactions):
         if not ImportTransactions.objectName():
             ImportTransactions.setObjectName("ImportTransactions")
-        ImportTransactions.resize(476, 179)
+        ImportTransactions.resize(435, 163)
         ImportTransactions.setStyleSheet("QWidget#transaction \n"
 "{\n"
 "	background-color: #1C293B;\n"
@@ -181,25 +181,12 @@ class Ui_ImportTransactions(object):
 "\n"
 "QProgressBar\n"
 "{\n"
-"	background-color: #1c293b;\n"
-"    border: none;\n"
-"    border-radius: 2px;\n"
-"}\n"
-"\n"
-"QProgressBar[activated=\"true\"] \n"
-"{\n"
 "	background-color: #212f41;\n"
 "    border: none;\n"
 "    border-radius: 2px;\n"
 "}\n"
 "\n"
 "QProgressBar::chunk \n"
-"{\n"
-"    background-color: #1c293b;\n"
-"    border-radius: 2px;\n"
-"}\n"
-"\n"
-"QProgressBar[activated=\"true\"]::chunk \n"
 "{\n"
 "    background-color: #199ce5;\n"
 "    border-radius: 2px;\n"
@@ -230,8 +217,8 @@ class Ui_ImportTransactions(object):
         self.horizontalLayout.setContentsMargins(-1, -1, -1, 0)
         self.import_path = MaterialOutlinedLineEdit(self.transaction)
         self.import_path.setObjectName("import_path")
-        self.import_path.setMinimumSize(QSize(320, 50))
-        self.import_path.setMaximumSize(QSize(16777215, 50))
+        self.import_path.setMinimumSize(QSize(400, 50))
+        self.import_path.setMaximumSize(QSize(400, 50))
         self.import_path.setReadOnly(True)
 
         self.horizontalLayout.addWidget(self.import_path)
@@ -245,6 +232,13 @@ class Ui_ImportTransactions(object):
         self.verticalLayout_2.setContentsMargins(0, -1, 0, -1)
         self.header_info = QLabel(self.transaction)
         self.header_info.setObjectName("header_info")
+        sizePolicy = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.header_info.sizePolicy().hasHeightForWidth())
+        self.header_info.setSizePolicy(sizePolicy)
+        self.header_info.setMinimumSize(QSize(400, 0))
+        self.header_info.setMaximumSize(QSize(400, 16777215))
         font1 = QFont()
         font1.setFamilies([u"Roboto"])
         font1.setPointSize(10)
@@ -252,6 +246,9 @@ class Ui_ImportTransactions(object):
         self.header_info.setFont(font1)
         self.header_info.setStyleSheet("color: rgba(255, 255, 255, 100);\n"
 "font-style: italic;")
+        self.header_info.setTextFormat(Qt.AutoText)
+        self.header_info.setScaledContents(False)
+        self.header_info.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
         self.header_info.setWordWrap(True)
 
         self.verticalLayout_2.addWidget(self.header_info)

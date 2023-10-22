@@ -31,7 +31,7 @@ class Dashboard(QObject):
     transactionEdited = Signal(object)
     transactionsFound = Signal(object)
     expensesDistribution = Signal(object)
-    convertOFXCompleted = Signal(dict, dict, str)
+    convertOFXCompleted = Signal(dict, str)
 
     def get_banks_worker(self):
         """
@@ -226,9 +226,9 @@ class Dashboard(QObject):
         :return: None
         """
 
-        ofx_data, header, message = result
+        _, header, message = result
 
-        self.convertOFXCompleted.emit(ofx_data, header, message)
+        self.convertOFXCompleted.emit(header, message)
 
         # TODO: URL for posting JSON transactions
         # # Create worker
