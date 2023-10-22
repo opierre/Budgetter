@@ -17,6 +17,8 @@
 # LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 # THE SOFTWARE.
+from typing import Union
+
 from PySide6.QtCore import (
     QParallelAnimationGroup,
     QPropertyAnimation,
@@ -51,7 +53,7 @@ class Dialog(QWidget):
             central_widget: QWidget,
             parent=None,
             show_overlay: bool = True,
-            confirm_label: str = '',
+            confirm_label: Union[str, None] = "",
     ):
         super().__init__(parent)
 
@@ -62,16 +64,14 @@ class Dialog(QWidget):
         self._dialog.setupUi(self)
 
         # Update confirm button label
-        if confirm_label != '':
+        if isinstance(confirm_label, str) and confirm_label != "":
             self._dialog.confirm.setText(confirm_label)
+        elif confirm_label is None:
+            self._dialog.confirm.setVisible(False)
 
         # Store shortcuts
-        self.escape_shortcut = QShortcut(
-            QKeySequence(Qt.Key.Key_Escape), self, self.escape.emit
-        )
-        self.confirm_shortcut = QShortcut(
-            QKeySequence(Qt.Modifier.CTRL | Qt.Key.Key_Return), self, self.confirm.emit
-        )
+        self.escape_shortcut = QShortcut(QKeySequence(Qt.Key.Key_Escape), self, self.escape.emit)
+        self.confirm_shortcut = QShortcut(QKeySequence(Qt.Modifier.CTRL | Qt.Key.Key_Return), self, self.confirm.emit)
 
         # Store overlay
         self.overlay = Overlay(parent)
@@ -99,18 +99,12 @@ class Dialog(QWidget):
         """
 
         # Connect click on close to close dialog
-        self._dialog.close.clicked.connect(
-            self.escape.emit
-        )  # pylint: disable=no-member
+        self._dialog.close.clicked.connect(self.escape.emit)  # pylint: disable=no-member
 
         # Connect click on confirm to emit signal
-        self._dialog.confirm.clicked.connect(
-            self.confirm.emit
-        )  # pylint: disable=no-member
+        self._dialog.confirm.clicked.connect(self.confirm.emit)  # pylint: disable=no-member
 
-    def configure_widgets(
-            self, dialog_title: str, header_icon: QIcon, central_widget: QWidget
-    ):
+    def configure_widgets(self, dialog_title: str, header_icon: QIcon, central_widget: QWidget):
         """
         Configure title, central widget and animations
 

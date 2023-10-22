@@ -16,7 +16,7 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QApplication, QGridLayout, QHBoxLayout, QLabel,
-    QSizePolicy, QToolButton, QVBoxLayout, QWidget)
+    QProgressBar, QSizePolicy, QVBoxLayout, QWidget)
 
 from budgetter.view.widgets.material_outlined_line_edit import MaterialOutlinedLineEdit
 
@@ -24,7 +24,7 @@ class Ui_ImportTransactions(object):
     def setupUi(self, ImportTransactions):
         if not ImportTransactions.objectName():
             ImportTransactions.setObjectName("ImportTransactions")
-        ImportTransactions.resize(472, 154)
+        ImportTransactions.resize(476, 179)
         ImportTransactions.setStyleSheet("QWidget#transaction \n"
 "{\n"
 "	background-color: #1C293B;\n"
@@ -177,6 +177,32 @@ class Ui_ImportTransactions(object):
 "QRadioButton\n"
 "{\n"
 "	color: rgba(255, 255, 255, 210);\n"
+"}\n"
+"\n"
+"QProgressBar\n"
+"{\n"
+"	background-color: #1c293b;\n"
+"    border: none;\n"
+"    border-radius: 2px;\n"
+"}\n"
+"\n"
+"QProgressBar[activated=\"true\"] \n"
+"{\n"
+"	background-color: #212f41;\n"
+"    border: none;\n"
+"    border-radius: 2px;\n"
+"}\n"
+"\n"
+"QProgressBar::chunk \n"
+"{\n"
+"    background-color: #1c293b;\n"
+"    border-radius: 2px;\n"
+"}\n"
+"\n"
+"QProgressBar[activated=\"true\"]::chunk \n"
+"{\n"
+"    background-color: #199ce5;\n"
+"    border-radius: 2px;\n"
 "}")
         self.gridLayout = QGridLayout(ImportTransactions)
         self.gridLayout.setObjectName("gridLayout")
@@ -185,7 +211,7 @@ class Ui_ImportTransactions(object):
         self.verticalLayout = QVBoxLayout(self.transaction)
         self.verticalLayout.setSpacing(20)
         self.verticalLayout.setObjectName("verticalLayout")
-        self.verticalLayout.setContentsMargins(0, 0, 15, 10)
+        self.verticalLayout.setContentsMargins(0, 0, 15, 0)
         self.label = QLabel(self.transaction)
         self.label.setObjectName("label")
         self.label.setMinimumSize(QSize(270, 0))
@@ -210,17 +236,13 @@ class Ui_ImportTransactions(object):
 
         self.horizontalLayout.addWidget(self.import_path)
 
-        self.verdict = QToolButton(self.transaction)
-        self.verdict.setObjectName("verdict")
-        self.verdict.setEnabled(False)
-        self.verdict.setMinimumSize(QSize(50, 50))
-        self.verdict.setIconSize(QSize(42, 42))
-
-        self.horizontalLayout.addWidget(self.verdict)
-
 
         self.verticalLayout.addLayout(self.horizontalLayout)
 
+        self.verticalLayout_2 = QVBoxLayout()
+        self.verticalLayout_2.setSpacing(12)
+        self.verticalLayout_2.setObjectName("verticalLayout_2")
+        self.verticalLayout_2.setContentsMargins(0, -1, 0, -1)
         self.header_info = QLabel(self.transaction)
         self.header_info.setObjectName("header_info")
         font1 = QFont()
@@ -230,8 +252,20 @@ class Ui_ImportTransactions(object):
         self.header_info.setFont(font1)
         self.header_info.setStyleSheet("color: rgba(255, 255, 255, 100);\n"
 "font-style: italic;")
+        self.header_info.setWordWrap(True)
 
-        self.verticalLayout.addWidget(self.header_info)
+        self.verticalLayout_2.addWidget(self.header_info)
+
+        self.import_transactions_progress = QProgressBar(self.transaction)
+        self.import_transactions_progress.setObjectName("import_transactions_progress")
+        self.import_transactions_progress.setMaximumSize(QSize(16777215, 5))
+        self.import_transactions_progress.setValue(0)
+        self.import_transactions_progress.setTextVisible(False)
+
+        self.verticalLayout_2.addWidget(self.import_transactions_progress)
+
+
+        self.verticalLayout.addLayout(self.verticalLayout_2)
 
 
         self.gridLayout.addWidget(self.transaction, 0, 0, 1, 1)
@@ -246,7 +280,6 @@ class Ui_ImportTransactions(object):
         ImportTransactions.setWindowTitle(QCoreApplication.translate("ImportTransactions", "Form", None))
         self.label.setText(QCoreApplication.translate("ImportTransactions", "Import an OFX file with transactions.", None))
         self.import_path.setText("")
-        self.verdict.setText("")
         self.header_info.setText(QCoreApplication.translate("ImportTransactions", "Importing nb transactions from start date to end end date on accounts A and B", None))
     # retranslateUi
 

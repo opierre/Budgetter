@@ -15,6 +15,9 @@ class ImportTransactionsDialog(QWidget):
     # Signal emitted to import transactions - File path
     importTransactions = Signal(str)
 
+    # Signal emitted to ask for resize to dialog parent
+    computeResize = Signal()
+
     def __init__(self, parent=None):
         super().__init__(parent)
 
@@ -39,17 +42,9 @@ class ImportTransactionsDialog(QWidget):
         )
         browse_action.triggered.connect(self.load_ofx)
 
-        # Hide header info first
-        self.content.header_info.setText("")
-
-    def get_ofx_path(self):
-        """
-        Emit current OFX path
-
-        :return: None
-        """
-
-        self.importTransactions.emit(self.content.import_path.text())
+        # Hide header info first and progress bar
+        self.content.header_info.setVisible(False)
+        self.content.import_transactions_progress.setVisible(False)
 
     def load_ofx(self):
         """
@@ -68,6 +63,7 @@ class ImportTransactionsDialog(QWidget):
 
         if file_name:
             self.content.import_path.setText(file_name)
+            self.importTransactions.emit(file_name)
 
     def set_header_info(self, nb_transactions: int, start_date: str, end_date: str):
         """
@@ -79,4 +75,15 @@ class ImportTransactionsDialog(QWidget):
         :return: None
         """
 
+        # Show both widgets for info
+        self.content.header_info.setVisible(True)
+        self.content.import_transactions_progress.setVisible(True)
+
+        # Emit signal to resize dialog parent
+        self.computeResize.emit()
+
         self.content.header_info.setText(f"Importing {nb_transactions} transactions from {start_date} to {end_date}...")
+        self.content.import_transactions_progress.setRange(0, 0)
+        self.content.import_transactions_progress.setProperty("activated", "true")
+        self.content.import_transactions_progress.style().unpolish(self.content.import_transactions_progress)
+        self.content.import_transactions_progress.style().polish(self.content.import_transactions_progress)

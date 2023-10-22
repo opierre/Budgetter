@@ -420,14 +420,15 @@ class Transactions(QObject):
                 header_icon,
                 dialog_content,
                 self.main_window,
+                confirm_label=None,
             )
         )
 
         # Connect signal from popup to import transactions
         dialog_content.importTransactions.connect(self.importTransactions.emit)
+        dialog_content.computeResize.connect(self.dialogs[-1].adjust_size)
 
-        # Connect signal coming from click on Confirm button
-        self.dialogs[-1].confirm.connect(dialog_content.get_ofx_path)
+        # Connect signal coming from click on escape key
         self.dialogs[-1].escape.connect(self.escape_dialog)
 
         # Set focus on first widget when opening

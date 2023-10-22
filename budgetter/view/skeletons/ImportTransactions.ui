@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>472</width>
-    <height>144</height>
+    <width>476</width>
+    <height>179</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -163,6 +163,32 @@ QRadioButton#cash::indicator, QRadioButton#card::indicator, QRadioButton#money_t
 QRadioButton
 {
 	color: rgba(255, 255, 255, 210);
+}
+
+QProgressBar
+{
+	background-color: #1c293b;
+    border: none;
+    border-radius: 2px;
+}
+
+QProgressBar[activated=&quot;true&quot;] 
+{
+	background-color: #212f41;
+    border: none;
+    border-radius: 2px;
+}
+
+QProgressBar::chunk 
+{
+    background-color: #1c293b;
+    border-radius: 2px;
+}
+
+QProgressBar[activated=&quot;true&quot;]::chunk 
+{
+    background-color: #199ce5;
+    border-radius: 2px;
 }</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
@@ -239,47 +265,57 @@ QRadioButton
           </property>
          </widget>
         </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QVBoxLayout" name="verticalLayout_2">
+        <property name="spacing">
+         <number>12</number>
+        </property>
+        <property name="leftMargin">
+         <number>0</number>
+        </property>
+        <property name="rightMargin">
+         <number>0</number>
+        </property>
         <item>
-         <widget class="QToolButton" name="verdict">
-          <property name="enabled">
-           <bool>false</bool>
+         <widget class="QLabel" name="header_info">
+          <property name="font">
+           <font>
+            <family>Roboto</family>
+            <pointsize>10</pointsize>
+            <italic>true</italic>
+           </font>
           </property>
-          <property name="minimumSize">
-           <size>
-            <width>50</width>
-            <height>50</height>
-           </size>
+          <property name="styleSheet">
+           <string notr="true">color: rgba(255, 255, 255, 100);
+font-style: italic;</string>
           </property>
           <property name="text">
-           <string/>
+           <string>Importing nb transactions from start date to end end date on accounts A and B</string>
           </property>
-          <property name="iconSize">
+          <property name="wordWrap">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QProgressBar" name="import_transactions_progress">
+          <property name="maximumSize">
            <size>
-            <width>42</width>
-            <height>42</height>
+            <width>16777215</width>
+            <height>5</height>
            </size>
+          </property>
+          <property name="value">
+           <number>0</number>
+          </property>
+          <property name="textVisible">
+           <bool>false</bool>
           </property>
          </widget>
         </item>
        </layout>
-      </item>
-      <item>
-       <widget class="QLabel" name="header_info">
-        <property name="font">
-         <font>
-          <family>Roboto</family>
-          <pointsize>10</pointsize>
-          <italic>true</italic>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">color: rgba(255, 255, 255, 100);
-font-style: italic;</string>
-        </property>
-        <property name="text">
-         <string>Importing nb transactions from start date to end end date on accounts A and B</string>
-        </property>
-       </widget>
       </item>
      </layout>
     </widget>
