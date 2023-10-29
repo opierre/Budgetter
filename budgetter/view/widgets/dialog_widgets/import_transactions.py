@@ -44,8 +44,8 @@ class ImportTransactionsDialog(QWidget):
         browse_action.triggered.connect(self.load_ofx)
 
         # Hide header info first and progress bar
-        # self.content.header_info.setVisible(False)
-        # self.content.import_transactions_progress.setVisible(False)
+        self.content.header_info.setVisible(False)
+        self.content.import_transactions_progress.setVisible(False)
 
     def load_ofx(self):
         """
@@ -66,7 +66,13 @@ class ImportTransactionsDialog(QWidget):
             self.content.import_path.setText(file_name)
             self.importTransactions.emit(file_name)
 
-    def set_header_info(self, nb_transactions: int, start_date: str, end_date: str, new_accounts: List[str]):
+    def set_header_info(
+            self,
+            nb_transactions: int,
+            start_date: str,
+            end_date: str,
+            new_accounts: List[str],
+    ):
         """
         Update header info
 
@@ -84,23 +90,22 @@ class ImportTransactionsDialog(QWidget):
         # Set content
         if new_accounts:
             accounts_list = "\n".join(new_accounts)
-            end_message = f"{len(new_accounts)} new accounts detected: \n{accounts_list}"
+            end_message = (
+                f"{len(new_accounts)} new accounts detected: \n{accounts_list}"
+            )
             nb_lines = len(accounts_list) + 1
         else:
             end_message = ""
             nb_lines = 0
         message = f"Importing {nb_transactions} transactions from {start_date} to {end_date}...\n{end_message}"
         self.content.header_info.setText(message)
-        print(message)
         height_font = self.content.header_info.fontMetrics().height()
-        print(height_font)
-        print(2 + nb_lines)
         self.content.header_info.setFixedHeight((2 + nb_lines) * height_font)
         self.content.header_info.update()
         self.content.import_transactions_progress.setRange(0, 0)
 
         # Emit signal to resize dialog parent
-        # self.computeResize.emit()
+        self.computeResize.emit()
 
     def set_error(self, error: str):
         """
@@ -118,4 +123,6 @@ class ImportTransactionsDialog(QWidget):
         self.computeResize.emit()
 
         # Set content
-        self.content.header_info.setText(f"Importing transactions from current file failed: {error}")
+        self.content.header_info.setText(
+            f"Importing transactions from current file failed: {error}"
+        )

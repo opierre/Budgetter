@@ -24,7 +24,7 @@ class Ui_ImportTransactions(object):
     def setupUi(self, ImportTransactions):
         if not ImportTransactions.objectName():
             ImportTransactions.setObjectName("ImportTransactions")
-        ImportTransactions.resize(435, 163)
+        ImportTransactions.resize(435, 178)
         ImportTransactions.setStyleSheet("QWidget#transaction \n"
 "{\n"
 "	background-color: #1C293B;\n"
@@ -226,10 +226,6 @@ class Ui_ImportTransactions(object):
 
         self.verticalLayout.addLayout(self.horizontalLayout)
 
-        self.verticalLayout_2 = QVBoxLayout()
-        self.verticalLayout_2.setSpacing(12)
-        self.verticalLayout_2.setObjectName("verticalLayout_2")
-        self.verticalLayout_2.setContentsMargins(0, -1, 0, -1)
         self.header_info = QLabel(self.transaction)
         self.header_info.setObjectName("header_info")
         sizePolicy = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
@@ -247,22 +243,25 @@ class Ui_ImportTransactions(object):
         self.header_info.setStyleSheet("color: rgba(255, 255, 255, 100);\n"
 "font-style: italic;")
         self.header_info.setTextFormat(Qt.AutoText)
-        self.header_info.setScaledContents(False)
+        self.header_info.setScaledContents(True)
         self.header_info.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
         self.header_info.setWordWrap(True)
 
-        self.verticalLayout_2.addWidget(self.header_info)
+        self.verticalLayout.addWidget(self.header_info)
 
+        self.horizontalLayout_2 = QHBoxLayout()
+        self.horizontalLayout_2.setObjectName("horizontalLayout_2")
+        self.horizontalLayout_2.setContentsMargins(-1, 6, -1, 6)
         self.import_transactions_progress = QProgressBar(self.transaction)
         self.import_transactions_progress.setObjectName("import_transactions_progress")
         self.import_transactions_progress.setMaximumSize(QSize(16777215, 5))
         self.import_transactions_progress.setValue(0)
         self.import_transactions_progress.setTextVisible(False)
 
-        self.verticalLayout_2.addWidget(self.import_transactions_progress)
+        self.horizontalLayout_2.addWidget(self.import_transactions_progress)
 
 
-        self.verticalLayout.addLayout(self.verticalLayout_2)
+        self.verticalLayout.addLayout(self.horizontalLayout_2)
 
 
         self.gridLayout.addWidget(self.transaction, 0, 0, 1, 1)
