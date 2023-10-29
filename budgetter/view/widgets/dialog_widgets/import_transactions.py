@@ -71,7 +71,7 @@ class ImportTransactionsDialog(QWidget):
             nb_transactions: int,
             start_date: str,
             end_date: str,
-            new_accounts: List[str],
+            new_accounts: List[dict],
     ):
         """
         Update header info
@@ -89,7 +89,9 @@ class ImportTransactionsDialog(QWidget):
 
         # Set content
         if new_accounts:
-            accounts_list = "\n".join(new_accounts)
+            accounts_list = ''
+            for account in new_accounts:
+                accounts_list += f"{account.get('account_id')}\n"
             end_message = (
                 f"{len(new_accounts)} new accounts detected: \n{accounts_list}"
             )

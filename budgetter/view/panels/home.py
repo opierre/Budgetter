@@ -170,3 +170,4 @@ class Home(QObject):
         """
 
         self._transactions.handle_convert_ofx(header, message)
+        self._accounts.handle_convert_ofx(header)

@@ -1,4 +1,4 @@
-from PySide6.QtCore import QObject, QCoreApplication, QSize, Signal
+from PySide6.QtCore import QObject, QCoreApplication, QSize, Signal, QEventLoop
 from PySide6.QtGui import QIcon
 from PySide6.QtWidgets import QListView, QWidget, QHBoxLayout
 
@@ -42,6 +42,9 @@ class Accounts(QObject):
 
         # Store dialogs for adding account
         self.dialogs = []
+
+        # Store local event loop
+        self._event_loop = QEventLoop()
 
         # Model to handle data in accounts list
         self.accounts_model = AccountsModel()
@@ -120,15 +123,17 @@ class Accounts(QObject):
             self.bank_identifiers[bank.get("name")] = bank.get("id")
             self.accounts_model.add_bank({bank.get("id"): bank.get("name")})
 
-    def add_account(self):
+    def add_account(self, account_info: dict = None):
         """
         Open dialog to add new account
 
+        :param account_info: account info to rely on before adding
         :return: None
         """
 
         # Set dialog content
-        dialog_content = AddAccountDialog(self.bank_identifiers, self.main_window)
+        dialog_content = AddAccountDialog(self.bank_identifiers, self.main_window,
+                                          account_info=account_info)
 
         # Set icon
         header_icon = QIcon()
@@ -139,21 +144,22 @@ class Accounts(QObject):
             QIcon.State.On,
         )
 
-        # Open dialog
-        self.dialogs.append(
-            Dialog(
-                QCoreApplication.translate("Accounts", "Add Account"),
-                header_icon,
-                dialog_content,
-                self.main_window,
-            )
-        )
-
         # Connect signal from popup to add new account
         dialog_content.addAccount.connect(self.pre_add_account)
 
         # Connect signal to open color picker
         dialog_content.openColorDialog.connect(self.open_color_dialog)
+
+        # Open dialog
+        self.dialogs.append(
+            Dialog(
+                QCoreApplication.translate("Accounts", "Add Account", None),
+                header_icon,
+                dialog_content,
+                self.main_window,
+                closable=account_info is not None
+            )
+        )
 
         # Connect signal coming from click on Confirm button
         self.dialogs[-1].confirm.connect(dialog_content.check_inputs)
@@ -161,6 +167,9 @@ class Accounts(QObject):
 
         # Set focus on first widget when opening
         dialog_content.content.account_name.setFocus()
+
+        # Start event loop
+        self._event_loop.exec()
 
     def open_color_dialog(self):
         """
@@ -230,6 +239,9 @@ class Accounts(QObject):
         # Close current popup
         self.dialogs[-1].close()
         self.dialogs.pop()
+
+        # Quit event loop
+        self._event_loop.quit()
 
         if len(self.dialogs) > 0:
             self.dialogs[-1].show(False)
@@ -334,6 +346,9 @@ class Accounts(QObject):
         # Open toaster
         _ = Toaster("Account added", ToasterType.SUCCESS, self.main_window)
 
+        # Stop event loop
+        self._event_loop.quit()
+
     def set_accounts(self, accounts: list):
         """
         Store accounts for popups
@@ -351,3 +366,24 @@ class Accounts(QObject):
             self.balance_chart.add_slice(
                 float(account.get("amount")), account.get("color")
             )
+
+    def handle_convert_ofx(self, header: dict):
+        """
+        Handle conversion from OFX to check new accounts to create
+
+        :param header: header data
+        :return: None
+        """
+
+        # Update info on dialog
+        new_accounts = []
+        for account in header.get("accounts", []):
+            if account.get("account_id", "") not in self.account_identifiers:
+                new_accounts.append(account)
+
+        # Open new dialogs to create new accounts
+        if new_accounts:
+            i = 0
+            for account in new_accounts:
+                print(i)
+                self.add_account(account)

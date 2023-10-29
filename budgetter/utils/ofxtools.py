@@ -42,6 +42,7 @@ def convert_ofx_to_json(ofx_file_path: str) -> Tuple[dict, dict, str]:
         # Get account info
         account = {
             "account_id": statement.account.acctid,
+            # "account_type": statement.account.accttype,
             "amount": float(statement.balance.balamt),
             "last_update": statement.balance.dtasof.strftime("%Y-%m-%d"),
         }

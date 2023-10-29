@@ -17,7 +17,7 @@ class AddAccountDialog(QWidget):
     # Signal emitted to open color picker dialog
     openColorDialog = Signal()
 
-    def __init__(self, bank_ids: dict, parent=None):
+    def __init__(self, bank_ids: dict, parent=None, account_info: dict = None):
         super().__init__(parent)
 
         # Store dialog content
@@ -35,15 +35,16 @@ class AddAccountDialog(QWidget):
         self.bank_completer = QCompleter(self.content.account_bank)
 
         # Configure widgets
-        self.configure()
+        self.configure(account_info)
 
         # Connect slots and signals
         self.connect_slots_and_signals()
 
-    def configure(self):
+    def configure(self, account_info: dict = None):
         """
         Configure all widgets
 
+        :param account_info: account info to rely on
         :return: None
         """
 
@@ -60,12 +61,18 @@ class AddAccountDialog(QWidget):
         self.content.account_amount.set_label_color(QColor(224, 224, 224, 150))
         self.content.account_amount.setValidator(QDoubleValidator(0, 100000, 2))
         self.content.account_amount.set_trailing_symbol("€")
+        if account_info is not None:
+            self.content.account_amount.setText(str(account_info.get("amount")))
 
         # Configure date edit
         self.content.account_amount_date.set_label("Date")
         self.content.account_amount_date.set_label_background_color(QColor("#1C293B"))
         self.content.account_amount_date.set_text_color(QColor(255, 255, 255, 255))
         self.content.account_amount_date.set_label_color(QColor(224, 224, 224, 150))
+        if account_info is not None:
+            self.content.account_amount_date.setText(
+                account_info.get("last_update")
+            )
 
         # Configure combobox for bank choice
         self.content.account_bank.set_label("Bank")
@@ -148,10 +155,10 @@ class AddAccountDialog(QWidget):
         account_bank = self.content.account_bank.text()
 
         if (
-            account_name != ""
-            and account_amount != ""
-            and account_amount_date != ""
-            and account_bank != ""
+                account_name != ""
+                and account_amount != ""
+                and account_amount_date != ""
+                and account_bank != ""
         ):
             # Find corresponding bank identifier
             bank_id = self.bank_ids.get(account_bank, None)

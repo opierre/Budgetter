@@ -404,7 +404,6 @@ class Transactions(QObject):
         dialog_content = ImportTransactionsDialog(self.main_window)
 
         # Set icon
-        # TODO: to change
         header_icon = QIcon()
         header_icon.addFile(
             ":/images/images/upload_file_FILL0_wght200_GRAD0_opsz24.svg",
@@ -683,7 +682,7 @@ class Transactions(QObject):
         new_accounts = []
         for account in header.get("accounts", []):
             if account.get("account_id", "") not in self.account_identifiers:
-                new_accounts.append(account.get("account_id", ""))
+                new_accounts.append(account)
 
         self.dialogs[-1].central_widget().set_header_info(
             header.get("count", -1),

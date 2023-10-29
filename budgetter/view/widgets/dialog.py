@@ -54,6 +54,7 @@ class Dialog(QWidget):
             parent=None,
             show_overlay: bool = True,
             confirm_label: Union[str, None] = "",
+            closable: bool = True
     ):
         super().__init__(parent)
 
@@ -70,7 +71,10 @@ class Dialog(QWidget):
             self._dialog.confirm.setVisible(False)
 
         # Store shortcuts
-        self.escape_shortcut = QShortcut(QKeySequence(Qt.Key.Key_Escape), self, self.escape.emit)
+        if closable is True:
+            self.escape_shortcut = QShortcut(QKeySequence(Qt.Key.Key_Escape), self, self.escape.emit)
+        else:
+            self._dialog.close.setVisible(False)
         self.confirm_shortcut = QShortcut(QKeySequence(Qt.Modifier.CTRL | Qt.Key.Key_Return), self, self.confirm.emit)
 
         # Store overlay
@@ -83,7 +87,7 @@ class Dialog(QWidget):
         self.parallel_animation_group = QParallelAnimationGroup(self)
 
         # Configure widgets
-        self.configure_widgets(dialog_title, header_icon, central_widget)
+        self.configure_widgets(dialog_title, header_icon, central_widget, closable)
 
         # Connect all slots and signals
         self.connect_all_slots_and_signals()
@@ -104,13 +108,15 @@ class Dialog(QWidget):
         # Connect click on confirm to emit signal
         self._dialog.confirm.clicked.connect(self.confirm.emit)  # pylint: disable=no-member
 
-    def configure_widgets(self, dialog_title: str, header_icon: QIcon, central_widget: QWidget):
+    def configure_widgets(self, dialog_title: str, header_icon: QIcon, central_widget: QWidget,
+                          closable: bool):
         """
         Configure title, central widget and animations
 
         :param dialog_title: dialog main title
         :param header_icon: dialog header icon
         :param central_widget: central widget
+        :param closable: is widget closable
         :return: None
         """
 
