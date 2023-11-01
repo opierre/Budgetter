@@ -132,8 +132,9 @@ class Accounts(QObject):
         """
 
         # Set dialog content
-        dialog_content = AddAccountDialog(self.bank_identifiers, self.main_window,
-                                          account_info=account_info)
+        dialog_content = AddAccountDialog(
+            self.bank_identifiers, self.main_window, account_info=account_info
+        )
 
         # Set icon
         header_icon = QIcon()
@@ -157,7 +158,7 @@ class Accounts(QObject):
                 header_icon,
                 dialog_content,
                 self.main_window,
-                closable=account_info is not None
+                closable=account_info is None,
             )
         )
 
