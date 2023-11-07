@@ -4,6 +4,7 @@ from typing import Tuple
 
 import pytz
 from ofxtools import OFXTree
+from ofxtools.models import CCSTMTRS, STMTRS
 
 from budgetter.utils.defines import TransactionType
 from budgetter.view.widgets.transaction_widgets.means_widget import MeanType
@@ -38,13 +39,20 @@ def convert_ofx_to_json(ofx_file_path: str) -> Tuple[dict, dict, str]:
         "start_date": utc_timezone.localize(datetime.max),
         "end_date": utc_timezone.localize(datetime.min),
     }
+    bank_id = ""
     for statement in ofx.statements:
+        if bank_id == "" and isinstance(statement, STMTRS):
+            bank_id = statement.account.bankid
+
         # Get account info
         account = {
             "account_id": statement.account.acctid,
-            # "account_type": statement.account.accttype,
+            "account_type": "CREDIT CARD"
+            if isinstance(statement, CCSTMTRS)
+            else statement.account.accttype,
             "amount": float(statement.balance.balamt),
             "last_update": statement.balance.dtasof.strftime("%Y-%m-%d"),
+            "bank_id": bank_id,
         }
 
         # Update header

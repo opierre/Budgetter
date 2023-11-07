@@ -119,9 +119,8 @@ class Accounts(QObject):
         :return: None
         """
 
-        for bank in banks:
-            self.bank_identifiers[bank.get("name")] = bank.get("id")
-            self.accounts_model.add_bank({bank.get("id"): bank.get("name")})
+        self.bank_identifiers = banks
+        self.accounts_model.set_banks(banks)
 
     def add_account(self, account_info: dict = None):
         """

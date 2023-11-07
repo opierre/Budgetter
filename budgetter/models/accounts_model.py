@@ -1,4 +1,4 @@
-from typing import Union
+from typing import Union, List
 
 from PySide6.QtCore import QAbstractListModel, Qt, QModelIndex, QPersistentModelIndex
 
@@ -26,7 +26,11 @@ class AccountsModel(QAbstractListModel):
         :return: according to role (text, ...)
         """
 
-        if isinstance(index, QModelIndex) and index.isValid() and role == Qt.ItemDataRole.DisplayRole:
+        if (
+                isinstance(index, QModelIndex)
+                and index.isValid()
+                and role == Qt.ItemDataRole.DisplayRole
+        ):
             account = self.accounts[index.row()]
 
             # Return current account list
@@ -48,15 +52,15 @@ class AccountsModel(QAbstractListModel):
 
         return len(self.accounts)
 
-    def add_bank(self, bank: dict):
+    def set_banks(self, banks: List[dict]):
         """
-        Add new bank
+        Set banks
 
-        :param bank: bank to store
+        :param banks: banks to store
         :return: None
         """
 
-        self.banks.update(bank)
+        self.banks = banks
 
     def add_account(self, account: dict):
         """
