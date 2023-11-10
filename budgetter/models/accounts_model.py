@@ -1,4 +1,4 @@
-from typing import Union, List
+from typing import Union
 
 from PySide6.QtCore import QAbstractListModel, Qt, QModelIndex, QPersistentModelIndex
 
@@ -52,7 +52,7 @@ class AccountsModel(QAbstractListModel):
 
         return len(self.accounts)
 
-    def set_banks(self, banks: List[dict]):
+    def set_banks(self, banks: dict):
         """
         Set banks
 

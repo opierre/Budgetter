@@ -66,6 +66,19 @@ class ImportTransactionsDialog(QWidget):
             self.content.import_path.setText(file_name)
             self.importTransactions.emit(file_name)
 
+    def start_import(self):
+        """
+        Start import by showing progress bar
+
+        :return: None
+        """
+
+        self.content.import_transactions_progress.setVisible(True)
+        self.content.import_transactions_progress.setRange(0, 0)
+
+        # Emit signal to resize dialog parent
+        self.computeResize.emit()
+
     def set_header_info(
             self,
             nb_transactions: int,
@@ -85,11 +98,10 @@ class ImportTransactionsDialog(QWidget):
 
         # Show both widgets for info
         self.content.header_info.setVisible(True)
-        self.content.import_transactions_progress.setVisible(True)
 
         # Set content
         if new_accounts:
-            accounts_list = ''
+            accounts_list = ""
             for account in new_accounts:
                 accounts_list += f"{account.get('account_id')}\n"
             end_message = (
@@ -104,7 +116,6 @@ class ImportTransactionsDialog(QWidget):
         height_font = self.content.header_info.fontMetrics().height()
         self.content.header_info.setFixedHeight((2 + nb_lines) * height_font)
         self.content.header_info.update()
-        self.content.import_transactions_progress.setRange(0, 0)
 
         # Emit signal to resize dialog parent
         self.computeResize.emit()

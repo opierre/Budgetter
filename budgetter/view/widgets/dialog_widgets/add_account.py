@@ -80,9 +80,14 @@ class AddAccountDialog(QWidget):
         self.content.account_bank.set_text_color(QColor(255, 255, 255, 255))
         self.content.account_bank.set_label_color(QColor(224, 224, 224, 150))
         self.bank_completer.setModel(QStringListModel(self.bank_ids.keys()))
-        self.bank_completer.setCaseSensitivity(Qt.CaseInsensitive)
-        self.bank_completer.setCompletionMode(QCompleter.InlineCompletion)
+        self.bank_completer.setCaseSensitivity(Qt.CaseSensitivity.CaseInsensitive)
+        self.bank_completer.setCompletionMode(QCompleter.CompletionMode.InlineCompletion)
         self.content.account_bank.setCompleter(self.bank_completer)
+        if account_info is not None:
+            for bank_name, bank_info in self.bank_ids.items():
+                if account_info.get("bank_id", "") in bank_info.get("bic"):
+                    self.content.account_bank.setText(bank_name)
+                    break
 
     def connect_slots_and_signals(self):
         """

@@ -119,8 +119,16 @@ class Accounts(QObject):
         :return: None
         """
 
-        self.bank_identifiers = banks
-        self.accounts_model.set_banks(banks)
+        refactored_banks_info = {}
+        for bank_info in banks:
+            refactored_banks_info.update({
+                bank_info.get("name"): {
+                    "bic": bank_info.get("bic"),
+                    "swift": bank_info.get("swift")
+                }
+            })
+        self.bank_identifiers = refactored_banks_info
+        self.accounts_model.set_banks(refactored_banks_info)
 
     def add_account(self, account_info: dict = None):
         """

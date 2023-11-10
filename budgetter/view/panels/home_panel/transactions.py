@@ -69,16 +69,24 @@ class Transactions(QObject):
         self.all = QPushButton(QCoreApplication.translate("transactions", "All", None))
 
         # Expenses button - Type
-        self.expenses = QPushButton(QCoreApplication.translate("transactions", "Expenses", None))
+        self.expenses = QPushButton(
+            QCoreApplication.translate("transactions", "Expenses", None)
+        )
 
         # Incomes button - Type
-        self.income = QPushButton(QCoreApplication.translate("transactions", "Income", None))
+        self.income = QPushButton(
+            QCoreApplication.translate("transactions", "Income", None)
+        )
 
         # Transfers button - Type
-        self.transfer = QPushButton(QCoreApplication.translate("transactions", "Transfer", None))
+        self.transfer = QPushButton(
+            QCoreApplication.translate("transactions", "Transfer", None)
+        )
 
         # All button - Account
-        self.all_account = QPushButton(QCoreApplication.translate("transactions", "All", None))
+        self.all_account = QPushButton(
+            QCoreApplication.translate("transactions", "All", None)
+        )
         self.accounts = []
 
         # Store item delegate
@@ -93,7 +101,9 @@ class Transactions(QObject):
 
         # Store shortcut for adding a transaction
         self.transaction_shortcut = QShortcut(QKeySequence(Qt.CTRL | Qt.Key_T), self)
-        self.delete_shortcut = QShortcut(Qt.Key.Key_Delete, self.transactions_listview, context=Qt.WidgetShortcut)
+        self.delete_shortcut = QShortcut(
+            Qt.Key.Key_Delete, self.transactions_listview, context=Qt.WidgetShortcut
+        )
 
         # Configure status bar
         self.configure_status_bar()
@@ -126,19 +136,31 @@ class Transactions(QObject):
         # Connect signal from click/edit on +/search button
         self.ui_setup.transactions.titleBarClicked.connect(self.add_transaction)
         self.ui_setup.transactions.titleBarSearched.connect(self.search_transaction)
-        self.ui_setup.transactions.titleBarSecondClicked.connect(self.import_transaction)
+        self.ui_setup.transactions.titleBarSecondClicked.connect(
+            self.import_transaction
+        )
 
         # Update filtering when click on button in status bar
-        self.expenses.clicked.connect(self.update_current_filtering)  # pylint: disable=no-member
-        self.income.clicked.connect(self.update_current_filtering)  # pylint: disable=no-member
-        self.all.clicked.connect(self.update_current_filtering)  # pylint: disable=no-member
-        self.transfer.clicked.connect(self.update_current_filtering)  # pylint: disable=no-member
+        self.expenses.clicked.connect(
+            self.update_current_filtering
+        )  # pylint: disable=no-member
+        self.income.clicked.connect(
+            self.update_current_filtering
+        )  # pylint: disable=no-member
+        self.all.clicked.connect(
+            self.update_current_filtering
+        )  # pylint: disable=no-member
+        self.transfer.clicked.connect(
+            self.update_current_filtering
+        )  # pylint: disable=no-member
 
         # Update filtering when click on button in status bar
         self.all_account.clicked.connect(self.add_filter)  # pylint: disable=no-member
 
         # Connect shortcut to add new transaction
-        self.transaction_shortcut.activated.connect(self.add_transaction)  # pylint: disable=no-member
+        self.transaction_shortcut.activated.connect(
+            self.add_transaction
+        )  # pylint: disable=no-member
 
         # Connect double click on item to update content
         self.transactions_listview.doubleClicked.connect(self.edit_transaction)
@@ -267,7 +289,9 @@ class Transactions(QObject):
         _ = Toaster("Transaction added", ToasterType.SUCCESS, self.main_window)
 
         # Update models
-        transaction.update({"account_name": self.account_identifiers.get(transaction.get("account"))})
+        transaction.update(
+            {"account_name": self.account_identifiers.get(transaction.get("account"))}
+        )
         self.transactions_filter_model.add_transaction(transaction)
 
         # Close current popup and show previous one again
@@ -286,7 +310,9 @@ class Transactions(QObject):
         _ = Toaster("Transaction edited", ToasterType.SUCCESS, self.main_window)
 
         # Update models
-        transaction.update({"account_name": self.account_identifiers.get(transaction.get("account"))})
+        transaction.update(
+            {"account_name": self.account_identifiers.get(transaction.get("account"))}
+        )
         self.transactions_filter_model.edit_transaction(transaction)
 
         # Close current popup and show previous one again
@@ -351,7 +377,13 @@ class Transactions(QObject):
         """
 
         for transaction in transactions:
-            transaction.update({"account_name": self.account_identifiers.get(transaction.get("account"))})
+            transaction.update(
+                {
+                    "account_name": self.account_identifiers.get(
+                        transaction.get("account")
+                    )
+                }
+            )
         self.transactions_model.setup_transactions(transactions)
 
     def add_transaction(self):
@@ -362,7 +394,9 @@ class Transactions(QObject):
         """
 
         # Set dialog content
-        dialog_content = AddEditTransactionDialog(self.account_identifiers, self.main_window)
+        dialog_content = AddEditTransactionDialog(
+            self.account_identifiers, self.main_window
+        )
 
         # Set icon
         header_icon = QIcon()
@@ -424,7 +458,7 @@ class Transactions(QObject):
         )
 
         # Connect signal from popup to import transactions
-        dialog_content.importTransactions.connect(self.importTransactions.emit)
+        dialog_content.importTransactions.connect(self.start_import)
         dialog_content.computeResize.connect(self.dialogs[-1].adjust_size)
 
         # Connect signal coming from click on escape key
@@ -578,8 +612,12 @@ class Transactions(QObject):
         """
 
         # Set title
-        self.ui_setup.transactions.set_title(QCoreApplication.translate("transactions", "Transactions"))
-        self.ui_setup.transactions.set_button_tooltip(QCoreApplication.translate("transactions", "Add transaction"))
+        self.ui_setup.transactions.set_title(
+            QCoreApplication.translate("transactions", "Transactions")
+        )
+        self.ui_setup.transactions.set_button_tooltip(
+            QCoreApplication.translate("transactions", "Add transaction")
+        )
 
     def update_current_filtering(self):
         """
@@ -664,6 +702,19 @@ class Transactions(QObject):
         for account in self.accounts:
             account.style().unpolish(account)
             account.style().polish(account)
+
+    def start_import(self, ofx_path: str):
+        """
+        Emit signal to start import and show progress bar
+
+        :param ofx_path: pah to OFX file to import
+        :return: None
+        """
+
+        sender = self.sender()
+        if isinstance(sender, ImportTransactionsDialog):
+            sender.start_import()
+        self.importTransactions.emit(ofx_path)
 
     def handle_convert_ofx(self, header: dict, message: str):
         """
