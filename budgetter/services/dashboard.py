@@ -1,7 +1,7 @@
 import datetime
 from typing import Tuple
 
-from PySide6.QtCore import QObject, Signal
+from PySide6.QtCore import QObject, Signal, QThreadPool
 
 from budgetter.utils.ofxtools import convert_ofx_to_json
 from budgetter.utils.rest_client import RestClient
@@ -33,6 +33,12 @@ class Dashboard(QObject):
     expensesDistribution = Signal(object)
     convertOFXCompleted = Signal(dict, str)
 
+    def __init__(self):
+        super().__init__()
+
+        # Retrieve current thread pool to start worker threads
+        self._thread_pool = QThreadPool.globalInstance()
+
     def get_banks_worker(self):
         """
         Retrieve all banks via worker call
@@ -46,7 +52,7 @@ class Dashboard(QObject):
         worker.signals.error.connect(self.errorDashboard.emit)
 
         # Start worker
-        worker.run()
+        self._thread_pool.start(worker)
 
     def get_transactions_worker(self):
         """
@@ -61,7 +67,7 @@ class Dashboard(QObject):
         worker.signals.error.connect(self.errorDashboard.emit)
 
         # Start worker
-        worker.run()
+        self._thread_pool.start(worker)
 
     def get_accounts_worker(self):
         """
@@ -76,7 +82,7 @@ class Dashboard(QObject):
         worker.signals.error.connect(self.errorDashboard.emit)
 
         # Start worker
-        worker.run()
+        self._thread_pool.start(worker)
 
     def get_expenses_distribution_worker(self):
         """
@@ -91,7 +97,7 @@ class Dashboard(QObject):
         worker.signals.error.connect(self.errorDashboard.emit)
 
         # Start worker
-        worker.run()
+        self._thread_pool.start(worker)
 
     def add_account_worker(self, name: str, amount: str, bank_id: int, date: str, color: str):
         """
@@ -120,7 +126,7 @@ class Dashboard(QObject):
         worker.signals.error.connect(self.errorDashboard.emit)
 
         # Start worker
-        worker.run()
+        self._thread_pool.start(worker)
 
     def add_bank_worker(self, name: str):
         """
@@ -139,7 +145,7 @@ class Dashboard(QObject):
         worker.signals.error.connect(self.errorDashboard.emit)
 
         # Start worker
-        worker.run()
+        self._thread_pool.start(worker)
 
     def add_transaction_worker(
             self,
@@ -184,7 +190,7 @@ class Dashboard(QObject):
         worker.signals.error.connect(self.errorDashboard.emit)
 
         # Start worker
-        worker.run()
+        self._thread_pool.start(worker)
 
     def remove_transaction_worker(self, transaction_id: int):
         """
@@ -200,7 +206,7 @@ class Dashboard(QObject):
         worker.signals.error.connect(self.errorDashboard.emit)
 
         # Start worker
-        worker.run()
+        self._thread_pool.start(worker)
 
     def import_ofx(self, ofx_path: str):
         """
@@ -216,7 +222,7 @@ class Dashboard(QObject):
         worker.signals.error.connect(self.errorDashboard.emit)
 
         # Start worker
-        worker.run()
+        self._thread_pool.start(worker)
 
     def push_ofx_transactions(self, result: Tuple[dict, dict, str]):
         """
@@ -238,7 +244,7 @@ class Dashboard(QObject):
         # worker.signals.error.connect(self.errorDashboard.emit)
         #
         # # Start worker
-        # worker.run()
+        # self._thread_pool.start(worker)
 
     def edit_transaction_worker(
             self,
@@ -285,4 +291,4 @@ class Dashboard(QObject):
         worker.signals.error.connect(self.errorDashboard.emit)
 
         # Start worker
-        worker.run()
+        self._thread_pool.start(worker)
