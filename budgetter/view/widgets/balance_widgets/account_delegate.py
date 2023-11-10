@@ -29,9 +29,9 @@ class AccountDelegate(QItemDelegate):
         self.font = QFont()
 
     def sizeHint(
-            self,
-            _option_qstyle_option_view_item: QStyleOptionViewItem,
-            _index: Union[QModelIndex, QPersistentModelIndex],
+        self,
+        _option_qstyle_option_view_item: QStyleOptionViewItem,
+        _index: Union[QModelIndex, QPersistentModelIndex],
     ):
         """
         Override sizeHint
@@ -44,10 +44,10 @@ class AccountDelegate(QItemDelegate):
         return QSize(10, 70)
 
     def paint(
-            self,
-            painter: QPainter,
-            option: QStyleOptionViewItem,
-            index: Union[QModelIndex, QPersistentModelIndex],
+        self,
+        painter: QPainter,
+        option: QStyleOptionViewItem,
+        index: Union[QModelIndex, QPersistentModelIndex],
     ):
         """
         Override paint
@@ -112,18 +112,19 @@ class AccountDelegate(QItemDelegate):
         )
         painter.drawRect(rect_svg)
 
-        bank_logo_path = os.path.join(
-            os.path.dirname(__file__),
-            "..",
-            "..",
-            "resources",
-            "bank_info",
-            "bank_logo",
-            bank.lower().replace(" ", "_") + "_logo.svg",
-        )
-        svg_render = QSvgRenderer(bank_logo_path)
-        svg_render.setAspectRatioMode(Qt.AspectRatioMode.KeepAspectRatio)
-        svg_render.render(painter, rect_svg)
+        # TODO: banks logo
+        # bank_logo_path = os.path.join(
+        #     os.path.dirname(__file__),
+        #     "..",
+        #     "..",
+        #     "resources",
+        #     "bank_info",
+        #     "bank_logo",
+        #     bank.lower().replace(" ", "_") + "_logo.svg",
+        # )
+        # svg_render = QSvgRenderer(bank_logo_path)
+        # svg_render.setAspectRatioMode(Qt.AspectRatioMode.KeepAspectRatio)
+        # svg_render.render(painter, rect_svg)
 
         # Set font on painter for account name
         self.font.setFamily("Roboto")

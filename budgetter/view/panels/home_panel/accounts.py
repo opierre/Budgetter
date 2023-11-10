@@ -121,12 +121,15 @@ class Accounts(QObject):
 
         refactored_banks_info = {}
         for bank_info in banks:
-            refactored_banks_info.update({
-                bank_info.get("name"): {
-                    "bic": bank_info.get("bic"),
-                    "swift": bank_info.get("swift")
+            refactored_banks_info.update(
+                {
+                    bank_info.get("name"): {
+                        "id": bank_info.get("id"),
+                        "bic": bank_info.get("bic"),
+                        "swift": bank_info.get("swift"),
+                    }
                 }
-            })
+            )
         self.bank_identifiers = refactored_banks_info
         self.accounts_model.set_banks(refactored_banks_info)
 

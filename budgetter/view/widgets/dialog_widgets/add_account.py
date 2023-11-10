@@ -1,4 +1,4 @@
-from PySide6.QtCore import QTimer, Signal, QStringListModel, QSize
+from PySide6.QtCore import QTimer, Signal, QStringListModel, QSize, QCoreApplication
 from PySide6.QtGui import QColor, QDoubleValidator, Qt, QIcon
 from PySide6.QtWidgets import QWidget, QCompleter
 
@@ -70,9 +70,7 @@ class AddAccountDialog(QWidget):
         self.content.account_amount_date.set_text_color(QColor(255, 255, 255, 255))
         self.content.account_amount_date.set_label_color(QColor(224, 224, 224, 150))
         if account_info is not None:
-            self.content.account_amount_date.setText(
-                account_info.get("last_update")
-            )
+            self.content.account_amount_date.setText(account_info.get("last_update"))
 
         # Configure combobox for bank choice
         self.content.account_bank.set_label("Bank")
@@ -81,13 +79,24 @@ class AddAccountDialog(QWidget):
         self.content.account_bank.set_label_color(QColor(224, 224, 224, 150))
         self.bank_completer.setModel(QStringListModel(self.bank_ids.keys()))
         self.bank_completer.setCaseSensitivity(Qt.CaseSensitivity.CaseInsensitive)
-        self.bank_completer.setCompletionMode(QCompleter.CompletionMode.InlineCompletion)
+        self.bank_completer.setCompletionMode(
+            QCompleter.CompletionMode.InlineCompletion
+        )
         self.content.account_bank.setCompleter(self.bank_completer)
         if account_info is not None:
             for bank_name, bank_info in self.bank_ids.items():
                 if account_info.get("bank_id", "") in bank_info.get("bic"):
                     self.content.account_bank.setText(bank_name)
                     break
+
+        # Update information message with account ID
+        if account_info is not None:
+            self.content.label.setText(
+                QCoreApplication.translate(
+                    "Add Account", "Please enter information about account ID ", None
+                )
+                + account_info.get("account_id")
+            )
 
     def connect_slots_and_signals(self):
         """
@@ -160,15 +169,13 @@ class AddAccountDialog(QWidget):
         account_bank = self.content.account_bank.text()
 
         if (
-                account_name != ""
-                and account_amount != ""
-                and account_amount_date != ""
-                and account_bank != ""
+            account_name != ""
+            and account_amount != ""
+            and account_amount_date != ""
+            and account_bank != ""
         ):
             # Find corresponding bank identifier
-            bank_id = self.bank_ids.get(account_bank, None)
-            if bank_id is None:
-                bank_id = -1
+            bank_id = self.bank_ids.get(account_bank, {}).get("id", -1)
 
             # Emit signal to close popup and add new account
             self.addAccount.emit(
