@@ -35,7 +35,7 @@ class Controller:
         self.connect_slots_and_signals()
 
         # Show FullScreen
-        QTimer.singleShot(50, self.main_window.showMaximized)
+        QTimer.singleShot(50, self.main_window.show)
 
     def connect_slots_and_signals(self):
         """
@@ -69,7 +69,9 @@ class Controller:
         self.home_threads.transactionAdded.connect(
             self.home_panel.handle_add_transaction
         )
-        self.home_threads.convertOFXCompleted.connect(self.home_panel.handle_convert_ofx)
+        self.home_threads.convertOFXCompleted.connect(
+            self.home_panel.handle_convert_ofx
+        )
         self.home_threads.transactionEdited.connect(
             self.home_panel.handle_edit_transaction
         )
