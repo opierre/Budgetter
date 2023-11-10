@@ -18,7 +18,7 @@ class Accounts(QObject):
     """
 
     # Signals list
-    addAccountCall = Signal(str, str, int, str, str)
+    addAccountCall = Signal(str, str, str, int, str, str)
     addBankCall = Signal(str)
 
     def __init__(self, gui, main_window):
@@ -260,6 +260,7 @@ class Accounts(QObject):
     def pre_add_account(
             self,
             name: str,
+            number: str,
             amount: str,
             bank_id: int,
             date: str,
@@ -270,6 +271,7 @@ class Accounts(QObject):
         Check bank already exists
 
         :param name: account name
+        :param number: account number
         :param amount: amount
         :param bank_id: bank identifier
         :param date: date
@@ -316,7 +318,7 @@ class Accounts(QObject):
             dialog_content.content.bank_name.setFocus()
 
         else:
-            self.addAccountCall.emit(name, amount, bank_id, date, color)
+            self.addAccountCall.emit(name, number, amount, bank_id, date, color)
 
     def bank_added(self, bank: dict):
         """
@@ -331,7 +333,8 @@ class Accounts(QObject):
 
         # Update models
         self.bank_identifiers[bank.get("name")] = bank.get("id")
-        self.accounts_model.add_bank({bank.get("id"): bank.get("name")})
+        # TODO: to fix
+        # self.accounts_model.add_bank({bank.get("id"): bank.get("name")})
 
         # Close current popup and show previous one again
         self.dialogs[-1].close()
@@ -369,7 +372,7 @@ class Accounts(QObject):
         """
 
         for account in accounts:
-            self.account_identifiers[account.get("name")] = account.get("id")
+            self.account_identifiers[account.get("account_id")] = account.get("name")
             # Update model
             self.accounts_model.add_account(account)
 
@@ -394,7 +397,5 @@ class Accounts(QObject):
 
         # Open new dialogs to create new accounts
         if new_accounts:
-            i = 0
             for account in new_accounts:
-                print(i)
                 self.add_account(account)

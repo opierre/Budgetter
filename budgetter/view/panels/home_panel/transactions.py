@@ -355,7 +355,7 @@ class Transactions(QObject):
 
         for account in accounts:
             # Store identifier
-            self.account_identifiers[account.get("id")] = account.get("name")
+            self.account_identifiers[account.get("account_id")] = account.get("name")
 
             # Create new button
             new_account_filter = QPushButton(account.get("name"))

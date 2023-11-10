@@ -27,7 +27,7 @@ class Ui_AddAccount(object):
     def setupUi(self, AddAccount):
         if not AddAccount.objectName():
             AddAccount.setObjectName("AddAccount")
-        AddAccount.resize(377, 272)
+        AddAccount.resize(377, 345)
         AddAccount.setStyleSheet("QWidget#account \n"
 "{\n"
 "	background-color: #1C293B;\n"
@@ -163,6 +163,19 @@ class Ui_AddAccount(object):
 
 
         self.verticalLayout_2.addLayout(self.horizontalLayout_2)
+
+        self.horizontalLayout_3 = QHBoxLayout()
+        self.horizontalLayout_3.setObjectName("horizontalLayout_3")
+        self.account_number = MaterialOutlinedLineEdit(self.account)
+        self.account_number.setObjectName("account_number")
+        self.account_number.setMinimumSize(QSize(0, 67))
+        self.account_number.setMaximumSize(QSize(16777215, 67))
+        self.account_number.setFont(font1)
+
+        self.horizontalLayout_3.addWidget(self.account_number)
+
+
+        self.verticalLayout_2.addLayout(self.horizontalLayout_3)
 
         self.horizontalLayout = QHBoxLayout()
         self.horizontalLayout.setSpacing(20)

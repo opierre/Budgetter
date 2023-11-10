@@ -99,11 +99,12 @@ class Dashboard(QObject):
         # Start worker
         self._thread_pool.start(worker)
 
-    def add_account_worker(self, name: str, amount: str, bank_id: int, date: str, color: str):
+    def add_account_worker(self, name: str, number: str, amount: str, bank_id: int, date: str, color: str):
         """
         Add account via worker call
 
         :param name: account name
+        :param number: account number
         :param amount: account amount
         :param bank_id: account bank identifier in database
         :param date: date for update
@@ -114,6 +115,7 @@ class Dashboard(QObject):
         # Build data
         data = {
             "name": name,
+            "account_id": number,
             "bank": bank_id,
             "amount": float(amount.replace(",", ".")),
             "last_update": date,

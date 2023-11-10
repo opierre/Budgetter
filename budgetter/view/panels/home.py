@@ -16,7 +16,7 @@ class Home(QObject):
     """
 
     # Signals list
-    addAccountController = Signal(str, str, int, str, str)
+    addAccountController = Signal(str, str, str, int, str, str)
     addBankController = Signal(str)
     addTransactionController = Signal(str, str, str, str, str, str, str, int)
     importTransactionsController = Signal(str)

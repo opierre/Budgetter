@@ -1,4 +1,3 @@
-import os.path
 from typing import Union
 
 from PySide6.QtCore import (
@@ -29,9 +28,9 @@ class AccountDelegate(QItemDelegate):
         self.font = QFont()
 
     def sizeHint(
-        self,
-        _option_qstyle_option_view_item: QStyleOptionViewItem,
-        _index: Union[QModelIndex, QPersistentModelIndex],
+            self,
+            _option_qstyle_option_view_item: QStyleOptionViewItem,
+            _index: Union[QModelIndex, QPersistentModelIndex],
     ):
         """
         Override sizeHint
@@ -44,10 +43,10 @@ class AccountDelegate(QItemDelegate):
         return QSize(10, 70)
 
     def paint(
-        self,
-        painter: QPainter,
-        option: QStyleOptionViewItem,
-        index: Union[QModelIndex, QPersistentModelIndex],
+            self,
+            painter: QPainter,
+            option: QStyleOptionViewItem,
+            index: Union[QModelIndex, QPersistentModelIndex],
     ):
         """
         Override paint
