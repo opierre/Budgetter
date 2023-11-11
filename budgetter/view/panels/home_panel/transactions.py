@@ -392,8 +392,7 @@ class Transactions(QObject):
             transaction.update(
                 {
                     "account_name": self.account_identifiers.get(
-                        transaction.get("account")
-                    )
+                        transaction.get("account")).get("name")
                 }
             )
         self.transactions_model.setup_transactions(transactions)
