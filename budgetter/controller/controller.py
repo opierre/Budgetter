@@ -68,7 +68,7 @@ class Controller:
         self.home_threads.accountAdded.connect(self.home_panel.handle_add_account)
         self.home_threads.bankAdded.connect(self.home_panel.handle_add_bank)
         self.home_threads.transactionAdded.connect(
-            self.home_panel.handle_add_transaction
+            self.home_panel.handle_add_transactions
         )
         self.home_threads.convertOFXCompleted.connect(
             self.home_panel.handle_convert_ofx
@@ -88,5 +88,6 @@ class Controller:
         self.home_threads.accountsFound.connect(
             self.home_threads.get_transactions_worker
         )
+        self.home_threads.transactionsPosted.connect(self.home_panel.handle_add_transactions)
 
         QTimer.singleShot(500, self.home_threads.get_banks_worker)

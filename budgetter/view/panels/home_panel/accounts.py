@@ -353,7 +353,12 @@ class Accounts(QObject):
         # Add account in model
         self.accounts_model.add_account(account)
         self.account_identifiers.update(
-            {account.get("account_id"): account.get("name")}
+            {
+                account.get("account_id"): {
+                    "name": account.get("name"),
+                    "id": account.get("id"),
+                }
+            }
         )
         self.dialogs[-1].close()
         self.dialogs.pop(-1)

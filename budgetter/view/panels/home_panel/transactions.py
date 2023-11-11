@@ -1,3 +1,5 @@
+from typing import Union
+
 from PySide6.QtCore import QObject, Qt, QSize, QCoreApplication, Signal, QTimer
 from PySide6.QtGui import QIcon, QShortcut, QKeySequence
 from PySide6.QtWidgets import (
@@ -277,22 +279,25 @@ class Transactions(QObject):
         self.dialogs[-1].close()
         self.dialogs.pop(-1)
 
-    def transaction_added(self, transaction: dict):
+    def transactions_added(self, transactions: Union[dict, list]):
         """
-        Handle transaction added
+        Handle transactions added
 
-        :param transaction: transaction details
+        :param transactions: transactions details
         :return: None
         """
 
         # Show notification on bank added
-        _ = Toaster("Transaction added", ToasterType.SUCCESS, self.main_window)
+        msg = f"{len(transactions)} transactions " if isinstance(transactions, list) else "Transaction "
+        _ = Toaster(f"{msg} added", ToasterType.SUCCESS, self.main_window)
 
         # Update models
-        transaction.update(
-            {"account_name": self.account_identifiers.get(transaction.get("account"))}
-        )
-        self.transactions_filter_model.add_transaction(transaction)
+        transactions_list = transactions if isinstance(transactions, list) else [transactions]
+        for transaction in transactions_list:
+            transaction.update(
+                {"account_name": self.account_identifiers.get(transaction.get("account")).get("name")}
+            )
+        self.transactions_filter_model.add_transactions(transactions)
 
         # Close current popup and show previous one again
         self.dialogs[-1].close()
@@ -355,7 +360,14 @@ class Transactions(QObject):
 
         for account in accounts:
             # Store identifier
-            self.account_identifiers[account.get("account_id")] = account.get("name")
+            self.account_identifiers.update(
+                {
+                    account.get("id"): {
+                        "name": account.get("name"),
+                        "account_id": account.get("account_id"),
+                    }
+                }
+            )
 
             # Create new button
             new_account_filter = QPushButton(account.get("name"))

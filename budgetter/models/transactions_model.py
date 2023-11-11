@@ -76,16 +76,16 @@ class TransactionsFilterModel(QSortFilterProxyModel):
         self.sourceModel().delete_transaction(index_from_source)
         self.endRemoveRows()
 
-    def add_transaction(self, transaction: dict):
+    def add_transactions(self, transactions: List[dict]):
         """
-        Call for add_transaction in source model
+        Call for add_transactions in source model
 
-        :param transaction: transaction to add
+        :param transactions: transactions to add
         :return: None
         """
 
-        self.beginInsertRows(QModelIndex(), 0, 0)
-        self.sourceModel().add_transaction(transaction)
+        self.beginInsertRows(QModelIndex(), 0, len(transactions))
+        self.sourceModel().add_transactions(transactions)
         self.endInsertRows()
 
     def edit_transaction(self, transaction: dict):
@@ -264,16 +264,16 @@ class TransactionsModel(QAbstractListModel):
         self.transactions.pop(index.row())
         self.endRemoveRows()
 
-    def add_transaction(self, transaction: dict):
+    def add_transactions(self, transactions: List[dict]):
         """
-        Add transaction to model
+        Add transactions to model
 
-        :param transaction: transaction to add
+        :param transactions: transactions to add
         :return: None
         """
 
-        self.beginInsertRows(QModelIndex(), 0, 0)
-        self.transactions.insert(0, transaction)
+        self.beginInsertRows(QModelIndex(), 0, len(transactions))
+        self.transactions.extend(transactions)
         self.endInsertRows()
 
     def edit_transaction(self, transaction: dict) -> QModelIndex:

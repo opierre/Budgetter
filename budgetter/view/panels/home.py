@@ -1,4 +1,4 @@
-from typing import Any, Tuple
+from typing import Any, Tuple, Union
 
 from PySide6.QtCore import QObject, Signal
 
@@ -116,15 +116,15 @@ class Home(QObject):
 
         self._transactions.set_transactions(transactions)
 
-    def handle_add_transaction(self, transaction: dict):
+    def handle_add_transactions(self, transactions: Union[dict, list]):
         """
-        Handle add transaction result from API call
+        Handle add transactions result from API call
 
-        :param transaction: transaction details
+        :param transactions: transaction details
         :return: None
         """
 
-        self._transactions.transaction_added(transaction)
+        self._transactions.transactions_added(transactions)
 
     def handle_edit_transaction(self, transaction: dict):
         """
