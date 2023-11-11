@@ -41,12 +41,14 @@ class AddEditTransactionDialog(QWidget):
         # Store account identifiers
         self.account_ids = {}
         for account_id, account in account_ids.items():
-            self.account_ids.update({
-                account.get("name"): {
-                    "account_id": account_id,
-                    "id": account.get("id")
+            self.account_ids.update(
+                {
+                    account.get("name"): {
+                        "account_id": account_id,
+                        "id": account.get("id"),
+                    }
                 }
-            })
+            )
 
         # Store radio button group
         self.mean_group = QButtonGroup()
@@ -115,6 +117,8 @@ class AddEditTransactionDialog(QWidget):
             )
         else:
             button_clicked.setStyleSheet("color: rgba(1, 144, 234, 255);")
+        button_clicked.style().unpolish(button_clicked)
+        button_clicked.style().polish(button_clicked)
 
     def configure(self, transaction_content):
         """
@@ -167,12 +171,12 @@ class AddEditTransactionDialog(QWidget):
         self.content.account.set_label_color(QColor(224, 224, 224, 150))
         self.account_completer.setModel(QStringListModel(self.account_ids.keys()))
         self.account_completer.setCaseSensitivity(Qt.CaseSensitivity.CaseInsensitive)
-        self.account_completer.setCompletionMode(QCompleter.CompletionMode.InlineCompletion)
+        self.account_completer.setCompletionMode(
+            QCompleter.CompletionMode.InlineCompletion
+        )
         self.content.account.setCompleter(self.account_completer)
         if transaction_content is not None:
-            self.content.account.setText(
-                transaction_content.get("account_name")
-            )
+            self.content.account.setText(transaction_content.get("account_name"))
 
         # Add all means to one group
         self.mean_group.addButton(self.content.card)
@@ -186,6 +190,9 @@ class AddEditTransactionDialog(QWidget):
                 self.content.cash.setChecked(True)
             elif mean.lower() == MeanType.TRANSFER.value.lower():
                 self.content.money_transfer.setChecked(True)
+        else:
+            # Set initial color card
+            self.update_style(self.content.card)
 
         # Add all transaction types to one group
         self.transaction_type_group.addButton(self.content.expenses)
@@ -193,16 +200,15 @@ class AddEditTransactionDialog(QWidget):
         self.transaction_type_group.addButton(self.content.transfer)
         if transaction_content is not None:
             transaction_type = transaction_content.get("transaction_type")
-            if transaction_type == TransactionType.INCOME:
-                self.content.income.setChecked(True)
-            elif transaction_type == TransactionType.EXPENSES:
-                self.content.expenses.setChecked(True)
-            elif transaction_type == TransactionType.INTERNAL:
-                self.content.transfer.setChecked(True)
-
-        # Set initial color on expenses/card
-        self.update_style(self.content.expenses)
-        self.update_style(self.content.card)
+            if transaction_type == TransactionType.INCOME.value:
+                self.content.income.click()
+            elif transaction_type == TransactionType.EXPENSES.value:
+                self.content.expenses.click()
+            elif transaction_type == TransactionType.INTERNAL.value:
+                self.content.transfer.click()
+        else:
+            # Set initial color on expenses
+            self.update_style(self.content.expenses)
 
     def check_inputs(self):
         """

@@ -64,7 +64,7 @@ def convert_ofx_to_json(ofx_file_path: str) -> Tuple[dict, dict, str]:
             header.update({"end_date": statement.transactions.dtend})
 
         # Parse transactions
-        for transaction in statement.transactions[:2]:
+        for transaction in statement.transactions:
             # TODO: fix generic term for internal transaction
             if "VIREMENT EN VOTRE FAVEUR DE OLIVIER PIERRE" in transaction.memo:
                 transaction_type = TransactionType.INTERNAL.value

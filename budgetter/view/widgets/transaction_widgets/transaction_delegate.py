@@ -74,7 +74,7 @@ class TransactionDelegate(QStyledItemDelegate):
         self.comment.setStyleSheet("background-color: transparent;\n")
 
     def createEditor(
-            self, parent, option, index: Union[QModelIndex, QPersistentModelIndex]
+        self, parent, option, index: Union[QModelIndex, QPersistentModelIndex]
     ):
         """
         Override createEditor
@@ -88,11 +88,11 @@ class TransactionDelegate(QStyledItemDelegate):
         pass
 
     def editorEvent(
-            self,
-            event: QEvent,
-            _model,
-            _option,
-            index: Union[QModelIndex, QPersistentModelIndex],
+        self,
+        event: QEvent,
+        _model,
+        _option,
+        index: Union[QModelIndex, QPersistentModelIndex],
     ):
         """
         Override editorEvent to handle events
@@ -136,10 +136,10 @@ class TransactionDelegate(QStyledItemDelegate):
         return QSize(10, 70)
 
     def paint(
-            self,
-            painter: QPainter,
-            option,
-            index: Union[QModelIndex, QPersistentModelIndex],
+        self,
+        painter: QPainter,
+        option,
+        index: Union[QModelIndex, QPersistentModelIndex],
     ):
         """
         Override paint
@@ -458,9 +458,9 @@ class TransactionDelegate(QStyledItemDelegate):
 
         # Set name on top
         x = (
-                self.rect_category.x()
-                + self.rect_category.width()
-                + option.rect.width() * 1 / 140
+            self.rect_category.x()
+            + self.rect_category.width()
+            + option.rect.width() * 1 / 140
         )
         self.rect_name = QRect(
             x,
