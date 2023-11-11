@@ -49,6 +49,7 @@ class Controller:
             self.home_threads.add_account_worker
         )
         self.home_panel.addBankController.connect(self.home_threads.add_bank_worker)
+        self.home_panel.postTransactionsController.connect(self.home_threads.add_transactions)
         self.home_panel.addTransactionController.connect(
             self.home_threads.add_transaction_worker
         )

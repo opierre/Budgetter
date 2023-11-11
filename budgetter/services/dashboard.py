@@ -1,5 +1,4 @@
 import datetime
-from typing import Tuple
 
 from PySide6.QtCore import QObject, Signal, QThreadPool
 
@@ -31,7 +30,7 @@ class Dashboard(QObject):
     transactionEdited = Signal(object)
     transactionsFound = Signal(object)
     expensesDistribution = Signal(object)
-    convertOFXCompleted = Signal(dict, str)
+    convertOFXCompleted = Signal(object)
 
     def __init__(self):
         super().__init__()
@@ -99,7 +98,9 @@ class Dashboard(QObject):
         # Start worker
         self._thread_pool.start(worker)
 
-    def add_account_worker(self, name: str, number: str, amount: str, bank_id: int, date: str, color: str):
+    def add_account_worker(
+            self, name: str, number: str, amount: str, bank_id: int, date: str, color: str
+    ):
         """
         Add account via worker call
 
@@ -178,7 +179,9 @@ class Dashboard(QObject):
         data = {
             "name": name,
             "amount": amount,
-            "date": datetime.datetime.strptime(amount_date, "%d/%m/%Y").strftime("%Y-%m-%d"),
+            "date": datetime.datetime.strptime(amount_date, "%d/%m/%Y").strftime(
+                "%Y-%m-%d"
+            ),
             "account": account_id,
             "category": category if category else None,
             "comment": notes,
@@ -203,7 +206,9 @@ class Dashboard(QObject):
         """
 
         # Create worker
-        worker = Worker(RestClient.delete, url=f"{self.TRANSACTION_URL}{transaction_id}/")
+        worker = Worker(
+            RestClient.delete, url=f"{self.TRANSACTION_URL}{transaction_id}/"
+        )
         worker.signals.result.connect(self.transactionRemoved.emit)
         worker.signals.error.connect(self.errorDashboard.emit)
 
@@ -220,33 +225,11 @@ class Dashboard(QObject):
 
         # Create worker
         worker = Worker(convert_ofx_to_json, ofx_file_path=ofx_path)
-        worker.signals.result.connect(self.push_ofx_transactions)
+        worker.signals.result.connect(self.convertOFXCompleted.emit)
         worker.signals.error.connect(self.errorDashboard.emit)
 
         # Start worker
         self._thread_pool.start(worker)
-
-    def push_ofx_transactions(self, result: Tuple[dict, dict, str]):
-        """
-        Push OFX data to server
-
-        :param: ofx data, header, error
-        :return: None
-        """
-
-        _, header, message = result
-
-        self.convertOFXCompleted.emit(header, message)
-
-        # TODO: URL for posting JSON transactions
-        # # Create worker
-        # worker = Worker(RestClient.post,
-        #                 url=ofx_path)
-        # worker.signals.result.connect(self.push_ofx_transactions)
-        # worker.signals.error.connect(self.errorDashboard.emit)
-        #
-        # # Start worker
-        # self._thread_pool.start(worker)
 
     def edit_transaction_worker(
             self,
@@ -279,7 +262,9 @@ class Dashboard(QObject):
         data = {
             "name": name,
             "amount": amount,
-            "date": datetime.datetime.strptime(amount_date, "%d/%m/%Y").strftime("%Y-%m-%d"),
+            "date": datetime.datetime.strptime(amount_date, "%d/%m/%Y").strftime(
+                "%Y-%m-%d"
+            ),
             "account": account_id,
             "category": category if category else None,
             "comment": notes,
@@ -288,8 +273,26 @@ class Dashboard(QObject):
         }
 
         # Create worker
-        worker = Worker(RestClient.patch, url=f"{self.TRANSACTION_URL}{transaction_id}/", data=data)
+        worker = Worker(
+            RestClient.patch, url=f"{self.TRANSACTION_URL}{transaction_id}/", data=data
+        )
         worker.signals.result.connect(self.transactionEdited.emit)
+        worker.signals.error.connect(self.errorDashboard.emit)
+
+        # Start worker
+        self._thread_pool.start(worker)
+
+    def add_transactions(self, data: dict):
+        """
+        Push transactions to database
+
+        :param data: data with transactions
+        :return: None
+        """
+
+        # Create worker
+        worker = Worker(RestClient.post, url=self.TRANSACTION_URL, data=data.get("transactions"))
+        # worker.signals.result.connect(self.push_ofx_transactions)
         worker.signals.error.connect(self.errorDashboard.emit)
 
         # Start worker

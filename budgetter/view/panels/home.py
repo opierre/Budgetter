@@ -18,6 +18,7 @@ class Home(QObject):
     # Signals list
     addAccountController = Signal(str, str, str, int, str, str)
     addBankController = Signal(str)
+    postTransactionsController = Signal(dict)
     addTransactionController = Signal(str, str, str, str, str, str, str, int)
     importTransactionsController = Signal(str)
     removeTransactionController = Signal(int)
@@ -58,9 +59,14 @@ class Home(QObject):
         # Connect signals from accounts
         self._accounts.addAccountCall.connect(self.addAccountController.emit)
         self._accounts.addBankCall.connect(self.addBankController.emit)
+        self._accounts.postTransactionsCall.connect(self.postTransactionsController.emit)
         self._transactions.addTransaction.connect(self.addTransactionController.emit)
-        self._transactions.importTransactions.connect(self.importTransactionsController.emit)
-        self._transactions.removeTransaction.connect(self.removeTransactionController.emit)
+        self._transactions.importTransactions.connect(
+            self.importTransactionsController.emit
+        )
+        self._transactions.removeTransaction.connect(
+            self.removeTransactionController.emit
+        )
         self._transactions.editTransaction.connect(self.editTransactionController.emit)
 
     def handle_error(self, error: Tuple[Exception, Any, str]):
@@ -160,14 +166,15 @@ class Home(QObject):
         self._accounts.set_accounts(accounts_list)
         self._transactions.set_accounts(accounts_list)
 
-    def handle_convert_ofx(self, header: dict, message: str):
+    def handle_convert_ofx(self, result: Tuple[dict, dict, str]):
         """
         Handle OFX data converted to dict
 
-        :param header: data header
-        :param message: error message
+        :param result: result from thread
         :return: None
         """
 
+        header, data, message = result
+
         self._transactions.handle_convert_ofx(header, message)
-        self._accounts.handle_convert_ofx(header)
+        self._accounts.handle_convert_ofx(header, data)

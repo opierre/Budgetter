@@ -87,4 +87,4 @@ def convert_ofx_to_json(ofx_file_path: str) -> Tuple[dict, dict, str]:
                 }
             )
 
-    return data, header, ""
+    return header, data, ""

@@ -20,6 +20,7 @@ class Accounts(QObject):
     # Signals list
     addAccountCall = Signal(str, str, str, int, str, str)
     addBankCall = Signal(str)
+    postTransactionsCall = Signal(dict)
 
     def __init__(self, gui, main_window):
         super().__init__()
@@ -351,6 +352,9 @@ class Accounts(QObject):
 
         # Add account in model
         self.accounts_model.add_account(account)
+        self.account_identifiers.update(
+            {account.get("account_id"): account.get("name")}
+        )
         self.dialogs[-1].close()
         self.dialogs.pop(-1)
 
@@ -372,7 +376,14 @@ class Accounts(QObject):
         """
 
         for account in accounts:
-            self.account_identifiers[account.get("account_id")] = account.get("name")
+            self.account_identifiers.update(
+                {
+                    account.get("account_id"): {
+                        "name": account.get("name"),
+                        "id": account.get("id"),
+                    }
+                }
+            )
             # Update model
             self.accounts_model.add_account(account)
 
@@ -381,11 +392,12 @@ class Accounts(QObject):
                 float(account.get("amount")), account.get("color")
             )
 
-    def handle_convert_ofx(self, header: dict):
+    def handle_convert_ofx(self, header: dict, data: dict):
         """
         Handle conversion from OFX to check new accounts to create
 
         :param header: header data
+        :param data: data
         :return: None
         """
 
@@ -399,3 +411,16 @@ class Accounts(QObject):
         if new_accounts:
             for account in new_accounts:
                 self.add_account(account)
+
+        # Refactor message with account IDs
+        for transaction in data.get("transactions"):
+            transaction.update(
+                {
+                    "account": self.account_identifiers.get(
+                        transaction.get("account").get("account_id")
+                    ).get("id")
+                }
+            )
+
+        # Emit signal to push transactions
+        self.postTransactionsCall.emit(data)
