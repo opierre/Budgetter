@@ -39,7 +39,14 @@ class AddEditTransactionDialog(QWidget):
         self.content.setupUi(self)
 
         # Store account identifiers
-        self.account_ids = account_ids
+        self.account_ids = {}
+        for account_id, account in account_ids.items():
+            self.account_ids.update({
+                account.get("name"): {
+                    "account_id": account_id,
+                    "id": account.get("id")
+                }
+            })
 
         # Store radio button group
         self.mean_group = QButtonGroup()
@@ -158,13 +165,13 @@ class AddEditTransactionDialog(QWidget):
         self.content.account.set_label_background_color(QColor("#1C293B"))
         self.content.account.set_text_color(QColor(255, 255, 255, 255))
         self.content.account.set_label_color(QColor(224, 224, 224, 150))
-        self.account_completer.setModel(QStringListModel(self.account_ids.values()))
-        self.account_completer.setCaseSensitivity(Qt.CaseInsensitive)
-        self.account_completer.setCompletionMode(QCompleter.InlineCompletion)
+        self.account_completer.setModel(QStringListModel(self.account_ids.keys()))
+        self.account_completer.setCaseSensitivity(Qt.CaseSensitivity.CaseInsensitive)
+        self.account_completer.setCompletionMode(QCompleter.CompletionMode.InlineCompletion)
         self.content.account.setCompleter(self.account_completer)
         if transaction_content is not None:
             self.content.account.setText(
-                self.account_ids.get(transaction_content.get("account"))
+                transaction_content.get("account_name")
             )
 
         # Add all means to one group
