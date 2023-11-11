@@ -56,7 +56,7 @@ class RestClient:
         """
 
         # Call post method
-        response = requests.post(url, json=data, timeout=2.5)
+        response = requests.post(url, json=data, timeout=5.5)
 
         # Handle error case
         if response.status_code != 201:
