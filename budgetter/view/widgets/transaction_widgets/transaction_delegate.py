@@ -186,7 +186,7 @@ class TransactionDelegate(QStyledItemDelegate):
         self.draw_left_icon(painter, category)
 
         # Draw name
-        self.draw_name(painter, option, name)
+        self.draw_name(painter, option, name, rect_background)
 
         # Draw category
         self.draw_category(painter, option, category)
@@ -347,9 +347,7 @@ class TransactionDelegate(QStyledItemDelegate):
                 QStyle.ControlElement.CE_PushButton, option_more, painter, self.comment
             )
 
-    def draw_item_background(
-            self, painter: QPainter, option, rect_background: QRect
-    ):
+    def draw_item_background(self, painter: QPainter, option, rect_background: QRect):
         """
         Draw item background
 
@@ -413,9 +411,7 @@ class TransactionDelegate(QStyledItemDelegate):
         )
         painter.drawRect(rect_svg)
 
-        svg_render = QSvgRenderer(
-            ":/images/images/restaurant-white-18dp_outlined.svg"
-        )
+        svg_render = QSvgRenderer(":/images/images/restaurant-white-18dp_outlined.svg")
         if category == "Restaurants":
             svg_render = QSvgRenderer(
                 ":/images/images/restaurant-white-18dp_outlined.svg"
@@ -435,13 +431,14 @@ class TransactionDelegate(QStyledItemDelegate):
         svg_render.setAspectRatioMode(Qt.AspectRatioMode.KeepAspectRatio)
         svg_render.render(painter, rect_svg)
 
-    def draw_name(self, painter: QPainter, option, name):
+    def draw_name(self, painter: QPainter, option, name, rect_background):
         """
         Draw name
 
         :param painter: (QPainter) painter
         :param option: option
         :param name: name
+        :param rect_background: background rectangle
         :return: None
         """
 
@@ -460,12 +457,15 @@ class TransactionDelegate(QStyledItemDelegate):
         pixels_height = font_metrics.height()
 
         # Set name on top
+        x = (
+                self.rect_category.x()
+                + self.rect_category.width()
+                + option.rect.width() * 1 / 140
+        )
         self.rect_name = QRect(
-            self.rect_category.x()
-            + self.rect_category.width()
-            + option.rect.width() * 1 / 140,
+            x,
             self.rect_category.y() + option.rect.height() * 1 / 30,
-            pixels_width,
+            min(pixels_width, rect_background.width() * 1 / 4 - x - 20),
             pixels_height,
         )
 
@@ -514,9 +514,7 @@ class TransactionDelegate(QStyledItemDelegate):
             category,
         )
 
-    def draw_amount(
-            self, painter: QPainter, rect_background, amount
-    ):
+    def draw_amount(self, painter: QPainter, rect_background, amount):
         """
         Draw amount
 
@@ -626,9 +624,7 @@ class TransactionDelegate(QStyledItemDelegate):
             date,
         )
 
-    def draw_account(
-            self, painter: QPainter, rect_background, account
-    ):
+    def draw_account(self, painter: QPainter, rect_background, account):
         """
         Draw account
 
