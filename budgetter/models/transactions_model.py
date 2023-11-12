@@ -83,7 +83,7 @@ class TransactionsFilterModel(QSortFilterProxyModel):
         :return: None
         """
 
-        self.beginInsertRows(QModelIndex(), 0, len(transactions))
+        self.beginInsertRows(QModelIndex(), 0, len(transactions) - 1)
         self.sourceModel().add_transactions(transactions)
         self.endInsertRows()
 
@@ -271,7 +271,7 @@ class TransactionsModel(QAbstractListModel):
         :return: None
         """
 
-        self.beginInsertRows(QModelIndex(), 0, len(transactions))
+        self.beginInsertRows(QModelIndex(), 0, len(transactions) - 1)
         self.transactions.extend(transactions)
         self.endInsertRows()
 

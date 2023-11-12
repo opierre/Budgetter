@@ -155,9 +155,6 @@ class TransactionDelegate(QStyledItemDelegate):
         # Get values
         value = index.data(Qt.ItemDataRole.DisplayRole)
 
-        if value is None:
-            return
-
         name = str(value["name"])
         category = str(value["category"])
         amount = value["amount"] + " €"

@@ -316,6 +316,7 @@ class Transactions(QObject):
             for account in self.account_identifiers:
                 if account.get("id") == transaction.get("account"):
                     transaction.update({"account_name": account.get("name")})
+                    break
         self.transactions_filter_model.add_transactions(transactions)
 
         # Close current popup and show previous one again
