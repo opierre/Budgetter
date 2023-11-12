@@ -180,4 +180,4 @@ class Home(QObject):
         header, data, message = result
 
         self._transactions.handle_convert_ofx(header, message)
-        # self._accounts.handle_convert_ofx(header, data)
+        self._accounts.handle_convert_ofx(header, data)
