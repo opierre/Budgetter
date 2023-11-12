@@ -88,6 +88,8 @@ def convert_ofx_to_json(ofx_file_path: str) -> Tuple[dict, dict, str]:
             )
 
     # Order transactions by date
-    data.update({"transactions": reversed(sorted(data.get("transactions"), key=lambda value: value.get('date')))})
+    data.update({"transactions": list(reversed(
+        sorted(data.get("transactions"), key=lambda value: value.get('date'))
+    ))})
 
     return header, data, ""

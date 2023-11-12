@@ -367,7 +367,10 @@ class Accounts(QObject):
         self.balance_chart.add_slice(float(account.get("amount")), account.get("color"))
 
         # Open toaster
-        _ = Toaster("Account added", ToasterType.SUCCESS, self.main_window)
+        _ = Toaster(f"Account added: {account.get('name')}",
+                    ToasterType.SUCCESS,
+                    self.main_window
+                    )
 
         # Stop event loop
         self._event_loop.quit()
