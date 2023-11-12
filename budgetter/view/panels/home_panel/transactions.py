@@ -1,4 +1,4 @@
-from typing import Union
+from typing import Union, List
 
 from PySide6.QtCore import QObject, Qt, QSize, QCoreApplication, Signal, QTimer
 from PySide6.QtGui import QIcon, QShortcut, QKeySequence
@@ -62,7 +62,7 @@ class Transactions(QObject):
         self.status_bar = QStatusBar()
 
         # Store accounts identifiers
-        self.account_identifiers = {}
+        self.account_identifiers = []
 
         # Store dialogs for adding account
         self.dialogs = []
@@ -176,14 +176,9 @@ class Transactions(QObject):
         """
 
         # Add account in model
-        self.account_identifiers.update(
-            {
-                account.get("account_id"): {
-                    "name": account.get("name"),
-                    "id": account.get("id"),
-                }
-            }
-        )
+        accounts = [account]
+        accounts.extend(self.account_identifiers)
+        self.set_accounts(accounts)
 
     def remove_transaction(self):
         """
@@ -318,7 +313,7 @@ class Transactions(QObject):
             transactions if isinstance(transactions, list) else [transactions]
         )
         for transaction in transactions_list:
-            for account_number, account in self.account_identifiers.items():
+            for account in self.account_identifiers:
                 if account.get("id") == transaction.get("account"):
                     transaction.update({"account_name": account.get("name")})
         self.transactions_filter_model.add_transactions(transactions)
@@ -339,9 +334,12 @@ class Transactions(QObject):
         _ = Toaster("Transaction edited", ToasterType.SUCCESS, self.main_window)
 
         # Update models
-        transaction.update(
-            {"account_name": self.account_identifiers.get(transaction.get("account"))}
-        )
+        account_name = ""
+        for account in self.account_identifiers:
+            if account.get("id") == transaction.get("account"):
+                account_name = account.get("name")
+                break
+        transaction.update({"account_name": account_name})
         self.transactions_filter_model.edit_transaction(transaction)
 
         # Close current popup and show previous one again
@@ -370,7 +368,7 @@ class Transactions(QObject):
         # Remove transaction from model
         self.transactions_filter_model.delete_transaction(index)
 
-    def set_accounts(self, accounts: list):
+    def set_accounts(self, accounts: List[dict]):
         """
         Store accounts for popups
 
@@ -384,14 +382,7 @@ class Transactions(QObject):
 
         for account in accounts:
             # Store identifier
-            self.account_identifiers.update(
-                {
-                    account.get("id"): {
-                        "name": account.get("name"),
-                        "account_id": account.get("account_id"),
-                    }
-                }
-            )
+            self.account_identifiers.append(account)
 
             # Create new button
             new_account_filter = QPushButton(account.get("name"))
@@ -413,13 +404,12 @@ class Transactions(QObject):
         """
 
         for transaction in transactions:
-            transaction.update(
-                {
-                    "account_name": self.account_identifiers.get(
-                        transaction.get("account")
-                    ).get("name")
-                }
-            )
+            account_name = ""
+            for account in self.account_identifiers:
+                if account.get("id") == transaction.get("account"):
+                    account_name = account.get("name")
+                    break
+            transaction.update({"account_name": account_name})
         self.transactions_model.setup_transactions(transactions)
 
     def add_transaction(self):

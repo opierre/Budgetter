@@ -1,4 +1,5 @@
 from datetime import datetime
+from typing import List
 
 from PySide6.QtCore import QStringListModel, QTimer, Signal
 from PySide6.QtGui import QColor, QDoubleValidator, Qt, QFont
@@ -31,7 +32,7 @@ class AddEditTransactionDialog(QWidget):
     # transaction ID
     editTransaction = Signal(str, str, str, str, str, str, str, int, int)
 
-    def __init__(self, account_ids: dict, parent=None, transaction_content=None):
+    def __init__(self, account_ids: List[dict], parent=None, transaction_content=None):
         super().__init__(parent)
 
         # Store dialog content
@@ -40,11 +41,11 @@ class AddEditTransactionDialog(QWidget):
 
         # Store account identifiers
         self.account_ids = {}
-        for account_id, account in account_ids.items():
+        for account in account_ids:
             self.account_ids.update(
                 {
                     account.get("name"): {
-                        "account_id": account_id,
+                        "account_id": account.get("account_id"),
                         "id": account.get("id"),
                     }
                 }
