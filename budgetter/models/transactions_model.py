@@ -1,4 +1,3 @@
-from datetime import datetime
 from typing import Union, Any, List
 
 from PySide6.QtCore import (
@@ -142,34 +141,34 @@ class TransactionsFilterModel(QSortFilterProxyModel):
         elif self.type != "All" and self.account == "All":
             result = transaction["transaction_type"].lower() == self.type.lower()
         elif self.type != "All" and self.account != "All":
-            result = (transaction["transaction_type"].lower() == self.type.lower()) and (
-                    transaction["account"] == self.account
-            )
+            result = (
+                             transaction["transaction_type"].lower() == self.type.lower()
+                     ) and (transaction["account"] == self.account)
         else:
             result = False
 
         return result
 
-    def lessThan(self, source_left, source_right):
-        """
-        Override lessThan()
-
-        :param source_left: source_left
-        :param source_right: source_right
-        :return: (bool)
-        """
-
-        left_data_date = self.sourceModel().data(
-            source_left, Qt.ItemDataRole.DisplayRole
-        )["date"]
-        right_data_date = self.sourceModel().data(
-            source_right, Qt.ItemDataRole.DisplayRole
-        )["date"]
-
-        left_date = datetime.strptime(left_data_date, "%Y-%m-%d")
-        right_date = datetime.strptime(right_data_date, "%Y-%m-%d")
-
-        return left_date < right_date
+    # def lessThan(self, source_left, source_right):
+    #     """
+    #     Override lessThan()
+    #
+    #     :param source_left: source_left
+    #     :param source_right: source_right
+    #     :return: (bool)
+    #     """
+    #
+    #     left_data_date = self.sourceModel().data(
+    #         source_left, Qt.ItemDataRole.DisplayRole
+    #     )["date"]
+    #     right_data_date = self.sourceModel().data(
+    #         source_right, Qt.ItemDataRole.DisplayRole
+    #     )["date"]
+    #
+    #     left_date = datetime.strptime(left_data_date, "%Y-%m-%d")
+    #     right_date = datetime.strptime(right_data_date, "%Y-%m-%d")
+    #
+    #     return left_date < right_date
 
 
 class TransactionsModel(QAbstractListModel):
@@ -286,7 +285,7 @@ class TransactionsModel(QAbstractListModel):
 
         index_updated = QModelIndex()
         for index, existing_transaction in enumerate(self.transactions):
-            if existing_transaction.get('id') == transaction.get('id'):
+            if existing_transaction.get("id") == transaction.get("id"):
                 existing_transaction.update(transaction)
                 index_updated = self.index(index, 0)
                 self.dataChanged.emit(index_updated, index_updated)

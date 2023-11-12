@@ -59,7 +59,9 @@ class Home(QObject):
         # Connect signals from accounts
         self._accounts.addAccountCall.connect(self.addAccountController.emit)
         self._accounts.addBankCall.connect(self.addBankController.emit)
-        self._accounts.postTransactionsCall.connect(self.postTransactionsController.emit)
+        self._accounts.postTransactionsCall.connect(
+            self.postTransactionsController.emit
+        )
         self._transactions.addTransaction.connect(self.addTransactionController.emit)
         self._transactions.importTransactions.connect(
             self.importTransactionsController.emit
@@ -94,6 +96,7 @@ class Home(QObject):
 
         # Add account to model and close popup
         self._accounts.add_account_details(account)
+        self._transactions.add_account_details(account)
 
     def handle_add_bank(self, bank: dict):
         """

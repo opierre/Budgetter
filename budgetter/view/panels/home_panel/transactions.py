@@ -167,6 +167,24 @@ class Transactions(QObject):
         # Connect double click on item to update content
         self.transactions_listview.doubleClicked.connect(self.edit_transaction)
 
+    def add_account_details(self, account: dict):
+        """
+        Add account to current view and model and close opened dialog
+
+        :param account: account details
+        :return: None
+        """
+
+        # Add account in model
+        self.account_identifiers.update(
+            {
+                account.get("account_id"): {
+                    "name": account.get("name"),
+                    "id": account.get("id"),
+                }
+            }
+        )
+
     def remove_transaction(self):
         """
         Open dialog to confirm transaction deletion
@@ -288,15 +306,21 @@ class Transactions(QObject):
         """
 
         # Show notification on bank added
-        msg = f"{len(transactions)} transactions " if isinstance(transactions, list) else "Transaction "
+        msg = (
+            f"{len(transactions)} transactions "
+            if isinstance(transactions, list)
+            else "Transaction "
+        )
         _ = Toaster(f"{msg} added", ToasterType.SUCCESS, self.main_window)
 
         # Update models
-        transactions_list = transactions if isinstance(transactions, list) else [transactions]
+        transactions_list = (
+            transactions if isinstance(transactions, list) else [transactions]
+        )
         for transaction in transactions_list:
-            transaction.update(
-                {"account_name": self.account_identifiers.get(transaction.get("account")).get("name")}
-            )
+            for account_number, account in self.account_identifiers.items():
+                if account.get("id") == transaction.get("account"):
+                    transaction.update({"account_name": account.get("name")})
         self.transactions_filter_model.add_transactions(transactions)
 
         # Close current popup and show previous one again
@@ -392,7 +416,8 @@ class Transactions(QObject):
             transaction.update(
                 {
                     "account_name": self.account_identifiers.get(
-                        transaction.get("account")).get("name")
+                        transaction.get("account")
+                    ).get("name")
                 }
             )
         self.transactions_model.setup_transactions(transactions)
