@@ -16,7 +16,8 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QApplication, QGridLayout, QHBoxLayout, QLabel,
-    QProgressBar, QSizePolicy, QVBoxLayout, QWidget)
+    QLayout, QProgressBar, QSizePolicy, QVBoxLayout,
+    QWidget)
 
 from budgetter.view.widgets.material_outlined_line_edit import MaterialOutlinedLineEdit
 
@@ -24,7 +25,7 @@ class Ui_ImportTransactions(object):
     def setupUi(self, ImportTransactions):
         if not ImportTransactions.objectName():
             ImportTransactions.setObjectName("ImportTransactions")
-        ImportTransactions.resize(435, 181)
+        ImportTransactions.resize(435, 193)
         ImportTransactions.setStyleSheet("QWidget#transaction \n"
 "{\n"
 "	background-color: #1C293B;\n"
@@ -195,13 +196,20 @@ class Ui_ImportTransactions(object):
         self.gridLayout.setObjectName("gridLayout")
         self.transaction = QWidget(ImportTransactions)
         self.transaction.setObjectName("transaction")
+        sizePolicy = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Minimum)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.transaction.sizePolicy().hasHeightForWidth())
+        self.transaction.setSizePolicy(sizePolicy)
         self.verticalLayout = QVBoxLayout(self.transaction)
         self.verticalLayout.setSpacing(20)
         self.verticalLayout.setObjectName("verticalLayout")
+        self.verticalLayout.setSizeConstraint(QLayout.SetDefaultConstraint)
         self.verticalLayout.setContentsMargins(0, 0, 15, 0)
         self.label = QLabel(self.transaction)
         self.label.setObjectName("label")
         self.label.setMinimumSize(QSize(270, 0))
+        self.label.setMaximumSize(QSize(16777215, 20))
         font = QFont()
         font.setFamilies([u"Roboto"])
         font.setPointSize(12)
@@ -240,13 +248,15 @@ class Ui_ImportTransactions(object):
 
         self.verticalLayout.addLayout(self.horizontalLayout_2)
 
+        self.verticalLayout_2 = QVBoxLayout()
+        self.verticalLayout_2.setObjectName("verticalLayout_2")
         self.header_info = QLabel(self.transaction)
         self.header_info.setObjectName("header_info")
-        sizePolicy = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.header_info.sizePolicy().hasHeightForWidth())
-        self.header_info.setSizePolicy(sizePolicy)
+        sizePolicy1 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
+        sizePolicy1.setHorizontalStretch(0)
+        sizePolicy1.setVerticalStretch(0)
+        sizePolicy1.setHeightForWidth(self.header_info.sizePolicy().hasHeightForWidth())
+        self.header_info.setSizePolicy(sizePolicy1)
         self.header_info.setMinimumSize(QSize(400, 0))
         self.header_info.setMaximumSize(QSize(400, 16777215))
         font1 = QFont()
@@ -261,7 +271,10 @@ class Ui_ImportTransactions(object):
         self.header_info.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
         self.header_info.setWordWrap(True)
 
-        self.verticalLayout.addWidget(self.header_info)
+        self.verticalLayout_2.addWidget(self.header_info)
+
+
+        self.verticalLayout.addLayout(self.verticalLayout_2)
 
 
         self.gridLayout.addWidget(self.transaction, 0, 0, 1, 1)
@@ -276,6 +289,6 @@ class Ui_ImportTransactions(object):
         ImportTransactions.setWindowTitle(QCoreApplication.translate("ImportTransactions", "Form", None))
         self.label.setText(QCoreApplication.translate("ImportTransactions", "Import an OFX file with transactions.", None))
         self.import_path.setText("")
-        self.header_info.setText(QCoreApplication.translate("ImportTransactions", "Importing nb transactions from start date to end end date on accounts A and B", None))
+        self.header_info.setText("")
     # retranslateUi
 

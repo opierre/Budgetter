@@ -3,7 +3,7 @@ from typing import List
 
 from PySide6.QtCore import Signal
 from PySide6.QtGui import QIcon
-from PySide6.QtWidgets import QWidget, QLineEdit, QFileDialog
+from PySide6.QtWidgets import QWidget, QLineEdit, QFileDialog, QApplication
 
 from budgetter.view.skeletons.ImportTransactions import Ui_ImportTransactions
 
@@ -103,19 +103,15 @@ class ImportTransactionsDialog(QWidget):
         if new_accounts:
             accounts_list = ""
             for account in new_accounts:
-                accounts_list += f"{account.get('account_id')}\n"
-            end_message = (
-                f"{len(new_accounts)} new accounts detected: \n{accounts_list}"
-            )
-            nb_lines = len(accounts_list) + 1
+                accounts_list += f"<br/><b>{account.get('account_id')}</b>"
+            end_message = f"<br/>{len(new_accounts)} new accounts detected: {accounts_list}"
         else:
             end_message = ""
-            nb_lines = 0
-        message = f"Importing {nb_transactions} transactions from {start_date} to {end_date}...\n{end_message}"
+        message = (f"Importing <b>{nb_transactions}</b> transactions from <b>{start_date}</b> to <b>{end_date}</b>..."
+                   f"{end_message}")
         self.content.header_info.setText(message)
-        height_font = self.content.header_info.fontMetrics().height()
-        self.content.header_info.setFixedHeight((2 + nb_lines) * height_font)
         self.content.header_info.update()
+        QApplication.processEvents()
 
         # Emit signal to resize dialog parent
         self.computeResize.emit()
