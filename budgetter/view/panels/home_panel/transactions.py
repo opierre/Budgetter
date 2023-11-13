@@ -379,6 +379,8 @@ class Transactions(QObject):
 
         # Clear previous accounts
         self.account_identifiers.clear()
+        for account_button in self.accounts:
+            self.status_bar.removeWidget(account_button)
         self.accounts.clear()
 
         for account in accounts:
