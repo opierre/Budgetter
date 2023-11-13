@@ -79,3 +79,4 @@ main.pyproject.user
 budgetter/view/widgets/overlay.py
 server/dashboard/migrations/
 server/server/database.py
+budgetter/view/resources/bank_logo/*.svg
