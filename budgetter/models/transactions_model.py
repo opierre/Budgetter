@@ -1,3 +1,4 @@
+from datetime import datetime
 from typing import Union, Any, List
 
 from PySide6.QtCore import (
@@ -149,26 +150,26 @@ class TransactionsFilterModel(QSortFilterProxyModel):
 
         return result
 
-    # def lessThan(self, source_left, source_right):
-    #     """
-    #     Override lessThan()
-    #
-    #     :param source_left: source_left
-    #     :param source_right: source_right
-    #     :return: (bool)
-    #     """
-    #
-    #     left_data_date = self.sourceModel().data(
-    #         source_left, Qt.ItemDataRole.DisplayRole
-    #     )["date"]
-    #     right_data_date = self.sourceModel().data(
-    #         source_right, Qt.ItemDataRole.DisplayRole
-    #     )["date"]
-    #
-    #     left_date = datetime.strptime(left_data_date, "%Y-%m-%d")
-    #     right_date = datetime.strptime(right_data_date, "%Y-%m-%d")
-    #
-    #     return left_date < right_date
+    def lessThan(self, source_left, source_right):
+        """
+        Override lessThan()
+
+        :param source_left: source_left
+        :param source_right: source_right
+        :return: (bool)
+        """
+
+        left_data_date = self.sourceModel().data(
+            source_left, Qt.ItemDataRole.DisplayRole
+        )["date"]
+        right_data_date = self.sourceModel().data(
+            source_right, Qt.ItemDataRole.DisplayRole
+        )["date"]
+
+        left_date = datetime.strptime(left_data_date, "%Y-%m-%d")
+        right_date = datetime.strptime(right_data_date, "%Y-%m-%d")
+
+        return left_date < right_date
 
 
 class TransactionsModel(QAbstractListModel):
