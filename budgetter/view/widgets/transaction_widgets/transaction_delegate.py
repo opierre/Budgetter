@@ -200,7 +200,7 @@ class TransactionDelegate(QStyledItemDelegate):
             painter,
             rect_background,
             QApplication.translate("transaction_delegate", "Amount"),
-            1 / 4,
+            1.3 / 4,
         )
 
         # Draw date
@@ -211,7 +211,7 @@ class TransactionDelegate(QStyledItemDelegate):
             painter,
             rect_background,
             QApplication.translate("transaction_delegate", "Date"),
-            1.8 / 4,
+            2 / 4,
         )
 
         # Draw account
@@ -222,7 +222,7 @@ class TransactionDelegate(QStyledItemDelegate):
             painter,
             rect_background,
             QApplication.translate("transaction_delegate", "Account"),
-            2.6 / 4,
+            2.7 / 4,
         )
 
         # Draw mean icon
@@ -466,7 +466,7 @@ class TransactionDelegate(QStyledItemDelegate):
         self.rect_name = QRect(
             x,
             self.rect_category.y() + option.rect.height() * 1 / 30,
-            min(pixels_width, rect_background.width() * 1 / 4 - x - 20),
+            min(pixels_width, rect_background.width() * 1.3 / 4 - x - 30),
             pixels_height,
         )
 
@@ -540,7 +540,7 @@ class TransactionDelegate(QStyledItemDelegate):
 
         # Set amount on right corner
         self.rect_amount = QRect(
-            rect_background.width() * 1 / 4,
+            rect_background.width() * 1.3 / 4,
             self.rect_name.y(),
             pixels_width,
             pixels_height,
@@ -614,7 +614,7 @@ class TransactionDelegate(QStyledItemDelegate):
 
         # Set date on right corner
         self.rect_date = QRect(
-            rect_background.width() * 1.8 / 4,
+            rect_background.width() * 2.0 / 4,
             self.rect_name.y(),
             pixels_width,
             pixels_height,
@@ -650,7 +650,7 @@ class TransactionDelegate(QStyledItemDelegate):
 
         # Set account on right corner
         self.rect_account = QRect(
-            rect_background.width() * 2.6 / 4,
+            rect_background.width() * 2.7 / 4,
             self.rect_name.y(),
             pixels_width,
             pixels_height,
