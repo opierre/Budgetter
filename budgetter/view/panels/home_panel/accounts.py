@@ -1,3 +1,5 @@
+import os
+
 from PySide6.QtCore import QObject, QCoreApplication, QSize, Signal, QEventLoop
 from PySide6.QtGui import QIcon
 from PySide6.QtWidgets import QListView, QWidget, QHBoxLayout
@@ -131,6 +133,19 @@ class Accounts(QObject):
                     }
                 }
             )
+            # Save bank logo in resources folder
+            if bank_info.get("svg_content") is not None:
+                logo_path = os.path.join(
+                    os.path.abspath(os.path.dirname(__file__)),
+                    "..",
+                    "..",
+                    "resources",
+                    "bank_logo",
+                    f"{bank_info.get('name').lower().replace(' ', '_')}.svg",
+                )
+                with open(logo_path, "w") as logo:
+                    logo.write(bank_info.get("svg_content"))
+
         self.bank_identifiers = refactored_banks_info
         self.accounts_model.set_banks(refactored_banks_info)
 
@@ -367,10 +382,11 @@ class Accounts(QObject):
         self.balance_chart.add_slice(float(account.get("amount")), account.get("color"))
 
         # Open toaster
-        _ = Toaster(f"Account added: {account.get('name')}",
-                    ToasterType.SUCCESS,
-                    self.main_window
-                    )
+        _ = Toaster(
+            f"Account added: {account.get('name')}",
+            ToasterType.SUCCESS,
+            self.main_window,
+        )
 
         # Stop event loop
         self._event_loop.quit()

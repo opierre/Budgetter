@@ -71,8 +71,14 @@ class AccountsModel(QAbstractListModel):
         """
 
         self.beginInsertRows(QModelIndex(), 0, 1)
+        account_bank = ""
+        for bank_name, bank in self.banks.items():
+            if bank.get("id") == account.get("bank"):
+                account_bank = bank_name
+                break
+
         data = {
-            "bank": self.banks.get(account.get("bank")),
+            "bank": account_bank,
             "name": account.get("name"),
             "amount": account.get("amount"),
             "color": account.get("color"),
