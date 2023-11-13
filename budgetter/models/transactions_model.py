@@ -137,13 +137,13 @@ class TransactionsFilterModel(QSortFilterProxyModel):
             else:
                 result = True
         elif self.type == "All" and self.account != "All":
-            result = transaction["account"] == self.account
+            result = transaction["account_name"] == self.account
         elif self.type != "All" and self.account == "All":
             result = transaction["transaction_type"].lower() == self.type.lower()
         elif self.type != "All" and self.account != "All":
             result = (
                              transaction["transaction_type"].lower() == self.type.lower()
-                     ) and (transaction["account"] == self.account)
+                     ) and (transaction["account_name"] == self.account)
         else:
             result = False
 
