@@ -3,7 +3,7 @@ import datetime
 from PySide6.QtCore import QObject, Signal, QThreadPool
 
 from budgetter.utils.ofxtools import convert_ofx_to_json
-from budgetter.utils.rest_client import RestClient
+from budgetter.worker.rest_client import RestClient
 from budgetter.worker.worker import Worker
 
 

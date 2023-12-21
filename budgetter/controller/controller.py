@@ -6,6 +6,7 @@ from budgetter.view.panels.home import Home
 from budgetter.view.panels.menu_view import Menu
 from budgetter.view.skeletons.MainWindow import Ui_MainWindow
 from budgetter.view.widgets.custom_window import CustomWindow
+from budgetter.worker.web_socket import WebSocketClient
 
 
 class Controller:
@@ -30,6 +31,9 @@ class Controller:
 
         # Home threads
         self.home_threads = Dashboard()
+
+        # Web socket client
+        self.ws_client = WebSocketClient()
 
         # Connect all signals/slots
         self.connect_slots_and_signals()
