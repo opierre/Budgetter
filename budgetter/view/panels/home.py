@@ -181,3 +181,13 @@ class Home(QObject):
 
         self._transactions.handle_convert_ofx(header, message)
         self._accounts.handle_convert_ofx(header, data)
+
+    def update_on_ws(self, ws_data: dict):
+        """
+        Handle data received on web socket
+
+        :param ws_data: data from ws
+        :return: None
+        """
+
+        # self._accounts.update

@@ -1,4 +1,5 @@
-from PySide6.QtCore import QTimer
+from PySide6.QtCore import QTimer, QUrl
+from PySide6.QtWebSockets import QWebSocket
 
 from budgetter.services.dashboard import Dashboard
 from budgetter.view.panels.graphs import Graphs
@@ -6,7 +7,6 @@ from budgetter.view.panels.home import Home
 from budgetter.view.panels.menu_view import Menu
 from budgetter.view.skeletons.MainWindow import Ui_MainWindow
 from budgetter.view.widgets.custom_window import CustomWindow
-from budgetter.worker.web_socket import WebSocketClient
 
 
 class Controller:
@@ -33,7 +33,10 @@ class Controller:
         self.home_threads = Dashboard()
 
         # Web socket client
-        self.ws_client = WebSocketClient()
+        self.ws_dashboard_client = QWebSocket()
+
+        # Configure widgets
+        self.configure()
 
         # Connect all signals/slots
         self.connect_slots_and_signals()
@@ -94,4 +97,18 @@ class Controller:
         )
         self.home_threads.transactionsPosted.connect(self.home_panel.handle_add_transactions)
 
+        # Connect web socket
+        self.ws_dashboard_client.textMessageReceived.connect(self.home_threads.update_on_ws)
+        self.ws_dashboard_client.binaryMessageReceived.connect(self.home_threads.update_on_ws)
+
         QTimer.singleShot(500, self.home_threads.get_banks_worker)
+
+    def configure(self):
+        """
+        Configure all widgets
+
+        :return: None
+        """
+
+        # Configure web sockets
+        self.ws_dashboard_client.open(QUrl("ws://127.0.0.1:8080/ws/dashboard/"))
