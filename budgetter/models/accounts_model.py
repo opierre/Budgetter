@@ -85,3 +85,19 @@ class AccountsModel(QAbstractListModel):
         }
         self.accounts.append(data)
         self.endInsertRows()
+
+    def update(self, accounts: dict):
+        """
+        Update accounts info
+
+        :param accounts: accounts info
+        :return: None
+        """
+
+        for index, account in enumerate(self.accounts):
+            account_to_update = accounts.get(account.get("name"))
+
+            new_amount = account_to_update.get("balance", 0)
+            if new_amount != account.get("amount"):
+                account.update({"amount": new_amount})
+                self.dataChanged(self.index(index, 0))

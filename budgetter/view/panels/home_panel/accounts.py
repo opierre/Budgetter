@@ -448,3 +448,13 @@ class Accounts(QObject):
 
         # Emit signal to push transactions
         self.postTransactionsCall.emit(data)
+
+    def update_accounts(self, accounts: dict):
+        """
+        Update accounts details
+
+        :param accounts: accounts info
+        :return: None
+        """
+
+        self.accounts_model.update(accounts)

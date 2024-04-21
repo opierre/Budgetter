@@ -1,3 +1,4 @@
+import json
 from typing import Any, Tuple, Union
 
 from PySide6.QtCore import QObject, Signal
@@ -182,7 +183,7 @@ class Home(QObject):
         self._transactions.handle_convert_ofx(header, message)
         self._accounts.handle_convert_ofx(header, data)
 
-    def update_on_ws(self, ws_data: dict):
+    def update_on_ws(self, ws_data: str):
         """
         Handle data received on web socket
 
@@ -190,4 +191,5 @@ class Home(QObject):
         :return: None
         """
 
-        # self._accounts.update
+        dict_data = json.loads(ws_data)
+        self._accounts.update_accounts(dict_data.get("data", {}).get("accounts", {}))
