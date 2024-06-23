@@ -29,7 +29,7 @@ class ChartDashboard(QWidget):
         ]
 
         # Store values for months
-        self.values = [2589, 1809, 1026, 1547, 1258, 987]
+        self.values = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
 
         # Set buttons group exclusive
         self.button_group = QButtonGroup()
@@ -131,7 +131,7 @@ class ChartDashboard(QWidget):
             self.months[5 - index].setCheckable(True)
             self.button_group.addButton(self.months[5 - index])
 
-    def set_values(self, values):
+    def update_values(self, values: list[float]):
         """
         Set value for each month
 
@@ -141,8 +141,10 @@ class ChartDashboard(QWidget):
 
         self.values.clear()
 
-        for value in enumerate(values):
+        for value in values:
             self.values.append(value)
+
+        self.chart.set_values(self.values)
 
     def paintEvent(self, _event):
         """

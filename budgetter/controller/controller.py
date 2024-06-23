@@ -99,7 +99,6 @@ class Controller:
 
         # Connect web socket
         self.ws_dashboard_client.textMessageReceived.connect(self.home_panel.update_on_ws)
-        self.ws_dashboard_client.binaryMessageReceived.connect(self.home_panel.update_on_ws)
 
         QTimer.singleShot(500, self.home_threads.get_banks_worker)
 

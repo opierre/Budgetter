@@ -193,3 +193,4 @@ class Home(QObject):
 
         dict_data = json.loads(ws_data)
         self._accounts.update_accounts(dict_data.get("data", {}).get("accounts", {}))
+        self._spending.update_spending(dict_data.get("data", {}).get("spending", {}))
