@@ -31,7 +31,7 @@ class SpendingChart(QChart):
         self.setBackgroundBrush(QBrush(QColor("transparent")))
 
         # Set animation on series
-        self.setAnimationOptions(QChart.SeriesAnimations)
+        self.setAnimationOptions(QChart.AnimationOption.SeriesAnimations)
 
     def set_values(self, values: list):
         """
@@ -40,6 +40,9 @@ class SpendingChart(QChart):
         :param values: list of values
         :return: None
         """
+
+        # Clear all previous values
+        self.removeAllSeries()
 
         if len(values) != 6:
             return

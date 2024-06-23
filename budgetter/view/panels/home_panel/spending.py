@@ -52,3 +52,16 @@ class Spending(QObject):
         layout.setContentsMargins(0, 0, 0, 0)
 
         self.ui_setup.spending.setWidget(widget)
+
+    def update_spending(self, spending: dict):
+        """
+        Update spending details
+
+        :param spending: spending info
+        :return: None
+        """
+
+        spending_sorted = []
+        for month, amount in spending.items():
+            spending_sorted.append(amount)
+        self.chart_widget.update_values(spending_sorted)
