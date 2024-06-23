@@ -1,4 +1,5 @@
 import os.path
+import re
 from datetime import datetime
 from typing import Tuple
 
@@ -64,11 +65,16 @@ def convert_ofx_to_json(ofx_file_path: str) -> Tuple[dict, dict, str]:
             header.update({"end_date": statement.transactions.dtend})
 
         # Parse transactions
+        exclude_pattern_cb = r"^PRELEVEMENT CARTE DEPENSES CARTE \w{4} AU \d{2}/\d{2}/\d{2}$"
+
         for transaction in statement.transactions:
             # TODO: fix generic term for internal transaction
             if "VIREMENT EN VOTRE FAVEUR DE OLIVIER PIERRE" in transaction.memo:
                 transaction_type = TransactionType.INTERNAL.value
                 transaction_mean = MeanType.TRANSFER.value
+            elif re.match(exclude_pattern_cb, transaction.memo):
+                print(transaction.memo)
+                continue
             elif float(transaction.trnamt) < 0:
                 transaction_type = TransactionType.EXPENSES.value
                 transaction_mean = MeanType.CARD.value
@@ -84,6 +90,7 @@ def convert_ofx_to_json(ofx_file_path: str) -> Tuple[dict, dict, str]:
                     "comment": transaction.memo,
                     "mean": transaction_mean,
                     "account": account,
+                    "reference": transaction.fitid,
                 }
             )
 
