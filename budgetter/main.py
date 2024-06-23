@@ -30,7 +30,7 @@ def start_app():
     app.installTranslator(translator)
 
     # Force Locale
-    locale_qt = QLocale(QLocale.English, QLocale.UnitedStates)
+    locale_qt = QLocale(QLocale.Language.English, QLocale.Country.UnitedStates)
     QLocale.setDefault(locale_qt)
 
     _ = Controller()
