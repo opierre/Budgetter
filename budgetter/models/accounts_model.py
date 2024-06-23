@@ -100,4 +100,4 @@ class AccountsModel(QAbstractListModel):
             new_amount = account_to_update.get("balance", 0)
             if new_amount != account.get("amount"):
                 account.update({"amount": new_amount})
-                self.dataChanged(self.index(index, 0))
+                self.dataChanged.emit(self.index(index, 0), self.index(index, 0))
