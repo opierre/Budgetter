@@ -2,7 +2,7 @@ import datetime
 
 from PySide6.QtCore import QObject, Signal, QThreadPool
 
-from budgetter.utils.ofxtools import convert_ofx_to_json
+
 from budgetter.worker.rest_client import RestClient
 from budgetter.worker.worker import Worker
 
@@ -16,6 +16,7 @@ class Dashboard(QObject):
     ACCOUNT_URL = "http://127.0.0.1:8080/api/budget/account/"
     BANK_URL = "http://127.0.0.1:8080/api/budget/bank/"
     TRANSACTION_URL = "http://127.0.0.1:8080/api/budget/transaction/"
+    OFX_URL = "http://127.0.0.1:8080/api/budget/ofx/upload-ofx/"
     EXPENSES_URL = "http://127.0.0.1:8080/api/budget/expenses/"
     EXPENSES_DISTRIBUTION_URL = f"{EXPENSES_URL}distribution/"
 
@@ -30,7 +31,7 @@ class Dashboard(QObject):
     transactionEdited = Signal(object)
     transactionsFound = Signal(object)
     expensesDistribution = Signal(object)
-    convertOFXCompleted = Signal(object)
+    importOFXCompleted = Signal(object)
     transactionsPosted = Signal(object)
 
     def __init__(self):
@@ -225,8 +226,10 @@ class Dashboard(QObject):
         """
 
         # Create worker
-        worker = Worker(convert_ofx_to_json, ofx_file_path=ofx_path)
-        worker.signals.result.connect(self.convertOFXCompleted.emit)
+        worker = Worker(
+            RestClient.post, url=f"{self.OFX_URL}", file_path=ofx_path
+        )
+        worker.signals.result.connect(self.importOFXCompleted.emit)
         worker.signals.error.connect(self.errorDashboard.emit)
 
         # Start worker

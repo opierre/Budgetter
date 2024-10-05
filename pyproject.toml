@@ -20,8 +20,6 @@ classifiers = [
 dependencies = [
     "PySide6",
     "requests",
-    "ofxtools",
-    "pytz"
 ]
 
 [project.urls]

@@ -46,20 +46,26 @@ class RestClient:
     # session = requests.Session()
 
     @staticmethod
-    def post(url, data):
+    def post(url, data=None, file_path: str = ''):
         """
         Post method
 
         :param url: url
         :param data: data to push - JSON format
+        :param file_path: filepath to send
         :return: JSON return
         """
 
         # Call post method
-        response = requests.post(url, json=data, timeout=5.5)
+        if file_path != '':
+            with open(file_path, 'rb') as file:
+                files = {'file': file}
+                response = requests.post(url, json=data, files=files, timeout=5.5)
+        else:
+            response = requests.post(url, json=data, timeout=5.5)
 
         # Handle error case
-        if response.status_code != 201:
+        if response.status_code >= 300:
             raise BackEndError(response)
 
         return response.json()
