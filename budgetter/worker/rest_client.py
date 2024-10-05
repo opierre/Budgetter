@@ -1,3 +1,5 @@
+from json import JSONDecodeError
+
 import requests
 
 from PySide6.QtCore import QThread
@@ -68,7 +70,12 @@ class RestClient:
         if response.status_code >= 300:
             raise BackEndError(response)
 
-        return response.json()
+        try:
+            response_content = response.json()
+        except JSONDecodeError:
+            response_content = {}
+
+        return response_content
 
     @staticmethod
     def get(url) -> dict:
