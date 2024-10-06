@@ -745,28 +745,25 @@ class Transactions(QObject):
             sender.start_import()
         self.importTransactions.emit(ofx_path)
 
-    def handle_convert_ofx(self, header: dict, message: str):
-        """
-        Handle OFX data converted to dict
-
-        :param header: data header
-        :param message: error message
-        :return: None
-        :return: None
-        """
-
-        if message != "":
-            self.dialogs[-1].central_widget().set_error(message)
-
-        # Update info on dialog
-        new_accounts = []
-        for account in header.get("accounts", []):
-            if account.get("account_id", "") not in self.account_identifiers:
-                new_accounts.append(account)
-
-        self.dialogs[-1].central_widget().set_header_info(
-            header.get("count", -1),
-            header.get("start_date", "xx/xx/xxxx").strftime("%d/%m/%Y"),
-            header.get("end_date", "xx/xx/xxxx").strftime("%d/%m/%Y"),
-            new_accounts,
-        )
+    # def handle_upload_ofx_started(self):
+    #     """
+    #     Handle OFX data started to upload
+    #
+    #     :return: None
+    #     """
+    #
+    #     if message != "":
+    #         self.dialogs[-1].central_widget().set_error(message)
+    #
+    #     # Update info on dialog
+    #     new_accounts = []
+    #     for account in header.get("accounts", []):
+    #         if account.get("account_id", "") not in self.account_identifiers:
+    #             new_accounts.append(account)
+    #
+    #     self.dialogs[-1].central_widget().set_header_info(
+    #         header.get("count", -1),
+    #         header.get("start_date", "xx/xx/xxxx").strftime("%d/%m/%Y"),
+    #         header.get("end_date", "xx/xx/xxxx").strftime("%d/%m/%Y"),
+    #         new_accounts,
+    #     )

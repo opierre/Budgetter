@@ -170,19 +170,6 @@ class Home(QObject):
         self._accounts.set_accounts(accounts_list)
         self._transactions.set_accounts(accounts_list)
 
-    def handle_convert_ofx(self, result: Tuple[dict, dict, str]):
-        """
-        Handle OFX data converted to dict
-
-        :param result: result from thread
-        :return: None
-        """
-
-        header, data, message = result
-
-        self._transactions.handle_convert_ofx(header, message)
-        self._accounts.handle_convert_ofx(header, data)
-
     def update_on_ws(self, ws_data: str):
         """
         Handle data received on web socket
@@ -192,5 +179,6 @@ class Home(QObject):
         """
 
         dict_data = json.loads(ws_data)
+        print(ws_data)
         self._accounts.update_accounts(dict_data.get("data", {}).get("accounts", {}))
         self._spending.update_spending(dict_data.get("data", {}).get("spending", {}))

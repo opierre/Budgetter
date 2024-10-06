@@ -31,7 +31,6 @@ class Dashboard(QObject):
     transactionEdited = Signal(object)
     transactionsFound = Signal(object)
     expensesDistribution = Signal(object)
-    importOFXCompleted = Signal(object)
     transactionsPosted = Signal(object)
 
     def __init__(self):
@@ -229,7 +228,6 @@ class Dashboard(QObject):
         worker = Worker(
             RestClient.post, url=f"{self.OFX_URL}", file_path=ofx_path
         )
-        worker.signals.result.connect(self.importOFXCompleted.emit)
         worker.signals.error.connect(self.errorDashboard.emit)
 
         # Start worker

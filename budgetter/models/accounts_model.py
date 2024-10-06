@@ -14,9 +14,6 @@ class AccountsModel(QAbstractListModel):
         # Store accounts
         self.accounts = categories or []
 
-        # Store bank idents/name
-        self.banks = {}
-
     def data(self, index: Union[QModelIndex, QPersistentModelIndex], role: int = -1):
         """
         Override data() from QAbstractListModel
@@ -35,6 +32,16 @@ class AccountsModel(QAbstractListModel):
 
             # Return current account list
             result = account
+
+        elif (
+                isinstance(index, QModelIndex)
+                and index.isValid()
+                and role == Qt.ItemDataRole.ToolTipRole
+        ):
+            account = self.accounts[index.row()]
+
+            # Return current account reference
+            result = list(account.keys())[0]
         else:
             result = None
 
@@ -52,16 +59,6 @@ class AccountsModel(QAbstractListModel):
 
         return len(self.accounts)
 
-    def set_banks(self, banks: dict):
-        """
-        Set banks
-
-        :param banks: banks to store
-        :return: None
-        """
-
-        self.banks = banks
-
     def add_account(self, account: dict):
         """
         Add new account to model
@@ -71,22 +68,18 @@ class AccountsModel(QAbstractListModel):
         """
 
         self.beginInsertRows(QModelIndex(), 0, 1)
-        account_bank = ""
-        for bank_name, bank in self.banks.items():
-            if bank.get("id") == account.get("bank"):
-                account_bank = bank_name
-                break
-
         data = {
-            "bank": account_bank,
-            "name": account.get("name"),
-            "amount": account.get("amount"),
-            "color": account.get("color"),
+            account.get("account_id"): {
+                "bank": account.get("bank"),
+                "name": account.get("name"),
+                "amount": account.get("amount"),
+                "color": account.get("color")
+            }
         }
         self.accounts.append(data)
         self.endInsertRows()
 
-    def update(self, accounts: dict):
+    def update(self, accounts: list[dict]):
         """
         Update accounts info
 
@@ -94,10 +87,20 @@ class AccountsModel(QAbstractListModel):
         :return: None
         """
 
-        for index, account in enumerate(self.accounts):
-            account_to_update = accounts.get(account.get("name"))
+        for account in accounts:
+            found = False
+            # Parse already stored account to check if it exists
+            for index, stored_account in enumerate(self.accounts):
+                if list(stored_account.keys())[0] == account.get("account_id"):
+                    found = True
 
-            new_amount = account_to_update.get("balance", 0)
-            if new_amount != account.get("amount"):
-                account.update({"amount": new_amount})
-                self.dataChanged.emit(self.index(index, 0), self.index(index, 0))
+                    # Update existing account
+                    new_amount = account.get("amount", 0)
+                    if new_amount != stored_account.get("amount"):
+                        stored_account.update({"amount": new_amount})
+                        self.dataChanged.emit(self.index(index, 0), self.index(index, 0))
+                    break
+
+            if found is False:
+                # Account not already stored / Account ID not found
+                self.add_account(account)

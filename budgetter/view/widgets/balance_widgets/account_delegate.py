@@ -61,12 +61,13 @@ class AccountDelegate(QItemDelegate):
         painter.save()
 
         # Get values
-        value = index.data(Qt.ItemDataRole.DisplayRole)
-        bank = value.get("bank")
-        account_name = value.get("name")
-        amount = convert_amount_to_str(value.get("amount")) + " €"
-        trend = value.get("trend", "")
-        color = QColor(value.get("color", "#ffffff"))
+        values = index.data(Qt.ItemDataRole.DisplayRole)
+        account_id = list(values.keys())[0]
+        bank = values.get(account_id).get("bank")
+        account_name = values.get(account_id).get("name")
+        amount = convert_amount_to_str(values.get(account_id).get("amount")) + " €"
+        trend = values.get(account_id).get("trend", "")
+        color = QColor(values.get(account_id).get("color", "#ffffff"))
 
         # Draw bottom border
         painter.setPen(QPen(QColor("#344457")))

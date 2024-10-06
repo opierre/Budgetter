@@ -126,8 +126,8 @@ class Accounts(QObject):
         for bank_info in banks:
             refactored_banks_info.update(
                 {
-                    bank_info.get("name"): {
-                        "id": bank_info.get("id"),
+                    bank_info.get("id"): {
+                        "name": bank_info.get("name"),
                         "bic": bank_info.get("bic"),
                         "swift": bank_info.get("swift"),
                     }
@@ -147,7 +147,6 @@ class Accounts(QObject):
                     logo.write(bank_info.get("svg_content"))
 
         self.bank_identifiers = refactored_banks_info
-        self.accounts_model.set_banks(refactored_banks_info)
 
     def add_account(self, account_info: dict = None):
         """
@@ -449,7 +448,7 @@ class Accounts(QObject):
         # Emit signal to push transactions
         self.postTransactionsCall.emit(data)
 
-    def update_accounts(self, accounts: dict):
+    def update_accounts(self, accounts: list[dict]):
         """
         Update accounts details
 
