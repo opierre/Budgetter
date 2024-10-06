@@ -182,3 +182,13 @@ class Home(QObject):
         print(ws_data)
         self._accounts.update_accounts(dict_data.get("data", {}).get("accounts", {}))
         self._spending.update_spending(dict_data.get("data", {}).get("spending", {}))
+
+    def handle_import_completed(self, import_result: dict):
+        """
+        Handle result from import completed
+
+        :param import_result: import method result
+        :return: None
+        """
+
+        self._transactions.import_completed(import_result)

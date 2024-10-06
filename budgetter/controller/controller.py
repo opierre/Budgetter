@@ -1,3 +1,5 @@
+import json
+
 from PySide6.QtCore import QTimer, QUrl
 from PySide6.QtWebSockets import QWebSocket
 
@@ -34,6 +36,7 @@ class Controller:
 
         # Web socket client
         self.ws_dashboard_client = QWebSocket()
+        self.ws_budgetter_client = QWebSocket()
 
         # Configure widgets
         self.configure()
@@ -96,6 +99,7 @@ class Controller:
 
         # Connect web socket
         self.ws_dashboard_client.textMessageReceived.connect(self.home_panel.update_on_ws)
+        self.ws_budgetter_client.textMessageReceived.connect(self.dispatch_global_ws)
 
         QTimer.singleShot(500, self.home_threads.get_banks_worker)
 
@@ -108,3 +112,21 @@ class Controller:
 
         # Configure web sockets
         self.ws_dashboard_client.open(QUrl("ws://127.0.0.1:8080/ws/dashboard/"))
+        self.ws_budgetter_client.open(QUrl("ws://127.0.0.1:8080/ws/budgetter/"))
+
+    def dispatch_global_ws(self, ws_data: str):
+        """
+        Handle data received on web socket
+
+        :param ws_data: data from ws
+        :return: None
+        """
+
+        dict_data = json.loads(ws_data)
+        print(ws_data)
+
+        function_completed = dict_data.get("data", {}).get("function_completed", "")
+        result = dict_data.get("data", {}).get("result", {})
+
+        if function_completed == "import_ofx_to_database":
+            self.home_panel.handle_import_completed(result)

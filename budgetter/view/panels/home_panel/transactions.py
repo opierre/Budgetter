@@ -767,3 +767,23 @@ class Transactions(QObject):
     #         header.get("end_date", "xx/xx/xxxx").strftime("%d/%m/%Y"),
     #         new_accounts,
     #     )
+
+    def import_completed(self, result: dict):
+        """
+        OFX import completed
+
+        :param result: result to parse
+        :return: None
+        """
+
+        # Close current dialog
+        self.escape_dialog()
+
+        # Open notification
+        _ = Toaster(
+            "OFX import successful.\n"
+            f"{result.get("accounts_created")} accounts & {result.get("transaction_created")} transactions created\n"
+            f"from {result.get("start_date")} to {result.get("end_date")}",
+            ToasterType.SUCCESS,
+            self.main_window,
+        )
