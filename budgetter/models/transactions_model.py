@@ -161,10 +161,10 @@ class TransactionsFilterModel(QSortFilterProxyModel):
 
         left_data_date = self.sourceModel().data(
             source_left, Qt.ItemDataRole.DisplayRole
-        )["date"]
+        ).get("date")
         right_data_date = self.sourceModel().data(
             source_right, Qt.ItemDataRole.DisplayRole
-        )["date"]
+        ).get("date")
 
         left_date = datetime.strptime(left_data_date, "%Y-%m-%d")
         right_date = datetime.strptime(right_data_date, "%Y-%m-%d")

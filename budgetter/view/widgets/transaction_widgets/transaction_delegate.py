@@ -155,15 +155,15 @@ class TransactionDelegate(QStyledItemDelegate):
         # Get values
         value = index.data(Qt.ItemDataRole.DisplayRole)
 
-        name = str(value["name"])
-        category = str(value["category"])
-        amount = value["amount"] + " €"
-        date = str(value["date"])
+        name = str(value.get("name"))
+        category = str(value.get("category"))
+        amount = value.get("amount") + " €"
+        date = str(value.get("date"))
         date = datetime.datetime.strptime(date, "%Y-%m-%d").strftime("%d %b %Y")
-        account = str(value["account_name"])
-        exp_or_inc = str(value["transaction_type"])
-        means = str(value["mean"])
-        comment = str(value["comment"])
+        account = str(value.get("account"))
+        exp_or_inc = str(value.get("transaction_type"))
+        means = str(value.get("mean"))
+        comment = str(value.get("comment"))
 
         # Draw separator
         self.draw_separator(painter, option)

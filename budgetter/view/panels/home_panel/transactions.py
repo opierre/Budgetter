@@ -292,21 +292,23 @@ class Transactions(QObject):
         self.dialogs[-1].close()
         self.dialogs.pop(-1)
 
-    def transactions_added(self, transactions: Union[dict, list]):
+    def transactions_added(self, transactions: Union[dict, list], from_import: bool = False):
         """
         Handle transactions added
 
         :param transactions: transactions details
+        :param from_import: if transaction addition came from OFX import file
         :return: None
         """
 
         # Show notification on bank added
-        msg = (
-            f"{len(transactions)} transactions "
-            if isinstance(transactions, list)
-            else "Transaction "
-        )
-        _ = Toaster(f"{msg} added", ToasterType.SUCCESS, self.main_window)
+        if from_import is False:
+            msg = (
+                f"{len(transactions)} transactions "
+                if isinstance(transactions, list)
+                else "Transaction "
+            )
+            _ = Toaster(f"{msg} added", ToasterType.SUCCESS, self.main_window)
 
         # Update models
         transactions_list = (
@@ -317,11 +319,12 @@ class Transactions(QObject):
                 if account.get("id") == transaction.get("account"):
                     transaction.update({"account_name": account.get("name")})
                     break
-        self.transactions_filter_model.add_transactions(transactions)
+        self.transactions_filter_model.add_transactions(transactions_list)
 
         # Close current popup and show previous one again
-        self.dialogs[-1].close()
-        self.dialogs.pop(-1)
+        if from_import is False:
+            self.dialogs[-1].close()
+            self.dialogs.pop(-1)
 
     def transaction_edited(self, transaction: dict):
         """
