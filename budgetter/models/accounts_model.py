@@ -79,13 +79,15 @@ class AccountsModel(QAbstractListModel):
         self.accounts.append(data)
         self.endInsertRows()
 
-    def update(self, accounts: list[dict]):
+    def update(self, accounts: list[dict]) -> list[dict]:
         """
         Update accounts info
 
         :param accounts: accounts info
-        :return: None
+        :return: list of new accounts to add
         """
+
+        accounts_to_add = []
 
         for account in accounts:
             found = False
@@ -103,4 +105,6 @@ class AccountsModel(QAbstractListModel):
 
             if found is False:
                 # Account not already stored / Account ID not found
-                self.add_account(account)
+                accounts_to_add.append(account)
+
+        return accounts_to_add

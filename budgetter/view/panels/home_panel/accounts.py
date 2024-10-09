@@ -1,7 +1,7 @@
 import os
 
 from PySide6.QtCore import QObject, QCoreApplication, QSize, Signal, QEventLoop
-from PySide6.QtGui import QIcon
+from PySide6.QtGui import QIcon, QColor
 from PySide6.QtWidgets import QListView, QWidget, QHBoxLayout
 
 from budgetter.models.accounts_model import AccountsModel
@@ -45,6 +45,9 @@ class Accounts(QObject):
 
         # Store dialogs for adding account
         self.dialogs = []
+
+        # Store default colors for account added via import
+        self._default_colors = ["#6658ca", "#0054c7", "#26c1ca", "#1ba9e9", "#fccb01"]
 
         # Store local event loop
         self._event_loop = QEventLoop()
@@ -374,15 +377,27 @@ class Accounts(QObject):
                 }
             }
         )
-        self.dialogs[-1].close()
-        self.dialogs.pop(-1)
+
+        if len(self.dialogs) > 0:
+            self.dialogs[-1].close()
+            self.dialogs.pop(-1)
+
+        color = account.get("color", "")
+        if color == "":
+            color = self._default_colors[0]
+            self._default_colors.append(color)
+            self._default_colors.pop(0)
 
         # Update balance widget
-        self.balance_chart.add_slice(float(account.get("amount")), account.get("color"))
+        self.balance_chart.add_slice(float(account.get("amount")), QColor(color))
 
         # Open toaster
+        ref = account.get('name', "")
+        if ref == "":
+            ref = account.get('account_id', "")
+
         _ = Toaster(
-            f"Account added: {account.get('name')}",
+            f"Account added: {ref}",
             ToasterType.SUCCESS,
             self.main_window,
         )
@@ -456,4 +471,7 @@ class Accounts(QObject):
         :return: None
         """
 
-        self.accounts_model.update(accounts)
+        new_accounts = self.accounts_model.update(accounts)
+
+        for new_account in new_accounts:
+            self.add_account_details(new_account)

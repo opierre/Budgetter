@@ -129,4 +129,6 @@ class Controller:
         result = dict_data.get("data", {}).get("result", {})
 
         if function_completed == "import_ofx_to_database":
+            # Close import dialog and open toaster
+            # Open dialogs if new accounts were created
             self.home_panel.handle_import_completed(result)

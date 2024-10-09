@@ -192,4 +192,5 @@ class Home(QObject):
         :return: None
         """
 
+        # Close current dialog and open toaster
         self._transactions.import_completed(import_result)
