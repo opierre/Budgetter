@@ -192,7 +192,7 @@ class Accounts(QObject):
                 header_icon,
                 dialog_content,
                 self.main_window,
-                closable=account_info is None,
+                closable=True,
             )
         )
 
@@ -435,39 +435,6 @@ class Accounts(QObject):
             self.balance_chart.add_slice(
                 float(account.get("amount")), account.get("color")
             )
-
-    def handle_convert_ofx(self, header: dict, data: dict):
-        """
-        Handle conversion from OFX to check new accounts to create
-
-        :param header: header data
-        :param data: data
-        :return: None
-        """
-
-        # Update info on dialog
-        new_accounts = []
-        for account in header.get("accounts", []):
-            if account.get("account_id", "") not in self.account_identifiers:
-                new_accounts.append(account)
-
-        # Open new dialogs to create new accounts
-        if new_accounts:
-            for account in new_accounts:
-                self.add_account(account)
-
-        # Refactor message with account IDs
-        for transaction in data.get("transactions"):
-            transaction.update(
-                {
-                    "account": self.account_identifiers.get(
-                        transaction.get("account").get("account_id")
-                    ).get("id")
-                }
-            )
-
-        # Emit signal to push transactions
-        self.postTransactionsCall.emit(data)
 
     def update_accounts(self, accounts: list[dict]):
         """
