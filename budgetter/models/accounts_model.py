@@ -14,7 +14,8 @@ class AccountsModel(QAbstractListModel):
         # Store accounts
         self.accounts = categories or []
 
-    def data(self, index: Union[QModelIndex, QPersistentModelIndex], role: int = -1):
+    def data(self, index: Union[QModelIndex, QPersistentModelIndex],
+             role: Qt.ItemDataRole = Qt.ItemDataRole.DisplayRole):
         """
         Override data() from QAbstractListModel
 
@@ -110,3 +111,13 @@ class AccountsModel(QAbstractListModel):
                 accounts_to_add.append(account)
 
         return accounts_to_add
+
+    def flags(self, _index):
+        """
+        Override flags()
+
+        :param _index: index
+        :return: flags
+        """
+
+        return Qt.ItemFlag.ItemIsEditable | Qt.ItemFlag.ItemIsEnabled | Qt.ItemFlag.ItemIsSelectable

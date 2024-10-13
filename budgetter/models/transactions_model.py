@@ -143,8 +143,8 @@ class TransactionsFilterModel(QSortFilterProxyModel):
             result = transaction["transaction_type"].lower() == self.type.lower()
         elif self.type != "All" and self.account != "All":
             result = (
-                transaction["transaction_type"].lower() == self.type.lower()
-            ) and (transaction["account_name"] == self.account)
+                             transaction["transaction_type"].lower() == self.type.lower()
+                     ) and (transaction["account_name"] == self.account)
         else:
             result = False
 
@@ -184,9 +184,9 @@ class TransactionsModel(QAbstractListModel):
         self.transactions = transactions or []
 
     def data(
-        self,
-        index: Union[QModelIndex, QPersistentModelIndex],
-        role=Qt.ItemDataRole.DisplayRole,
+            self,
+            index: Union[QModelIndex, QPersistentModelIndex],
+            role: Qt.ItemDataRole = Qt.ItemDataRole.DisplayRole,
     ):
         """
         Override data() from QAbstractListModel
@@ -197,9 +197,9 @@ class TransactionsModel(QAbstractListModel):
         """
 
         if (
-            isinstance(index, QModelIndex)
-            and index.isValid()
-            and role == Qt.ItemDataRole.DisplayRole
+                isinstance(index, QModelIndex)
+                and index.isValid()
+                and role == Qt.ItemDataRole.DisplayRole
         ):
             transaction = self.transactions[index.row()]
 
@@ -211,10 +211,10 @@ class TransactionsModel(QAbstractListModel):
         return result
 
     def setData(
-        self,
-        index: Union[QModelIndex, QPersistentModelIndex],
-        value: Any,
-        _role=Qt.ItemDataRole.EditRole,
+            self,
+            index: Union[QModelIndex, QPersistentModelIndex],
+            value: Any,
+            _role=Qt.ItemDataRole.EditRole,
     ) -> bool:
         """
         Override setData() from QAbstractListModel
@@ -241,7 +241,7 @@ class TransactionsModel(QAbstractListModel):
         return True
 
     def rowCount(
-        self, _index: Union[QModelIndex, QPersistentModelIndex] = QModelIndex()
+            self, _index: Union[QModelIndex, QPersistentModelIndex] = QModelIndex()
     ):
         """
         Override rowCount() from QAbstractListModel
@@ -302,7 +302,7 @@ class TransactionsModel(QAbstractListModel):
         :return: flags
         """
 
-        return Qt.ItemIsEditable | Qt.ItemIsEnabled | Qt.ItemIsSelectable
+        return Qt.ItemFlag.ItemIsEditable | Qt.ItemFlag.ItemIsEnabled | Qt.ItemFlag.ItemIsSelectable
 
     def setup_transactions(self, transactions: list):
         """

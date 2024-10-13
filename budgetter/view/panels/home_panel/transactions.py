@@ -102,9 +102,9 @@ class Transactions(QObject):
         self.transactions_model = TransactionsModel()
 
         # Store shortcut for adding a transaction
-        self.transaction_shortcut = QShortcut(QKeySequence(Qt.CTRL | Qt.Key_T), self)
+        self.transaction_shortcut = QShortcut(QKeySequence(Qt.KeyboardModifier.ControlModifier | Qt.Key.Key_T), self)
         self.delete_shortcut = QShortcut(
-            Qt.Key.Key_Delete, self.transactions_listview, context=Qt.WidgetShortcut
+            Qt.Key.Key_Delete, self.transactions_listview, context=Qt.ShortcutContext.WidgetShortcut
         )
 
         # Configure status bar

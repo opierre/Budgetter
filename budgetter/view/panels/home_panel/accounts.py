@@ -84,6 +84,9 @@ class Accounts(QObject):
         # Connect click on add in title bar to open dialog
         self.ui_setup.accounts.titleBarClicked.connect(self.add_account)
 
+        # Connect double click on item to update content
+        self.accounts_list.doubleClicked.connect(self.edit_account)
+
     def configure_title_bar(self):
         """
         Configure TitleBar with icon
@@ -492,3 +495,19 @@ class Accounts(QObject):
             self.add_account(account_info=account)
 
         self._new_accounts.clear()
+
+    def edit_account(self):
+        """
+        Open dialog to edit account
+
+        :return: None
+        """
+
+        # Get transaction selected
+        indexes_list = self.accounts_list.selectionModel().selectedIndexes()
+        if not indexes_list:
+            return
+        account = indexes_list[0].model().data(indexes_list[0])
+
+        # Set dialog content
+        self.add_account(account)
