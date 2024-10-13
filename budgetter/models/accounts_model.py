@@ -73,7 +73,7 @@ class AccountsModel(QAbstractListModel):
                 "bank": account.get("bank"),
                 "name": account.get("name"),
                 "amount": account.get("amount"),
-                "color": account.get("color")
+                "color": account.get("color"),
             }
         }
         self.accounts.append(data)
@@ -100,7 +100,9 @@ class AccountsModel(QAbstractListModel):
                     new_amount = account.get("amount", 0)
                     if new_amount != stored_account.get("amount"):
                         stored_account.update({"amount": new_amount})
-                        self.dataChanged.emit(self.index(index, 0), self.index(index, 0))
+                        self.dataChanged.emit(
+                            self.index(index, 0), self.index(index, 0)
+                        )
                     break
 
             if found is False:

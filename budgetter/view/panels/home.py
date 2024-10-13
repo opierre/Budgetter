@@ -181,8 +181,10 @@ class Home(QObject):
         dict_data = json.loads(ws_data)
         self._accounts.update_accounts(dict_data.get("data", {}).get("accounts", {}))
         self._spending.update_spending(dict_data.get("data", {}).get("spending", {}))
-        self._transactions.transactions_added(dict_data.get("data", {}).get("last_transaction_added", {}),
-                                              from_import=True)
+        self._transactions.transactions_added(
+            dict_data.get("data", {}).get("last_transaction_added", {}),
+            from_import=True,
+        )
 
     def handle_import_completed(self, import_result: dict):
         """
@@ -194,3 +196,4 @@ class Home(QObject):
 
         # Close current dialog and open toaster
         self._transactions.import_completed(import_result)
+        self._accounts.import_completed()

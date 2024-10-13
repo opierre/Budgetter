@@ -40,6 +40,9 @@ class Accounts(QObject):
         # Store bank identifiers
         self.bank_identifiers = {}
 
+        # Store new accounts to display in dialogs
+        self._new_accounts = []
+
         # Store accounts identifiers
         self.account_identifiers = {}
 
@@ -392,9 +395,9 @@ class Accounts(QObject):
         self.balance_chart.add_slice(float(account.get("amount")), QColor(color))
 
         # Open toaster
-        ref = account.get('name', "")
+        ref = account.get("name", "")
         if ref == "":
-            ref = account.get('account_id', "")
+            ref = account.get("account_id", "")
 
         _ = Toaster(
             f"Account added: {ref}",
@@ -472,6 +475,20 @@ class Accounts(QObject):
         """
 
         new_accounts = self.accounts_model.update(accounts)
+        self._new_accounts.extend(new_accounts)
 
         for new_account in new_accounts:
             self.add_account_details(new_account)
+
+    def import_completed(self):
+        """
+        OFX import completed
+
+        :return: None
+        """
+
+        for account in self._new_accounts:
+            # Open dialog for each newly created account to fulfill name and color
+            self.add_account(account_info=account)
+
+        self._new_accounts.clear()
