@@ -48,8 +48,6 @@ class AddAccountDialog(QWidget):
         :return: None
         """
 
-        account_id = list(account_info.keys())[0]
-
         # Configure account name attributes
         self.content.account_name.set_label("Account Name")
         self.content.account_name.set_label_background_color(QColor("#1C293B"))
@@ -61,8 +59,6 @@ class AddAccountDialog(QWidget):
         self.content.account_number.set_label_background_color(QColor("#1C293B"))
         self.content.account_number.set_text_color(QColor(255, 255, 255, 255))
         self.content.account_number.set_label_color(QColor(224, 224, 224, 150))
-        if isinstance(account_info, dict):
-            self.content.account_number.setText(account_id)
 
         # Configure amount attributes
         self.content.account_amount.set_label("Initial Amount")
@@ -71,16 +67,12 @@ class AddAccountDialog(QWidget):
         self.content.account_amount.set_label_color(QColor(224, 224, 224, 150))
         self.content.account_amount.setValidator(QDoubleValidator(0, 100000, 2))
         self.content.account_amount.set_trailing_symbol("€")
-        if isinstance(account_info, dict):
-            self.content.account_amount.setText(str(account_info.get(account_id).get("amount")))
 
         # Configure date edit
         self.content.account_amount_date.set_label("Date")
         self.content.account_amount_date.set_label_background_color(QColor("#1C293B"))
         self.content.account_amount_date.set_text_color(QColor(255, 255, 255, 255))
         self.content.account_amount_date.set_label_color(QColor(224, 224, 224, 150))
-        if isinstance(account_info, dict):
-            self.content.account_amount_date.setText(account_info.get(account_id).get("last_update"))
 
         # Configure combobox for bank choice
         self.content.account_bank.set_label("Bank")
@@ -94,6 +86,10 @@ class AddAccountDialog(QWidget):
         )
         self.content.account_bank.setCompleter(self.bank_completer)
         if isinstance(account_info, dict):
+            account_id = list(account_info.keys())[0]
+            self.content.account_number.setText(account_id)
+            self.content.account_amount.setText(str(account_info.get(account_id).get("amount")))
+            self.content.account_amount_date.setText(account_info.get(account_id).get("last_update"))
             for bank_name, bank_info in self.bank_ids.items():
                 if account_info.get(account_id).get("bank_id", "") in bank_info.get("bic"):
                     self.content.account_bank.setText(bank_name)
