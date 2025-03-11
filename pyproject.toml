@@ -25,20 +25,38 @@ dependencies = [
 [project.urls]
 repository = "https://github.com/opierre/Budgetter"
 
-[tool.black]
+[tool.ruff]
+# Exclude a variety of commonly ignored directories.
+exclude = [
+    ".bzr",
+    ".direnv",
+    ".eggs",
+    ".git",
+    ".git-rewrite",
+    ".hg",
+    ".ipynb_checkpoints",
+    ".mypy_cache",
+    ".nox",
+    ".pants.d",
+    ".pyenv",
+    ".pytest_cache",
+    ".pytype",
+    ".ruff_cache",
+    ".svn",
+    ".tox",
+    ".venv",
+    ".vscode",
+    "__pypackages__",
+    "_build",
+    "buck-out",
+    "build",
+    "dist",
+    "node_modules",
+    "site-packages",
+    "venv",
+    "resources",
+    "skeletons",
+]
+
+# Same as Black.
 line-length = 120
-exclude = '''
-(
-  /(
-      \.eggs         # exclude a few common directories in the
-    | \.git          # root of the project
-    | \.github
-    | \.mypy_cache
-    | \.venv
-    | build
-    | dist
-  )/
-  ^resources/
-  ^skeletons/
-)
-'''

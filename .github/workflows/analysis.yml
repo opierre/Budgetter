@@ -9,86 +9,15 @@ on:
   workflow_dispatch:
 
 jobs:
-  pylint:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Setup OS dependency
-        run: |
-          sudo apt-get -y install xorg libxkbcommon0
-      - uses: actions/checkout@v4
-      - name: Set up Python 3.x
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.x"
-          cache: "pip"
-      - name: Install dependencies
-        run: |
-          python -m pip install virtualenv
-          python -m virtualenv .virtualenv
-          source .virtualenv/bin/activate
-          python -m pip install -r requirements.txt
-          python -m pip install --upgrade pylint
-      - name: Code analysis with pylint
-        run: |
-          source .virtualenv/bin/activate
-          python -m pylint --version
-          python -m pylint budgetter -j 0 --rcfile=pylintrc --output=pylint_analysis.txt --output-format=colorized
-      - name: Set pylint score
-        run: |
-          echo "PYLINT_SCORE=`tail -n 2 pylint_analysis.txt | awk '/^Your/ {print $7}' | awk -F'/' '{print $1}'`" >> $GITHUB_ENV
-        shell: bash
-      - name: Display pylint analysis result
-        run: |
-          cat pylint_analysis.txt
-        shell: bash
-      - name: Creating dynamic badge
-        uses: Schneegans/dynamic-badges-action@v1.6.0
-        with:
-          auth: ${{ secrets.GIST_SECRET }}
-          gistID: da061024a6dc8c3dcaf32f4e79abf032
-          filename: pylint.json
-          label: pylint
-          message: "${{ env.PYLINT_SCORE }}/10"
-          valColorRange: ${{ env.PYLINT_SCORE }}
-          maxColorRange: 10
-          minColorRange: 0
-  mypy:
+  ruff:
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v4
-      - name: Set up Python 3.x
-        uses: actions/setup-python@v5
+      - name: ruff-action
+        uses: astral-sh/ruff-action@v3
         with:
-          python-version: "3.x"
-          cache: "pip"
-      - name: Install dependencies
-        run: |
-          python -m pip install virtualenv
-          python -m virtualenv .virtualenv
-          source .virtualenv/bin/activate
-          python -m pip install -r requirements.txt
-          python -m pip install lxml
-          python -m pip install --upgrade mypy
-      - name: Checking types with mypy
-        run: |
-          source .virtualenv/bin/activate
-          python -m mypy --version
-          python -m mypy budgetter --install-types --non-interactive &> mypy_analysis.txt  || true
-      - name: Display mypy analysis result
-        run: |
-          cat mypy_analysis.txt
-        shell: bash
-      - name: Creating dynamic badge
-        uses: Schneegans/dynamic-badges-action@v1.6.0
-        with:
-          auth: ${{ secrets.GIST_SECRET }}
-          gistID: da061024a6dc8c3dcaf32f4e79abf032
-          filename: mypy.json
-          label: static type checker
-          message: mypy
-          color: "#f8d241"
+          src: "./budgetter"
   bandit:
     runs-on: ubuntu-latest
 
