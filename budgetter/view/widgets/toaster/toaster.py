@@ -154,5 +154,5 @@ class Toaster(QWidget):
         """
 
         # Change direction of animation and start
-        self._animation.setDirection(QAbstractAnimation.Backward)
+        self._animation.setDirection(QAbstractAnimation.Direction.Backward)
         self._animation.start()
