@@ -1,7 +1,6 @@
 import datetime
 from typing import Union
 
-from PySide6 import QtCore
 from PySide6.QtCore import (
     QSize,
     Qt,
@@ -9,7 +8,6 @@ from PySide6.QtCore import (
     QRectF,
     Signal,
     QModelIndex,
-    QEvent,
     QPersistentModelIndex,
 )
 from PySide6.QtGui import QPen, QColor, QPainter, QFont, QFontMetrics, QIcon
@@ -17,7 +15,6 @@ from PySide6.QtSvg import QSvgRenderer
 from PySide6.QtWidgets import (
     QStyledItemDelegate,
     QPushButton,
-    QStyleOptionButton,
     QStyle,
     QApplication,
 )
@@ -126,7 +123,7 @@ class TransactionDelegate(QStyledItemDelegate):
         account = str(value.get("account"))
         exp_or_inc = str(value.get("transaction_type"))
         means = str(value.get("mean"))
-        comment = str(value.get("comment"))
+        _ = str(value.get("comment"))
 
         # Draw separator
         self.draw_separator(painter, option)
