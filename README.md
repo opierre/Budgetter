@@ -8,6 +8,8 @@
     <a href="https://github.com/opierre/Budgetter/issues">Report Bug</a>
     ·
     <a href="https://github.com/opierre/Budgetter/issues">Request Feature</a>
+    <br />
+    <br />
   </p>
 </div>
 
