@@ -16,8 +16,6 @@ jobs:
       - uses: actions/checkout@v4
       - name: ruff-action
         uses: astral-sh/ruff-action@v3
-        with:
-          src: "./budgetter"
   bandit:
     runs-on: ubuntu-latest
 
