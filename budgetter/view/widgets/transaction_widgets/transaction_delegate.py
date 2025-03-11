@@ -87,43 +87,6 @@ class TransactionDelegate(QStyledItemDelegate):
 
         pass
 
-    def editorEvent(
-            self,
-            event: QEvent,
-            _model,
-            _option,
-            index: Union[QModelIndex, QPersistentModelIndex],
-    ):
-        """
-        Override editorEvent to handle events
-
-        :param event: event
-        :param _model: model
-        :param _option: option
-        :param index: (QModelIndex) index
-        :return: bool
-        """
-
-        # Reset cursor shape
-        QApplication.restoreOverrideCursor()
-
-        if event.type() == QEvent.Type.MouseMove:
-            # Store position on click
-            cursor_position = event.pos()
-
-            if self.rect_comment.contains(cursor_position):
-                # Emit hovered signal
-                self.commentHovered.emit(self.rect_comment, index)
-
-                return True
-            else:
-                # Reset cursor shape
-                QApplication.restoreOverrideCursor()
-
-                return True
-        else:
-            return False
-
     def sizeHint(self, _option_qstyle_option_view_item, _index):
         """
         Override sizeHint
@@ -200,7 +163,7 @@ class TransactionDelegate(QStyledItemDelegate):
             painter,
             rect_background,
             QApplication.translate("transaction_delegate", "Amount"),
-            1.3 / 4,
+            1.9 / 4,
         )
 
         # Draw date
@@ -211,7 +174,7 @@ class TransactionDelegate(QStyledItemDelegate):
             painter,
             rect_background,
             QApplication.translate("transaction_delegate", "Date"),
-            2 / 4,
+            3.2 / 4,
         )
 
         # Draw account
@@ -222,14 +185,11 @@ class TransactionDelegate(QStyledItemDelegate):
             painter,
             rect_background,
             QApplication.translate("transaction_delegate", "Account"),
-            2.7 / 4,
+            2.5 / 4,
         )
 
         # Draw mean icon
         self.draw_means(painter, rect_background, means)
-
-        # Draw comment icon
-        self.draw_comment(painter, rect_background, comment)
 
         # Set font on painter for income/expense
         self.font.setFamily("Roboto")
@@ -302,7 +262,7 @@ class TransactionDelegate(QStyledItemDelegate):
         """
 
         self.rect_mean = QRectF(
-            rect_background.width() * 3.5 / 4 - 24,
+            rect_background.width() * 3.9 / 4 - 24,
             rect_background.y() + (rect_background.height() - 24) / 2.0,
             24,
             24,
@@ -315,38 +275,6 @@ class TransactionDelegate(QStyledItemDelegate):
             svg_render = QSvgRenderer(":/images/images/swap_horiz_white_24dp.svg")
         svg_render.setAspectRatioMode(Qt.AspectRatioMode.KeepAspectRatio)
         svg_render.render(painter, self.rect_mean)
-
-    def draw_comment(self, painter, rect_background, comment: str):
-        """
-        Draw mean icon
-
-        :param painter: (QPainter) painter
-        :param rect_background: background rectangle
-        :param comment: (str) comment
-        :return: None
-        """
-
-        self.rect_comment = QRect(
-            rect_background.width() * 3.85 / 4 - 24,
-            rect_background.y() + (rect_background.height() - 24) / 2.0,
-            24,
-            24,
-        )
-        option_more = QStyleOptionButton()
-
-        if comment != "":
-            # Set tooltip
-            self.comment.setToolTip(comment)
-
-            option_more.initFrom(self.comment)
-            option_more.rect = self.rect_comment
-            option_more.icon = self.comment.icon()
-            option_more.iconSize = QtCore.QSize(24, 24)
-            option_more.state = option_more.state or QStyle.StateFlag.State_MouseOver
-
-            self.comment.style().drawControl(
-                QStyle.ControlElement.CE_PushButton, option_more, painter, self.comment
-            )
 
     def draw_item_background(self, painter: QPainter, option, rect_background: QRect):
         """
@@ -466,7 +394,7 @@ class TransactionDelegate(QStyledItemDelegate):
         self.rect_name = QRect(
             x,
             self.rect_category.y() + option.rect.height() * 1 / 30,
-            min(pixels_width, rect_background.width() * 1.3 / 4 - x - 30),
+            min(pixels_width, rect_background.width() * 1.6 / 4 - x - 30),
             pixels_height,
         )
 
@@ -540,7 +468,7 @@ class TransactionDelegate(QStyledItemDelegate):
 
         # Set amount on right corner
         self.rect_amount = QRect(
-            rect_background.width() * 1.3 / 4,
+            rect_background.width() * 1.9 / 4,
             self.rect_name.y(),
             pixels_width,
             pixels_height,
@@ -614,7 +542,7 @@ class TransactionDelegate(QStyledItemDelegate):
 
         # Set date on right corner
         self.rect_date = QRect(
-            rect_background.width() * 2.0 / 4,
+            rect_background.width() * 3.2 / 4,
             self.rect_name.y(),
             pixels_width,
             pixels_height,
@@ -650,7 +578,7 @@ class TransactionDelegate(QStyledItemDelegate):
 
         # Set account on right corner
         self.rect_account = QRect(
-            rect_background.width() * 2.7 / 4,
+            rect_background.width() * 2.5 / 4,
             self.rect_name.y(),
             pixels_width,
             pixels_height,
