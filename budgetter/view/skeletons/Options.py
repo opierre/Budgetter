@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'Options.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.5.2
+## Created by: Qt User Interface Compiler version 6.8.2
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -253,7 +253,7 @@ class Ui_Options(object):
 
         self.horizontalLayout.addWidget(self.title_bar_title)
 
-        self.horizontalSpacer = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+        self.horizontalSpacer = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
 
         self.horizontalLayout.addItem(self.horizontalSpacer)
 
@@ -304,9 +304,9 @@ class Ui_Options(object):
         self.upload_file.setObjectName("upload_file")
         self.upload_file.setMinimumSize(QSize(28, 28))
         self.upload_file.setMaximumSize(QSize(28, 28))
-        self.upload_file.setCursor(QCursor(Qt.PointingHandCursor))
+        self.upload_file.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         icon = QIcon()
-        icon.addFile(":/images/images/upload_file_FILL0_wght400_GRAD0_opsz24.svg", QSize(), QIcon.Normal, QIcon.Off)
+        icon.addFile(":/images/images/upload_file_FILL0_wght400_GRAD0_opsz24.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         self.upload_file.setIcon(icon)
         self.upload_file.setIconSize(QSize(24, 24))
 
@@ -316,9 +316,9 @@ class Ui_Options(object):
         self.add.setObjectName("add")
         self.add.setMinimumSize(QSize(28, 28))
         self.add.setMaximumSize(QSize(28, 28))
-        self.add.setCursor(QCursor(Qt.PointingHandCursor))
+        self.add.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         icon1 = QIcon()
-        icon1.addFile(":/images/images/add_circle_outline-white-24dp.svg", QSize(), QIcon.Normal, QIcon.Off)
+        icon1.addFile(":/images/images/add_circle_outline-white-24dp.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         self.add.setIcon(icon1)
         self.add.setIconSize(QSize(24, 24))
 

@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'AddAccount.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.5.2
+## Created by: Qt User Interface Compiler version 6.8.2
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -142,7 +142,7 @@ class Ui_AddAccount(object):
         self.verticalLayout_4 = QVBoxLayout(self.widget)
         self.verticalLayout_4.setObjectName("verticalLayout_4")
         self.verticalLayout_4.setContentsMargins(0, 0, 0, 0)
-        self.verticalSpacer = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+        self.verticalSpacer = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
 
         self.verticalLayout_4.addItem(self.verticalSpacer)
 
@@ -150,9 +150,9 @@ class Ui_AddAccount(object):
         self.color_picker.setObjectName("color_picker")
         self.color_picker.setMinimumSize(QSize(50, 50))
         self.color_picker.setMaximumSize(QSize(50, 50))
-        self.color_picker.setCursor(QCursor(Qt.PointingHandCursor))
+        self.color_picker.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         icon = QIcon()
-        icon.addFile(":/images/images/palette_FILL0_wght500_GRAD0_opsz48.svg", QSize(), QIcon.Normal, QIcon.Off)
+        icon.addFile(":/images/images/palette_FILL0_wght500_GRAD0_opsz48.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         self.color_picker.setIcon(icon)
         self.color_picker.setIconSize(QSize(28, 28))
 

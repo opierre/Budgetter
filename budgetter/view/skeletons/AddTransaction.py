@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'AddTransaction.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.5.2
+## Created by: Qt User Interface Compiler version 6.8.2
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -207,7 +207,7 @@ class Ui_AddTransaction(object):
         self.verticalLayout_2.setContentsMargins(-1, -1, -1, 0)
         self.widget = QWidget(self.transaction)
         self.widget.setObjectName("widget")
-        sizePolicy = QSizePolicy(QSizePolicy.MinimumExpanding, QSizePolicy.Preferred)
+        sizePolicy = QSizePolicy(QSizePolicy.Policy.MinimumExpanding, QSizePolicy.Policy.Preferred)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.widget.sizePolicy().hasHeightForWidth())
@@ -218,7 +218,7 @@ class Ui_AddTransaction(object):
         self.horizontalLayout_3.setSpacing(30)
         self.horizontalLayout_3.setObjectName("horizontalLayout_3")
         self.horizontalLayout_3.setContentsMargins(0, 5, 0, 5)
-        self.horizontalSpacer = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+        self.horizontalSpacer = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
 
         self.horizontalLayout_3.addItem(self.horizontalSpacer)
 
@@ -229,7 +229,7 @@ class Ui_AddTransaction(object):
         font1.setFamilies([u"Roboto"])
         font1.setPointSize(11)
         self.expenses.setFont(font1)
-        self.expenses.setCursor(QCursor(Qt.PointingHandCursor))
+        self.expenses.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         self.expenses.setChecked(True)
 
         self.horizontalLayout_3.addWidget(self.expenses)
@@ -238,7 +238,7 @@ class Ui_AddTransaction(object):
         self.income.setObjectName("income")
         self.income.setMinimumSize(QSize(92, 0))
         self.income.setFont(font1)
-        self.income.setCursor(QCursor(Qt.PointingHandCursor))
+        self.income.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         self.income.setStyleSheet("")
 
         self.horizontalLayout_3.addWidget(self.income)
@@ -247,12 +247,12 @@ class Ui_AddTransaction(object):
         self.transfer.setObjectName("transfer")
         self.transfer.setMinimumSize(QSize(92, 0))
         self.transfer.setFont(font1)
-        self.transfer.setCursor(QCursor(Qt.PointingHandCursor))
+        self.transfer.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         self.transfer.setStyleSheet("")
 
         self.horizontalLayout_3.addWidget(self.transfer)
 
-        self.horizontalSpacer_2 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+        self.horizontalSpacer_2 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
 
         self.horizontalLayout_3.addItem(self.horizontalSpacer_2)
 
@@ -285,7 +285,7 @@ class Ui_AddTransaction(object):
         self.horizontalLayout_6.setSpacing(30)
         self.horizontalLayout_6.setObjectName("horizontalLayout_6")
         self.horizontalLayout_6.setContentsMargins(0, 2, 0, 0)
-        self.horizontalSpacer_3 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+        self.horizontalSpacer_3 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
 
         self.horizontalLayout_6.addItem(self.horizontalSpacer_3)
 
@@ -293,7 +293,7 @@ class Ui_AddTransaction(object):
         self.card.setObjectName("card")
         self.card.setMinimumSize(QSize(92, 0))
         self.card.setFont(font1)
-        self.card.setCursor(QCursor(Qt.PointingHandCursor))
+        self.card.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         self.card.setStyleSheet("color: rgba(255, 255, 255, 210);")
         self.card.setChecked(True)
 
@@ -303,7 +303,7 @@ class Ui_AddTransaction(object):
         self.cash.setObjectName("cash")
         self.cash.setMinimumSize(QSize(92, 0))
         self.cash.setFont(font1)
-        self.cash.setCursor(QCursor(Qt.PointingHandCursor))
+        self.cash.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         self.cash.setStyleSheet("color: rgba(255, 255, 255, 210);")
 
         self.horizontalLayout_6.addWidget(self.cash)
@@ -312,13 +312,13 @@ class Ui_AddTransaction(object):
         self.money_transfer.setObjectName("money_transfer")
         self.money_transfer.setMinimumSize(QSize(92, 0))
         self.money_transfer.setFont(font1)
-        self.money_transfer.setCursor(QCursor(Qt.PointingHandCursor))
+        self.money_transfer.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         self.money_transfer.setStyleSheet("color: rgba(255, 255, 255, 210);")
         self.money_transfer.setIconSize(QSize(22, 22))
 
         self.horizontalLayout_6.addWidget(self.money_transfer)
 
-        self.horizontalSpacer_4 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+        self.horizontalSpacer_4 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
 
         self.horizontalLayout_6.addItem(self.horizontalSpacer_4)
 

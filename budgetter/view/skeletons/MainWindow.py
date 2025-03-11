@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'MainWindow.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.5.2
+## Created by: Qt User Interface Compiler version 6.8.2
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -1336,26 +1336,26 @@ class Ui_MainWindow(object):
         self.actionDashboard.setCheckable(True)
         self.actionDashboard.setChecked(True)
         icon = QIcon()
-        icon.addFile(":/images/images/dashboard-white-36dp.svg", QSize(), QIcon.Normal, QIcon.Off)
+        icon.addFile(":/images/images/dashboard-white-36dp.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         self.actionDashboard.setIcon(icon)
         self.actionMenu = QAction(MainWindow)
         self.actionMenu.setObjectName("actionMenu")
         self.actionMenu.setCheckable(True)
         self.actionMenu.setChecked(False)
         icon1 = QIcon()
-        icon1.addFile(":/images/images/menu-white-36dp.svg", QSize(), QIcon.Normal, QIcon.Off)
+        icon1.addFile(":/images/images/menu-white-36dp.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         self.actionMenu.setIcon(icon1)
         self.actionGraph = QAction(MainWindow)
         self.actionGraph.setObjectName("actionGraph")
         self.actionGraph.setCheckable(True)
         icon2 = QIcon()
-        icon2.addFile(":/images/images/assessment-white-36dp.svg", QSize(), QIcon.Normal, QIcon.Off)
+        icon2.addFile(":/images/images/assessment-white-36dp.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         self.actionGraph.setIcon(icon2)
         self.actionInsights = QAction(MainWindow)
         self.actionInsights.setObjectName("actionInsights")
         self.actionInsights.setCheckable(True)
         icon3 = QIcon()
-        icon3.addFile(":/images/images/insights-white-36dp.svg", QSize(), QIcon.Normal, QIcon.Off)
+        icon3.addFile(":/images/images/insights-white-36dp.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         self.actionInsights.setIcon(icon3)
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
@@ -1379,7 +1379,7 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout.addWidget(self.menuLabel)
 
-        self.horizontalSpacer = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+        self.horizontalSpacer = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
 
         self.horizontalLayout.addItem(self.horizontalSpacer)
 
@@ -1387,9 +1387,9 @@ class Ui_MainWindow(object):
         self.alerts.setObjectName("alerts")
         self.alerts.setMinimumSize(QSize(45, 39))
         self.alerts.setMaximumSize(QSize(45, 39))
-        self.alerts.setCursor(QCursor(Qt.PointingHandCursor))
+        self.alerts.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         icon4 = QIcon()
-        icon4.addFile(":/images/images/notifications-white-24dp.svg", QSize(), QIcon.Normal, QIcon.Off)
+        icon4.addFile(":/images/images/notifications-white-24dp.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         self.alerts.setIcon(icon4)
         self.alerts.setIconSize(QSize(24, 24))
 
@@ -1399,9 +1399,9 @@ class Ui_MainWindow(object):
         self.settings.setObjectName("settings")
         self.settings.setMinimumSize(QSize(45, 39))
         self.settings.setMaximumSize(QSize(45, 39))
-        self.settings.setCursor(QCursor(Qt.PointingHandCursor))
+        self.settings.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         icon5 = QIcon()
-        icon5.addFile(":/images/images/settings-white-24dp.svg", QSize(), QIcon.Normal, QIcon.Off)
+        icon5.addFile(":/images/images/settings-white-24dp.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         self.settings.setIcon(icon5)
         self.settings.setIconSize(QSize(24, 24))
 
@@ -1438,7 +1438,7 @@ class Ui_MainWindow(object):
 
         self.accounts = Container(self.dashboard)
         self.accounts.setObjectName("accounts")
-        sizePolicy = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.MinimumExpanding)
+        sizePolicy = QSizePolicy(QSizePolicy.Policy.Preferred, QSizePolicy.Policy.MinimumExpanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.accounts.sizePolicy().hasHeightForWidth())
@@ -1475,7 +1475,7 @@ class Ui_MainWindow(object):
 
         self.savings = Container(self.dashboard)
         self.savings.setObjectName("savings")
-        sizePolicy1 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
+        sizePolicy1 = QSizePolicy(QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Preferred)
         sizePolicy1.setHorizontalStretch(0)
         sizePolicy1.setVerticalStretch(0)
         sizePolicy1.setHeightForWidth(self.savings.sizePolicy().hasHeightForWidth())
@@ -1538,7 +1538,7 @@ class Ui_MainWindow(object):
 
         self.widget_expenses = QWidget(self.dockWidgetContents_23)
         self.widget_expenses.setObjectName("widget_expenses")
-        sizePolicy2 = QSizePolicy(QSizePolicy.Minimum, QSizePolicy.Preferred)
+        sizePolicy2 = QSizePolicy(QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Preferred)
         sizePolicy2.setHorizontalStretch(0)
         sizePolicy2.setVerticalStretch(0)
         sizePolicy2.setHeightForWidth(self.widget_expenses.sizePolicy().hasHeightForWidth())
@@ -1555,7 +1555,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_2 = QHBoxLayout(self.frame_expenses)
         self.horizontalLayout_2.setObjectName("horizontalLayout_2")
         self.horizontalLayout_2.setContentsMargins(9, 20, 9, 20)
-        self.horizontalSpacer_5 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+        self.horizontalSpacer_5 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
 
         self.horizontalLayout_2.addItem(self.horizontalSpacer_5)
 
@@ -1565,14 +1565,14 @@ class Ui_MainWindow(object):
         self.toolButton_icon_category_2.setMinimumSize(QSize(36, 36))
         self.toolButton_icon_category_2.setMaximumSize(QSize(36, 36))
         icon6 = QIcon()
-        icon6.addFile(":/images/images/payments_black_24dp.svg", QSize(), QIcon.Normal, QIcon.Off)
-        icon6.addFile(":/images/images/payments_black_24dp.svg", QSize(), QIcon.Disabled, QIcon.Off)
+        icon6.addFile(":/images/images/payments_black_24dp.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        icon6.addFile(":/images/images/payments_black_24dp.svg", QSize(), QIcon.Mode.Disabled, QIcon.State.Off)
         self.toolButton_icon_category_2.setIcon(icon6)
         self.toolButton_icon_category_2.setIconSize(QSize(36, 36))
 
         self.horizontalLayout_2.addWidget(self.toolButton_icon_category_2)
 
-        self.horizontalSpacer_9 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+        self.horizontalSpacer_9 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
 
         self.horizontalLayout_2.addItem(self.horizontalSpacer_9)
 
@@ -1590,7 +1590,7 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_2.addWidget(self.expenses_choice)
 
-        self.horizontalSpacer_4 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+        self.horizontalSpacer_4 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
 
         self.horizontalLayout_2.addItem(self.horizontalSpacer_4)
 
@@ -1633,7 +1633,7 @@ class Ui_MainWindow(object):
         self.refresh_expenses.setObjectName("refresh_expenses")
         self.refresh_expenses.setMinimumSize(QSize(54, 54))
         self.refresh_expenses.setMaximumSize(QSize(54, 54))
-        self.refresh_expenses.setCursor(QCursor(Qt.PointingHandCursor))
+        self.refresh_expenses.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
 
         self.gridLayout_10.addWidget(self.refresh_expenses, 0, 2, 2, 1)
 
@@ -1644,7 +1644,7 @@ class Ui_MainWindow(object):
 
         self.gridLayout_10.addWidget(self.label_3, 1, 0, 1, 1)
 
-        self.horizontalSpacer_3 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+        self.horizontalSpacer_3 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
 
         self.gridLayout_10.addItem(self.horizontalSpacer_3, 0, 3, 2, 1)
 
@@ -1661,10 +1661,10 @@ class Ui_MainWindow(object):
         self.this_year_expenses.setMinimumSize(QSize(110, 28))
         self.this_year_expenses.setMaximumSize(QSize(110, 28))
         self.this_year_expenses.setFont(font2)
-        self.this_year_expenses.setCursor(QCursor(Qt.PointingHandCursor))
+        self.this_year_expenses.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         icon7 = QIcon()
-        icon7.addFile(":/images/images/date_range_black_18dp.svg", QSize(), QIcon.Normal, QIcon.Off)
-        icon7.addFile(":/images/images/date_range_black_18dp_checked.svg", QSize(), QIcon.Active, QIcon.On)
+        icon7.addFile(":/images/images/date_range_black_18dp.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        icon7.addFile(":/images/images/date_range_black_18dp_checked.svg", QSize(), QIcon.Mode.Active, QIcon.State.On)
         self.this_year_expenses.setIcon(icon7)
         self.this_year_expenses.setIconSize(QSize(18, 18))
         self.this_year_expenses.setCheckable(True)
@@ -1678,10 +1678,10 @@ class Ui_MainWindow(object):
         self.last_12_months_expenses.setMinimumSize(QSize(150, 28))
         self.last_12_months_expenses.setMaximumSize(QSize(150, 28))
         self.last_12_months_expenses.setFont(font2)
-        self.last_12_months_expenses.setCursor(QCursor(Qt.PointingHandCursor))
+        self.last_12_months_expenses.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         icon8 = QIcon()
-        icon8.addFile(":/images/images/history_black_18dp.svg", QSize(), QIcon.Normal, QIcon.Off)
-        icon8.addFile(":/images/images/history_black_18dp_checked.svg", QSize(), QIcon.Active, QIcon.On)
+        icon8.addFile(":/images/images/history_black_18dp.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        icon8.addFile(":/images/images/history_black_18dp_checked.svg", QSize(), QIcon.Mode.Active, QIcon.State.On)
         self.last_12_months_expenses.setIcon(icon8)
         self.last_12_months_expenses.setIconSize(QSize(18, 18))
         self.last_12_months_expenses.setCheckable(True)
@@ -1697,10 +1697,10 @@ class Ui_MainWindow(object):
         self.previous_year_expenses.setMinimumSize(QSize(140, 28))
         self.previous_year_expenses.setMaximumSize(QSize(140, 28))
         self.previous_year_expenses.setFont(font2)
-        self.previous_year_expenses.setCursor(QCursor(Qt.PointingHandCursor))
+        self.previous_year_expenses.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         icon9 = QIcon()
-        icon9.addFile(":/images/images/calendar_today_black_18dp.svg", QSize(), QIcon.Normal, QIcon.Off)
-        icon9.addFile(":/images/images/calendar_today_black_18dp_checked.svg", QSize(), QIcon.Active, QIcon.On)
+        icon9.addFile(":/images/images/calendar_today_black_18dp.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        icon9.addFile(":/images/images/calendar_today_black_18dp_checked.svg", QSize(), QIcon.Mode.Active, QIcon.State.On)
         self.previous_year_expenses.setIcon(icon9)
         self.previous_year_expenses.setIconSize(QSize(18, 18))
         self.previous_year_expenses.setCheckable(True)
@@ -1745,7 +1745,7 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_3.addLayout(self.verticalLayout_4)
 
-        self.verticalSpacer_2 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+        self.verticalSpacer_2 = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
 
         self.verticalLayout_3.addItem(self.verticalSpacer_2)
 
@@ -1787,7 +1787,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_3 = QHBoxLayout(self.frame_income)
         self.horizontalLayout_3.setObjectName("horizontalLayout_3")
         self.horizontalLayout_3.setContentsMargins(-1, 20, -1, 20)
-        self.horizontalSpacer_8 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+        self.horizontalSpacer_8 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
 
         self.horizontalLayout_3.addItem(self.horizontalSpacer_8)
 
@@ -1797,14 +1797,14 @@ class Ui_MainWindow(object):
         self.toolButton_icon_category.setMinimumSize(QSize(36, 36))
         self.toolButton_icon_category.setMaximumSize(QSize(36, 36))
         icon10 = QIcon()
-        icon10.addFile(":/images/images/savings_black_24dp.svg", QSize(), QIcon.Normal, QIcon.Off)
-        icon10.addFile(":/images/images/savings_black_24dp.svg", QSize(), QIcon.Disabled, QIcon.Off)
+        icon10.addFile(":/images/images/savings_black_24dp.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        icon10.addFile(":/images/images/savings_black_24dp.svg", QSize(), QIcon.Mode.Disabled, QIcon.State.Off)
         self.toolButton_icon_category.setIcon(icon10)
         self.toolButton_icon_category.setIconSize(QSize(36, 36))
 
         self.horizontalLayout_3.addWidget(self.toolButton_icon_category)
 
-        self.horizontalSpacer_6 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+        self.horizontalSpacer_6 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
 
         self.horizontalLayout_3.addItem(self.horizontalSpacer_6)
 
@@ -1819,7 +1819,7 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_3.addWidget(self.income_choice)
 
-        self.horizontalSpacer_7 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+        self.horizontalSpacer_7 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
 
         self.horizontalLayout_3.addItem(self.horizontalSpacer_7)
 
@@ -1870,14 +1870,14 @@ class Ui_MainWindow(object):
         self.refresh_income.setObjectName("refresh_income")
         self.refresh_income.setMinimumSize(QSize(54, 54))
         self.refresh_income.setMaximumSize(QSize(54, 54))
-        self.refresh_income.setCursor(QCursor(Qt.PointingHandCursor))
+        self.refresh_income.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         self.verticalLayout_5 = QVBoxLayout(self.refresh_income)
         self.verticalLayout_5.setObjectName("verticalLayout_5")
         self.verticalLayout_5.setContentsMargins(6, 6, 6, 6)
 
         self.gridLayout_8.addWidget(self.refresh_income, 0, 2, 3, 1)
 
-        self.horizontalSpacer_2 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+        self.horizontalSpacer_2 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
 
         self.gridLayout_8.addItem(self.horizontalSpacer_2, 0, 3, 3, 1)
 
@@ -1894,7 +1894,7 @@ class Ui_MainWindow(object):
         self.this_year_income.setMinimumSize(QSize(110, 28))
         self.this_year_income.setMaximumSize(QSize(110, 28))
         self.this_year_income.setFont(font2)
-        self.this_year_income.setCursor(QCursor(Qt.PointingHandCursor))
+        self.this_year_income.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         self.this_year_income.setIcon(icon7)
         self.this_year_income.setIconSize(QSize(18, 18))
         self.this_year_income.setCheckable(True)
@@ -1908,7 +1908,7 @@ class Ui_MainWindow(object):
         self.last_12_months_income.setMinimumSize(QSize(150, 28))
         self.last_12_months_income.setMaximumSize(QSize(150, 28))
         self.last_12_months_income.setFont(font2)
-        self.last_12_months_income.setCursor(QCursor(Qt.PointingHandCursor))
+        self.last_12_months_income.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         self.last_12_months_income.setIcon(icon8)
         self.last_12_months_income.setIconSize(QSize(18, 18))
         self.last_12_months_income.setCheckable(True)
@@ -1924,7 +1924,7 @@ class Ui_MainWindow(object):
         self.previous_year_income.setMinimumSize(QSize(140, 28))
         self.previous_year_income.setMaximumSize(QSize(140, 28))
         self.previous_year_income.setFont(font2)
-        self.previous_year_income.setCursor(QCursor(Qt.PointingHandCursor))
+        self.previous_year_income.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         self.previous_year_income.setIcon(icon9)
         self.previous_year_income.setIconSize(QSize(18, 18))
         self.previous_year_income.setCheckable(True)
@@ -1965,7 +1965,7 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_2.addLayout(self.verticalLayout)
 
-        self.verticalSpacer = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+        self.verticalSpacer = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
 
         self.verticalLayout_2.addItem(self.verticalSpacer)
 
@@ -1989,7 +1989,7 @@ class Ui_MainWindow(object):
         self.toolBar.setMovable(False)
         self.toolBar.setAllowedAreas(Qt.NoToolBarArea)
         self.toolBar.setFloatable(False)
-        MainWindow.addToolBar(Qt.LeftToolBarArea, self.toolBar)
+        MainWindow.addToolBar(Qt.ToolBarArea.LeftToolBarArea, self.toolBar)
 
         self.toolBar.addAction(self.actionMenu)
         self.toolBar.addAction(self.actionDashboard)

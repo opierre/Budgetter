@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'AddBank.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.5.2
+## Created by: Qt User Interface Compiler version 6.8.2
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -118,7 +118,7 @@ class Ui_AddBank(object):
 
         self.widget = QWidget(self.bank)
         self.widget.setObjectName("widget")
-        sizePolicy = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Expanding)
+        sizePolicy = QSizePolicy(QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Expanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.widget.sizePolicy().hasHeightForWidth())
@@ -141,7 +141,7 @@ class Ui_AddBank(object):
         self.verticalLayout = QVBoxLayout()
         self.verticalLayout.setObjectName("verticalLayout")
         self.verticalLayout.setContentsMargins(-1, -1, -1, 24)
-        self.verticalSpacer = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+        self.verticalSpacer = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
 
         self.verticalLayout.addItem(self.verticalSpacer)
 
@@ -149,9 +149,9 @@ class Ui_AddBank(object):
         self.bank_logo.setObjectName("bank_logo")
         self.bank_logo.setMinimumSize(QSize(50, 50))
         self.bank_logo.setMaximumSize(QSize(50, 50))
-        self.bank_logo.setCursor(QCursor(Qt.PointingHandCursor))
+        self.bank_logo.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         icon = QIcon()
-        icon.addFile(":/images/images/image_FILL0_wght400_GRAD0_opsz48.svg", QSize(), QIcon.Normal, QIcon.Off)
+        icon.addFile(":/images/images/image_FILL0_wght400_GRAD0_opsz48.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         self.bank_logo.setIcon(icon)
         self.bank_logo.setIconSize(QSize(28, 28))
 

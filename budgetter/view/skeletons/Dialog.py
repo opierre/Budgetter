@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'Dialog.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.5.2
+## Created by: Qt User Interface Compiler version 6.8.2
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -93,7 +93,7 @@ class Ui_Dialog(object):
         self.close.setMinimumSize(QSize(28, 28))
         self.close.setMaximumSize(QSize(28, 28))
         icon = QIcon()
-        icon.addFile(":/images/images/close_white_24dp.svg", QSize(), QIcon.Normal, QIcon.Off)
+        icon.addFile(":/images/images/close_white_24dp.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         self.close.setIcon(icon)
         self.close.setIconSize(QSize(24, 24))
 
@@ -104,7 +104,7 @@ class Ui_Dialog(object):
 
         self.central_widget = QWidget(self.dialog)
         self.central_widget.setObjectName("central_widget")
-        sizePolicy = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Expanding)
+        sizePolicy = QSizePolicy(QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Expanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.central_widget.sizePolicy().hasHeightForWidth())
@@ -117,7 +117,7 @@ class Ui_Dialog(object):
 
         self.horizontalLayout = QHBoxLayout()
         self.horizontalLayout.setObjectName("horizontalLayout")
-        self.horizontalSpacer = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+        self.horizontalSpacer = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
 
         self.horizontalLayout.addItem(self.horizontalSpacer)
 
@@ -127,7 +127,7 @@ class Ui_Dialog(object):
         font1.setFamilies([u"Roboto Medium"])
         font1.setPointSize(11)
         self.confirm.setFont(font1)
-        self.confirm.setCursor(QCursor(Qt.PointingHandCursor))
+        self.confirm.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
 
         self.horizontalLayout.addWidget(self.confirm)
 

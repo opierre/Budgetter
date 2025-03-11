@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'Toaster.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.5.2
+## Created by: Qt User Interface Compiler version 6.8.2
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -15,15 +15,15 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QHBoxLayout, QLabel, QSizePolicy,
-    QToolButton, QWidget)
+from PySide6.QtWidgets import (QApplication, QHBoxLayout, QLabel, QLayout,
+    QSizePolicy, QToolButton, QWidget)
 from budgetter.view.resources import resources_rc
 
 class Ui_Notification(object):
     def setupUi(self, Notification):
         if not Notification.objectName():
             Notification.setObjectName("Notification")
-        Notification.resize(319, 68)
+        Notification.resize(319, 82)
         Notification.setMinimumSize(QSize(0, 0))
         Notification.setMaximumSize(QSize(16777215, 16777215))
         Notification.setStyleSheet("QWidget#content\n"
@@ -66,22 +66,23 @@ class Ui_Notification(object):
 "")
         self.horizontalLayout = QHBoxLayout(Notification)
         self.horizontalLayout.setObjectName("horizontalLayout")
-        self.horizontalLayout.setContentsMargins(9, 9, 9, 9)
+        self.horizontalLayout.setSizeConstraint(QLayout.SizeConstraint.SetDefaultConstraint)
+        self.horizontalLayout.setContentsMargins(6, 6, 6, 6)
         self.content = QWidget(Notification)
         self.content.setObjectName("content")
-        self.content.setMinimumSize(QSize(0, 50))
-        self.content.setMaximumSize(QSize(16777215, 50))
+        self.content.setMinimumSize(QSize(0, 70))
+        self.content.setMaximumSize(QSize(16777215, 16777215))
         self.horizontalLayout_2 = QHBoxLayout(self.content)
         self.horizontalLayout_2.setSpacing(5)
         self.horizontalLayout_2.setObjectName("horizontalLayout_2")
-        self.horizontalLayout_2.setContentsMargins(10, 0, 40, 9)
+        self.horizontalLayout_2.setContentsMargins(10, 10, 40, 10)
         self.icon = QToolButton(self.content)
         self.icon.setObjectName("icon")
         self.icon.setEnabled(False)
         self.icon.setMinimumSize(QSize(50, 50))
         self.icon.setMaximumSize(QSize(50, 50))
         icon1 = QIcon()
-        icon1.addFile(":/images/success", QSize(), QIcon.Disabled, QIcon.Off)
+        icon1.addFile(":/images/success", QSize(), QIcon.Mode.Disabled, QIcon.State.Off)
         self.icon.setIcon(icon1)
         self.icon.setIconSize(QSize(32, 32))
 
