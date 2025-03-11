@@ -8,41 +8,18 @@
     <a href="https://github.com/opierre/Budgetter/issues">Report Bug</a>
     ·
     <a href="https://github.com/opierre/Budgetter/issues">Request Feature</a>
-    <br />
-    <br />    
-    <a style="text-decoration:none" href="https://github.com/opierre/Budgetter/actions/workflows/analysis.yml" target="_blank">
-      <img src="https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/opierre/da061024a6dc8c3dcaf32f4e79abf032/raw/pylint.json">
-    </a>
-    <a style="text-decoration:none" href="https://github.com/opierre/Budgetter/actions/workflows/analysis.yml" target="_blank">
-      <img src="https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/opierre/da061024a6dc8c3dcaf32f4e79abf032/raw/mypy.json">
-    </a>
-    <a style="text-decoration:none" target="_blank">
-      <img src="https://img.shields.io/badge/code%20style-black-000000.svg">
-    </a>    
-    <a style="text-decoration:none" href="https://github.com/opierre/Budgetter/actions/workflows/analysis.yml" target="_blank">
-      <img src="https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/opierre/da061024a6dc8c3dcaf32f4e79abf032/raw/bandit.json">
-    </a>
-    <br /> 
-    <a style="text-decoration:none" href="https://sonarcloud.io/summary/new_code?id=opierre_Budgetter" target="_blank">
-      <img src="https://sonarcloud.io/api/project_badges/measure?project=opierre_Budgetter&metric=alert_status">
-    </a>
-    <a style="text-decoration:none" href="https://sonarcloud.io/summary/new_code?id=opierre_Budgetter" target="_blank">
-      <img src="https://sonarcloud.io/api/project_badges/measure?project=opierre_Budgetter&metric=vulnerabilities">
-    </a>
-    <a style="text-decoration:none" href="https://sonarcloud.io/summary/new_code?id=opierre_Budgetter" target="_blank">
-      <img src="https://sonarcloud.io/api/project_badges/measure?project=opierre_Budgetter&metric=bugs">
-    </a>
-    <a style="text-decoration:none" href="https://sonarcloud.io/summary/new_code?id=opierre_Budgetter" target="_blank">
-      <img src="https://sonarcloud.io/api/project_badges/measure?project=opierre_Budgetter&metric=security_rating">
-    </a>
-    <a style="text-decoration:none" href="https://sonarcloud.io/summary/new_code?id=opierre_Budgetter" target="_blank">
-      <img src="https://sonarcloud.io/api/project_badges/measure?project=opierre_Budgetter&metric=sqale_rating">
-    </a>
-    <a style="text-decoration:none" href="https://sonarcloud.io/summary/new_code?id=opierre_Budgetter" target="_blank">
-      <img src="https://sonarcloud.io/api/project_badges/measure?project=opierre_Budgetter&metric=reliability_rating">
-    </a>
   </p>
 </div>
+
+[![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
+[![Bandit](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/opierre/da061024a6dc8c3dcaf32f4e79abf032/raw/bandit.json)](https://github.com/opierre/Budgetter/actions/workflows/analysis.yml)
+[![Quality Gate](https://sonarcloud.io/api/project_badges/measure?project=opierre_Budgetter&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=opierre_Budgetter)
+[![Quality Gate](https://sonarcloud.io/api/project_badges/measure?project=opierre_Budgetter&metric=vulnerabilities)](https://sonarcloud.io/summary/new_code?id=opierre_Budgetter)
+[![Quality Gate](https://sonarcloud.io/api/project_badges/measure?project=opierre_Budgetter&metric=bugs)](https://sonarcloud.io/summary/new_code?id=opierre_Budgetter)
+[![Quality Gate](https://sonarcloud.io/api/project_badges/measure?project=opierre_Budgetter&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=opierre_Budgetter)
+[![Quality Gate](https://sonarcloud.io/api/project_badges/measure?project=opierre_Budgetter&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=opierre_Budgetter)
+[![Quality Gate](https://sonarcloud.io/api/project_badges/measure?project=opierre_Budgetter&metric=reliability_rating)](https://sonarcloud.io/summary/new_code?id=opierre_Budgetter)
+
 
 ---
 Table of contents
