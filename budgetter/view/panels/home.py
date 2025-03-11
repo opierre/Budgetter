@@ -82,7 +82,7 @@ class Home(QObject):
 
         # Show notification on bank added
         _ = Toaster(
-            f"Action on transaction failed due to: {error[2]}",
+            f"Action on transaction failed due to: {error[1]}",
             ToasterType.ERROR,
             self.main_window,
         )

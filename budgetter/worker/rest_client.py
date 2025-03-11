@@ -86,8 +86,11 @@ class RestClient:
         :return: JSON return
         """
 
-        # Call get method
-        response = requests.get(url, timeout=3.5)
+        try:
+            # Call get method
+            response = requests.get(url, timeout=3.5)
+        except requests.exceptions.ConnectionError:
+            raise Exception("Budgetter server seems to be down")
 
         # Handle error case
         if response.status_code != 200:
