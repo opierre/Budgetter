@@ -13,11 +13,11 @@ class Dashboard(QObject):
     """
 
     # URLs List
-    ACCOUNT_URL = "http://127.0.0.1:8080/api/budget/account/"
-    BANK_URL = "http://127.0.0.1:8080/api/budget/bank/"
-    TRANSACTION_URL = "http://127.0.0.1:8080/api/budget/transaction/"
-    OFX_URL = "http://127.0.0.1:8080/api/budget/ofx/upload-ofx/"
-    EXPENSES_URL = "http://127.0.0.1:8080/api/budget/expenses/"
+    ACCOUNT_URL = "http://127.0.0.1:9090/api/budget/account/"
+    BANK_URL = "http://127.0.0.1:9090/api/budget/bank/"
+    TRANSACTION_URL = "http://127.0.0.1:9090/api/budget/transaction/"
+    OFX_URL = "http://127.0.0.1:9090/api/budget/ofx/upload-ofx/"
+    EXPENSES_URL = "http://127.0.0.1:9090/api/budget/expenses/"
     EXPENSES_DISTRIBUTION_URL = f"{EXPENSES_URL}distribution/"
 
     # Signals list

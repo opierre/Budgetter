@@ -86,10 +86,10 @@ class AddAccountDialog(QWidget):
         )
         self.content.account_bank.setCompleter(self.bank_completer)
         if isinstance(account_info, dict):
-            account_id = list(account_info.keys())[0]
+            account_id = account_info.get("account_id")
             self.content.account_number.setText(account_id)
-            self.content.account_amount.setText(str(account_info.get(account_id).get("amount")))
-            self.content.account_amount_date.setText(account_info.get(account_id).get("last_update"))
+            self.content.account_amount.setText(str(account_info.get("amount")))
+            self.content.account_amount_date.setText(account_info.get("last_update"))
             for bank_name, bank_info in self.bank_ids.items():
                 if account_info.get(account_id).get("bank_id", "") in bank_info.get("bic"):
                     self.content.account_bank.setText(bank_name)

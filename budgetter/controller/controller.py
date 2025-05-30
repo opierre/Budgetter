@@ -111,8 +111,8 @@ class Controller:
         """
 
         # Configure web sockets
-        self.ws_dashboard_client.open(QUrl("ws://127.0.0.1:8080/ws/dashboard/"))
-        self.ws_budgetter_client.open(QUrl("ws://127.0.0.1:8080/ws/budgetter/"))
+        self.ws_dashboard_client.open(QUrl("ws://127.0.0.1:9090/ws/dashboard/"))
+        self.ws_budgetter_client.open(QUrl("ws://127.0.0.1:9090/ws/budgetter/"))
 
     def dispatch_global_ws(self, ws_data: str):
         """
