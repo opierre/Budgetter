@@ -4,23 +4,15 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "budgetter"
-version = "2024.1.0"
-authors = [
-    { name = "Pierre OLIVIER", email = "pierreolivier.pro@gmail.com" },
-]
+version = "2025.1.0"
+authors = [{ name = "Pierre OLIVIER", email = "pierreolivier.pro@gmail.com" }]
 description = "Finance manager desktop application"
 readme = "README.md"
-requires-python = ">=3.9"
+requires-python = ">=3.13"
 keywords = ["finance", "budget", "management"]
 license = { text = "GPL-3.0" }
-classifiers = [
-    "Framework :: PySide",
-    "Programming Language :: Python :: 3",
-]
-dependencies = [
-    "PySide6",
-    "requests",
-]
+classifiers = ["Framework :: PySide", "Programming Language :: Python :: 3"]
+dependencies = ["PySide6>=6.10.1", "requests>=2.32.3"]
 
 [project.urls]
 repository = "https://github.com/opierre/Budgetter"
